@@ -1,0 +1,38 @@
+step 1: Install R from CRAN
+step 2: Add R CLI tool (Rcmd.exe) to PATH (default location C:\Program Files\R\R-3.2.3\bin\x64)
+step 3: Open CLI and type "r" or "R" to start an R session on CLI.
+step 4: Exit/Quit/Terminate session with CLI command "quit()" or alias "q()"
+step 5: get these other things:
+        Packrat   - An R package manager
+        Rscript   - A library which allows you to pipe R values to the console or standard out.
+                    Instead of the default behavior of R which is to create a new file.
+        Shiny     - A web app framework for R.
+        Rstudio   - An IDE for R.
+
+Links!
+https://www.simple-talk.com/sql/reporting-services/making-data-analytics-simpler-sql-server-and-r/
+https://www.simple-talk.com/dotnet/software-tools/r-basics/
+https://www.rstudio.com/products/rstudio/
+http://blog.rstudio.org/2012/11/08/introducing-shiny/
+http://shiny.rstudio.com/
+http://shiny.rstudio.com/tutorial/
+http://shiny.rstudio.com/articles/single-file.html
+To create a single-file app, create a new directory (for example, newdir/) and place a file called app.R in the directory. To run it, call runApp("newdir").
+https://cran.r-project.org/doc/manuals/r-release/R-intro.html
+http://www.statmethods.net/
+http://www.r-fiddle.org/
+https://plot.ly/
+https://www.r-project.org/
+https://cran.r-project.org/mirrors.html
+https://cran.rstudio.com/
+https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Invoking-R
+http://stackoverflow.com/questions/18306362/run-r-script-from-command-line
+https://rstudio.github.io/packrat/
+http://www.r-bloggers.com/
+http://www.r-bloggers.com/passing-arguments-to-an-r-script-from-command-lines/
+https://stat.ethz.ch/R-manual/R-devel/library/utils/html/Rscript.html
+http://statweb.stanford.edu/~lpekelis/13_datafest_cart/13_datafest_r_talk.html#%281%29
+https://www.youtube.com/watch?v=LjuXiBjxryQ
+http://www.datasciencecentral.com/
+https://learnanalyticshere.wordpress.com/2015/05/14/clash-of-the-titans-r-vs-python/
+https://www.datacamp.com/
