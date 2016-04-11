@@ -21,6 +21,8 @@ Be sure to look inside the .do files for "ref", "todo", and other comments.
     Ref comments denote a URL resource discussing a command.
     Todo comments denote a way to improve the current code or analysis.
 
+Code book / variable definitions ref: http://www2.census.gov/programs-surveys/acs/tech_docs/pums/data_dict/PUMSDataDict14.pdf
+
 Below this line are the available individual data variables as per p 30+ of the codebook: http://www2.census.gov/programs-surveys/acs/tech_docs/pums/data_dict/PUMSDataDict14.pdf
     SERIALNO - unique individual identifier
     SPORDER - person number
