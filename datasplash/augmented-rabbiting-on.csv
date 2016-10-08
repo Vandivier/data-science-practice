@@ -1,157 +1,27 @@
 date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,country
-21-Sep-11,28,37,1717,29-Sep-09,722,2011,557.89,Argentine
-21-Sep-11,28,36,1716,29-Sep-09,722,2011,557.89,Argentine
-25-Sep-12,38,19,2299,29-Sep-09,1092,2012,604.38,Argentine
-25-Sep-12,38,19,2299,29-Sep-09,1092,2012,604.38,Argentine
-24-Sep-13,48,46,2926,29-Sep-09,1456,2013,623.93,Argentine
-24-Sep-13,48,28,2908,29-Sep-09,1456,2013,623.93,Argentine
-29-Sep-12,21,49,1309,29-Sep-09,1096,2012,8.23,Bahamas
-15-Sep-15,13,22,802,29-Sep-09,2177,2015,8.88,Bahamas
-26-Sep-11,13,36,816,29-Sep-09,727,2011,2.21,CentralAfricanRepublic
-26-Sep-11,13,39,819,29-Sep-09,727,2011,2.21,CentralAfricanRepublic
-26-Sep-12,22,5,1325,29-Sep-09,1093,2012,2.18,CentralAfricanRepublic
-26-Sep-12,21,58,1318,29-Sep-09,1093,2012,2.18,CentralAfricanRepublic
-26-Sep-13,29,41,1781,29-Sep-09,1458,2013,1.49,CentralAfricanRepublic
-26-Sep-13,29,41,1781,29-Sep-09,1458,2013,1.49,CentralAfricanRepublic
-26-Sep-11,15,22,922,29-Sep-09,727,2011,,Congo Basile
-26-Sep-11,15,30,930,29-Sep-09,727,2011,,Congo Basile
-1-Oct-12,15,45,945,29-Sep-09,1098,2012,,Congo Basile
-1-Oct-12,15,45,945,29-Sep-09,1098,2012,,Congo Basile
-27-Sep-13,20,18,1218,29-Sep-09,1459,2013,,Congo Basile
-27-Sep-13,20,18,1218,29-Sep-09,1459,2013,,Congo Basile
-25-Sep-10,10,23,623,29-Sep-09,361,2010,207.02,Czech
-23-Sep-11,10,23,623,29-Sep-09,724,2011,227.31,Czech
-25-Sep-12,8,3,483,29-Sep-09,1092,2012,206.44,Czech
-27-Sep-13,12,35,755,29-Sep-09,1459,2013,208.33,Czech
-27-Sep-10,13,9,789,29-Sep-09,363,2010,,Fiji
-24-Sep-10,16,54,1014,29-Sep-09,360,2010,14.36,Gabonese
-24-Sep-10,16,57,1017,29-Sep-09,360,2010,14.36,Gabonese
-22-Sep-11,14,55,895,29-Sep-09,723,2011,18.19,Gabonese
-22-Sep-11,14,53,893,29-Sep-09,723,2011,18.19,Gabonese
-25-Sep-12,15,35,935,29-Sep-09,1092,2012,17.17,Gabonese
-25-Sep-12,15,35,935,29-Sep-09,1092,2012,17.17,Gabonese
-24-Sep-13,19,14,1154,29-Sep-09,1456,2013,17.59,Gabonese
-24-Sep-13,19,14,1154,29-Sep-09,1456,2013,17.59,Gabonese
-26-Sep-11,22,43,1363,29-Sep-09,727,2011,,Gambia
-26-Sep-11,22,46,1366,29-Sep-09,727,2011,,Gambia
-26-Sep-12,24,9,1449,29-Sep-09,1093,2012,,Gambia
-27-Sep-13,27,52,1672,29-Sep-09,1459,2013,,Gambia
-22-Sep-11,13,50,830,29-Sep-09,723,2011,6.2,Kyrgyz Republic
-22-Sep-11,13,54,834,29-Sep-09,723,2011,6.2,Kyrgyz Republic
-27-Sep-12,27,10,1630,29-Sep-09,1094,2012,6.61,Kyrgyz Republic
-27-Sep-12,27,10,1630,29-Sep-09,1094,2012,6.61,Kyrgyz Republic
-26-Sep-11,14,51,891,29-Sep-09,727,2011,8.28,Lao People's Democratic Republic
-26-Sep-11,14,59,899,29-Sep-09,727,2011,8.28,Lao People's Democratic Republic
-28-Sep-12,15,13,913,29-Sep-09,1095,2012,9.36,Lao People's Democratic Republic
-28-Sep-13,15,7,907,29-Sep-09,1460,2013,11.19,Lao People's Democratic Republic
-28-Sep-13,15,7,907,29-Sep-09,1460,2013,11.19,Lao People's Democratic Republic
-29-Sep-14,15,34,934,29-Sep-09,1826,2014,11.72,Lao People's Democratic Republic
-24-Sep-10,13,9,789,29-Sep-09,360,2010,38.01,Lebanese Republic
-24-Sep-10,13,4,784,29-Sep-09,360,2010,38.01,Lebanese Republic
-21-Sep-11,15,23,923,29-Sep-09,722,2011,40.08,Lebanese Republic
-21-Sep-11,15,26,926,29-Sep-09,722,2011,40.08,Lebanese Republic
-24-Sep-13,16,16,976,29-Sep-09,1456,2013,44.35,Lebanese Republic
-24-Sep-13,16,16,976,29-Sep-09,1456,2013,44.35,Lebanese Republic
-26-Sep-11,14,42,882,29-Sep-09,727,2011,,Marshall Islands
-25-Sep-12,18,16,1096,29-Sep-09,1092,2012,,Marshall Islands
-26-Sep-13,16,57,1017,29-Sep-09,1458,2013,,Marshall Islands
-25-Sep-10,14,55,895,29-Sep-09,361,2010,,Marshall Islands
-23-Sep-11,25,47,1547,29-Sep-09,724,2011,,Niger
-23-Sep-11,25,50,1550,29-Sep-09,724,2011,,Niger
-25-Sep-10,21,31,1291,29-Sep-09,361,2010,,Palestinian Authority
-25-Sep-10,21,29,1289,29-Sep-09,361,2010,,Palestinian Authority
-2-Oct-15,16,31,991,29-Sep-09,2194,2015,,Philippines
-1-Oct-12,20,40,1240,29-Sep-09,1098,2012,,Philippines
-30-Sep-13,18,40,1120,29-Sep-09,1462,2013,,Philippines
-29-Sep-14,20,22,1222,29-Sep-09,1826,2014,,Philippines
-24-Sep-10,8,7,487,29-Sep-09,360,2010,,Philippines
-25-Sep-10,17,57,1077,29-Sep-09,361,2010,,Portuguese Republi
-25-Sep-10,17,55,1075,29-Sep-09,361,2010,,Portuguese Republi
-27-Sep-11,18,0,1080,29-Sep-09,728,2011,,Russian
-27-Sep-11,18,0,1080,29-Sep-09,728,2011,,Russian
-28-Sep-12,15,6,906,29-Sep-09,1095,2012,,Russian
-28-Sep-12,15,9,909,29-Sep-09,1095,2012,,Russian
-27-Sep-13,11,36,696,29-Sep-09,1459,2013,,Russian
-27-Sep-13,11,36,696,29-Sep-09,1459,2013,,Russian
-27-Sep-14,16,24,984,29-Sep-09,1824,2014,,Russian
-27-Sep-10,12,11,731,29-Sep-09,363,2010,,Seychelles
-23-Sep-10,17,53,1073,29-Sep-09,359,2010,,Slovak
-23-Sep-10,17,48,1068,29-Sep-09,359,2010,,Slovak
-24-Sep-11,13,46,826,29-Sep-09,725,2011,,Slovak
-25-Sep-12,19,53,1193,29-Sep-09,1092,2012,,Slovak
-25-Sep-12,19,53,1193,29-Sep-09,1092,2012,,Slovak
-24-Sep-13,22,0,1320,29-Sep-09,1456,2013,,Slovak
-24-Sep-13,22,0,1320,29-Sep-09,1456,2013,,Slovak
-27-Sep-10,15,43,943,29-Sep-09,363,2010,,Solomon
-26-Sep-11,21,4,1264,29-Sep-09,727,2011,,Sudan
-26-Sep-11,21,2,1262,29-Sep-09,727,2011,,Sudan
-27-Sep-13,22,22,1342,29-Sep-09,1459,2013,,Sudan
-27-Sep-13,22,21,1341,29-Sep-09,1459,2013,,Sudan
-26-Sep-14,17,41,1061,29-Sep-09,1823,2014,,Sudan
-23-Sep-10,12,36,756,29-Sep-09,359,2010,,Swiss
-23-Sep-10,12,35,755,29-Sep-09,359,2010,,Swiss
-21-Sep-11,8,46,526,29-Sep-09,722,2011,,Swiss
-21-Sep-11,8,45,525,29-Sep-09,722,2011,,Swiss
-25-Sep-12,17,5,1025,29-Sep-09,1092,2012,,Swiss
-25-Sep-12,17,5,1025,29-Sep-09,1092,2012,,Swiss
-24-Jun-13,14,8,848,29-Sep-09,1364,2013,,Swiss
-24-Sep-13,14,8,848,29-Sep-09,1456,2013,,Swiss
-28-Sep-10,15,11,911,29-Sep-09,364,2010,,Syrian
-28-Sep-10,15,8,908,29-Sep-09,364,2010,,Syrian
-26-Sep-11,17,11,1031,29-Sep-09,727,2011,,Syrian
-26-Sep-11,17,13,1033,29-Sep-09,727,2011,,Syrian
-25-Sep-10,17,1,1021,29-Sep-09,361,2010,,Togolese
-25-Sep-10,17,1,1021,29-Sep-09,361,2010,,Togolese
-24-Sep-11,17,25,1045,29-Sep-09,725,2011,,Togolese
-24-Sep-11,17,29,1049,29-Sep-09,725,2011,,Togolese
-25-Sep-10,20,25,1225,29-Sep-09,361,2010,,Transitional Federal Government of the Somali Republic
-25-Sep-10,20,20,1220,29-Sep-09,361,2010,,Transitional Federal Government of the Somali Republic
-24-Sep-11,19,45,1185,29-Sep-09,725,2011,,Transitional Government of the Central African Republic
-24-Sep-11,19,49,1189,29-Sep-09,725,2011,,Transitional Government of the Central African Republic
-27-Sep-12,17,43,1063,29-Sep-09,1094,2012,,Transitional Federal Government of the Somali Republic
-27-Sep-14,21,9,1269,29-Sep-09,1824,2014,,Transitional Federal Government of the Somali Republic
-27-Sep-14,21,9,1269,29-Sep-09,1824,2014,,Transitional Federal Government of the Somali Republic
-24-Sep-10,20,54,1254,29-Sep-09,360,2010,,Union of the Comoros
-24-Sep-10,20,54,1254,29-Sep-09,360,2010,,Union of the Comoros
-23-Sep-11,18,25,1105,29-Sep-09,724,2011,,Union of the Comoros
-23-Sep-11,18,33,1113,29-Sep-09,724,2011,,Union of the Comoros
-27-Sep-12,16,49,1009,29-Sep-09,1094,2012,,Union of the Comoros
-27-Sep-12,16,48,1008,29-Sep-09,1094,2012,,Union of the Comoros
-25-Sep-13,18,12,1092,29-Sep-09,1457,2013,,Union of the Comoros
-25-Sep-13,18,12,1092,29-Sep-09,1457,2013,,Union of the Comoros
-26-Sep-14,14,57,897,29-Sep-09,1823,2014,,Union of the Comoros
-21-Sep-11,24,5,1445,29-Sep-09,722,2011,,United Arab Emirates
-26-Sep-11,12,33,753,29-Sep-09,727,2011,,United Arab Emirates
-26-Sep-11,12,32,752,29-Sep-09,727,2011,,United Arab Emirates
-28-Sep-12,15,16,916,29-Sep-09,1095,2012,,United Arab Emirates
-28-Sep-12,15,20,920,29-Sep-09,1095,2012,,United Arab Emirates
-28-Sep-13,19,25,1165,29-Sep-09,1460,2013,,United Arab Emirates
-28-Sep-13,19,25,1165,29-Sep-09,1460,2013,,United Mexican States
-24-Sep-14,14,47,887,29-Sep-09,1821,2014,,United Mexican States
-24-Sep-14,14,47,887,29-Sep-09,1821,2014,,United Mexican States
-15-Sep-15,26,36,1596,29-Sep-09,2177,2015,,(n/a) Opening of 70th Session of General Assembly
-27-Sep-10,12,38,758,29-Sep-09,363,2010,,Afghanistan
-25-Sep-12,12,59,779,29-Sep-09,1092,2012,,Afghanistan
-25-Sep-12,12,59,779,29-Sep-09,1092,2012,,Afghanistan
-27-Sep-13,20,33,1233,29-Sep-09,1459,2013,,Afghanistan
-27-Sep-14,16,21,981,29-Sep-09,1824,2014,,Afghanistan
-28-Sep-15,17,45,1065,29-Sep-09,2190,2015,,Afghanistan
-23-Sep-10,16,36,996,29-Sep-09,359,2010,,Albania
-23-Sep-10,16,34,994,29-Sep-09,359,2010,,Albania
-24-Sep-11,29,13,1753,29-Sep-09,725,2011,,Albania
-27-Sep-12,21,53,1313,29-Sep-09,1094,2012,,Albania
-28-Sep-13,15,58,958,29-Sep-09,1460,2013,,Albania
-25-Sep-14,21,33,1293,29-Sep-09,1822,2014,,Albania
-2-Oct-15,11,15,675,29-Sep-09,2194,2015,,Albania
-27-Sep-10,15,37,937,29-Sep-09,363,2010,,Algeria
-27-Sep-10,15,31,931,29-Sep-09,363,2010,,Algeria
-26-Sep-11,14,40,880,29-Sep-09,727,2011,,Algeria
-26-Sep-11,14,43,883,29-Sep-09,727,2011,,Algeria
-29-Sep-12,21,13,1273,29-Sep-09,1096,2012,,Algeria
-29-Sep-12,21,9,1269,29-Sep-09,1096,2012,,Algeria
-26-Sep-13,19,11,1151,29-Sep-09,1458,2013,,Algeria
-26-Sep-13,19,11,1151,29-Sep-09,1458,2013,,Algeria
-1-Oct-15,15,7,907,29-Sep-09,2193,2015,,Algeria
+15-Sep-15,26,36,1596,29-Sep-09,2177,2015,n/a,(n/a) Opening of 70th Session of General Assembly
+27-Sep-10,12,38,758,29-Sep-09,363,2010,15.94,Afghanistan
+25-Sep-12,12,59,779,29-Sep-09,1092,2012,20.54,Afghanistan
+25-Sep-12,12,59,779,29-Sep-09,1092,2012,20.54,Afghanistan
+27-Sep-13,20,33,1233,29-Sep-09,1459,2013,20.05,Afghanistan
+27-Sep-14,16,21,981,29-Sep-09,1824,2014,20.05,Afghanistan
+28-Sep-15,17,45,1065,29-Sep-09,2190,2015,19.2,Afghanistan
+23-Sep-10,16,36,996,29-Sep-09,359,2010,11.93,Albania
+23-Sep-10,16,34,994,29-Sep-09,359,2010,11.93,Albania
+24-Sep-11,29,13,1753,29-Sep-09,725,2011,12.89,Albania
+27-Sep-12,21,53,1313,29-Sep-09,1094,2012,12.32,Albania
+28-Sep-13,15,58,958,29-Sep-09,1460,2013,12.78,Albania
+25-Sep-14,21,33,1293,29-Sep-09,1822,2014,13.28,Albania
+2-Oct-15,11,15,675,29-Sep-09,2194,2015,11.46,Albania
+27-Sep-10,15,37,937,29-Sep-09,363,2010,161.21,Algeria
+27-Sep-10,15,31,931,29-Sep-09,363,2010,161.21,Algeria
+26-Sep-11,14,40,880,29-Sep-09,727,2011,200.01,Algeria
+26-Sep-11,14,43,883,29-Sep-09,727,2011,200.01,Algeria
+29-Sep-12,21,13,1273,29-Sep-09,1096,2012,209.05,Algeria
+29-Sep-12,21,9,1269,29-Sep-09,1096,2012,209.05,Algeria
+26-Sep-13,19,11,1151,29-Sep-09,1458,2013,209.7,Algeria
+26-Sep-13,19,11,1151,29-Sep-09,1458,2013,209.7,Algeria
+1-Oct-15,15,7,907,29-Sep-09,2193,2015,166.84,Algeria
 27-Sep-10,14,0,840,29-Sep-09,363,2010,,Andorra
 27-Sep-10,13,57,837,29-Sep-09,363,2010,,Andorra
 26-Sep-11,18,26,1106,29-Sep-09,727,2011,,Andorra
@@ -176,6 +46,12 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 24-Sep-10,25,41,1541,29-Sep-09,360,2010,,Argentina
 24-Sep-14,36,56,2216,29-Sep-09,1821,2014,,Argentina
 28-Sep-15,41,21,2481,29-Sep-09,2190,2015,,Argentina
+21-Sep-11,28,37,1717,29-Sep-09,722,2011,557.89,Argentine
+21-Sep-11,28,36,1716,29-Sep-09,722,2011,557.89,Argentine
+25-Sep-12,38,19,2299,29-Sep-09,1092,2012,604.38,Argentine
+25-Sep-12,38,19,2299,29-Sep-09,1092,2012,604.38,Argentine
+24-Sep-13,48,46,2926,29-Sep-09,1456,2013,623.93,Argentine
+24-Sep-13,48,28,2908,29-Sep-09,1456,2013,623.93,Argentine
 25-Sep-10,12,27,747,29-Sep-09,361,2010,,Armenia
 25-Sep-10,12,27,747,29-Sep-09,361,2010,,Armenia
 23-Sep-11,17,39,1059,29-Sep-09,724,2011,,Armenia
@@ -205,6 +81,8 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 28-Sep-13,12,55,775,29-Sep-09,1460,2013,,Azerbaijan
 30-Sep-15,12,14,734,29-Sep-09,2192,2015,,Azerbaijan
 28-Sep-10,15,41,941,29-Sep-09,364,2010,,Bahamas
+29-Sep-12,21,49,1309,29-Sep-09,1096,2012,8.23,Bahamas
+15-Sep-15,13,22,802,29-Sep-09,2177,2015,8.88,Bahamas
 1-Oct-15,14,47,887,29-Sep-09,2193,2015,,Bahamas
 26-Sep-11,18,29,1109,29-Sep-09,727,2011,,Bahamas Theodore
 26-Sep-11,18,29,1109,29-Sep-09,727,2011,,Bahamas Theodore
@@ -376,6 +254,12 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 28-Sep-10,19,30,1170,29-Sep-09,364,2010,,Cape Verde
 28-Sep-10,19,31,1171,29-Sep-09,364,2010,,Cape Verde
 30-Sep-15,21,56,1316,29-Sep-09,2192,2015,,Central
+26-Sep-11,13,36,816,29-Sep-09,727,2011,2.21,CentralAfricanRepublic
+26-Sep-11,13,39,819,29-Sep-09,727,2011,2.21,CentralAfricanRepublic
+26-Sep-12,22,5,1325,29-Sep-09,1093,2012,2.18,CentralAfricanRepublic
+26-Sep-12,21,58,1318,29-Sep-09,1093,2012,2.18,CentralAfricanRepublic
+26-Sep-13,29,41,1781,29-Sep-09,1458,2013,1.49,CentralAfricanRepublic
+26-Sep-13,29,41,1781,29-Sep-09,1458,2013,1.49,CentralAfricanRepublic
 28-Sep-10,14,44,884,29-Sep-09,364,2010,,Chad
 28-Sep-10,14,44,884,29-Sep-09,364,2010,,Chad
 22-Sep-11,14,27,867,29-Sep-09,723,2011,,Chad
@@ -430,6 +314,12 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 25-Sep-14,16,7,967,29-Sep-09,1822,2014,,Congo
 1-Oct-15,22,45,1365,29-Sep-09,2193,2015,,Congo
 2-Oct-15,16,0,960,29-Sep-09,2194,2015,,Congo
+26-Sep-11,15,22,922,29-Sep-09,727,2011,,Congo Basile
+26-Sep-11,15,30,930,29-Sep-09,727,2011,,Congo Basile
+1-Oct-12,15,45,945,29-Sep-09,1098,2012,,Congo Basile
+1-Oct-12,15,45,945,29-Sep-09,1098,2012,,Congo Basile
+27-Sep-13,20,18,1218,29-Sep-09,1459,2013,,Congo Basile
+27-Sep-13,20,18,1218,29-Sep-09,1459,2013,,Congo Basile
 23-Sep-10,18,7,1087,29-Sep-09,359,2010,,Costa
 23-Sep-10,18,6,1086,29-Sep-09,359,2010,,Costa
 22-Sep-11,18,33,1113,29-Sep-09,723,2011,,Costa
@@ -466,6 +356,10 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 25-Sep-12,15,15,915,29-Sep-09,1092,2012,,Cyprus
 26-Sep-13,22,8,1328,29-Sep-09,1458,2013,,Cyprus
 29-Sep-15,21,49,1309,29-Sep-09,2191,2015,,Cyprus
+25-Sep-10,10,23,623,29-Sep-09,361,2010,207.02,Czech
+23-Sep-11,10,23,623,29-Sep-09,724,2011,227.31,Czech
+25-Sep-12,8,3,483,29-Sep-09,1092,2012,206.44,Czech
+27-Sep-13,12,35,755,29-Sep-09,1459,2013,208.33,Czech
 29-Sep-15,11,41,701,29-Sep-09,2191,2015,,Czech
 24-Sep-11,27,50,1670,29-Sep-09,725,2011,,Defence
 24-Sep-11,27,51,1671,29-Sep-09,725,2011,,Defence
@@ -572,6 +466,7 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 26-Sep-11,18,34,1114,29-Sep-09,727,2011,,External
 26-Sep-12,15,28,928,29-Sep-09,1093,2012,,External
 26-Sep-12,15,28,928,29-Sep-09,1093,2012,,External
+27-Sep-10,13,9,789,29-Sep-09,363,2010,,Fiji
 23-Sep-11,17,42,1062,29-Sep-09,724,2011,,Fiji
 23-Sep-11,17,43,1063,29-Sep-09,724,2011,,Fiji
 28-Sep-12,17,23,1043,29-Sep-09,1095,2012,,Fiji
@@ -620,6 +515,14 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 24-Sep-13,19,41,1181,29-Sep-09,1456,2013,,French
 24-Sep-13,19,41,1181,29-Sep-09,1456,2013,,French
 28-Sep-15,20,13,1213,29-Sep-09,2190,2015,,Gabon
+24-Sep-10,16,54,1014,29-Sep-09,360,2010,14.36,Gabonese
+24-Sep-10,16,57,1017,29-Sep-09,360,2010,14.36,Gabonese
+22-Sep-11,14,55,895,29-Sep-09,723,2011,18.19,Gabonese
+22-Sep-11,14,53,893,29-Sep-09,723,2011,18.19,Gabonese
+25-Sep-12,15,35,935,29-Sep-09,1092,2012,17.17,Gabonese
+25-Sep-12,15,35,935,29-Sep-09,1092,2012,17.17,Gabonese
+24-Sep-13,19,14,1154,29-Sep-09,1456,2013,17.59,Gabonese
+24-Sep-13,19,14,1154,29-Sep-09,1456,2013,17.59,Gabonese
 24-Sep-10,16,54,1014,29-Sep-09,360,2010,,Gabonese Republi
 24-Sep-10,16,57,1017,29-Sep-09,360,2010,,Gabonese Republi
 22-Sep-11,14,55,895,29-Sep-09,723,2011,,Gabonese Republi
@@ -629,6 +532,10 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 24-Sep-13,19,14,1154,29-Sep-09,1456,2013,,Gabonese Republi
 24-Sep-13,19,14,1154,29-Sep-09,1456,2013,,Gabonese Republi
 27-Sep-10,19,44,1184,29-Sep-09,363,2010,,Gambia
+26-Sep-11,22,43,1363,29-Sep-09,727,2011,,Gambia
+26-Sep-11,22,46,1366,29-Sep-09,727,2011,,Gambia
+26-Sep-12,24,9,1449,29-Sep-09,1093,2012,,Gambia
+27-Sep-13,27,52,1672,29-Sep-09,1459,2013,,Gambia
 29-Sep-15,22,52,1372,29-Sep-09,2191,2015,,Gambia
 28-Sep-15,14,9,849,29-Sep-09,2190,2015,,General
 23-Sep-10,28,57,1737,29-Sep-09,359,2010,,Georgia
@@ -860,6 +767,10 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 25-Sep-13,19,20,1160,29-Sep-09,1457,2013,,Kuwait
 25-Sep-14,23,43,1423,29-Sep-09,1822,2014,,Kuwait
 29-Sep-15,23,4,1384,29-Sep-09,2191,2015,,Kuwait
+22-Sep-11,13,50,830,29-Sep-09,723,2011,6.2,Kyrgyz Republic
+22-Sep-11,13,54,834,29-Sep-09,723,2011,6.2,Kyrgyz Republic
+27-Sep-12,27,10,1630,29-Sep-09,1094,2012,6.61,Kyrgyz Republic
+27-Sep-12,27,10,1630,29-Sep-09,1094,2012,6.61,Kyrgyz Republic
 27-Sep-10,17,33,1053,29-Sep-09,363,2010,,Kyrgyzstan
 27-Sep-10,17,32,1052,29-Sep-09,363,2010,,Kyrgyzstan
 28-Sep-13,13,17,797,29-Sep-09,1460,2013,,Kyrgyzstan
@@ -868,12 +779,24 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 24-Sep-10,14,22,862,29-Sep-09,360,2010,,Lao
 24-Sep-10,14,22,862,29-Sep-09,360,2010,,Lao
 30-Sep-15,16,48,1008,29-Sep-09,2192,2015,,Lao
+26-Sep-11,14,51,891,29-Sep-09,727,2011,8.28,Lao People's Democratic Republic
+26-Sep-11,14,59,899,29-Sep-09,727,2011,8.28,Lao People's Democratic Republic
+28-Sep-12,15,13,913,29-Sep-09,1095,2012,9.36,Lao People's Democratic Republic
+28-Sep-13,15,7,907,29-Sep-09,1460,2013,11.19,Lao People's Democratic Republic
+28-Sep-13,15,7,907,29-Sep-09,1460,2013,11.19,Lao People's Democratic Republic
+29-Sep-14,15,34,934,29-Sep-09,1826,2014,11.72,Lao People's Democratic Republic
 25-Sep-10,16,34,994,29-Sep-09,361,2010,,Latvia
 21-Sep-11,16,12,972,29-Sep-09,722,2011,,Latvia
 26-Sep-12,14,51,891,29-Sep-09,1093,2012,,Latvia
 24-Sep-13,11,11,671,29-Sep-09,1456,2013,,Latvia
 25-Sep-14,18,34,1114,29-Sep-09,1822,2014,,Latvia
 30-Sep-15,15,36,936,29-Sep-09,2192,2015,,Latvia
+24-Sep-10,13,9,789,29-Sep-09,360,2010,38.01,Lebanese Republic
+24-Sep-10,13,4,784,29-Sep-09,360,2010,38.01,Lebanese Republic
+21-Sep-11,15,23,923,29-Sep-09,722,2011,40.08,Lebanese Republic
+21-Sep-11,15,26,926,29-Sep-09,722,2011,40.08,Lebanese Republic
+24-Sep-13,16,16,976,29-Sep-09,1456,2013,44.35,Lebanese Republic
+24-Sep-13,16,16,976,29-Sep-09,1456,2013,44.35,Lebanese Republic
 30-Sep-15,16,58,1018,29-Sep-09,2192,2015,,Lebanon
 27-Sep-10,15,47,947,29-Sep-09,363,2010,,Lesotho
 29-Sep-14,18,15,1095,29-Sep-09,1826,2014,,Lesotho
@@ -959,7 +882,11 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 26-Sep-13,18,53,1133,29-Sep-09,1458,2013,,Malta
 26-Sep-14,18,36,1116,29-Sep-09,1823,2014,,Malta
 30-Sep-15,20,36,1236,29-Sep-09,2192,2015,,Malta
-30-Sep-15,20,32,1232,29-Sep-09,2192,2015,,Marshall
+25-Sep-10,14,55,895,29-Sep-09,361,2010,0.16,Marshall Islands
+26-Sep-11,14,42,882,29-Sep-09,727,2011,0.17,Marshall Islands
+25-Sep-12,18,16,1096,29-Sep-09,1092,2012,0.18,Marshall Islands
+26-Sep-13,16,57,1017,29-Sep-09,1458,2013,0.19,Marshall Islands
+30-Sep-15,20,32,1232,29-Sep-09,2192,2015,unknown,Marshall Islands
 25-Sep-10,10,44,644,29-Sep-09,361,2010,,Mauritania
 25-Sep-10,10,41,641,29-Sep-09,361,2010,,Mauritania
 27-Sep-11,23,42,1422,29-Sep-09,728,2011,,Mauritania
@@ -1246,6 +1173,8 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 30-Sep-13,19,8,1148,29-Sep-09,1462,2013,,Nicaragua
 30-Sep-14,22,46,1366,29-Sep-09,1827,2014,,Nicaragua
 1-Oct-15,15,45,945,29-Sep-09,2193,2015,,Nicaragua
+23-Sep-11,25,47,1547,29-Sep-09,724,2011,,Niger
+23-Sep-11,25,50,1550,29-Sep-09,724,2011,,Niger
 27-Sep-13,14,1,841,29-Sep-09,1459,2013,,Niger
 27-Sep-13,14,1,841,29-Sep-09,1459,2013,,Niger
 25-Sep-14,21,45,1305,29-Sep-09,1822,2014,,Niger
@@ -1282,6 +1211,8 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 26-Sep-13,33,16,1996,29-Sep-09,1458,2013,,Palestine
 26-Sep-14,36,15,2175,29-Sep-09,1823,2014,,Palestine
 30-Sep-15,39,15,2355,29-Sep-09,2192,2015,,Palestine
+25-Sep-10,21,31,1291,29-Sep-09,361,2010,,Palestinian Authority
+25-Sep-10,21,29,1289,29-Sep-09,361,2010,,Palestinian Authority
 23-Sep-11,42,33,2553,29-Sep-09,724,2011,,Palestinian Authority
 23-Sep-11,42,33,2553,29-Sep-09,724,2011,,Palestinian Authority
 27-Sep-12,33,12,1992,29-Sep-09,1094,2012,,Palestinian Authority
@@ -1322,8 +1253,13 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 25-Sep-13,22,18,1338,29-Sep-09,1457,2013,,Peru
 25-Sep-13,22,18,1338,29-Sep-09,1457,2013,,Peru
 2-Oct-15,10,7,607,29-Sep-09,2194,2015,,Peru
+24-Sep-10,8,7,487,29-Sep-09,360,2010,,Philippines
 27-Sep-11,13,40,820,29-Sep-09,728,2011,,Philippines
 27-Sep-11,13,40,820,29-Sep-09,728,2011,,Philippines
+1-Oct-12,20,40,1240,29-Sep-09,1098,2012,,Philippines
+30-Sep-13,18,40,1120,29-Sep-09,1462,2013,,Philippines
+29-Sep-14,20,22,1222,29-Sep-09,1826,2014,,Philippines
+2-Oct-15,16,31,991,29-Sep-09,2194,2015,,Philippines
 26-Sep-13,25,45,1545,29-Sep-09,1458,2013,,Planning
 26-Sep-13,25,45,1545,29-Sep-09,1458,2013,,Planning
 29-Sep-10,14,18,858,29-Sep-09,365,2010,,Poland
@@ -1340,6 +1276,8 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 1-Oct-12,14,3,843,29-Sep-09,1098,2012,,Portugal
 1-Oct-12,14,3,843,29-Sep-09,1098,2012,,Portugal
 28-Sep-15,14,43,883,29-Sep-09,2190,2015,,Portugal
+25-Sep-10,17,57,1077,29-Sep-09,361,2010,,Portuguese Republi
+25-Sep-10,17,55,1075,29-Sep-09,361,2010,,Portuguese Republi
 1-Oct-15,14,51,891,29-Sep-09,2193,2015,,Presidency
 1-Oct-13,33,11,1991,29-Sep-09,1463,2013,,Public
 1-Oct-13,33,11,1991,29-Sep-09,1463,2013,,Public
@@ -1365,6 +1303,13 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 28-Sep-13,20,13,1213,29-Sep-09,1460,2013,,Romania
 25-Sep-14,12,56,776,29-Sep-09,1822,2014,,Romania
 29-Sep-15,19,12,1152,29-Sep-09,2191,2015,,Romania
+27-Sep-11,18,0,1080,29-Sep-09,728,2011,,Russian
+27-Sep-11,18,0,1080,29-Sep-09,728,2011,,Russian
+28-Sep-12,15,6,906,29-Sep-09,1095,2012,,Russian
+28-Sep-12,15,9,909,29-Sep-09,1095,2012,,Russian
+27-Sep-13,11,36,696,29-Sep-09,1459,2013,,Russian
+27-Sep-13,11,36,696,29-Sep-09,1459,2013,,Russian
+27-Sep-14,16,24,984,29-Sep-09,1824,2014,,Russian
 28-Sep-15,23,39,1419,29-Sep-09,2190,2015,,Russian
 29-Sep-10,13,58,838,29-Sep-09,365,2010,,Russian Federation
 29-Sep-10,13,59,839,29-Sep-09,365,2010,,Russian Federation
@@ -1439,6 +1384,7 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 25-Sep-13,24,52,1492,29-Sep-09,1457,2013,,Serbia
 26-Sep-14,22,44,1364,29-Sep-09,1823,2014,,Serbia
 30-Sep-15,28,37,1717,29-Sep-09,2192,2015,,Serbia
+27-Sep-10,12,11,731,29-Sep-09,363,2010,,Seychelles
 27-Sep-12,14,47,887,29-Sep-09,1094,2012,,Seychelles
 27-Sep-12,14,47,887,29-Sep-09,1094,2012,,Seychelles
 27-Sep-13,14,11,851,29-Sep-09,1459,2013,,Seychelles
@@ -1458,6 +1404,13 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 29-Sep-12,9,57,597,29-Sep-09,1096,2012,,Singapore
 28-Sep-13,12,29,749,29-Sep-09,1460,2013,,Singapore
 29-Sep-14,12,46,766,29-Sep-09,1826,2014,,Singapore
+23-Sep-10,17,53,1073,29-Sep-09,359,2010,,Slovak
+23-Sep-10,17,48,1068,29-Sep-09,359,2010,,Slovak
+24-Sep-11,13,46,826,29-Sep-09,725,2011,,Slovak
+25-Sep-12,19,53,1193,29-Sep-09,1092,2012,,Slovak
+25-Sep-12,19,53,1193,29-Sep-09,1092,2012,,Slovak
+24-Sep-13,22,0,1320,29-Sep-09,1456,2013,,Slovak
+24-Sep-13,22,0,1320,29-Sep-09,1456,2013,,Slovak
 23-Sep-10,17,53,1073,29-Sep-09,359,2010,,Slovak Republi
 23-Sep-10,17,48,1068,29-Sep-09,359,2010,,Slovak Republi
 25-Sep-12,19,53,1193,29-Sep-09,1092,2012,,Slovak Republi
@@ -1471,6 +1424,7 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 26-Sep-13,11,19,679,29-Sep-09,1458,2013,,Slovenia
 26-Sep-14,10,3,603,29-Sep-09,1823,2014,,Slovenia
 30-Sep-15,12,45,765,29-Sep-09,2192,2015,,Slovenia
+27-Sep-10,15,43,943,29-Sep-09,363,2010,,Solomon
 24-Sep-11,21,54,1314,29-Sep-09,725,2011,,Solomon
 24-Sep-11,21,56,1316,29-Sep-09,725,2011,,Solomon
 27-Sep-12,19,0,1140,29-Sep-09,1094,2012,,Solomon
@@ -1539,8 +1493,13 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 3-Oct-15,12,15,735,29-Sep-09,2195,2015,,State
 27-Sep-10,20,38,1238,29-Sep-09,363,2010,,Sudan
 27-Sep-10,21,0,1260,29-Sep-09,363,2010,,Sudan
+26-Sep-11,21,4,1264,29-Sep-09,727,2011,,Sudan
+26-Sep-11,21,2,1262,29-Sep-09,727,2011,,Sudan
 29-Sep-12,30,22,1822,29-Sep-09,1096,2012,,Sudan
 29-Sep-12,30,22,1822,29-Sep-09,1096,2012,,Sudan
+27-Sep-13,22,22,1342,29-Sep-09,1459,2013,,Sudan
+27-Sep-13,22,21,1341,29-Sep-09,1459,2013,,Sudan
+26-Sep-14,17,41,1061,29-Sep-09,1823,2014,,Sudan
 2-Oct-15,18,17,1097,29-Sep-09,2194,2015,,Sudan
 25-Sep-10,20,10,1210,29-Sep-09,361,2010,,Suriname
 22-Sep-11,19,51,1191,29-Sep-09,723,2011,,Suriname
@@ -1562,6 +1521,14 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 24-Sep-13,16,56,1016,29-Sep-09,1456,2013,,Sweden
 29-Sep-14,14,37,877,29-Sep-09,1826,2014,,Sweden
 30-Sep-15,13,40,820,29-Sep-09,2192,2015,,Sweden
+23-Sep-10,12,36,756,29-Sep-09,359,2010,,Swiss
+23-Sep-10,12,35,755,29-Sep-09,359,2010,,Swiss
+21-Sep-11,8,46,526,29-Sep-09,722,2011,,Swiss
+21-Sep-11,8,45,525,29-Sep-09,722,2011,,Swiss
+25-Sep-12,17,5,1025,29-Sep-09,1092,2012,,Swiss
+25-Sep-12,17,5,1025,29-Sep-09,1092,2012,,Swiss
+24-Jun-13,14,8,848,29-Sep-09,1364,2013,,Swiss
+24-Sep-13,14,8,848,29-Sep-09,1456,2013,,Swiss
 23-Sep-10,12,36,756,29-Sep-09,359,2010,,Swiss Confederation
 23-Sep-10,12,35,755,29-Sep-09,359,2010,,Swiss Confederation
 21-Sep-11,8,46,526,29-Sep-09,722,2011,,Swiss Confederation
@@ -1572,6 +1539,10 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 24-Sep-13,14,8,848,29-Sep-09,1456,2013,,Swiss Confederation
 28-Sep-15,12,51,771,29-Sep-09,2190,2015,,Switzerland
 2-Oct-15,20,26,1226,29-Sep-09,2194,2015,,Syria
+28-Sep-10,15,11,911,29-Sep-09,364,2010,,Syrian
+28-Sep-10,15,8,908,29-Sep-09,364,2010,,Syrian
+26-Sep-11,17,11,1031,29-Sep-09,727,2011,,Syrian
+26-Sep-11,17,13,1033,29-Sep-09,727,2011,,Syrian
 1-Oct-12,24,57,1497,29-Sep-09,1098,2012,,Syrian Arab Republic
 1-Oct-12,24,57,1497,29-Sep-09,1098,2012,,Syrian Arab Republic
 1-Oct-12,24,57,1497,29-Sep-09,1098,2012,,Syrian Arab Republic
@@ -1623,6 +1594,10 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 1-Oct-13,20,50,1250,29-Sep-09,1463,2013,,Togo
 1-Oct-13,20,50,1250,29-Sep-09,1463,2013,,Togo
 30-Sep-15,17,56,1076,29-Sep-09,2192,2015,,Togo
+25-Sep-10,17,1,1021,29-Sep-09,361,2010,,Togolese
+25-Sep-10,17,1,1021,29-Sep-09,361,2010,,Togolese
+24-Sep-11,17,25,1045,29-Sep-09,725,2011,,Togolese
+24-Sep-11,17,29,1049,29-Sep-09,725,2011,,Togolese
 29-Sep-10,14,28,868,29-Sep-09,365,2010,,Tonga
 24-Sep-11,14,18,858,29-Sep-09,725,2011,,Tonga
 24-Sep-11,14,18,858,29-Sep-09,725,2011,,Tonga
@@ -1630,6 +1605,13 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 27-Sep-13,10,9,609,29-Sep-09,1459,2013,,Tonga
 27-Sep-14,10,1,601,29-Sep-09,1824,2014,,Tonga
 29-Sep-15,16,52,1012,29-Sep-09,2191,2015,,Tonga
+25-Sep-10,20,25,1225,29-Sep-09,361,2010,,Transitional Federal Government of the Somali Republic
+25-Sep-10,20,20,1220,29-Sep-09,361,2010,,Transitional Federal Government of the Somali Republic
+27-Sep-12,17,43,1063,29-Sep-09,1094,2012,,Transitional Federal Government of the Somali Republic
+27-Sep-14,21,9,1269,29-Sep-09,1824,2014,,Transitional Federal Government of the Somali Republic
+27-Sep-14,21,9,1269,29-Sep-09,1824,2014,,Transitional Federal Government of the Somali Republic
+24-Sep-11,19,45,1185,29-Sep-09,725,2011,,Transitional Government of the Central African Republic
+24-Sep-11,19,49,1189,29-Sep-09,725,2011,,Transitional Government of the Central African Republic
 27-Sep-10,18,25,1105,29-Sep-09,363,2010,,Trinidad
 26-Sep-11,24,11,1451,29-Sep-09,727,2011,,Trinidad
 1-Oct-12,20,23,1223,29-Sep-09,1098,2012,,Trinidad
@@ -1684,14 +1666,32 @@ date,min,sec_remaining,sec_total,date_baseline,date_diff,year,gdp_billions,count
 24-Sep-13,18,50,1130,29-Sep-09,1456,2013,,Ukraine
 24-Sep-14,10,42,642,29-Sep-09,1821,2014,,Ukraine
 29-Sep-15,29,28,1768,29-Sep-09,2191,2015,,Ukraine
+24-Sep-10,20,54,1254,29-Sep-09,360,2010,,Union of the Comoros
+24-Sep-10,20,54,1254,29-Sep-09,360,2010,,Union of the Comoros
+23-Sep-11,18,25,1105,29-Sep-09,724,2011,,Union of the Comoros
+23-Sep-11,18,33,1113,29-Sep-09,724,2011,,Union of the Comoros
+27-Sep-12,16,49,1009,29-Sep-09,1094,2012,,Union of the Comoros
+27-Sep-12,16,48,1008,29-Sep-09,1094,2012,,Union of the Comoros
+25-Sep-13,18,12,1092,29-Sep-09,1457,2013,,Union of the Comoros
+25-Sep-13,18,12,1092,29-Sep-09,1457,2013,,Union of the Comoros
+26-Sep-14,14,57,897,29-Sep-09,1823,2014,,Union of the Comoros
 28-Sep-10,13,0,780,29-Sep-09,364,2010,,United
 28-Sep-10,12,54,774,29-Sep-09,364,2010,,United
 2-Oct-15,16,14,974,29-Sep-09,2194,2015,,United
+21-Sep-11,24,5,1445,29-Sep-09,722,2011,,United Arab Emirates
+26-Sep-11,12,33,753,29-Sep-09,727,2011,,United Arab Emirates
+26-Sep-11,12,32,752,29-Sep-09,727,2011,,United Arab Emirates
+28-Sep-12,15,16,916,29-Sep-09,1095,2012,,United Arab Emirates
+28-Sep-12,15,20,920,29-Sep-09,1095,2012,,United Arab Emirates
+28-Sep-13,19,25,1165,29-Sep-09,1460,2013,,United Arab Emirates
 24-Sep-10,16,46,1006,29-Sep-09,360,2010,,United Kingdom
 22-Sep-11,17,38,1058,29-Sep-09,723,2011,,United Kingdom
 27-Sep-13,20,10,1210,29-Sep-09,1459,2013,,United Kingdom
 24-Sep-14,15,47,947,29-Sep-09,1821,2014,,United Kingdom
 29-Sep-15,14,48,888,29-Sep-09,2191,2015,,United Kingdom
+28-Sep-13,19,25,1165,29-Sep-09,1460,2013,,United Mexican States
+24-Sep-14,14,47,887,29-Sep-09,1821,2014,,United Mexican States
+24-Sep-14,14,47,887,29-Sep-09,1821,2014,,United Mexican States
 23-Sep-10,32,31,1951,29-Sep-09,359,2010,,United States of America
 23-Sep-10,32,31,1951,29-Sep-09,359,2010,,United States of America
 21-Sep-11,37,49,2269,29-Sep-09,722,2011,,United States of America
