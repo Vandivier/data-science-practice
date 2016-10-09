@@ -14,8 +14,8 @@ Public Sub GenerateCountsByCountry()
     Dim i           As Integer
     Dim vKey        As Variant
 
-    Set wsIn = Worksheets(1)
-    Set wsOut = Worksheets(2)
+    Set wsIn = Worksheets(2)
+    Set wsOut = Worksheets(1)
 
     For Each cCell In wsIn.UsedRange.Columns("I").Cells
         sCountry = cCell.Value
