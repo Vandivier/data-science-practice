@@ -1,6 +1,18 @@
 Attribute VB_Name = "mUtilities"
 Option Explicit
 
+'desc: save each sheet from the current file as a seperate csv in the same directory
+'ref: http://stackoverflow.com/questions/59075/save-each-sheet-in-a-workbook-to-separate-csv-files
+Public Sub SaveWorksheetsAsCsv(Optional ByVal SaveToDirectory As String)
+    Dim WS As Excel.Worksheet
+
+    If SaveToDirectory = "" Then SaveToDirectory = Application.ActiveWorkbook.Path
+
+    For Each WS In ThisWorkbook.Worksheets
+        WS.SaveAs SaveToDirectory & WS.Name, xlCSV
+    Next
+End Sub
+
 ''''''''''''''''''''''''''''''''''''''''''''''''''''
 '   Public Sub IOCountByColumn()
 '   Depends on Miscrosoft Scripting Runtime
@@ -22,6 +34,12 @@ Option Explicit
 '           IOCountByColumn "InputSheet", "country", "OutputSheet"
 '           IOCountByColumn "InputSheet", "C", "OutputSheet", "F", False
 '
+'
+'       Notes:
+'           For input and output columns, 3 characters or less is taken as an excel column, not title line text
+'           You can enter multiple columns using a csv string "a,b,c"
+'           later you could have an array of input sheets and an array of csv strings for each sheet.
+'           neh jk...just use MySQL Workbench: http://www.mysql.com/products/workbench/
 ''''''''''''''''''''''''''''''''''''''''''''''''''''
 'todo: finish it, and make a generic mapper
 'note: pre-generic call like IOCountByColumn "registries", "I", "counts"
@@ -29,7 +47,7 @@ Public Sub IOCountByColumn( _
         ByVal sInputSheet As String, _
         ByVal sInputColumn As String, _
         ByVal sOutputSheet As String, _
-        Optional ByVal sOutputColumn As String, _
+        Optional ByVal sOutputColumns As String, _
         Optional ByVal bByTitleLine As Boolean = True)
 
     On Error GoTo Catch
