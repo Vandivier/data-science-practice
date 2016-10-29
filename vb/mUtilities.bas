@@ -9,7 +9,7 @@ Public Sub SaveWorksheetsAsCsv(Optional ByVal SaveToDirectory As String)
     If SaveToDirectory = "" Then SaveToDirectory = Application.ActiveWorkbook.Path
 
     For Each WS In ThisWorkbook.Worksheets
-        WS.SaveAs SaveToDirectory & WS.Name, xlCSV
+        WS.SaveAs SaveToDirectory & "\" & WS.Name, xlCSV
     Next
 End Sub
 
