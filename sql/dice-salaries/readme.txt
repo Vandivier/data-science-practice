@@ -13,6 +13,4 @@ By default, MySQL data export will only produce a script which contains schema a
 Edit this file to allow inclusion of data in MySQL workbench data export:
 C:\ProgramData\MySQL\MySQL Server 5.7\my.ini
 
-The final output at .\sql\dice-salaries\dice-salaries.csv is equivalent to .\datasplash\dice-salaries.csv
-
 After you run dice-salaries.sql you will need to go obtain the csv file and manually add the header text line.
