@@ -155,7 +155,7 @@ CHANGE COLUMN `Abbreviation:` `Abbreviation` TEXT NULL DEFAULT NULL ;
 DELETE from itif_score Where State = 'Average';
 */
 
-SELECT itif.Overall, itif.High_Tech_Jobs, itif.Workforce_Education, dice.salary, dice.year, dice.stateyear
+SELECT itif.Overall, itif.High_Tech_Jobs, itif.Workforce_Education, dice.salary, dice.year, dice.state
 
 /*ref: http://stackoverflow.com/questions/356578/how-to-output-mysql-query-results-in-csv-format */
 /* path must comply with the value of secure-file-priv declared in MySQL 5.7\my.ini */
