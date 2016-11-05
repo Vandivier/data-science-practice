@@ -1,6 +1,29 @@
 Attribute VB_Name = "mUtilities"
 Option Explicit
 
+'takes every nth row from a csv file and writes it into the first sheet of this xlsm
+'assumes the filename is in the same folder as the xlsm
+Public Sub NthRowToSheet(Optional ByVal sFileName As String = "ss15hny", Optional ByVal iNthRow As Integer = 1000)
+    Dim iLines          As Double
+    Dim sTextLine       As String
+    Dim vTextLines      As Variant
+    Dim iOutRow         As Integer
+
+    sFileName = ActiveWorkbook.Path & "\" & sFileName & ".csv"
+    iOutRow = 1
+
+    sTextLine = CreateObject("Scripting.FileSystemObject").OpenTextFile(sFileName).ReadAll
+    vTextLines = Split(sTextLine, vbLf)
+
+    With Sheet1
+        For iLines = 0 To UBound(vTextLines)
+            .Cells(iOutRow, 1).Value = vTextLines(iLines)
+            iLines = iLines + iNthRow
+            iOutRow = iOutRow + 1
+        Next
+    End With
+End Sub
+
 'desc: save each sheet from the current file as a seperate csv in the same directory
 'ref: http://stackoverflow.com/questions/59075/save-each-sheet-in-a-workbook-to-separate-csv-files
 Public Sub SaveWorksheetsAsCsv(Optional ByVal SaveToDirectory As String)
