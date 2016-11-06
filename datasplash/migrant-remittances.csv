@@ -1,521 +1,521 @@
-country,year,outflowMillions
-Austria,2002,1518.0 
-Austria,2003,1874.0 
-Austria,2004,2226.0 
-Austria,2005,2119.6 
-Austria,2006,1405.8 
-Austria,2007,1593.9 
-Austria,2008,1913.3 
-Austria,2009,1881.5 
-Austria,2010,2017.0 
-Austria,2011,2613.1 
-Austria,2012,2519.9 
-Austria,2013,3895.9 
-Austria,2014,4037.3 
-Belgium,2002,1843.0 
-Belgium,2003,2326.0 
-Belgium,2004,2620.0 
-Belgium,2005,2427.2 
-Belgium,2006,2563.6 
-Belgium,2007,3202.2 
-Belgium,2008,4124.2 
-Belgium,2009,4479.4 
-Belgium,2010,4184.9 
-Belgium,2011,4556.5 
-Belgium,2012,4238.8 
-Belgium,2013,4481.6 
-Belgium,2014,4497.1 
-Bulgaria,2002,14.5 
-Bulgaria,2003,12.6 
-Bulgaria,2004,29.4 
-Bulgaria,2005,35.5 
-Bulgaria,2006,49.6 
-Bulgaria,2007,102.6 
-Bulgaria,2008,161.8 
-Bulgaria,2009,101.2 
-Bulgaria,2010,20.3 
-Bulgaria,2011,23.6 
-Bulgaria,2012,27.6 
-Bulgaria,2013,21.3 
-Bulgaria,2014,22.1 
-Croatia,2002,66.7 
-Croatia,2003,98.5 
-Croatia,2004,99.9 
-Croatia,2005,137.6 
-Croatia,2006,183.5 
-Croatia,2007,237.0 
-Croatia,2008,267.2 
-Croatia,2009,235.2 
-Croatia,2010,235.9 
-Croatia,2011,248.7 
-Croatia,2012,247.5 
-Croatia,2013,267.4 
-Croatia,2014,297.2 
-Cyprus,2002,116.6 
-Cyprus,2003,202.0 
-Cyprus,2004,255.2 
-Cyprus,2005,240.7 
-Cyprus,2006,239.5 
-Cyprus,2007,304.7 
-Cyprus,2008,817.4 
-Cyprus,2009,694.3 
-Cyprus,2010,952.2 
-Cyprus,2011,894.9 
-Cyprus,2012,760.0 
-Cyprus,2013,741.8 
-Cyprus,2014,750.8 
-Czech Republic,2002,898.2 
-Czech Republic,2003,1102.6 
-Czech Republic,2004,1435.2 
-Czech Republic,2005,1162.5 
-Czech Republic,2006,1460.3 
-Czech Republic,2007,2075.2 
-Czech Republic,2008,2586.1 
-Czech Republic,2009,2044.6 
-Czech Republic,2010,1497.0 
-Czech Republic,2011,1522.1 
-Czech Republic,2012,1334.6 
-Czech Republic,2013,1079.2 
-Czech Republic,2014,822.3 
-Denmark,2002,860.0 
-Denmark,2003,1030.0 
-Denmark,2004,1230.0 
-Denmark,2005,1487.6 
-Denmark,2006,1766.1 
-Denmark,2007,3019.6 
-Denmark,2008,3976.5 
-Denmark,2009,3425.2 
-Denmark,2010,2825.6 
-Denmark,2011,3133.7 
-Denmark,2012,2949.4 
-Denmark,2013,3059.9 
-Denmark,2014,3152.0 
-Estonia,2002,4.8 
-Estonia,2003,18.5 
-Estonia,2004,26.5 
-Estonia,2005,50.4 
-Estonia,2006,75.4 
-Estonia,2007,92.6 
-Estonia,2008,97.9 
-Estonia,2009,92.4 
-Estonia,2010,123.3 
-Estonia,2011,113.5 
-Estonia,2012,113.2 
-Estonia,2013,100.3 
-Estonia,2014,113.9 
-Finland,2002,113.0 
-Finland,2003,149.0 
-Finland,2004,225.0 
-Finland,2005,266.4 
-Finland,2006,436.7 
-Finland,2007,553.4 
-Finland,2008,685.0 
-Finland,2009,686.1 
-Finland,2010,721.0 
-Finland,2011,444.9 
-Finland,2012,774.7 
-Finland,2013,835.1 
-Finland,2014,835.4 
-France,2002,3810.0 
-France,2003,4390.0 
-France,2004,4260.0 
-France,2005,9474.9 
-France,2006,10281.3 
-France,2007,11947.2 
-France,2008,13269.1 
-France,2009,11757.1 
-France,2010,12029.1 
-France,2011,12849.1 
-France,2012,12565.6 
-France,2013,13317.6 
-France,2014,13834.9 
-Germany,2002,10403.0 
-Germany,2003,11886.0 
-Germany,2004,13003.0 
-Germany,2005,12709.6 
-Germany,2006,12699.5 
-Germany,2007,14081.9 
-Germany,2008,15233.8 
-Germany,2009,15324.0 
-Germany,2010,14685.0 
-Germany,2011,16566.4 
-Germany,2012,15532.6 
-Germany,2013,19870.0 
-Germany,2014,20836.2 
-Greece,2002,412.0 
-Greece,2003,380.0 
-Greece,2004,497.0 
-Greece,2005,902.4 
-Greece,2006,981.9 
-Greece,2007,1459.8 
-Greece,2008,1911.7 
-Greece,2009,1843.0 
-Greece,2010,1932.3 
-Greece,2011,1940.5 
-Greece,2012,1437.9 
-Greece,2013,1291.1 
-Greece,2014,1424.0 
-Hungary,2002,106.7 
-Hungary,2003,114.1 
-Hungary,2004,814.1 
-Hungary,2005,911.6 
-Hungary,2006,981.2 
-Hungary,2007,1367.4 
-Hungary,2008,1526.3 
-Hungary,2009,1192.2 
-Hungary,2010,1133.3 
-Hungary,2011,1194.8 
-Hungary,2012,1088.6 
-Hungary,2013,1100.0 
-Hungary,2014,1053.3 
-Ireland,2002,588.0 
-Ireland,2003,787.9 
-Ireland,2004,997.4 
-Ireland,2005,1440.6 
-Ireland,2006,1852.6 
-Ireland,2007,2520.4 
-Ireland,2008,2672.5 
-Ireland,2009,2548.7 
-Ireland,2010,2266.6 
-Ireland,2011,2193.5 
-Ireland,2012,1996.1 
-Ireland,2013,1957.7 
-Ireland,2014,1959.5 
-Italy,2002,3582.2 
-Italy,2003,4366.6 
-Italy,2004,5513.2 
-Italy,2005,7545.8 
-Italy,2006,8351.8 
-Italy,2007,11182.0 
-Italy,2008,14445.3 
-Italy,2009,14390.1 
-Italy,2010,12885.7 
-Italy,2011,14500.9 
-Italy,2012,11825.7 
-Italy,2013,11629.3 
-Italy,2014,11153.8 
-Latvia,2002,7.6 
-Latvia,2003,8.3 
-Latvia,2004,13.1 
-Latvia,2005,491.4 
-Latvia,2006,892.1 
-Latvia,2007,1117.7 
-Latvia,2008,913.4 
-Latvia,2009,672.8 
-Latvia,2010,443.0 
-Latvia,2011,559.2 
-Latvia,2012,569.2 
-Latvia,2013,607.5 
-Latvia,2014,615.1 
-Lithuania,2002,31.3 
-Lithuania,2003,41.9 
-Lithuania,2004,27.6 
-Lithuania,2005,259.0 
-Lithuania,2006,425.8 
-Lithuania,2007,566.9 
-Lithuania,2008,652.2 
-Lithuania,2009,679.3 
-Lithuania,2010,552.5 
-Lithuania,2011,1025.6 
-Lithuania,2012,1135.0 
-Lithuania,2013,851.9 
-Lithuania,2014,904.6 
-Luxembourg,2002,3952.6 
-Luxembourg,2003,5010.6 
-Luxembourg,2004,6002.1 
-Luxembourg,2005,6699.5 
-Luxembourg,2006,7560.8 
-Luxembourg,2007,9370.2 
-Luxembourg,2008,11006.4 
-Luxembourg,2009,10725.0 
-Luxembourg,2010,10644.5 
-Luxembourg,2011,11720.3 
-Luxembourg,2012,11268.7 
-Luxembourg,2013,12262.4 
-Luxembourg,2014,12699.6 
-Malta,2002,11.3 
-Malta,2003,12.9 
-Malta,2004,21.1 
-Malta,2005,192.3 
-Malta,2006,222.7 
-Malta,2007,258.6 
-Malta,2008,1320.2 
-Malta,2009,1861.3 
-Malta,2010,1611.8 
-Malta,2011,1126.6 
-Malta,2012,1079.9 
-Malta,2013,1047.2 
-Malta,2014,1026.5 
-Netherlands,2002,2893.0 
-Netherlands,2003,4236.0 
-Netherlands,2004,5034.0 
-Netherlands,2005,4547.1 
-Netherlands,2006,6076.2 
-Netherlands,2007,10085.9 
-Netherlands,2008,12696.0 
-Netherlands,2009,11662.5 
-Netherlands,2010,9398.0 
-Netherlands,2011,10246.0 
-Netherlands,2012,9576.0 
-Netherlands,2013,9806.9 
-Netherlands,2014,9945.3 
-Poland,2002,353.0 
-Poland,2003,325.0 
-Poland,2004,658.0 
-Poland,2005,621.0 
-Poland,2006,694.0 
-Poland,2007,1018.0 
-Poland,2008,1474.0 
-Poland,2009,1154.0 
-Poland,2010,1306.0 
-Poland,2011,1395.0 
-Poland,2012,1521.0 
-Poland,2013,1557.0 
-Poland,2014,2185.0 
-Portugal,2002,792.0 
-Portugal,2003,936.0 
-Portugal,2004,1164.0 
-Portugal,2005,436.0 
-Portugal,2006,444.8 
-Portugal,2007,345.6 
-Portugal,2008,387.9 
-Portugal,2009,517.7 
-Portugal,2010,505.8 
-Portugal,2011,627.3 
-Portugal,2012,499.4 
-Portugal,2013,492.8 
-Portugal,2014,441.7 
-Romania,2002,7.0 
-Romania,2003,8.0 
-Romania,2004,8.0 
-Romania,2005,22.3 
-Romania,2006,40.7 
-Romania,2007,55.0 
-Romania,2008,168.5 
-Romania,2009,64.4 
-Romania,2010,88.2 
-Romania,2011,127.8 
-Romania,2012,116.3 
-Romania,2013,547.0 
-Romania,2014,638.2 
-Slovak Republic,2002,11.6 
-Slovak Republic,2003,16.0 
-Slovak Republic,2004,21.9 
-Slovak Republic,2005,50.0 
-Slovak Republic,2006,58.9 
-Slovak Republic,2007,81.9 
-Slovak Republic,2008,152.7 
-Slovak Republic,2009,138.1 
-Slovak Republic,2010,70.0 
-Slovak Republic,2011,69.7 
-Slovak Republic,2012,154.2 
-Slovak Republic,2013,175.3 
-Slovak Republic,2014,225.4 
-Slovenia,2002,46.1 
-Slovenia,2003,66.3 
-Slovenia,2004,80.2 
-Slovenia,2005,90.5 
-Slovenia,2006,139.8 
-Slovenia,2007,247.9 
-Slovenia,2008,380.0 
-Slovenia,2009,245.7 
-Slovenia,2010,196.2 
-Slovenia,2011,197.8 
-Slovenia,2012,186.5 
-Slovenia,2013,203.2 
-Slovenia,2014,215.1 
-Spain,2002,3792.0 
-Spain,2003,5141.0 
-Spain,2004,6975.0 
-Spain,2005,733.2 
-Spain,2006,793.9 
-Spain,2007,897.4 
-Spain,2008,748.9 
-Spain,2009,556.8 
-Spain,2010,433.7 
-Spain,2011,456.1 
-Spain,2012,379.3 
-Spain,2013,332.2 
-Spain,2014,363.4 
-Sweden,2002,508.0 
-Sweden,2003,496.0 
-Sweden,2004,545.0 
-Sweden,2005,536.8 
-Sweden,2006,584.7 
-Sweden,2007,885.2 
-Sweden,2008,914.7 
-Sweden,2009,822.2 
-Sweden,2010,819.6 
-Sweden,2011,1069.7 
-Sweden,2012,1044.5 
-Sweden,2013,1518.0 
-Sweden,2014,1427.3 
-United Kingdom,2002,2438.0 
-United Kingdom,2003,2626.0 
-United Kingdom,2004,3552.0 
-United Kingdom,2005,9643.1 
-United Kingdom,2006,10645.7 
-United Kingdom,2007,11596.6 
-United Kingdom,2008,11211.8 
-United Kingdom,2009,9274.8 
-United Kingdom,2010,9565.1 
-United Kingdom,2011,9931.1 
-United Kingdom,2012,10077.4 
-United Kingdom,2013,10528.1 
-United Kingdom,2014,11569.4 
-Macedonia,2002,23.3 
-Macedonia,2003,16.1 
-Macedonia,2004,16.2 
-Macedonia,2005,15.5 
-Macedonia,2006,17.8 
-Macedonia,2007,24.9 
-Macedonia,2008,33.0 
-Macedonia,2009,26.3 
-Macedonia,2010,22.6 
-Macedonia,2011,24.7 
-Macedonia,2012,23.9 
-Macedonia,2013,24.4 
-Macedonia,2014,24.0 
-Norway,2002,923.0 
-Norway,2003,1430.0 
-Norway,2004,1750.0 
-Norway,2005,2174.0 
-Norway,2006,2596.9 
-Norway,2007,3577.1 
-Norway,2008,4750.0 
-Norway,2009,4174.1 
-Norway,2010,4118.5 
-Norway,2011,4427.0 
-Norway,2012,5099.6 
-Norway,2013,5778.7 
-Norway,2014,5821.6 
-Switzerland,2002,9230.0 
-Switzerland,2003,11450.0 
-Switzerland,2004,12920.0 
-Switzerland,2005,9986.0 
-Switzerland,2006,10705.1 
-Switzerland,2007,12247.7 
-Switzerland,2008,14458.7 
-Switzerland,2009,14906.4 
-Switzerland,2010,16878.3 
-Switzerland,2011,21588.0 
-Switzerland,2012,21966.5 
-Switzerland,2013,23288.7 
-Switzerland,2014,24693.0 
-Australia,2002,1219.0 
-Australia,2003,1777.0 
-Australia,2004,2253.0 
-Australia,2005,1531.1 
-Australia,2006,2051.2 
-Australia,2007,2980.9 
-Australia,2008,3366.4 
-Australia,2009,3224.4 
-Australia,2010,4655.5 
-Australia,2011,6597.6 
-Australia,2012,7288.0 
-Australia,2013,7353.4 
-Australia,2014,6999.9 
-Brazil,2002,360.5 
-Brazil,2003,333.2 
-Brazil,2004,401.1 
-Brazil,2005,374.0 
-Brazil,2006,529.3 
-Brazil,2007,562.6 
-Brazil,2008,813.1 
-Brazil,2009,730.9 
-Brazil,2010,1023.7 
-Brazil,2011,1123.8 
-Brazil,2012,1063.7 
-Brazil,2013,1150.2 
-Brazil,2014,1538.8 
-China,2002,1223.0 
-China,2003,1597.0 
-China,2004,1996.0 
-China,2005,1817.0 
-China,2006,2330.0 
-China,2007,2493.0 
-China,2008,2736.0 
-China,2009,2052.0 
-China,2010,1455.0 
-China,2011,1618.0 
-China,2012,1788.0 
-China,2013,1714.0 
-China,2014,4155.0 
-India,2002,1187.0 
-India,2003,1265.0 
-India,2004,1653.0 
-India,2005,1348.3 
-India,2006,1561.9 
-India,2007,2059.3 
-India,2008,3812.4 
-India,2009,2890.0 
-India,2010,3828.7 
-India,2011,4077.7 
-India,2012,4963.1 
-India,2013,6412.8 
-India,2014,6222.1 
-Japan,2002,3345.0 
-Japan,2003,1773.0 
-Japan,2004,1411.0 
-Japan,2005,1149.5 
-Japan,2006,3332.2 
-Japan,2007,3639.4 
-Japan,2008,4548.1 
-Japan,2009,3932.0 
-Japan,2010,4365.7 
-Japan,2011,4536.2 
-Japan,2012,4042.6 
-Japan,2013,2872.3 
-Japan,2014,4214.8 
-Korea,2002,5843.8 
-Korea,2003,7932.3 
-Korea,2004,8306.0 
-Korea,2005,6667.3 
-Korea,2006,7215.1 
-Korea,2007,7723.1 
-Korea,2008,7545.2 
-Korea,2009,7152.7 
-Korea,2010,9123.0 
-Korea,2011,9585.9 
-Korea,2012,9380.3 
-Korea,2013,8990.9 
-Korea,2014,9570.5 
-New Zealand,2002,393.1 
-New Zealand,2003,605.3 
-New Zealand,2004,858.4 
-New Zealand,2005,647.3 
-New Zealand,2006,552.0 
-New Zealand,2007,622.6 
-New Zealand,2008,624.3 
-New Zealand,2009,524.5 
-New Zealand,2010,533.9 
-New Zealand,2011,609.8 
-New Zealand,2012,661.6 
-New Zealand,2013,707.9 
-New Zealand,2014,709.0 
-Russian Federation,2002,2226.0 
-Russian Federation,2003,3237.0 
-Russian Federation,2004,5180.0 
-Russian Federation,2005,6827.2 
-Russian Federation,2006,12104.4 
-Russian Federation,2007,19880.6 
-Russian Federation,2008,29718.8 
-Russian Federation,2009,21147.7 
-Russian Federation,2010,21454.0 
-Russian Federation,2011,26010.5 
-Russian Federation,2012,31647.7 
-Russian Federation,2013,37216.7 
-Russian Federation,2014,32640.4 
-United States,2002,40200.0 
-United States,2003,40000.0 
-United States,2004,43400.0 
-United States,2005,47254.0 
-United States,2006,50756.0 
-United States,2007,52650.0 
-United States,2008,55527.0 
-United States,2009,50723.0 
-United States,2010,50776.0 
-United States,2011,50556.0 
-United States,2012,52652.0 
-United States,2013,55469.0 
-United States,2014,56311.0 
+country,outflowMillions,year
+Austria,1518,2002
+Belgium,1843,2002
+Bulgaria,14.5,2002
+Croatia,66.7,2002
+Cyprus,116.6,2002
+Czech Republic,898.2,2002
+Denmark,860,2002
+Estonia,4.8,2002
+Finland,113,2002
+France,3810,2002
+Germany,10403,2002
+Greece,412,2002
+Hungary,106.7,2002
+Ireland,588,2002
+Italy,3582.2,2002
+Latvia,7.6,2002
+Lithuania,31.3,2002
+Luxembourg,3952.6,2002
+Malta,11.3,2002
+Netherlands,2893,2002
+Poland,353,2002
+Portugal,792,2002
+Romania,7,2002
+Slovak Republic,11.6,2002
+Slovenia,46.1,2002
+Spain,3792,2002
+Sweden,508,2002
+United Kingdom,2438,2002
+Macedonia,23.3,2002
+Norway,923,2002
+Switzerland,9230,2002
+Australia,1219,2002
+Brazil,360.5,2002
+China,1223,2002
+India,1187,2002
+Japan,3345,2002
+Korea,5843.8,2002
+New Zealand,393.1,2002
+Russian Federation,2226,2002
+United States,40200,2002
+Austria,1874,2003
+Belgium,2326,2003
+Bulgaria,12.6,2003
+Croatia,98.5,2003
+Cyprus,202,2003
+Czech Republic,1102.6,2003
+Denmark,1030,2003
+Estonia,18.5,2003
+Finland,149,2003
+France,4390,2003
+Germany,11886,2003
+Greece,380,2003
+Hungary,114.1,2003
+Ireland,787.9,2003
+Italy,4366.6,2003
+Latvia,8.3,2003
+Lithuania,41.9,2003
+Luxembourg,5010.6,2003
+Malta,12.9,2003
+Netherlands,4236,2003
+Poland,325,2003
+Portugal,936,2003
+Romania,8,2003
+Slovak Republic,16,2003
+Slovenia,66.3,2003
+Spain,5141,2003
+Sweden,496,2003
+United Kingdom,2626,2003
+Macedonia,16.1,2003
+Norway,1430,2003
+Switzerland,11450,2003
+Australia,1777,2003
+Brazil,333.2,2003
+China,1597,2003
+India,1265,2003
+Japan,1773,2003
+Korea,7932.3,2003
+New Zealand,605.3,2003
+Russian Federation,3237,2003
+United States,40000,2003
+Austria,2226,2004
+Belgium,2620,2004
+Bulgaria,29.4,2004
+Croatia,99.9,2004
+Cyprus,255.2,2004
+Czech Republic,1435.2,2004
+Denmark,1230,2004
+Estonia,26.5,2004
+Finland,225,2004
+France,4260,2004
+Germany,13003,2004
+Greece,497,2004
+Hungary,814.1,2004
+Ireland,997.4,2004
+Italy,5513.2,2004
+Latvia,13.1,2004
+Lithuania,27.6,2004
+Luxembourg,6002.1,2004
+Malta,21.1,2004
+Netherlands,5034,2004
+Poland,658,2004
+Portugal,1164,2004
+Romania,8,2004
+Slovak Republic,21.9,2004
+Slovenia,80.2,2004
+Spain,6975,2004
+Sweden,545,2004
+United Kingdom,3552,2004
+Macedonia,16.2,2004
+Norway,1750,2004
+Switzerland,12920,2004
+Australia,2253,2004
+Brazil,401.1,2004
+China,1996,2004
+India,1653,2004
+Japan,1411,2004
+Korea,8306,2004
+New Zealand,858.4,2004
+Russian Federation,5180,2004
+United States,43400,2004
+Austria,2119.6,2005
+Belgium,2427.2,2005
+Bulgaria,35.5,2005
+Croatia,137.6,2005
+Cyprus,240.7,2005
+Czech Republic,1162.5,2005
+Denmark,1487.6,2005
+Estonia,50.4,2005
+Finland,266.4,2005
+France,9474.9,2005
+Germany,12709.6,2005
+Greece,902.4,2005
+Hungary,911.6,2005
+Ireland,1440.6,2005
+Italy,7545.8,2005
+Latvia,491.4,2005
+Lithuania,259,2005
+Luxembourg,6699.5,2005
+Malta,192.3,2005
+Netherlands,4547.1,2005
+Poland,621,2005
+Portugal,436,2005
+Romania,22.3,2005
+Slovak Republic,50,2005
+Slovenia,90.5,2005
+Spain,733.2,2005
+Sweden,536.8,2005
+United Kingdom,9643.1,2005
+Macedonia,15.5,2005
+Norway,2174,2005
+Switzerland,9986,2005
+Australia,1531.1,2005
+Brazil,374,2005
+China,1817,2005
+India,1348.3,2005
+Japan,1149.5,2005
+Korea,6667.3,2005
+New Zealand,647.3,2005
+Russian Federation,6827.2,2005
+United States,47254,2005
+Austria,1405.8,2006
+Belgium,2563.6,2006
+Bulgaria,49.6,2006
+Croatia,183.5,2006
+Cyprus,239.5,2006
+Czech Republic,1460.3,2006
+Denmark,1766.1,2006
+Estonia,75.4,2006
+Finland,436.7,2006
+France,10281.3,2006
+Germany,12699.5,2006
+Greece,981.9,2006
+Hungary,981.2,2006
+Ireland,1852.6,2006
+Italy,8351.8,2006
+Latvia,892.1,2006
+Lithuania,425.8,2006
+Luxembourg,7560.8,2006
+Malta,222.7,2006
+Netherlands,6076.2,2006
+Poland,694,2006
+Portugal,444.8,2006
+Romania,40.7,2006
+Slovak Republic,58.9,2006
+Slovenia,139.8,2006
+Spain,793.9,2006
+Sweden,584.7,2006
+United Kingdom,10645.7,2006
+Macedonia,17.8,2006
+Norway,2596.9,2006
+Switzerland,10705.1,2006
+Australia,2051.2,2006
+Brazil,529.3,2006
+China,2330,2006
+India,1561.9,2006
+Japan,3332.2,2006
+Korea,7215.1,2006
+New Zealand,552,2006
+Russian Federation,12104.4,2006
+United States,50756,2006
+Austria,1593.9,2007
+Belgium,3202.2,2007
+Bulgaria,102.6,2007
+Croatia,237,2007
+Cyprus,304.7,2007
+Czech Republic,2075.2,2007
+Denmark,3019.6,2007
+Estonia,92.6,2007
+Finland,553.4,2007
+France,11947.2,2007
+Germany,14081.9,2007
+Greece,1459.8,2007
+Hungary,1367.4,2007
+Ireland,2520.4,2007
+Italy,11182,2007
+Latvia,1117.7,2007
+Lithuania,566.9,2007
+Luxembourg,9370.2,2007
+Malta,258.6,2007
+Netherlands,10085.9,2007
+Poland,1018,2007
+Portugal,345.6,2007
+Romania,55,2007
+Slovak Republic,81.9,2007
+Slovenia,247.9,2007
+Spain,897.4,2007
+Sweden,885.2,2007
+United Kingdom,11596.6,2007
+Macedonia,24.9,2007
+Norway,3577.1,2007
+Switzerland,12247.7,2007
+Australia,2980.9,2007
+Brazil,562.6,2007
+China,2493,2007
+India,2059.3,2007
+Japan,3639.4,2007
+Korea,7723.1,2007
+New Zealand,622.6,2007
+Russian Federation,19880.6,2007
+United States,52650,2007
+Austria,1913.3,2008
+Belgium,4124.2,2008
+Bulgaria,161.8,2008
+Croatia,267.2,2008
+Cyprus,817.4,2008
+Czech Republic,2586.1,2008
+Denmark,3976.5,2008
+Estonia,97.9,2008
+Finland,685,2008
+France,13269.1,2008
+Germany,15233.8,2008
+Greece,1911.7,2008
+Hungary,1526.3,2008
+Ireland,2672.5,2008
+Italy,14445.3,2008
+Latvia,913.4,2008
+Lithuania,652.2,2008
+Luxembourg,11006.4,2008
+Malta,1320.2,2008
+Netherlands,12696,2008
+Poland,1474,2008
+Portugal,387.9,2008
+Romania,168.5,2008
+Slovak Republic,152.7,2008
+Slovenia,380,2008
+Spain,748.9,2008
+Sweden,914.7,2008
+United Kingdom,11211.8,2008
+Macedonia,33,2008
+Norway,4750,2008
+Switzerland,14458.7,2008
+Australia,3366.4,2008
+Brazil,813.1,2008
+China,2736,2008
+India,3812.4,2008
+Japan,4548.1,2008
+Korea,7545.2,2008
+New Zealand,624.3,2008
+Russian Federation,29718.8,2008
+United States,55527,2008
+Austria,1881.5,2009
+Belgium,4479.4,2009
+Bulgaria,101.2,2009
+Croatia,235.2,2009
+Cyprus,694.3,2009
+Czech Republic,2044.6,2009
+Denmark,3425.2,2009
+Estonia,92.4,2009
+Finland,686.1,2009
+France,11757.1,2009
+Germany,15324,2009
+Greece,1843,2009
+Hungary,1192.2,2009
+Ireland,2548.7,2009
+Italy,14390.1,2009
+Latvia,672.8,2009
+Lithuania,679.3,2009
+Luxembourg,10725,2009
+Malta,1861.3,2009
+Netherlands,11662.5,2009
+Poland,1154,2009
+Portugal,517.7,2009
+Romania,64.4,2009
+Slovak Republic,138.1,2009
+Slovenia,245.7,2009
+Spain,556.8,2009
+Sweden,822.2,2009
+United Kingdom,9274.8,2009
+Macedonia,26.3,2009
+Norway,4174.1,2009
+Switzerland,14906.4,2009
+Australia,3224.4,2009
+Brazil,730.9,2009
+China,2052,2009
+India,2890,2009
+Japan,3932,2009
+Korea,7152.7,2009
+New Zealand,524.5,2009
+Russian Federation,21147.7,2009
+United States,50723,2009
+Austria,2017,2010
+Belgium,4184.9,2010
+Bulgaria,20.3,2010
+Croatia,235.9,2010
+Cyprus,952.2,2010
+Czech Republic,1497,2010
+Denmark,2825.6,2010
+Estonia,123.3,2010
+Finland,721,2010
+France,12029.1,2010
+Germany,14685,2010
+Greece,1932.3,2010
+Hungary,1133.3,2010
+Ireland,2266.6,2010
+Italy,12885.7,2010
+Latvia,443,2010
+Lithuania,552.5,2010
+Luxembourg,10644.5,2010
+Malta,1611.8,2010
+Netherlands,9398,2010
+Poland,1306,2010
+Portugal,505.8,2010
+Romania,88.2,2010
+Slovak Republic,70,2010
+Slovenia,196.2,2010
+Spain,433.7,2010
+Sweden,819.6,2010
+United Kingdom,9565.1,2010
+Macedonia,22.6,2010
+Norway,4118.5,2010
+Switzerland,16878.3,2010
+Australia,4655.5,2010
+Brazil,1023.7,2010
+China,1455,2010
+India,3828.7,2010
+Japan,4365.7,2010
+Korea,9123,2010
+New Zealand,533.9,2010
+Russian Federation,21454,2010
+United States,50776,2010
+Austria,2613.1,2011
+Belgium,4556.5,2011
+Bulgaria,23.6,2011
+Croatia,248.7,2011
+Cyprus,894.9,2011
+Czech Republic,1522.1,2011
+Denmark,3133.7,2011
+Estonia,113.5,2011
+Finland,444.9,2011
+France,12849.1,2011
+Germany,16566.4,2011
+Greece,1940.5,2011
+Hungary,1194.8,2011
+Ireland,2193.5,2011
+Italy,14500.9,2011
+Latvia,559.2,2011
+Lithuania,1025.6,2011
+Luxembourg,11720.3,2011
+Malta,1126.6,2011
+Netherlands,10246,2011
+Poland,1395,2011
+Portugal,627.3,2011
+Romania,127.8,2011
+Slovak Republic,69.7,2011
+Slovenia,197.8,2011
+Spain,456.1,2011
+Sweden,1069.7,2011
+United Kingdom,9931.1,2011
+Macedonia,24.7,2011
+Norway,4427,2011
+Switzerland,21588,2011
+Australia,6597.6,2011
+Brazil,1123.8,2011
+China,1618,2011
+India,4077.7,2011
+Japan,4536.2,2011
+Korea,9585.9,2011
+New Zealand,609.8,2011
+Russian Federation,26010.5,2011
+United States,50556,2011
+Austria,2519.9,2012
+Belgium,4238.8,2012
+Bulgaria,27.6,2012
+Croatia,247.5,2012
+Cyprus,760,2012
+Czech Republic,1334.6,2012
+Denmark,2949.4,2012
+Estonia,113.2,2012
+Finland,774.7,2012
+France,12565.6,2012
+Germany,15532.6,2012
+Greece,1437.9,2012
+Hungary,1088.6,2012
+Ireland,1996.1,2012
+Italy,11825.7,2012
+Latvia,569.2,2012
+Lithuania,1135,2012
+Luxembourg,11268.7,2012
+Malta,1079.9,2012
+Netherlands,9576,2012
+Poland,1521,2012
+Portugal,499.4,2012
+Romania,116.3,2012
+Slovak Republic,154.2,2012
+Slovenia,186.5,2012
+Spain,379.3,2012
+Sweden,1044.5,2012
+United Kingdom,10077.4,2012
+Macedonia,23.9,2012
+Norway,5099.6,2012
+Switzerland,21966.5,2012
+Australia,7288,2012
+Brazil,1063.7,2012
+China,1788,2012
+India,4963.1,2012
+Japan,4042.6,2012
+Korea,9380.3,2012
+New Zealand,661.6,2012
+Russian Federation,31647.7,2012
+United States,52652,2012
+Austria,3895.9,2013
+Belgium,4481.6,2013
+Bulgaria,21.3,2013
+Croatia,267.4,2013
+Cyprus,741.8,2013
+Czech Republic,1079.2,2013
+Denmark,3059.9,2013
+Estonia,100.3,2013
+Finland,835.1,2013
+France,13317.6,2013
+Germany,19870,2013
+Greece,1291.1,2013
+Hungary,1100,2013
+Ireland,1957.7,2013
+Italy,11629.3,2013
+Latvia,607.5,2013
+Lithuania,851.9,2013
+Luxembourg,12262.4,2013
+Malta,1047.2,2013
+Netherlands,9806.9,2013
+Poland,1557,2013
+Portugal,492.8,2013
+Romania,547,2013
+Slovak Republic,175.3,2013
+Slovenia,203.2,2013
+Spain,332.2,2013
+Sweden,1518,2013
+United Kingdom,10528.1,2013
+Macedonia,24.4,2013
+Norway,5778.7,2013
+Switzerland,23288.7,2013
+Australia,7353.4,2013
+Brazil,1150.2,2013
+China,1714,2013
+India,6412.8,2013
+Japan,2872.3,2013
+Korea,8990.9,2013
+New Zealand,707.9,2013
+Russian Federation,37216.7,2013
+United States,55469,2013
+Austria,4037.3,2014
+Belgium,4497.1,2014
+Bulgaria,22.1,2014
+Croatia,297.2,2014
+Cyprus,750.8,2014
+Czech Republic,822.3,2014
+Denmark,3152,2014
+Estonia,113.9,2014
+Finland,835.4,2014
+France,13834.9,2014
+Germany,20836.2,2014
+Greece,1424,2014
+Hungary,1053.3,2014
+Ireland,1959.5,2014
+Italy,11153.8,2014
+Latvia,615.1,2014
+Lithuania,904.6,2014
+Luxembourg,12699.6,2014
+Malta,1026.5,2014
+Netherlands,9945.3,2014
+Poland,2185,2014
+Portugal,441.7,2014
+Romania,638.2,2014
+Slovak Republic,225.4,2014
+Slovenia,215.1,2014
+Spain,363.4,2014
+Sweden,1427.3,2014
+United Kingdom,11569.4,2014
+Macedonia,24,2014
+Norway,5821.6,2014
+Switzerland,24693,2014
+Australia,6999.9,2014
+Brazil,1538.8,2014
+China,4155,2014
+India,6222.1,2014
+Japan,4214.8,2014
+Korea,9570.5,2014
+New Zealand,709,2014
+Russian Federation,32640.4,2014
+United States,56311,2014
