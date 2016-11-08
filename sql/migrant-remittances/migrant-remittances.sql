@@ -24,3 +24,5 @@ INTO OUTFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/migrant-remittances.
   OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n'
 FROM migrant_remittances.migrant_remittances_in;
+
+/* add title line to csv by hand */
