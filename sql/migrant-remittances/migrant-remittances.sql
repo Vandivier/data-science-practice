@@ -1,7 +1,8 @@
 CREATE SCHEMA `migrant_remittances`;
 
 /*
-Import oecd.csv and outflows.csv
+Import oecd.csv, gdp-2008, and outflows.csv
+gdp-2008 obtained for countries from: SELECT DISTINCT migrant_remittances.country FROM migrant_remittances.migrant_remittances_in;
 transform outflows.csv to migrant_remittances_in.csv
 */
 
@@ -23,6 +24,8 @@ INTO OUTFILE 'C:/ProgramData/MySQL/MySQL Server 5.7/Uploads/migrant-remittances.
   FIELDS TERMINATED BY ','
   OPTIONALLY ENCLOSED BY '"'
   LINES TERMINATED BY '\n'
-FROM migrant_remittances.migrant_remittances_in;
+FROM migrant_remittances.migrant_remittances_in AS indata
+INNER JOIN migrant_remittances.gdp_2008
+  ON indata.country = gdp_2008.country;
 
 /* add title line to csv by hand */
