@@ -12,3 +12,7 @@ q3          -
 q4          -
 q5          -
 usregion    -
+
+croissants.docx is a term paper for John Vandivier
+Fall 2016, Microeconometrics, ECON 895 at GMU
+Taught by Prof. Thomas Stratmann
