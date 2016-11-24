@@ -1,14 +1,25 @@
 Attribute VB_Name = "mUtilities"
 Option Explicit
 
+'pass in a reduction factor and get a random seed to use in NthRowToSheet
+'a reduction factor means eg I have 1M rows and I want n = 100, my factor = 1000
+'ref: https://www.techonthenet.com/excel/formulas/rnd.php
+'7 is an arbitrary seed to the random generator
+'it will return 0 < X <= iReductionFactor
+Public Function GetRandomSeed(ByVal iReductionFactor As Integer) As Integer
+    GetRandomSeed = Int(1 + iReductionFactor * Rnd(7))
+End Function
+
 'takes every nth row from a csv file and writes it into the first sheet of this xlsm
 'assumes the filename is in the same folder as the xlsm
-Public Sub NthRowToSheet(Optional ByVal sFileName As String = "ss15hny", Optional ByVal iNthRow As Integer = 1000)
+Public Sub NthRowToSheet(Optional ByVal sFileName As String = "input", Optional ByVal iReductionFactor As Integer = 1000)
     Dim iLines          As Double
     Dim sTextLine       As String
     Dim vTextLines      As Variant
     Dim iOutRow         As Integer
+    Dim iNthRow         As Integer
 
+    iNthRow = GetRandomSeed(iReductionFactor)
     sFileName = ActiveWorkbook.Path & "\" & sFileName & ".csv"
     iOutRow = 1
 
