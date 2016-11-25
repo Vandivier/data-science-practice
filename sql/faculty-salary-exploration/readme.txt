@@ -34,3 +34,5 @@ but only those universities with some sort of open salary or right-to-know initi
 all salary data is from 2015 or 2016
 only investigated econ depts so far (11/25/16)
 
+Other factors to consider: Is pay 9 month, 11, or 12?
+Individual-level reporting usually due to state policy, not university policy
