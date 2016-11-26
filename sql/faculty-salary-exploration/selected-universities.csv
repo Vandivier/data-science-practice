@@ -1,5 +1,5 @@
 school,state,dept,2ndlowestecon,2ndhighestecon,per_spread,abs_spread,allDeptAvgSalary,totalEnrollment,enrollmentYear,acceptanceRate,acceptanceYear,salary_source,econ_faculty_source,notes
-Troy University at Montgomery,AL,,,,,,,,,,,,,
+Troy University (Troy),AL,,,,,,,"18,440",2016,44.1,2014,http://openalabama.troy.edu/chkregister/,http://business.troy.edu/JohnsonCenter/faculty-staff.aspx,
 University of Central Arkansas (UCA),AR,,87500,94530,8.034285714,7030,,,,,,http://www.arkansasonline.com/right2know/colleges/,,right to know state
 "California State University, Channel Islands (CSUCI or CI)",CA,,,,,,,,,,,,,
 "San Diego State University (SDSU, San Diego State)",CA,,,,,,,,,,,,,
@@ -8,7 +8,7 @@ University of West Florida (UWF),FL,,"110,488.00","132,623.00",20.03384983,22135
 Georgia Gwinnett College,GA,,,,,,,11468,,0.96,,,,
 University of Hawaii at Manoa (Hawaii or UH),HI,,101292,188767.56,86.35979149,87475.56,,18865,,0.81,,https://www.uhpa.org/salary-research/department-salaries/,,"2nd highest is estimated, not observed; no individual lvl data but percentile data available allowing us to back out lower and estimate upper salary"
 Northern Illinois University (NIU),IL,,84872.6,102976.68,21.33088889,18104.08,,20130,,0.509,,http://salarysearch.ibhe.org/search.aspx,http://www.niu.edu/econ/about/faculty_info.shtml,Inidividual level published by Illinois Board of Higher Ed (right-to-know-ish but technically nah)
-"University of Louisville (Louisville, U of L, or UL)",KY,,,,,,,22599,2014,0.74,2014,,,
+"University of Louisville (Louisville, U of L, or UL)",KY,,,,,,,22599,2014,0.74,2014,,,econ dept under college of business
 Nicholls State University,LA,,,,,,,,,,,,,
 "University of Maine at Presque Isle (UMaine Presque Isle, UM-Presque Isle, or UMPI, pronounced ""UM PI"")",MA,,,,,,,,,,,,,
 University of Maryland University College (UMUC),MD,,,,,,,,,,,,,

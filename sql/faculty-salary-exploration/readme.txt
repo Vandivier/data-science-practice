@@ -16,7 +16,7 @@ Thrown out:
 Visiting Assistant Professor
 Senior Lecturer
 Adjunct
-
+Instructor
 
 In general, individual-level salary data is not centrally provided.
 The National Center for Education Statistics provides useful aggregated data.
