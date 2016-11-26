@@ -17,6 +17,7 @@ Visiting Assistant Professor
 Senior Lecturer
 Adjunct
 Instructor
+Executive-in-Residence
 
 In general, individual-level salary data is not centrally provided.
 The National Center for Education Statistics provides useful aggregated data.
@@ -36,3 +37,7 @@ only investigated econ depts so far (11/25/16)
 
 Other factors to consider: Is pay 9 month, 11, or 12?
 Individual-level reporting usually due to state policy, not university policy
+
+nProf_econ is the number of professors counted in the economics department.
+Note: individuals identified with unidentified salary were not included in the count
+
