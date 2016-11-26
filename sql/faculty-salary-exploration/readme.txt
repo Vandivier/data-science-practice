@@ -16,6 +16,7 @@ Thrown out:
 Visiting Assistant Professor
 Senior Lecturer
 Adjunct
+Adjunct Professor
 Instructor
 Executive-in-Residence
 
