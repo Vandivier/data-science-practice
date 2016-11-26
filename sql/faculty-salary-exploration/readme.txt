@@ -33,11 +33,11 @@ or that lower-paying schools do not care to engage in such initiaitives. So the 
 but only those universities with some sort of open salary or right-to-know initiative.
 
 all salary data is from 2015 or 2016
-only investigated econ depts so far (11/25/16)
-
 Other factors to consider: Is pay 9 month, 11, or 12?
 Individual-level reporting usually due to state policy, not university policy
 
 nProf_econ is the number of professors counted in the economics department.
 Note: individuals identified with unidentified salary were not included in the count
 
+If I have documentation showing an individual was given salary for less than a full year (eg, new hire)
+    then I included them in the nProf_econ but not toward the lowest/highest paid.

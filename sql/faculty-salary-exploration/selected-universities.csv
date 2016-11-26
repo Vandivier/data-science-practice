@@ -1,21 +1,21 @@
 school,state,2nd_low_econ,2nd_high_econ,per_spread,abs_spread,allDeptAvgSalary,nProf_econ,enrollment,enroll_year,acc_rate,acc_year,salary_source,econ_faculty_source,notes
 Troy University (Troy),AL,"$84,538.28 ","$125,065.80 ",47.93984453,40527.52,,7,"18,440",2016,0.441,2014,http://openalabama.troy.edu/chkregister/,http://business.troy.edu/JohnsonCenter/faculty-staff.aspx,
-University of Central Arkansas (UCA),AR,87500,94530,8.034285714,7030,,5,"11,754",2015,0.943,2014,http://www.arkansasonline.com/right2know/colleges/,,right to know state
-"California State University, Channel Islands",CA,,,,,,,"6,167",2014,0.724,2015,,,
-"San Diego State University (SDSU, San Diego State)",CA,,,,,,,"34,254",2015,0.342,2015,,,
-UConn Waterbury,CT,,,,,,,2384,2015,0.658,2015,,,"AKA ""Tri Campus"" http://colleges.startclass.com/l/6025/University-of-Connecticut-Tri-Campus"
+University of Central Arkansas (UCA),AR,87500,94530,8.034285714,7030,,5,"11,754",2015,0.943,2014,http://www.arkansasonline.com/right2know/colleges/,http://www.arkansasonline.com/right2know/colleges/,"right to know state. Obtained faculty by searching dept = ""econ"""
+"California State University, Channel Islands",CA,,,,,,6,"6,167",2014,0.724,2015,,http://econ.csuci.edu/faculty.htm,
+"San Diego State University (SDSU, San Diego State)",CA,,,,,,15,"34,254",2015,0.342,2015,,http://economics.sdsu.edu/faculty/index.html,
+UConn Waterbury,CT,,,,,,0,2384,2015,0.658,2015,,http://waterbury.uconn.edu/faculty-directory/,"No econ program. This campus aka ""Tri Campus"" http://colleges.startclass.com/l/6025/University-of-Connecticut-Tri-Campus"
 University of West Florida (UWF),FL,"110,488.00","132,623.00",20.03384983,22135,,10,"12,798",2015,0.417,2015,http://floridahasarighttoknow.myflorida.com/search_state_payroll,http://uwf.edu/cob/departments/marketing-and-economics/our-faculty/faculty-profiles/,right to know state
-Georgia Gwinnett College,GA,,,,,,,11468,2016,0.84,2015,,,
-University of Hawaii at Manoa (Hawaii or UH),HI,101292,188767.56,86.35979149,87475.56,,,18865,2015,0.81,2015,https://www.uhpa.org/salary-research/department-salaries/,,"2nd highest is estimated, not observed; no individual lvl data but percentile data available allowing us to back out lower and estimate upper salary"
+Georgia Gwinnett College,GA,,,,,,11,11468,2016,0.84,2015,,http://www.ggc.edu/academics/schools/school-of-business/meet-our-faculty-and-staff/,
+University of Hawaii at Manoa (Hawaii or UH),HI,101292,188767.56,86.35979149,87475.56,,19,18865,2015,0.81,2015,https://www.uhpa.org/salary-research/department-salaries/,www.economics.hawaii.edu/people/,"2nd highest is estimated, not observed; no individual lvl data but percentile data available allowing us to back out lower and estimate upper salary"
 Northern Illinois University (NIU),IL,84872.6,102976.68,21.33088889,18104.08,,8,20130,2015,0.509,2014,http://salarysearch.ibhe.org/search.aspx,http://www.niu.edu/econ/about/faculty_info.shtml,Inidividual level published by Illinois Board of Higher Ed (right-to-know-ish but technically nah)
 University of Louisville (U of L),KY,"91,939.00","168,579.00",83.35961888,76640,,13,22599,2014,0.74,2014,http://opendoor.ky.gov/search/Pages/SalarySearch.aspx,http://business.louisville.edu/faculty-and-staff-directory/econ/,state open door policy
-Nicholls State University,LA,,,,,,,,,,,,,
-"University of Maine at Presque Isle (UMaine Presque Isle, UM-Presque Isle, or UMPI, pronounced ""UM PI"")",MA,,,,,,,,,,,,,
-University of Maryland University College (UMUC),MD,,,,,,,,,,,,,
-Massachusetts College of Liberal Arts,MA,,,,,,,,,,,,,
-Wayne State University,MI,,,,,,,,,,,,,
-Delta State University (Delta State),MS,,,,,,,,,,,,,
-Missouri State University,MO,,,,,,,,,,,,,
+Nicholls State University,LA,,,,,,2,6267,2016,0.884,2014,,https://www.nicholls.edu/business/faculty-staff/,2 econ profs in business school but no econ program. https://www.nicholls.edu/business/degree-programs/
+"University of Maine at Presque Isle (UMaine Presque Isle, UM-Presque Isle, or UMPI, pronounced ""UM PI"")",MA,,,,,,0,"1,289",2016,0.77,2015,,,no econ program. http://www.umpi.edu/academics/
+University of Maryland University College (UMUC),MD,,,,,,0,"84,801",2014,1,2015,,https://www.econ.umd.edu/facultystaff/Faculty,no econ program. https://www.umuc.edu/academic-programs/index.cfm
+Massachusetts College of Liberal Arts,MA,,,,,,0,"1,457",2015,0.723,2014,,,no economics http://www.mcla.edu/Academics/undergraduate/index
+Wayne State University (Wayne),MI,"$90,752.00 ","$140,968.00 ",55.3332158,50216,,12,"27,222",2015,0.773,2014,http://www.waynestatesalaries.info/search_people,http://clas.wayne.edu/Economics/Directory,
+Delta State University (Delta State),MS,,,,,,0,"3,324",2014,0.923,2014,,http://www.deltastate.edu/contacts/,no econ program
+Missouri State University (Missouri),MO,91968.66,99532.89,8.224790923,7564.23,,7,"26,000",2016,0.85,2014,http://php.news-leader.com/2015salaries/msu.html,http://www.missouristate.edu/econ/faculty.aspx,
 University of Nebraska at Kearney,NE,,,,,,,,,,,,,
 Montclair State University,NJ,,,,,,,,,,,,,
 New Mexico Institute of Mining and Technology (New Mexico Tech),NM,,,,,,,,,,,,,
