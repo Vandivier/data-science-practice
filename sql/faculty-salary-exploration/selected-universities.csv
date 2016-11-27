@@ -1,4 +1,4 @@
-school,nickname,state,2nd_low_econ,2nd_high_econ,per_spread,abs_spread,allDeptAvgSalary,obfuscated,noDept,obf_or_noDept,nProf_econ,tot_enroll,enroll_year,acc_rate,acc_year,salary_source,econ_faculty_source,notes
+school,nickname,state,2nd_low_econ,2nd_high_econ,per_spread,abs_spread,allDeptAvgSalary,noSalary,noDept,opaque,nProf_econ,tot_enroll,enroll_year,acc_rate,acc_year,salary_source,econ_faculty_source,notes
 Troy University,Troy,AL,"$84,538.28 ","$125,065.80 ",47.93984453,40527.52,,0,0,0,7,"18,440",2016,0.441,2014,http://openalabama.troy.edu/chkregister/,http://business.troy.edu/JohnsonCenter/faculty-staff.aspx,
 University of Central Arkansas,UCA,AR,87500,94530,8.034285714,7030,,0,0,0,5,"11,754",2015,0.943,2014,http://www.arkansasonline.com/right2know/colleges/,http://www.arkansasonline.com/right2know/colleges/,"right to know state. Obtained faculty by searching dept = ""econ"""
 "California State University, Channel Islands",CSUCI,CA,,,,,,1,0,1,6,"6,167",2014,0.724,2015,,http://econ.csuci.edu/faculty.htm,

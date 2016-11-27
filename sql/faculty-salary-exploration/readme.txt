@@ -42,3 +42,5 @@ Note: individuals identified with unidentified salary were not included in the c
 
 If I have documentation showing an individual was given salary for less than a full year (eg, new hire)
     then I included them in the nProf_econ but not toward the lowest/highest paid.
+
+opaque === noDept || noSalary;
