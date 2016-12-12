@@ -1,13 +1,18 @@
 import delimited D:\GitHub\data-science-practice\stata\croissants\croissants.csv
-sum q_*
-sum q* if illegal == 0
-sum del*
-sum del* if illegal == 0
-clear
 
-import delimited D:\GitHub\data-science-practice\stata\croissants\stacked.csv
+label var q_5 "Q5"
+label var q_6 "Q6"
+label var q_7 "Q7"
+label var q_8 "Q8"
+label var q_9 "Q9"
+label var deltadelta "DID"
+estpost summarize q_5 q_6 q_7 q_8 q_9 deltadelta, listwise
+esttab, cells("mean sd min max") nomtitle nonumber
+
 
 /*
+clear
+import delimited D:\GitHub\data-science-practice\stata\croissants\stacked.csv
 reg quantity treatment price confidence gender zerobaseline i.agegroup i.incomegroup i.ethgroup i.usregion
 
 gen age3 = 0
@@ -32,7 +37,6 @@ estimates store m3, title(Model 3)
 
 //ref: http://www.ats.ucla.edu/stat/stata/faq/estout.htm
 estout m1 m2 m3, cells(b(star fmt(3)) se(par fmt(2))) legend label varlabels(_cons constant) stats(r2, fmt(3 0 1) label(R-sqr))
-*/
 
 reg quantity treatment price confidence gender zerobaseline i.agegroup i.incomegroup i.ethgroup i.usregion if iseven == 1   //interesting, split beginner
 reg quantity treatment price confidence gender zerobaseline i.agegroup i.incomegroup i.usregion if iseven == 1
@@ -72,3 +76,4 @@ reg quantity treatment price                                                    
 //note: in short and final, coeff is similar and t(treat) > t(price)
 
 label var zero "ZeroBaseline"
+*/
