@@ -71,3 +71,4 @@ reg quantity treatment price confidence zerobaseline                            
 reg quantity treatment price                                                                                                //short
 //note: in short and final, coeff is similar and t(treat) > t(price)
 
+label var zero "ZeroBaseline"
