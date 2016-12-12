@@ -66,6 +66,8 @@ reg quantity treatment price if iseven == 0                                     
 //pooled tests...all interesting
 reg quantity treatment price confidence gender zerobaseline i.agegroup i.usregion                                           //long model by ar2
 reg quantity treatment price zerobaseline                                                                                   //long model by variable significance. overall winner. final.
+reg quantity treatment price zerobaseline [fweight=confidence]                                                              //weighted winner. better ar2 and p-vals.
 reg quantity treatment price confidence zerobaseline                                                                        //short w structure. conf structural failure.
 reg quantity treatment price                                                                                                //short
 //note: in short and final, coeff is similar and t(treat) > t(price)
+
