@@ -1,31 +1,36 @@
-label,Happiness Score (2010 – 2012),GDP per Capita ('000 US Dollars),Competition Harmful,Leisure Time Very Important,Work Very Important,"Prisoners per 100,000",Firms Behave Ethically,Prediction,Residual,"Political Terror Scale, 2011","Childcare Typology, Children Age 5",Central Bank Role in Supervision of Banks
-Australia,7.35,41.416,3.4,41,30.2,144,5.6,7.0361904965,0.3138095035,Level1,Pre-school,Minor
-Austria,7.37,42.956,4.1,44.8,53.2,99,5.5,6.9746426351,0.3953573649,Level1,Kindergarten,Unknown
-Belgium,6.97,39.399,4.7,38.9,54.9,105,5.5,6.5744048116,0.3955951884,Level1,Other/Multiple,Unknown
-China,4.98,9.638,3.7,21.2,38.1,124,4.2,5.1515839836,-0.1715839836,Level4Or5,Unknown,Unknown
-Czech Republic,6.29,27.509,3.9,33.2,41.8,180,3.7,5.8847877714,0.4052122286,Level1,Kindergarten,Unknown
-Denmark,7.69,42.17,4,53.5,50.4,67,6.2,7.4267640409,0.2632359591,Level1,Kindergarten,Unknown
-Estonia,5.43,22.765,3.8,40.8,53,230,4.9,6.2166101573,-0.7866101573,Unknown,Pre-school,Unknown
-Finland,7.39,39.12,4.5,49.4,31.9,55,6.4,7.2567156754,0.1332843246,Level1,Other/Multiple,Unknown
-France,6.76,37.64,5,33.5,67,98,5.1,6.1576289487,0.6023710513,Level2,Pre-school,Unknown
-Germany,6.67,40.903,4.1,31.6,39.4,76,5.6,6.5519091979,0.1180908021,Level1,Pre-school,Unknown
-Greece,5.43,26.475,4.4,46.3,68.8,120,3.7,6.110873065,-0.680873065,Level2,Other/Multiple,Unknown
-Hungary,4.78,21.958,4.3,41.8,56.5,181,3.7,5.903405607,-1.123405607,Level1,Compulsory Schooling,Unknown
-Ireland,7.08,43.942,3.9,52.5,46.4,82,5.6,7.3530066085,-0.2730066085,Level1,Pre-school,Unknown
-Italy,6.02,34.146,4.5,27.3,63.4,87,3.6,5.6493923854,0.3706076146,Level2,Pre-school,Unknown
-Japan,6.06,33.672,4.1,42.3,52.1,50,6,6.7529724202,-0.6929724202,Level1,Pre-school,Partial
-Korea,6.27,31.306,3.9,30.8,60.8,98,3.7,5.8198115124,0.4501884876,Level1,Pre-school,Minor
-Luxembourg,7.05,84.448,4.5,37.5,67.6,128,6,7.7812853165,-0.7312853165,Unknown,Pre-school,Unknown
-Mexico,7.09,15.608,3.7,59.2,87,214,3.7,6.281204187,0.808795813,Level4Or5,Pre-school,Partial
-Netherlands,7.51,45.271,4.8,40.4,29.5,75,5.9,6.9708408517,0.5391591483,Level1,Compulsory Schooling,Unknown
-New Zealand,7.22,30.166,3.5,47.8,35,190,6.5,7.1093649051,0.1106350949,Level1,Compulsory Schooling,Full
-Norway,7.66,57.767,3.5,52.7,61.3,75,6.2,7.8348623362,-0.1748623362,Level1,Kindergarten,Minor
-Poland,5.82,21.474,4.9,35,64.2,202,4.1,5.6017630826,0.2182369174,Level1,Pre-school,Unknown
-Portugal,5.1,26.474,4.4,22,49.7,136,4.5,5.5174068121,-0.4174068121,Level2,Pre-school,Unknown
-Slovak Republic,5.97,25.062,3.6,31.2,62.1,186,3.4,5.6395570444,0.3304429556,Level1,Kindergarten,Unknown
-Spain,6.32,32.434,3.9,44.8,62.4,140,3.8,6.3420255478,-0.0220255478,Level2,Pre-school,Unknown
-Sweden,7.48,42.461,3.7,53.6,50.3,57,5.8,7.406779827,0.073220173,Level1,Pre-school,Minor
-Switzerland,7.65,51.675,3.9,51.6,65.3,84,6.2,7.5536434863,0.0963565137,Level1,Pre-school,Minor
-Turkey,5.34,17.114,4.3,41.9,49.6,209,4,5.8684627862,-0.5284627862,Level3,Kindergarten,Unknown
-United Kingdom,6.88,36.216,3.7,49,38.6,149,5.6,7.0886477734,-0.2086477734,Level1,Compulsory Schooling,Partial
-United States,7.08,48.794,3.5,38.9,35.6,707,4.8,6.893456727,0.186543273,Level3,Other/Multiple,Partial
+label,Happiness Score (2010 - 2012),GDP per Capita ('000 US Dollars)***,Competition Harmful,Leisure Time Very Important,Work Very Important,"Prisoners per 100,000",Firms Behave Ethically,Prediction,Residual,"Political Terror Scale, 2011","Childcare Typology, Children Age 5*",Central Bank Role in Supervision of Banks,"% Tertiary Education, 2010",Above Average Tertiary,label,New Variable
+Australia,7.35,41.416,3.4,41,30.2,144,5.6,7.036190497,0.313809504,Level1,Pre-school,Minor,38,1,Australia,
+Austria,7.37,42.956,4.1,44.8,53.2,99,5.5,6.974642635,0.395357365,Level1,Kindergarten,Unknown,19,0,Austria,
+Belgium,6.97,39.399,4.7,38.9,54.9,105,5.5,6.574404812,0.395595188,Level1,Other/Multiple,Unknown,36,1,Belgium,
+China,4.98,9.638,3.7,21.2,38.1,124,4.2,5.151583984,-0.171583984,Level4Or5,Pre-school,Unknown,24,0,China,
+Czech Republic,6.29,27.509,3.9,33.2,41.8,180,3.7,5.884787771,0.405212229,Level1,Kindergarten,Unknown,17,0,Czech Republic,
+Denmark,7.69,42.17,4,53.5,50.4,67,6.2,7.426764041,0.263235959,Level1,Kindergarten,Unknown,34,1,Denmark,
+Estonia,5.43,22.765,3.8,40.8,53,230,4.9,6.216610157,-0.786610157,Unknown,Pre-school,Unknown,35,1,Estonia,
+Finland,7.39,39.12,4.5,49.4,31.9,55,6.4,7.256715675,0.133284325,Level1,Other/Multiple,Unknown,38,1,Finland,
+France,6.76,37.64,5,33.5,67,98,5.1,6.157628949,0.602371051,Level2,Pre-school,Unknown,30,1,France,
+Germany,6.67,40.903,4.1,31.6,39.4,76,5.6,6.551909198,0.118090802,Level1,Pre-school,Unknown,27,0,Germany,
+Greece,5.43,26.475,4.4,46.3,68.8,120,3.7,6.110873065,-0.680873065,Level2,Other/Multiple,Unknown,24,0,Greece,
+Hungary,4.78,21.958,4.3,41.8,56.5,181,3.7,5.903405607,-1.123405607,Level1,Compulsory Schooling,Unknown,20,0,Hungary,
+Ireland,7.08,43.942,3.9,52.5,46.4,82,5.6,7.353006609,-0.273006609,Level1,Pre-school,Unknown,38,1,Ireland,
+Italy,6.02,34.146,4.5,27.3,63.4,87,3.6,5.649392385,0.370607615,Level2,Pre-school,Unknown,14,0,Italy,
+Japan,6.06,33.672,4.1,42.3,52.1,50,6,6.75297242,-0.69297242,Level1,Pre-school,Partial,44,1,Japan,
+Korea,6.27,31.306,3.9,30.8,60.8,98,3.7,5.819811512,0.450188488,Level1,Pre-school,Minor,39,1,Korea,
+Luxembourg,7.05,84.448,4.5,37.5,67.6,128,6,7.781285317,-0.731285317,Unknown,Pre-school,Unknown,35,1,Luxembourg,
+Mexico,7.09,15.608,3.7,59.2,87,214,3.7,6.281204187,0.808795813,Level4Or5,Pre-school,Partial,26,0,Mexico,
+Netherlands,7.51,45.271,4.8,40.4,29.5,75,5.9,6.970840852,0.539159148,Level1,Compulsory Schooling,Unknown,33,1,Netherlands,
+New Zealand,7.22,30.166,3.5,47.8,35,190,6.5,7.109364905,0.110635095,Level1,Compulsory Schooling,Full,40,1,New Zealand,
+Norway,7.66,57.767,3.5,52.7,61.3,75,6.2,7.834862336,-0.174862336,Level1,Kindergarten,Minor,37,1,Norway,
+Poland,5.82,21.474,4.9,35,64.2,202,4.1,5.601763083,0.218236917,Level1,Pre-school,Unknown,23,0,Poland,
+Portugal,5.1,26.474,4.4,22,49.7,136,4.5,5.517406812,-0.417406812,Level2,Pre-school,Unknown,14,0,Portugal,
+Slovak Republic,5.97,25.062,3.6,31.2,62.1,186,3.4,5.639557044,0.330442956,Level1,Kindergarten,Unknown,17,0,Slovak Republic,
+Spain,6.32,32.434,3.9,44.8,62.4,140,3.8,6.342025548,-0.022025548,Level2,Pre-school,Unknown,31,1,Spain,
+Sweden,7.48,42.461,3.7,53.6,50.3,57,5.8,7.406779827,0.073220173,Level1,Pre-school,Minor,34,1,Sweden,
+Switzerland,7.65,51.675,3.9,51.6,65.3,84,6.2,7.553643486,0.096356514,Level1,Pre-school,Minor,35,1,Switzerland,
+Turkey,5.34,17.114,4.3,41.9,49.6,209,4,5.868462786,-0.528462786,Level3,Kindergarten,Unknown,13,0,Turkey,
+United Kingdom,6.88,36.216,3.7,49,38.6,149,5.6,7.088647773,-0.208647773,Level1,Compulsory Schooling,Partial,38,1,United Kingdom,
+United States,7.08,48.794,3.5,38.9,35.6,707,4.8,6.893456727,0.186543273,Level3,Other/Multiple,Partial,41,1,United States,
+,,"*while other data is from DICE, Chinese data is from UNESCO",,,,,,,,,,,,,,
+,,http://unesdoc.unesco.org/images/0019/001931/193178e.pdf,,,,,,,,,,,,,,
+,,"**while other data is from DICE, Chinese and Mexican data is from World Bank",,,,,,,,,,,,,,
+,,"2010, Gross enrolment ratio, tertiary, both sexes (%)",,,,,,,,,,,,,,
+,,"***no idea where this came from. I think '000 means USD 2000 constant dollars, but it might mean values from the year 2000 or something else.",,,,,,,,,,,,,,
