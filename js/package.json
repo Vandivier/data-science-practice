@@ -1,0 +1,26 @@
+{
+  "name": "data-science-practice-js-scraper",
+  "description": "JS scraper using scrape-it.",
+  "license": "MIT",
+  "version": "3.3.2",
+  "main": "lib/index.js",
+  "dependencies": {
+    "scrape-it": "^3.3.2"
+  },
+  "devDependencies": {
+    "lien": "^1.0.1",
+    "tester": "^1.3.2"
+  },
+  "files": [
+    "bin/",
+    "app/",
+    "lib/",
+    "dist/",
+    "src/",
+    "scripts/",
+    "resources/",
+    "menu/",
+    "cli.js",
+    "index.js"
+  ]
+}
