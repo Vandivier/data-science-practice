@@ -5,9 +5,16 @@
  *  Name sources:
  *    Census: http://stackoverflow.com/questions/1803628/raw-list-of-person-names
  *    SSA.gov: https://www.ssa.gov/OACT/babynames/limits.html
+ *        By state
  *    This bro: http://mbejda.github.io/
+ *        black-female-names.csv: https://gist.github.com/mbejda/9dc89056005a689a6456#file-black-female-names-csv
+ *        black-male-names.csv:
  *
- *  Kept estimated gender and ethnicity on the object, if available
+ *  Initial analysis just cares about names, not demographic data.
+ *
+ *  Extended analysis:
+ *    Keep estimated gender, ethnicity, and state data, as available
+ *    Augment with 2000s and 2010s: https://www2.census.gov/topics/genealogy/
  */
 
 const scrapeIt = require("scrape-it");
