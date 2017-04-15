@@ -39,15 +39,11 @@ function fStreamNameFile(sPath, sParseCharacter, iFromColumn, sToColumn, resolve
   const _rl = readline.createInterface(streamIn, streamOut);
 
   _rl.on('line', function(sLine) {
-    console.log(sLine);
     const sName = sLine.toLowerCase().split(sParseCharacter)[iFromColumn];
-    console.log(sName);
-    //oKnownNames[sToColumn][sName] = 1;                      // value of 1 isn't special, it's just a performent way to ensure we get this name
-    oKnownNames[sName] = 1;                      // value of 1 isn't special, it's just a performent way to ensure we get this name
+    oKnownNames[sToColumn][sName] = 1;                      // value of 1 isn't special, it's just a performent way to ensure we get this name
   });
 
   _rl.on('close', ()=>{
-  console.log('se');
     //giConsoleUpdater.next();
     resolve();
   });
@@ -71,7 +67,7 @@ fs.readdir(sNamesFolder, (err, files) => {
     });
   });
 
-  Promise.all(arrpFileProcesses).then(fScrapedDataToCSV());
+  Promise.all(arrpFileProcesses).then(fScrapedDataToCSV);
 });
 
 // after every batch of 10 files, update console.
@@ -90,8 +86,6 @@ let giConsoleUpdater = giConsoleUpdaterFactory();
 // TODO: request from a names list, or loop name + i; i++ until 404
 //    eg /dustinlongenecker public, /johnsmith2 404, /john and /john2 both exist (but private), /john3 exists and public with linkedIn.
 function fScrapedDataToCSV() {
-  //console.log(oKnownNames);
-  /*
   const streamWriteToFileSystem = fs.createWriteStream(sOutfilePath);
   const sCol1TitleLine = 'First Names';                                                   // More accurately, names not known to be last names. They could be, I just can't confirm.
   const sCol2TitleLine = 'Last Names';
@@ -100,13 +94,10 @@ function fScrapedDataToCSV() {
   const iLastRow = Math.max(arrCol1.length, arrCol2.length);
   let sTextToWrite = '';
 
-  console.log(arrCol1);
   for (var i = 0; i < iLastRow; i++) {
     // OS.EOL is a smart way to do a line break. ref: http://stackoverflow.com/questions/14173150/how-do-i-create-a-line-break-in-a-javascript-string-to-feed-to-nodejs-to-write-t
-    sTextToWrite += arrCol1[i] + ',' + arrCol2[i] + OS.EOL;
+    sTextToWrite += (arrCol1[i] || '') + ',' + (arrCol2[i] || '') + OS.EOL;
   }
 
-  streamWriteToFileSystem.write(sTextToWrite);
-  */
-  process.exit(0);
+  streamWriteToFileSystem.write(sTextToWrite, null, console.log('Done.'));  //idky, if I process.exit(0) on the callback it doesn't write the content.
 }
