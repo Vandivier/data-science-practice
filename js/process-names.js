@@ -7,10 +7,22 @@ const namesFolder = './names/';
 const outstream = new stream;
 let oKnownNames = {};
 
-//useful? fs.stat says if file or directory
+/*
+ * group 1 is by default. These files are csv with name in column 3
+ * group 2 files are space delimited with name in column 1
+ * group 3 files are csv with name in column 1
+ */
 fs.readdir(namesFolder, (err, files) => {
   files.forEach(file => {
-    fStreamNameFile(namesFolder + file);
+    var sGroupId = file.split('-')[1];
+    var fGroupHandler = groupHandler[sGroupId];
+    var sPath = namesFolder + file;
+
+    if (fGroupHandler) {
+      fGroupHandler(sPath);
+    } else {
+      groupHandler['1'](sPath);
+    }
   });
 });
 
@@ -24,6 +36,20 @@ function fStreamNameFile(sPath) {
   });
 
   _rl.on('close', function() {
-    console.log('done with ' + sPath);
+    //console.log('done with ' + sPath);
   });
+}
+
+let groupHandler = {};
+
+groupHandler['1'] = function(sPath) {
+  fStreamNameFile(sPath);
+}
+
+groupHandler['2'] = function(sPath) {
+  console.log('burp2');
+}
+
+groupHandler['3'] = function(sPath) {
+  console.log('burp3');
 }
