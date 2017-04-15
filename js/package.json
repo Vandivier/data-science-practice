@@ -9,6 +9,7 @@
     "cheerio": "^0.22.0"
   },
   "devDependencies": {
+    "async": "^2.3.0",
     "lien": "^1.0.1",
     "tester": "^1.3.2"
   },
