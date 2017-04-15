@@ -17,27 +17,62 @@
  *    Augment with 2000s and 2010s: https://www2.census.gov/topics/genealogy/
  */
 
-const scrapeIt = require("scrape-it");
+// TODO: some users have resumes, eg PDF, which has work history. Additional validation by checking for current employment via string '- present' || '- current' || '- 2017' || '-2017', etc
+// TODO: they also have 'work experiences' on the page we can scrape and also education
+// TODO: update package.json and such bc we can't use scrape-it on Udacity, pages are dynamic. http://stackoverflow.com/questions/28739098/how-can-i-scrape-pages-with-dynamic-content-using-node-js
 
-// Callback interface 
+
+// use `node --harmony-async-await udacity-employment`
+const phantom = require('phantom');
+const cheerio = require('cheerio');
+
+const fsoNameSource = './process-names';
+const sUdacityBaseUrl = 'https://profiles.udacity.com/u/';
+
+/*  Test cases:
+ *  /john3 is public with LinkedIn
+ *  /johnsmith2 404
+ *  /john is private
+ *  /john11 is public with no linkedin
+ *
+ *  eg https://profiles.udacity.com/u/john3
+ */
+
+//ref: http://stackoverflow.com/questions/9836151/what-is-this-css-selector-class-span
+async function fScrapeUdacityUser(sUsername) {
+  console.log(sUdacityBaseUrl + sUsername);
+
+  const instance = await phantom.create();
+  const page = await instance.createPage();
+  await page.on("onResourceRequested", function(requestData) {
+      //console.info('Requesting', requestData.url)
+  });
+
+  const status = await page.open(sUdacityBaseUrl + sUsername);
+  const content = await page.property('content');
+
+  // wait for content to render then scrape. check every 300 ms for render
+  setInterval(function() {
+    let $ = cheerio.load(content); //does const work here
+    let sHeader = $('body').html();
+    const bad = '<div id="app"><noscript data-reactroot=""></noscript></div><script src="/js/manifest.cb664.js"></script><script src="/js/vendor.a4cb3.js"></script><script src="/js/app.05d50.js"></script>';
+    
+    if (sHeader === bad) {
+      console.log('bad');
+      //idk
+    } else {
+      console.log(sHeader);
+      //await instance.exit();
+    }
+  }, 300);
+}
+
+fScrapeUdacityUser('john3');
+
+/*
 scrapeIt("http://ionicabizau.net", {
-    pages: {
-        listItem: "li.page"
-      , name: "pages"
-      , data: {
-            title: "a"
-          , url: {
-                selector: "a"
-              , attr: "href"
-            }
-        }
-    }
-  , title: ".header h1"
-  , desc: ".header h2"
-  , avatar: {
-        selector: ".header img"
-      , attr: "src"
-    }
-}, (err, page) => {
-    console.log(err || page);
+  all: 'body'
+}).then(page => {
+    console.log(page);
 });
+*/
