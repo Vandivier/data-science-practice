@@ -27,6 +27,7 @@
 // use `node --harmony udacity-employment`
 const phantom = require('phantom');
 const cheerio = require('cheerio');
+const async = require('async');
 
 const fsoNameSource = './process-names';
 const sUdacityBaseUrl = 'https://profiles.udacity.com/u/';
@@ -42,14 +43,13 @@ const sUdacityBaseUrl = 'https://profiles.udacity.com/u/';
 
 //ref: http://stackoverflow.com/questions/9836151/what-is-this-css-selector-class-span
 async function fScrapeUdacityUser(sUsername, fCallback) {
-  console.log(sUdacityBaseUrl + sUsername);
-
   const instance = await phantom.create();
   const page = await instance.createPage();
   await page.on("onResourceRequested", function(requestData) {
       //console.info('Requesting', requestData.url)
   });
 
+  console.log(sUdacityBaseUrl + sUsername);
   const status = await page.open(sUdacityBaseUrl + sUsername);
   //console.log(status);
   const dynamicContent = await getDynamicContentUdacity(page);            //dynamic content. ref: http://phantomjs.org/quick-start.html
@@ -66,9 +66,13 @@ async function fScrapeUdacityUser(sUsername, fCallback) {
     'educationCount': $('div[class*="educations--section"] div[class*="_education--education"]').length
   };
 
-  console.log(oUserObject);
+  return fCallback(null, oUserObject);     // TODO: error handling. null means no error
+}
 
-  fCallback();
+function fScrapeUdacityUserSync(sUsername, fCallback) {
+  return new Promise(function(resolve, reject) {
+      resolve(fScrapeUdacityUser(sUsername, fCallback));
+  });
 }
 
 const sUnrendered = '<div id="app"><noscript data-reactroot=""></noscript></div><script src="/js/manifest.cb664.js"></script><script src="/js/vendor.a4cb3.js"></script><script src="/js/app.05d50.js"></script>';
@@ -92,7 +96,23 @@ function getDynamicContentUdacity(page) {
   });
 }
 
-fScrapeUdacityUser('john3', ()=>{
-  console.log('Done.');
-  //process.exit(0);
+//fScrapeUdacityUser('john3', (err, returned)=>{console.log(returned)});
+let arrNames = ['john3', 'sara', 'sarah'];      // TODO: read from file. These names are seeds for usernames.
+// http://caolan.github.io/async/docs.html#map
+async.map(arrNames, fScrapeUdacityUserSync, function(err, arroUserObjects) {
+  console.log(arroUserObjects);
 });
+
+var square = function (num, doneCallback) {
+  // Call back with no error and the result of num * num
+  return doneCallback(null, num * num);
+};
+
+// Square each number in the array [1, 2, 3, 4]
+async.map([1, 2, 3, 4], square, function (err, results) {
+  // Square has been called on each of the numbers
+  // so we're now done!
+  console.log("Finished!");
+  console.log(results);
+});
+
