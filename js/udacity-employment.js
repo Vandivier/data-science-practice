@@ -40,7 +40,7 @@ const sUdacityBaseUrl = 'https://profiles.udacity.com/u/';
  */
 
 //ref: http://stackoverflow.com/questions/9836151/what-is-this-css-selector-class-span
-async function fScrapeUdacityUser(sUsername) {
+async function fScrapeUdacityUser(sUsername, fCallback) {
   console.log(sUdacityBaseUrl + sUsername);
 
   const instance = await phantom.create();
@@ -56,55 +56,14 @@ async function fScrapeUdacityUser(sUsername) {
   let $ = cheerio.load(content);                            //does const work here
   console.log($('h1').html());
 
-  //textContent
-  //outerHTML
-  //innerHTML
-  // wait for content to render then scrape. check every 300 ms for render
-  // note: you have to download and install PhantomJS headless browser, or the bad script tag will never process it will just be text.
-  // http://phantomjs.org/download.html
-  /*
-  setInterval(function() {
-    let $ = cheerio.load(content); //does const work here
-    let sHeader = $('body').html();
-    const bad = '<div id="app"><noscript data-reactroot=""></noscript></div><script src="/js/manifest.cb664.js"></script><script src="/js/vendor.a4cb3.js"></script><script src="/js/app.05d50.js"></script>';
-    
-    if (sHeader === bad) {
-      console.log('bad');
-      //idk
-    } else {
-      console.log(sHeader);
-      phantom.exit();
-      //await instance.exit();
-    }
-  }, 300);
-  */
+  fCallback();
 }
-
-
-/*
-
-function resolveAfter2Seconds(x) {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve(x);
-    }, 2000);
-  });
-}
-
-async function f1() {
-  var x = await resolveAfter2Seconds(10);
-  console.log(x); // 10
-}
-f1();
-
-*/
 
 const sUnrendered = '<div id="app"><noscript data-reactroot=""></noscript></div><script src="/js/manifest.cb664.js"></script><script src="/js/vendor.a4cb3.js"></script><script src="/js/app.05d50.js"></script>';
 
 //ref: http://stackoverflow.com/questions/31963804/how-to-scroll-in-phantomjs-to-trigger-lazy-loads?noredirect=1&lq=1
+// once each second, try to see if the body has rendered yet.
 function ProcessPage(page) {
-
-  // once each second, try to see if the body has rendered yet.
   return new Promise(resolve => {
     setTimeout(() => {
       const sContent = page.evaluate(function () { return document.body.innerHTML; });
@@ -119,8 +78,9 @@ function ProcessPage(page) {
 
     }, 1000);
   });
-
-  //setInterval(ProcessPageSync(page), 1000);      // only get here if you didn't return
 }
 
-fScrapeUdacityUser('john3');
+fScrapeUdacityUser('john3', ()=>{
+  console.log('Done.');
+  process.exit(0);
+});
