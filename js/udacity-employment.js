@@ -23,6 +23,7 @@
 
 
 // use `node --harmony-async-await udacity-employment`
+// use `node --harmony udacity-employment`
 const phantom = require('phantom');
 const cheerio = require('cheerio');
 
@@ -49,9 +50,19 @@ async function fScrapeUdacityUser(sUsername) {
   });
 
   const status = await page.open(sUdacityBaseUrl + sUsername);
-  const content = await page.property('content');
+  //console.log(status);
+  const dynamicContent = await ProcessPage(page);           //dynamic content. ref: http://phantomjs.org/quick-start.html
+  const content = await page.property('content');           //static content
+  let $ = cheerio.load(content);                            //does const work here
+  console.log($('h1').html());
 
+  //textContent
+  //outerHTML
+  //innerHTML
   // wait for content to render then scrape. check every 300 ms for render
+  // note: you have to download and install PhantomJS headless browser, or the bad script tag will never process it will just be text.
+  // http://phantomjs.org/download.html
+  /*
   setInterval(function() {
     let $ = cheerio.load(content); //does const work here
     let sHeader = $('body').html();
@@ -62,17 +73,54 @@ async function fScrapeUdacityUser(sUsername) {
       //idk
     } else {
       console.log(sHeader);
+      phantom.exit();
       //await instance.exit();
     }
   }, 300);
+  */
+}
+
+
+/*
+
+function resolveAfter2Seconds(x) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(x);
+    }, 2000);
+  });
+}
+
+async function f1() {
+  var x = await resolveAfter2Seconds(10);
+  console.log(x); // 10
+}
+f1();
+
+*/
+
+const sUnrendered = '<div id="app"><noscript data-reactroot=""></noscript></div><script src="/js/manifest.cb664.js"></script><script src="/js/vendor.a4cb3.js"></script><script src="/js/app.05d50.js"></script>';
+
+//ref: http://stackoverflow.com/questions/31963804/how-to-scroll-in-phantomjs-to-trigger-lazy-loads?noredirect=1&lq=1
+function ProcessPage(page) {
+
+  // once each second, try to see if the body has rendered yet.
+  return new Promise(resolve => {
+    setTimeout(() => {
+      const sContent = page.evaluate(function () { return document.body.innerHTML; });
+
+      if (sContent !== null && sContent !== sUnrendered) {
+        resolve(sContent);
+        //return sContent;
+      } else {
+        console.log('still looking');
+        ProcessPage(page);
+      }
+
+    }, 1000);
+  });
+
+  //setInterval(ProcessPageSync(page), 1000);      // only get here if you didn't return
 }
 
 fScrapeUdacityUser('john3');
-
-/*
-scrapeIt("http://ionicabizau.net", {
-  all: 'body'
-}).then(page => {
-    console.log(page);
-});
-*/
