@@ -20,6 +20,7 @@
 // TODO: some users have resumes, eg PDF, which has work history. Additional validation by checking for current employment via string '- present' || '- current' || '- 2017' || '-2017', etc
 // TODO: they also have 'work experiences' on the page we can scrape and also education
 // TODO: update package.json and such bc we can't use scrape-it on Udacity, pages are dynamic. http://stackoverflow.com/questions/28739098/how-can-i-scrape-pages-with-dynamic-content-using-node-js
+// TODO: get profile last updated date
 
 
 // use `node --harmony-async-await udacity-employment`
@@ -51,10 +52,21 @@ async function fScrapeUdacityUser(sUsername, fCallback) {
 
   const status = await page.open(sUdacityBaseUrl + sUsername);
   //console.log(status);
-  const dynamicContent = await ProcessPage(page);           //dynamic content. ref: http://phantomjs.org/quick-start.html
-  const content = await page.property('content');           //static content
-  let $ = cheerio.load(content);                            //does const work here
-  console.log($('h1').html());
+  const dynamicContent = await getDynamicContentUdacity(page);            //dynamic content. ref: http://phantomjs.org/quick-start.html
+  //const content = await page.property('content');                       //static content
+
+  const $ = cheerio.load(dynamicContent);                                 //does const work here
+
+  const oUserObject = {
+    'name': $('h1').html(),
+    'linkedInUrl': $('a[title="LINKEDIN"]').attr('href'),
+    'resumeUrl': $('a[title="Resume"]').attr('href'),
+    'presentlyEmployed': $('div[class*="works--section"] div[class*="_work--work"] span[class*="_work--present"]').length > 0,
+    'profileLastUpdated': $('div[class*="profile--updated"]').text().split(': ')[1],
+    'educationCount': $('div[class*="educations--section"] div[class*="_education--education"]').length
+  };
+
+  console.log(oUserObject);
 
   fCallback();
 }
@@ -63,7 +75,7 @@ const sUnrendered = '<div id="app"><noscript data-reactroot=""></noscript></div>
 
 //ref: http://stackoverflow.com/questions/31963804/how-to-scroll-in-phantomjs-to-trigger-lazy-loads?noredirect=1&lq=1
 // once each second, try to see if the body has rendered yet.
-function ProcessPage(page) {
+function getDynamicContentUdacity(page) {
   return new Promise(resolve => {
     setTimeout(() => {
       const sContent = page.evaluate(function () { return document.body.innerHTML; });
@@ -73,7 +85,7 @@ function ProcessPage(page) {
         //return sContent;
       } else {
         console.log('still looking');
-        ProcessPage(page);
+        getDynamicContentUdacity(page);
       }
 
     }, 1000);
@@ -82,5 +94,5 @@ function ProcessPage(page) {
 
 fScrapeUdacityUser('john3', ()=>{
   console.log('Done.');
-  process.exit(0);
+  //process.exit(0);
 });
