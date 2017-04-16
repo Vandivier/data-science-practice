@@ -23,6 +23,8 @@
  *  If I want a seeded (reproducible) random list for subsampling, sort alpha then https://www.npmjs.com/package/random-seed
  *
  *  ref: http://stackoverflow.com/questions/28739098/how-can-i-scrape-pages-with-dynamic-content-using-node-js
+ *
+ *  TODO: known users vs random users
  */
 
 // TODO: check pdf resume for additional validation of current employment via string '- present' || '- current' || '- 2017' || '-2017', etc
@@ -34,7 +36,10 @@ const async = require('async');
 const fsoNameSource = './process-names';
 const sUdacityBaseUrl = 'https://profiles.udacity.com/u/';
 
-const arrNames = ['john3', 'sara', 'sarah'];      // TODO: read from file. These names are seeds for usernames.
+//let arrKnownValidNames = ['john', 'sara', 'sarah'];
+//let arrKnownValidNames = ['john'];
+let arrKnownValidNames = ['sarah'];
+//let arrNames = ['john', 'sara', 'sarah'];      // TODO: read from file. These names are seeds for usernames.
 
 /*  Test cases:
  *  /john3 is public with LinkedIn
@@ -46,7 +51,7 @@ const arrNames = ['john3', 'sara', 'sarah'];      // TODO: read from file. These
  */
 
 //ref: http://stackoverflow.com/questions/9836151/what-is-this-css-selector-class-span
-async function fScrapeUdacityUser(sUsername, fCallback) {
+async function fScrapeUdacityUser(sUsername) {
   const instance = await phantom.create();
   const page = await instance.createPage();
   await page.on("onResourceRequested", function(requestData) {
@@ -61,22 +66,58 @@ async function fScrapeUdacityUser(sUsername, fCallback) {
 
   const $ = cheerio.load(dynamicContent);                                 //does const work here
 
-  const oUserObject = {
+  let oUserObject = {
     'name': $('h1').html(),
     'linkedInUrl': $('a[title="LINKEDIN"]').attr('href'),
     'resumeUrl': $('a[title="Resume"]').attr('href'),
     'presentlyEmployed': $('div[class*="works--section"] div[class*="_work--work"] span[class*="_work--present"]').length > 0,
     'profileLastUpdated': $('div[class*="profile--updated"]').text().split(': ')[1],
-    'educationCount': $('div[class*="educations--section"] div[class*="_education--education"]').length
+    'educationCount': $('div[class*="educations--section"] div[class*="_education--education"]').length,
+    'userExists': $('[class*=profile-container]').length > 0
   };
 
-  return fCallback(null, oUserObject);     // TODO: error handling. null means no error
+  return oUserObject;
 }
 
+let arroAllUserObjects = [];
 // needed to bridge async.map with fScrapeUdacityUser
+//  return new Promise(function(resolve, reject) {
+//      resolve(fScrapeUdacityUser(sUsername, fCallback));
 function fScrapeUdacityUserSync(sUsername, fCallback) {
+
   return new Promise(function(resolve, reject) {
-      resolve(fScrapeUdacityUser(sUsername, fCallback));
+    resolve(fUdacityPromiseChain(sUsername, fCallback, 0)); //um, why do I pass callback?
+  });
+  //let pLinkedInScraped = Promise.resolve(); //stub
+
+  //hack
+//  pUdacityScraped.then(function(){
+//    return fCallback(null, arroAllUserObjects);
+//  });
+
+  //Promise.all([pUdacityScraped, pLinkedInScraped]).then(fCallback(null, arroAllUserObjects));     // TODO: error handling. null means no error.
+  //Promise.all([pUdacityScraped]).then(fCallback(null, arroAllUserObjects));     // TODO: error handling. null means no error.
+}
+
+async function fUdacityPromiseChain(sUsername, fCallback, iDuplicateUserNumber) {
+  return new Promise(function(resolve, reject){
+    fScrapeUdacityUser(sUsername).then((oThisUser) => {
+      console.log(oThisUser);
+
+      if (oThisUser.userExists) {       // if user exists, push and continue iterating
+        let sNewUserName = iDuplicateUserNumber ? sUsername.slice(0, sUsername.length - 1) : sUsername;  //increment the username
+
+        arroAllUserObjects.push(oThisUser);
+        iDuplicateUserNumber++;
+
+        sNewUserName += iDuplicateUserNumber;
+
+        fUdacityPromiseChain(sNewUserName, fCallback, iDuplicateUserNumber);
+      } else {
+        //resolve();
+        fCallback(null, arroAllUserObjects);
+      }
+    });
   });
 }
 
@@ -92,7 +133,16 @@ function getDynamicContentUdacity(page) {
 }
 
 // http://caolan.github.io/async/docs.html#map
-async.map(arrNames, fScrapeUdacityUserSync, function(err, arroUserObjects) {
+async.map(arrKnownValidNames, fScrapeUdacityUserSync, function(err, arroUserObjects) {
+  console.log('arrKnownValidNames is done.');
   console.log(arroUserObjects);
   process.exit(0);
+//  async.map(arrNames, fScrapeUdacityUserSync, function(err, arroUserObjects) {
+//    console.log('arrNames is done.');
+//    process.exit(0);
+//  });
 });
+
+function isNumeric(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
