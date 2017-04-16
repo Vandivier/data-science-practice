@@ -18,6 +18,10 @@
  *    Keep estimated gender, ethnicity, and state data, as available
  *    Augment with 2000s and 2010s: https://www2.census.gov/topics/genealogy/
  *
+ *  If the scrapee tries to ban ur ip just spoof em http://stackoverflow.com/questions/20294190/send-http-request-from-different-ips-in-node-js
+ *
+ *  If I want a seeded (reproducible) random list for subsampling, sort alpha then https://www.npmjs.com/package/random-seed
+ *
  *  ref: http://stackoverflow.com/questions/28739098/how-can-i-scrape-pages-with-dynamic-content-using-node-js
  */
 
@@ -82,7 +86,7 @@ function getDynamicContentUdacity(page) {
   return new Promise(resolve => {
     setTimeout(() => {
       const sContent = page.evaluate(function () { return document.body.innerHTML; });
-      if (sContent !== null && sContent !== sUnrendered) resolve(sContent);
+      if (sContent !== null) resolve(sContent);
     }, 1000);
   });
 }
@@ -90,4 +94,5 @@ function getDynamicContentUdacity(page) {
 // http://caolan.github.io/async/docs.html#map
 async.map(arrNames, fScrapeUdacityUserSync, function(err, arroUserObjects) {
   console.log(arroUserObjects);
+  process.exit(0);
 });
