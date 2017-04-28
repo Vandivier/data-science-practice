@@ -73,19 +73,21 @@ async function fScrapeUdacityUser(sUsername) {
   console.log(sUdacityBaseUrl + sUsername);
   const status = await page.open(sUdacityBaseUrl + sUsername);
   //console.log(status);
-  const dynamicContent = await getDynamicContentUdacity(page);            //dynamic content. ref: http://phantomjs.org/quick-start.html
+  const oResponse = await getDynamicContentUdacity(page);            //dynamic content. ref: http://phantomjs.org/quick-start.html
   //const content = await page.property('content');                       //static content
 
-  const $ = cheerio.load(dynamicContent);                                 //does const work here
+  const $ = oResponse.content;
 
   let oUserObject = {
     'id': iUid,
     'educationCount': $('div[class*="educations--section"] div[class*="_education--education"]').length,
     'linkedInUrl': $('a[title="LINKEDIN"]').attr('href'),
+    'knownFail': oResponse.knownFail,
     'name': $('h1').html(),
     'presentlyEmployed': $('div[class*="works--section"] div[class*="_work--work"] span[class*="_work--present"]').length > 0,
     'profileLastUpdated': $('div[class*="profile--updated"]').text().split(': ')[1],
     'resumeUrl': $('a[title="Resume"]').attr('href'),
+    'triesRemaining': oResponse.triesRemaining,
     'userExists': $('[class*=profile-container]').length > 0,
     'userName': sUsername
   };
@@ -139,10 +141,33 @@ async function fUdacityPromiseChain(sUsername, fCallback, iDuplicateUserNumber) 
 //ref: http://stackoverflow.com/questions/31963804/how-to-scroll-in-phantomjs-to-trigger-lazy-loads?noredirect=1&lq=1
 // once each second, try to see if the body has rendered yet.
 function getDynamicContentUdacity(page) {
+  let iTriesRemaining = 5;
+  let oResponse = {
+    'triesRemaining': iTriesRemaining,
+    'knownFail': false
+  };
+
   return new Promise(resolve => {
     setTimeout(() => {
+      console.log('derp');
       const sContent = page.evaluate(function () { return document.body.innerHTML; });
-      if (sContent !== null) resolve(sContent);
+
+      if (sContent !== null) {
+        const $ = cheerio.load(sContent);
+
+        if ($('h1').html()) {                                     // we have a name, gtg
+            oResponse.content = $;
+            resolve(oResponse);
+        } else if ($('div[class*="toast--message"]').text() === 'Profile does not have recruiter access enabled') {
+            oResponse.knownFail = true;                           // it's a known fail. Return
+            resolve(oResponse);
+        } else if (iTriesRemaining === 0) {                       // give up
+            resolve(oResponse);
+        }
+
+        console.log('trying again', iTriesRemaining);
+        iTriesRemaining--;
+      }
     }, 1000);
   });
 }
