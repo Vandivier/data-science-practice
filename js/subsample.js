@@ -6,6 +6,7 @@
 
 const csv = require('csv');
 const fs = require('fs');
+//const mSort = require('sort-stream');   // cool package but not needed. If source is sorted so is the subsample.
 
 const streamInFile = fs.createReadStream(__dirname + '/unique-names.csv');
 const streamOutFile = fs.createWriteStream(__dirname + '/subsample.csv');
@@ -30,5 +31,12 @@ streamInFile
   .pipe(fParser)
   .pipe(fTransformer)
   .pipe(csv.stringify())
+  //.pipe(mSort())
   //.pipe(process.stdout);
   .pipe(streamOutFile);
+
+
+streamOutFile.on('finish', () => {
+  console.error('Done.');
+  process.exit(0);
+});
