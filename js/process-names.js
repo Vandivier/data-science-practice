@@ -89,8 +89,8 @@ function fScrapedDataToCSV() {
   const streamWriteToFileSystem = fs.createWriteStream(sOutfilePath);
   const sCol1TitleLine = 'First Names';                                                   // More accurately, names not known to be last names. They could be, I just can't confirm.
   const sCol2TitleLine = 'Last Names';
-  let arrCol1 = [sCol1TitleLine].concat(Object.keys(oKnownNames.first));
-  let arrCol2 = [sCol2TitleLine].concat(Object.keys(oKnownNames.last));
+  let arrCol1 = [sCol1TitleLine].concat(Object.keys(oKnownNames.first)).filter((name)=> {return name}).sort();    // the filter kills empty cells
+  let arrCol2 = [sCol2TitleLine].concat(Object.keys(oKnownNames.last)).sort();
   const iLastRow = Math.max(arrCol1.length, arrCol2.length);
   let sTextToWrite = '';
 
@@ -99,5 +99,5 @@ function fScrapedDataToCSV() {
     sTextToWrite += (arrCol1[i] || '') + ',' + (arrCol2[i] || '') + OS.EOL;
   }
 
-  streamWriteToFileSystem.write(sTextToWrite, null, console.log('Done.'));  //idky, if I process.exit(0) on the callback it doesn't write the content.
+  streamWriteToFileSystem.write(sTextToWrite, null, console.log('Done.'));
 }
