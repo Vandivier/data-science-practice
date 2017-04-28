@@ -29,17 +29,23 @@
 
 // TODO: check pdf resume for additional validation of current employment via string '- present' || '- current' || '- 2017' || '-2017', etc
 
-const phantom = require('phantom');
-const cheerio = require('cheerio');
 const async = require('async');
+const cheerio = require('cheerio');
+const fs = require('fs');
+const OS = require('os');
+const phantom = require('phantom');
+
+const sCol1TitleLine = 'First Names';
 
 const fsoNameSource = './process-names';
 const sUdacityBaseUrl = 'https://profiles.udacity.com/u/';
 
-//let arrKnownValidNames = ['john', 'sara', 'sarah'];
-//let arrKnownValidNames = ['john'];
-let arrKnownValidNames = ['sarah'];
-//let arrNames = ['john', 'sara', 'sarah'];      // TODO: read from file. These names are seeds for usernames.
+let arrsKnownValidNames = ['john', 'sara', 'sarah'];
+//let arrsKnownValidNames = ['sarah'];
+//let arrNames = ['john', 'sara', 'sarah'];       // TODO: read from file. These names are seeds for usernames.
+let iUid = 1;
+
+const streamOutFile = fs.createWriteStream(__dirname + '/udacity-employment-data.csv');
 
 /*  Test cases:
  *  /john3 is public with LinkedIn
@@ -67,15 +73,18 @@ async function fScrapeUdacityUser(sUsername) {
   const $ = cheerio.load(dynamicContent);                                 //does const work here
 
   let oUserObject = {
-    'name': $('h1').html(),
+    'id': iUid,
+    'educationCount': $('div[class*="educations--section"] div[class*="_education--education"]').length,
     'linkedInUrl': $('a[title="LINKEDIN"]').attr('href'),
-    'resumeUrl': $('a[title="Resume"]').attr('href'),
+    'name': $('h1').html(),
     'presentlyEmployed': $('div[class*="works--section"] div[class*="_work--work"] span[class*="_work--present"]').length > 0,
     'profileLastUpdated': $('div[class*="profile--updated"]').text().split(': ')[1],
-    'educationCount': $('div[class*="educations--section"] div[class*="_education--education"]').length,
-    'userExists': $('[class*=profile-container]').length > 0
+    'resumeUrl': $('a[title="Resume"]').attr('href'),
+    'userExists': $('[class*=profile-container]').length > 0,
+    'userName': sUsername
   };
 
+  iUid++
   return oUserObject;
 }
 
@@ -99,10 +108,11 @@ function fScrapeUdacityUserSync(sUsername, fCallback) {
   //Promise.all([pUdacityScraped]).then(fCallback(null, arroAllUserObjects));     // TODO: error handling. null means no error.
 }
 
+// TODO: somehow it goes from john10 to john 111, it should go to john 11
 async function fUdacityPromiseChain(sUsername, fCallback, iDuplicateUserNumber) {
   return new Promise(function(resolve, reject){
     fScrapeUdacityUser(sUsername).then((oThisUser) => {
-      console.log(oThisUser);
+      //console.log(oThisUser);
 
       if (oThisUser.userExists) {       // if user exists, push and continue iterating
         let sNewUserName = iDuplicateUserNumber ? sUsername.slice(0, sUsername.length - 1) : sUsername;  //increment the username
@@ -133,9 +143,10 @@ function getDynamicContentUdacity(page) {
 }
 
 // http://caolan.github.io/async/docs.html#map
-async.map(arrKnownValidNames, fScrapeUdacityUserSync, function(err, arroUserObjects) {
-  console.log('arrKnownValidNames is done.');
-  console.log(arroUserObjects);
+// TODO: err handling
+async.map(arrsKnownValidNames, fScrapeUdacityUserSync, function(err, arroUserObjects) {
+  let sTextToWrite = fsObjectsToCSV(arroUserObjects[0]);                        // there's an extra array layer somewhere... maybe bc i want udacity then linkedin the w/e?
+  streamOutFile.write(sTextToWrite, null, console.log('Done.')); 
   process.exit(0);
 //  async.map(arrNames, fScrapeUdacityUserSync, function(err, arroUserObjects) {
 //    console.log('arrNames is done.');
@@ -143,6 +154,33 @@ async.map(arrKnownValidNames, fScrapeUdacityUserSync, function(err, arroUserObje
 //  });
 });
 
+// TODO: make util
 function isNumeric(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+// TODO: make util
+// TODO: make writing logic generic as it is dup in process-names.fScrapedDataToCSV()
+function fsObjectsToCSV(arroUserObjects, arrsKeys, sTitleLine) {
+  arrsKeys = arrsKeys || Object.keys(arroUserObjects[0]);                         // if not passed, get all of them in whatever order
+  sTitleLine = sTitleLine || arrsKeys.reduce((acc, val) => {
+    return acc + ',' + val;
+  });                                                                             // if not passed, use the litteral key as the column title
+
+  for (oUser of arroUserObjects) {
+    sTitleLine += OS.EOL + fsObjectToCSVLine(oUser, arrsKeys);
+  }
+
+  return sTitleLine;
+}
+
+// TODO: make util
+function fsObjectToCSVLine(oUser, arrsKeys) {
+  let sLine = '';
+
+  for (i = 0; i < arrsKeys.length; i++) {
+    sLine += (oUser[arrsKeys[i]] || '') + ',';
+  }
+
+  return sLine.slice(0, -1);
 }
