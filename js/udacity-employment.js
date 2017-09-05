@@ -1,6 +1,8 @@
 /*
  *  run from cli like `node --harmony udacity-employment`
  *
+ *  The technical flow begins by the invocation of init()
+ *
  *  Extract Udacity profiles, augment w data about are they employed, regress alternative credential value
  *  Install the package then run it, or just run it in https://runkit.com/
  *  Generates name combinations and attempts to look up Udacity users this way
@@ -25,6 +27,7 @@
  *  ref: http://stackoverflow.com/questions/28739098/how-can-i-scrape-pages-with-dynamic-content-using-node-js
  *
  *  TODO: known users vs random users
+ *  TODO: replace phantomJS with headless chrome
  *
  *  Quickly check scraper in your browser by injecting jQuery:
  *    http://stackoverflow.com/questions/1199676/can-i-create-script-tag-by-jquery
@@ -53,6 +56,8 @@ let iUid = 1;
 
 const streamOutFile = fs.createWriteStream(__dirname + '/udacity-employment-data.csv');
 
+init();
+
 /*  Test cases:
  *  /john3 is public with LinkedIn
  *  /johnsmith2 404
@@ -71,12 +76,19 @@ async function fScrapeUdacityUser(sUsername) {
   });
 
   console.log(sUdacityBaseUrl + sUsername);
-  const status = await page.open(sUdacityBaseUrl + sUsername);
-  //console.log(status);
-  const oResponse = await getDynamicContentUdacity(page);            //dynamic content. ref: http://phantomjs.org/quick-start.html
-  //const content = await page.property('content');                       //static content
-
+  const status = await page.open(sUdacityBaseUrl + sUsername);        // TODO: needed?
+  const oResponse = await getDynamicContentUdacity(page);             //dynamic content. ref: http://phantomjs.org/quick-start.html
   const $ = oResponse.content;
+
+  /*
+  setTimeout(function(page, content){
+    const _content = page.property('content');
+    _content.then(function(val){
+      console.log(val);
+      console.log([], content == val);
+    });
+  }, 6000, page, content);
+  */
 
   let oUserObject = {
     'id': iUid,
@@ -102,9 +114,12 @@ let arroAllUserObjects = [];
 //      resolve(fScrapeUdacityUser(sUsername, fCallback));
 function fScrapeUdacityUserSync(sUsername, fCallback) {
 
+  return fUdacityPromiseChain(sUsername, fCallback, 0); //um, why do I pass callback?
+  /*
   return new Promise(function(resolve, reject) {
     resolve(fUdacityPromiseChain(sUsername, fCallback, 0)); //um, why do I pass callback?
   });
+  */
   //let pLinkedInScraped = Promise.resolve(); //stub
 
   //hack
@@ -116,9 +131,16 @@ function fScrapeUdacityUserSync(sUsername, fCallback) {
   //Promise.all([pUdacityScraped]).then(fCallback(null, arroAllUserObjects));     // TODO: error handling. null means no error.
 }
 
+/*  
+ *  description:
+ *  Given a username, we don't actually just scrape that one user.
+ *  instead, we scrape that user and then increment numerically to find more users.
+ *  this follows a built-in Udacity business rule. If a user creates a profile with
+ *  a duplicate name, they just increment numerically.
+ */
 async function fUdacityPromiseChain(sUsername, fCallback, iDuplicateUserNumber) {
-  return new Promise(function(resolve, reject){
-    fScrapeUdacityUser(sUsername).then((oThisUser) => {
+  //return new Promise(function(resolve, reject){
+    return fScrapeUdacityUser(sUsername).then((oThisUser) => {
       //console.log(oThisUser);
 
       if (oThisUser.userExists) {       // if user exists, push and continue iterating
@@ -131,61 +153,74 @@ async function fUdacityPromiseChain(sUsername, fCallback, iDuplicateUserNumber) 
 
         fUdacityPromiseChain(sNewUserName, fCallback, iDuplicateUserNumber);
       } else {
+        return Promise.resolve();   // TODO: should we return Promise.reject(); ?
         //resolve();
-        fCallback(null, arroAllUserObjects);
+        //fCallback(null, arroAllUserObjects);
       }
+    })
+    .catch(function(e){
+      console.log('caught me an err bruh', e);
     });
-  });
+  //});
 }
 
-//ref: http://stackoverflow.com/questions/31963804/how-to-scroll-in-phantomjs-to-trigger-lazy-loads?noredirect=1&lq=1
-// once each second, try to see if the body has rendered yet.
+//  ref: http://stackoverflow.com/questions/31963804/how-to-scroll-in-phantomjs-to-trigger-lazy-loads?noredirect=1&lq=1
+//  once each second, try to see if the body has rendered yet.
+//  TODO: this method is bugging which is why the app doesn't work atm.
+//  looks like the issue is that it won't dynamically load the React page data...?
 function getDynamicContentUdacity(page) {
-  let iTriesRemaining = 5;
-  let oResponse = {
-    'triesRemaining': iTriesRemaining,
-    'knownFail': false
-  };
+  let iTriesRemaining = 5,
+      pContent = Promise,
+      oResponse = {
+        'triesRemaining': iTriesRemaining,
+        'knownFail': false
+      };
+      const content = page.evaluate(function () { return document.body.innerHTML; });    // should this be inside the setInterval loop?
 
-  return Promise((resolve, reject) => {
-    const sContent = page.evaluate(function () { return document.body.innerHTML; });
+    let interval = setInterval((_page, sContent) => {
+      //const content = await _page.property('content');
 
-    let interval = setInterval(opReference => {
-      if (sContent !== null) {
+      if (sContent) {
         const $ = cheerio.load(sContent);
+        //console.log(sContent.indexOf('user--name--'));
+        //console.log(typeof sContent);  // jQuery object
+        //console.log(Object.keys(sContent));
+        console.log(sContent.root);
 
         if ($('h1').html()) {                                     // we have a name, gtg
+            console.log('got header');
             oResponse.content = $;
-            opReference.resolve(oResponse);
+            pContent.resolve(oResponse);
         } else if ($('div[class*="toast--message"]').text() === 'Profile does not have recruiter access enabled') {
             oResponse.knownFail = true;                           // it's a known fail. Return
-            opReference.resolve(oResponse);
+            pContent.resolve(oResponse);
         } else if (iTriesRemaining === 0) {                       // give up
-            opReference.reject(oResponse);
+            pContent.resolve(oResponse);
             clearInterval(interval);
         }
 
         console.log('trying again', iTriesRemaining);
         iTriesRemaining--;
       }
-    }, 1000, {
-              resolve: resolve,
-              reject: reject
-             });
-  });
+    }, 2500, page, content);
+
+  return pContent;
 }
 
 // http://caolan.github.io/async/docs.html#map
 // TODO: err handling
-async.map(arrsKnownValidNames, fScrapeUdacityUserSync, function(err, arroUserObjects) {
-  let sTextToWrite = fsObjectsToCSV(arroUserObjects[0]);                        // there's an extra array layer somewhere... maybe bc i want udacity then linkedin the w/e?
-  streamOutFile.write(sTextToWrite, null, console.log('Done.')); 
-  process.exit(0);
-//  async.map(arrNames, fScrapeUdacityUserSync, function(err, arroUserObjects) {
-//    console.log('arrNames is done.');
-//    process.exit(0);
-//  });
-});
+function init() {
+  async.map(arrsKnownValidNames, fScrapeUdacityUserSync, function(err, arroUserObjects) {
+    if (err) console.log('async.map callback ERROR',  err);
+    let sTextToWrite = fsObjectsToCSV(arroUserObjects[0]);                        // there's an extra array layer somewhere... maybe bc i want udacity then linkedin the w/e?
+    streamOutFile.write(sTextToWrite, null, console.log('Done.')); 
+    process.exit(0);      // i don't think we should exit here. I think this callback is just for one promise chain, not Promise.all()
+  //  async.map(arrNames, fScrapeUdacityUserSync, function(err, arroUserObjects) {
+  //    console.log('arrNames is done.');
+  //    process.exit(0);
+  //  });
+  });
+}
 
 // TODO: make util
 function isNumeric(n) {
