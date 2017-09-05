@@ -1,5 +1,5 @@
 /*
- *  run from cli like `node --harmony udacity-employment`
+ *  run from cli like `node --harmony chrome-scrape`
  *
  *  The technical flow begins by the invocation of init()
  *
@@ -27,7 +27,6 @@
  *  ref: http://stackoverflow.com/questions/28739098/how-can-i-scrape-pages-with-dynamic-content-using-node-js
  *
  *  TODO: known users vs random users
- *  TODO: replace phantomJS with headless chrome
  *
  *  Quickly check scraper in your browser by injecting jQuery:
  *    http://stackoverflow.com/questions/1199676/can-i-create-script-tag-by-jquery
@@ -42,21 +41,27 @@ const async = require('async');
 const cheerio = require('cheerio');
 const fs = require('fs');
 const OS = require('os');
-const phantom = require('phantom');
+const puppeteer = require('puppeteer');   // Chrome API, https://github.com/GoogleChrome/puppeteer
 
 const sCol1TitleLine = 'First Names';
-
 const fsoNameSource = './process-names';
 const sUdacityBaseUrl = 'https://profiles.udacity.com/u/';
 
-const arrsKnownValidNames = ['john', 'sara', 'sarah'];
-//const arrsKnownValidNames = ['sara'];
-//let arrNames = ['john', 'sara', 'sarah'];       // TODO: read from file. These names are seeds for usernames.
+const arrsKnownValidNames = ['john', 'sara', 'sarah'];    // TODO: read from file. These names are seeds for usernames.
 let iUid = 1;
 
 const streamOutFile = fs.createWriteStream(__dirname + '/udacity-employment-data.csv');
 
-init();
+//init();
+
+(async () => {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto('https://google.com');
+  await page.screenshot({path: 'google-pic.png'});
+
+  browser.close();
+})();
 
 /*  Test cases:
  *  /john3 is public with LinkedIn
@@ -68,27 +73,15 @@ init();
  */
 
 //ref: http://stackoverflow.com/questions/9836151/what-is-this-css-selector-class-span
+// now with Chrome! https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md
+// this method just scrapes a single user.
+//  CLI: .\chrome.exe --headless --disable-gpu --remote-debugging-port-9222
 async function fScrapeUdacityUser(sUsername) {
-  const instance = await phantom.create();
-  const page = await instance.createPage();
-  await page.on("onResourceRequested", function(requestData) {
-      //console.info('Requesting', requestData.url)
-  });
-
-  console.log(sUdacityBaseUrl + sUsername);
-  const status = await page.open(sUdacityBaseUrl + sUsername);        // TODO: needed?
-  const oResponse = await getDynamicContentUdacity(page);             //dynamic content. ref: http://phantomjs.org/quick-start.html
-  const $ = oResponse.content;
+    console.log(sUdacityBaseUrl + sUsername);
 
   /*
-  setTimeout(function(page, content){
-    const _content = page.property('content');
-    _content.then(function(val){
-      console.log(val);
-      console.log([], content == val);
-    });
-  }, 6000, page, content);
-  */
+  const oResponse = await getDynamicContentUdacity(page);             //dynamic content. ref: http://phantomjs.org/quick-start.html
+  const $ = oResponse.content;
 
   let oUserObject = {
     'id': iUid,
@@ -103,6 +96,8 @@ async function fScrapeUdacityUser(sUsername) {
     'userExists': $('[class*=profile-container]').length > 0,
     'userName': sUsername
   };
+  */
+  let oUserObject = {};
 
   iUid++
   return oUserObject;
