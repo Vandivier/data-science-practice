@@ -147,28 +147,31 @@ function getDynamicContentUdacity(page) {
     'knownFail': false
   };
 
-  return new Promise(resolve => {
-    setTimeout(() => {
-      console.log('derp');
-      const sContent = page.evaluate(function () { return document.body.innerHTML; });
+  return Promise((resolve, reject) => {
+    const sContent = page.evaluate(function () { return document.body.innerHTML; });
 
+    let interval = setInterval(opReference => {
       if (sContent !== null) {
         const $ = cheerio.load(sContent);
 
         if ($('h1').html()) {                                     // we have a name, gtg
             oResponse.content = $;
-            resolve(oResponse);
+            opReference.resolve(oResponse);
         } else if ($('div[class*="toast--message"]').text() === 'Profile does not have recruiter access enabled') {
             oResponse.knownFail = true;                           // it's a known fail. Return
-            resolve(oResponse);
+            opReference.resolve(oResponse);
         } else if (iTriesRemaining === 0) {                       // give up
-            resolve(oResponse);
+            opReference.reject(oResponse);
+            clearInterval(interval);
         }
 
         console.log('trying again', iTriesRemaining);
         iTriesRemaining--;
       }
-    }, 1000);
+    }, 1000, {
+              resolve: resolve,
+              reject: reject
+             });
   });
 }
 
