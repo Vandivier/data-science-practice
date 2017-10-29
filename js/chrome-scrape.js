@@ -27,12 +27,14 @@
  *  ref: http://stackoverflow.com/questions/28739098/how-can-i-scrape-pages-with-dynamic-content-using-node-js
  *
  *  TODO: known users vs random users
+ *  TODO: puppeteer vs chromeless? https://github.com/graphcool/chromeless
  *
  *  Quickly check scraper in your browser by injecting jQuery:
  *    http://stackoverflow.com/questions/1199676/can-i-create-script-tag-by-jquery
  *    script.src = 'https://code.jquery.com/jquery-3.2.1.js';
  *
  *  Give the program a few 'runs' to obtain more observations; sometimes values come as undefined or falsy I think just bc lag or something.
+ *  ref: https://github.com/GoogleChrome/puppeteer/blob/master/examples/search.js
  */
 
 // TODO: check pdf resume for additional validation of current employment via string '- present' || '- current' || '- 2017' || '-2017', etc
