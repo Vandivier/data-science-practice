@@ -103,7 +103,8 @@ async function fpGetSeasons(sUrl, iSeason) {
 // for strings of interest, get general classification, points classification, and stage classification for each stage
 // these are a bunch of csvs; maybe download instead of write file (actually, that's equivalent)
 async function main() {
-    let arrvSeasons;
+    let arrpageSeasons = [];
+    let i;
     let _oPage;
 
     browser = await puppeteer.launch();
@@ -113,9 +114,10 @@ async function main() {
     }
 
     fSetWriters();
+    console.log('sup')
 
     // get an array of browser pages; one for each season
-    for (i = iFirstSeason; i < iLastSeason; i++;) {
+    for (i = iFirstSeason; i < iLastSeason; i++) {
         _oPage = fpGetSeasons(sRootUrl, i);
         arrpageSeasons.push(_oPage);
     }
