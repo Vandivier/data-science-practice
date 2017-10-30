@@ -18,11 +18,8 @@ const sCommonBaseUrl = 'http://uci.ch/';
 const sRootUrl = sCommonBaseUrl + 'road/results/';
 const sResultDir = __dirname + '/results';
 
-let wsSubtopics;
-let wsRenames;
-let wsRenameErrors;
-let wsSubtopicErrors;
-let wsMetaLog;
+let wsMain;
+let wsErrorLog;
 
 let browser;
 let iCurrentBatch = 1;
@@ -79,7 +76,14 @@ async function main() {
 
     fSetWriters();
 
-    arroRenames = await fGetDataByUrl(sRenameListUrl);
+    // get each season page in parallel
+    // traverse each page under the season in parallel (~21)
+    // find strings of interest. open those pages. it's designed as SPA; may need to open new window
+    // if using a new window, url looks like https://dataride.uci.ch/iframe/CompetitionResults/46187?disciplineId=10
+    // for strings of interest, get general classification, points classification, and stage classification for each stage
+    // these are a bunch of csvs; maybe download instead of write file (actually, that's equivalent)
+
+    arroRenames = await fGetDataByUrl(sRootUrl);
     arroRenames = JSON.parse(arroRenames);
     //console.log('Rename check: ' + arroRenames.length);
     let arrBatches = utils.chunk(arroRenames, iChunkSize);
@@ -110,9 +114,6 @@ function fRenderableContent(sCandidateHtml) {
 
 //  must ensure path exists before setting writers
 function fSetWriters() {
-    wsSubtopics = fs.createWriteStream(sResultDir + '/subtopics.txt'); // can it be a const?
-    wsRenames = fs.createWriteStream(sResultDir + '/Renames.txt'); // can it be a const?
-    wsRenameErrors = fs.createWriteStream(sResultDir + '/Rename-errors.txt'); // can it be a const?
-    wsSubtopicErrors = fs.createWriteStream(sResultDir + '/subtopic-errors.txt'); // can it be a const?
-    wsMetaLog = fs.createWriteStream(sResultDir + '/meta.txt'); // can it be a const?
+    wsMain = fs.createWriteStream(sResultDir + '/main.txt'); // TODO: can it be a const?
+    wsErrorLog = fs.createWriteStream(sResultDir + '/errors.txt'); // TODO: can it be a const?
 }
