@@ -16,8 +16,7 @@ const utils = require('./utils.js');
 
 const iChunkSize = 30;
 const iThrottleInterval = 2; // seconds between batch of requests
-const sCommonBaseUrl = 'http://uci.ch/';
-const sRootUrl = sCommonBaseUrl + 'road/results/';
+const sRootUrl = 'https://dataride.uci.ch/iframe/results/10';
 const sResultDir = __dirname + '/results';
 
 const iFirstSeason = 2009;
@@ -74,26 +73,32 @@ async function fGetDataByUrl(sUrl) {
     return _$('pre').text();
 }
 
+// returns a page which has been navigated to the specified season page
 // note: this whole fucking method is a hack
 // not generalizable or temporally reliable in case of a site refactor
-async function fpGetSeasons(sUrl, iSeason) {
+// target site includes jQuery already. _$ is cheerio, $ is jQuery
+async function fpGetSeasonPage(sUrl, iSeason) {
     const _page = await browser.newPage();
+    let executionContext;
     let _$;
 
-    await page.goto(sUrl);
-    _$ = cheerio.load(await page.content());
+    await _page.goto(sUrl);
+    _$ = cheerio.load(await _page.content());
 
+    executionContext = _page.mainFrame().executionContext();
+    await executionContext.evaluate((iSeason) => {
+        $('.uci-main-content .k-dropdown').last().click();     // open the seasons dropdown
+        $('#seasons_listbox li').filter(function(){            // click the particular season
+            return this.textContent === String(iSeason);
+        })
+        .click();
+
+        // maybe wait some amount of time here to ensure page loads data...2 seconds?
+        // eg; timeout, Promise.resolve(8 * 7)
+    });
+
+    return _page;
     //page.close();
-
-    _$('.uci-main-content .k-dropdown').last().click();     // open the seasons dropdown
-    _$('#seasons_listbox li').filter(function(){            // click the particular season
-        return this.textContent === String(iSeason)
-    })
-    .click();
-
-    // maybe wait some amount of time here to ensure page loads data...2 seconds?
-
-    return page;
 }
 
 // get each season page in parallel
@@ -114,18 +119,19 @@ async function main() {
     }
 
     fSetWriters();
-    console.log('sup')
 
     // get an array of browser pages; one for each season
     for (i = iFirstSeason; i < iLastSeason; i++) {
-        _oPage = fpGetSeasons(sRootUrl, i);
+        _oPage = fpGetSeasonPage(sRootUrl, i);
         arrpageSeasons.push(_oPage);
     }
 
+    await utils.settleAll(arrpageSeasons, function(pPage){
+        return pPage;
+    });
+
+    //sanity check...it should be a list of puppeteer browser pages
     console.log(arrpageSeasons);
-    //utils.settleAll
-    //sanity check
-    //console.log(arrpageSeasons);
 
     /*
     await utils.forEachThrottledAsync(iThrottleInterval, arrBatches, function (_arrBatch) {
