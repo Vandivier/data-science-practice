@@ -1,0 +1,21 @@
+{
+  "name": "grand-tour-cycling-study",
+  "version": "1.0.0",
+  "description": "scrape some cycling data from Union Cycliste Internationale",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "keywords": [
+    "uci",
+    "Union Cycliste Internationale"
+  ],
+  "author": "John Vandivier",
+  "homepage": "https://github.com/Vandivier/data-science-practice/tree/master/js/grand-tour-study",
+  "devDependencies": {
+    "bluebird": "^3.5.0",
+    "cheerio": "^1.0.0-rc.2",
+    "js-beautify": "^1.7.3",
+    "puppeteer": "^0.11.0"
+  }
+}
