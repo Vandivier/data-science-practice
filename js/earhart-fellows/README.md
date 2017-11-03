@@ -47,7 +47,8 @@ I parse using the following rules:
     1. Remove ending characters until a comma is removed
 1. Completion Degree
     1. After Sponsor(s) move forward one character. If a comma is encountered, identify the subsequent match as a degree name.
-    1. Ends on encountering a comma character
+    1. Ends on encountering a valid degree. If no valid degree is found, the identification is canceled.
+    1. A valid degree is 'Ph.D.', 'M.A.', 'MA.', or 'M.B.A.'
 1. Completion Year
     1. If a completion degree is found and followed by the string ', ', identify the following numeric string as the completion year.
     1. Ends on encountering a non-numeric character

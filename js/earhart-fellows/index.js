@@ -172,10 +172,11 @@ function fParseSponsors(sParsedBlock, oRecord) {
 }
 
 function fParseCompletionDegree(sParsedBlock, oRecord) {
-    let sTextAfterSponsors = oRecord
+    let arrDegrees = ['Ph.D.', 'M.A.', 'MA.', 'M.B.A.'],
+        sTextAfterSponsors = oRecord
                     .sCommaCollapsedBlock
-                    .split('Sponsor')[1].trim(),
-        sCharacterAfterSponsors = sTextAfterSponsors && sTextAfterSponsors[0].trim(),
+                    .split('Sponsor')[1],
+        sCharacterAfterSponsors = sTextAfterSponsors && sTextAfterSponsors[0],
         bNonAdjacentSponsors = oRecord
                     .sCommaCollapsedBlock
                     .split('Sponsor')
@@ -183,11 +184,14 @@ function fParseCompletionDegree(sParsedBlock, oRecord) {
 
     if (sCharacterAfterSponsors) {
         if (sCharacterAfterSponsors === 's') {
-            sCharacterAfterSponsors = sTextAfterSponsors[1].trim();
+            sCharacterAfterSponsors = sTextAfterSponsors[1];
         }
 
         if (sCharacterAfterSponsors === ',') {
-            oRecord.sCompletionDegree = sTextAfterSponsors.split(',')[1];
+            oRecord.sCompletionDegree = sTextAfterSponsors.split(',')[1].trim();
+            if (!arrDegrees.includes(oRecord.sCompletionDegree)) {
+                oRecord.sCompletionDegree = '';
+            }
         }
         else {
             oRecord.sCompletionDegree = '';
