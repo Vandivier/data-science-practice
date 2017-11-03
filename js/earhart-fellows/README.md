@@ -25,9 +25,9 @@ This parse logic currently supports parsing these 8 variables:
 
 I parse using the following rules:
 1. General parsing rules
- 1. Parsed blocks are delimited by the string 'Graduate Fellowship(s)'
+    1. Parsed blocks are delimited by the string 'Graduate Fellowship(s)'
 1. Academic Year
- 1. Begins the line after the string 'Graduate Fellowship(s)'
+  1. Begins the line after the string 'Graduate Fellowship(s)'
  1. Ends at the next line which has a non-numeric first character
 1. Graduate Institution
  1. Begins the line after Academic year support was received
