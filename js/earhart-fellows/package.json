@@ -1,0 +1,16 @@
+{
+  "name": "earhart-fellows",
+  "version": "1.0.0",
+  "description": "taking an rtf file of earhart fellows data and massaging to csv",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rtf",
+    "csv",
+    "data"
+  ],
+  "author": "John Vandivier",
+  "license": "MIT"
+}
