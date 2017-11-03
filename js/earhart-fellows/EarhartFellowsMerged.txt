@@ -6082,7 +6082,7 @@ Address
 MD 20740-3007, delinger@gmail.com
 DELMAS, Candice
 Graduate Fellowship(s)
-,	2010-2011
+2010-2011
 Boston University, Philosophy, Charles L.
 Griswold Jr., Sponsor, Ph.D., 2012
 
@@ -10140,6 +10140,7 @@ HARRIS, Heidi
 Graduate Fellowship(s)
 2007-2008
 Boston University, Culture, Peter L. Berger
+Sponsor
 Address
 1604 Fenwick Village Drive, Savannah, GA
 31419-8456, hhconcord@gmail.com
@@ -10661,7 +10662,8 @@ Graduate Fellowship(s)
 2012-2013
 2013-2014
 Spring 2015
-Boston University, Religion, Peter L. Berger, Sponsor, Ph.D., 2015
+Boston University, Religion, Peter L. Berger,
+Sponsor, Ph.D., 2015
 HESTON, William Lloyd
 Graduate Fellowship(s)
 1967-1968

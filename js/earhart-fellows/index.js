@@ -26,9 +26,12 @@ let split = require('split');
 
 let rsReadStream = fs.createReadStream('./EarhartFellowsMerged.txt');
 let wsWriteStream = fs.createWriteStream('./output.csv');
+let wsNonAdjacent = fs.createWriteStream('./non-adjacent-sponsor.txt');
 let regexDelimiter = /Graduate Fellowship* *\(s\)/;
 let sVeryFirstName = 'ABBAS, Hassan'; // it gets parsed out bc above delimiter
 let bVeryFirstRecordDone = false; // very first record has only name, nothing else; skip this record
+
+let iNonAdjacent = 0;
 
 main();
 
@@ -77,7 +80,7 @@ function fHandleData(sParsedBlock) {
     fsRecordToCsvLine(oRecord);
 }
 
-function fsRecordToCsvLine(oRecord) {
+function fsRecordToCsvLine(oRecord, bNonAdjacentLog) {
     let sToCsv = ''
                 + '"' + oRecord.sName + '",'
                 + '"' + oRecord.sAcademicYear + '",'
@@ -90,10 +93,15 @@ function fsRecordToCsvLine(oRecord) {
                 + '"' + oRecord.sEmailAddress + '",'
                 + '"' + oRecord.bDeceased + '"'
 
-    wsWriteStream.write(sToCsv + OSEOL);
+    if (bNonAdjacentLog) {
+        wsNonAdjacent.write(sToCsv + OSEOL);
+    } else {
+        wsWriteStream.write(sToCsv + OSEOL);
+    }
 }
 
 function fNotifyEndProgram() {
+    console.log(iNonAdjacent + ' non-adjacent sponsor records identified.');
     console.log('Program completed.');
 }
 
@@ -153,11 +161,46 @@ function fParseAreaOfStudy(sParsedBlock, oRecord) {
 }
 
 function fParseSponsors(sParsedBlock, oRecord) {
-    
+    let _sSponsors = oRecord
+                    .sCommaCollapsedBlock
+                    .split(oRecord.sAreaOfStudy)[1]
+                    .split('Sponsor')[0]
+                    .trim();
+
+    _sSponsors = _sSponsors.slice(1, _sSponsors.length).slice(0, -1); // commas on either side
+    oRecord.sSponsors = _sSponsors.trim();
 }
 
 function fParseCompletionDegree(sParsedBlock, oRecord) {
-    
+    let sTextAfterSponsors = oRecord
+                    .sCommaCollapsedBlock
+                    .split('Sponsor')[1].trim(),
+        sCharacterAfterSponsors = sTextAfterSponsors && sTextAfterSponsors[0].trim(),
+        bNonAdjacentSponsors = oRecord
+                    .sCommaCollapsedBlock
+                    .split('Sponsor')
+                    .length > 2;
+
+    if (sCharacterAfterSponsors) {
+        if (sCharacterAfterSponsors === 's') {
+            sCharacterAfterSponsors = sTextAfterSponsors[1].trim();
+        }
+
+        if (sCharacterAfterSponsors === ',') {
+            oRecord.sCompletionDegree = sTextAfterSponsors.split(',')[1];
+        }
+        else {
+            oRecord.sCompletionDegree = '';
+        }
+    }
+    else {
+        oRecord.sCompletionDegree = '';
+    }
+
+    if (bNonAdjacentSponsors) {
+        fsRecordToCsvLine(oRecord, true);
+        iNonAdjacent++;
+    }
 }
 
 function fParseCompletionYear(sParsedBlock, oRecord) {
