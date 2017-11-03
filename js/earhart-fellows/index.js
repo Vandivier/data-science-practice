@@ -26,7 +26,7 @@ let split = require('split');
 
 let rsReadStream = fs.createReadStream('./EarhartFellowsMerged.txt');
 let wsWriteStream = fs.createWriteStream('./output.csv');
-let regexDelimiter = /Graduate Fellowship\(s\)/;
+let regexDelimiter = /Graduate Fellowship* *\(s\)/;
 let sVeryFirstName = 'ABBAS, Hassan'; // it gets parsed out bc above delimiter
 let bVeryFirstRecordDone = false; // very first record has only name, nothing else; skip this record
 
@@ -52,17 +52,19 @@ function fHandleData(sParsedBlock) {
         return;
     }
 
+    sParsedBlock = sParsedBlock.replace(/;/g, ',');
     oRecord.arrSplitByLineBreak = sParsedBlock.split(/(\r\n|\r|\n)/g);
-    oRecord.sCommaCollapsedBlock = oRecord.arrSplitByLineBreak.join(',');
-    oRecord.sCommaCollapsedBlock = sParsedBlock.replace(/[\r\n|\r|\n|;|,]+/g, ',');
+    oRecord.sCommaCollapsedBlock = oRecord
+                                        .arrSplitByLineBreak
+                                        .join(',')
+                                        .replace(/(\r\n|\r|\n|,)+/g, ',');
 
     try {
         fParseName(sParsedBlock, oRecord);
         fParseAcademicYear(sParsedBlock, oRecord);
         fParseGraduateInstitution(sParsedBlock, oRecord);
         fParseAreaOfStudy(sParsedBlock, oRecord);
-        fParseSponsors(sParsedBlock, oRecord);
-        fParseCompletionDegree(sParsedBlock, oRecord);
+        fParseSponsors(sParsedBlock, oRecord);;       fParseCompletionDegree(sParsedBlock, oRecord);
         fParseCompletionYear(sParsedBlock, oRecord);
         fParseMailingAddress(sParsedBlock, oRecord);
         fParseEmailAddress(sParsedBlock, oRecord);
@@ -137,10 +139,17 @@ function fParseGraduateInstitution(sParsedBlock, oRecord) {
 }
 
 function fParseAreaOfStudy(sParsedBlock, oRecord) {
-    oRecord.sAreaOfStudy = oRecord
-                        .sCommaCollapsedBlocksWorkingText
-                        .split(oRecord.sGraduateInstitution)[1]
-                        .split(',')[0];
+    try {
+        oRecord.sAreaOfStudy = oRecord
+                            .sCommaCollapsedBlock
+                            .split(oRecord.sGraduateInstitution)[1]
+                            .split(',')[1]
+                            .trim();
+    }
+    catch (e) {
+        console.log('fParseAreaOfStudy',
+                    oRecord.sGraduateInstitution)
+    }
 }
 
 function fParseSponsors(sParsedBlock, oRecord) {
