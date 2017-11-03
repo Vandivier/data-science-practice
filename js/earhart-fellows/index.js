@@ -7,7 +7,7 @@
 let fs = require('fs');
 let classReadLine = require('readline');
 let rsReadStream = fs.createReadStream('./EarhartFellowsMerged.rtf'); //todo: allow loop thru directory structure by list of allowed file extensions
-let wsWriteStream = fs.createWriteStream('./todo.csv');
+let wsWriteStream = fs.createWriteStream('./output.csv');
 
 
 let rl = classReadLine.createInterface({
