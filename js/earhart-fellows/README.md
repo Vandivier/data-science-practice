@@ -34,7 +34,7 @@ I parse using the following rules:
     1. If non-adjacent-sponsor records number in the three digits then it will be automated via code update. Perhaps even if half that.
 1. Academic Year
     1. Begins the line after the string 'Graduate Fellowship(s)'
-    1. Ends at the next line which has a non-numeric first character
+    1. Ends at the next line which neither begins with a numeric character nor a seasonal word
 1. Graduate Institution
     1. Begins the line after Academic year support was received
     1. Ends on encountering a comma character

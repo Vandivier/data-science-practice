@@ -6,6 +6,7 @@
 
 'use strict';
 
+const arrSeasons = ['sprin', 'summe', 'fall ', 'winte'];
 const OSEOL = require('os').EOL;
 const oTitleLine = {
     'sName': 'Name',
@@ -92,10 +93,28 @@ function fParseName(sSplitData, oRecord) {
 
 // TODO: multiple years
 function fParseAcademicYear(sSplitData, oRecord) {
-    var arrSplitByLineBreak = sSplitData.split(/(\r\n|\r|\n)/),
-        iCurrentLine = 2; // first possible line w year on it
+    var arrSplitByLineBreak = sSplitData.split(/(\r\n|\r|\n)/g),
+        arrsAcademicYears = [],
+        bSeasonMatch,
+        iCurrentLine = 2, // first possible line w year on it
+        sToCheck;
 
-    oRecord.sAcademicYear = arrSplitByLineBreak[2];
+    for (iCurrentLine; iCurrentLine < arrSplitByLineBreak.length; iCurrentLine++) {
+        sToCheck = arrSplitByLineBreak[iCurrentLine].trim();
+
+        if (!isNaN(sToCheck[0])
+            || fbSeasonMatch(sToCheck))
+        {
+            arrsAcademicYears.push(sToCheck);
+        }
+        else if (!sToCheck) { // continue
+        }
+        else {
+            break;
+        }
+    }
+
+    oRecord.sAcademicYear = arrsAcademicYears.join(',');
 }
 
 function fParseGraduateInstitution(sSplitData, oRecord) {
@@ -128,4 +147,8 @@ function fParseEmailAddress(sSplitData, oRecord) {
 
 function fParseDeceased(sSplitData, oRecord) {
     oRecord.bDeceased = sSplitData.toLowerCase().includes('deceased');
+}
+
+function fbSeasonMatch(sToCheck) {
+    return arrSeasons.includes(sToCheck.toLowerCase().slice(0,5));
 }
