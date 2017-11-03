@@ -13,5 +13,8 @@
     "data"
   ],
   "author": "John Vandivier",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "split": "^1.0.1"
+  }
 }

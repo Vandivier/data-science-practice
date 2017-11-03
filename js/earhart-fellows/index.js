@@ -2,24 +2,40 @@
 // ref: https://github.com/Vandivier/linklist-to-table/blob/master/index.js
 // below requires installing a cli tool; last resort
 // ref: https://github.com/dbashford/textract
+// transform streams ref: https://stackoverflow.com/questions/40781713/getting-chunks-by-newline-in-node-js-data-stream
 
 'use strict';
+
 let fs = require('fs');
 let classReadLine = require('readline');
-let rsReadStream = fs.createReadStream('./EarhartFellowsMerged.rtf'); //todo: allow loop thru directory structure by list of allowed file extensions
+var split = require('split')
+
+let rsReadStream = fs.createReadStream('./EarhartFellowsMerged.rtf');
 let wsWriteStream = fs.createWriteStream('./output.csv');
+let regexDelimiter = /Graduate Fellowship(s)/;
 
+main();
 
-let rl = classReadLine.createInterface({
-    input: rsReadStream
-});
+function main() {
+    let rl = classReadLine.createInterface({
+        input: rsReadStream
+    });
 
-rl.on('line', (sLine) => {
-    if (sLine.toLowerCase().includes('address')) { //address is for testing only
-        wsWriteStream.write(convertToPlain(sLine));
-        wsWriteStream.write('\n');
-    }
-});
+    rl.on('line', (sLine) => {
+        if (sLine.toLowerCase().includes('address')) { //address is for testing only
+            wsWriteStream.write(convertToPlain(sLine));
+            wsWriteStream.write('\n');
+        }
+    });
+
+    rsReadStream
+        .pipe(split(regexDelimiter))
+        .on('data', fHandleData)
+}
+
+function fHandleData(sSplitData) {
+    console.log(sSplitData);
+}
 
 // ref: https://stackoverflow.com/questions/29922771/convert-rtf-to-and-from-plain-text
 function convertToRtf(plain) {

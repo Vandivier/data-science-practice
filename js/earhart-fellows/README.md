@@ -12,6 +12,10 @@ npm start
 
 Then read output.csv
 
+Known issues:
+1. The first and last record may be messed up.
+1. For now, non-adjacent-sponsor records must be handled manually
+
 ## Current Parse Rules
 This parse logic currently supports parsing these 8 variables:
 1. Academic year support was received
@@ -26,6 +30,8 @@ This parse logic currently supports parsing these 8 variables:
 I parse using the following rules:
 1. General parsing rules
     1. Parsed blocks are delimited by the string 'Graduate Fellowship(s)'
+    1. A non-adjacent-sponsor record is a common edge case which is identified in non-adjacent-sponsor.txt for manual append
+    1. If non-adjacent-sponsor records number in the three digits then it will be automated via code update. Perhaps even if half that.
 1. Academic Year
     1. Begins the line after the string 'Graduate Fellowship(s)'
     1. Ends at the next line which has a non-numeric first character
@@ -61,7 +67,7 @@ I parse using the following rules:
     1. If the case-insensitive string match 'deceased' is in the parsed block, identify this variable's value as true
 
 ## Weird Cases to Functionally Accommodate
-1. Non-adjacent sponsor(s): ABBOTT III, Thomas A
+1. non-adjacent-sponsor: ABBOTT III, Thomas A
 
 ## Feature Requests
 Have a suggestion for this npm module? Submit an issue.
