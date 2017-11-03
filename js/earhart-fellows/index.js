@@ -18,7 +18,7 @@ let regexDelimiter = /Graduate Fellowship\(s\)/;
 main();
 
 async function main() {
-    //fWriteFirstName()
+    //fWriteFirstName();
     fParseTxt();
 }
 
@@ -30,23 +30,58 @@ function fParseTxt() {
 }
 
 function fHandleData(sSplitData) {
-    //wsWriteStream.write(convertToPlain(sSplitData));
-    let sParsedBlock = sSplitData;
+    let oRecord = {};
 
-    if (sParsedBlock.toLowerCase().includes('address')) { //address is for testing only
-        wsWriteStream.write(sParsedBlock);
-        wsWriteStream.write(OSEOL);
-    }
+    fParseAcademicYear(sSplitData, oRecord);
+    fParseGraduateInstitution(sSplitData, oRecord);
+    fParseAreaOfStudy(sSplitData, oRecord);
+    fParseSponsors(sSplitData, oRecord);
+    fParseCompletionDegree(sSplitData, oRecord);
+    fParseCompletionYear(sSplitData, oRecord);
+    fParseMailingAddress(sSplitData, oRecord);
+    fParseEmailAddress(sSplitData, oRecord);
+    fParseDeceased(sSplitData, oRecord);
+
+    wsWriteStream.write(fsRecordToCsvLine(oRecord));
+    wsWriteStream.write(OSEOL);
+}
+
+function fsRecordToCsvLine() {
+    
 }
 
 function fNotifyEndProgram() {
     console.log('Program completed.');
 }
 
-// ref: https://github.com/petkaantonov/bluebird/issues/332
-function fpStreamToPromise(stream) {
-    return new Promise(function (resolve, reject) {
-        stream.on('end', resolve);
-        stream.on('error', reject);
-    });
+function fParseAcademicYear(sSplitData, oRecord) {
+    
+}
+
+function fParseGraduateInstitution(sSplitData, oRecord) {
+    
+}
+
+function fParseAreaOfStudy(sSplitData, oRecord) {
+    
+}
+
+function fParseSponsors(sSplitData, oRecord) {
+    
+}
+
+function fParseCompletionDegree(sSplitData, oRecord) {
+    
+}
+
+function fParseMailingAddress(sSplitData, oRecord) {
+    
+}
+
+function fParseEmailAddress(sSplitData, oRecord) {
+    
+}
+
+function fParseDeceased(sSplitData, oRecord) {
+    
 }
