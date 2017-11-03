@@ -2680,7 +2680,7 @@ clarkusal@aol.com
 BOWIE, Anne D.
 Graduate Fellowship(s)
 2011-2012
-42	University of Notre Dame, Religion, Vigen Guroian, Sponsor, MA., 2013
+University of Notre Dame, Religion, Vigen Guroian, Sponsor, MA., 2013
 BOYETTE, J. Alan
 Graduate Fellowship(s)
 1989-1990
@@ -10656,7 +10656,12 @@ Claremont, CA 91711-6420
 91767-2075, AlanHeslop_NDC@hotmail.com
 HESSELMANS, Marthe
 Graduate Fellowship(s)
-2010-2011 2011-2012 2012-2013 2013-2014 Spring 2015 Boston University, Religion, Peter L. Berger, Sponsor, Ph.D., 2015
+2010-2011
+2011-2012
+2012-2013
+2013-2014
+Spring 2015
+Boston University, Religion, Peter L. Berger, Sponsor, Ph.D., 2015
 HESTON, William Lloyd
 Graduate Fellowship(s)
 1967-1968
@@ -10760,7 +10765,7 @@ Address
 HILLAS JR., Kenneth M.
 Graduate Fellowship(s)
 1977-1978
-166	University of Pennsylvania, International Studies, William R. Kintner, Sponsor Address
+University of Pennsylvania, International Studies, William R. Kintner, Sponsor Address
 827 Elaine Court, Alexandria, VA 22308
 HILLER, John Robert
 Graduate Fellowship(s)
@@ -12108,7 +12113,10 @@ Colorado Springs, CO 80903
 80919-3089
 KARAKO, Thomas 0.
 Graduate Fellowship(s)
-2001-2002 2002-2003 2003-2004 Claremont Graduate University, Government/ Politics, Harry V. Jaffa, Sponsor, Ph.D., 2009
+2001-2002
+2002-2003
+2003-2004
+Claremont Graduate University, Government/ Politics, Harry V. Jaffa, Sponsor, Ph.D., 2009
 
 KARAYANNIS, Marios
 Graduate Fellowship(s)

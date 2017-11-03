@@ -28,6 +28,7 @@ let rsReadStream = fs.createReadStream('./EarhartFellowsMerged.txt');
 let wsWriteStream = fs.createWriteStream('./output.csv');
 let regexDelimiter = /Graduate Fellowship\(s\)/;
 let sVeryFirstName = 'ABBAS, Hassan'; // it gets parsed out bc above delimiter
+let bVeryFirstRecordDone = false; // very first record has only name, nothing else; skip this record
 
 main();
 
@@ -43,21 +44,33 @@ function fParseTxt() {
         .on('close', fNotifyEndProgram);
 }
 
-function fHandleData(sSplitData) {
+function fHandleData(sParsedBlock) {
     let oRecord = {};
 
-    oRecord.arrSplitByLineBreak = sSplitData.split(/(\r\n|\r|\n)/g);
+    if (!bVeryFirstRecordDone) {
+        bVeryFirstRecordDone = true;
+        return;
+    }
 
-    fParseName(sSplitData, oRecord);
-    fParseAcademicYear(sSplitData, oRecord);
-    fParseGraduateInstitution(sSplitData, oRecord);
-    fParseAreaOfStudy(sSplitData, oRecord);
-    fParseSponsors(sSplitData, oRecord);
-    fParseCompletionDegree(sSplitData, oRecord);
-    fParseCompletionYear(sSplitData, oRecord);
-    fParseMailingAddress(sSplitData, oRecord);
-    fParseEmailAddress(sSplitData, oRecord);
-    fParseDeceased(sSplitData, oRecord);
+    oRecord.arrSplitByLineBreak = sParsedBlock.split(/(\r\n|\r|\n)/g);
+    oRecord.sCommaCollapsedBlock = oRecord.arrSplitByLineBreak.join(',');
+    oRecord.sCommaCollapsedBlock = sParsedBlock.replace(/[\r\n|\r|\n|;|,]+/g, ',');
+
+    try {
+        fParseName(sParsedBlock, oRecord);
+        fParseAcademicYear(sParsedBlock, oRecord);
+        fParseGraduateInstitution(sParsedBlock, oRecord);
+        fParseAreaOfStudy(sParsedBlock, oRecord);
+        fParseSponsors(sParsedBlock, oRecord);
+        fParseCompletionDegree(sParsedBlock, oRecord);
+        fParseCompletionYear(sParsedBlock, oRecord);
+        fParseMailingAddress(sParsedBlock, oRecord);
+        fParseEmailAddress(sParsedBlock, oRecord);
+        fParseDeceased(sParsedBlock, oRecord);
+    }
+    catch (e) {
+        console.log('err', oRecord);
+    }
 
     fsRecordToCsvLine(oRecord);
 }
@@ -82,7 +95,7 @@ function fNotifyEndProgram() {
     console.log('Program completed.');
 }
 
-function fParseName(sSplitData, oRecord) {
+function fParseName(sParsedBlock, oRecord) {
     if (sVeryFirstName) {
         oRecord.sName = sVeryFirstName;
         sVeryFirstName = '';
@@ -92,7 +105,7 @@ function fParseName(sSplitData, oRecord) {
 }
 
 // TODO: multiple years
-function fParseAcademicYear(sSplitData, oRecord) {
+function fParseAcademicYear(sParsedBlock, oRecord) {
     var arrsAcademicYears = [],
         bSeasonMatch,
         iCurrentLine = 2, // first possible line w year on it
@@ -110,6 +123,7 @@ function fParseAcademicYear(sSplitData, oRecord) {
         else if (!sToCheck) { // continue
         }
         else {
+            oRecord.iLastAcademicYearLine -= 1;
             break;
         }
     }
@@ -117,37 +131,40 @@ function fParseAcademicYear(sSplitData, oRecord) {
     oRecord.sAcademicYear = arrsAcademicYears.join(',');
 }
 
-function fParseGraduateInstitution(sSplitData, oRecord) {
-    let iLine = oRecord.iLastAcademicYearLine + 1;
+function fParseGraduateInstitution(sParsedBlock, oRecord) {
+    let sWorkingText = oRecord.arrSplitByLineBreak[oRecord.iLastAcademicYearLine + 1];
+    oRecord.sGraduateInstitution = sWorkingText.split(',')[0];
+}
+
+function fParseAreaOfStudy(sParsedBlock, oRecord) {
+    oRecord.sAreaOfStudy = oRecord
+                        .sCommaCollapsedBlocksWorkingText
+                        .split(oRecord.sGraduateInstitution)[1]
+                        .split(',')[0];
+}
+
+function fParseSponsors(sParsedBlock, oRecord) {
     
 }
 
-function fParseAreaOfStudy(sSplitData, oRecord) {
+function fParseCompletionDegree(sParsedBlock, oRecord) {
     
 }
 
-function fParseSponsors(sSplitData, oRecord) {
+function fParseCompletionYear(sParsedBlock, oRecord) {
     
 }
 
-function fParseCompletionDegree(sSplitData, oRecord) {
+function fParseMailingAddress(sParsedBlock, oRecord) {
     
 }
 
-function fParseCompletionYear(sSplitData, oRecord) {
+function fParseEmailAddress(sParsedBlock, oRecord) {
     
 }
 
-function fParseMailingAddress(sSplitData, oRecord) {
-    
-}
-
-function fParseEmailAddress(sSplitData, oRecord) {
-    
-}
-
-function fParseDeceased(sSplitData, oRecord) {
-    oRecord.bDeceased = sSplitData.toLowerCase().includes('deceased');
+function fParseDeceased(sParsedBlock, oRecord) {
+    oRecord.bDeceased = sParsedBlock.toLowerCase().includes('deceased');
 }
 
 function fbSeasonMatch(sToCheck) {
