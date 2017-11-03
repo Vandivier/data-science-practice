@@ -46,6 +46,8 @@ function fParseTxt() {
 function fHandleData(sSplitData) {
     let oRecord = {};
 
+    oRecord.arrSplitByLineBreak = sSplitData.split(/(\r\n|\r|\n)/g);
+
     fParseName(sSplitData, oRecord);
     fParseAcademicYear(sSplitData, oRecord);
     fParseGraduateInstitution(sSplitData, oRecord);
@@ -81,26 +83,24 @@ function fNotifyEndProgram() {
 }
 
 function fParseName(sSplitData, oRecord) {
-    var arrSplitByLineBreak = sSplitData.split(/(\r\n|\r|\n)/);
-
     if (sVeryFirstName) {
         oRecord.sName = sVeryFirstName;
         sVeryFirstName = '';
     } else {
-        oRecord.sName = arrSplitByLineBreak[arrSplitByLineBreak.length - 3];
+        oRecord.sName = oRecord.arrSplitByLineBreak[oRecord.arrSplitByLineBreak.length - 3];
     }
 }
 
 // TODO: multiple years
 function fParseAcademicYear(sSplitData, oRecord) {
-    var arrSplitByLineBreak = sSplitData.split(/(\r\n|\r|\n)/g),
-        arrsAcademicYears = [],
+    var arrsAcademicYears = [],
         bSeasonMatch,
         iCurrentLine = 2, // first possible line w year on it
         sToCheck;
 
-    for (iCurrentLine; iCurrentLine < arrSplitByLineBreak.length; iCurrentLine++) {
-        sToCheck = arrSplitByLineBreak[iCurrentLine].trim();
+    for (iCurrentLine; iCurrentLine < oRecord.arrSplitByLineBreak.length; iCurrentLine++) {
+        sToCheck = oRecord.arrSplitByLineBreak[iCurrentLine].trim();
+        oRecord.iLastAcademicYearLine = iCurrentLine;
 
         if (!isNaN(sToCheck[0])
             || fbSeasonMatch(sToCheck))
@@ -118,6 +118,7 @@ function fParseAcademicYear(sSplitData, oRecord) {
 }
 
 function fParseGraduateInstitution(sSplitData, oRecord) {
+    let iLine = oRecord.iLastAcademicYearLine + 1;
     
 }
 
