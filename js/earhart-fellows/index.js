@@ -17,7 +17,7 @@ const oTitleLine = {
     'sCompletionYear': 'Completion Year',
     'sMailingAddress': 'Mailing Address',
     'sEmailAddress': 'Email Address',
-    'sDeceased': 'Deceased'
+    'bDeceased': 'Deceased'
 };
 
 let fs = require('fs');
@@ -70,7 +70,7 @@ function fsRecordToCsvLine(oRecord) {
                 + '"' + oRecord.sCompletionYear + '",'
                 + '"' + oRecord.sMailingAddress + '",'
                 + '"' + oRecord.sEmailAddress + '",'
-                + '"' + oRecord.sDeceased + '"'
+                + '"' + oRecord.bDeceased + '"'
 
     wsWriteStream.write(sToCsv + OSEOL);
 }
@@ -127,5 +127,5 @@ function fParseEmailAddress(sSplitData, oRecord) {
 }
 
 function fParseDeceased(sSplitData, oRecord) {
-    
+    oRecord.bDeceased = sSplitData.toLowerCase().includes('deceased');
 }
