@@ -7,13 +7,14 @@
 'use strict';
 
 const OSEOL = require('os').EOL;
+const sIntermediateFile = './intermediate.txt';
 
 let fs = require('fs');
 let classReadLine = require('readline');
 let split = require('split');
 
 let rsReadStream = fs.createReadStream('./EarhartFellowsMerged.rtf');
-let wsIntermediate = fs.createWriteStream('./intermediate.txt');
+let wsIntermediate = fs.createWriteStream(sIntermediateFile);
 let wsWriteStream = fs.createWriteStream('./output.csv');
 let regexDelimiter = /Graduate Fellowship(s)/;
 
@@ -36,7 +37,9 @@ function fpConvertRtfToTxt() {
     });
 
     rl.on('line', (sLine) => {
-        if (sLine.toLowerCase().includes('address')) { //address is for testing only
+        sLine = sLine.replace(/\s*\\\*+/g, '').trim();
+
+        if (sLine) {
             wsIntermediate.write(convertToPlain(sLine) + OSEOL);
         }
     });
@@ -45,11 +48,9 @@ function fpConvertRtfToTxt() {
 }
 
 function fParseTxt() {
-    let rl = classReadLine.createInterface({
-        input: rsReadStream
-    });
+    let rsReadIntermediate = fs.createReadStream(sIntermediateFile);
 
-    rsReadStream
+    rsReadIntermediate
         .pipe(split(regexDelimiter))
         .on('data', fHandleData)
         .on('close', fNotifyEndProgram);
