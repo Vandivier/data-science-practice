@@ -32,8 +32,7 @@ main();
 
 async function main() {
     fsRecordToCsvLine(oTitleLine);
-    //fWriteFirstName();
-    //fParseTxt();
+    fParseTxt();
 }
 
 function fParseTxt() {
@@ -46,6 +45,7 @@ function fParseTxt() {
 function fHandleData(sSplitData) {
     let oRecord = {};
 
+    fParseName(sSplitData, oRecord);
     fParseAcademicYear(sSplitData, oRecord);
     fParseGraduateInstitution(sSplitData, oRecord);
     fParseAreaOfStudy(sSplitData, oRecord);
@@ -55,20 +55,22 @@ function fHandleData(sSplitData) {
     fParseMailingAddress(sSplitData, oRecord);
     fParseEmailAddress(sSplitData, oRecord);
     fParseDeceased(sSplitData, oRecord);
+
+    fsRecordToCsvLine(oRecord);
 }
 
 function fsRecordToCsvLine(oRecord) {
     let sToCsv = ''
-                + '"' + oTitleLine.sName + '",'
-                + '"' + oTitleLine.sAcademicYear + '",'
-                + '"' + oTitleLine.sGraduateInstitution + '",'
-                + '"' + oTitleLine.sAreaOfStudy + '",'
-                + '"' + oTitleLine.sSponsors + '",'
-                + '"' + oTitleLine.sCompletionDegree + '",'
-                + '"' + oTitleLine.sCompletionYear + '",'
-                + '"' + oTitleLine.sMailingAddress + '",'
-                + '"' + oTitleLine.sEmailAddress + '",'
-                + '"' + oTitleLine.sDeceased + '"'
+                + '"' + oRecord.sName + '",'
+                + '"' + oRecord.sAcademicYear + '",'
+                + '"' + oRecord.sGraduateInstitution + '",'
+                + '"' + oRecord.sAreaOfStudy + '",'
+                + '"' + oRecord.sSponsors + '",'
+                + '"' + oRecord.sCompletionDegree + '",'
+                + '"' + oRecord.sCompletionYear + '",'
+                + '"' + oRecord.sMailingAddress + '",'
+                + '"' + oRecord.sEmailAddress + '",'
+                + '"' + oRecord.sDeceased + '"'
 
     wsWriteStream.write(sToCsv + OSEOL);
 }
@@ -77,8 +79,23 @@ function fNotifyEndProgram() {
     console.log('Program completed.');
 }
 
+function fParseName(sSplitData, oRecord) {
+    var arrSplitByLineBreak = sSplitData.split(/(\r\n|\r|\n)/);
+
+    if (sVeryFirstName) {
+        oRecord.sName = sVeryFirstName;
+        sVeryFirstName = '';
+    } else {
+        oRecord.sName = arrSplitByLineBreak[arrSplitByLineBreak.length - 3];
+    }
+}
+
+// TODO: multiple years
 function fParseAcademicYear(sSplitData, oRecord) {
-    
+    var arrSplitByLineBreak = sSplitData.split(/(\r\n|\r|\n)/),
+        iCurrentLine = 2; // first possible line w year on it
+
+    oRecord.sAcademicYear = arrSplitByLineBreak[2];
 }
 
 function fParseGraduateInstitution(sSplitData, oRecord) {
@@ -94,6 +111,10 @@ function fParseSponsors(sSplitData, oRecord) {
 }
 
 function fParseCompletionDegree(sSplitData, oRecord) {
+    
+}
+
+function fParseCompletionYear(sSplitData, oRecord) {
     
 }
 
