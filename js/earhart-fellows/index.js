@@ -208,7 +208,21 @@ function fParseCompletionDegree(sParsedBlock, oRecord) {
 }
 
 function fParseCompletionYear(sParsedBlock, oRecord) {
-    
+    let arr;
+
+    if (oRecord.sCompletionDegree) {
+        arr = oRecord
+                .sCommaCollapsedBlock
+                .split(oRecord.sCompletionDegree)[1]
+                .split(',');
+
+        oRecord.sCompletionYear = arr[1].trim();
+
+        if (isNaN(oRecord.sCompletionYear)) oRecord.sCompletionYear = '';
+    }
+    else {
+        oRecord.sCompletionYear = '';
+    }
 }
 
 function fParseMailingAddress(sParsedBlock, oRecord) {
