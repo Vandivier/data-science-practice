@@ -7,6 +7,18 @@
 'use strict';
 
 const OSEOL = require('os').EOL;
+const oTitleLine = {
+    'sName': 'Name',
+    'sAcademicYear': 'Academic Year',
+    'sGraduateInstitution': 'Graduate Institution',
+    'sAreaOfStudy': 'Area of Study',
+    'sSponsors': 'Sponsors',
+    'sCompletionDegree': 'Completion Degree',
+    'sCompletionYear': 'Completion Year',
+    'sMailingAddress': 'Mailing Address',
+    'sEmailAddress': 'Email Address',
+    'sDeceased': 'Deceased'
+};
 
 let fs = require('fs');
 let split = require('split');
@@ -14,12 +26,14 @@ let split = require('split');
 let rsReadStream = fs.createReadStream('./EarhartFellowsMerged.txt');
 let wsWriteStream = fs.createWriteStream('./output.csv');
 let regexDelimiter = /Graduate Fellowship\(s\)/;
+let sVeryFirstName = 'ABBAS, Hassan'; // it gets parsed out bc above delimiter
 
 main();
 
 async function main() {
+    fsRecordToCsvLine(oTitleLine);
     //fWriteFirstName();
-    fParseTxt();
+    //fParseTxt();
 }
 
 function fParseTxt() {
@@ -41,13 +55,22 @@ function fHandleData(sSplitData) {
     fParseMailingAddress(sSplitData, oRecord);
     fParseEmailAddress(sSplitData, oRecord);
     fParseDeceased(sSplitData, oRecord);
-
-    wsWriteStream.write(fsRecordToCsvLine(oRecord));
-    wsWriteStream.write(OSEOL);
 }
 
-function fsRecordToCsvLine() {
-    
+function fsRecordToCsvLine(oRecord) {
+    let sToCsv = ''
+                + '"' + oTitleLine.sName + '",'
+                + '"' + oTitleLine.sAcademicYear + '",'
+                + '"' + oTitleLine.sGraduateInstitution + '",'
+                + '"' + oTitleLine.sAreaOfStudy + '",'
+                + '"' + oTitleLine.sSponsors + '",'
+                + '"' + oTitleLine.sCompletionDegree + '",'
+                + '"' + oTitleLine.sCompletionYear + '",'
+                + '"' + oTitleLine.sMailingAddress + '",'
+                + '"' + oTitleLine.sEmailAddress + '",'
+                + '"' + oTitleLine.sDeceased + '"'
+
+    wsWriteStream.write(sToCsv + OSEOL);
 }
 
 function fNotifyEndProgram() {
