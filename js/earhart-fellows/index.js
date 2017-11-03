@@ -7,50 +7,23 @@
 'use strict';
 
 const OSEOL = require('os').EOL;
-const sIntermediateFile = './intermediate.txt';
 
 let fs = require('fs');
-let classReadLine = require('readline');
 let split = require('split');
 
-let rsReadStream = fs.createReadStream('./EarhartFellowsMerged.rtf');
-let wsIntermediate = fs.createWriteStream(sIntermediateFile);
+let rsReadStream = fs.createReadStream('./EarhartFellowsMerged.txt');
 let wsWriteStream = fs.createWriteStream('./output.csv');
-let regexDelimiter = /Graduate Fellowship(s)/;
+let regexDelimiter = /Graduate Fellowship\(s\)/;
 
 main();
 
 async function main() {
-    try {
-        await fpConvertRtfToTxt();
-    } catch (error) {
-        console.error('fpConvertRtfToTxt failed.\n');
-    }
-
+    //fWriteFirstName()
     fParseTxt();
 }
 
-// return a promise which indicates that txt is written
-function fpConvertRtfToTxt() {
-    let rl = classReadLine.createInterface({
-        input: rsReadStream
-    });
-
-    rl.on('line', (sLine) => {
-        sLine = sLine.replace(/\s*\\\*+/g, '').trim();
-
-        if (sLine) {
-            wsIntermediate.write(convertToPlain(sLine) + OSEOL);
-        }
-    });
-
-    return fpStreamToPromise(rsReadStream);
-}
-
 function fParseTxt() {
-    let rsReadIntermediate = fs.createReadStream(sIntermediateFile);
-
-    rsReadIntermediate
+    rsReadStream
         .pipe(split(regexDelimiter))
         .on('data', fHandleData)
         .on('close', fNotifyEndProgram);
@@ -58,29 +31,16 @@ function fParseTxt() {
 
 function fHandleData(sSplitData) {
     //wsWriteStream.write(convertToPlain(sSplitData));
-    let sParsedBlock = convertToPlain(sSplitData);
+    let sParsedBlock = sSplitData;
 
     if (sParsedBlock.toLowerCase().includes('address')) { //address is for testing only
         wsWriteStream.write(sParsedBlock);
-        wsWriteStream.write('\n');
+        wsWriteStream.write(OSEOL);
     }
 }
 
 function fNotifyEndProgram() {
     console.log('Program completed.');
-}
-
-// ref: https://stackoverflow.com/questions/29922771/convert-rtf-to-and-from-plain-text
-function convertToRtf(plain) {
-    plain = plain.replace(/\n/g, "\\par\n");
-    return "{\\rtf1\\ansi\\ansicpg1252\\deff0\\deflang2057{\\fonttbl{\\f0\\fnil\\fcharset0 Microsoft Sans Serif;}}\n\\viewkind4\\uc1\\pard\\f0\\fs17 " + plain + "\\par\n}";
-}
-
-// ref: https://stackoverflow.com/questions/29922771/convert-rtf-to-and-from-plain-text
-// not sure if it works w/ streams
-function convertToPlain(rtf) {
-    rtf = rtf.replace(/\\par[d]?/g, "");
-    return rtf.replace(/\{\*?\\[^{}]+}|[{}]|\\\n?[A-Za-z]+\n?(?:-?\d+)?[ ]?/g, "").trim();
 }
 
 // ref: https://github.com/petkaantonov/bluebird/issues/332
