@@ -68,6 +68,7 @@ I parse using the following rules:
 
 ## Weird Cases to Functionally Accommodate
 1. non-adjacent-sponsor: ABBOTT III, Thomas A
+1. No institution: DEMPSEY, Erik D.
 
 ## Feature Requests
 Have a suggestion for this npm module? Submit an issue.
