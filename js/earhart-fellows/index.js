@@ -21,6 +21,22 @@ const oTitleLine = {
     'bDeceased': 'Deceased'
 };
 
+const arrAreas = [
+    'Business Administration',
+    'Culture',
+    'Economics',
+    'Government/Politics',
+    'Health/Welfare',
+    'History',
+    'International Studies',
+    'Law',
+    'National Security Studies',
+    'Philosophy',
+    'Politics',
+    'Religion',
+    'Sociology'
+];
+
 let fs = require('fs');
 let split = require('split');
 
@@ -56,6 +72,8 @@ function fHandleData(sParsedBlock) {
     }
 
     sParsedBlock = sParsedBlock.replace(/;/g, ',');
+    sParsedBlock = sParsedBlock.replace(/\/\s/g, '/'); // remove whitespace after a slash character
+    sParsedBlock = sParsedBlock.replace(/\/[\r\n]+/g, '/'); // remove whitespace after a slash character
     oRecord.arrSplitByLineBreak = sParsedBlock.split(/(\r\n|\r|\n)/g);
     oRecord.sCommaCollapsedBlock = oRecord
                                         .arrSplitByLineBreak
