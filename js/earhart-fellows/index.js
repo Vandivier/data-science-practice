@@ -11,6 +11,7 @@ const OSEOL = require('os').EOL;
 const oTitleLine = {
     'sName': 'Name',
     'sAcademicYear': 'Academic Year',
+    'bMultipleDegrees': 'Multiple Degrees',
     'sGraduateInstitution': 'Graduate Institution',
     'sAreaOfStudy': 'Area of Study',
     'sInvalidPreFixAreaOfStudy': 'Invalid Pre-Fix Area of Study',
@@ -38,6 +39,8 @@ const arrAreas = [
     'Religion',
     'Sociology'
 ];
+
+const arrDegrees = ['Ph.D.', 'M.A.', 'MA.', 'M.B.A.', 'D.B.A.', 'B.A.'];
 
 let fs = require('fs');
 let split = require('split');
@@ -104,6 +107,7 @@ function fsRecordToCsvLine(oRecord) {
     let sToCsv = ''
                 + '"' + oRecord.sName + '",'
                 + '"' + oRecord.sAcademicYear + '",'
+                + '"' + oRecord.bMultipleDegrees + '",'
                 + '"' + oRecord.sGraduateInstitution + '",'
                 + '"' + oRecord.sAreaOfStudy + '",'
                 + '"' + oRecord.sInvalidPreFixAreaOfStudy + '",'
@@ -148,9 +152,7 @@ function fParseAcademicYear(sParsedBlock, oRecord) {
         sToCheck = oRecord.arrSplitByLineBreak[iCurrentLine].trim();
         oRecord.iLastAcademicYearLine = iCurrentLine;
 
-        if (!isNaN(sToCheck[0])
-            || fbSeasonMatch(sToCheck))
-        {
+        if (fCheckAcademicYear(sToCheck)) {
             arrsAcademicYears.push(sToCheck);
         }
         else if (!sToCheck) { // continue
@@ -217,8 +219,7 @@ function fParseSponsors(sParsedBlock, oRecord) {
 }
 
 function fParseCompletionDegree(sParsedBlock, oRecord) {
-    let arrDegrees = ['Ph.D.', 'M.A.', 'MA.', 'M.B.A.', 'D.B.A.', 'B.A.'],
-        sTextAfterSponsors = oRecord
+    let sTextAfterSponsors = oRecord
                     .sCommaCollapsedBlock
                     .split('Sponsor')[1],
         sCharacterAfterSponsors = sTextAfterSponsors && sTextAfterSponsors[0];
@@ -227,6 +228,7 @@ function fParseCompletionDegree(sParsedBlock, oRecord) {
                 .sCommaCollapsedBlock
                 .split('Sponsor')
                 .length > 2;
+    oRecord.bMultipleDegrees = '';
 
     if (sCharacterAfterSponsors) {
         if (sCharacterAfterSponsors === 's') {
@@ -235,7 +237,11 @@ function fParseCompletionDegree(sParsedBlock, oRecord) {
 
         if (sCharacterAfterSponsors === ',') {
             oRecord.sCompletionDegree = sTextAfterSponsors.split(',')[1].trim();
+
             if (!arrDegrees.includes(oRecord.sCompletionDegree)) {
+                if (fCheckAcademicYear(oRecord.sCompletionDegree)) {
+                    oRecord.bMultipleDegrees = true;
+                }
                 oRecord.sCompletionDegree = '';
             }
         }
@@ -280,4 +286,9 @@ function fParseDeceased(sParsedBlock, oRecord) {
 
 function fbSeasonMatch(sToCheck) {
     return arrSeasons.includes(sToCheck.toLowerCase().slice(0,5));
+}
+
+function fCheckAcademicYear(sToCheck) {
+  return (!isNaN(sToCheck[0])
+            || fbSeasonMatch(sToCheck))
 }
