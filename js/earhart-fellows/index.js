@@ -173,7 +173,7 @@ function fParseSponsors(sParsedBlock, oRecord) {
 }
 
 function fParseCompletionDegree(sParsedBlock, oRecord) {
-    let arrDegrees = ['Ph.D.', 'M.A.', 'MA.', 'M.B.A.'],
+    let arrDegrees = ['Ph.D.', 'M.A.', 'MA.', 'M.B.A.', 'D.B.A.', 'B.A.'],
         sTextAfterSponsors = oRecord
                     .sCommaCollapsedBlock
                     .split('Sponsor')[1],
