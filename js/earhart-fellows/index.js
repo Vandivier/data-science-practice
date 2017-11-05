@@ -283,12 +283,14 @@ function fParseEmailAddress(sParsedBlock, oRecord) {
 function fParseDeceased(sParsedBlock, oRecord) {
     oRecord.bDeceased = sParsedBlock.toLowerCase().includes('deceased');
 }
-
 function fbSeasonMatch(sToCheck) {
     return arrSeasons.includes(sToCheck.toLowerCase().slice(0,5));
 }
 
+// valid 'school time' includes both years as well as semesters
+// these can be like "fall 1985" or "calendar year 1973"
 function fCheckAcademicYear(sToCheck) {
   return (!isNaN(sToCheck[0])
-            || fbSeasonMatch(sToCheck))
+            || fbSeasonMatch(sToCheck)
+            || sToCheck.toLowerCase().slice(0,13) === 'calendar year')
 }
