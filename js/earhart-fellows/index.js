@@ -40,6 +40,14 @@ const arrAreas = [
     'Sociology'
 ];
 
+const oAreasWithSpace = {
+    'Business,Administration': 'Business Administration',
+    'International,Studies': 'International Studies',
+    'National,Security,Studies': 'National Security Studies',
+    'National,Security Studies': 'National Security Studies',
+    'National Security,Studies': 'National Security Studies'
+};
+
 const arrDegrees = ['Ph.D.', 'M.A.', 'MA.', 'M.B.A.', 'D.B.A.', 'B.A.'];
 
 let fs = require('fs');
@@ -84,6 +92,10 @@ function fHandleData(sParsedBlock) {
                                         .arrSplitByLineBreak
                                         .join(',')
                                         .replace(/(\r\n|\r|\n|,)+/g, ',');
+
+    for (const sKey in oAreasWithSpace) {
+        oRecord.sCommaCollapsedBlock = oRecord.sCommaCollapsedBlock.replace(sKey, oAreasWithSpace[sKey]);
+    }
 
     try {
         fParseName(sParsedBlock, oRecord);
