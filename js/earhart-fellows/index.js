@@ -11,8 +11,9 @@ const OSEOL = require('os').EOL;
 const oTitleLine = {
     'sName': 'Name',
     'sAcademicYear': 'Academic Year',
-    'bMultipleDegrees': 'Multiple Degrees',
+    'vMultipleDegrees': 'Multiple Degrees',
     'sGraduateInstitution': 'Graduate Institution',
+    'vInstitutionValid': 'Graduate Institution In Validated List',
     'sAreaOfStudy': 'Area of Study',
     'sInvalidPreFixAreaOfStudy': 'Invalid Pre-Fix Area of Study',
     'sInvalidPostFixAreaOfStudy': 'Invalid Post-Fix Area of Study',
@@ -61,6 +62,8 @@ let sVeryFirstName = 'ABBAS, Hassan'; // it gets parsed out bc above delimiter
 let bVeryFirstRecordDone = false; // very first record has only name, nothing else; skip this record
 
 let iNonAdjacent = 0;
+
+const arrGraduateInstitutions = fs.readFileSync('./graduate-instiutions.csv', 'utf8').split(',');
 
 main();
 
@@ -119,8 +122,9 @@ function fsRecordToCsvLine(oRecord) {
     let sToCsv = ''
                 + '"' + oRecord.sName + '",'
                 + '"' + oRecord.sAcademicYear + '",'
-                + '"' + oRecord.bMultipleDegrees + '",'
+                + '"' + oRecord.vMultipleDegrees + '",'
                 + '"' + oRecord.sGraduateInstitution + '",'
+                + '"' + oRecord.vInstitutionValid + '",'
                 + '"' + oRecord.sAreaOfStudy + '",'
                 + '"' + oRecord.sInvalidPreFixAreaOfStudy + '",'
                 + '"' + oRecord.sInvalidPostFixAreaOfStudy + '",'
@@ -181,6 +185,11 @@ function fParseAcademicYear(sParsedBlock, oRecord) {
 function fParseGraduateInstitution(sParsedBlock, oRecord) {
     let sWorkingText = oRecord.arrSplitByLineBreak[oRecord.iLastAcademicYearLine + 1];
     oRecord.sGraduateInstitution = sWorkingText.split(',')[0];
+    if (arrGraduateInstitutions.includes(oRecord.sGraduateInstitution)) {
+        oRecord.vInstitutionValid = '';
+    } else {
+        oRecord.vInstitutionValid = false;
+    }
 }
 
 // sAreaSecondGuess supports cases where the institution name includes a commas
@@ -240,7 +249,7 @@ function fParseCompletionDegree(sParsedBlock, oRecord) {
                 .sCommaCollapsedBlock
                 .split('Sponsor')
                 .length > 2;
-    oRecord.bMultipleDegrees = '';
+    oRecord.vMultipleDegrees = '';
 
     if (sCharacterAfterSponsors) {
         if (sCharacterAfterSponsors === 's') {
@@ -252,7 +261,7 @@ function fParseCompletionDegree(sParsedBlock, oRecord) {
 
             if (!arrDegrees.includes(oRecord.sCompletionDegree)) {
                 if (fCheckAcademicYear(oRecord.sCompletionDegree)) {
-                    oRecord.bMultipleDegrees = true;
+                    oRecord.vMultipleDegrees = true;
                 }
                 oRecord.sCompletionDegree = '';
             }
