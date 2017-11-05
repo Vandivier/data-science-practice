@@ -80,7 +80,7 @@ function fHandleData(sParsedBlock) {
     fsRecordToCsvLine(oRecord);
 }
 
-function fsRecordToCsvLine(oRecord, bNonAdjacentLog) {
+function fsRecordToCsvLine(oRecord) {
     let sToCsv = ''
                 + '"' + oRecord.sName + '",'
                 + '"' + oRecord.sAcademicYear + '",'
@@ -93,7 +93,8 @@ function fsRecordToCsvLine(oRecord, bNonAdjacentLog) {
                 + '"' + oRecord.sEmailAddress + '",'
                 + '"' + oRecord.bDeceased + '"'
 
-    if (bNonAdjacentLog) {
+    if (oRecord.bNonAdjacentSponsors) {
+        iNonAdjacent++;
         wsNonAdjacent.write(sToCsv + OSEOL);
     } else {
         wsWriteStream.write(sToCsv + OSEOL);
@@ -176,11 +177,12 @@ function fParseCompletionDegree(sParsedBlock, oRecord) {
         sTextAfterSponsors = oRecord
                     .sCommaCollapsedBlock
                     .split('Sponsor')[1],
-        sCharacterAfterSponsors = sTextAfterSponsors && sTextAfterSponsors[0],
-        bNonAdjacentSponsors = oRecord
-                    .sCommaCollapsedBlock
-                    .split('Sponsor')
-                    .length > 2;
+        sCharacterAfterSponsors = sTextAfterSponsors && sTextAfterSponsors[0];
+
+    oRecord.bNonAdjacentSponsors = oRecord
+                .sCommaCollapsedBlock
+                .split('Sponsor')
+                .length > 2;
 
     if (sCharacterAfterSponsors) {
         if (sCharacterAfterSponsors === 's') {
@@ -199,11 +201,6 @@ function fParseCompletionDegree(sParsedBlock, oRecord) {
     }
     else {
         oRecord.sCompletionDegree = '';
-    }
-
-    if (bNonAdjacentSponsors) {
-        fsRecordToCsvLine(oRecord, true);
-        iNonAdjacent++;
     }
 }
 
