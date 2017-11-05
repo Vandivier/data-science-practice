@@ -1,43 +1,13 @@
-General  issue:
-When the data's structure does not perfectly match our rules, one error will spread to all other observations from that point. Example:
-
-#2/#3: ABBOTT 3.Thomas A. : Because of non-adjacent sponsors this entry ends up in the manual append file - no problem. However, the values for ABBOTT then becomes recorded as values for ABDALLAH, Chadi - the next entry. Every following entry will then have wrong recorded values. 
-
-Seems to me we could first splice the string into separate objects, and then run the regex rules within each object to determine the values?
-(Could splice the string into a new object everytime it reaches 3 or more consecutive capitalized letters. This would suggests a new entry, but for the rare case where someone has a 2 letter last name..).
-
-The above is by far the most important issue. If we can be sure the values are recorded to the correct recipient, it's a relatively small problem to clean up the kind of minor/occasional errors I've noted below. In fact, I hope I'm able to do that part myself. 
-
 Examples from Output.csv Row#:
 #6 ABERT James: Because 3.ii ends on encountering a comma, schools such as University of Maryland, College Park creates problems. 
 
 #16: Recorded value for sponsor includes the value for area of study (and occasionally even institution). Sometimes issues with newlines after backslash. 
 
-#56 ALTER Allen E.:  Here the "Calendar Year 1962" is recorded as the value for graduate institution, and every entry following is "pushed one cell to the right"; you will see "Area of Study" is recorded as University of California, etc. Note that absent this problem these entries would still be wrong because of the general problem above, but I'm still noting this as it may play a role once the general problem is fixed. 
+#56 ALTER Allen E.:  Here the "Calendar Year 1962" is recorded as the value for graduate institution, and every entry following is "pushed one cell to the right";
+you will see "Area of Study" is recorded as University of California, etc.
+Note that absent this problem these entries would still be wrong because of the general problem above,
+but I'm still noting this as it may play a role once the general problem is fixed. 
 
-Rule Edit Additions/Suggestions:
-4.
-	iii. Valid areas of study are listed below. If not Valid: Create/add to list for manual verification (sometimes there are minor typos/incorrect readings that I can easily edit). 
-
-Business
-Business Administration
-Culture
-Economics
-Government/Politics
-Health/
-Health/Welfare
-History
-International Studies
-Law
-National Security
-National Security Studies
-Philosophy
-Politics
-Religion
-Sociology
-
-6.
-	iii. Add "D.B.A." and "B.A." as a valid degrees. 
 
 11.
-	i. Iff "Sponsor" and/or "Sponsors" appears twice in one entry add to manual verification list. This is hopefully rare enough that it's not too much work. 
+Iff "Sponsor" and/or "Sponsors" appears twice in one entry add to manual verification list. This is hopefully rare enough that it's not too much work. 

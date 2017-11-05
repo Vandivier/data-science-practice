@@ -13,6 +13,7 @@ const oTitleLine = {
     'sAcademicYear': 'Academic Year',
     'sGraduateInstitution': 'Graduate Institution',
     'sAreaOfStudy': 'Area of Study',
+    'sInvalidAreaOfStudy': 'Invalid Area of Study',
     'sSponsors': 'Sponsors',
     'sCompletionDegree': 'Completion Degree',
     'sCompletionYear': 'Completion Year',
@@ -104,6 +105,7 @@ function fsRecordToCsvLine(oRecord) {
                 + '"' + oRecord.sAcademicYear + '",'
                 + '"' + oRecord.sGraduateInstitution + '",'
                 + '"' + oRecord.sAreaOfStudy + '",'
+                + '"' + oRecord.sInvalidAreaOfStudy + '",'
                 + '"' + oRecord.sSponsors + '",'
                 + '"' + oRecord.sCompletionDegree + '",'
                 + '"' + oRecord.sCompletionYear + '",'
@@ -172,6 +174,8 @@ function fParseAreaOfStudy(sParsedBlock, oRecord) {
                             .split(oRecord.sGraduateInstitution)[1]
                             .split(',')[1]
                             .trim();
+
+        oRecord.sInvalidAreaOfStudy = !arrAreas.includes(oRecord.sAreaOfStudy) || '';
     }
     catch (e) {
         console.log('fParseAreaOfStudy',
