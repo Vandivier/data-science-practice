@@ -105,9 +105,9 @@ function fHandleData(sParsedBlock) {
         fParseAcademicYear(sParsedBlock, oRecord);
         fParseGraduateInstitution(sParsedBlock, oRecord);
         fParseAreaOfStudy(sParsedBlock, oRecord);
-        //fParseSponsors(sParsedBlock, oRecord);
-        //fParseCompletionDegree(sParsedBlock, oRecord);
-        //fParseCompletionYear(sParsedBlock, oRecord);
+        fParseSponsors(sParsedBlock, oRecord);
+        fParseCompletionDegree(sParsedBlock, oRecord);
+        fParseCompletionYear(sParsedBlock, oRecord);
         fParseMailingAddress(sParsedBlock, oRecord);
         fParseEmailAddress(sParsedBlock, oRecord);
         fParseDeceased(sParsedBlock, oRecord);
