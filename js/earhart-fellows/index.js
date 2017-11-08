@@ -55,7 +55,7 @@ const oAreasWithSpace = {
 const arrGraduateInstitutions = fs.readFileSync('./graduate-instiutions.csv', 'utf8').split(',');
 const arrDegrees = ['Ph.D.', 'M.A.', 'MA.', 'M.B.A.', 'D.B.A.', 'B.A.'];
 const regexDelimiter = /Graduate Fellowship* *\(s\)/;
-const regexEmail = /[\S]+@[\S]+\.[ \S]+/g;
+const regexEmail = /[\S]+@[\S]+\.[, \S]+/g;
 
 let rsReadStream = fs.createReadStream('./EarhartFellowsMerged.txt');
 let wsWriteStream = fs.createWriteStream('./output.csv');
@@ -108,12 +108,12 @@ function fHandleData(sParsedBlock) {
         fParseSponsors(sParsedBlock, oRecord);
         fParseCompletionDegree(sParsedBlock, oRecord);
         fParseCompletionYear(sParsedBlock, oRecord);
-        fParseMailingAddress(sParsedBlock, oRecord);
         fParseEmailAddress(sParsedBlock, oRecord);
         fParseDeceased(sParsedBlock, oRecord);
+        fParseMailingAddress(sParsedBlock, oRecord);
     }
     catch (e) {
-        console.log('err', oRecord.sName, e);
+        console.log('err', oRecord, e);
     }
 
     fsRecordToCsvLine(oRecord);
@@ -294,17 +294,51 @@ function fParseCompletionYear(sParsedBlock, oRecord) {
     }
 }
 
-function fParseMailingAddress(sParsedBlock, oRecord) {
-    
-}
-
+// .slice(0, -1) to remove trailing comma
 function fParseEmailAddress(sParsedBlock, oRecord) {
     let arrMatches = oRecord.sCommaCollapsedBlock.match(regexEmail);
-    oRecord.sEmailAddress = arrMatches ? arrMatches.join(',') : '';
+    if (arrMatches) {
+        oRecord.sEmailAddress = arrMatches.map(function(sMatch){
+            return sMatch.replace(',','').replace(' ','');
+        })
+        .join(',');
+    }
+    else {
+      oRecord.sEmailAddress = '';
+    }
 }
 
 function fParseDeceased(sParsedBlock, oRecord) {
     oRecord.bDeceased = oRecord.sCommaCollapsedBlock.toLowerCase().includes('deceased');
+}
+
+function fParseMailingAddress(sParsedBlock, oRecord) {
+    let oMatchedAddress = oRecord.sCommaCollapsedBlock.toLowerCase().match('address'),
+        iAddressCharacterStart = oMatchedAddress && oMatchedAddress.index,
+        iEndCharacterIndex,
+        sFirstEmail;
+
+    if (iAddressCharacterStart) {
+        if (oRecord.sEmailAddress) {
+            sFirstEmail = oRecord.sEmailAddress.split(',')[0];
+            iEndCharacterIndex = oRecord.sCommaCollapsedBlock.indexOf(sFirstEmail);
+        }
+        else if (oRecord.bDeceased) {
+            iEndCharacterIndex = oRecord.sCommaCollapsedBlock.toLowerCase().indexOf('deceased');
+        }
+        else {
+            iEndCharacterIndex = oRecord.sCommaCollapsedBlock.length;
+        }
+
+        oRecord.sMailingAddress = oRecord.sCommaCollapsedBlock
+                                         .slice(iAddressCharacterStart, iEndCharacterIndex)
+                                         .split('Address,')[1]
+                                         .trim()
+                                         .slice(0, -1); // remove trailing comma
+    }
+    else {
+        oRecord.sMailingAddress = '';
+    }
 }
 
 function fbSeasonMatch(sToCheck) {

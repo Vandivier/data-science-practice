@@ -1756,7 +1756,7 @@ Graduate Fellowship(s)
 2000-2001
 University of Chicago, Government/Politics,
 Noel B. Reynolds, Sponsor, Ph.D., 2007
-Address	•
+Address
 Department of Ancient Scripture, Brigham
 Young University, Provo, UT 84602
 65 E 1300 N, American Fork, UT 84003-1225,
@@ -12178,7 +12178,7 @@ Graduate Fellowship (s)
 1970-1971
 Oklahoma State University, Economics, Wilton
 T. Anderson, Sponsor
-Address	—
+Address
 115 Denny Fox Drive, Burnet, TX 78611-5002
 ICAUTZ, Steven J.
 Graduate Fellowship (s)
@@ -22260,7 +22260,15 @@ Stop C3100, Austin, TX 78712, slesnick@
 austin.utexas.edu
 SLOAN, Elinor C.
 Graduate Fellowship(s)
-1993-1994 1994-1995 Tufts University, National Security Studies, Robert L. Pfaltzgraff Jr., Sponsor, MA., 1995 1995-1996 Tufts University, National Security Studies, Robert L. Pfaltzgraff Jr., Sponsor, Ph.D., 1997 Address Department of Political Science, Carleton University, 1125 Colonel By Drive, Ottawa, Ontario K1S 5B6, Canada, elinor.sloan@ carleton.ca
+1993-1994
+1994-1995
+Tufts University, National Security Studies, Robert L. Pfaltzgraff Jr., Sponsor, MA.,
+1995
+1995-1996
+Tufts University, National Security Studies, Robert L. Pfaltzgraff Jr., Sponsor, Ph.D.,
+1997
+Address
+Department of Political Science, Carleton University, 1125 Colonel By Drive, Ottawa, Ontario K1S 5B6, Canada, elinor.sloan@ carleton.ca
 SMART, Theresa M.
 Graduate Fellowship(s)
 2013-2014
