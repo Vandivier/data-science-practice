@@ -6,6 +6,9 @@
 
 'use strict';
 
+let fs = require('fs');
+let split = require('split');
+
 const arrSeasons = ['sprin', 'summe', 'fall ', 'winte'];
 const OSEOL = require('os').EOL;
 const oTitleLine = {
@@ -49,21 +52,18 @@ const oAreasWithSpace = {
     'National Security,Studies': 'National Security Studies'
 };
 
+const arrGraduateInstitutions = fs.readFileSync('./graduate-instiutions.csv', 'utf8').split(',');
 const arrDegrees = ['Ph.D.', 'M.A.', 'MA.', 'M.B.A.', 'D.B.A.', 'B.A.'];
-
-let fs = require('fs');
-let split = require('split');
+const regexDelimiter = /Graduate Fellowship* *\(s\)/;
+const regexEmail = /[\S]+@[\S]+\.[ \S]+/g;
 
 let rsReadStream = fs.createReadStream('./EarhartFellowsMerged.txt');
 let wsWriteStream = fs.createWriteStream('./output.csv');
 let wsNonAdjacent = fs.createWriteStream('./non-adjacent-sponsor.txt');
-let regexDelimiter = /Graduate Fellowship* *\(s\)/;
+
 let sVeryFirstName = 'ABBAS, Hassan'; // it gets parsed out bc above delimiter
 let bVeryFirstRecordDone = false; // very first record has only name, nothing else; skip this record
-
 let iNonAdjacent = 0;
-
-const arrGraduateInstitutions = fs.readFileSync('./graduate-instiutions.csv', 'utf8').split(',');
 
 main();
 
@@ -105,14 +105,15 @@ function fHandleData(sParsedBlock) {
         fParseAcademicYear(sParsedBlock, oRecord);
         fParseGraduateInstitution(sParsedBlock, oRecord);
         fParseAreaOfStudy(sParsedBlock, oRecord);
-        fParseSponsors(sParsedBlock, oRecord);;       fParseCompletionDegree(sParsedBlock, oRecord);
-        fParseCompletionYear(sParsedBlock, oRecord);
+        //fParseSponsors(sParsedBlock, oRecord);
+        //fParseCompletionDegree(sParsedBlock, oRecord);
+        //fParseCompletionYear(sParsedBlock, oRecord);
         fParseMailingAddress(sParsedBlock, oRecord);
         fParseEmailAddress(sParsedBlock, oRecord);
         fParseDeceased(sParsedBlock, oRecord);
     }
     catch (e) {
-        console.log('err', oRecord);
+        console.log('err', oRecord.sName, e);
     }
 
     fsRecordToCsvLine(oRecord);
@@ -241,7 +242,7 @@ function fParseSponsors(sParsedBlock, oRecord) {
 
 function fParseCompletionDegree(sParsedBlock, oRecord) {
     let sTextAfterSponsors = oRecord
-                    .sCommaCollapsedBlock
+                .sCommaCollapsedBlock
                     .split('Sponsor')[1],
         sCharacterAfterSponsors = sTextAfterSponsors && sTextAfterSponsors[0];
 
@@ -298,12 +299,14 @@ function fParseMailingAddress(sParsedBlock, oRecord) {
 }
 
 function fParseEmailAddress(sParsedBlock, oRecord) {
-    
+    let arrMatches = oRecord.sCommaCollapsedBlock.match(regexEmail);
+    oRecord.sEmailAddress = arrMatches ? arrMatches.join(',') : '';
 }
 
 function fParseDeceased(sParsedBlock, oRecord) {
-    oRecord.bDeceased = sParsedBlock.toLowerCase().includes('deceased');
+    oRecord.bDeceased = oRecord.sCommaCollapsedBlock.toLowerCase().includes('deceased');
 }
+
 function fbSeasonMatch(sToCheck) {
     return arrSeasons.includes(sToCheck.toLowerCase().slice(0,5));
 }
