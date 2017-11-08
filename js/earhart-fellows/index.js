@@ -25,6 +25,7 @@ const oTitleLine = {
     'sCompletionYear': 'Completion Year',
     'sMailingAddress': 'Mailing Address',
     'sEmailAddress': 'Email Address',
+    'vCharacterAfterPeriod': 'Valid Email Address',
     'bDeceased': 'Deceased'
 };
 
@@ -134,6 +135,7 @@ function fsRecordToCsvLine(oRecord) {
                 + '"' + oRecord.sCompletionYear + '",'
                 + '"' + oRecord.sMailingAddress + '",'
                 + '"' + oRecord.sEmailAddress + '",'
+                + '"' + oRecord.vCharacterAfterPeriod + '",'
                 + '"' + oRecord.bDeceased + '"'
 
     if (oRecord.bNonAdjacentSponsors) {
@@ -296,15 +298,31 @@ function fParseCompletionYear(sParsedBlock, oRecord) {
 
 // .slice(0, -1) to remove trailing comma
 function fParseEmailAddress(sParsedBlock, oRecord) {
-    let arrMatches = oRecord.sCommaCollapsedBlock.match(regexEmail);
+    let arrMatches = oRecord.sCommaCollapsedBlock.match(regexEmail),
+        arrCharacterAfterPeriod;
+
     if (arrMatches) {
-        oRecord.sEmailAddress = arrMatches.map(function(sMatch){
-            return sMatch.replace(',','').replace(' ','');
+        oRecord.sEmailAddress = arrMatches
+        .map(function(sMatch){
+            return sMatch.replace(/[\s]+/g, '');
+        })
+        .join(',')
+        .split(',')
+        .filter(function(sMatch){
+            return sMatch.includes('@');
         })
         .join(',');
+
+        arrCharacterAfterPeriod = oRecord.sEmailAddress.split('.');
+        if (arrCharacterAfterPeriod.length > 1) {
+            oRecord.vCharacterAfterPeriod = true;
+        } else {
+            oRecord.vCharacterAfterPeriod = false;
+        }
     }
     else {
       oRecord.sEmailAddress = '';
+      oRecord.vCharacterAfterPeriod = '';
     }
 }
 
