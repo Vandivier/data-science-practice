@@ -77,7 +77,7 @@ async function fGetDataByUrl(sUrl) {
 // note: this whole fucking method is a hack
 // not generalizable or temporally reliable in case of a site refactor
 // target site includes jQuery already. _$ is cheerio, $ is jQuery
-async function fpGetSeasonPage(sUrl, iSeason) {
+async function fparrGetResultPagesBySeason(sUrl, iSeason) {
     const _page = await browser.newPage();
     let executionContext;
     let _$;
@@ -111,10 +111,10 @@ async function fpGetSeasonPage(sUrl, iSeason) {
 // for strings of interest, get general classification, points classification, and stage classification for each stage
 // these are a bunch of csvs; maybe download instead of write file (actually, that's equivalent)
 async function main() {
-    let arrpageSeasons = [];
+    let _arroPagesForThisSeason = [];
+    let arrResultPages = [];
+    let arrSettledResultPages = [];
     let i;
-    let _oPage;
-    let arrResult = [];
 
     browser = await puppeteer.launch();
 
@@ -124,52 +124,19 @@ async function main() {
 
     fSetWriters();
 
-    // get an array of browser pages; one for each season
+    // each season has multiple result pages
+    // get an array of result pages per season
+    // then concat and get all result pages
     for (i = iFirstSeason; i < iLastSeason; i++) {
-        _oPage = fpGetSeasonPage(sRootUrl, i);
-        arrpageSeasons.push(_oPage);
+        _arroPagesForThisSeason = fparrGetResultPagesBySeason(sRootUrl, i);
+        arrResultPages = arrResultPages.concat(_arroPagesForThisSeason);
     }
 
-    arrResult = await utils.settleAll(arrpageSeasons);
-    //await Promise.all((arrpageSeasons));
-
-    //sanity check...it should be a list of puppeteer browser pages
-    console.log(arrpageSeasons);
-    console.log(typeof arrpageSeasons[0]);
-    console.log(arrpageSeasons[0] instanceof Promise);
-    console.log(arrResult);
-
-    /*
-    await utils.forEachThrottledAsync(iThrottleInterval, arrBatches, function (_arrBatch) {
-        console.log('batch process for batch # ' + (iCurrentBatch++) + ' of ' + arrBatches.length)
-        return fpCollectBatchInformation(_arrBatch);
-    });
-
-    let arrBatches = utils.chunk(arroRenames, iChunkSize);
-    //console.log('batch check: ' + arrBatches.length, arrBatches[0])
-    //arrBatches = [arrBatches.pop(),[]];// testing with a subset
-    //let arrBatches = arrMockBatches;
-
-    await utils.forEachThrottledAsync(iThrottleInterval, arrBatches, function (_arrBatch) {
-        console.log('batch process for batch # ' + (iCurrentBatch++) + ' of ' + arrBatches.length)
-        return fpCollectBatchInformation(_arrBatch);
-    });
-    */
+    arrSettledResultPages = await utils.settleAll(arrResultPages);
+    console.log(arrSettledResultPages);
 
     browser.close();
     process.exit();
-}
-
-// returns true when a string has content after rendering.
-// returns false on invalid html. For example '</p>' is just a closing tag and will return false.
-function fRenderableContent(sCandidateHtml) {
-    let bValidEnough = false;
-
-    try {
-        bValidEnough = cheerio.load(sCandidateHtml).text().trim().length > 0;
-    } catch (e) {}
-
-    return bValidEnough;
 }
 
 //  must ensure path exists before setting writers
