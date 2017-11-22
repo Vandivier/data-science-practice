@@ -88,7 +88,7 @@ async function fparrGetResultPagesBySeason(sUrl, iSeason) {
     _$ = cheerio.load(await _page.content());
 
     executionContext = _page.mainFrame().executionContext();
-    scrapeResult = await executionContext.evaluate((iSeason) => {
+    scrapeResult = await executionContext.evaluate((_iSeason) => {
         var t0 = performance.now(),
             t1; // note: t0 & t1 just for testing and debugging; could be removed.
 
@@ -100,8 +100,7 @@ async function fparrGetResultPagesBySeason(sUrl, iSeason) {
 
                 $('.uci-main-content .k-dropdown').last().click(); // open the seasons dropdown
                 $('#seasons_listbox li').filter(function () { // click the particular season
-                        return this.textContent === String(2015);
-                        //return this.textContent === String(iSeason);
+                        return this.textContent === String(_iSeason);
                     })
                     .click();
 
@@ -115,7 +114,7 @@ async function fparrGetResultPagesBySeason(sUrl, iSeason) {
             let ms = 12500;
             return new Promise(resolve => setTimeout(resolve, ms));
         }
-    });
+    }, iSeason);
 
     _page.close();
     return scrapeResult;
