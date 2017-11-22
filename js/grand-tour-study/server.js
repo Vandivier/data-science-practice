@@ -89,15 +89,28 @@ async function fparrGetResultPagesBySeason(sUrl, iSeason) {
 
     executionContext = _page.mainFrame().executionContext();
     scrapeResult = await executionContext.evaluate((iSeason) => {
-        $('.uci-main-content .k-dropdown').last().click();     // open the seasons dropdown
-        $('#seasons_listbox li').filter(function(){            // click the particular season
-            return this.textContent === String(iSeason);
-        })
-        .click();
+        var t0,
+            t1;
 
-        // maybe wait some amount of time here to ensure page loads data...2 seconds?
-        // eg; timeout, Promise.resolve(8 * 7)
-        return Promise.resolve('test');
+        $('.uci-main-content .k-dropdown').last().click(); // open the seasons dropdown
+        $('#seasons_listbox li').filter(function () { // click the particular season
+                return this.textContent === String(iSeason);
+            })
+            .click();
+
+        t0 = performance.now();
+        // give browser time to load async data
+        // in-scope dup of async function fpWait()
+        return _fpWait()
+            .then(function () {
+                t1 = performance.now();
+                return (t1 - t0); // in ms, should show the 2 second wait (eg > 2000)
+            });
+
+        function _fpWait() {
+            let ms = 2000;
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
     });
 
     _page.close();
@@ -143,4 +156,10 @@ async function main() {
 function fSetWriters() {
     wsMain = fs.createWriteStream(sResultDir + '/main.txt'); // TODO: can it be a const?
     wsErrorLog = fs.createWriteStream(sResultDir + '/errors.txt'); // TODO: can it be a const?
+}
+
+// TODO: maybe wait on condition instead of time
+// eg using page.mainFrame().waitForSelector
+async function fpWait() {
+    return new Promise((resolve) => setTimeout(() => resolve(undefined), 2));
 }
