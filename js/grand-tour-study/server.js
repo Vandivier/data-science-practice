@@ -89,26 +89,30 @@ async function fparrGetResultPagesBySeason(sUrl, iSeason) {
 
     executionContext = _page.mainFrame().executionContext();
     scrapeResult = await executionContext.evaluate((iSeason) => {
-        var t0,
-            t1;
+        var t0 = performance.now(),
+            t1; // note: t0 & t1 just for testing and debugging; could be removed.
 
-        $('.uci-main-content .k-dropdown').last().click(); // open the seasons dropdown
-        $('#seasons_listbox li').filter(function () { // click the particular season
-                return this.textContent === String(iSeason);
-            })
-            .click();
-
-        t0 = performance.now();
         // give browser time to load async data
         // in-scope dup of async function fpWait()
         return _fpWait()
             .then(function () {
                 t1 = performance.now();
-                return (t1 - t0); // in ms, should show the 2 second wait (eg > 2000)
+
+                $('.uci-main-content .k-dropdown').last().click(); // open the seasons dropdown
+                $('#seasons_listbox li').filter(function () { // click the particular season
+                        return this.textContent === String(2015);
+                        //return this.textContent === String(iSeason);
+                    })
+                    .click();
+
+                return _fpWait();
+            })
+            .then(function () {
+                return $('.uci-main-content .k-dropdown').last().text() + $('.k-pager-info.k-label').text();
             });
 
         function _fpWait() {
-            let ms = 2000;
+            let ms = 12500;
             return new Promise(resolve => setTimeout(resolve, ms));
         }
     });
