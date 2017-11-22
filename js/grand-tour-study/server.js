@@ -81,12 +81,14 @@ async function fpGetSeasonPage(sUrl, iSeason) {
     const _page = await browser.newPage();
     let executionContext;
     let _$;
+    let pageWorkingCompetitionPage;
+    let scrapeResult;
 
     await _page.goto(sUrl);
     _$ = cheerio.load(await _page.content());
 
     executionContext = _page.mainFrame().executionContext();
-    await executionContext.evaluate((iSeason) => {
+    scrapeResult = await executionContext.evaluate((iSeason) => {
         $('.uci-main-content .k-dropdown').last().click();     // open the seasons dropdown
         $('#seasons_listbox li').filter(function(){            // click the particular season
             return this.textContent === String(iSeason);
@@ -95,10 +97,11 @@ async function fpGetSeasonPage(sUrl, iSeason) {
 
         // maybe wait some amount of time here to ensure page loads data...2 seconds?
         // eg; timeout, Promise.resolve(8 * 7)
+        return Promise.resolve('test');
     });
 
-    return _page;
-    //page.close();
+    _page.close();
+    return scrapeResult;
 }
 
 // get each season page in parallel
@@ -111,6 +114,7 @@ async function main() {
     let arrpageSeasons = [];
     let i;
     let _oPage;
+    let arrResult = [];
 
     browser = await puppeteer.launch();
 
@@ -126,12 +130,14 @@ async function main() {
         arrpageSeasons.push(_oPage);
     }
 
-    await utils.settleAll(arrpageSeasons, function(pPage){
-        return pPage;
-    });
+    arrResult = await utils.settleAll(arrpageSeasons);
+    //await Promise.all((arrpageSeasons));
 
     //sanity check...it should be a list of puppeteer browser pages
     console.log(arrpageSeasons);
+    console.log(typeof arrpageSeasons[0]);
+    console.log(arrpageSeasons[0] instanceof Promise);
+    console.log(arrResult);
 
     /*
     await utils.forEachThrottledAsync(iThrottleInterval, arrBatches, function (_arrBatch) {

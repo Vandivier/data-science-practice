@@ -113,9 +113,14 @@ _utils.forEachReverseAsyncParallel = async function (arr, fp) {
 _utils.settleAll = async function (arrp, fp) {
     let arrSettled;
 
+    // fp mutates the promise result
+    // if not provided, just return the unmutated promise
+    fp = fp || function(p){
+        return p;
+    };
+
     let arrInspections = await Promise.all(
         arrp.map(function (_p) {
-            //let b = Bluebird.resolve(_p)//.reflect(); // ensure Promise is a Bluebird
             return Bluebird.resolve(fp(_p)).reflect(); // ensure fp(_p) is a Bluebird in order to .reflect();
         })
     );
