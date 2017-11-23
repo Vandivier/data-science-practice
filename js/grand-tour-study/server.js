@@ -115,8 +115,9 @@ async function fparrGetResultPagesBySeason(sUrl, iSeason) {
                         let $nextButton = $('.k-link.k-pager-nav[title="Go to the next page"]'),
                             oPageData = _foScrapeSinglePageOfData();
 
-                        console.log('adding new data with pagination text: ' + JSON.stringify(oPageData));
-                        arrPagesOfData = arrPagesOfData.concat(oPageData.sPaginationText);
+                        console.log('adding new data with pagination text: ' + JSON.stringify(oPageData.sPaginationText));
+
+                        arrPagesOfData = arrPagesOfData.concat(oPageData);
 
                         if (!$nextButton.hasClass('k-state-disabled')
                             && arrPagesOfData.length < 3) { // return results. length check is to short circuit during DEV, not for real use
