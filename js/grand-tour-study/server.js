@@ -14,6 +14,7 @@ const Promise = require('bluebird');
 const puppeteer = require('puppeteer');
 const utils = require('./utils.js');
 const EOL = require('os').EOL;
+const tableToCsv = require('node-table-to-csv');
 
 const iChunkSize = 30;
 const iThrottleInterval = 2; // seconds between batch of requests
@@ -112,10 +113,10 @@ async function fparrGetResultPagesBySeason(sUrl, iSeason) {
                     })
                     .then(function () {
                         let $nextButton = $('.k-link.k-pager-nav[title="Go to the next page"]'),
-                            sPageData = _fsScrapeSinglePageOfData();
+                            oPageData = _foScrapeSinglePageOfData();
 
-                        console.log('adding new data with value: ' + sPageData);
-                        arrPagesOfData.push(sPageData);
+                        console.log('adding new data with pagination text: ' + JSON.stringify(oPageData));
+                        arrPagesOfData = arrPagesOfData.concat(oPageData.sPaginationText);
 
                         if (!$nextButton.hasClass('k-state-disabled')
                             && arrPagesOfData.length < 3) { // return results. length check is to short circuit during DEV, not for real use
@@ -137,8 +138,11 @@ async function fparrGetResultPagesBySeason(sUrl, iSeason) {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 
-        function _fsScrapeSinglePageOfData() {
-            return $('.uci-main-content .k-dropdown').last().text() + $('.k-pager-info.k-label').text();
+        function _foScrapeSinglePageOfData() {
+            return {
+                'sPaginationText': $('.uci-main-content .k-dropdown').last().text() + $('.k-pager-info.k-label').text(),
+                'sTableHtml': $('table').html() // 1 per page
+            }
         }
     }, iSeason);
 
@@ -161,6 +165,7 @@ async function main() {
     let arrResultPages = [];
     let arrSettledResultPages = [];
     let i;
+    let sCsv;
 
     browser = await puppeteer.launch();
 
@@ -179,7 +184,14 @@ async function main() {
     }
 
     arrSettledResultPages = await utils.settleAll(arrResultPages);
-    console.log(arrSettledResultPages);
+
+    // TODO: I think you can do this inside settleAll,
+    // but playing it safe and serial for now
+    sCsv = arrSettledResultPages.reduce(function(acc, oPageData){
+        return acc + EOL + tableToCsv(oPageData.sTableHtml);
+    }, '');
+
+    console.log(sCsv);
 
     browser.close();
     process.exit();
