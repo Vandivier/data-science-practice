@@ -61,18 +61,6 @@ async function fpCollectBatchInformation(_arr) {
     return arrBatchResult;
 }
 
-// TODO: maybe not needed
-async function fGetDataByUrl(sUrl) {
-    const page = await browser.newPage();
-    let _$;
-
-    await page.goto(sUrl);
-    _$ = cheerio.load(await page.content());
-
-    page.close()
-    return _$('pre').text();
-}
-
 // returns a page which has been navigated to the specified season page
 // note: this whole fucking method is a hack
 // not generalizable or temporally reliable in case of a site refactor
@@ -84,31 +72,58 @@ async function fparrGetResultPagesBySeason(sUrl, iSeason) {
     let pageWorkingCompetitionPage;
     let scrapeResult;
 
-    await _page.goto(sUrl);
+    await _page.goto(sUrl, {
+        'networkIdleTimeout': 5000,
+        'waitUntil': 'networkidle',
+        'timeout': 300000
+    }); // timeout ref: https://github.com/GoogleChrome/puppeteer/issues/782
     _$ = cheerio.load(await _page.content());
 
     executionContext = _page.mainFrame().executionContext();
     scrapeResult = await executionContext.evaluate((_iSeason) => {
-        var t0 = performance.now(),
-            t1; // note: t0 & t1 just for testing and debugging; could be removed.
+        var arrPagesOfData = [];
 
         // give browser time to load async data
         // in-scope dup of async function fpWait()
-        return _fpWait()
-            .then(function () {
-                t1 = performance.now();
-
-                $('.uci-main-content .k-dropdown').last().click(); // open the seasons dropdown
-                $('#seasons_listbox li').filter(function () { // click the particular season
-                        return this.textContent === String(_iSeason);
-                    })
-                    .click();
-
-                return _fpWait();
-            })
-            .then(function () {
-                return $('.uci-main-content .k-dropdown').last().text() + $('.k-pager-info.k-label').text();
+        return _fpRecursivelyScrapeNextPage()
+            .catch(function(err){
+                console.log('recursive scrape outer err: ', err);
             });
+
+        function _fpRecursivelyScrapeNextPage(bClickNextButton) {
+                return _fpWait()
+                    .then(function () {
+                        let _$nextButton = $('.k-link.k-pager-nav[title="Go to the next page"]');
+
+                        if (bClickNextButton) {
+                            _$nextButton.click();
+                        } else {
+                            $('.uci-main-content .k-dropdown').last().click(); // open the seasons dropdown
+                            $('#seasons_listbox li').filter(function () { // click the particular season
+                                    return this.textContent === String(_iSeason);
+                                })
+                                .click();
+                        }
+
+                        return _fpWait();
+                    })
+                    .then(function () {
+                        let $nextButton = $('.k-link.k-pager-nav[title="Go to the next page"]'),
+                            sPageData = $('.uci-main-content .k-dropdown').last().text() + $('.k-pager-info.k-label').text();
+
+                        arrPagesOfData.push(sPageData);
+
+                        if ($nextButton.hasClass('k-state-disabled')
+                            && arrPagesOfData.length < 3) { // return results. length check is to short circuit during DEV, not for real use
+                            return _fpRecursivelyScrapeNextPage(true);
+                        } else { // get the next page
+                            return Promise.resolve(arrPagesOfData);
+                        }
+                    })
+                    .catch(function(err){
+                        console.log('recursive scrape inner err (_fpRecursivelyScrapeNextPage): ', err);
+                    });
+        }
 
         function _fpWait() {
             let ms = 12500;

@@ -47,7 +47,6 @@ async function main() {
             headers: form.getHeaders()
         })
         .then(response => {
-            console.log('full response: ', response);
             console.log('data: ', response.data);
         })
         .catch(function (error) {
