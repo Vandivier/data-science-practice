@@ -13,6 +13,7 @@ const fs = Bluebird.promisifyAll(require('fs'));
 const Promise = require('bluebird');
 const puppeteer = require('puppeteer');
 const utils = require('./utils.js');
+const EOL = require('os').EOL;
 
 const iChunkSize = 30;
 const iThrottleInterval = 2; // seconds between batch of requests
@@ -79,6 +80,8 @@ async function fparrGetResultPagesBySeason(sUrl, iSeason) {
     }); // timeout ref: https://github.com/GoogleChrome/puppeteer/issues/782
     _$ = cheerio.load(await _page.content());
 
+    _page.on('console', _fCleanLog); // ref: https://stackoverflow.com/a/47460782/3931488
+
     executionContext = _page.mainFrame().executionContext();
     scrapeResult = await executionContext.evaluate((_iSeason) => {
         var arrPagesOfData = [];
@@ -111,6 +114,7 @@ async function fparrGetResultPagesBySeason(sUrl, iSeason) {
                         let $nextButton = $('.k-link.k-pager-nav[title="Go to the next page"]'),
                             sPageData = $('.uci-main-content .k-dropdown').last().text() + $('.k-pager-info.k-label').text();
 
+                        console.log('adding new data with value: ' + sPageData);
                         arrPagesOfData.push(sPageData);
 
                         if (!$nextButton.hasClass('k-state-disabled')
@@ -130,12 +134,18 @@ async function fparrGetResultPagesBySeason(sUrl, iSeason) {
         // with smaller ms; suggested default of 12.5s
         function _fpWait() {
             let ms = 8000;
+
+            console.log('invoked _fpWait()');
             return new Promise(resolve => setTimeout(resolve, ms));
         }
     }, iSeason);
 
     _page.close();
     return scrapeResult;
+
+    function _fCleanLog(ConsoleMessage) {
+        console.log(ConsoleMessage.text + EOL);
+    }
 }
 
 // get each season page in parallel
