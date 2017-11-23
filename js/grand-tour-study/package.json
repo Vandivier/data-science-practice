@@ -4,7 +4,8 @@
   "description": "scrape some cycling data from Union Cycliste Internationale",
   "main": "server.js",
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "post-approach": "node post-approach.js"
   },
   "keywords": [
     "uci",
@@ -13,8 +14,10 @@
   "author": "John Vandivier",
   "homepage": "https://github.com/Vandivier/data-science-practice/tree/master/js/grand-tour-study",
   "devDependencies": {
+    "axios": "^0.17.1",
     "bluebird": "^3.5.0",
     "cheerio": "^1.0.0-rc.2",
+    "form-data": "^2.3.1",
     "js-beautify": "^1.7.3",
     "puppeteer": "^0.12.0"
   }
