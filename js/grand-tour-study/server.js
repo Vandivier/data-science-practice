@@ -112,7 +112,7 @@ async function fparrGetResultPagesBySeason(sUrl, iSeason) {
                     })
                     .then(function () {
                         let $nextButton = $('.k-link.k-pager-nav[title="Go to the next page"]'),
-                            sPageData = $('.uci-main-content .k-dropdown').last().text() + $('.k-pager-info.k-label').text();
+                            sPageData = _fsScrapeSinglePageOfData();
 
                         console.log('adding new data with value: ' + sPageData);
                         arrPagesOfData.push(sPageData);
@@ -134,9 +134,11 @@ async function fparrGetResultPagesBySeason(sUrl, iSeason) {
         // with smaller ms; suggested default of 12.5s
         function _fpWait() {
             let ms = 8000;
-
-            console.log('invoked _fpWait()');
             return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function _fsScrapeSinglePageOfData() {
+            return $('.uci-main-content .k-dropdown').last().text() + $('.k-pager-info.k-label').text();
         }
     }, iSeason);
 
