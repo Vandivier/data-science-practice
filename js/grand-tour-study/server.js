@@ -75,7 +75,7 @@ async function fparrGetResultPagesBySeason(sUrl, iSeason) {
     await _page.goto(sUrl, {
         'networkIdleTimeout': 5000,
         'waitUntil': 'networkidle',
-        'timeout': 300000
+        'timeout': 0
     }); // timeout ref: https://github.com/GoogleChrome/puppeteer/issues/782
     _$ = cheerio.load(await _page.content());
 
@@ -113,7 +113,7 @@ async function fparrGetResultPagesBySeason(sUrl, iSeason) {
 
                         arrPagesOfData.push(sPageData);
 
-                        if ($nextButton.hasClass('k-state-disabled')
+                        if (!$nextButton.hasClass('k-state-disabled')
                             && arrPagesOfData.length < 3) { // return results. length check is to short circuit during DEV, not for real use
                             return _fpRecursivelyScrapeNextPage(true);
                         } else { // get the next page
@@ -125,8 +125,11 @@ async function fparrGetResultPagesBySeason(sUrl, iSeason) {
                     });
         }
 
+        // larger time allows for slow site response
+        // some times of day when it's responding fast u can get away
+        // with smaller ms; suggested default of 12.5s
         function _fpWait() {
-            let ms = 12500;
+            let ms = 8000;
             return new Promise(resolve => setTimeout(resolve, ms));
         }
     }, iSeason);
