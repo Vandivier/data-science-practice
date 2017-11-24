@@ -14,6 +14,7 @@ const Promise = require('bluebird');
 const puppeteer = require('puppeteer');
 const EOL = require('os').EOL;
 const Readable = require('stream').Readable;
+const splitStream = require('split');
 
 const utils = require('./utils.js');
 const tableToCsv = require('./node-table-to-csv.js');
@@ -123,7 +124,7 @@ async function fparrGetResultPagesBySeason(sUrl, iSeason) {
                         arrPagesOfData = arrPagesOfData.concat(oPageData);
 
                         if (!$nextButton.hasClass('k-state-disabled')
-                            && arrPagesOfData.length < 2) { // return results. length check is to short circuit during DEV, not for real use
+                            && arrPagesOfData.length > 0) { // return results. length check is to short circuit during DEV, not for real use
                             return _fpRecursivelyScrapeNextPage(true);
                         } else { // get the next page
                             return Promise.resolve(arrPagesOfData);
@@ -169,7 +170,7 @@ async function main() {
     let arrResultPages = [];
     let arrSettledResultPages = [];
     let arrFlatSettledPages = [];
-    let arrsCsvTables = [];
+    let sCsvTables;
     let i;
     let sCsv;
 
@@ -194,18 +195,17 @@ async function main() {
 
     // TODO: I think you can do this inside settleAll,
     // but playing it safe and serial for now
-    arrsCsvTables = arrFlatSettledPages.reduce(function(acc, oPageData){
+    sCsvTables = arrFlatSettledPages.reduce(function(acc, oPageData){
         return acc + EOL + tableToCsv(oPageData.sTableParentHtml);
     }, '');
 
-    browser.close();
-    fParseTxt(arrsCsvTables);
+    fParseTxt(sCsvTables);
 }
 
 //  must ensure path exists before setting writers
 function fSetWriters() {
-    wsMain = fs.createWriteStream(sResultDir + '/main.txt'); // TODO: can it be a const?
-    wsErrorLog = fs.createWriteStream(sResultDir + '/errors.txt'); // TODO: can it be a const?
+    wsMain = fs.createWriteStream(sResultDir + '/main.csv');
+    wsErrorLog = fs.createWriteStream(sResultDir + '/errors.txt');
 }
 
 // TODO: maybe wait on condition instead of time
@@ -215,17 +215,18 @@ async function fpWait() {
 }
 
 // ref: https://stackoverflow.com/a/22085851/3931488
-// also refer to earhart-study in data-science-practice
+// also refer to earhart-fellows project
 function fParseTxt(sText) {
     const regex = new RegExp(EOL);
-    let rs = new Readable();
-    rs._read = function noop() {}; // redundant? see update below
-    rs.push(sText);
+    let rsReadStream = new Readable();
 
-    rs
-    .pipe(split(regex))
-    .on('data', fHandleData)
-    .on('close', fNotifyEndProgram);
+    rsReadStream._read = function noop() {};
+    rsReadStream.push(sText);
+
+    rsReadStream
+        .pipe(splitStream(regex))
+        .on('data', fHandleData)
+        .on('end', fNotifyEndProgram); // TODO: fNotifyEndProgram not properly invoked. Kill manually with ctrl + C
 }
 
 // don't write the title line as it appears many times
@@ -235,11 +236,12 @@ function fHandleData(sLineOfText) {
     if (sLineOfText
         && sLineOfText !== sTitleLine)
     {
-        wsMain.write(arrsCsvTables);
+        wsMain.write(sLineOfText + EOL);
     }
 }
 
 function fNotifyEndProgram() {
+    browser.close();
     console.log('Program completed.');
     process.exit();
 }
