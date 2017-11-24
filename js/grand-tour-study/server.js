@@ -12,9 +12,10 @@ const cheerio = require('cheerio');
 const fs = Bluebird.promisifyAll(require('fs'));
 const Promise = require('bluebird');
 const puppeteer = require('puppeteer');
-const utils = require('./utils.js');
 const EOL = require('os').EOL;
-const tableToCsv = require('node-table-to-csv');
+
+const utils = require('./utils.js');
+const tableToCsv = require('./node-table-to-csv.js');
 
 const iChunkSize = 30;
 const iThrottleInterval = 2; // seconds between batch of requests
@@ -120,7 +121,7 @@ async function fparrGetResultPagesBySeason(sUrl, iSeason) {
                         arrPagesOfData = arrPagesOfData.concat(oPageData);
 
                         if (!$nextButton.hasClass('k-state-disabled')
-                            && arrPagesOfData.length < 3) { // return results. length check is to short circuit during DEV, not for real use
+                            && arrPagesOfData.length < 2) { // return results. length check is to short circuit during DEV, not for real use
                             return _fpRecursivelyScrapeNextPage(true);
                         } else { // get the next page
                             return Promise.resolve(arrPagesOfData);
@@ -142,7 +143,7 @@ async function fparrGetResultPagesBySeason(sUrl, iSeason) {
         function _foScrapeSinglePageOfData() {
             return {
                 'sPaginationText': $('.uci-main-content .k-dropdown').last().text() + $('.k-pager-info.k-label').text(),
-                'sTableHtml': $('table').html() // 1 per page
+                'sTableParentHtml': $('table').parent().html() // 1 table per page
             }
         }
     }, iSeason);
@@ -165,6 +166,8 @@ async function main() {
     let _arroPagesForThisSeason = [];
     let arrResultPages = [];
     let arrSettledResultPages = [];
+    let arrFlatSettledPages = [];
+    let arrsCsvTables = [];
     let i;
     let sCsv;
 
@@ -185,14 +188,19 @@ async function main() {
     }
 
     arrSettledResultPages = await utils.settleAll(arrResultPages);
+    arrFlatSettledPages = utils.flatten(arrSettledResultPages);
+    //console.log(arrFlatSettledPages[0].sTableParentHtml);
+    console.log(tableToCsv(arrFlatSettledPages[0].sTableParentHtml));
 
+    /*
     // TODO: I think you can do this inside settleAll,
     // but playing it safe and serial for now
-    sCsv = arrSettledResultPages.reduce(function(acc, oPageData){
-        return acc + EOL + tableToCsv(oPageData.sTableHtml);
+    arrsCsvTables = arrFlatSettledPages.reduce(function(acc, oPageData){
+        return acc + EOL + tableToCsv(oPageData.sTableParentHtml);
     }, '');
 
-    console.log(sCsv);
+    console.log(arrsCsvTables);
+    */
 
     browser.close();
     process.exit();

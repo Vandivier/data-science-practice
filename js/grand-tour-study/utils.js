@@ -226,4 +226,11 @@ _utils.fStandardWriter = function (vData, ws, bDontWrap) {
     ws.write(vData);
 }
 
+// ref: https://stackoverflow.com/questions/10865025/merge-flatten-an-array-of-arrays-in-javascript
+_utils.flatten = function (arr) {
+    return arr.reduce(function (flat, toFlatten) {
+        return flat.concat(Array.isArray(toFlatten) ? _utils.flatten(toFlatten) : toFlatten);
+    }, []);
+}
+
 module.exports = _utils;

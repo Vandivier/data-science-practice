@@ -19,7 +19,6 @@
     "cheerio": "^1.0.0-rc.2",
     "form-data": "^2.3.1",
     "js-beautify": "^1.7.3",
-    "node-table-to-csv": "^0.1.0",
     "puppeteer": "^0.12.0"
   }
 }
