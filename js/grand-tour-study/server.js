@@ -13,6 +13,7 @@ const fs = Bluebird.promisifyAll(require('fs'));
 const Promise = require('bluebird');
 const puppeteer = require('puppeteer');
 const EOL = require('os').EOL;
+const Readable = require('stream').Readable;
 
 const utils = require('./utils.js');
 const tableToCsv = require('./node-table-to-csv.js');
@@ -25,6 +26,7 @@ const sResultDir = __dirname + '/results';
 const iFirstSeason = 2009;
 const iLastSeason = 2017;
 const arrsRaceSubstrings = ['Giro', 'Italia', 'Tour de France', 'Vuelta', 'Espa']; // TODO: not restrictive enough
+const sTitleLine = 'Date,Competition,Country,Class';
 
 let wsMain;
 let wsErrorLog;
@@ -189,21 +191,15 @@ async function main() {
 
     arrSettledResultPages = await utils.settleAll(arrResultPages);
     arrFlatSettledPages = utils.flatten(arrSettledResultPages);
-    //console.log(arrFlatSettledPages[0].sTableParentHtml);
-    console.log(tableToCsv(arrFlatSettledPages[0].sTableParentHtml));
 
-    /*
     // TODO: I think you can do this inside settleAll,
     // but playing it safe and serial for now
     arrsCsvTables = arrFlatSettledPages.reduce(function(acc, oPageData){
         return acc + EOL + tableToCsv(oPageData.sTableParentHtml);
     }, '');
 
-    console.log(arrsCsvTables);
-    */
-
     browser.close();
-    process.exit();
+    fParseTxt(arrsCsvTables);
 }
 
 //  must ensure path exists before setting writers
@@ -216,4 +212,34 @@ function fSetWriters() {
 // eg using page.mainFrame().waitForSelector
 async function fpWait() {
     return new Promise((resolve) => setTimeout(() => resolve(undefined), 2));
+}
+
+// ref: https://stackoverflow.com/a/22085851/3931488
+// also refer to earhart-study in data-science-practice
+function fParseTxt(sText) {
+    const regex = new RegExp(EOL);
+    let rs = new Readable();
+    rs._read = function noop() {}; // redundant? see update below
+    rs.push(sText);
+
+    rs
+    .pipe(split(regex))
+    .on('data', fHandleData)
+    .on('close', fNotifyEndProgram);
+}
+
+// don't write the title line as it appears many times
+// we will append just once manually
+// also, don't write empty lines
+function fHandleData(sLineOfText) {
+    if (sLineOfText
+        && sLineOfText !== sTitleLine)
+    {
+        wsMain.write(arrsCsvTables);
+    }
+}
+
+function fNotifyEndProgram() {
+    console.log('Program completed.');
+    process.exit();
 }
