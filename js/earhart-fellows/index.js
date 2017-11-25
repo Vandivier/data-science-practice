@@ -63,7 +63,7 @@ let rsReadStream = fs.createReadStream('./EarhartFellowsMerged.txt');
 let wsWriteStream = fs.createWriteStream('./output.csv');
 let wsNonAdjacent = fs.createWriteStream('./non-adjacent-sponsor.txt');
 
-let sVeryFirstName = 'ABBAS, Hassan'; // it gets parsed out bc above delimiter
+let sLastRecordName = 'ABBAS, Hassan'; // it gets parsed out bc above delimiter
 let bVeryFirstRecordDone = false; // very first record has only name, nothing else; skip this record
 let iNonAdjacent = 0;
 
@@ -152,13 +152,12 @@ function fNotifyEndProgram() {
     console.log('Program completed.');
 }
 
+// because the name appears above the sParsedBlock delimeter,
+// name suffers from an index -1 error
+// to resolve, specify the very first name as a global and update each time
 function fParseName(sParsedBlock, oRecord) {
-    if (sVeryFirstName) {
-        oRecord.sName = sVeryFirstName;
-        sVeryFirstName = '';
-    } else {
-        oRecord.sName = oRecord.arrSplitByLineBreak[oRecord.arrSplitByLineBreak.length - 3];
-    }
+    oRecord.sName = sLastRecordName;
+    sLastRecordName = oRecord.arrSplitByLineBreak[oRecord.arrSplitByLineBreak.length - 3];
 }
 
 // TODO: multiple years
