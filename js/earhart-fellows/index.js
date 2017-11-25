@@ -6,13 +6,17 @@
 
 'use strict';
 
+let fs = require('fs');
+let split = require('split');
+
 const arrSeasons = ['sprin', 'summe', 'fall ', 'winte'];
 const OSEOL = require('os').EOL;
 const oTitleLine = {
     'sName': 'Name',
     'sAcademicYear': 'Academic Year',
-    'bMultipleDegrees': 'Multiple Degrees',
+    'vMultipleDegrees': 'Multiple Degrees',
     'sGraduateInstitution': 'Graduate Institution',
+    'vInstitutionValid': 'Graduate Institution In Validated List',
     'sAreaOfStudy': 'Area of Study',
     'sInvalidPreFixAreaOfStudy': 'Invalid Pre-Fix Area of Study',
     'sInvalidPostFixAreaOfStudy': 'Invalid Post-Fix Area of Study',
@@ -21,6 +25,7 @@ const oTitleLine = {
     'sCompletionYear': 'Completion Year',
     'sMailingAddress': 'Mailing Address',
     'sEmailAddress': 'Email Address',
+    'vCharacterAfterPeriod': 'Valid Email Address',
     'bDeceased': 'Deceased'
 };
 
@@ -28,6 +33,7 @@ const arrAreas = [
     'Business Administration',
     'Culture',
     'Economics',
+    'English',
     'Government/Politics',
     'Health/Welfare',
     'History',
@@ -40,18 +46,25 @@ const arrAreas = [
     'Sociology'
 ];
 
-const arrDegrees = ['Ph.D.', 'M.A.', 'MA.', 'M.B.A.', 'D.B.A.', 'B.A.'];
+const oAreasWithSpace = {
+    'Business,Administration': 'Business Administration',
+    'International,Studies': 'International Studies',
+    'National,Security,Studies': 'National Security Studies',
+    'National,Security Studies': 'National Security Studies',
+    'National Security,Studies': 'National Security Studies'
+};
 
-let fs = require('fs');
-let split = require('split');
+const arrGraduateInstitutions = fs.readFileSync('./graduate-instiutions.csv', 'utf8').split(',');
+const arrDegrees = ['Ph.D.', 'M.A.', 'MA.', 'M.B.A.', 'D.B.A.', 'B.A.'];
+const regexDelimiter = /Graduate Fellowship* *\(s\)/;
+const regexEmail = /[\S]+@[\S]+\.[, \S]+/g;
 
 let rsReadStream = fs.createReadStream('./EarhartFellowsMerged.txt');
 let wsWriteStream = fs.createWriteStream('./output.csv');
 let wsNonAdjacent = fs.createWriteStream('./non-adjacent-sponsor.txt');
-let regexDelimiter = /Graduate Fellowship* *\(s\)/;
+
 let sVeryFirstName = 'ABBAS, Hassan'; // it gets parsed out bc above delimiter
 let bVeryFirstRecordDone = false; // very first record has only name, nothing else; skip this record
-
 let iNonAdjacent = 0;
 
 main();
@@ -85,19 +98,24 @@ function fHandleData(sParsedBlock) {
                                         .join(',')
                                         .replace(/(\r\n|\r|\n|,)+/g, ',');
 
+    for (const sKey in oAreasWithSpace) {
+        oRecord.sCommaCollapsedBlock = oRecord.sCommaCollapsedBlock.replace(sKey, oAreasWithSpace[sKey]);
+    }
+
     try {
         fParseName(sParsedBlock, oRecord);
         fParseAcademicYear(sParsedBlock, oRecord);
         fParseGraduateInstitution(sParsedBlock, oRecord);
         fParseAreaOfStudy(sParsedBlock, oRecord);
-        fParseSponsors(sParsedBlock, oRecord);;       fParseCompletionDegree(sParsedBlock, oRecord);
+        fParseSponsors(sParsedBlock, oRecord);
+        fParseCompletionDegree(sParsedBlock, oRecord);
         fParseCompletionYear(sParsedBlock, oRecord);
-        fParseMailingAddress(sParsedBlock, oRecord);
         fParseEmailAddress(sParsedBlock, oRecord);
         fParseDeceased(sParsedBlock, oRecord);
+        fParseMailingAddress(sParsedBlock, oRecord);
     }
     catch (e) {
-        console.log('err', oRecord);
+        console.log('err', oRecord, e);
     }
 
     fsRecordToCsvLine(oRecord);
@@ -107,8 +125,9 @@ function fsRecordToCsvLine(oRecord) {
     let sToCsv = ''
                 + '"' + oRecord.sName + '",'
                 + '"' + oRecord.sAcademicYear + '",'
-                + '"' + oRecord.bMultipleDegrees + '",'
+                + '"' + oRecord.vMultipleDegrees + '",'
                 + '"' + oRecord.sGraduateInstitution + '",'
+                + '"' + oRecord.vInstitutionValid + '",'
                 + '"' + oRecord.sAreaOfStudy + '",'
                 + '"' + oRecord.sInvalidPreFixAreaOfStudy + '",'
                 + '"' + oRecord.sInvalidPostFixAreaOfStudy + '",'
@@ -117,6 +136,7 @@ function fsRecordToCsvLine(oRecord) {
                 + '"' + oRecord.sCompletionYear + '",'
                 + '"' + oRecord.sMailingAddress + '",'
                 + '"' + oRecord.sEmailAddress + '",'
+                + '"' + oRecord.vCharacterAfterPeriod + '",'
                 + '"' + oRecord.bDeceased + '"'
 
     if (oRecord.bNonAdjacentSponsors) {
@@ -169,6 +189,11 @@ function fParseAcademicYear(sParsedBlock, oRecord) {
 function fParseGraduateInstitution(sParsedBlock, oRecord) {
     let sWorkingText = oRecord.arrSplitByLineBreak[oRecord.iLastAcademicYearLine + 1];
     oRecord.sGraduateInstitution = sWorkingText.split(',')[0];
+    if (arrGraduateInstitutions.includes(oRecord.sGraduateInstitution)) {
+        oRecord.vInstitutionValid = '';
+    } else {
+        oRecord.vInstitutionValid = false;
+    }
 }
 
 // sAreaSecondGuess supports cases where the institution name includes a commas
@@ -220,7 +245,7 @@ function fParseSponsors(sParsedBlock, oRecord) {
 
 function fParseCompletionDegree(sParsedBlock, oRecord) {
     let sTextAfterSponsors = oRecord
-                    .sCommaCollapsedBlock
+                .sCommaCollapsedBlock
                     .split('Sponsor')[1],
         sCharacterAfterSponsors = sTextAfterSponsors && sTextAfterSponsors[0];
 
@@ -228,7 +253,7 @@ function fParseCompletionDegree(sParsedBlock, oRecord) {
                 .sCommaCollapsedBlock
                 .split('Sponsor')
                 .length > 2;
-    oRecord.bMultipleDegrees = '';
+    oRecord.vMultipleDegrees = '';
 
     if (sCharacterAfterSponsors) {
         if (sCharacterAfterSponsors === 's') {
@@ -240,7 +265,7 @@ function fParseCompletionDegree(sParsedBlock, oRecord) {
 
             if (!arrDegrees.includes(oRecord.sCompletionDegree)) {
                 if (fCheckAcademicYear(oRecord.sCompletionDegree)) {
-                    oRecord.bMultipleDegrees = true;
+                    oRecord.vMultipleDegrees = true;
                 }
                 oRecord.sCompletionDegree = '';
             }
@@ -272,23 +297,77 @@ function fParseCompletionYear(sParsedBlock, oRecord) {
     }
 }
 
-function fParseMailingAddress(sParsedBlock, oRecord) {
-    
-}
-
+// .slice(0, -1) to remove trailing comma
 function fParseEmailAddress(sParsedBlock, oRecord) {
-    
+    let arrMatches = oRecord.sCommaCollapsedBlock.match(regexEmail),
+        arrCharacterAfterPeriod;
+
+    if (arrMatches) {
+        oRecord.sEmailAddress = arrMatches
+        .map(function(sMatch){
+            return sMatch.replace(/[\s]+/g, '');
+        })
+        .join(',')
+        .split(',')
+        .filter(function(sMatch){
+            return sMatch.includes('@');
+        })
+        .join(',');
+
+        arrCharacterAfterPeriod = oRecord.sEmailAddress.split('.');
+        if (arrCharacterAfterPeriod.length > 1) {
+            oRecord.vCharacterAfterPeriod = true;
+        } else {
+            oRecord.vCharacterAfterPeriod = false;
+        }
+    }
+    else {
+      oRecord.sEmailAddress = '';
+      oRecord.vCharacterAfterPeriod = '';
+    }
 }
 
 function fParseDeceased(sParsedBlock, oRecord) {
-    oRecord.bDeceased = sParsedBlock.toLowerCase().includes('deceased');
+    oRecord.bDeceased = oRecord.sCommaCollapsedBlock.toLowerCase().includes('deceased');
+}
+
+function fParseMailingAddress(sParsedBlock, oRecord) {
+    let oMatchedAddress = oRecord.sCommaCollapsedBlock.toLowerCase().match('address'),
+        iAddressCharacterStart = oMatchedAddress && oMatchedAddress.index,
+        iEndCharacterIndex,
+        sFirstEmail;
+
+    if (iAddressCharacterStart) {
+        if (oRecord.sEmailAddress) {
+            sFirstEmail = oRecord.sEmailAddress.split(',')[0];
+            iEndCharacterIndex = oRecord.sCommaCollapsedBlock.indexOf(sFirstEmail);
+        }
+        else if (oRecord.bDeceased) {
+            iEndCharacterIndex = oRecord.sCommaCollapsedBlock.toLowerCase().indexOf('deceased');
+        }
+        else {
+            iEndCharacterIndex = oRecord.sCommaCollapsedBlock.length;
+        }
+
+        oRecord.sMailingAddress = oRecord.sCommaCollapsedBlock
+                                         .slice(iAddressCharacterStart, iEndCharacterIndex)
+                                         .split('Address,')[1]
+                                         .trim()
+                                         .slice(0, -1); // remove trailing comma
+    }
+    else {
+        oRecord.sMailingAddress = '';
+    }
 }
 
 function fbSeasonMatch(sToCheck) {
     return arrSeasons.includes(sToCheck.toLowerCase().slice(0,5));
 }
 
+// valid 'school time' includes both years as well as semesters
+// these can be like "fall 1985" or "calendar year 1973"
 function fCheckAcademicYear(sToCheck) {
   return (!isNaN(sToCheck[0])
-            || fbSeasonMatch(sToCheck))
+            || fbSeasonMatch(sToCheck)
+            || sToCheck.toLowerCase().slice(0,13) === 'calendar year')
 }
