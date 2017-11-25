@@ -1,4 +1,6 @@
 // ref: https://github.com/geoffreyburdett/node-table-to-csv/blob/master/index.js
+// modified to add the href of an anchor into a table cell, preppended by '||'
+// then go into excel or other app and split by that delimiter
 
 const cheerio = require('cheerio');
 const EOL = require('os').EOL;
@@ -26,9 +28,14 @@ module.exports = function (sTableParentHtml, options) {
             });
 
             $row.find('td').each(function (index, el) {
-                let $td = $(el);
+                let $td = $(el),
+                    $anchor = $td.find('a').first(), // supports only 1
+                    sHref = $anchor[0] ? ('||' + $anchor.attr('href')) : '';
 
-                matrix[i][j] = '"' + $td.text().trim() + '"';
+                matrix[i][j] = '"'
+                                + $td.text().trim()
+                                + sHref
+                                + '"';
                 j++;
                 return matrix;
             });
