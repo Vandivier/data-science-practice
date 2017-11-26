@@ -88,9 +88,12 @@ async function fpWait() {
 // we will append just once manually
 // also, don't write empty lines
 function fpHandleData(sLineOfText) {
-    const arrsCellText = sLineOfText.split(',');
+    let arrsCellText = sLineOfText.split(',');
     const bGetCompetition = (arrsCellText[5] === '1'); // col 5 is a business/technical rule
     const sUrl = sRootUrl + fsTrimMore(arrsCellText[2]);
+
+    arrsCellText[5] = sUrl;
+    sLineOfText = arrsCellText.join(',');
 
     if (bGetCompetition) {
         return fpScrapeCompetitionDetails(sUrl)
@@ -102,7 +105,7 @@ function fpHandleData(sLineOfText) {
                 console.log('scraped competition #: ' + iCurrentCompetition + '/' + iTotalCompetitions);
 
                 utils.forEachReverse(arrsPageRows, function (sPageLine) {
-                    sResultToWrite += (sPageLine + EOL);
+                    sResultToWrite += (sLineOfText + ',' + sPageLine + EOL);
                 });
 
                 return Promise.resolve();
