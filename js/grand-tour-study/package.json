@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node .",
-    "post-approach": "node post-approach.js"
+    "post-approach": "node post-approach.js",
+    "getsum": "node getsum.js"
   },
   "keywords": [
     "uci",
