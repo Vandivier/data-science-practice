@@ -185,7 +185,7 @@ async function main() {
     // each season has multiple result pages
     // get an array of result pages per season
     // then concat and get all result pages
-    for (i = iFirstSeason; i < iLastSeason; i++) {
+    for (i = iFirstSeason; i < (iLastSeason + 1); i++) {
         _arroPagesForThisSeason = fparrGetResultPagesBySeason(sRootUrl, i);
         arrResultPages = arrResultPages.concat(_arroPagesForThisSeason);
     }
