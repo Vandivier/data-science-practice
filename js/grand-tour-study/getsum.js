@@ -76,7 +76,7 @@ function fParseTxt(sLocation) {
     rsReadStream
         .pipe(splitStream(regex))
         .on('data', fHandleData)
-        .on('end', fNotifyEndProgram); // TODO: fNotifyEndProgram not properly invoked. Kill manually with ctrl + C
+        .on('end', fNotifyEndProgram);
 }
 
 // don't write the title line as it appears many times
