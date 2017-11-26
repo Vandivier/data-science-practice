@@ -4,6 +4,14 @@ A joint effort of @Vandivier and @Mbjoerkh
 
 Most of the leg work is @Vandivier, the research project, business rules, etc, are Markus.
 
+# Outline
+1. Summary
+1. Outline
+1. Background
+1. Assorted Business Rules
+1. From main.csv to markus.csv
+1. TODO
+
 # Background
 
 This is for a project on Moral Hazard in Cycling, where some authors found a rule change induced more risk taking, and where I’ve found another rule change that would induce a similar behavioral response. The idea behind getting this data is to see whether these races became more competitive and whether the size of time and point gaps between different riders (top 3, top 10, top 20 etc.), predict crashes.
@@ -42,3 +50,7 @@ This is opened again, various extraneous columns are removed, and it's saved as 
 markus.csv is programmatically used by `npm run-script getsum`. This command will scrape additional detailed data for each competition which has a value of 1 for the getsum column in markus.csv.
 
 The final output file is called gotsome.csv. It's funny. You should laugh about that.
+
+# TODO
+
+1. if we set category to Men Elite before scraping each season, it would reduce the returned sample by about 1/3 and speed up scraping. As a business rule, this is the only category we care about.
