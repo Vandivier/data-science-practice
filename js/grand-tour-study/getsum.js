@@ -100,38 +100,27 @@ function fpHandleData(sLineOfText) {
     let arrsCellText = sLineOfText.split(',');
     const bGetCompetition = (arrsCellText[5] === '1'); // col 5 is a business/technical rule
     const sUrl = sRootUrl + fsTrimMore(arrsCellText[2]);
+    let iStages; // TODO: click go to next button and get more stages
+    let $treeGrid; // it's a table with child tables...awesome
+    let $stageHeaders;
+    let $stageTables;
+    let arroStageData = [];
+    let iStage = 0;
 
     arrsCellText[2] = sUrl;
     sLineOfText = arrsCellText.join(',');
 
     if (bGetCompetition) {
-        sResultToWrite += (sLineOfText + EOL);
-        return Promise.resolve();
-        /*
         return fpScrapeCompetitionDetails(sUrl)
-            .then(function (oScrapeResult) {
-                const arrsPageRows = tableToCsv(oScrapeResult.sTableParentHtml)
-                    .split(EOL);
-
+            .then(function (arroStageData) {
                 iCurrentCompetition++;
-                console.log('scraped competition #: ' + iCurrentCompetition + '/' + iTotalCompetitions + EOL);
+                console.log('scraped competition #: '
+                            + iCurrentCompetition
+                            + '/' + iTotalCompetitions
+                            + EOL);
 
-                utils.forEachReverse(arrsPageRows, function (sPageLine) {
-                    const arrsScrapedCellText = sPageLine.split(',');
-                    const arrsResultCells = arrsCellText.concat(arrsScrapedCellText);
-                    let sClassification = arrsScrapedCellText[10];
-
-                    sClassification = sClassification && sClassification.split('||')[0];
-                    sClassification = fsTrimMore(sClassification);
-
-                    if (sClassification && sClassification !== 'undefined') {
-                        console.log('arrsCellText = ' + arrsResultCells + EOL);
-                        console.log('sClassification = ' + sClassification + EOL);
-                    }
-
-                    if (arrsDesiredClassifications.includes(sClassification)) {
-                        sResultToWrite += (sLineOfText + ',' + sPageLine + EOL);
-                    }
+                utils.forEachReverse(arroStageData, function (_oStageData) {
+                    sResultToWrite += (fsRaceData(_oStageData) + ',' + sLineOfText + EOL);
                 });
 
                 return Promise.resolve();
@@ -139,7 +128,6 @@ function fpHandleData(sLineOfText) {
             .catch(function (reason) {
                 console.log('fpHandleData err: ', reason);
             });
-            */
     }
 
     iTotalCompetitions--;
@@ -174,9 +162,37 @@ async function fpScrapeCompetitionDetails(sUrl) {
 
     executionContext = _page.mainFrame().executionContext();
     poScrapeResult = await executionContext.evaluate((_iCurrentCompetition) => {
+        $('a.k-icon.k-plus').click(); // expand all stages
+
         return _fpWait()
             .then(function () {
-                return _foScrapeSinglePageOfData();
+                let _arroStageData = [];
+                $treegrid = $('table[role=treegrid]');
+                $stageHeaders = $treegrid.find('.k-master-row[role=row]');
+                $stageTables = $treegrid.find('table');
+
+                $stageHeaders.each(function (i, $headerRow) {
+                    let _$stageTable = $stageTables.eq(i);
+                    let oStageData = {};
+
+                    oStageData.sRaceDate = $headerRow.find('td').eq(2).text();
+                    oStageData.sRaceName = $headerRow.find('td').eq(1).text();
+                    oStageData.sRaceCategory = $headerRow.find('td').eq(3).text();
+
+                    oStageData.sGeneralClassificationUrl = $stageTables
+                        .find('a:contains("General classification")')
+                        .attr('href') || '';
+                    oStageData.sPointsClassificationUrl = $stageTables
+                        .find('a:contains("Points Classification")')
+                        .attr('href') || '';
+                    oStageData.sStageClassificationUrl = $stageTables
+                        .find('a:contains("Stage Classification")')
+                        .attr('href') || '';
+
+                    _arroStageData.push(oStageData);
+                });
+
+                return _arroStageData;
             })
             .catch(function (err) {
                 console.log('fpScrapeCompetitionDetails err: ', err);
@@ -185,8 +201,8 @@ async function fpScrapeCompetitionDetails(sUrl) {
         // larger time allows for slow site response
         // some times of day when it's responding fast u can get away
         // with smaller ms; suggested default of 12.5s
-        function _fpWait() {
-            let ms = 8000;
+        function _fpWait(ms) {
+            ms = ms || 8000;
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 
@@ -205,36 +221,22 @@ async function fpScrapeCompetitionDetails(sUrl) {
     }
 }
 
-// ref: earhart-fellows
-// TODO: may not be needed
-function fsRecordToCsvLine(oRecord) {
-    let sToCsv = ''
-                + '"' + oRecord.sName + '",'
-                + '"' + oRecord.sAcademicYear + '",'
-                + '"' + oRecord.vMultipleDegrees + '",'
-                + '"' + oRecord.sGraduateInstitution + '",'
-                + '"' + oRecord.vInstitutionValid + '",'
-                + '"' + oRecord.sAreaOfStudy + '",'
-                + '"' + oRecord.sInvalidPreFixAreaOfStudy + '",'
-                + '"' + oRecord.sInvalidPostFixAreaOfStudy + '",'
-                + '"' + oRecord.sSponsors + '",'
-                + '"' + oRecord.sCompletionDegree + '",'
-                + '"' + oRecord.sCompletionYear + '",'
-                + '"' + oRecord.sMailingAddress + '",'
-                + '"' + oRecord.sEmailAddress + '",'
-                + '"' + oRecord.vCharacterAfterPeriod + '",'
-                + '"' + oRecord.bDeceased + '"'
-
-    if (oRecord.bNonAdjacentSponsors) {
-        iNonAdjacent++;
-        wsNonAdjacent.write(sToCsv + OSEOL);
-    } else {
-        wsWriteStream.write(sToCsv + OSEOL);
-    }
-}
-
 // like String.trim()
 // but, removes commas and quotes too (outer or interior)
 function fsTrimMore(s) {
     return s && s.replace(/[,"]/g, '').trim();
+}
+
+// ref: earhart-fellows, fsRecordToCsvLine
+// TODO: generic object-to-csv-row
+function fsRaceData(oStageData) {
+    let sToCsv = ''
+                + '"' + oRecord.sRaceName + '",'
+                + '"' + oRecord.sRaceDate + '",'
+                + '"' + oRecord.sRaceCategory + '",'
+                + '"' + oRecord.sGeneralClassificationUrl + '",'
+                + '"' + oRecord.sPointsClassificationUrl + '",'
+                + '"' + oRecord.sStageClassificationUrl + '"'
+
+    return sToCsv;
 }
