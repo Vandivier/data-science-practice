@@ -31,6 +31,13 @@ const sResultDir = __dirname + '/results';
 const sMarkusCsvLocation = sResultDir + '/markus.csv';
 const sOutputFileLocation = sResultDir + '/gotsome.csv';
 
+const arrsDesiredClassifications = ['General Classification'];
+/*
+const arrsDesiredClassifications = ['General Classification',
+                                    'Points Classification',
+                                    'Stage Classification'];
+*/
+
 let browser;
 let iCurrentCompetition = 0;
 let iTotalCompetitions = 0;
@@ -56,12 +63,14 @@ async function main() {
     arrsInputRows = sInputCsv.split(EOL);
 
     /** for testing only, shorten rows **/
-    arrsInputRows = arrsInputRows.slice(0, 100);
+    arrsInputRows = arrsInputRows.slice(0, 50);
 
     iTotalCompetitions = arrsInputRows.length;
     console.log('early count, iTotalCompetitions = ' + iTotalCompetitions);
     console.log('early count is typically overstated by a factor of ~20');
     console.log('iTotalCompetitions / 20 = ' + (iTotalCompetitions / 20));
+    console.log('allow up to ~30s per scrape' + EOL);
+
     await utils.forEachReverseAsyncParallel(arrsInputRows, function(sLineOfText, i) {
         return fpHandleData(sLineOfText);
     });
@@ -92,27 +101,45 @@ function fpHandleData(sLineOfText) {
     const bGetCompetition = (arrsCellText[5] === '1'); // col 5 is a business/technical rule
     const sUrl = sRootUrl + fsTrimMore(arrsCellText[2]);
 
-    arrsCellText[5] = sUrl;
+    arrsCellText[2] = sUrl;
     sLineOfText = arrsCellText.join(',');
 
     if (bGetCompetition) {
+        sResultToWrite += (sLineOfText + EOL);
+        return Promise.resolve();
+        /*
         return fpScrapeCompetitionDetails(sUrl)
             .then(function (oScrapeResult) {
                 const arrsPageRows = tableToCsv(oScrapeResult.sTableParentHtml)
                     .split(EOL);
 
                 iCurrentCompetition++;
-                console.log('scraped competition #: ' + iCurrentCompetition + '/' + iTotalCompetitions);
+                console.log('scraped competition #: ' + iCurrentCompetition + '/' + iTotalCompetitions + EOL);
 
                 utils.forEachReverse(arrsPageRows, function (sPageLine) {
-                    sResultToWrite += (sLineOfText + ',' + sPageLine + EOL);
+                    const arrsScrapedCellText = sPageLine.split(',');
+                    const arrsResultCells = arrsCellText.concat(arrsScrapedCellText);
+                    let sClassification = arrsScrapedCellText[10];
+
+                    sClassification = sClassification && sClassification.split('||')[0];
+                    sClassification = fsTrimMore(sClassification);
+
+                    if (sClassification && sClassification !== 'undefined') {
+                        console.log('arrsCellText = ' + arrsResultCells + EOL);
+                        console.log('sClassification = ' + sClassification + EOL);
+                    }
+
+                    if (arrsDesiredClassifications.includes(sClassification)) {
+                        sResultToWrite += (sLineOfText + ',' + sPageLine + EOL);
+                    }
                 });
 
                 return Promise.resolve();
             })
-            .catch(function(reason){
+            .catch(function (reason) {
                 console.log('fpHandleData err: ', reason);
             });
+            */
     }
 
     iTotalCompetitions--;
@@ -139,7 +166,7 @@ async function fpScrapeCompetitionDetails(sUrl) {
     await _page.goto(sUrl, {
         'networkIdleTimeout': 5000,
         'waitUntil': 'networkidle',
-        'timeout': 8000
+        'timeout': 12000
     }); // timeout ref: https://github.com/GoogleChrome/puppeteer/issues/782
 
     _$ = cheerio.load(await _page.content());
@@ -147,7 +174,6 @@ async function fpScrapeCompetitionDetails(sUrl) {
 
     executionContext = _page.mainFrame().executionContext();
     poScrapeResult = await executionContext.evaluate((_iCurrentCompetition) => {
-        // TODO: _fpWait() maybe not needed
         return _fpWait()
             .then(function () {
                 return _foScrapeSinglePageOfData();

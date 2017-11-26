@@ -7,7 +7,13 @@ const EOL = require('os').EOL;
 
 module.exports = function (sTableParentHtml, options) {
     const $ = cheerio.load(sTableParentHtml);
-    const $table = $('table');
+    const $tables = options.selector ? $(options.selector) : $('table');
+
+    if ($tables.length > 1) {
+        return joinedTables($tables, options);
+    } else {
+        return createCsv(createMatrix($tables));
+    }
 
     function createMatrix(_$table) {
         var matrix = [],
@@ -22,7 +28,7 @@ module.exports = function (sTableParentHtml, options) {
             $row.find('th').each(function (index, el) {
                 let $th = $(el);
 
-                matrix[i][j] = $th.text().trim().replace(/(\r\n|\n|\r)/gm, "");
+                matrix[i][j] = $th.text().trim().replace(/(\r\n|\n|\r)/gm, '');
                 j++;
                 return matrix;
             });
@@ -54,5 +60,17 @@ module.exports = function (sTableParentHtml, options) {
         return csv;
     }
 
-    return createCsv(createMatrix($table));
+    function joinedTables(_$tables, options) {
+        let sJoinedOutput;
+
+        $tables.each(function (i, $el) {
+            let _sTableCsv = createCsv(createMatrix($tables));
+            if (options.tableFunction) {
+                _sTableCsv = options.tableFunction(_sTableCsv, $el, i); // useful for adding a table id for example
+            }
+            sJoinedOutput += _sTableCsv;
+        });
+
+        return sJoinedOutput;
+    }
 }
