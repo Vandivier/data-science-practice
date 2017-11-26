@@ -26,12 +26,14 @@ const fpWriteFile = util.promisify(fs.writeFile);
 const tableToCsv = require('./node-table-to-csv.js');
 const utils = require('./utils.js');
 
-const iCurrentCompetition = 0;
 const sRootUrl = 'https://dataride.uci.ch';
 const sResultDir = __dirname + '/results';
 const sMarkusCsvLocation = sResultDir + '/markus.csv';
+const sOutputFileLocation = sResultDir + '/gotsome.csv';
 
 let browser;
+let iCurrentCompetition = 0;
+let iTotalCompetitions = 0;
 let sResultToWrite;
 let wsGotSome;
 let wsErrorLog;
@@ -52,18 +54,21 @@ async function main() {
 
     sInputCsv = await fpReadFile(sMarkusCsvLocation, 'utf8');
     arrsInputRows = sInputCsv.split(EOL);
+    /** for testing only, shorten rows **/
+    arrsInputRows = arrsInputRows.slice(0, 100);
+    iTotalCompetitions = arrsInputRows.length;
     await utils.forEachReverseAsyncParallel(arrsInputRows, function(sLineOfText, i) {
         return fpHandleData(sLineOfText);
     });
 
     console.log('writing result file.');
-    await fpWriteFile(sResultToWrite);
+    await fpWriteFile(sOutputFileLocation, sResultToWrite);
     fEndProgram();
 }
 
 //  must ensure path exists before setting writers
 function fSetWriters() {
-    wsGotSome = fs.createWriteStream(sResultDir + '/gotsome.csv');
+    wsGotSome = fs.createWriteStream(sOutputFileLocation);
     wsErrorLog = fs.createWriteStream(sResultDir + '/errors.txt');
 }
 
@@ -80,25 +85,29 @@ async function fpWait() {
 function fpHandleData(sLineOfText) {
     const arrsCellText = sLineOfText.split(',');
     const bGetCompetition = (arrsCellText[5] === '1'); // col 5 is a business/technical rule
-    const sUrl = sRootUrl + arrsCellText[2];
+    const sUrl = sRootUrl + fsTrimMore(arrsCellText[2]);
 
     if (bGetCompetition) {
         return fpScrapeCompetitionDetails(sUrl)
             .then(function (oScrapeResult) {
-                const arrsPageRows = tableToCsv(oPageData.sTableParentHtml)
+                const arrsPageRows = tableToCsv(oScrapeResult.sTableParentHtml)
                     .split(EOL);
 
                 iCurrentCompetition++;
-                console.log('scraped competition #: ' + iCurrentCompetition);
+                console.log('scraped competition #: ' + iCurrentCompetition + '/' + iTotalCompetitions);
 
                 utils.forEachReverse(arrsPageRows, function (sPageLine) {
                     sResultToWrite += (sPageLine + EOL);
                 });
 
                 return Promise.resolve();
+            })
+            .catch(function(reason){
+                console.log('fpHandleData err: ', reason);
             });
     }
 
+    iTotalCompetitions--;
     return Promise.resolve();
 }
 
@@ -122,7 +131,7 @@ async function fpScrapeCompetitionDetails(sUrl) {
     await _page.goto(sUrl, {
         'networkIdleTimeout': 5000,
         'waitUntil': 'networkidle',
-        'timeout': 0
+        'timeout': 8000
     }); // timeout ref: https://github.com/GoogleChrome/puppeteer/issues/782
 
     _$ = cheerio.load(await _page.content());
@@ -188,4 +197,10 @@ function fsRecordToCsvLine(oRecord) {
     } else {
         wsWriteStream.write(sToCsv + OSEOL);
     }
+}
+
+// like String.trim()
+// but, removes commas and quotes too (outer or interior)
+function fsTrimMore(s) {
+    return s && s.replace(/[,"]/g, '').trim();
 }
