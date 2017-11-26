@@ -86,7 +86,6 @@ function fSetWriters() {
     wsErrorLog = fs.createWriteStream(sResultDir + '/errors.txt');
 }
 
-
 // TODO: maybe wait on condition instead of time
 // eg using page.mainFrame().waitForSelector
 async function fpWait() {
@@ -171,7 +170,8 @@ async function fpScrapeCompetitionDetails(sUrl) {
                 $stageHeaders = $treegrid.find('.k-master-row[role=row]');
                 $stageTables = $treegrid.find('table');
 
-                $stageHeaders.each(function (i, $headerRow) {
+                $stageHeaders.each(function (i, elheaderRow) {
+                    let $headerRow = $(elheaderRow);
                     let _$stageTable = $stageTables.eq(i);
                     let oStageData = {};
 
@@ -231,12 +231,12 @@ function fsTrimMore(s) {
 // TODO: generic object-to-csv-row
 function fsRaceData(oStageData) {
     let sToCsv = ''
-                + '"' + oRecord.sRaceName + '",'
-                + '"' + oRecord.sRaceDate + '",'
-                + '"' + oRecord.sRaceCategory + '",'
-                + '"' + oRecord.sGeneralClassificationUrl + '",'
-                + '"' + oRecord.sPointsClassificationUrl + '",'
-                + '"' + oRecord.sStageClassificationUrl + '"'
+                + '"' + oStageData.sRaceName + '",'
+                + '"' + oStageData.sRaceDate + '",'
+                + '"' + oStageData.sRaceCategory + '",'
+                + '"' + oStageData.sGeneralClassificationUrl + '",'
+                + '"' + oStageData.sPointsClassificationUrl + '",'
+                + '"' + oStageData.sStageClassificationUrl + '"'
 
     return sToCsv;
 }
