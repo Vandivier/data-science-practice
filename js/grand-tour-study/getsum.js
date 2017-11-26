@@ -219,15 +219,21 @@ async function fpScrapeCompetitionDetails(sUrl) {
                     oStageData.sStageDate = $headerRow.find('td').eq(2).text();
                     oStageData.sStageCategory = $headerRow.find('td').eq(3).text();
 
-                    oStageData.sGeneralClassificationUrl = $stageTables
-                        .find('a:contains("General classification")')
-                        .attr('href') || '';
-                    oStageData.sPointsClassificationUrl = $stageTables
-                        .find('a:contains("Points Classification")')
-                        .attr('href') || '';
-                    oStageData.sStageClassificationUrl = $stageTables
-                        .find('a:contains("Stage Classification")')
-                        .attr('href') || '';
+                    oStageData.sGeneralClassificationUrl = _$stageTable
+                        .find('a:contains("General Classification")'
+                              + ',a:contains("General classification")')
+                        .attr('href')
+                        || '';
+                    oStageData.sPointsClassificationUrl = _$stageTable
+                        .find('a:contains("Points Classification")'
+                              + ',a:contains("Points classification")')
+                        .attr('href')
+                        || '';
+                    oStageData.sStageClassificationUrl = _$stageTable
+                        .find('a:contains("Stage Classification")'
+                              + ',a:contains("Stage classification")')
+                        .attr('href')
+                        || '';
 
                     _arroStageData.push(oStageData);
                 });
