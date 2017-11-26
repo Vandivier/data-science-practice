@@ -47,26 +47,6 @@ const arrMockBatches = [
 
 main();
 
-async function fpoGetRenameData(_oRename) {
-    let loggerMessage;
-
-    // get csv or log as missing
-
-    loggerMessage = _oRename.id + ', true, successfully got at least some data'
-    _oRename.loggerMessage = loggerMessage;
-    utils.fStandardWriter(_oRename, wsRenames);
-    return Promise.resolve(loggerMessage);
-}
-
-//  _arr is an array of Renames
-//  Promise.reflect() ref: http://bluebirdjs.com/docs/api/reflect.html
-//  _oRename is a reflected Rename promise result.
-//  Be sure you know what that means before messing with it.
-async function fpCollectBatchInformation(_arr) {
-    let arrBatchResult = await utils.settleAll(_arr, fpoGetRenameData);
-    return arrBatchResult;
-}
-
 // returns a page which has been navigated to the specified season page
 // note: this whole fucking method is a hack
 // not generalizable or temporally reliable in case of a site refactor
