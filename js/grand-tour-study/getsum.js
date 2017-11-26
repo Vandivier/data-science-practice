@@ -93,6 +93,5 @@ function fHandleData(sLineOfText) {
 
 function fNotifyEndProgram() {
     browser.close();
-    console.log('Program completed.');
-    process.exit();
+    console.log('rsReadStream completed reading. Please watch the output file and kill manually with ctrl + c when it appears writing has completed.');
 }

@@ -226,7 +226,7 @@ function fParseTxt(sText) {
     rsReadStream
         .pipe(splitStream(regex))
         .on('data', fHandleData)
-        .on('end', fNotifyEndProgram); // TODO: fNotifyEndProgram not properly invoked. Kill manually with ctrl + C
+        .on('end', fNotifyEndProgram);
 }
 
 // don't write the title line as it appears many times
@@ -242,6 +242,5 @@ function fHandleData(sLineOfText) {
 
 function fNotifyEndProgram() {
     browser.close();
-    console.log('Program completed.');
-    process.exit();
+    console.log('rsReadStream completed reading. Please watch the output file and kill manually with ctrl + c when it appears writing has completed.');
 }
