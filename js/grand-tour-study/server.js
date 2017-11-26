@@ -19,8 +19,6 @@ const splitStream = require('split');
 const utils = require('./utils.js');
 const tableToCsv = require('./node-table-to-csv.js');
 
-const iChunkSize = 30;
-const iThrottleInterval = 2; // seconds between batch of requests
 const sRootUrl = 'https://dataride.uci.ch/iframe/results/10';
 const sResultDir = __dirname + '/results';
 
