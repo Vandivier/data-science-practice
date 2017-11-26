@@ -54,9 +54,14 @@ async function main() {
 
     sInputCsv = await fpReadFile(sMarkusCsvLocation, 'utf8');
     arrsInputRows = sInputCsv.split(EOL);
+
     /** for testing only, shorten rows **/
     arrsInputRows = arrsInputRows.slice(0, 100);
+
     iTotalCompetitions = arrsInputRows.length;
+    console.log('early count, iTotalCompetitions = ' + iTotalCompetitions);
+    console.log('early count is typically overstated by a factor of ~20');
+    console.log('iTotalCompetitions / 20 = ' + (iTotalCompetitions / 20));
     await utils.forEachReverseAsyncParallel(arrsInputRows, function(sLineOfText, i) {
         return fpHandleData(sLineOfText);
     });
