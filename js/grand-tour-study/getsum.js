@@ -38,6 +38,21 @@ const arrsDesiredClassifications = ['General Classification',
                                     'Stage Classification'];
 */
 
+const oTitleLine = {
+    'sStageName': 'Stage Name',
+    'sStageDate': 'Stage Date',
+    'sStageCategory': 'Stage Category',
+    'sGeneralClassificationUrl': 'General Classification Url',
+    'sPointsClassificationUrl': 'Points Classification Url',
+    'sStageClassificationUrl': 'Stage Classification Url',
+    'sCompetitionDate': 'Competition Date',
+    'sCompetitionName': 'Competition Name',
+    'sCompetitionUrl': 'Competition Result Page Url',
+    'sCountry': 'Country',
+    'sClassCode': 'Class Code',
+    'sGetSum': 'getsum',
+};
+
 let browser;
 let iCurrentCompetition = 0;
 let iTotalCompetitions = 0;
@@ -64,7 +79,6 @@ async function main() {
 
     /** for testing only, shorten rows **/
     arrsInputRows = arrsInputRows.slice(0, 50);
-
     iTotalCompetitions = arrsInputRows.length;
     console.log('early count, iTotalCompetitions = ' + iTotalCompetitions);
     console.log('early count is typically overstated by a factor of ~20');
@@ -76,6 +90,7 @@ async function main() {
     });
 
     console.log('writing result file.');
+    sResultToWrite = fsRaceData(oTitleLine) + EOL + sResultToWrite;
     await fpWriteFile(sOutputFileLocation, sResultToWrite);
     fEndProgram();
 }
@@ -95,21 +110,26 @@ async function fpWait() {
 // don't write the title line as it appears many times
 // we will append just once manually
 // also, don't write empty lines
+// TODO: click go to next button and get more stages
 function fpHandleData(sLineOfText) {
-    let arrsCellText = sLineOfText.split(',');
+    const arrsCellText = sLineOfText.split(',');
     const bGetCompetition = (arrsCellText[5] === '1'); // col 5 is a business/technical rule
     const sUrl = sRootUrl + fsTrimMore(arrsCellText[2]);
-    let iStages; // TODO: click go to next button and get more stages
     let $treeGrid; // it's a table with child tables...awesome
     let $stageHeaders;
     let $stageTables;
     let arroStageData = [];
-    let iStage = 0;
-
-    arrsCellText[2] = sUrl;
-    sLineOfText = arrsCellText.join(',');
+    let _sUrl;
+    let _sCountry;
+    let _sClassCode;
+    let _sGetSum;
 
     if (bGetCompetition) {
+        _sUrl = sUrl;
+        _sCountry = arrsCellText[3];
+        _sClassCode = arrsCellText[4];
+        _sGetSum = arrsCellText[5];
+
         return fpScrapeCompetitionDetails(sUrl)
             .then(function (arroStageData) {
                 iCurrentCompetition++;
@@ -119,7 +139,27 @@ function fpHandleData(sLineOfText) {
                             + EOL);
 
                 utils.forEachReverse(arroStageData, function (_oStageData) {
-                    sResultToWrite += (fsRaceData(_oStageData) + ',' + sLineOfText + EOL);
+                    _oStageData.sCompetitionDate = arrsCellText[0];
+                    _oStageData.sCompetitionName = arrsCellText[1];
+                    _oStageData.sCompetitionUrl = _sUrl;
+                    _oStageData.sCountry = _sCountry;
+                    _oStageData.sClassCode = _sClassCode;
+                    _oStageData.sGetSum = _sGetSum;
+
+                    if (_oStageData.sGeneralClassificationUrl) {
+                        _oStageData.sGeneralClassificationUrl = sRootUrl
+                            + _oStageData.sGeneralClassificationUrl
+                    }
+                    if (_oStageData.sPointsClassificationUrl) {
+                        _oStageData.sPointsClassificationUrl = sRootUrl
+                            + _oStageData.sPointsClassificationUrl
+                    }
+                    if (_oStageData.sStageClassificationUrl) {
+                        _oStageData.sStageClassificationUrl = sRootUrl
+                            + _oStageData.sStageClassificationUrl
+                    }
+
+                    sResultToWrite += (fsRaceData(_oStageData) + EOL);
                 });
 
                 return Promise.resolve();
@@ -175,9 +215,9 @@ async function fpScrapeCompetitionDetails(sUrl) {
                     let _$stageTable = $stageTables.eq(i);
                     let oStageData = {};
 
-                    oStageData.sRaceDate = $headerRow.find('td').eq(2).text();
-                    oStageData.sRaceName = $headerRow.find('td').eq(1).text();
-                    oStageData.sRaceCategory = $headerRow.find('td').eq(3).text();
+                    oStageData.sStageName = $headerRow.find('td').eq(1).text();
+                    oStageData.sStageDate = $headerRow.find('td').eq(2).text();
+                    oStageData.sStageCategory = $headerRow.find('td').eq(3).text();
 
                     oStageData.sGeneralClassificationUrl = $stageTables
                         .find('a:contains("General classification")')
@@ -231,12 +271,18 @@ function fsTrimMore(s) {
 // TODO: generic object-to-csv-row
 function fsRaceData(oStageData) {
     let sToCsv = ''
-                + '"' + oStageData.sRaceName + '",'
-                + '"' + oStageData.sRaceDate + '",'
-                + '"' + oStageData.sRaceCategory + '",'
+                + '"' + oStageData.sStageName + '",'
+                + '"' + oStageData.sStageDate + '",'
+                + '"' + oStageData.sStageCategory + '",'
                 + '"' + oStageData.sGeneralClassificationUrl + '",'
                 + '"' + oStageData.sPointsClassificationUrl + '",'
-                + '"' + oStageData.sStageClassificationUrl + '"'
+                + '"' + oStageData.sStageClassificationUrl + '",'
+                + '"' + oStageData.sCompetitionDate + '",'
+                + '"' + oStageData.sCompetitionName + '",'
+                + '"' + oStageData.sCompetitionUrl + '",'
+                + '"' + oStageData.sCountry + '",'
+                + '"' + oStageData.sClassCode + '",'
+                + '"' + oStageData.sGetSum + '"'
 
     return sToCsv;
 }
