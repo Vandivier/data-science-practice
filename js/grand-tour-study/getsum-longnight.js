@@ -32,13 +32,6 @@ const sResultDir = __dirname + '/results';
 const sMarkusCsvLocation = sResultDir + '/markusgetsreadyforlongnight.csv';
 const sOutputFileLocation = sResultDir + '/gotsome-longnight.csv';
 
-const arrsDesiredClassifications = ['General Classification'];
-/*
-const arrsDesiredClassifications = ['General Classification',
-                                    'Points Classification',
-                                    'Stage Classification'];
-*/
-
 const oTitleLine = {
     'sStageName': 'Stage Name',
     'sStageDate': 'Stage Date',
@@ -192,7 +185,7 @@ async function fpScrapeCompetitionDetails(sUrl) {
     let poScrapeResult;
 
     await _page.goto(sUrl, {
-        'networkIdleTimeout': 5000,
+        'networkIdleTimeout': 10000,
         'waitUntil': 'networkidle',
         'timeout': 0
     }); // timeout ref: https://github.com/GoogleChrome/puppeteer/issues/782
@@ -239,7 +232,6 @@ async function fpScrapeCompetitionDetails(sUrl) {
                     _arroStageData.push(oStageData);
                 });
 
-                console.log(_arroStageData);
                 return _arroStageData;
             })
             .catch(function (err) {
@@ -250,7 +242,7 @@ async function fpScrapeCompetitionDetails(sUrl) {
         // some times of day when it's responding fast u can get away
         // with smaller ms; suggested default of 12.5s
         function _fpWait(ms) {
-            ms = ms || 8000;
+            ms = ms || 10000;
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 

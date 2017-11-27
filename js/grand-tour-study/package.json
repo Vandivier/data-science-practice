@@ -7,7 +7,8 @@
     "start": "node .",
     "post-approach": "node post-approach.js",
     "get-riders": "node get-riders.js",
-    "getsum": "node getsum.js"
+    "getsum": "node getsum.js",
+    "getsum-longnight": "node getsum-longnight.js"
   },
   "keywords": [
     "uci",
