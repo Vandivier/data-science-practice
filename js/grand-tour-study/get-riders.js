@@ -83,10 +83,12 @@ async function main() {
 
     // if the below takes to long, use commented file-by-file pattern
     utils.forEachReverse(arrRiderPages, (oPage, i) => {
-        if (oPage && oPage.sTableHtml) {
-            sResultToWrite += (tableToCsv(oPage.sTableHtml) + EOL); // TODO: idk if this is correct
-        } else {
-            console.log('utils.forEachReverse(arrRiderPages, err: no html' + EOL);
+        if (oPage && oPage.sTableParentHtml) {
+            try {
+                sResultToWrite += (tableToCsv(oPage.sTableParentHtml) + EOL); // TODO: idk if this is correct
+            } catch (e) {
+                console.log(e);
+            }
         }
     });
 
@@ -102,19 +104,11 @@ function fEndProgram() {
 
 // ref: getsum.js, fpScrapeCompetitionDetails()
 function fpoScrapeStageDetails(sUrl) {
-    let options = {
-        'fpEvaluateInPage': function (_options) {
-            console.log('hi');
-            return Promise.resolve({
-                'sTableHtml': 'hi'
-            });
-        },
-        'hi': 'sup'
-    }
+    let options = {};
 
     if (sUrl
         && sUrl.includes('http')) {
-        return utils.scrapePage(sUrl, browser, options)
+        return fScrapeRiderPage(sUrl)
             .then(function (oResult) {
                 iCurrentObservation++;
                 console.log('scraped ' + iCurrentObservation + ' / ' + iTotalObservations);
@@ -140,4 +134,46 @@ function fsObjectToCsvRow(oData) {
     }
 
     return (sCsvRow + EOL);
+}
+
+async function fScrapeRiderPage(sUrl) {
+    const _page = await browser.newPage();
+    let executionContext;
+    let _$;
+    let pageWorkingCompetitionPage;
+    let poScrapeResult;
+
+    await _page.goto(sUrl, {
+        'networkIdleTimeout': 5000,
+        'waitUntil': 'networkidle',
+        'timeout': 12000
+    }); // timeout ref: https://github.com/GoogleChrome/puppeteer/issues/782
+
+    _$ = cheerio.load(await _page.content());
+    _page.on('console', _fCleanLog); // ref: https://stackoverflow.com/a/47460782/3931488
+
+    executionContext = _page.mainFrame().executionContext();
+    poScrapeResult = await executionContext.evaluate(() => {
+        return _fpWait()
+            .then(function () {
+                return Promise.resolve({
+                    'sTableParentHtml': $('table').parent().html()
+                });
+            });
+
+        // larger time allows for slow site response
+        // some times of day when it's responding fast u can get away
+        // with smaller ms; suggested default of 12.5s
+        function _fpWait(ms) {
+            ms = ms || 8000;
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+    });
+
+    _page.close();
+    return poScrapeResult;
+
+    function _fCleanLog(ConsoleMessage) {
+        console.log(ConsoleMessage.text + EOL);
+    }
 }

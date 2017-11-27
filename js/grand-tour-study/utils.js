@@ -3,7 +3,6 @@
 'use strict';
 
 const Bluebird = require('bluebird');
-const cheerio = require('cheerio');
 const EOL = require('os').EOL;
 const fs = require('fs');
 const Promise = require('bluebird');
@@ -234,58 +233,6 @@ _utils.flatten = function (arr) {
     return arr.reduce(function (flat, toFlatten) {
         return flat.concat(Array.isArray(toFlatten) ? _utils.flatten(toFlatten) : toFlatten);
     }, []);
-}
-
-// TODO: extend options object
-// for now options is just if you need to pass into execution context
-// options.fBeforeEvaluation() is also a thing
-// depends on: cheerio
-_utils.scrapePage = async function(sUrl, _browser, options) {
-    const _page = await _browser.newPage();
-    let executionContext;
-    let _$;
-    let pageWorkingCompetitionPage;
-    let poScrapeResult;
-
-    await _page.goto(sUrl, {
-        'networkIdleTimeout': 5000,
-        'waitUntil': 'networkidle',
-        'timeout': 12000
-    }); // timeout ref: https://github.com/GoogleChrome/puppeteer/issues/782
-
-    _$ = cheerio.load(await _page.content());
-    _page.on('console', _fCleanLog); // ref: https://stackoverflow.com/a/47460782/3931488
-
-    executionContext = _page.mainFrame().executionContext();
-    poScrapeResult = await executionContext.evaluate((_options) => {
-        console.log(JSON.stringify(_options))
-        _options.fpEvaluateInPage();
-        //_fpEvaluateInPage(_options);
-        return _fpWait()
-        /*
-            .then(()=>{
-                return _fpEvaluateInPage(_options);
-            })
-            .catch(function (err) {
-                console.log('_utils.scrapePage err: ', err);
-            });
-            */
-
-        // larger time allows for slow site response
-        // some times of day when it's responding fast u can get away
-        // with smaller ms; suggested default of 12.5s
-        function _fpWait(ms) {
-            ms = ms || 8000;
-            return new Promise(resolve => setTimeout(resolve, ms));
-        }
-    }, options);
-
-    _page.close();
-    return poScrapeResult;
-
-    function _fCleanLog(ConsoleMessage) {
-        console.log(ConsoleMessage.text + EOL);
-    }
 }
 
 // like String.trim()

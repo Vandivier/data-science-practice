@@ -7,7 +7,7 @@ const EOL = require('os').EOL;
 
 module.exports = function (sTableParentHtml, options) {
     const $ = cheerio.load(sTableParentHtml);
-    const $tables = options.selector ? $(options.selector) : $('table');
+    const $tables = (options && options.selector) ? $(options.selector) : $('table');
 
     if ($tables.length > 1) {
         return joinedTables($tables, options);
