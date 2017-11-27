@@ -88,27 +88,7 @@ async function main() {
         } else {
             console.log('utils.forEachReverse(arrRiderPages, err: no html' + EOL);
         }
-
-        /*
-        const arrsRiderRows = sPage.split(EOL);
-
-        utils.forEachReverse(arroRiderRows, (sRiderData, i) => {
-            sResultToWrite += fsObjectToCsvRow(oPage);
-        });
-        */
     });
-
-    /*
-    console.log('writing result files.'); // TODO: maybe write just one file instead of, like, a billion. (err ~450)
-    utils.forEachReverseAsyncParallel(arrRiderPages, (oRiderData, i) =>{
-        // a race is uniquely identified by competition name + data + stage
-        const _sOutputFileLocation = '';
-        const _sResultToWrite = fsObjectToCsvRow(oRiderData);
-
-        return await fpWriteFile(_sOutputFileLocation, _sResultToWrite);
-        //sResultToWrite = fsRaceData(oTitleLine) + EOL + sResultToWrite;
-    });
-    */
 
     await fpWriteFile(sOutputFileLocation, sResultToWrite);
     fEndProgram();
@@ -152,7 +132,7 @@ function fpoScrapeStageDetails(sUrl) {
 function fsObjectToCsvRow(oData) {
     let sCsvRow = '';
 
-    for (const sKey in Object.keys(oData)) {
+    for (const sKey in oData) {
         if (oData.hasOwnProperty(sKey)) { // don't write inherited stuff
             sCsvRow += '"' + oData[sKey] + '",';
         }
