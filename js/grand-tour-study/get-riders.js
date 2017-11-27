@@ -102,11 +102,19 @@ function fEndProgram() {
 
 // ref: getsum.js, fpScrapeCompetitionDetails()
 function fpoScrapeStageDetails(sUrl) {
-    let options = {};
+    let options = {
+        'fpEvaluateInPage': function (_options) {
+            console.log('hi');
+            return Promise.resolve({
+                'sTableHtml': 'hi'
+            });
+        },
+        'hi': 'sup'
+    }
 
     if (sUrl
         && sUrl.includes('http')) {
-        return utils.scrapePage(sUrl, browser, fpEvaluateInPage, options)
+        return utils.scrapePage(sUrl, browser, options)
             .then(function (oResult) {
                 iCurrentObservation++;
                 console.log('scraped ' + iCurrentObservation + ' / ' + iTotalObservations);
@@ -115,13 +123,6 @@ function fpoScrapeStageDetails(sUrl) {
     } else {
         iTotalObservations--;
         return Promise.resolve();
-    }
-
-    function fpEvaluateInPage(_options) {
-        console.log('hi');
-        return {
-            'sTableHtml': $('table').html()
-        }
     }
 }
 

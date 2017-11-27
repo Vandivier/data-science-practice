@@ -240,7 +240,7 @@ _utils.flatten = function (arr) {
 // for now options is just if you need to pass into execution context
 // options.fBeforeEvaluation() is also a thing
 // depends on: cheerio
-_utils.scrapePage = async function(sUrl, _browser, fpEvaluateInPage, options) {
+_utils.scrapePage = async function(sUrl, _browser, options) {
     const _page = await _browser.newPage();
     let executionContext;
     let _$;
@@ -258,14 +258,18 @@ _utils.scrapePage = async function(sUrl, _browser, fpEvaluateInPage, options) {
 
     executionContext = _page.mainFrame().executionContext();
     poScrapeResult = await executionContext.evaluate((_options) => {
-        _options.fBeforeEvaluation && _options.fBeforeEvaluation();
+        console.log(JSON.stringify(_options))
+        _options.fpEvaluateInPage();
+        //_fpEvaluateInPage(_options);
         return _fpWait()
+        /*
             .then(()=>{
-                return fpEvaluateInPage(_options);
+                return _fpEvaluateInPage(_options);
             })
             .catch(function (err) {
                 console.log('_utils.scrapePage err: ', err);
             });
+            */
 
         // larger time allows for slow site response
         // some times of day when it's responding fast u can get away
