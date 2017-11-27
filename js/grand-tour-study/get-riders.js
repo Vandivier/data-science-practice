@@ -45,7 +45,16 @@ const oTitleLine = { // TODO: fix definition
     'sCountry': 'Country',
     'sClassCode': 'Class Code',
     'sGetSum': 'getsum',
+    'sRiderRank': 'Rider Rank',
+    'sRiderName': 'Rider Name',
+    'sRiderNation': 'Rider Nation',
+    'sRiderTeam': 'Rider Team',
+    'sRiderAge': 'Rider Age',
+    'sRiderResult': 'Rider Result',
+    'sRiderPoints': 'Rider Points',
 };
+
+const sRiderTitleLine = 'Rank,BIB,Rider,Nation,Team,Age,Result,IRM,Points';
 
 let browser;
 let iCurrentObservation = 0;
@@ -76,20 +85,34 @@ async function main() {
     console.log('iTotalObservations = ' + iTotalObservations);
     sResultToWrite = fsObjectToCsvRow(oTitleLine);
 
-    arrRiderPages = await utils.forEachReverseAsyncParallel(arrsInputRows, (sRow, i) => {
-        const _sGeneralClassificationUrl = utils.fsTrimMore(sRow.split(',')[4]); // column # determined by business rule
-        return fpoScrapeStageDetails(_sGeneralClassificationUrl);
-    });
+    await utils.forEachReverseAsyncParallel(arrsInputRows, (sRow, i) => {
+        const oParsedStageRecord = foParseStageRecord(sRow);
 
-    // if the below takes to long, use commented file-by-file pattern
-    utils.forEachReverse(arrRiderPages, (oPage, i) => {
-        if (oPage && oPage.sTableParentHtml) {
-            try {
-                sResultToWrite += (tableToCsv(oPage.sTableParentHtml) + EOL); // TODO: idk if this is correct
-            } catch (e) {
-                console.log(e);
-            }
-        }
+        return fpoScrapeStageDetails(oParsedStageRecord.sGeneralClassificationUrl)
+            .then(function(oPage){
+                let arroRiderRecords = [];
+                let sPageCsv;
+
+                if (oPage && oPage.sTableParentHtml) {
+                    try {
+                        sPageCsv = (tableToCsv(oPage.sTableParentHtml));
+                        arroRiderRecords = sPageCsv
+                            .split(EOL)
+                            .map(function (sRiderLine) {
+                                return fMapRiderText(sRiderLine, oParsedStageRecord);
+                            })
+                            .filter(el => el);
+                    } catch (e) {
+                        console.log(e);
+                    }
+                }
+
+                utils.forEachReverse(arroRiderRecords, (oRiderRecord) => {
+                    sResultToWrite += fsObjectToCsvRow(oRiderRecord);
+                });
+
+                return Promise.resolve();
+            });
     });
 
     await fpWriteFile(sOutputFileLocation, sResultToWrite);
@@ -108,7 +131,7 @@ function fpoScrapeStageDetails(sUrl) {
 
     if (sUrl
         && sUrl.includes('http')) {
-        return fScrapeRiderPage(sUrl)
+        return fpScrapeRiderPage(sUrl)
             .then(function (oResult) {
                 iCurrentObservation++;
                 console.log('scraped ' + iCurrentObservation + ' / ' + iTotalObservations);
@@ -136,7 +159,7 @@ function fsObjectToCsvRow(oData) {
     return (sCsvRow + EOL);
 }
 
-async function fScrapeRiderPage(sUrl) {
+async function fpScrapeRiderPage(sUrl) {
     const _page = await browser.newPage();
     let executionContext;
     let _$;
@@ -176,4 +199,50 @@ async function fScrapeRiderPage(sUrl) {
     function _fCleanLog(ConsoleMessage) {
         console.log(ConsoleMessage.text + EOL);
     }
+}
+
+// TODO: maybe fsTrimMore all keys at end
+function foParseStageRecord(sStageRow) {
+    const arrCells = sStageRow.split(',');
+
+    return {
+        'sStageName': utils.fsTrimMore(arrCells[0]),
+        'sStageDate': utils.fsTrimMore(arrCells[1]),
+        'sStageCategory': utils.fsTrimMore(arrCells[2]),
+        'sGeneralClassificationUrl': utils.fsTrimMore(arrCells[3]),
+        'sPointsClassificationUrl': utils.fsTrimMore(arrCells[4]),
+        'sStageClassificationUrl': utils.fsTrimMore(arrCells[5]),
+        'sCompetitionDate': utils.fsTrimMore(arrCells[6]),
+        'sCompetitionName': utils.fsTrimMore(arrCells[7]),
+        'sCompetitionUrl': utils.fsTrimMore(arrCells[8]),
+        'sCountry': utils.fsTrimMore(arrCells[9]),
+        'sClassCode': utils.fsTrimMore(arrCells[10]),
+        'sGetSum': utils.fsTrimMore(arrCells[11]),
+    }
+}
+
+function fMapRiderText(sRiderLine, oParsedStageRecord) {
+    let arrCells = sRiderLine.split(',');
+    let oRiderRecord;
+
+    if (sRiderLine
+        && sRiderLine !== 'undefined'
+        && sRiderLine !== sRiderTitleLine)
+    {
+        oRiderRecord = {
+            'sRiderRank': utils.fsTrimMore(arrCells[0]),
+            'sRiderName': utils.fsTrimMore(arrCells[2]),
+            'sRiderNation': utils.fsTrimMore(arrCells[3]),
+            'sRiderTeam': utils.fsTrimMore(arrCells[4]),
+            'sRiderAge': utils.fsTrimMore(arrCells[5]),
+            'sRiderResult': utils.fsTrimMore(arrCells[6]),
+            'sRiderPoints': utils.fsTrimMore(arrCells[7]),
+        }
+
+        oRiderRecord = Object.assign(oParsedStageRecord, oRiderRecord);
+        oRiderRecord = JSON.parse(JSON.stringify(oRiderRecord)); // just being extra safe; maybe not needed
+        return oRiderRecord;
+    }
+
+    return false;
 }

@@ -53,21 +53,26 @@ module.exports = function (sTableParentHtml, options) {
     }
 
     function createCsv(data) {
-        let csv = '';
-        for (var i = 0; i < data.length; i++) {
-            csv += data[i].join(',') + EOL;
+        let _sTableCsv = '';
+
+        for (let i = 0; i < data.length; i++) {
+            _sTableCsv += data[i].join(',') + EOL;
         }
-        return csv;
+
+        return _sTableCsv;
     }
 
     function joinedTables(_$tables, options) {
-        let sJoinedOutput;
+        let sJoinedOutput = '';
 
-        $tables.each(function (i, $el) {
-            let _sTableCsv = createCsv(createMatrix($tables));
+        $tables.each(function (i, el) {
+            let $el = $(el);
+            let _sTableCsv = createCsv(createMatrix($el));
+
             if (options.tableFunction) {
                 _sTableCsv = options.tableFunction(_sTableCsv, $el, i); // useful for adding a table id for example
             }
+
             sJoinedOutput += _sTableCsv;
         });
 
