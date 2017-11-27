@@ -79,7 +79,7 @@ async function main() {
     console.log('iTotalCompetitions / 20 = ' + (iTotalCompetitions / 20));
     console.log('allow up to ~30s per scrape' + EOL);
 
-    await utils.forEachReverseAsyncParallel(arrsInputRows, function(sLineOfText, i) {
+    await utils.forEachReverseAsyncPhased(arrsInputRows, function(sLineOfText, i) {
         return fpHandleData(sLineOfText);
     });
 
