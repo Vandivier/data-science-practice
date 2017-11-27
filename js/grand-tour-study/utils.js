@@ -1,10 +1,13 @@
 // https://stackoverflow.com/questions/37132031/nodejs-plans-to-support-import-export-es6-es2015-modules
+// TODO: give each function a depends on identifier and allow tree shaking
 'use strict';
 
-const Bluebird = require('bluebird')
-const fs = require('fs')
-const Promise = require('bluebird')
-const OSEOL = require('os').EOL;
+const Bluebird = require('bluebird');
+const cheerio = require('cheerio');
+const EOL = require('os').EOL;
+const fs = require('fs');
+const Promise = require('bluebird');
+
 const DELIMITER = '<<<***DEL***>>>';
 
 let _utils = {};
@@ -222,7 +225,7 @@ _utils.log = function (console) {
 //  add standard delimeter for later parsing
 _utils.fStandardWriter = function (vData, ws, bDontWrap) {
     if (typeof vData !== 'string') vData = JSON.stringify(vData);
-    if (!bDontWrap) vData = OSEOL + DELIMITER + OSEOL + vData;
+    if (!bDontWrap) vData = EOL + DELIMITER + EOL + vData;
     ws.write(vData);
 }
 
@@ -231,6 +234,60 @@ _utils.flatten = function (arr) {
     return arr.reduce(function (flat, toFlatten) {
         return flat.concat(Array.isArray(toFlatten) ? _utils.flatten(toFlatten) : toFlatten);
     }, []);
+}
+
+// TODO: extend options object
+// for now options is just if you need to pass into execution context
+// options.fBeforeEvaluation() is also a thing
+// depends on: cheerio
+_utils.scrapePage = async function(sUrl, _browser, fpEvaluateInPage, options) {
+    const _page = await _browser.newPage();
+    let executionContext;
+    let _$;
+    let pageWorkingCompetitionPage;
+    let poScrapeResult;
+
+    await _page.goto(sUrl, {
+        'networkIdleTimeout': 5000,
+        'waitUntil': 'networkidle',
+        'timeout': 12000
+    }); // timeout ref: https://github.com/GoogleChrome/puppeteer/issues/782
+
+    _$ = cheerio.load(await _page.content());
+    _page.on('console', _fCleanLog); // ref: https://stackoverflow.com/a/47460782/3931488
+
+    executionContext = _page.mainFrame().executionContext();
+    poScrapeResult = await executionContext.evaluate((_options) => {
+        _options.fBeforeEvaluation && _options.fBeforeEvaluation();
+        return _fpWait()
+            .then(()=>{
+                return fpEvaluateInPage(_options);
+            })
+            .catch(function (err) {
+                console.log('_utils.scrapePage err: ', err);
+            });
+
+        // larger time allows for slow site response
+        // some times of day when it's responding fast u can get away
+        // with smaller ms; suggested default of 12.5s
+        function _fpWait(ms) {
+            ms = ms || 8000;
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+    }, options);
+
+    _page.close();
+    return poScrapeResult;
+
+    function _fCleanLog(ConsoleMessage) {
+        console.log(ConsoleMessage.text + EOL);
+    }
+}
+
+// like String.trim()
+// but, removes commas and quotes too (outer or interior)
+_utils.fsTrimMore = function (s) {
+    return s && s.replace(/[,"]/g, '').trim();
 }
 
 module.exports = _utils;

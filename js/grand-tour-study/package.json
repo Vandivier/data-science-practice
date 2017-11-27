@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node .",
     "post-approach": "node post-approach.js",
+    "get-riders": "node get-riders.js",
     "getsum": "node getsum.js"
   },
   "keywords": [
