@@ -169,7 +169,7 @@ async function fpScrapeRiderPage(sUrl) {
     await _page.goto(sUrl, {
         'networkIdleTimeout': 5000,
         'waitUntil': 'networkidle',
-        'timeout': 12000
+        'timeout': 0
     }); // timeout ref: https://github.com/GoogleChrome/puppeteer/issues/782
 
     _$ = cheerio.load(await _page.content());
@@ -236,7 +236,7 @@ function fMapRiderText(sRiderLine, oParsedStageRecord) {
             'sRiderTeam': utils.fsTrimMore(arrCells[4]),
             'sRiderAge': utils.fsTrimMore(arrCells[5]),
             'sRiderResult': utils.fsTrimMore(arrCells[6]),
-            'sRiderPoints': utils.fsTrimMore(arrCells[7]),
+            'sRiderPoints': utils.fsTrimMore(arrCells[8]),
         }
 
         oRiderRecord = Object.assign(oParsedStageRecord, oRiderRecord);
