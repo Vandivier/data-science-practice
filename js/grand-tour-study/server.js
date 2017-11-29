@@ -12,16 +12,20 @@ const cheerio = require('cheerio');
 const fs = Bluebird.promisifyAll(require('fs'));
 const Promise = require('bluebird');
 const puppeteer = require('puppeteer');
-const utils = require('./utils.js');
+const EOL = require('os').EOL;
+const Readable = require('stream').Readable;
+const splitStream = require('split');
 
-const iChunkSize = 30;
-const iThrottleInterval = 2; // seconds between batch of requests
+const utils = require('./utils.js');
+const tableToCsv = require('./node-table-to-csv.js');
+
 const sRootUrl = 'https://dataride.uci.ch/iframe/results/10';
 const sResultDir = __dirname + '/results';
 
 const iFirstSeason = 2009;
 const iLastSeason = 2017;
 const arrsRaceSubstrings = ['Giro', 'Italia', 'Tour de France', 'Vuelta', 'Espa']; // TODO: not restrictive enough
+const sTitleLine = 'Date,Competition,Country,Class';
 
 let wsMain;
 let wsErrorLog;
@@ -41,64 +45,96 @@ const arrMockBatches = [
 
 main();
 
-async function fpoGetRenameData(_oRename) {
-    let loggerMessage;
-
-    // get csv or log as missing
-
-    loggerMessage = _oRename.id + ', true, successfully got at least some data'
-    _oRename.loggerMessage = loggerMessage;
-    utils.fStandardWriter(_oRename, wsRenames);
-    return Promise.resolve(loggerMessage);
-}
-
-//  _arr is an array of Renames
-//  Promise.reflect() ref: http://bluebirdjs.com/docs/api/reflect.html
-//  _oRename is a reflected Rename promise result.
-//  Be sure you know what that means before messing with it.
-async function fpCollectBatchInformation(_arr) {
-    let arrBatchResult = await utils.settleAll(_arr, fpoGetRenameData);
-    return arrBatchResult;
-}
-
-// TODO: maybe not needed
-async function fGetDataByUrl(sUrl) {
-    const page = await browser.newPage();
-    let _$;
-
-    await page.goto(sUrl);
-    _$ = cheerio.load(await page.content());
-
-    page.close()
-    return _$('pre').text();
-}
-
 // returns a page which has been navigated to the specified season page
 // note: this whole fucking method is a hack
 // not generalizable or temporally reliable in case of a site refactor
 // target site includes jQuery already. _$ is cheerio, $ is jQuery
-async function fpGetSeasonPage(sUrl, iSeason) {
+async function fparrGetResultPagesBySeason(sUrl, iSeason) {
     const _page = await browser.newPage();
     let executionContext;
     let _$;
+    let pageWorkingCompetitionPage;
+    let scrapeResult;
 
-    await _page.goto(sUrl);
+    await _page.goto(sUrl, {
+        'networkIdleTimeout': 5000,
+        'waitUntil': 'networkidle',
+        'timeout': 0
+    }); // timeout ref: https://github.com/GoogleChrome/puppeteer/issues/782
     _$ = cheerio.load(await _page.content());
 
+    _page.on('console', _fCleanLog); // ref: https://stackoverflow.com/a/47460782/3931488
+
     executionContext = _page.mainFrame().executionContext();
-    await executionContext.evaluate((iSeason) => {
-        $('.uci-main-content .k-dropdown').last().click();     // open the seasons dropdown
-        $('#seasons_listbox li').filter(function(){            // click the particular season
-            return this.textContent === String(iSeason);
-        })
-        .click();
+    scrapeResult = await executionContext.evaluate((_iSeason) => {
+        var arrPagesOfData = [];
 
-        // maybe wait some amount of time here to ensure page loads data...2 seconds?
-        // eg; timeout, Promise.resolve(8 * 7)
-    });
+        // give browser time to load async data
+        // in-scope dup of async function fpWait()
+        return _fpRecursivelyScrapeNextPage()
+            .catch(function(err){
+                console.log('recursive scrape outer err: ', err);
+            });
 
-    return _page;
-    //page.close();
+        function _fpRecursivelyScrapeNextPage(bClickNextButton) {
+                return _fpWait()
+                    .then(function () {
+                        let _$nextButton = $('.k-link.k-pager-nav[title="Go to the next page"]');
+
+                        if (bClickNextButton) {
+                            _$nextButton.click();
+                        } else {
+                            $('.uci-main-content .k-dropdown').last().click(); // open the seasons dropdown
+                            $('#seasons_listbox li').filter(function () { // click the particular season
+                                    return this.textContent === String(_iSeason);
+                                })
+                                .click();
+                        }
+
+                        return _fpWait();
+                    })
+                    .then(function () {
+                        let $nextButton = $('.k-link.k-pager-nav[title="Go to the next page"]'),
+                            oPageData = _foScrapeSinglePageOfData();
+
+                        console.log('adding new data with pagination text: ' + JSON.stringify(oPageData.sPaginationText));
+
+                        arrPagesOfData = arrPagesOfData.concat(oPageData);
+
+                        if (!$nextButton.hasClass('k-state-disabled')
+                            && arrPagesOfData.length > 0) { // return results. length check is to short circuit during DEV, not for real use
+                            return _fpRecursivelyScrapeNextPage(true);
+                        } else { // get the next page
+                            return Promise.resolve(arrPagesOfData);
+                        }
+                    })
+                    .catch(function(err){
+                        console.log('recursive scrape inner err (_fpRecursivelyScrapeNextPage): ', err);
+                    });
+        }
+
+        // larger time allows for slow site response
+        // some times of day when it's responding fast u can get away
+        // with smaller ms; suggested default of 12.5s
+        function _fpWait() {
+            let ms = 8000;
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function _foScrapeSinglePageOfData() {
+            return {
+                'sPaginationText': $('.uci-main-content .k-dropdown').last().text() + $('.k-pager-info.k-label').text(),
+                'sTableParentHtml': $('table').parent().html() // 1 table per page
+            }
+        }
+    }, iSeason);
+
+    _page.close();
+    return scrapeResult;
+
+    function _fCleanLog(ConsoleMessage) {
+        console.log(ConsoleMessage.text + EOL);
+    }
 }
 
 // get each season page in parallel
@@ -108,9 +144,13 @@ async function fpGetSeasonPage(sUrl, iSeason) {
 // for strings of interest, get general classification, points classification, and stage classification for each stage
 // these are a bunch of csvs; maybe download instead of write file (actually, that's equivalent)
 async function main() {
-    let arrpageSeasons = [];
+    let _arroPagesForThisSeason = [];
+    let arrResultPages = [];
+    let arrSettledResultPages = [];
+    let arrFlatSettledPages = [];
+    let sCsvTables;
     let i;
-    let _oPage;
+    let sCsv;
 
     browser = await puppeteer.launch();
 
@@ -120,54 +160,65 @@ async function main() {
 
     fSetWriters();
 
-    // get an array of browser pages; one for each season
-    for (i = iFirstSeason; i < iLastSeason; i++) {
-        _oPage = fpGetSeasonPage(sRootUrl, i);
-        arrpageSeasons.push(_oPage);
+    // each season has multiple result pages
+    // get an array of result pages per season
+    // then concat and get all result pages
+    for (i = iFirstSeason; i < (iLastSeason + 1); i++) {
+        _arroPagesForThisSeason = fparrGetResultPagesBySeason(sRootUrl, i);
+        arrResultPages = arrResultPages.concat(_arroPagesForThisSeason);
     }
 
-    await utils.settleAll(arrpageSeasons, function(pPage){
-        return pPage;
-    });
+    arrSettledResultPages = await utils.settleAll(arrResultPages);
+    arrFlatSettledPages = utils.flatten(arrSettledResultPages);
 
-    //sanity check...it should be a list of puppeteer browser pages
-    console.log(arrpageSeasons);
+    // TODO: I think you can do this inside settleAll,
+    // but playing it safe and serial for now
+    sCsvTables = arrFlatSettledPages.reduce(function(acc, oPageData){
+        return acc + EOL + tableToCsv(oPageData.sTableParentHtml);
+    }, '');
 
-    /*
-    await utils.forEachThrottledAsync(iThrottleInterval, arrBatches, function (_arrBatch) {
-        console.log('batch process for batch # ' + (iCurrentBatch++) + ' of ' + arrBatches.length)
-        return fpCollectBatchInformation(_arrBatch);
-    });
-
-    let arrBatches = utils.chunk(arroRenames, iChunkSize);
-    //console.log('batch check: ' + arrBatches.length, arrBatches[0])
-    //arrBatches = [arrBatches.pop(),[]];// testing with a subset
-    //let arrBatches = arrMockBatches;
-
-    await utils.forEachThrottledAsync(iThrottleInterval, arrBatches, function (_arrBatch) {
-        console.log('batch process for batch # ' + (iCurrentBatch++) + ' of ' + arrBatches.length)
-        return fpCollectBatchInformation(_arrBatch);
-    });
-    */
-
-    browser.close();
-    process.exit();
-}
-
-// returns true when a string has content after rendering.
-// returns false on invalid html. For example '</p>' is just a closing tag and will return false.
-function fRenderableContent(sCandidateHtml) {
-    let bValidEnough = false;
-
-    try {
-        bValidEnough = cheerio.load(sCandidateHtml).text().trim().length > 0;
-    } catch (e) {}
-
-    return bValidEnough;
+    fParseTxt(sCsvTables);
 }
 
 //  must ensure path exists before setting writers
 function fSetWriters() {
-    wsMain = fs.createWriteStream(sResultDir + '/main.txt'); // TODO: can it be a const?
-    wsErrorLog = fs.createWriteStream(sResultDir + '/errors.txt'); // TODO: can it be a const?
+    wsMain = fs.createWriteStream(sResultDir + '/main.csv');
+    wsErrorLog = fs.createWriteStream(sResultDir + '/errors.txt');
+}
+
+// TODO: maybe wait on condition instead of time
+// eg using page.mainFrame().waitForSelector
+async function fpWait() {
+    return new Promise((resolve) => setTimeout(() => resolve(undefined), 2));
+}
+
+// ref: https://stackoverflow.com/a/22085851/3931488
+// also refer to earhart-fellows project
+function fParseTxt(sText) {
+    const regex = new RegExp(EOL);
+    let rsReadStream = new Readable();
+
+    rsReadStream._read = function noop() {};
+    rsReadStream.push(sText);
+
+    rsReadStream
+        .pipe(splitStream(regex))
+        .on('data', fHandleData)
+        .on('end', fNotifyEndProgram);
+}
+
+// don't write the title line as it appears many times
+// we will append just once manually
+// also, don't write empty lines
+function fHandleData(sLineOfText) {
+    if (sLineOfText
+        && sLineOfText !== sTitleLine)
+    {
+        wsMain.write(sLineOfText + EOL);
+    }
+}
+
+function fNotifyEndProgram() {
+    browser.close();
+    console.log('rsReadStream completed reading. Please watch the output file and kill manually with ctrl + c when it appears writing has completed.');
 }

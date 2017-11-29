@@ -1,10 +1,12 @@
 // https://stackoverflow.com/questions/37132031/nodejs-plans-to-support-import-export-es6-es2015-modules
+// TODO: give each function a depends on identifier and allow tree shaking
 'use strict';
 
-const Bluebird = require('bluebird')
-const fs = require('fs')
-const Promise = require('bluebird')
-const OSEOL = require('os').EOL;
+const Bluebird = require('bluebird');
+const EOL = require('os').EOL;
+const fs = require('fs');
+const Promise = require('bluebird');
+
 const DELIMITER = '<<<***DEL***>>>';
 
 let _utils = {};
@@ -113,9 +115,14 @@ _utils.forEachReverseAsyncParallel = async function (arr, fp) {
 _utils.settleAll = async function (arrp, fp) {
     let arrSettled;
 
+    // fp mutates the promise result
+    // if not provided, just return the unmutated promise
+    fp = fp || function(p){
+        return p;
+    };
+
     let arrInspections = await Promise.all(
         arrp.map(function (_p) {
-            //let b = Bluebird.resolve(_p)//.reflect(); // ensure Promise is a Bluebird
             return Bluebird.resolve(fp(_p)).reflect(); // ensure fp(_p) is a Bluebird in order to .reflect();
         })
     );
@@ -217,8 +224,21 @@ _utils.log = function (console) {
 //  add standard delimeter for later parsing
 _utils.fStandardWriter = function (vData, ws, bDontWrap) {
     if (typeof vData !== 'string') vData = JSON.stringify(vData);
-    if (!bDontWrap) vData = OSEOL + DELIMITER + OSEOL + vData;
+    if (!bDontWrap) vData = EOL + DELIMITER + EOL + vData;
     ws.write(vData);
+}
+
+// ref: https://stackoverflow.com/questions/10865025/merge-flatten-an-array-of-arrays-in-javascript
+_utils.flatten = function (arr) {
+    return arr.reduce(function (flat, toFlatten) {
+        return flat.concat(Array.isArray(toFlatten) ? _utils.flatten(toFlatten) : toFlatten);
+    }, []);
+}
+
+// like String.trim()
+// but, removes commas and quotes too (outer or interior)
+_utils.fsTrimMore = function (s) {
+    return s && s.replace(/[,"]/g, '').trim();
 }
 
 module.exports = _utils;
