@@ -29,8 +29,8 @@ const utils = require('./utils.js');
 const sRootUrl = 'https://dataride.uci.ch';
 const sResultDir = __dirname + '/results';
 const sRidersDir = sResultDir + '/rider-pages';
-const sInputFileLocation = sResultDir + '/gotsome.csv';
-const sOutputFileLocation = sResultDir + '/rider-data.csv';
+const sInputFileLocation = sResultDir + '/gotsome-longnight.csv';
+const sOutputFileLocation = sResultDir + '/rider-data-longnight.csv';
 
 const oTitleLine = { // TODO: fix definition
     'sStageName': 'Stage Name',
@@ -81,6 +81,10 @@ async function main() {
 
     sInputCsv = await fpReadFile(sInputFileLocation, 'utf8');
     arrsInputRows = sInputCsv.split(EOL);
+
+    //test/dev only use slice below
+    arrsInputRows = arrsInputRows.slice(0, 50);
+
     iTotalObservations = arrsInputRows.length;
     console.log('iTotalObservations = ' + iTotalObservations);
     sResultToWrite = fsObjectToCsvRow(oTitleLine);
@@ -88,30 +92,39 @@ async function main() {
     await utils.forEachReverseAsyncParallel(arrsInputRows, (sRow, i) => {
         const oParsedStageRecord = foParseStageRecord(sRow);
 
-        return fpoScrapeStageDetails(oParsedStageRecord.sGeneralClassificationUrl)
-            .then(function(oPage){
-                let arroRiderRecords = [];
+        return fparroScrapeStageDetails(oParsedStageRecord.sGeneralClassificationUrl)
+            .then(function (arroPages) {
+                let arroRiderRecordsAllPages = [];
                 let sPageCsv;
 
-                if (oPage && oPage.sTableParentHtml) {
-                    try {
-                        sPageCsv = (tableToCsv(oPage.sTableParentHtml));
-                        arroRiderRecords = sPageCsv
-                            .split(EOL)
-                            .map(function (sRiderLine) {
-                                return fMapRiderText(sRiderLine, oParsedStageRecord);
-                            })
-                            .filter(el => el);
-                    } catch (e) {
-                        console.log(e);
-                    }
+                if (Array.isArray(arroPages)) {
+                    utils.forEachReverse(arroPages, oPage => {
+                        let arroRiderRecordsThisPage = [];
+
+                        if (oPage && oPage.sTableParentHtml) {
+                            try {
+                                sPageCsv = (tableToCsv(oPage.sTableParentHtml));
+                                arroRiderRecordsAllPages = sPageCsv
+                                    .split(EOL)
+                                    .map(function (sRiderLine) {
+                                        return fMapRiderText(sRiderLine, oParsedStageRecord);
+                                    })
+                                    .filter(el => el);
+                            } catch (e) {
+                                console.log(e);
+                            }
+                        }
+                    });
                 }
 
-                utils.forEachReverse(arroRiderRecords, (oRiderRecord) => {
+                utils.forEachReverse(arroRiderRecordsAllPages, (oRiderRecord) => {
                     sResultToWrite += fsObjectToCsvRow(oRiderRecord);
                 });
 
                 return Promise.resolve();
+            })
+            .catch(function(err){
+                console.log('err on fparroScrapeStageDetails: ', err);
             });
     });
 
@@ -126,16 +139,14 @@ function fEndProgram() {
 }
 
 // ref: getsum.js, fpScrapeCompetitionDetails()
-function fpoScrapeStageDetails(sUrl) {
-    let options = {};
-
+function fparroScrapeStageDetails(sUrl) {
     if (sUrl
         && sUrl.includes('http')) {
         return fpScrapeRiderPage(sUrl)
-            .then(function (oResult) {
+            .then(function (arroResult) {
                 iCurrentObservation++;
                 console.log('scraped ' + iCurrentObservation + ' / ' + iTotalObservations);
-                return oResult;
+                return Promise.resolve(arroResult);
             });
     } else {
         iTotalObservations--;
@@ -164,7 +175,7 @@ async function fpScrapeRiderPage(sUrl) {
     let executionContext;
     let _$;
     let pageWorkingCompetitionPage;
-    let poScrapeResult;
+    let parroScrapeResult;
 
     await _page.goto(sUrl, {
         'networkIdleTimeout': 5000,
@@ -176,13 +187,10 @@ async function fpScrapeRiderPage(sUrl) {
     _page.on('console', _fCleanLog); // ref: https://stackoverflow.com/a/47460782/3931488
 
     executionContext = _page.mainFrame().executionContext();
-    poScrapeResult = await executionContext.evaluate(() => {
-        return _fpWait()
-            .then(function () {
-                return Promise.resolve({
-                    'sTableParentHtml': $('table').parent().html()
-                });
-            });
+    parroScrapeResult = await executionContext.evaluate(() => {
+        let arroAllPages = [];
+
+        return _fpRecursivelyGetAllPageResults();
 
         // larger time allows for slow site response
         // some times of day when it's responding fast u can get away
@@ -191,10 +199,22 @@ async function fpScrapeRiderPage(sUrl) {
             ms = ms || 8000;
             return new Promise(resolve => setTimeout(resolve, ms));
         }
+
+        function _fpRecursivelyGetAllPageResults() {
+            return _fpWait()
+                .then(function () {
+                    let oThisPage = {
+                        'sTableParentHtml': $('table').parent().html()
+                    };
+
+                    arroAllPages.push(oThisPage);
+                    return Promise.resolve(arroAllPages);
+                });
+        }
     });
 
     _page.close();
-    return poScrapeResult;
+    return parroScrapeResult;
 
     function _fCleanLog(ConsoleMessage) {
         console.log(ConsoleMessage.text + EOL);
