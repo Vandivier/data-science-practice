@@ -81,10 +81,6 @@ async function main() {
 
     sInputCsv = await fpReadFile(sInputFileLocation, 'utf8');
     arrsInputRows = sInputCsv.split(EOL);
-
-    //test/dev only use slice below
-    arrsInputRows = arrsInputRows.slice(0, 12);
-
     iTotalObservations = arrsInputRows.length;
     console.log('iTotalObservations = ' + iTotalObservations);
     sResultToWrite = fsObjectToCsvRow(oTitleLine);
