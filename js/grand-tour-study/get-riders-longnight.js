@@ -81,6 +81,10 @@ async function main() {
 
     sInputCsv = await fpReadFile(sInputFileLocation, 'utf8');
     arrsInputRows = sInputCsv.split(EOL);
+
+    //test/dev only use slice below
+    arrsInputRows = arrsInputRows.slice(0, 50);
+
     iTotalObservations = arrsInputRows.length;
     console.log('iTotalObservations = ' + iTotalObservations);
     sResultToWrite = fsObjectToCsvRow(oTitleLine);
@@ -88,30 +92,39 @@ async function main() {
     await utils.forEachReverseAsyncParallel(arrsInputRows, (sRow, i) => {
         const oParsedStageRecord = foParseStageRecord(sRow);
 
-        return fpoScrapeStageDetails(oParsedStageRecord.sGeneralClassificationUrl)
-            .then(function(oPage){
-                let arroRiderRecords = [];
+        return fparroScrapeStageDetails(oParsedStageRecord.sGeneralClassificationUrl)
+            .then(function (arroPages) {
+                let arroRiderRecordsAllPages = [];
                 let sPageCsv;
 
-                if (oPage && oPage.sTableParentHtml) {
-                    try {
-                        sPageCsv = (tableToCsv(oPage.sTableParentHtml));
-                        arroRiderRecords = sPageCsv
-                            .split(EOL)
-                            .map(function (sRiderLine) {
-                                return fMapRiderText(sRiderLine, oParsedStageRecord);
-                            })
-                            .filter(el => el);
-                    } catch (e) {
-                        console.log(e);
-                    }
+                if (Array.isArray(arroPages)) {
+                    utils.forEachReverse(arroPages, oPage => {
+                        let arroRiderRecordsThisPage = [];
+
+                        if (oPage && oPage.sTableParentHtml) {
+                            try {
+                                sPageCsv = (tableToCsv(oPage.sTableParentHtml));
+                                arroRiderRecordsAllPages = sPageCsv
+                                    .split(EOL)
+                                    .map(function (sRiderLine) {
+                                        return fMapRiderText(sRiderLine, oParsedStageRecord);
+                                    })
+                                    .filter(el => el);
+                            } catch (e) {
+                                console.log(e);
+                            }
+                        }
+                    });
                 }
 
-                utils.forEachReverse(arroRiderRecords, (oRiderRecord) => {
+                utils.forEachReverse(arroRiderRecordsAllPages, (oRiderRecord) => {
                     sResultToWrite += fsObjectToCsvRow(oRiderRecord);
                 });
 
                 return Promise.resolve();
+            })
+            .catch(function(err){
+                console.log('err on fparroScrapeStageDetails: ', err);
             });
     });
 
@@ -126,7 +139,7 @@ function fEndProgram() {
 }
 
 // ref: getsum.js, fpScrapeCompetitionDetails()
-function fpoScrapeStageDetails(sUrl) {
+function fparroScrapeStageDetails(sUrl) {
     let options = {};
 
     if (sUrl
@@ -135,7 +148,7 @@ function fpoScrapeStageDetails(sUrl) {
             .then(function (oResult) {
                 iCurrentObservation++;
                 console.log('scraped ' + iCurrentObservation + ' / ' + iTotalObservations);
-                return oResult;
+                return Promise.resolve([oResult]);
             });
     } else {
         iTotalObservations--;
