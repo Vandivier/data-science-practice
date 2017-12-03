@@ -83,7 +83,7 @@ async function main() {
     arrsInputRows = sInputCsv.split(EOL);
 
     //test/dev only use slice below
-    arrsInputRows = arrsInputRows.slice(0, 2);
+    arrsInputRows = arrsInputRows.slice(1, 3); // slice title line
 
     iTotalObservations = arrsInputRows.length;
     console.log('iTotalObservations = ' + iTotalObservations);
@@ -262,7 +262,7 @@ function fMapRiderText(sRiderLine, oParsedStageRecord) {
             'sRiderRank': utils.fsTrimMore(arrCells[0]),
             'sRiderName': utils.fsTrimMore(arrCells[2]),
             'sRiderNation': utils.fsTrimMore(arrCells[3]),
-            'sRiderTeam': utils.fsTrimMore(arrCells[4]),
+            'sRiderTeam': utils.fsTrimMore(arrCells[4]).replace(/,/g, '~'), // replace comma with tilda by convention to not screw up the csv output
             'sRiderAge': utils.fsTrimMore(arrCells[5]),
             'sRiderResult': utils.fsTrimMore(arrCells[6]),
             'sRiderPoints': utils.fsTrimMore(arrCells[8]),
