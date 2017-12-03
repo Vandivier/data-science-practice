@@ -83,13 +83,13 @@ async function main() {
     arrsInputRows = sInputCsv.split(EOL);
 
     //test/dev only use slice below
-    arrsInputRows = arrsInputRows.slice(0, 50);
+    arrsInputRows = arrsInputRows.slice(0, 12);
 
     iTotalObservations = arrsInputRows.length;
     console.log('iTotalObservations = ' + iTotalObservations);
     sResultToWrite = fsObjectToCsvRow(oTitleLine);
 
-    await utils.forEachReverseAsyncParallel(arrsInputRows, (sRow, i) => {
+    await utils.forEachReverseAsyncPhased(arrsInputRows, (sRow, i) => {
         const oParsedStageRecord = foParseStageRecord(sRow);
 
         return fparroScrapeStageDetails(oParsedStageRecord.sGeneralClassificationUrl)
@@ -188,7 +188,7 @@ async function fpScrapeRiderPage(sUrl) {
 
     executionContext = _page.mainFrame().executionContext();
     parroScrapeResult = await executionContext.evaluate(() => {
-        let arroAllPages = [];
+        let arroAllPages = []; // that is, all pages for this stage. not all pages for all stages.
 
         return _fpRecursivelyGetAllPageResults();
 
@@ -196,18 +196,25 @@ async function fpScrapeRiderPage(sUrl) {
         // some times of day when it's responding fast u can get away
         // with smaller ms; suggested default of 12.5s
         function _fpWait(ms) {
-            ms = ms || 8000;
+            ms = ms || 6000;
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 
         function _fpRecursivelyGetAllPageResults() {
-            return _fpWait()
+            return _fpWait() // TODO: maybe the very first wait should be longer since it's an SPA
                 .then(function () {
+                    let _$nextButton = $('.k-link.k-pager-nav[title="Go to the next page"]').not('.k-state-disabled');
                     let oThisPage = {
                         'sTableParentHtml': $('table').parent().html()
                     };
 
                     arroAllPages.push(oThisPage);
+
+                    if (_$nextButton.length) {
+                        _$nextButton.first().click(); // first() is defensive; there should only be one
+                        return _fpRecursivelyGetAllPageResults();
+                    }
+
                     return Promise.resolve(arroAllPages);
                 });
         }

@@ -152,6 +152,8 @@ _utils.settleAll = async function (arrp, fp) {
 //  fp must return a promise
 //  forces each async function to complete in order (phased async pattern)
 //  phased is useful for throttling or dependencies
+//
+//  note: phased is muuuuuuch more reliable when scraping; parallel will drop data
 _utils.forEachReverseAsyncPhased = async function (arr, fp) {
     let arrOutputs = [];
 
