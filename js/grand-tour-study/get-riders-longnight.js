@@ -190,15 +190,7 @@ async function fpScrapeRiderPage(sUrl) {
     parroScrapeResult = await executionContext.evaluate(() => {
         let arroAllPages = [];
 
-        return _fpWait()
-            .then(function () {
-                let oThisPage = {
-                    'sTableParentHtml': $('table').parent().html()
-                };
-
-                arroAllPages.push(oThisPage);
-                return Promise.resolve(arroAllPages);
-            });
+        return _fpRecursivelyGetAllPageResults();
 
         // larger time allows for slow site response
         // some times of day when it's responding fast u can get away
@@ -206,6 +198,18 @@ async function fpScrapeRiderPage(sUrl) {
         function _fpWait(ms) {
             ms = ms || 8000;
             return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function _fpRecursivelyGetAllPageResults() {
+            return _fpWait()
+                .then(function () {
+                    let oThisPage = {
+                        'sTableParentHtml': $('table').parent().html()
+                    };
+
+                    arroAllPages.push(oThisPage);
+                    return Promise.resolve(arroAllPages);
+                });
         }
     });
 
