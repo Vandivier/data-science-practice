@@ -81,6 +81,10 @@ async function main() {
 
     sInputCsv = await fpReadFile(sInputFileLocation, 'utf8');
     arrsInputRows = sInputCsv.split(EOL);
+
+    //test/dev only use slice below
+    arrsInputRows = arrsInputRows.slice(0, 2);
+
     iTotalObservations = arrsInputRows.length;
     console.log('iTotalObservations = ' + iTotalObservations);
     sResultToWrite = fsObjectToCsvRow(oTitleLine);
@@ -100,12 +104,14 @@ async function main() {
                         if (oPage && oPage.sTableParentHtml) {
                             try {
                                 sPageCsv = (tableToCsv(oPage.sTableParentHtml));
-                                arroRiderRecordsAllPages = sPageCsv
+                                arroRiderRecordsThisPage = sPageCsv
                                     .split(EOL)
                                     .map(function (sRiderLine) {
                                         return fMapRiderText(sRiderLine, oParsedStageRecord);
                                     })
                                     .filter(el => el);
+
+                                arroRiderRecordsAllPages = arroRiderRecordsAllPages.concat(arroRiderRecordsThisPage);
                             } catch (e) {
                                 console.log(e);
                             }
