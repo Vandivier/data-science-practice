@@ -28,15 +28,9 @@ const utils = require('./utils.js');
 
 const sRootUrl = 'https://dataride.uci.ch';
 const sResultDir = __dirname + '/results';
-const sMarkusCsvLocation = sResultDir + '/markus.csv';
-const sOutputFileLocation = sResultDir + '/gotsome.csv';
-
-const arrsDesiredClassifications = ['General Classification'];
-/*
-const arrsDesiredClassifications = ['General Classification',
-                                    'Points Classification',
-                                    'Stage Classification'];
-*/
+//const sMarkusCsvLocation = sResultDir + '/markus.csv';
+const sMarkusCsvLocation = sResultDir + '/markusgetsreadyforlongnight.csv';
+const sOutputFileLocation = sResultDir + '/gotsome-longnight.csv';
 
 const oTitleLine = {
     'sStageName': 'Stage Name',
@@ -78,14 +72,14 @@ async function main() {
     arrsInputRows = sInputCsv.split(EOL);
 
     /** for testing only, shorten rows **/
-    arrsInputRows = arrsInputRows.slice(0, 50);
+    //arrsInputRows = arrsInputRows.slice(0, 50);
     iTotalCompetitions = arrsInputRows.length;
     console.log('early count, iTotalCompetitions = ' + iTotalCompetitions);
     console.log('early count is typically overstated by a factor of ~20');
     console.log('iTotalCompetitions / 20 = ' + (iTotalCompetitions / 20));
     console.log('allow up to ~30s per scrape' + EOL);
 
-    await utils.forEachReverseAsyncParallel(arrsInputRows, function(sLineOfText, i) {
+    await utils.forEachReverseAsyncPhased(arrsInputRows, function(sLineOfText, i) {
         return fpHandleData(sLineOfText);
     });
 
@@ -191,9 +185,9 @@ async function fpScrapeCompetitionDetails(sUrl) {
     let poScrapeResult;
 
     await _page.goto(sUrl, {
-        'networkIdleTimeout': 5000,
+        'networkIdleTimeout': 10000,
         'waitUntil': 'networkidle',
-        'timeout': 12000
+        'timeout': 0
     }); // timeout ref: https://github.com/GoogleChrome/puppeteer/issues/782
 
     _$ = cheerio.load(await _page.content());
@@ -248,7 +242,7 @@ async function fpScrapeCompetitionDetails(sUrl) {
         // some times of day when it's responding fast u can get away
         // with smaller ms; suggested default of 12.5s
         function _fpWait(ms) {
-            ms = ms || 8000;
+            ms = ms || 10000;
             return new Promise(resolve => setTimeout(resolve, ms));
         }
 
