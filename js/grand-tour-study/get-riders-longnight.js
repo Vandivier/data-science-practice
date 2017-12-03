@@ -140,15 +140,13 @@ function fEndProgram() {
 
 // ref: getsum.js, fpScrapeCompetitionDetails()
 function fparroScrapeStageDetails(sUrl) {
-    let options = {};
-
     if (sUrl
         && sUrl.includes('http')) {
         return fpScrapeRiderPage(sUrl)
-            .then(function (oResult) {
+            .then(function (arroResult) {
                 iCurrentObservation++;
                 console.log('scraped ' + iCurrentObservation + ' / ' + iTotalObservations);
-                return Promise.resolve([oResult]);
+                return Promise.resolve(arroResult);
             });
     } else {
         iTotalObservations--;
@@ -177,7 +175,7 @@ async function fpScrapeRiderPage(sUrl) {
     let executionContext;
     let _$;
     let pageWorkingCompetitionPage;
-    let poScrapeResult;
+    let parroScrapeResult;
 
     await _page.goto(sUrl, {
         'networkIdleTimeout': 5000,
@@ -189,12 +187,17 @@ async function fpScrapeRiderPage(sUrl) {
     _page.on('console', _fCleanLog); // ref: https://stackoverflow.com/a/47460782/3931488
 
     executionContext = _page.mainFrame().executionContext();
-    poScrapeResult = await executionContext.evaluate(() => {
+    parroScrapeResult = await executionContext.evaluate(() => {
+        let arroAllPages = [];
+
         return _fpWait()
             .then(function () {
-                return Promise.resolve({
+                let oThisPage = {
                     'sTableParentHtml': $('table').parent().html()
-                });
+                };
+
+                arroAllPages.push(oThisPage);
+                return Promise.resolve(arroAllPages);
             });
 
         // larger time allows for slow site response
@@ -207,7 +210,7 @@ async function fpScrapeRiderPage(sUrl) {
     });
 
     _page.close();
-    return poScrapeResult;
+    return parroScrapeResult;
 
     function _fCleanLog(ConsoleMessage) {
         console.log(ConsoleMessage.text + EOL);
