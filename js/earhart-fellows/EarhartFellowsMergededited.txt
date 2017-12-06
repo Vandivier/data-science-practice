@@ -3289,7 +3289,7 @@ Ashland, OH 44805
 1115 Broad St, Ashland, OH 44805-2910,
 cburketl@ashland.edu
 
-BUFtICHARDT, Reimar
+BUFtICHARDT, Reimar
 Graduate Fellowship(s)
 Fall 1974
 University of Rochester, Economics, Karl
@@ -3321,8 +3321,6 @@ National Center for Policy Analysis, 12770 Coit
 Rd., Suite 800, Dallas, TX 75251-1339
 3923 Lois Circle, Rowlett, TX 75088-4956,
 carylon10@gmail.com, sterling.burnett@ncpa.org
-
-
 
 BYHAM, Jack C.
 Graduate Fellowship (s)
@@ -13484,9 +13482,7 @@ Blackshire Path, Inver Grove Heights, MN
 2250 Midland Grove Road, Apt. 305, Saint
 Paul, MN 55113-3848, shuman.lee@gmail.com
 
-
-
-H B. Earhart Fell,LEHRBERGER, James J.
+LEHRBERGER, James J.
 Graduate Fellowship(s)
 1966-1967
 University of Dallas, Government/Politics,
@@ -13783,7 +13779,7 @@ Graduate Fellowship(s)
 University of Chicago, Philosophy, Nathan
 Tarcov, Sponsor, Ph.D., 2008
 
-H B. Earhart Fell,LI, Ying-Che
+LI, Ying-Che
 Graduate Fellowship(s)
 1963-1964
 Summr 1964
@@ -17708,7 +17704,7 @@ Address
 NOYES, Neal E.
 Graduate Fellowship(s)
 1974-1975
-1975-1976 °
+1975-1976
 Temple University, Government/Politics, Daniel
 J. Elazar, Sponsor
 Address
@@ -21957,7 +21953,8 @@ Graduate Fellowship(s)
 Tufts University, National Security Studies, Robert L. Pfaltzgraff Jr., Sponsor, MA., 1995 
 1995-1996
 Tufts University, National Security Studies, Robert L. Pfaltzgraff Jr., Sponsor, Ph.D., 1997
-Address Department of Political Science, Carleton University, 1125 Colonel By Drive, Ottawa, Ontario K1S 5B6, Canada, elinor.sloan@carleton.ca
+Address 
+Department of Political Science, Carleton University, 1125 Colonel By Drive, Ottawa, Ontario K1S 5B6, Canada, elinor.sloan@carleton.ca
 SMART, Theresa M.
 Graduate Fellowship(s)
 2013-2014
@@ -23002,7 +22999,7 @@ SULLIVAN, James Francis
 Graduate Fellowship(s)
 Summer1961
 University of Notre Dame, History,
-EarhartFoundation, Sponsor
+Earhart Foundation, Sponsor
 Deceased
 SULLIVAN JR., John P.
 Graduate Fellowship(s)
@@ -25424,7 +25421,7 @@ WOOD, Carolyn J.
 Graduate Fellowship(s)
 1973-1974
 Washington University, Education,
-EarhartFoundation, Sponsor, Ph.D.
+Earhart Foundation, Sponsor, Ph.D.
 Address
 25 Greeters Lane, Okatie, SC 29909-7027,
 cwood@unm.edu
