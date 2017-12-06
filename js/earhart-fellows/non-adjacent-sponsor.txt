@@ -29,7 +29,7 @@
 "BURCHFIELD, Charles W.","1991-1992,1992-1993","","Louisiana State University","","Government/Politics","","","G. Ellis Sandoz Jr.","M.A.","1993","5314 High Harbor Court, Gainesville, GA,30504-9006","cjburchfield5@gmail.com","true","false"
 "BURDICK, William H.","1958-1959","true","New York University","","Economics","","","Hans F.,Sennholz","","","329 Rodgers Road, Slippery Rock, PA 16057,5627,BURKE, Benjamin Fahey","","","false"
 "CANIGLIA, Alan Scott","1979-1980","true","University of Virginia","","Economics","","","Roland N.,McKean","","","Office of the Provost, Franklin & Marshall,College, Lancaster, PA 17604,1024 Woods Avenue, Lancaster, PA 17603,3127","alancaniglia@yahoo.com","true","false"
-"CASEY, Robert J.","1970-1971'","true","University of Oxford","","Government/Politics","true","","Francis Canavan","","","29078 Danielson Drive, Elkhart, IN 46514,1138,CASHMAN, Diane M.","","","false"
+"CASEY, Robert J.","1970-1971","true","University of Oxford","","Government/Politics","true","","Francis Canavan","","","29078 Danielson Drive, Elkhart, IN 46514,1138,CASHMAN, Diane M.","","","false"
 "CASHMAN, Diane M.","1982-1983","true","University of Massachusetts","","Economics","","","Simon,Rottenberg","","","36 Hix Avenue, Rye, NY 10580-2432","dcashman2@cox.net,dcashman3@gmail.com","true","false"
 "CATHCART, Charles DePass","1969-1970","true","University of Virginia","","Economics","","","G. Warren,Nutter","","","P.O. Box 754, Tuxedo Park, NY 10987-0754,CATTO, Vladimiro","","","false"
 "CHANG, Do Young","Calendar Year 1964,Calendar Year 1965","","University of Michigan","","Government/Politics","","","Earhart Foundation","MA.","1965","2001 Butler Bay Drive, N., Windermere, FL,34786-6107,CHANG, Hyung-Sook Paik","","","false"
