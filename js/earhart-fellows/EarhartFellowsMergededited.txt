@@ -177,7 +177,7 @@ VA 22039-3230
 AEBERHARDT, Werner
 Graduate Fellowship(s)
 Fall 1975
-University of Bern, Switzerland, Economics,
+University of Bern Switzerland, Economics,
 Karl Brunner, Sponsor 
 
 AGHA, Asif
@@ -1987,7 +1987,7 @@ L. PfaltzgraffJr., Sponsor
 BILL, Markus
 Graduate Fellowship (s)
 Fall 1980
-University of Bern, Switzerland, Economics,
+University of Bern Switzerland, Economics,
 Karl Brunner, Sponsor
 BILO, Simon
 Graduate Fellowship (s)
@@ -7035,7 +7035,7 @@ elliottj@kenyon.edu
 ELLIOTT, T. Lynn
 Graduate Fellowship (s)
 1989-1990
-University of Virginia, Goernment/Politics,
+University of Virginia, Government/Politics,
 Kenneth W. Thompson, Sponsor, Ph.D., 1991
 Address
 David M. Kennedy Center for International
@@ -7445,7 +7445,7 @@ Chicago, IL 60637
 efama@gmail.com
 FAMILANT, Norman
 Graduate Fellowship(s)
-114 1973-1974
+1973-1974
 University of Virginia, Economics, Roland N.
 McKean, Sponsor
 Address
@@ -7595,8 +7595,8 @@ Address
 FELT, David Jonathan
 Graduate Fellowship (s)
 2005-2006
-University of Colorado, Boulder/Stanford
-University, History, Noel B. Reynolds, Sponsor,
+University of Colorado, Boulder/Stanford University,
+History, Noel B. Reynolds, Sponsor,
 Ph.D., 2014
 Address
 Department of History, Virginia Tech
@@ -8083,7 +8083,7 @@ Address
 55101-2536
 FRANCK, Matthew J.
 Graduate Fellowship(s)
-124 1981-1982
+1981-1982
 Northern Illinois University, Government/Politics, Morton J. Frisch, Sponsor, Ph.D., 1992
 Address
 The Witherspoon Institute, 16 Stockton Street,
@@ -8448,7 +8448,7 @@ Brown University, Economics, Chelcie C.
 Bosland, Sponsor, Ph.D., 1973
 GARTHOFF (JOHNSTONE), Paulette J.
 Graduate Fellowship (s)
-130 1966-1967
+1966-1967
 Johns Hopkins University, Government/Politics,
 Gottfried Dietze, Sponsor
 GARVEY, Gerald T.
@@ -8560,13 +8560,12 @@ GEORGE, Rachel A.
 Graduate Fellowship (s)
 2013-2014
 2014-2015
-London School of Economics, United
-Kingdom, International Studies, Wilfred M.
-McClay, Sponsor
+London School of Economics United Kingdom,
+International Studies, Wilfred M. McClay, Sponsor
 Address
 371 Prospect Avenue, Princeton, NJ 08540,
-R.George2@lse.ac.uk, rageorge8788@gmail.
-corn
+R.George2@lse.ac.uk, rageorge8788@gmail.com
+
 GERMAN, Andy R.
 Graduate Fellowship (s)
 2005-2006
@@ -8964,8 +8963,8 @@ GORTON, Steven Mead
 Graduate Fellowship(s)
 1979-1980
 1980-1981
-Michigan State University, History Robert M.
-Slusser, Sponsor
+Michigan State University, History,
+Robert M. Slusser, Sponsor
 Address
 5254 18th Avenue, N.E., Seattle, WA 98105-
 3410
@@ -9092,9 +9091,8 @@ Deceased
 GRAHAM, Lori E.
 Graduate Fellowship(s)
 1994-1995
-London School of Economics, United
-Kingdom, Philosophy, Nicholas Capaldi,
-Sponsor, M.A., 1995
+London School of Economics United Kingdom,
+Philosophy, Nicholas Capaldi, Sponsor, M.A., 1995
 Address
 Lori Graham Designs, 1412 14th Street
 N.W, Washington, DC 20005, info@lorigrahamdesign.com
@@ -11418,7 +11416,7 @@ Sponsor
 Address
 316 Lamont Drive, Decatur, GA 30030-2343,
 jacobsoned@yahoo.com
-/78 JADLOW JR., Joseph M.
+JADLOW JR., Joseph M.
 Graduate Fellowship(s)
 1966-1967
 University of Virginia, Economics, James M.
@@ -11823,7 +11821,7 @@ R. Colberg, Sponsor, M.A., 1974
 1974-1976
 Florida State University, Economics, Marshall
 R. Colberg, Sponsor, Ph.D., 1976
-184 JOVKOVIC, Mirjana
+JOVKOVIC, Mirjana
 Graduate Fellowship(s)
 Spring and Summer 1975
 1975-1976
@@ -13576,7 +13574,10 @@ Indiana University, Government/Politics,
 Charles S. Hyneman, Sponsor, Ph.D.
 Deceased
 LENCHES-TAMEDLY, Elisabeth
-Graduate Fellowship(s) Spring and Summer 1968 Graduate Institute of International Studies, Switzerland, Economics, Earhart Foundation, Sponsor, Ph.D., 1968
+Graduate Fellowship(s) 
+Spring and Summer 1968 
+Graduate Institute of International Studies Switzerland,
+Economics, Earhart Foundation, Sponsor, Ph.D., 1968
 LENZNER, Steven J.
 Graduate Fellowship(s)
 1992-1993
@@ -15840,7 +15841,7 @@ Washington, DC 20008-4841, ameiburg@yahoo.com
 MEIER, Alfred
 Graduate Fellowship(s)
 Fall 1975
-University of Bern, Switzerland, Economics,
+University of Bern Switzerland, Economics,
 Karl Brunner, Sponsor
 
 MEINSTER, David IL
@@ -15876,8 +15877,8 @@ Institute for Human Security, Fletcher School, Tufts University, 160 Packard Ave
 MELITZ, Jack
 Graduate Fellowship(s)
 1959-1960
-London School of Economics, United
-Kingdom, Economics, Jacob Viner, Sponsor
+London School of Economics United Kingdom,
+Economics, Jacob Viner, Sponsor
 Address
 Department of Economics, Tulane University,
 New Orleans, LA 70118-5698
@@ -17025,7 +17026,7 @@ Address
 MULLER, Heinz
 Graduate Fellowship(s)
 1976-1977
-University of Bern, Switzerland, Economics,
+University of Bern Switzerland, Economics,
 Karl Brunner, Sponsor
 MULLIN, Gail Edward
 Graduate Fellowship(s)
@@ -17889,7 +17890,7 @@ Address
 O'LEARY, Megan E.
 Graduate Fellowship(s)
 2008-2009
-278 Boston University, Sociology, Peter L. Berger,
+Boston University, Sociology, Peter L. Berger,
 Sponsor, Ph.D., 2015
 Address
 2400 24th Road S., Apt. 126, Arlington, VA
@@ -19686,7 +19687,7 @@ srenshon@gc.cuny.edu
 RESCH, H. George
 Graduate Fellowship(s)
 1962-1963
-Indiana University, History Benjamin A. Rogge,
+Indiana University, History, Benjamin A. Rogge,
 Sponsor
 Deceased
 REUBEN, Lucy J.
@@ -20157,8 +20158,8 @@ Address
 ROONEY, John Jeffrey
 Graduate Fellowship(s)
 1978-1979
-Michigan State University, History, Robert M.
-Slusser, Sponsor
+Michigan State University, History,
+Robert M. Slusser, Sponsor
 Deceased
 ROONEY, Robert E
 Graduate Fellowship(s)
@@ -20620,7 +20621,7 @@ SALMON, Jon W.
 Graduate Fellowship (s)
 1978-1979
 University of California, Los Angeles,
-320 Economics, William Richard Allen, Sponsor
+Economics, William Richard Allen, Sponsor
 Address
 24 Tolan Way, Lafayette, CA 94549-2723
 SALYER, Kevin D.
@@ -23567,7 +23568,7 @@ TIERNEY JR., John J.
 Graduate Fellowship(s)
 1963-1964
 University of Pennsylvania, International
-366 Studies, William R. Kintner, Sponsor, Ph.D.,
+Studies, William R. Kintner, Sponsor, Ph.D.,
 1969
 Address
 The Institute of World Politics, 1521 16th
@@ -25814,7 +25815,7 @@ George Grassmuck, Sponsor
 ZlivIIVIERMANN, Andreas Julius
 Graduate Fellowship(s)
 Fall 1981
-University of Zurich, Switzerland, Economics,
+University of Zurich Switzerland, Economics,
 Karl Brunner, Sponsor, Ph.D.
 ZINCONE JR., Louis H.
 Graduate Fellowship(s)
