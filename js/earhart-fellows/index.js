@@ -59,7 +59,7 @@ const arrDegrees = ['Ph.D.', 'M.A.', 'MA.', 'M.B.A.', 'D.B.A.', 'B.A.'];
 const regexDelimiter = /Graduate Fellowship* *\(s\)/;
 const regexEmail = /[\S]+@[\S]+\.[, \S]+/g;
 
-let rsReadStream = fs.createReadStream('./EarhartFellowsMerged.txt');
+let rsReadStream = fs.createReadStream('./EarhartFellowsMergededited.txt');
 let wsWriteStream = fs.createWriteStream('./output.csv');
 let wsNonAdjacent = fs.createWriteStream('./non-adjacent-sponsor.txt');
 
