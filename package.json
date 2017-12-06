@@ -1,0 +1,19 @@
+{
+  "name": "data-science-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mbjoerkh/data-science-practice.git"
+  },
+  "author": "Mbjoerkh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mbjoerkh/data-science-practice/issues"
+  },
+  "homepage": "https://github.com/Mbjoerkh/data-science-practice#readme"
+}
