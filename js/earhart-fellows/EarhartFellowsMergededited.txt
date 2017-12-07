@@ -3612,7 +3612,7 @@ Address
 CARLSON JR., Richard L.
 Graduate Fellowship(s)
 1986-1987
-University of California, Santa Barbara,
+University of California. Santa Barbara,
 Economics, M. Bruce Johnson, Sponsor
 Address
 905 E. Twain Avenue, Apt. A30, Las Vegas, NV
@@ -5644,7 +5644,7 @@ Deceased
 DASTRUP, Samuel R.
 Graduate Fellowship(s)
 2005-2006
-University of California, San Diego, Economics,
+University of California. San Diego, Economics,
 Larry T. Wimmer, Sponsor, Ph.D., 2011
 Address
 16568 Sioux Lane, Gaithersburg, MD 20858,
@@ -6927,7 +6927,7 @@ Address
 EIDE, Eric R.
 Graduate Fellowship(s)
 1989-1990
-University of California, Santa Barbara,
+University of California. Santa Barbara,
 Economics, Larry T. Wimmer and B. Delworth
 Gardner, Sponsors, Ph.D., 1993
 Address
@@ -10841,7 +10841,7 @@ cholloway@unomaha.edu
 HOLMAN, James Edward
 Graduate Fellowship(s)
 1972-1973
-University of California, San Diego, Economics,
+University of California. San Diego, Economics,
 Reginald D. Lang, Sponsor
 Address
 640 A Avenue, Coronado, CA 92118-2205,
@@ -11095,7 +11095,7 @@ hubbard@aol.com
 HUGHES (NOLD), Patricia A.
 Graduate Fellowship(s)
 1983-1984
-University of California, Santa Barbara,
+University of California. Santa Barbara,
 Economics, M. Bruce Johnson, Sponsor, Ph.D.,
 1991
 Address
@@ -13093,7 +13093,7 @@ Clark & Weinstock, The Portrait Building, 701
 LAFFERTY, Ronald N.
 Graduate Fellowship(s)
 1975-1976
-University of California, Santa Barbara,
+University of California. Santa Barbara,
 Economics, M. Bruce Johnson, Sponsor
 Address
 1675 21St St N 10, Arlington, VA 22209-1199
@@ -13380,7 +13380,7 @@ Deceased
 LEE, Anthony T.
 Graduate Fellowship (s)
 1974-1975
-University of California, Santa Barbara,
+University of California. Santa Barbara,
 Economics, M. Bruce Johnson, Sponsor
 Address
 Economics Department, Austin Community
@@ -16149,7 +16149,7 @@ Deceased
 MICHELBACH, Philip A.
 Graduate Fellowship(s)
 1999-2000
-University of California, San Diego,
+University of California. San Diego,
 Government/Politics, Donald S. Lutz, Sponsor,
 Ph.D., 2006
 Address
@@ -16528,7 +16528,7 @@ IL 60611-7407, kmitova@aol.com, kmitovaj@uchicago.edu
 MOBLEY, Lee Rivers
 Graduate Fellowship(s)
 1987-1988
-University of California, Santa Barbara,
+University of California. Santa Barbara,
 Economics, M. Bruce Johnson, Sponsor, Ph.D., 1990
 Address
 School of Public Health, Georgia State University, P.O. Box 3995, Atlanta, GA 30302 3097 Castaway Lane, Atlanta, GA 30341-4618, lrmobley@asu.edu, lee.rivers.mobley@gmail. cam
@@ -17132,7 +17132,7 @@ Chicago, IL 60637
 MUSSACHIA, John J.
 Graduate Fellowship (s)
 1980-1981
-University of California, Santa Barbara, Economics, M. Bruce Johnson, Sponsor
+University of California. Santa Barbara, Economics, M. Bruce Johnson, Sponsor
 Address
 Diane Halle Library, Room #114, Endicott College, 376 Hale Street, Beverly, MA 01915 65 Bridge Street, Manchester, MA 01944-1462, jmussach@endicottedu
 
@@ -18341,7 +18341,7 @@ Address
 PARSONS, Steven G.
 Graduate Fellowship(s)
 1979-1980
-University of California, Santa Barbara,
+University of California. Santa Barbara,
 Economics, M. Bruce Johnson, Sponsor, Ph.D.,
 1982
 Address
@@ -18933,7 +18933,7 @@ shpjr@aol.com
 PICKETT, Gregory G.
 Graduate Fellowship (s)
 1978-1979
-University of California, Santa Barbara,
+University of California. Santa Barbara,
 Economics, M. Bruce Johnson, Sponsor
 Address
 64 Red Hill Circle, Belvedere Tiburon, CA
@@ -20627,7 +20627,7 @@ Address
 SALYER, Kevin D.
 Graduate Fellowship (s)
 1981-1982
-University of California, Santa Barbara,
+University of California. Santa Barbara,
 Economics, M. Bruce Johnson, Sponsor, Ph.D.,
 1985
 Address
@@ -25055,7 +25055,7 @@ Deceased
 WILLIAMS, Alan Paige
 Graduate Fellowship(s)
 1984-1985
-University of California, Santa Barbara,
+University of California. Santa Barbara,
 Economics, M. Bruce Johnson, Sponsor
 Address
 140 Walnut Lane, Santa Barbara, CA 93111-
@@ -25500,7 +25500,7 @@ Address
 WOOLLEY, J. Michael
 Graduate Fellowship(s)
 1985-1986
-University of California, Santa Barbara,
+University of California. Santa Barbara,
 Economics, M. Bruce Johnson, Sponsor, Ph.D.,
 1987
 Address
