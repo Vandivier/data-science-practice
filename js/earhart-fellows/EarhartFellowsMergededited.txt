@@ -863,7 +863,7 @@ Graduate Fellowship(s)
 1979-1980
 1980-1981
 University of Rochester, Economics, Walter Y.
-0i, Sponsor, Ph.D., 1983
+Oi, Sponsor, Ph.D., 1983
 Address
 Department of Economics, Pettengill Hall,
 Room 270, Bates College, Lewiston, ME
@@ -4549,7 +4549,7 @@ COLE, Harold Linh
 Graduate Fellowship(s)
 1982-1983
 University of Rochester, Economics, Walter Y.
-0i, Sponsor, Ph.D., 1986
+Oi, Sponsor, Ph.D., 1986
 Address
 Department of Economics, University of
 Pennsylvania, 160 McNeil Building, 3718
@@ -4940,7 +4940,7 @@ COSTA, David E.
 Graduate Fellowship(s)
 1969-1970
 University of Rochester, Economics, Walter Y.
-0i, Sponsor 
+Oi, Sponsor 
 
 COSTA (FISH), Suzanne D.
 Graduate Fellowship(s)
@@ -6113,7 +6113,7 @@ DIBBLE (HELBIG), Catherine H
 Graduate Fellowship(s)
 1981-1982
 University of Rochester, Economics, Walter Y.
-0i, Sponsor, M.A., 1986
+Oi, Sponsor, M.A., 1986
 Address
 2784 Homestead Road, #394, Santa Clara, CA
 95051-5353, cath@aikilabs.com
@@ -10100,7 +10100,7 @@ HAUBRICH, Joseph G.
 Graduate Fellowship(s)
 1981-1982
 University of Rochester, Economics, Walter Y.
-0i, Sponsor, Ph.D.
+Oi, Sponsor, Ph.D.
 Address
 Federal Reserve Bank of Cleveland, 1455 East
 Sixth Street, Cleveland, OH 44114
@@ -11964,7 +11964,7 @@ KARP, Daniel A.
 Graduate Fellowship(s)
 1975-1976
 University of Rochester, Economics, Walter Y.
-0i, Sponsor
+Oi, Sponsor
 Address
 31 Sheridan Avenue, West Orange, NJ 07052-
 2628, danietkarp@cs.com, dankarp@comcast.net
@@ -12593,7 +12593,7 @@ KLEINMAN, Samuel D.
 Graduate Fellowship(s)
 1972-1973
 University of Rochester, Economics, Walter Y.
-0i, Sponsor
+Oi, Sponsor
 Address
 713 Hermleigh Road, Silver Spring, MD
 20902-1646, samueldkleinman@verizon.net,
@@ -13782,7 +13782,7 @@ Tarcov, Sponsor, Ph.D., 2008
 LI, Ying-Che
 Graduate Fellowship(s)
 1963-1964
-Summr 1964
+Summer 1964
 University of Michigan, English, Paul B.
 Denlinger, Sponsor, M.A., 1964
 Address
@@ -14456,7 +14456,7 @@ MACDONALD, Glenn Malcolm Thomas
 Graduate Fellowship(s)
 1976-1977
 University of Rochester, Economics, Walter Y.
-0i, Sponsor, Ph.D., 1979
+Oi, Sponsor, Ph.D., 1979
 Address
 Olin Business School, 283 Simon Hall,
 Washington University St. Louis, Saint Louis,
@@ -14697,7 +14697,7 @@ University of Rochester, Economics, Walter Y.
 Oi and Donald F. Gordon, Sponsors
 1974-1975
 University of Rochester, Economics, Walter Y.
-0i, Sponsor, Ph.D., 1982
+Oi, Sponsor, Ph.D., 1982
 Address
 Foster School of Business, 528 Paccar Hall,
 University of Washington, P.O. Box 353226,
@@ -16257,7 +16257,7 @@ MILLER JR., Charles
 Graduate Fellowship(s)
 1977-1978
 University of Rochester, Economics, Walter Y.
-0i, Sponsor, Ph.D.
+Oi, Sponsor, Ph.D.
 Address
 Bates White Economic Consulting, 1300 Eye
 Street, N.W., Suite 600, Washington, DC
@@ -23148,7 +23148,7 @@ Graduate Fellowship(s)
 1983-1984
 1984-1985
 University of Rochester, Economics, Walter Y.
-0i, Sponsor, Ph.D., 1988
+Oi, Sponsor, Ph.D., 1988
 Address
 Department of Economics, Oberlin College, 10
 North Professor Street, Oberlin, OH 44074-
@@ -23286,7 +23286,7 @@ TAYLOR (LODEN), Lori L
 Graduate Fellowship(s)
 1985-1986
 University of Rochester, Economics, Walter Y.
-0i, Sponsor, Ph.D., 1990
+Oi, Sponsor, Ph.D., 1990
 Address
 Mosbacher Institute, Bush School of
 362 Government and Public Policy, Texas A&M
