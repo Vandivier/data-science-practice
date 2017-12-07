@@ -1016,8 +1016,8 @@ Address
 BAHBAH, Bishara Assad
 Graduate Fellowship(s)
 1983-1984
-Harvard University, International Studies, A. J.
-Meyer, Sponsor, Ph.D.
+Harvard University, International Studies,
+A. J. Meyer, Sponsor, Ph.D.
 BAILEY, Richard Manley
 Graduate Fellowship(s)
 1961-1962
@@ -1709,8 +1709,8 @@ Graduate Fellowship(s)
 1982-1983
 1985-1986
 1986-1987
-University of Chicago, Economics, Allan
-Bloom, Sponsor, Ph.D., 1992
+University of Chicago, Economics,
+Allan Bloom, Sponsor, Ph.D., 1992
 Address
 Department of English, Tufts University, 314
 East Hall, Medford, MA 02155
@@ -2723,8 +2723,8 @@ Address
 BRAUN, William J.
 Graduate Fellowship(s)
 1970-1971
-University of Pennsylvania, Economics, C.
-Lowell Harriss, Sponsor
+University of Pennsylvania, Economics,
+C. Lowell Harriss, Sponsor
 Address
 3614 Hillside Road, Evanston, IL 60201-4936,
 fcorner@att.net
@@ -4804,7 +4804,7 @@ COOPER JR., George E.
 Graduate Fellowship(s)
 1968-1969
 University of Michigan, History, Clifton L.
-Gallus Jr., Sponsor
+Ganus Jr., Sponsor
 1969-1970
 University of Michigan, History, Stephen J.
 Tonsor, Sponsor
@@ -7869,8 +7869,8 @@ Street, Campus Box 077, Denver, CO 80204
 FLEMING, Richard C. D.
 Graduate Fellowship(s)
 1970-1971
-University of Pennsylvania, Economics, C.
-Lowell Harriss, Sponsor, M.A., 1971
+University of Pennsylvania, Economics,
+C. Lowell Harriss, Sponsor, M.A., 1971
 Address
 484 Lake Avenue, Unit 1N, Saint Louis, MO
 63108, rfleming@stlrcga.org
@@ -10233,8 +10233,8 @@ Alfred de Grazia, Sponsor
 HELDMAN, Dan C.
 Graduate Fellowship(s)
 1968-1969
-University of Texas, Law, Carl Leiden and James
-Steintrager, Sponsors
+University of Texas, Law,
+Carl Leiden and James R. Steintrager, Sponsors
 HELFER, Ariel 0.
 Graduate Fellowship(s)
 2012-2013
@@ -10482,8 +10482,8 @@ ahertzof@csus.edu
 HESLOP, Alan
 Graduate Fellowship(s)
 1966-1967
-University of Texas, Government/Politics, Carl
-Leiden and James R. Steintrager, Sponsors,
+University of Texas, Government/Politics,
+Carl Leiden and James R. Steintrager, Sponsors,
 Ph.D., 1968
 Address
 The Rose Institute of State and Local
@@ -11019,7 +11019,7 @@ HOWARD, Thomas M.
 Graduate Fellowship(s)
 1969-1970
 Northern Illinois University, History, Clifton L.
-Gallus Jr., Sponsor, MA.
+Ganus Jr., Sponsor, MA.
 Address
 138 Cottage Lake Road, Searcy, AR 72143-
 4555
@@ -11429,8 +11429,8 @@ Sponsor, Ph.D., 2010
 JAICUBIAK, Henry E.
 Graduate Fellowship(s)
 1964-1965
-Harvard University, International Studies, A. J.
-Meyer, Sponsor
+Harvard University, International Studies,
+A. J. Meyer, Sponsor
 Address
 2 Watersedge, Glen Cove, NY 11542-1774 
 
@@ -12633,8 +12633,8 @@ ICLUG, Brian
 Graduate Fellowship(s)
 1983-1984
 1984-1985
-University of Chicago, Philosophy, Allan
-Bloom, Sponsor, Ph.D., 1992
+University of Chicago, Philosophy,
+Allan Bloom, Sponsor, Ph.D., 1992
 Address
 540 N. Lake Shore Drive, Apt. 625, Chicago,
 IL 60611-7408, bklug@cflsr.com, klug@centuryinter.net
@@ -20229,8 +20229,8 @@ CA 94704
 ROSENBAUM, Mary Susan
 Graduate Fellowship (s)
 1979-1980
-Columbia University, Economics, C.
-Lowell Harriss, Sponsor, MA., 1980
+Columbia University, Economics,
+C. Lowell Harriss, Sponsor, MA., 1980
 Address
 Managing Director, Observatory Group LLC,
 1920 L Street, N.W., Washington, DC 20036
@@ -22381,8 +22381,8 @@ SPIEKERIVIAN, Tim J.
 Graduate Fellowship (s)
 1988-1989
 1989-1990
-University of Chicago, Philosophy, Allan
-Bloom, Sponsor, Ph.D., 1996
+University of Chicago, Philosophy,
+Allan Bloom, Sponsor, Ph.D., 1996
 Address
 Department of Political Science, Kenyon
 College, Gambier, OH 43022
@@ -23068,8 +23068,8 @@ Address
 SWAN, James R.
 Graduate Fellowship(s)
 1990-1991
-University of Chicago, Philosophy, Allan
-Bloom, Sponsor
+University of Chicago, Philosophy,
+Allan Bloom, Sponsor
 Address
 5894 Duck Creek Road, Box Elder, MT 59521-
 8947, jim@rjsinc.org
@@ -24328,8 +24328,8 @@ Columbus, OH 43209-2394
 WALLACE, James P.
 Graduate Fellowship(s)
 1965-1966
-Brown University, Government/Politics, Chelcie
-C. Bosland, Sponsor, Ph.D., 1967
+Brown University, Government/Politics,
+Chelcie C. Bosland, Sponsor, Ph.D., 1967
 WALLACE, Richard Lee
 Graduate Fellowship(s)
 1958-1959
