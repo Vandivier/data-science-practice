@@ -1893,11 +1893,11 @@ Claremont Graduate University, Government/Politics, Charles R. Kesler, Sponsor, 
 BEVERLY, John Graham
 Graduate Fellowship(s)
 1961-1962
-University of North Carolina, Chapel Hill,
+University of North Carolina. Chapel Hill,
 Economics, John E. Champion and Homer A.
 Black, Sponsors
 1962-1963
-University of North Carolina, Chapel Hill,
+University of North Carolina. Chapel Hill,
 Economics, Clarence Philbrook, Sponsor,
 Ph.D., 1971
 BEWICK, William James Gordon
@@ -2193,7 +2193,7 @@ AZ 85268-1434
 BLAKELY, Eleanor H.
 Graduate Fellowship(s)
 1987-1988
-University of North Carolina, Chapel Hill,
+University of North Carolina. Chapel Hill,
 Government/Politics, Deil S. Wright, Sponsor,
 Ph.D., 1989
 Deceased
@@ -2635,7 +2635,7 @@ University of Notre Dame, Religion, Vigen Guroian, Sponsor, MA., 2013
 BOYETTE, J. Alan
 Graduate Fellowship(s)
 1989-1990
-University of North Carolina, Chapel Hill,
+University of North Carolina. Chapel Hill,
 Government/Politics, Deil S. Wright, Sponsor,
 Ph.D., 1990
 Address
@@ -2878,7 +2878,7 @@ Sponsor, Ph.D., 1993
 Address
 Department of English and Comparative
 Literature, 434 Greenlaw Hall, CB#3520,
-University of North Carolina, Chapel Hill,
+University of North Carolina. Chapel Hill,
 Chapel Hill, NC 27599-3520
 716 Gimghoul Road, Chapel Hill, NC 27514,
 brodey@email.unc.edu
@@ -4154,7 +4154,7 @@ CHO, Chung-Lae
 Graduate Fellowship(s)
 1998-1999
 1999-2000
-University of North Carolina, Chapel Hill,
+University of North Carolina. Chapel Hill,
 Government/Politics, Deil S. Wright, Sponsor
 CHO, Richard S.
 Graduate Fellowship(s)
@@ -4185,7 +4185,7 @@ Address
 CHOI, Yoo-sung
 Graduate Fellowship(s)
 1988-1989
-University of North Carolina, Chapel Hill,
+University of North Carolina. Chapel Hill,
 Government/Politics, Deil S. Wright, Sponsor,
 MA., 1989
 CHONG, Beng Soon
@@ -5868,7 +5868,7 @@ Address
 DEASON, Mary C.
 Graduate Fellowship(s)
 2004-2005
-University of North Carolina, Chapel Hill,
+University of North Carolina. Chapel Hill,
 Government/Politics, Dell S. Wright, Sponsor
 DEBIASO, Peppino A.
 Graduate Fellowship(s)
@@ -6490,7 +6490,7 @@ Office 534M, Plattsburgh, NY 12901
 DRENNAN, Heather
 Graduate Fellowship(s)
 2004-2005
-University of North Carolina, Chapel Hill,
+University of North Carolina. Chapel Hill,
 Government/Politics, Deil S. Wright, Sponsor
 DREXLER, Wulf
 Graduate Fellowship(s)
@@ -7617,7 +7617,7 @@ Schwenning, Sponsor, Ph.D., 1957
 FERGUSON, Margaret IL
 Graduate Fellowship (s)
 1993-1994
-University of North Carolina, Chapel Hill,
+University of North Carolina. Chapel Hill,
 Government/Politics, Deil S. Wright, Sponsor,
 Ph.D., 1996
 Address
@@ -7912,10 +7912,10 @@ Business, Ball State University, Muncie, IN
 FLOYD, Charles Frederick
 Graduate Fellowship(s)
 1959-1960
-University of North Carolina, Chapel Hill,
+University of North Carolina. Chapel Hill,
 Economics, G. T. Schwenning, Sponsor
 1960-1961
-University of North Carolina, Chapel Hill,
+University of North Carolina. Chapel Hill,
 Economics, Clarence Philbrook, Sponsor,
 Ph.D., 1963
 Address
@@ -8804,7 +8804,7 @@ Ph.D., 1967
 GODWIN, Erik K.
 Graduate Fellowship(s)
 2005-2006
-University of North Carolina, Chapel Hill,
+University of North Carolina. Chapel Hill,
 Government/Politics, Deil S. Wright, Sponsor,
 Ph.D., 2008,
 GOEBEL, Edward Lee
@@ -9338,7 +9338,7 @@ griswoldscott61@yahoo.com
 GROGAN(ALOAN), Erin L
 Graduate Fellowship(s)
 2005-2006
-University of North Carolina, Chapel Hill,
+University of North Carolina. Chapel Hill,
 Government/Politics, Dell S. Wright, Sponsor,
 M.A., 2006
 
@@ -11526,7 +11526,7 @@ Address
 JENKS, Stephen S.
 Graduate Fellowship(s)
 1992-1993
-University of North Carolina, Chapel Hill,
+University of North Carolina. Chapel Hill,
 Government/Politics, Deil S. Wright, Sponsor,
 Ph.D., 1993
 Address
@@ -11760,7 +11760,7 @@ Paul Garner, Sponsor
 JONES, Jennifer R.
 Graduate Fellowship(s)
 2003-2004
-University of North Carolina, Chapel Hill,
+University of North Carolina. Chapel Hill,
 Government/Politics, Deil S. Wright, Sponsor 
 
 JONES, Lamar Babington
@@ -12119,7 +12119,7 @@ KELLEHER, Christine
 Graduate Fellowship(s)
 2000-2001
 2002-2003
-University of North Carolina, Chapel Hill,
+University of North Carolina. Chapel Hill,
 Government/Politics, Deil S. Wright, Sponsor, ,
 Ph.D., 2004
 KELLEY, Allen C.
@@ -13245,7 +13245,7 @@ corn
 LAMER, Mark W.
 Graduate Fellowship(s)
 1986-1987
-University of North Carolina, Chapel Hill,
+University of North Carolina. Chapel Hill,
 Government/Politics, Deil S. Wright, Sponsor
 Address
 University of North Carolina, Willmington,
@@ -15249,7 +15249,7 @@ Deceased
 MCATEE, Andrea
 Graduate Fellowship (s)
 2003-2004
-University of North Carolina, Chapel Hill,
+University of North Carolina. Chapel Hill,
 Government/Politics, Deil S. Wright, Sponsor,
 Ph.D.
 
@@ -17632,10 +17632,10 @@ Georgescu-Roegen, Sponsor
 NORTH, Gary K.
 Graduate Fellowship(s)
 1966-1967
-University of California, Riverside, Economics,
+University of California. Riverside, Economics,
 Donald L. Kemmerer, Sponsor
 1967-1968
-University of California, Riverside, Economics,
+University of California. Riverside, Economics,
 William H. Hutt, Sponsor, Ph.D., 1971
 NORTHROP, Alana
 Graduate Fellowship(s)
@@ -17898,7 +17898,7 @@ Address
 OLIVER, Thomas IL
 Graduate Fellowship(s)
 1987-1988
-University of North Carolina, Chapel Hill,
+University of North Carolina. Chapel Hill,
 Government/Politics, Deil S. Wright, Sponsor,
 Ph.D., 1989
 Address
@@ -20353,7 +20353,7 @@ New Haven, CT 06520-8200
 ROWAN, Richard Lamar
 Graduate Fellowship(s)
 1959-1960
-University of North Carolina, Chapel Hill,
+University of North Carolina. Chapel Hill,
 Economics, G. T. Schwenning, Sponsor, Ph.D.,
 1961
 Deceased
@@ -25509,7 +25509,7 @@ Address
 WORDEN, Alissa Pollitz
 Graduate Fellowship(s)
 1984-1985
-University of North Carolina, Chapel Hill,
+University of North Carolina. Chapel Hill,
 Government/Politics, Deil S. Wright, Sponsor,
 Ph.D., 1987
 Address
