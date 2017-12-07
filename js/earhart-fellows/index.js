@@ -33,6 +33,7 @@ const arrAreas = [
     'Business Administration',
     'Culture',
     'Economics',
+    'Education',
     'English',
     'Government/Politics',
     'Health/Welfare',

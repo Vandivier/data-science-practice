@@ -2443,8 +2443,8 @@ Address
 BONINE, John E.
 Graduate Fellowship(s)
 1966-1967
-Yale Law School, Law, W. Glenn Campbell,
-Sponsor
+Yale Law School, Law, 
+W. Glenn Campbell, Sponsor
 Address
 School of Law, University of Oregon, 1515
 Agate Street, Eugene, OR 97403-1221
@@ -4660,7 +4660,7 @@ CONGAR, Wayne William
 Graduate Fellowship(s)
 1974-1975
 Temple University, Government/Politics, Daniel
-J. Ela7nr, Sponsor
+J. Elazar, Sponsor
 Address
 2401 Pennsylvania Avenue, Apt. 12A2,
 Philadelphia, PA 19130-3010, congar@att.net,
@@ -5174,7 +5174,7 @@ Nutter and James M. Buchanan, Sponsors
 University of Virginia, Economics, G. Warren
 Nutter, Sponsor
 
-CROCKER, F1i72beth T.
+CROCKER, E1izabeth T.
 Graduate Fellowship(s)
 2009-2010
 Boston University, Culture, Peter L. Berger,
@@ -5570,7 +5570,7 @@ Avenue SOC107, Tampa, FL 33620
 14034 Notreville Way, Tampa, FL 33624,
 jdaly@usfedu 
 
-D'AM.ELIO, Joseph P.
+D'AMELIO, Joseph P.
 Graduate Fellowship(s)
 1969-1970
 Arizona State University, Economics, William
@@ -8233,7 +8233,7 @@ FROST, John M.
 Graduate Fellowship(s)
 1992-1993
 Brown University, Economics, Larry T.
-126 Wimmer and B. Delworth Gardner, Sponsors
+Wimmer and B. Delworth Gardner, Sponsors
 Address
 Frost/Chaddock Developers LLC, 7551 W.
 Sunset Boulevard, Suite 203, Los Angeles, CA
@@ -9899,8 +9899,7 @@ Address
 HARDY, Douglas Lee
 Graduate Fellowship (s)
 1968-1969
-Duke University, Economics, Joseph J. Spengler,
-Sponsor
+Duke University, Economics, Joseph J. Spengler, Sponsor
 Address
 817 First Parish Road, Scituate, MA 02066-3116,
 douglas.hardy@epix.net, douglas.hardy@charter.net
@@ -11791,7 +11790,7 @@ LA 71497
 6418, jonesrc@nsula.edu
 JOSEPH, Mikaela C.
 Graduate Fellowship(s)
-2009-2010s
+2009-2010
 Tufts University, International Studies, Robert
 L. Pfaltzgraff Jr. and Richard H. Shultz Jr.,
 Sponsors, M.A., 2010
@@ -13735,7 +13734,7 @@ LEVY, Solomon L.
 Graduate Fellowship(s)
 1973-1974
 Temple University, Government/Politics, Daniel
-J. Ela7ar, Sponsor
+J. Elazar, Sponsor
 Deceased
 LEWIS, Kenneth A.
 Graduate Fellowship(s)
@@ -15182,7 +15181,7 @@ Address
 
 MATUSZEWSICA (MIZGALA), Joanna J. 
 Graduate Fellowship (s)
-1990-1991-
+1990-1991
 Georgetown University, International Studies,
 Jeane Jordan Kirkpatrick, Sponsor, Ph.D., 1997
 MAUER, William A.
@@ -15382,8 +15381,10 @@ Chamberlin, Sponsor, Ph.D., 1967
 Address
 114 The Parkway, Ithaca, NY 14850, pdm8@cornell.edu, semcclelland3@aol.com
 
-MCCLOUD, Donald Grant
-Graduate Fellowship(s) 1970-1971 Summer 1971
+MCCLOUD, Donald Grant
+Graduate Fellowship(s) 
+1970-1971
+Summer 1971
 University of South Carolina, International Studies, Richard L. Walker, Sponsor, Ph.D., 1974
 Address
 Haenicke Institute for Global Education, Western Michigan University, 1903 W. Michigan Avenue, Kalamazoo, MI 49008-5245 7421 Oak Shore Drive, Portage, MI 490247859, dgmccloud@aol.com, dg.mccloud@wmich.edu
@@ -15874,8 +15875,8 @@ Institute for Human Security, Fletcher School, Tufts University, 160 Packard Ave
 MELITZ, Jack
 Graduate Fellowship(s)
 1959-1960
-London School of Economics United Kingdom,
-Economics, Jacob Viner, Sponsor
+London School of Economics United Kingdom, Economics,
+Jacob Viner, Sponsor
 Address
 Department of Economics, Tulane University,
 New Orleans, LA 70118-5698
@@ -17229,7 +17230,7 @@ NATHANSON, Philip David
 Graduate Fellowship(s)
 1974-1975
 University of Michigan, Economics, Paul W.
-268 McCracken, Sponsor
+McCracken, Sponsor
 Address
 787 Fairfield Circle, Pasadena, CA 91106-3903
 NATICE, Paul A.
@@ -19873,8 +19874,7 @@ University of Michigan, Economics, Paul W.
 McCracken, Sponsor, Ph.D., 1971
 Address
 Burnham-Moores Center for Real Estate,
-University of San Diego, 5998 Alcala Park, San
-308 Diego, CA 92110
+University of San Diego, 5998 Alcala Park, San Diego, CA 92110
 14084 Rue Saint Tropez, Del Mar, CA 92014-3042,
 mriedy@sandiego.edu, mriedy@netzero.net
 RIISAGER (KINSELLA), Carly G. 
@@ -21768,7 +21768,7 @@ SIGWART, Hans-Jorg
 Graduate Fellowship(s)
 2000-2001
 Friedhrich-Alexander-Universitat Erlangen-
-Nurnberg, Germany, Government/Politics, G.
+Nurnberg Germany, Government/Politics, G.
 Ellis Sandoz Jr., Sponsor, Ph.D., 2003
 SILVER, John Lew
 Graduate Fellowship(s)
@@ -21953,8 +21953,8 @@ University of Texas, Austin, 2225 Speedway,
 Stop C3100, Austin, TX 78712, slesnick@austin.utexas.edu
 SLOAN, Elinor C.
 Graduate Fellowship(s)
-1993-1994 
-1994-1995 
+1993-1994
+1994-1995
 Tufts University, National Security Studies, Robert L. Pfaltzgraff Jr., Sponsor, MA., 1995 
 1995-1996
 Tufts University, National Security Studies, Robert L. Pfaltzgraff Jr., Sponsor, Ph.D., 1997
@@ -22731,12 +22731,12 @@ Studies, Richard L. Walker, Sponsor
 Address
 41 Dinwood Circle, Columbia, SC 29204-3707 
 
-STILL/VIAN, Mimi B.
+STILLMAN, Mimi B.
 Graduate Fellowship(s)
 2003-2004
 2004-2005
-University of Pennsylvania, History Alan
-Charles Kors, Sponsor
+University of Pennsylvania, History,
+Alan Charles Kors, Sponsor
 Address
 135 N. 22nd Street, Philadelphia, PA 19103,
 mimi@mimistillman.org
@@ -25064,7 +25064,7 @@ WILLIAMS, Allan T.
 Graduate Fellowship(s)
 1969-1970
 University of Virginia, Economics, William C.
-392 Tuthill, Sponsor
+Tuthill, Sponsor
 Address
 3208 Saint Stephens Way, Midlothian, VA
 23113-6360
@@ -25813,7 +25813,7 @@ Winter 1987
 1990-1991
 University of Michigan, Government/Politics,
 George Grassmuck, Sponsor
-ZlivIIVIERMANN, Andreas Julius
+ZIMMERMANN, Andreas Julius
 Graduate Fellowship(s)
 Fall 1981
 University of Zurich Switzerland, Economics,
