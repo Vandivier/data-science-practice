@@ -8,15 +8,16 @@
 
 'use strict';
 
-const Bluebird = require('bluebird'); // required twice so I can sometimes be explicit
+//const Bluebird = require('bluebird'); // required twice so I can sometimes be explicit
 const cheerio = require('cheerio');
 const EOL = require('os').EOL;
-const fs = Bluebird.promisifyAll(require('fs'));
-const Promise = require('bluebird');
+//const fs = Bluebird.promisifyAll(require('fs'));
+const fs = require('fs');
+//const Promise = require('bluebird');
 const puppeteer = require('puppeteer');
 const util = require('util');
 
-const utils = require('./utils.js');
+const utils = require('../grand-tour-study/utils.js');
 
 const fpReadFile = util.promisify(fs.readFile);
 const fpWriteFile = util.promisify(fs.writeFile);
@@ -27,12 +28,12 @@ const sInputCsvLocation = __dirname + '/repec.csv';
 const sOutputFileLocation = sResultDir + '/out-repec.csv';
 
 const oTitleLine = {
-    '_stack',
-    'name',
-    'web',
-    'count',
-    'email',
-    'affiliations',
+    '_stack': '_stack',
+    'name': 'name',
+    'web': 'web',
+    'count': 'count',
+    'email': 'email',
+    'affiliations': 'affiliations'
 };
 
 let browser;
@@ -95,9 +96,14 @@ async function fpWait() {
 // TODO: click go to next button and get more stages
 function fpHandleData(sLineOfText) {
     const arrsCellText = sLineOfText.split(',');
-    const sUrl = '';
+    const oOriginalData = {
+        _stack: arrsCellText[0],
+        name: arrsCellText[1],
+        web: arrsCellText[2],
+        count: arrsCellText[3],
+    }
 
-    if (sUrl) {
+    if (oOriginalData.web) {
         return fpScrapeInputRecord(sUrl)
             .then(function (oScraped) {
                 let oFullData = Object.assign(oScraped, oOriginalData);
