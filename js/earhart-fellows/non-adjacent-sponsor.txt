@@ -7,9 +7,9 @@
 "ANDERSON JR., Joel E. ","1964-1965,1965-1966","","American University","","Government/Politics","","",",Clifton L. Ganus Jr.","M.A.","1966","undefined","","","false"
 "ANDERSON, Richard K. ","1967-1968","","University of Virginia","","Economics","","","G. Warren ,Nutter","MA.","1972","undefined","rka@econmail.tamu.edu","true","false"
 "ANDERSON, Robert Glenn ","1957-1958","","New York University","","Economics","","","Hans E ,Sennholz","MA.","1958","undefined","","","false"
-"1259, katyarnn@gmail.com ARNN, Larry P. ","1978-1979","","Claremont Graduate School","","Government/Politics","","","Harry V. Jaffa","","","undefined","larnn@hillsdale.edu","true","false"
+"ARNN, Larry P. ","1978-1979","","Claremont Graduate School","","Government/Politics","","","Harry V. Jaffa","","","undefined","larnn@hillsdale.edu","true","false"
 "BACON, Jeffrey ","2005-2006","","Boston College","","Government/Politics","","",",Christopher Bruell and Robert K. Faulkner,","M.A.","2006","undefined","baconje@bc.edu","true","false"
-"2010 BARKER, Scott T. ","1987-1988,1988-1989","","University of Dallas","","Government/Politics","","","Glen ,E. Thurow and Thomas G. West","","","undefined","sam4_2@yahoo.com","true","false"
+"BARKER, Scott T. ","1987-1988,1988-1989","","University of Dallas","","Government/Politics","","","Glen ,E. Thurow and Thomas G. West","","","undefined","sam4_2@yahoo.com","true","false"
 "BARNETT, Roger Wayne ","Calendar Year 1972,Calendar Year 1973","","University of Southern California","","Government/Politics","","","William R. Van Cleave","M.A.","","undefined","frbarnett@yahoo.com","true","false"
 "BENFIELD, Susan S. ","1999-2000","","Fordham University","","Government/Politics","","",",Mary P. Nichols","","","undefined","","","false"
 "BESSETTE, Joseph M. ","1973-1974","","University of Chicago","","Government/Politics","","",",Joseph Cropsey","","","undefined","bessette@cmc.edu","true","false"
@@ -20,14 +20,14 @@
 "H. B. Earhart Fellows ","Spring and Summer 1966","","Loyola University","false","Hunter College","true","true",",Government/Politics, Gerhart Niemeyer,","","","undefined","rbishirjian@aol.com","true","false"
 "BISHOP, William J ","1964-1965","","Northwestern University","","Government/Politics","","",",William M. McGovern and R. Barry Farrell,","","","undefined","bishop@denison.edu","true","false"
 "BLACKLOCK, Richard M. ","1970-1971","","University of Virginia","","Economics","","","Roland N. ,McKean","","","undefined","dblaloc7@aol.com,blaloc7@","true","false"
-"Georgescu-Roegen, Sponsor, Ph.D., 1961 BORCK (HORSEFIELD), Catherine Ann ","","","H. B. Earhart Fellows ","false","Spring 2005","true","true","University of Notre Dame, Government/Politics, Catherine H. Zuckert","","","undefined","caborck@gmail.com","true","false"
+"BORCK (HORSEFIELD), Catherine Ann ","","","H. B. Earhart Fellows ","false","Spring 2005","true","true","University of Notre Dame, Government/Politics, Catherine H. Zuckert","","","undefined","caborck@gmail.com","true","false"
 "BORN, Kevin IL ","1962-1963","","University of Chicago","","Government/Politics","","",",Stanley Parry","M.A.","1963","","","","false"
 "BRETTON, Philip ","2001-2002","","Michigan State University","","Government/Politics","","",",Jerry Weinberger","","","undefined","phbretton@gmail.com","true","false"
 "BROKAW, Norman T. ","1965-1966","","University of Chicago","","Government/Politics","","",",Walter F. Berns","","","","","","true"
 "BROOKS, Shilo S. ","2008-2009","","Boston College","","Government/Politics","","",",Christopher Bruell and Robert K. Faulkner,","","","undefined","shilobrooks@gmail.com","true","false"
 "BROWN, Douglas Burr ","","","H. B. Earhart Fellows ","false","University of Michigan","true","true","Economics, W. Allen ,Spivey","","","","","","false"
 "BROWN JR., James A. ","1962-1963","","Duke University","","Economics","","","Charles F. ,Haywood","","","undefined","w5drp@aol.com","true","false"
-"4031 BURCHFIELD, Charles W. ","1991-1992,1992-1993","","Louisiana State University","","Government/Politics","","",",G. Ellis Sandoz Jr.","M.A.","1993","undefined","cjburchfield5@gmail.com","true","false"
+"BURCHFIELD, Charles W. ","1991-1992,1992-1993","","Louisiana State University","","Government/Politics","","",",G. Ellis Sandoz Jr.","M.A.","1993","undefined","cjburchfield5@gmail.com","true","false"
 "BURDICK, William H. ","1958-1959","","New York University","","Economics","","","Hans F. ,Sennholz","","","undefined","","","false"
 "BURNS, Joseph M. ","1960-1961","","University of Chicago","","Economics","","","George J. ,Stigler","","","","","","false"
 "CANIGLIA, Alan Scott ","1979-1980","","University of Virginia","","Economics","","","Roland N. ,McKean","","","undefined","alancaniglia@yahoo.com","true","false"
@@ -56,7 +56,7 @@
 "DALY, John L. ","1984-1985","","Indiana University","","Government/Politics","","",",Charles S. Hyneman","","","undefined","","","false"
 "D'AMICO, Daniel J. ","2004-2005","","George Mason University","","Economics","","","Nicholas ,Capaldi","","","undefined","danieljdamico@gmail.com","true","false"
 "DANNHAUSER, Werner J. ","1957-1958,1958-1959","","University of Chicago","","Government/Politics","","",",Friedrich A. Hayek","","","","","","true"
-"Griswold Jr., Sponsor, Ph.D., 2012 DEMPSEY, Erik D. ","2002-2003","","Boston College","","Government/Politics","","","Susan M. ,Shell","","","undefined","ed6335@utexas.edu,erik.dempsey@gmail.com","true","false"
+"DEMPSEY, Erik D. ","2002-2003","","Boston College","","Government/Politics","","","Susan M. ,Shell","","","undefined","ed6335@utexas.edu,erik.dempsey@gmail.com","true","false"
 "DEW, Andrea J. ","Fall 2002","","Tufts University","","International Studies","","","Richard ,H. Shultz Jr.","M.A.","2003","","","","false"
 "H. B. Earhart Fellows ","2006-2007","","Northern Illinois University","","Government/Politics","","","Gary D. Glenn","","","undefined","","","false"
 "H. B. Earhart Fellows ","1994-1995","","University of Chicago","","Government/Politics","","",",Nathan Tarcov","M.A.","","undefined","ddoneson@gmail.com,ddoneson@mit.edu","true","false"
@@ -76,16 +76,16 @@
 "FAIR, Paul J. ","1959-1960,113","","Grove City College","false","Economics","","","Hans F. ,Sennholz","","","","","","true"
 "FERRERA, Salvatore V. ","1956-1957","","University of Chicago","","Economics","","","Yale Brozen,","M.A.","1958","","","","true"
 "FLAVIN (MCCUMBERS), Rebecca J. ","2005-2006","","University of Notre Dame","","Government/Politics","","","Michael P. Zuckert","","","undefined","rebecca_mccumbers@yahoo.com","true","false"
-"63108, rfleming@stlrcga.org FLETCHER, Michael L ","1972-1973","","University of Virginia","","Economics","","","Roland N. ,McKean","","","undefined","iamaspoiledone2@aol.com,mlf@worldnet.att.","true","false"
+"FLETCHER, Michael L ","1972-1973","","University of Virginia","","Economics","","","Roland N. ,McKean","","","undefined","iamaspoiledone2@aol.com,mlf@worldnet.att.","true","false"
 "FLOYD, Charles Frederick ","","","H. B. Earhart Fellows ","false","University of North Carolina","true","true","Chapel Hill, ,Economics, G. T. Schwenning","","","undefined","chasfloyd@earthlink.net","true","false"
 "GANGOPADHYAY, Subrata Kumar ","1967-1968","","University of Virginia","","Economics","","","G. Warren ,Nutter and James M. Buchanan","","","","","","false"
 "GARFINKLE, Adam Morris ","1973-1974","","University of Pennsylvania","","Studies","true","true","William R. Kintner","","","undefined","amgggg@comcast.net,adam.g1951@gmail.com","true","false"
-"94960-2419, maricagarvey@comcast.net GAWANDE, Kishore ","1984-1985","","University of California","","Los Angeles","true","true",",Economics, William Richard Allen","","","undefined","kgawande@tamu.edu","true","false"
-"FL 33019-2521, gelband@earthlink.net GENBERG, Hans Anders Olof ","1969-1970,1970-1971","","University of Chicago","","Economics","","","David I. ,Meiselman","","","undefined","","","false"
+"GAWANDE, Kishore ","1984-1985","","University of California","","Los Angeles","true","true",",Economics, William Richard Allen","","","undefined","kgawande@tamu.edu","true","false"
+"GENBERG, Hans Anders Olof ","1969-1970,1970-1971","","University of Chicago","","Economics","","","David I. ,Meiselman","","","undefined","","","false"
 "97030-8057 ","2005-2006","","University of Dallas","","Government/Politics","","","Glen ,E. Thurow and Thomas G. West","","","undefined","dixitquedeusfiatlux@hotmail.com,rgorman@udallas.edu","true","false"
 "GRAHAM, Fred C. ","1978-1979","","University of Virginia","","Economics","","","Leland B. ,Yeager","","","undefined","","","false"
 "GREENBERG, Bennett ","1966-1967","","Harvard University","","Economics","","","Procter ,Thomson","","","undefined","","","false"
-"NM 87505-5440, awgrenke@msn.com GREWAL, Gwenda-lin ","2006-2007","","Tulane University","","Philosophy","","","Michael Davis,","","","undefined","ggrewal@udallas.edu,gwendalin.grewal@gmail.com","true","false"
+"GREWAL, Gwenda-lin ","2006-2007","","Tulane University","","Philosophy","","","Michael Davis,","","","undefined","ggrewal@udallas.edu,gwendalin.grewal@gmail.com","true","false"
 "GROSSMAN, Philip ","1978-1979","","University of Virginia","","Economics","","","G. Warren ,Nutter","","","undefined","pjgrossman@stcloudstate.edu","true","false"
 "GUARNIERI, Robert L. ","1962-1963","","New York University","","Economics","","","Hans E ,Sennholz","","","","","","false"
 "GUBALA, Sara Margaret ","2005-2006","","Michigan State University","","Government/Politics","","",",Arthur M. Melzer","","","undefined","smgubala@lamar.edu,sgubalal@","true","false"
@@ -114,11 +114,11 @@
 "H. B. Earhart Felli ","1964-1965","","Oklahoma State University","","Economics","","","Wilton ,T. Anderson","M.A.","1965","undefined","william.kinney@mccombs.","true","false"
 "KIRICLAND, Paul E. ","1998-1999","","Fordham University","","Government/Politics","","",",Michael Davis","","","undefined","pkirklan@aol.com,pkirkland@carthage.edu","true","false"
 "KOPECICY, Kenneth ","1968-1969","","Brown University","","Economics","","","Chelcie C. ,Bosland","Ph.D.","","undefined","joann_peters@msn.com,petenewt@","true","false"
-"11746-4231 KOSTERS, Marvin H. ","1961-1962","","University of Chicago","","Economics","","","Henry De ,Wit and John Vanden Berg","","","undefined","mkosters@cox.net","true","false"
+"KOSTERS, Marvin H. ","1961-1962","","University of Chicago","","Economics","","","Henry De ,Wit and John Vanden Berg","","","undefined","mkosters@cox.net","true","false"
 "KOWALCHUK, Andrea L ","2006-2007","","University of Dallas","","Government/Politics","","","Leo ,Paul S. de Alvarez","","","","","","false"
 "LAMB, Theresa R. ","1978-1979","","Johns Hopkins University","","Government/Politics","","",",Gottfried Dietze","M.A.","","","","","false"
 "LANCASTER, Frank A. ","2006-2007","","Michigan State University","","Government/Politics","","",",Jerry Weinberger","","","undefined","flancaster0@gmail.com,lancas25@msu.edu","true","false"
-"P.O. Box 227, Dublin, NH 03444 LANGE GALITO (LANGE), Heidi M. ","2004-2005","","University of Houston","","Government/Politics","","",",Donald S. Lutz","","","undefined","Hmlangetx@aol.com,heididange@hccs.edu","true","false"
+"LANGE GALITO (LANGE), Heidi M. ","2004-2005","","University of Houston","","Government/Politics","","",",Donald S. Lutz","","","undefined","Hmlangetx@aol.com,heididange@hccs.edu","true","false"
 "LANGE, Stephen J. ","1995-1996","","Boston College","","Government/Politics","","",",Christopher Bruell and Robert K. Faulkner,","","","undefined","stephen.lange@gmail.com,langes@bc.edu","true","false"
 "EARRIVEE, Elizabeth A. ","2006-2007","","University of Notre Dame","","Government/Politics","","","Catherine H. Zuckert","","","","","","false"
 "1915 ","1978-1979,1979-1980","","Johns Hopkins University","","Government/Politics","","",",James A. Steintrager","","","undefined","klee@whitworth.edu,katiealee@","true","false"
@@ -128,15 +128,15 @@
 "LEVIN, Fred Jay ","213,1967-1968","","University of Chicago","","Economics","","","H. Gregg ,Lewis and Milton Friedman","","","undefined","","","false"
 "LIND, William S. ","","","H. B. Earhart Fellows ","false","Princeton University","true","true","Government/Politics, ,Colin D. Campbell","M.A.","1971","undefined","","","false"
 "upenn.edu ","1965-1966,1966-1967","","New York University","","Government/Politics","","",",Alfred de Grazia","M.A.","1967","undefined","","","false"
-"Friedman, Sponsor LLOYD, Gordon ","1967-1968","","University of Chicago","","Economics","","","Willmoore ,Kendall","","","undefined","gordon.11oyd@charter.net,gordondloyd@","true","false"
+"LLOYD, Gordon ","1967-1968","","University of Chicago","","Economics","","","Willmoore ,Kendall","","","undefined","gordon.11oyd@charter.net,gordondloyd@","true","false"
 "LONG, Stanley G. ","1955-1956","","Northwestern University","","Economics","","","James ,Washington Bell, John V. Van Sickle, and Yale ,Brozen","M.A.","1958","undefined","samedward7@att.net","true","false"
 "LOMPERIS, Timothy J. ","1974-1975","","Johns Hopkins University","","Government/Politics","","",",Gottfried Dietze","M.A.","1975","undefined","lomperis@slu.edu","true","false"
-"63017, lomperis@slu.edu LORCH, Benjamin Z. ","2004-2005","","Boston College","","Government/Politics","","","Susan M. ,Shell","","","undefined","benjamin.lorch@gmail.com,lorch@msu.","true","false"
+"LORCH, Benjamin Z. ","2004-2005","","Boston College","","Government/Politics","","","Susan M. ,Shell","","","undefined","benjamin.lorch@gmail.com,lorch@msu.","true","false"
 "LUCICEN, Kristen IL ","2005-2006","","Boston University","","Religion","","","Peter L. Berger,","Ph.D.","2010","undefined","kalucken@aol.com,klucken@brandeis.,ds1ow5@verizon.net","true","false"
 "LOWERY, Todd IL ","222 2002-2003,2003-2004","","University of Maryland","","College Park","true","true",",Government/Politics, Charles E. Butterworth,","","","undefined","tlowery@hillsdale.edu","true","false"
-"Sponsor LUNDSGAARD, David C. ","1988-1989","","University of Washington","","Economics","","","Paul ,Heyne","","","undefined","dlundsgaard@sbcglobal.net,dlundsgaard@grahamdunn.com","true","false"
+"LUNDSGAARD, David C. ","1988-1989","","University of Washington","","Economics","","","Paul ,Heyne","","","undefined","dlundsgaard@sbcglobal.net,dlundsgaard@grahamdunn.com","true","false"
 "LURITO, Richard J. ","1961-1962","","Georgetown University","","Economics","","","Goetz A. ,Briefs","M.A.","1962","","","","false"
-"60614-3829, clynch@carthage.edu LYNCH, Michael P. ","1962-1963","","University of Chicago","","Economics","","","H. Gregg ,Lewis and Milton Friedman","","","undefined","","","false"
+"LYNCH, Michael P. ","1962-1963","","University of Chicago","","Economics","","","H. Gregg ,Lewis and Milton Friedman","","","undefined","","","false"
 "LYNN, Fraser Kwok-Wai ","","","H. B. Earhart Fellows ","false","Claremont Men's College","true","true","Government/Politics, ,Harry V. Jaffa","","","undefined","bigmo2@peoplepc.com","true","false"
 "LYONS, Justin D. ","1999-2000","","University of Dallas","","Government/Politics","","","Leo ,Paul S. de Alvarez","","","undefined","jlyonsl@ashland.edu","true","false"
 "MAIN, Robert Stokes ","1966-1967","","University of California","","Los Angeles","true","true",",Economics, Benjamin A. Rogge","","","undefined","","","false"
@@ -158,10 +158,10 @@
 "Humphrey ","1961-1962","","Stanford University","","Economics","","","Merrill K. ,Bennett","M.A.","1962","","","","false"
 "MOGHADAM, Assaf ","2001-2002","","Tufts University","","International Studies","","","Robert ,L. Pfaltzgraff Jr.","M.A.","2002","","","","false"
 "MOO RHOUSE, John C. ","1966-1967","","University of Chicago","","Economics","","","Benjamin A. ,Rogge","","","undefined","john.moorhouse@aol.com","true","false"
-"0401 MORGAN, Bruce W. ","1959-1960","","Yale University","","Economics","","","William J. Fellner,","M.A.","1960","undefined","tbone4750@aol.com","true","false"
+"MORGAN, Bruce W. ","1959-1960","","Yale University","","Economics","","","William J. Fellner,","M.A.","1960","undefined","tbone4750@aol.com","true","false"
 "MOSELEY JR., Thomas J. ","Spring 1963","","University of South Carolina","","Studies","true","true","Richard L. Walker","","","undefined","tom@dariononline.com,tightalwayrndll@yahoo.com","true","false"
 "MORTON, Frederick S. ","Summer and Fall 1953","","Harvard University","","Business Administration","","",",Charles Cortez Abbott","","","","","","true"
-"Deceased MOTTET, George J. ","Summer 1967","","Claremont Graduate School","","Studies","true","true","Harry V. Jaffa","Ph.D.","1968","","","","false"
+"MOTTET, George J. ","Summer 1967","","Claremont Graduate School","","Studies","true","true","Harry V. Jaffa","Ph.D.","1968","","","","false"
 "MOYAR, Dean E ","","","H. B. Earhart Fellows ","false","University of Chicago","true","true","Government/Politics, ,Nathan Tarcov","","","undefined","dmoyar@jhu.edu","true","false"
 "MUNCY, Mitchell S. ","1993-1994","","University of Dallas","","English","","","Melvin E. ,Bradford","","","undefined","mitch.muncy@gmail.com,muncy@hamsoc.org","true","false"
 "2817 Sable Road, Henrico, VA 23233 ","1986-1987","","University of California","","Los Angeles","true","true",",Economics, Jack Hirshleifer","","","undefined","jmurdoch@crai.com","true","false"
@@ -172,7 +172,7 @@
 "NISHIZAWA, Eiichi ","1966-1967","","University of Virginia","","Economics","","","G. Warren ,Nutter and Chiaki Nishiyama","","","","","","false"
 "NORTH, Gary K. ","1966-1967","","University of California","","Economics","true","",",Donald L. Kemmerer","","","","","","false"
 "NORTHROP, Alana ","1971-1972","","University of Chicago","","Government/Politics","","",",Joseph Cropsey","MA.","1974","","","","false"
-"2015 , OFFICER, Lawrence H. ","1961-1962","","Harvard University","","Economics","","","Gottfried ,Haberler","M.A.","1962","undefined","","","false"
+"OFFICER, Lawrence H. ","1961-1962","","Harvard University","","Economics","","","Gottfried ,Haberler","M.A.","1962","undefined","","","false"
 "OH, John Siew-Ang ","","","H. B. Earhart Fellows ","false","University of Virginia","true","true","Economics, G. Warren ,Nutter","","","undefined","","","false"
 "OVERSTREET, J. Tavis ","1998-1999,1999-2000","","Catholic University of America","","Government/Politics","","","Claes G. Ryn","M.A.","1999","undefined","apabst1995@gmail.com,dpabst@earthlink.net","true","false"
 "PATE, Mary Ann Wycoff ","1966-1967 �","","University of Wisconsin","","Economics","","","Carl ,Leiden and James R. Steintrager","","","","","","false"
@@ -185,7 +185,7 @@
 "PITTS, James E. ","1965-1966","","University of Kentucky","","Administration","true","true","Robert D. Haun","","","","","","false"
 "PINERES (AMIN), Sheila ","1988-1989,294 University of Chicago, Economics, Svetozar","","Pejovich","false","M.A.","true","true","1989 ,1989-1990 ,Duke University Economics, Svetozar Pejovich,","M.A.","1989","undefined","sheila.pineres@gmail.com","true","false"
 "PURSELL, Donald E. ","","","H. B. Earhart Fellows ","false","Duke University","true","true","Economics, G. Carl Wiegand,","","","undefined","donny.pursell@peoplepc.com,dpursell@","true","false"
-"yahoo.com RASMUSSEN, Dennis C. ","2001-2002","","Duke University","","Government/Politics","","","Michael ,Allen Gillespie","M.A.","2002","undefined","dennis.rasmussen@tufts.edu","true","false"
+"RASMUSSEN, Dennis C. ","2001-2002","","Duke University","","Government/Politics","","","Michael ,Allen Gillespie","M.A.","2002","undefined","dennis.rasmussen@tufts.edu","true","false"
 "RAYMOND, Jerral Carlisle ","1962-1963","","University of Virginia","","Economics","","","James M. ,Buchanan","","","","","","true"
 "REBER, Stanley R. ","","","H. B. Earhart Fellows ","false","1968-1969","true","true","University of Chicago, Economics, George J. ,Stigler","","","undefined","","","false"
 "RHODES, James M. ","1962-1963","","University of Notre Dame","","Government/Politics","","","Gerhart Niemeyer","MA.","","undefined","jimannemarie@sbcglobal.net","true","false"
@@ -209,7 +209,7 @@
 "SCOTT, Sally J. ","1991-1992","","University of Pennsylvania","","Studies","true","true","Grace Ellen Goodell","","","undefined","sallyjscott@comcast.net,sally-scott@","true","false"
 "332 SEATON JR., Peter Paul ","Spring 1997","","Fordham University","","Government/Politics","","",",Mary P. Nichols","","","undefined","pau12004@yahoo.com,PSeaton@stmarys.edu","true","false"
 "SHORT, Robert IL ","1966-1967","","Michigan State University","","Administration","true","true","William Huizingh","","","undefined","","","false"
-"06226-3405, daniel.silvermint@uconn.edu SIME, Richard D. ","Spring 1969","","New York University","","Government/Politics","","",",Alfred de Grazia","M.A.","1969","undefined","richards86@aol.com","true","false"
+"SIME, Richard D. ","Spring 1969","","New York University","","Government/Politics","","",",Alfred de Grazia","M.A.","1969","undefined","richards86@aol.com","true","false"
 "SLOAN, Elinor C. ","1993-1994 1994-1995 Tufts","","University","false","Studies","true","true","Robert L. Pfaltzgraff Jr.,","MA.","","undefined","","","false"
 "SMITH, Norman It ","1957-1958","","Michigan State University","","Economics","","","William ,A. Paton","M.A.","1958","undefined","","","false"
 "SPALDING, Matthew C. ","","","H. B. Earhart Fellows ","false","1990-1991","true","true","Claremont Graduate School, Government/Politics, Harold W. Rood","","","undefined","mspalding@hillsdale.edu","true","false"
@@ -224,12 +224,12 @@
 "THORNBER, Edgar Hodson ","1963-1964","","University of Chicago","","Economics","","","H. Gregg ,Lewis","","","","","","false"
 "THUNDER, David J. ","Fall 2004","","University of Notre Dame","","Government/Politics","","","Catherine H. Zuckert","","","","","","false"
 "TIWALD, Justin ","1998-1999","","University of Chicago","","Philosophy","","","Catherine ,H. and Michael P. Zuckert","","","undefined","jtiwald@sfsu.edu","true","false"
-"frtrivigno@gmail.com TRIVOLI, George William ","1966-1967","","University of Virginia","","Economics","","","Hans F. ,Sennholz","","","","","","true"
+"TRIVOLI, George William ","1966-1967","","University of Virginia","","Economics","","","Hans F. ,Sennholz","","","","","","true"
 "TUPPER, Lamont Hicks ","1960-1961","","Yale University","","Government/Politics","","","Kenneth ,Colegrove","","","","","","false"
 "ULMEN, Gary L. ","1965-1966","","University of Washington","","International Studies","","",",Karl A. Wittfogel","","","undefined","ulmen@nyc.rr.com","true","false"
 "UPHAM, David IL ","","","H. B. Earhart Fellows ","false","University of Dallas","true","true","Government/Politics, Glen ,E. Thurow and Thomas G. West","","","undefined","","","false"
 "VAN HOUTEN, Jan F. ","1963-1964","","Georgetown University","","Economics","","","Goetz A. ,Briefs","M.A.","1964","undefined","","","false"
-"1977 VAUGHAN, R. Frederick ","1963-1964","","University of Chicago","","Government/Politics","","",",Leo Strauss","M.A.","1964","","","","false"
+"VAUGHAN, R. Frederick ","1963-1964","","University of Chicago","","Government/Politics","","",",Leo Strauss","M.A.","1964","","","","false"
 "VEGA-DIAZ JR. (VEGA), Ramon ","1968-1969","","University of Virginia","","Economics","","","James M. ,Buchanan","","","undefined","","","false"
 "WALICER JR., John E. ","1958-1959","","University of Virginia","","Economics","","","G. Warren ,Nutter and James M. Buchanan","","","undefined","","","false"
 "WALLACE, Richard Lee ","1958-1959","","Vanderbilt University","","Economics","","","Nicholas ,Georgescu-Roegen and George W. Stocking,","","","undefined","","","false"
@@ -241,4 +241,4 @@
 "WOOD, David 0. ","1961-1962","","University of Virginia","","Economics","","","James M. ,Buchanan","","","","","","true"
 "Glenn Campbell, Sponsor ","1970-1971","","University of Virginia","","Economics","","","Roland N. ,McKean","","","undefined","appelrew@gmail.com","true","false"
 "YOSHIHARA, Toshi ","2000-2001,2001-2002","","Tufts University","","International Studies","","","Richard ,H. Shultz Jr.","","","","","","false"
-"4616, bgrassnut@cox.net ZUCICERT, Michael P. ","1965-1966,1966-1967","","University of Chicago","","Government/Politics","","",",Leo Strauss","","","undefined","zuckert.1@nd.edu","true","false"
+"ZUCICERT, Michael P. ","1965-1966,1966-1967","","University of Chicago","","Government/Politics","","",",Leo Strauss","","","undefined","zuckert.1@nd.edu","true","false"
