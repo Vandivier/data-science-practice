@@ -8252,9 +8252,8 @@ Graduate Fellowship(s)
 University of Notre Dame, Government/ 
 Politics, Michael P. Zuckert, Sponsor 
 2006-2007 
-University of Notre Dame, Government/ 
-120 Politics, Catherine H. Zuckert, Sponsor, Ph.D., 
-2014 
+University of Notre Dame, Government/Politics, 
+Catherine H. Zuckert, Sponsor, Ph.D., 2014 
 Address 
 Department of Political Science, Baylor 
 University, One Bear Place #97276, Waco, TX 
@@ -8706,8 +8705,8 @@ Address
 FROST, John M. 
 Graduate Fellowship(s) 
 1992-1993 
-Brown University, Economics, Larry T. 
-126 Wimmer and B. Delworth Gardner, Sponsors 
+Brown University, Economics, 
+Larry T. Wimmer and B. Delworth Gardner, Sponsors 
 Address 
 Frost/Chaddock Developers LLC, 7551 W. 
 Sunset Boulevard, Suite 203, Los Angeles, CA 
@@ -8852,7 +8851,7 @@ Economics, J. Clayburn LaForce, Sponsor,
 Ph.D., 1988 
 Address 
 Department of Economics Appleby Center 219, 
-128 Pepperdine University, Seaver College, 24255 
+Pepperdine University, Seaver College, 24255 
 Pacific Coast Highway, Malibu, CA 90263 
 1566 Cipres Court, Camarillo, CA 93010-
 3126, galorders2@gmail.com 
@@ -11110,8 +11109,8 @@ HENDERSON, James Mitchell
 Graduate Fellowship(s) 
 1953-1954 
 Harvard University, Economics, 
-Gottfried Haberler, Sponsor, Ph.D., 
-1955 Deceased 
+Gottfried Haberler, Sponsor, Ph.D., 1955 
+Deceased 
 HENDERSON, Phillip Gregory 
 Graduate Fellowship(s) 
 1978-1979 
@@ -12951,15 +12950,15 @@ Walter E Berns, Sponsor, Ph.D., 1992
 Address 
 1300 Taylor Street, N.W., Apt. 304, 
 Washington, DC 20011, arthur.kaufman@gmail.com 
-ICAUFMAN, Jerry Max 
+KAUFMAN, Jerry Max 
 Graduate Fellowship (s) 
 1969-1970 
 1970-1971 
 Oklahoma State University, Economics, Wilton 
 T. Anderson, Sponsor 
-Address — 
+Address 
 115 Denny Fox Drive, Burnet, TX 78611-5002 
-ICAUTZ, Steven J. 
+KAUTZ, Steven J. 
 Graduate Fellowship (s) 
 1984-1985 
 1985-1986 
@@ -22601,8 +22600,8 @@ M.A., 1966
 SAUBER, Karl Allen 
 Graduate Fellowship(s) 
 1958-1959 
-University of Illinois. Urbana, Economics, Donald L. 
-322 Kemmerer, Sponsor 
+University of Illinois. Urbana, Economics, 
+Donald L. Kemmerer, Sponsor 
 Address 
 30 Webster Acres, Saint Louis, MO 63119- 
 4029 
@@ -22886,7 +22885,7 @@ University of Virginia, Economics, Roland N.
 McKean, Sponsor 
 1972-1973 
 University of Virginia, Economics, Leland B. 
-326 Yeager, Sponsor, Ph.D., 1977 
+Yeager, Sponsor, Ph.D., 1977 
 Address 
 Department of Economics, Lippman 114, 
 Union College, 807 Union Street, Schenectady, 
@@ -27557,8 +27556,8 @@ Address
 WILLIAMS, Allan T. 
 Graduate Fellowship(s) 
 1969-1970 
-University of Virginia, Economics, William C. 
-392 Tuthill, Sponsor 
+University of Virginia, Economics, 
+William C. Tuthill, Sponsor 
 Address 
 3208 Saint Stephens Way, Midlothian, VA 
 23113-6360 
