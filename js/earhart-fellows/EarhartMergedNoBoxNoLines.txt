@@ -837,7 +837,7 @@ Graduate Fellowship(s)
 Claremont Graduate School, Government/ 
 Politics, Harry V. Jaffa, Sponsor 
 1979-1980 
-University of Oxford, United Kingdom, 
+University of Oxford. United Kingdom, 
 Government/Politics, Harry V. Jaffa, Sponsor, 
 Ph.D., 1985 
 Address 
@@ -3320,7 +3320,7 @@ Address
 BRUGGER, E. Christian 
 Graduate Fellowship(s) 
 1999-2000 
-University of Oxford, United Kingdom, 
+University of Oxford. United Kingdom, 
 Government/Politics, Robert P. George, 
 Sponsor, Ph.D., 2000 
 Address 
@@ -4051,7 +4051,7 @@ jason.casellas@yahoo.com, jcasellas@uh.edu
 CASEY, Robert J. 
 Graduate Fellowship(s) 
 1970-1971' 
-University of Oxford, United Kingdom, 
+University of Oxford. United Kingdom, 
 Government/Politics, Francis Canavan, Sponsor 
 1971-1972 
 Harvard University, Government/Politics, 
@@ -5364,7 +5364,7 @@ Graduate Fellowship(s)
 1964-1965 
 1965-1966 
 1966-1967 
-University of London, United Kingdom, 
+University of London. United Kingdom, 
 History, Russell Kirk, Sponsor, Ph.D., 1967 
 Deceased 
 COUTINHO, Rui Manuel Almeida 
@@ -7193,7 +7193,7 @@ net
 EBELING, Richard M. 
 Graduate Fellowship(s) 
 1982-1983 
-Middlesex University, United Kingdom, 
+Middlesex University. United Kingdom, 
 Economics, Israel Mayer Kirzner, Sponsor, 
 Ph.D. 
 Address 
@@ -9020,7 +9020,7 @@ GARCIA III, Ernest Moore
 Graduate Fellowship(s) 
 1993-1994 
 1994-1995 
-University of Hull, United Kingdom, 
+University of Hull. United Kingdom, 
 Government/Politics, Harold W. Rood, Sponsor 
 Address 
 P.O. Box 412, Claremont, CA 91711 
@@ -11968,7 +11968,7 @@ HORNER, David B.
 Graduate Fellowship(s) 
 1991-1992 
 1992-1993 
-Saint Antony's College, United Kingdom, 
+Saint Antony's College. United Kingdom, 
 Government/Politics, Harry M. Clor, Sponsor, 
 M.A., 1993 
 Address 
@@ -13733,7 +13733,7 @@ KITZINGER (LISTON), Sara
 Graduate Fellowship(s) 
 2008-2009 
 2009-2010 
-University of St. Andrews, United Kingdom, 
+University of St. Andrews. United Kingdom, 
 Philosophy, Vigen Guroian, Sponsor, Ph.D. 
 Address 
 The Thomas More College of Liberal Arts, Six 
@@ -14786,7 +14786,7 @@ WA 99251
 LEEBAERT, Derek 
 Graduate Fellowship(s) 
 1982-1983 
-University of Oxford, United Kingdom, 
+University of Oxford. United Kingdom, 
 Government/Politics, Robert L. Pfaltzgraff Jr., 
 Sponsor, Ph.D., 1983 
 Address 
@@ -14874,7 +14874,7 @@ LEHMAN JR., John F.
 Graduate Fellowship(s) 
 1965-1966 
 1966-1967 
-Cambridge University, United Kingdom, 
+Cambridge University. United Kingdom, 
 International Studies, William R. Kintner, 
 Sponsor, M.A., 1967 
 Address 
@@ -16688,7 +16688,7 @@ Deceased
 MASTY, Stephen J. 
 Graduate Fellowship(s) 
 1977-1978 
-University of St. Andrews, United Kingdom, 
+University of St. Andrews. United Kingdom, 
 English, George C. Roche III, Sponsor 
 MATEER, William 
 Graduate Fellowship(s) 
@@ -20323,7 +20323,7 @@ University, Washington, DC 20007
 PATTON, Judd W. 
 Graduate Fellowship(s) 
 1976-1977 
-St. Andrews University, United Kingdom, 
+St. Andrews University. United Kingdom, 
 Economics, George C. Roche III, Sponsor, 
 Ph.D., 1982 
 Address 
@@ -21871,7 +21871,7 @@ Address
 RICHARDS, Amy D. 
 Graduate Fellowship(s) 
 2005-2006 
-University of Edinburgh, United Kingdom, 
+University of Edinburgh. United Kingdom, 
 Culture, Vigen Guroian, Sponsor, Ph.D., 2010 
 Address 
 1059 Vernon Street, N.E., Grand Rapids, MI 
@@ -23804,7 +23804,7 @@ Graduate Fellowship(s)
 1996-1997 
 1997-1998 
 1998-1999 
-University of Hull, United Kingdom, 
+University of Hull. United Kingdom, 
 International Studies, Harold W. Rood, 
 Sponsor, Ph.D., 2001 
 Address 
@@ -24787,7 +24787,7 @@ Address
 SPROVIERO (GOGGINS), Kathleen M. 
 Graduate Fellowship (s) 
 2005-2006 
-University of St. Andrews, United Kingdom, 
+University of St. Andrews. United Kingdom, 
 History, Vigen Guroian, Sponsor, M.Litt., 2006 
 Address 
 100 Lake Avenue, Fair Haven, NJ 07704, 
@@ -25329,7 +25329,7 @@ STUART, Joseph T.
 Graduate Fellowship(s) 
 2006-2007 
 2007-2008 
-University of Edinburgh, Untied Kingdom, 
+University of Edinburgh. Untied Kingdom, 
 History, Vigen Guroian, Sponsor, Ph.D., 2010 
 Address 
 Catholic Studies, University of Mary, 7500 
@@ -26690,7 +26690,7 @@ philosophychad@gmail.com
 VAUGHAN, Geoffrey M. 
 Graduate Fellowship(s) 
 1994-1995 
-University of Oxford, United Kingdom, 
+University of Oxford. United Kingdom, 
 Government/Politics, Robert K. Faulkner, 
 Sponsor, D.Phil., 1999 
 Graduate Fellowship(s) 
@@ -28069,7 +28069,7 @@ WILSON, Francis A. H.
 Graduate Fellowship(s) 
 1964-1965 
 1965-1966 
-Cambridge University, United Kingdom, 
+Cambridge University. United Kingdom, 
 Economics, G. Warren Nutter, Sponsor, Ph.D., 
 1967 
 Address 
@@ -28271,7 +28271,7 @@ Graduate Fellowship(s)
 1970-1971 
 1971-1972 
 1972-1973 
-University of Oxford, United Kingdom, 
+University of Oxford. United Kingdom, 
 Economics, Arthur Kemp, Sponsor 
 Deceased 
 WOLF, Anthony Freedman 
