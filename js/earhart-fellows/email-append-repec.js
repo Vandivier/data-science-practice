@@ -107,7 +107,7 @@ function fpHandleData(sLineOfText) {
     if (oOriginalData.web) {
         return fpScrapeInputRecord(oOriginalData.web)
             .then(function (oScraped) {
-                let oFullData = Object.assign(oScraped, oOriginalData);
+                const oFullData = Object.assign(oScraped, oOriginalData);
 
                 iCurrentInputRecord++;
                 console.log('scraped input record #: '
@@ -155,12 +155,17 @@ async function fpScrapeInputRecord(sUrl) {
     poScrapeResult = await executionContext.evaluate((_iCurrentInputRecord) => {
         return _fpWait(900)
             .then(function () {
-                let _sEmail = $('.emaillabel').parent().find('td span').text();
-                let _arroAffiliations = [];
+                let sEmail = $('.emaillabel').parent().find('td span').text();
+                let sarrAffiliations = '';
+                let arr$Affiliations = $('#affiliation-body a[name=subaffil]');
+
+                arr$Affiliations.each(function (arr, el) {
+                    sarrAffiliations += ('~' + el.innerText.replace(/\s/g, ' ').trim());
+                });
 
                 return Promise.resolve({
-                    'email': _sEmail,
-                    'affiliations': _arroAffiliations
+                    'email': sEmail,
+                    'affiliations': sarrAffiliations
                 });
             })
             .catch(function (err) {
@@ -192,14 +197,14 @@ function fsTrimMore(s) {
 
 // ref: earhart-fellows, fsRecordToCsvLine
 // TODO: generic object-to-csv-row
-function fsScrapedDataToResult(oStageData) {
+function fsScrapedDataToResult(oScraped) {
     let sToCsv = ''
-                + '"' + oStageData._stack + '",'
-                + '"' + oStageData.name + '",'
-                + '"' + oStageData.web + '",'
-                + '"' + oStageData.count + '",'
-                + '"' + oStageData.email + '",'
-                + '"' + oStageData.affiliations + '"'
+                + '"' + oScraped._stack + '",'
+                + '"' + oScraped.name + '",'
+                + '"' + oScraped.web + '",'
+                + '"' + oScraped.count + '",'
+                + '"' + oScraped.email + '",'
+                + '"' + oScraped.affiliations + '"'
 
     return sToCsv;
 }
