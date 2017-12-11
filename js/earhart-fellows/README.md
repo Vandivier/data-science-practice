@@ -69,8 +69,8 @@ I parse using the following rules:
 
 ## Weird Cases to Functionally Accommodate
 1. non-adjacent-sponsor: ABBOTT III, Thomas A
-1. No institution: DEMPSEY, Erik D.
-1. Name not showing up in output: SMART, Theresa M.
+	1. No institution: DEMPSEY, Erik D. - Manually added "Unknown Institution to source code 
+	1. Name not showing up in output: SMART, Theresa M. - Works now, unclear what fixed this
 
 ## Feature Requests
 Have a suggestion for this npm module? Submit an issue.
