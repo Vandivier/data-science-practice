@@ -61,7 +61,8 @@ async function main() {
     arrsInputRows = sInputCsv.split(EOL);
 
     /** for testing only, shorten rows **/
-    arrsInputRows = arrsInputRows.slice(0, 50);
+    arrsInputRows = arrsInputRows.slice(0, 5);
+    arrsInputRows.shift()
     iTotalInputRecords = arrsInputRows.length;
     console.log('early count, iTotalInputRecords = ' + iTotalInputRecords);
     console.log('early count is typically overstated by a factor of ~20');
@@ -95,16 +96,18 @@ async function fpWait() {
 // also, don't write empty lines
 // TODO: click go to next button and get more stages
 function fpHandleData(sLineOfText) {
+    //sLineOfText = sLineOfText.replace(', ', '~');
+
     const arrsCellText = sLineOfText.split(',');
     const oOriginalData = {
         _stack: arrsCellText[0],
-        name: arrsCellText[1],
+        name: fsTrimMore(arrsCellText[1]),
         web: arrsCellText[2],
         count: arrsCellText[3],
     }
 
     if (oOriginalData.web) {
-        return fpScrapeInputRecord(sUrl)
+        return fpScrapeInputRecord(oOriginalData.web)
             .then(function (oScraped) {
                 let oFullData = Object.assign(oScraped, oOriginalData);
 
@@ -144,8 +147,6 @@ async function fpScrapeInputRecord(sUrl) {
     let poScrapeResult;
 
     await _page.goto(sUrl, {
-        'networkIdleTimeout': 10000,
-        'waitUntil': 'networkidle',
         'timeout': 0
     }); // timeout ref: https://github.com/GoogleChrome/puppeteer/issues/782
 
@@ -156,13 +157,15 @@ async function fpScrapeInputRecord(sUrl) {
     poScrapeResult = await executionContext.evaluate((_iCurrentInputRecord) => {
         return _fpWait(900)
             .then(function () {
-                let sEmail = $('.emaillabel').parent().find('td span').text();
-                let arroAffiliations = [];
+                /*
+                let _sEmail = $('.emaillabel').parent().find('td span').text();
+                let _arroAffiliations = [];
+                */
 
-                return {
-                    sEmail,
-                    arroAffiliations,
-                };
+                return Promise.resolve({
+                    'email': '_sEmail',
+                    'affiliations': '_arroAffiliations'
+                });
             })
             .catch(function (err) {
                 console.log('fpScrapeInputRecord err: ', err);
