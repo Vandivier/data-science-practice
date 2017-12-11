@@ -9,7 +9,7 @@ Graduate Fellowship(s)
 Harvard University, Economics, Robert L. 
 Bunting, Sponsor 
 1983-1984 
-Harvard University; Economics, Hendrik S. 
+Harvard University, Economics, Hendrik S. 
 Houthakker, Sponsor, Ph.D., 1987 
 Address 
 106 Davis Drive, North Wales, PA 19454, 
@@ -697,7 +697,7 @@ Avenue, N.E., Washington, DC 20002
 ANDERSON, Terry V. 
 Graduate Fellowship (s) 
 1965-1966 
-Emory University; Government/Politics, 
+Emory University, Government/Politics, 
 Reginald D. Lang, Sponsor 
 Address 
 14356 Embassy Way, Saint Paul, MN 55124- 
@@ -1347,12 +1347,12 @@ Graduate Fellowship(s)
 1970-1971 
 Harding College, Economics, Clifton L. Ganus 
 Jr., Sponsor 
-BARTLETT; Christopher D.S. 
+BARTLETT, Christopher D.S. 
 Graduate Fellowship(s) 
 1964-1965 
 Stanford University, Economics, Karl Brandt, 
 Sponsor 
-BARTLETT; Lynn D. 
+BARTLETT, Lynn D. 
 Graduate Fellowship(s) 
 1964-1965 
 1965-1966 
@@ -2169,7 +2169,7 @@ Graduate Fellowship(s)
 Boston University, Sociology, Peter L. Berger, 
 Sponsor, Ph.D., 2000 
 Address 
-404 Chelsea Way 4, Redwood City; CA 94061- 
+404 Chelsea Way 4, Redwood City, CA 94061- 
 5608, martha_bird@hotmail.com 
 BIRKELAND, Peter M. 
 Grithi4e Fellowship(s) 
@@ -3042,7 +3042,7 @@ BRODIN, Nils-Eric
 Graduate Fellowship(s) 
 1969-1970 
 1970-1971 
-Stanford University; Government/Politics, 
+Stanford University, Government/Politics, 
 Stefan T. Possony, Sponsor, Ph.D. 
 Deceased 
 BROGGI (COPPENGER), Chesed Lee 
@@ -6948,7 +6948,7 @@ Graduate Fellowship(s)
 University of Maryland, College Park, History, 
 Herman Belz, Sponsor, Ph.D., 2008 
 Address 
-Department of History, Texas State University; 
+Department of History, Texas State University, 
 601 University Drive, San Marcos, TX 78666 
 250 S. Stagecoach Trail, Apt. 433, San Marcos, 
 TX 78666-5159, sd22@txstate.edu 
@@ -8219,7 +8219,7 @@ Graduate Fellowship(s)
 Spring 1983 
 New York University, Economics, Israel Mayer 
 Kirzner, Sponsor, Ph.D. 
-FINLAY; David J. 
+FINLAY, David J. 
 Graduate Fellowship(s) 
 1962-1963 
 Stanford University, Government/Politics, W 
@@ -9482,8 +9482,7 @@ Department of Economics, Littauer 217,
 Harvard University, Cambridge, MA 02138 
 14 Scott Street, Cambridge, MA 02138-2016, 
 cgoldin@harvard.edu, cgoldin@iwon.com 
-GOLDSAITO (GRIGG-SAITO), Katrina 
-Toshiko 
+GOLDSAITO (GRIGG-SAITO), Katrina Toshiko 
 Graduate Fellowship(s) 
 2006-2007 
 Boston University, Sociology, Peter L. Berger, 
@@ -11373,7 +11372,7 @@ Address
 1101 New Hampshire Avenue, N.W., Apt. 901, 
 Washington, DC 20037, matthewmberbert@ 
 gmail.com, matthew.herbert@tufts.edu 
-HERBST; Jay Arthur 
+HERBST, Jay Arthur 
 Graduate Fellowship(s) 
 1965-1966 
 Calendar Year 1967 
@@ -11443,8 +11442,7 @@ Department of Political Science, College of the
 Holy Cross, 1 College Street, Worcester, MA 
 01610 
 41 Richmond Avenue, Apt. 2, Worcester, MA 
-01602, Carly.Baruh@gmail.com; carly.baruh@ 
-utexas.edu 
+01602, Carly.Baruh@gmail.com carly.baruh@utexas.edu 
 HERSCH, Cy Stefan 
 Graduate Fellowship(s) 
 1997-1998 
@@ -12222,11 +12220,11 @@ hunt@pilot.msu.edu, hunt@msu.edu
 HUNT, Robert P. 
 Graduate Fellowship(s) 
 1982-1983 
-Ford.= University, Government/Politics, 
+Fordham University, Government/Politics, 
 Francis Canavan, Sponsor, Ph.D., 1984 
 Address 
 Department of Political Science, Kean 
-University; 1000 Morris Avenue, Union, NJ 
+University, 1000 Morris Avenue, Union, NJ 
 07083 
 114 Southwood Drive, Old Bridge, NJ 08857, 
 rhunt@keamedu 
@@ -14184,7 +14182,7 @@ KSELMAN, Claudia L. Scheck
 Graduate Fellowship(s) 
 1974-1975 
 1975-1976 
-University of Michigan, History; Frank Grace, 
+University of Michigan, History, Frank Grace, 
 Sponsor, Ph.D., 1980 
 Address 
 Office of International Studies, University of 
@@ -15577,7 +15575,7 @@ Johns Hopkins University, Government/Politics,
 Gottfried Dietze, Sponsor, M.A., 1975 
 1976-1977 
 1977-1978 
-Duke University; Government/Politics, 
+Duke University, Government/Politics, 
 Gottfried Dietze, Sponsor 
 Fall 1980 
 Duke University, Government/Politics, G. Ellis 
@@ -16735,7 +16733,7 @@ Graduate Fellowship(s)
 2001-2002 
 2002-2003 
 2003-2004 
-University of Florida, History; Stephen A. 
+University of Florida, History, Stephen A. 
 McKnight, Sponsor, Ph.D., 2004 
 Address 
 Department of History, 265 A.B. Anderson 
@@ -17185,7 +17183,7 @@ Address
 MCGRAIL, Mary Ann 
 Graduate Fellowship(s) 
 1985-1986 
-Harvard University, Government/Politics; 
+Harvard University, Government/Politics, 
 Harvey C. Mansfield Jr., Sponsor, Ph.D., 1988 
 Address 
 Law Office of M.A. McGrail, 1629 K Street 
@@ -18500,7 +18498,7 @@ Address
 Department of English, University of Dallas, 
 1845 East Northgate Drive, Irving, TX 75062 
 2503 Newton Circle East, Irving, TX 75062, 
-amoran@udallas.edu; adfmoran@yahoo.com 
+amoran@udallas.edu adfmoran@yahoo.com 
 MORAN, Russell L 
 Graduate Fellowship(s) 
 1960-1961 
@@ -19486,7 +19484,7 @@ jnorgaar@gmu.edu
 NORRIS, James M. 
 Graduate Fellowship(s) 
 1972-1973 
-Vanderbilt University; Economics, Nicholas 
+Vanderbilt University, Economics, Nicholas 
 Georgescu-Roegen, Sponsor 
 NORTH, Gary K. 
 Graduate Fellowship(s) 
@@ -21663,7 +21661,7 @@ of Classics, University of Chicago, 1126 E. 59th
 Street, Chicago, IL 60637 
 5442 S. Ridgewood Circle, Chicago, IL 60615, 
 jmredfie@uchicago.edu 
-REDMOUNI; Esther Rachel 
+REDMOUNI, Esther Rachel 
 Graduate Fellowship (s) 
 1977-1978 
 1978-1979 
@@ -22602,7 +22600,7 @@ Sponsor
 Address 
 11573 Greenwich Point Road, 902S, Reston, 
 VA 20194-1200, wtrule@biz-results.com 
-RUPPERT; Richard W. 
+RUPPERT, Richard W. 
 Graduate Fellowship(s) 
 1962-1963 
 Purdue University, Economics, Vernon Lomax 
@@ -23217,7 +23215,7 @@ Graduate Fellowship(s)
 1991-1992 
 University of Virginia, Economics, Kenneth G. 
 Elzinga, Sponsor 
-SCHMIDT; Shelton S. 
+SCHMIDT, Shelton S. 
 Graduate Fellowship(s) 
 1971-1972 
 University of Virginia, Economics, Roland N. 
@@ -23437,7 +23435,7 @@ Texas MEM University, Economics, S. Charles
 Maurice, Sponsor, Ph.D., 1990 
 Address 
 Department of Economics, Texas MEM 
-University; College Station, TX 77843 
+University, College Station, TX 77843 
 718 Plum Hollow Drive, College Station, TX 
 77845, cschulman@brg-expert.com 
 SCHULTZ, Jeffrey D. 
@@ -23660,7 +23658,7 @@ Address
 SEATON JR., Peter Paul 
 Graduate Fellowship (s) 
 Spring 1997 
-Fordham University; Government/Politics, 
+Fordham University, Government/Politics, 
 Mary P. Nichols, Sponsor 
 2000-2001 
 Fordham University, Government/Politics, 
@@ -24555,7 +24553,7 @@ Graduate Fellowship (s)
 1995-1996 
 Catholic University of America, 
 Government/ 
-Politics, W. Wesley McDonald and Paul E; 
+Politics, W. Wesley McDonald and Paul E 
 Gottfried, Sponsors 
 Address 
 219 E. Windsor Avenue, A, Alexandria, VA 
@@ -26979,7 +26977,7 @@ Graduate Fellowship(s)
 1969-1970 
 University of Michigan, International Studies, 
 Earhart Foundation, Sponsor, M.A., 1969 
-VOLMERI; Andrew R. 
+VOLMERI Andrew R. 
 Graduate Fellowship (s) 
 2006-2007 
 Yale University, Government/Politics, Steven B. 
@@ -28231,7 +28229,7 @@ Uris Hall, Room 468, Cornell University,
 Ithaca, NY 14853 
 132 Tompkins Street, Cortland, NY 13045, 
 jpw6@corneledu 
-win; John Anthony 
+WITT, John Anthony 
 Graduate Fellowship(s) 
 1982-1983 
 Johns Hopkins University, Government/Politics, 
@@ -28239,7 +28237,7 @@ Gottfried Dietze, Sponsor
 Address 
 606 W. Washington Street, Charles Town, WV 
 25414-1738, j.witt28@gmail.com 
-win; Mary H. 
+WITT, Mary H. 
 Graduate Fellowship(s) 
 1974-1975 
 University of Southern California, International 
@@ -28247,7 +28245,7 @@ Studies, William R. Van Cleave, Sponsor
 Address 
 9314 Parkhill Terrace, Bethesda, MD 20814- 
 3963, mary.witt@navy.mil 
-WI 1 1 ELS, William D. 
+WIITTELS, William D. 
 Graduate Fellowship(s) 
 2008-2009 
 2009-2010 
@@ -28516,7 +28514,7 @@ Graduate Fellowship(s)
 Summer 1963 
 Johns Hopkins University, Government/Politics, 
 Gottfried Dietze, Sponsor, Ph.D., 1964 
-WRIGHT; Matthew D. 
+WRIGHT Matthew D. 
 Graduate Fellowship(s) 
 2006-2007 
 University of Texas, Austin, Government/ 
