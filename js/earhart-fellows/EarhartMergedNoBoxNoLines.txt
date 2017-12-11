@@ -4188,7 +4188,7 @@ Address
 Linda, CA 92354-4802 
 CHALABI, Hussein Rushdi 
 Graduate Fellowship (s) 
-1973-1974 - 
+1973-1974
 Columbia University, Economics, C. Lowell 
 Harriss, Sponsor 
 CHAMBERLAIN, Henry J. 
@@ -6522,7 +6522,7 @@ Graduate Fellowship(s)
 University of Maryland, College Park, History, 
 Herman Belz, Sponsor 
 Address 
-4704 Powder Mill Road, Beltsville, MD 20705, - 
+4704 Powder Mill Road, Beltsville, MD 20705,
 ddiab@wam.umd.edu 
 DIBBLE (HELBIG), Catherine H 
 Graduate Fellowship(s) 
@@ -6921,7 +6921,7 @@ Gaumnitz, Sponsor
 DUARTE CARDENAS, Pablo Andres 
 Graduate Fellowship(s) 
 2014-2015 
-/00 University of Leipzig, Germany, Economics, 
+University of Leipzig, Germany, Economics, 
 Mario J. Rizzo, Sponsor 
 DUFF, Alexander S. 
 Graduate Fellowship(s) 
@@ -9734,7 +9734,7 @@ Sponsor, Ph.D., 1966
 Address 
 Booth School of Business, University of 
 Chicago, 5807 South Woodlawn Avenue, 
-Chicago, IL 60637-1610 - 
+Chicago, IL 60637-1610
 100 E. Huron Street, Apt. 2105, Chicago, 
 IL 60611-2932, jgould@chicagobooth.edu, 
 jgould2107@bellsouth.net 
@@ -12373,7 +12373,7 @@ Graduate Fellowship(s)
 Princeton University, Economics, Fritz 
 Machlup, Sponsor, Ph.D., 1969 
 Address 
-/76 Department of Economics, North Carolina 
+Department of Economics, North Carolina 
 State University, P.O. Box 8110, Raleigh, NC 
 27695 
 306 Furches Street, Raleigh, NC 27607, david_ 
@@ -12511,7 +12511,7 @@ Sponsor
 Address 
 316 Lamont Drive, Decatur, GA 30030-2343, 
 jacobsoned@yahoo.com 
-/78 JADLOW JR., Joseph M. 
+JADLOW JR., Joseph M. 
 Graduate Fellowship(s) 
 1966-1967 
 University of Virginia, Economics, James M. 
@@ -16814,7 +16814,7 @@ Address
 4338 
 MATUSZEWSICA (MIZGALA), Joanna J. 
 Graduate Fellowship (s) 
-1990-1991 - 
+1990-1991
 Georgetown University, International Studies, 
 Jeane Jordan Kirkpatrick, Sponsor, Ph.D., 1997 
 MAUER, William A. 
@@ -19346,7 +19346,7 @@ University, One Bear Place #97276, Waco, TX
 David_Nichols@baylor.edu 
 NICHOLS, Donald R. 
 Graduate Fellowship(s) 
-1969-1970 - 
+1969-1970
 University of Oklahoma, Economics, Theodore 
 P. Herrick, Sponsor 
 NICHOLS JR., James H. 
@@ -20825,7 +20825,6 @@ Rhode Island, Washburn Hall, 224, Kingston,
 RI 02881 
 30 Helme Road, Kingston, RI 02881, 
 nnpetro@gmail.com, kolya@uri.edu 
-PETROUS, Gordon Scott 
 PFEIFER, Michael P. 
 Graduate Fellowship(s) 
 Winter 1975 
@@ -20860,6 +20859,7 @@ M.A., 1965
 Address 
 9812 Grandview Drive, Denton, TX 76207- 
 8672, donald.phillips7@worldnet.att.net 
+PETROUS, Gordon Scott 
 Graduate Fellowship(s) 
 2001-2002 
 Michigan State University, Government/Politics, 
@@ -24863,7 +24863,7 @@ University of California, Santa Barbara,
 Economics, M. Bruce Johnson, Sponsor 
 Address 
 1802 Ocean Park Boulevard, Santa Monica, CA 
-90405-4927 - 
+90405-4927
 SPROVIERO (GOGGINS), Kathleen M. 
 Graduate Fellowship (s) 
 2005-2006 
@@ -26103,7 +26103,7 @@ mthornton@prodigy.net, mthornton@mises.org
 THORNTON, Robert J. 
 Graduate Fellowship(s) 
 1968-1969 
-University of Illinois, Economics, Donald L. - 
+University of Illinois, Economics, Donald L.
 Kemmerer, Sponsor, Ph.D., 1970 
 Address 
 Department of Economics, Rauch Business 
@@ -26501,7 +26501,7 @@ P.O. Box 375, Pownal, VT 05261-0375, btrue-
 weber@aol.com, trueweber@gmail.com 
 TSAGRONIS, S. John 
 Graduate Fellowship(s) 
-1995-1996 - 
+1995-1996
 Tufts University, International Studies, Robert 
 L. Pfaltzgraff Jr., Sponsor 
 Address 
@@ -28437,7 +28437,7 @@ University of Chicago, Economics, Gary S.
 Becker, Sponsor, Ph.D. 
 WOOD, Arthur William 
 Graduate Fellowship(s) 
-1954-1955 - 
+1954-1955
 Stanford University, Economics, Merrill K. 
 Bennett, Sponsor, Ph.D., 1956 
 WOOD, Carolyn J. 
