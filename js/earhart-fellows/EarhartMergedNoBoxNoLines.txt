@@ -328,8 +328,7 @@ Ph.D., 1996
 Address 
 3131 N. 70th Street, Apt. 2020, Scottsdale, AZ 
 85251-6387, vickimurray09@gmail.com 
-ALJOVIN DE LOSADA (DE LOSADA), 
-Cristobal 
+ALJOVIN DE LOSADA (DE LOSADA), Cristobal 
 Graduate Fellowship(s) 
 1994-1995 
 University of Chicago, History, Francois Furet, 
@@ -1775,7 +1774,7 @@ Address
 2674, mary.bellamy@asm.ca.gov, felina788@ 
 gmail.com 
 BELLANTE, Donald M. 
-28 Graduate Fellowship(s) 
+Graduate Fellowship(s) 
 1969-1970 
 Florida State University, Economics, Marshall 
 R. Colberg, Sponsor, Ph.D., 1971 
@@ -2503,7 +2502,7 @@ Address
 1133 W. Warwick Road, Muncie, IN 47304- 
 3343, cbohanon@bsu.edu 
 BOISEN, Gary C. 
-38 Graduate Fellowship(s) 
+Graduate Fellowship(s) 
 1966-1967 
 1967-1968 
 University of Iowa, Sociology, Robert G. 
@@ -2650,7 +2649,7 @@ hartford.edu, caborck@gmail.com
 BORICNIAN, Kurt J. 
 Graduate Fellowship(s) 
 1982-1983 
-40 1983-1984 
+1983-1984 
 1986-1987 
 University of Michigan, History, Stephen J. 
 Tonsor, Sponsor, Ph.D., 1993 
@@ -6400,7 +6399,7 @@ Address
 MD 20740-3007, delinger@gmail.com 
 DELMAS, Candice 
 Graduate Fellowship(s) 
-, 2010-2011 
+2010-2011 
 Boston University, Philosophy, Charles L. 
 Griswold Jr., Sponsor, Ph.D., 2012 
 DEMPSEY, Erik D. 
@@ -7055,7 +7054,7 @@ Deceased
 DUTY, Gary D. 
 Graduate Fellowship(s) 
 1987-1988 
-102 1988-1989 
+1988-1989 
 Louisiana State University, Government/Politics, 
 G. Ellis Sandoz Jr., Sponsor 
 Address 
@@ -7201,8 +7200,7 @@ Economics, Israel Mayer Kirzner, Sponsor,
 Ph.D. 
 Address 
 1604 Grey Marsh Road, Mount Pleasant, SC 
-29466-7212, rebeling@iwon.com, rebeling@ 
-104 gmail.com 
+29466-7212, rebeling@iwon.com, rebeling@gmail.com 
 ECHEMENDIA (EVANKO), Jennifer N. 
 Graduate Fellowship(s) 
 2003-2004 
@@ -8773,7 +8771,6 @@ University, COOR 6752, Tempe, AZ 85287-
 3902 
 1612 E. Amaranth Trail, San Tan Valley, AZ 
 85140-5099, fridkin@asu.edu 
-FRIEND (AGRIA), Susan R. 
 FRY, Richard A. 
 Graduate Fellowship(s) 
 1981-1982 
@@ -8805,6 +8802,7 @@ University of Arkansas, Business
 Administration, Nolan E. Williams, Sponsor 
 Address 
 1105 Ash Street, Blossom, TX 75416-2342 
+FRIEND (AGRIA), Susan R. 
 Graduate Fellowship(s) 
 1960-1961 
 University of Chicago, Economics, H. Gregg 
@@ -9211,7 +9209,7 @@ Georgetown University, Government/Politics,
 Joshua Mitchell, Sponsor 
 Address 
 735 Summit Street, Winston Salem, NC 27101, 
-132 andrewgeorge7@gmail.com 
+andrewgeorge7@gmail.com 
 GEORGE, Rachel A. 
 Graduate Fellowship (s) 
 2013-2014 
@@ -10770,7 +10768,7 @@ of Business Administration, University of
 Wisconsin, 975 University Avenue, Madison, 
 WI 53706 
 65 White Oaks Lane, Madison, WI 53711, 
-154 eihanson@bus.wisc.edu 
+eihanson@bus.wisc.edu 
 HANSON, James A. 
 Graduate Fellowship (s) 
 1961-1962 
@@ -11523,7 +11521,7 @@ Leiden and James R. Steintrager, Sponsors,
 Ph.D., 1968 
 Address 
 The Rose Institute of State and Local 
-164 Government, Claremont McKenna College, 
+Government, Claremont McKenna College, 
 Claremont, CA 91711-6420 
 900 E. Harrison Avenue, #G5, Pomona, CA 
 91767-2075, AlanHeslop_NDC@hotmail.com 
@@ -14239,7 +14237,7 @@ University of Chicago, Economics, Yale Brozen,
 Sponsor 
 Deceased 
 ICUHN, William Edwin 
-202 Graduate Fellowship(s) 
+Graduate Fellowship(s) 
 1966-1967 
 Vanderbilt University, Economics, Nicholas 
 Georgescu-Roegen, Sponsor 
@@ -14414,7 +14412,7 @@ Washington, DC 20007
 6068 26th Street N., Arlington, VA 22207-
 1211, lagons@georgetown.edu 
 IAI, Dinh Minh 
-204 Graduate Fellowship(s) 
+Graduate Fellowship(s) 
 2003-2004 
 2004-2005 
 Southwest Missouri State University, 
@@ -15794,7 +15792,7 @@ Rahe, Sponsor
 Address 
 36B North Howell Street, Hillsdale, MI 49242, 
 t.conner.lund@gmail.com 
-LUND GREN, Benjamin T. 
+LUNDGREN, Benjamin T. 
 Graduate Fellowship(s) 
 2002-2003 
 2003-2004 
@@ -15830,7 +15828,7 @@ Graduate Fellowship(s)
 University of Illinois, Business Administration, 
 A.Weyman Patrick, Sponsor, Ph.D., 1970 
 Address 
-224 1230 Country Club Court, Cookeville, TN 
+1230 Country Club Court, Cookeville, TN 
 38501-2050 
 LURITO, Richard J. 
 Graduate Fellowship(s) 
@@ -15940,7 +15938,7 @@ Leo Strauss, Sponsor, Ph.D., 1971
 Address 
 5904 Mt. Eagle Drive, #104, Alexandria, VA 
 22303-2535, philipblyons@aol.com 
-- LYONS, Thomas C. 
+LYONS, Thomas C. 
 Graduate Fellowship(s) 
 1961-1962 
 1962-1963 
@@ -16290,7 +16288,7 @@ Graduate Fellowship(s)
 Tufts University, International Studies, Robert 
 L. Pfaltzgraff Jr., Sponsor 
 Address 
-230 6833 Mclean Province Circle, Falls Church, VA 
+6833 Mclean Province Circle, Falls Church, VA 
 22043-1672 
 MALOBERTI, Nicolas P. 
 Graduate Fellowship(s) 
@@ -16501,7 +16499,6 @@ CA 90017-5704, mara@metropolitantrends.
 org, mmarks@lmu.edu 
 MARLEY, D. Vinson 
 Graduate Fellowship(s) 
-
 1964-1965 
 Arizona State University, Business 
 Administration, William Huizingh, Sponsor 
@@ -16540,8 +16537,6 @@ marolda@verizon.net
 MARONEY, Neal C. 
 Graduate Fellowship(s) 
 1988-1989 
-tt's 
-- 
 Claremont Graduate School, Economics, 
 Thomas D. Willett and William Craig 
 Stubblebine, Sponsors, Ph.D., 1996 
@@ -16559,7 +16554,7 @@ Politics, Catherine H. Zuckert, Sponsor, Ph.D.,
 2006 
 MARSHALL, David A. 
 MARSH, Ian 
-234 Graduate Fellowship(s) 
+Graduate Fellowship(s) 
 1978-1979 
 Harvard University, Government/Politics, 
 Edward C. Banfield, Sponsor 
@@ -17306,7 +17301,7 @@ Address
 24019-6725, Inmcnair@yahoo.com 
 MCNAMARA (ARNOLD), Carol L 
 Graduate Fellowship(s) 
-244 1987-1988 
+1987-1988 
 Boston College, Government/Politics, Robert 
 Scigliano and David Lowenthal, Sponsors, 
 Ph.D., 1996 
@@ -17745,8 +17740,7 @@ Graduate Fellowship (s)
 Northern Illinois University, Economics, 
 Morton J. Frisch, Sponsor 
 Address 
-1243 4th Street, S.W., Washington, DC 20024- 
-250 2307 
+1243 4th Street, S.W., Washington, DC 20024-2307 
 MEYER, Matthew H. 
 Graduate Fellowship (s) 
 2008-2009 
@@ -18482,7 +18476,7 @@ Address
 Senior Fellow, Hoover Institution, Stanford 
 University, Stanford, CA 94306-6010 
 3766 La Donna Avenue, Palo Alto, CA 94306, 
-260 moore@hoover.stanford.edu 
+moore@hoover.stanford.edu 
 MOO RHOUSE, John C. 
 Graduate Fellowship(s) 
 1966-1967 
@@ -19572,7 +19566,7 @@ Address
 NOYES, Neal E. 
 Graduate Fellowship(s) 
 1974-1975 
-1975-1976 ° 
+1975-1976
 Temple University, Government/Politics, Daniel 
 J. Elazar, Sponsor 
 Address 
@@ -19674,7 +19668,7 @@ Graduate Fellowship (s)
 Spring 2011 
 University of Texas, Austin, Government/ 
 Politics, Thomas L. Pangle, Sponsor, Ph.D., 
-2015 , 
+2015 
 OFFICER, Lawrence H. 
 Graduate Fellowship(s) 
 1961-1962 
@@ -19761,7 +19755,7 @@ Address
 O'LEARY, Megan E. 
 Graduate Fellowship(s) 
 2008-2009 
-278 Boston University, Sociology, Peter L. Berger, 
+Boston University, Sociology, Peter L. Berger, 
 Sponsor, Ph.D., 2015 
 Address 
 2400 24th Road S., Apt. 126, Arlington, VA 
@@ -20060,7 +20054,7 @@ Boston College, Government/Politics, Marc
 Landy, Sponsor 
 Address 
 22 Chiswick Road, Apt. 14, Brighton, MA 
-282 02135-7178, paganor@bc.edu, rpagano@yahoo. 
+02135-7178, paganor@bc.edu, rpagano@yahoo. 
 corn 
 PAIK, Daniel (Gytmg Hyun) 
 Graduate Fellowship(s) 
@@ -20201,7 +20195,7 @@ University, 249-1, Dongseon-dong 3-ga,
 Seongbuk-Gu, Seoul, 136-742, South Korea, 
 kpark@sungshin.ac.kr 
 PARK, Sang Oh 
-284 Graduate Fellowship(s) 
+Graduate Fellowship(s) 
 1960-1961 
 University of North Carolina, Economics, 
 Clarence Philbrook, Sponsor, Ph.D., 1963 
@@ -20485,7 +20479,7 @@ Milliman, Sponsor
 Address 
 Maggie Valley Real Estate, 276 Honeysuckle 
 Lane, Maggie Valley, NC 28751, Gael@ 
-288 GaelPaschall.com 
+GaelPaschall.com 
 PENNELL, Michael E. 
 Graduate Fellowship (s) 
 1989-1990 
@@ -20645,7 +20639,7 @@ Boston College, Religion, Robert P. George,
 Sponsor 
 Address 
 172 Lake Street, #2, Brighton, MA 02135, 
-290 petersnl@bc.edu 
+petersnl@bc.edu 
 PETERS JR., Ronald M. 
 Graduate Fellowship(s) 
 1973-1974 
@@ -20820,7 +20814,7 @@ Yale University, International Studies, David N.
 Rowe, Sponsor, Ph.D., 1965 
 Deceased 
 PETRUZZI, Christopher 
-292 Graduate Fellowship(s) 
+Graduate Fellowship(s) 
 1972-1973 
 University of Chicago, Business Administration, 
 Benjamin A. Rogge, Sponsor, Ph.D. 
@@ -21072,7 +21066,7 @@ Yale University, Economics, William J. Fellner,
 Sponsor, Ph.D., 1957 
 Address 
 1012 Scott Place, Ann Arbor, MI 48105-2585, 
-296 richardporter683@gmail.com 
+richardporter683@gmail.com 
 PORTER, Thomas Earl 
 Graduate Fellowship(s) 
 1987-1988 
@@ -21678,7 +21672,7 @@ McKean, Sponsor, Ph.D., 1985
 Address 
 Department of Economics & Business, 
 Colorado College, Colorado Springs, CO 
-304 80903 
+80903 
 1919 N. Cascade Avenue, Colorado Springs, 
 CO 80907, eredmount@coloradocollege.edu 
 REED JR., Gary M. 
@@ -22083,7 +22077,7 @@ Address
 ROBERTSON, Stephen L 
 Graduate Fellowship(s) 
 1983-1984 
-310 1985-1986 
+1985-1986 
 Vanderbilt University, Government/Politics, 
 William C. Havard, Sponsor 
 Address 
@@ -22513,7 +22507,7 @@ University, 600 Forbes Avenue, Pittsburgh, PA
 304 Castlegate Road, Pittsburgh, PA 15221- 
 4418, rubin@duq.edu, crubinl@ameritech.net 
 RUBIN, David Bruce 
-316 Graduate Fellowship(s) 
+Graduate Fellowship(s) 
 1979-1980 
 University of Chicago, Economics, George J. 
 Stigler, Sponsor 
@@ -24244,7 +24238,7 @@ Wilfred M. McClay, Sponsor
 Address 
 680 Fort Washington Avenue, Apt. B, New 
 York, NY 10040-3917, sitmanmj1@gmail.com, 
-340 mjs83@georgetown.edu 
+mjs83@georgetown.edu 
 SJAASTAD, Larry A. 
 Graduate Fellowship(s) 
 1958-1959 
@@ -24938,8 +24932,8 @@ Graduate Fellowship(s)
 Catholic University of America, Government/ 
 Politics, Claes G. Ryn, Sponsor, Ph.D., 2012 
 Address 
-127 Gordon Road, North Syracuse, NY 13212, 
-350 jstar348@hotmail.com 
+Gordon Road, North Syracuse, NY 13212, 
+jstar348@hotmail.com 
 STARR, Jerry D. 
 Graduate Fellowship(s) 
 1966-1967 
@@ -25696,7 +25690,7 @@ Address
 10367 Northridge Court, White Lake, MI 
 48386-2641 
 TAMOSIUNAS, Algis 
-360 Graduate Fellowship(s) 
+Graduate Fellowship(s) 
 1979-1980 
 Northwestern University, Government/Politics, 
 R. Barry Farrell, Sponsor 
@@ -25809,7 +25803,7 @@ University of Rochester, Economics, Walter Y.
 0i, Sponsor, Ph.D., 1990 
 Address 
 Mosbacher Institute, Bush School of 
-362 Government and Public Policy, Texas A&M 
+Government and Public Policy, Texas A&M 
 University, 1098 Allen Building, 4220 TAMU, 
 College Station, TX 77843 
 4723 Johnson Creek Loop, College Station, TX 
@@ -26093,7 +26087,7 @@ TIERNEY JR., John J.
 Graduate Fellowship(s) 
 1963-1964 
 University of Pennsylvania, International 
-366 Studies, William R. Kintner, Sponsor, Ph.D., 
+Studies, William R. Kintner, Sponsor, Ph.D., 
 1969 
 Address 
 The Institute of World Politics, 1521 16th 
@@ -26390,7 +26384,7 @@ Address
 5514 Tahoe Drive, Durham, NC 27713-8612, 
 nrt@duke.edu, haikuguru@yahoo.com 
 TROJNIAK, Joshua D. 
-370 Graduate Fellowship(s) 
+Graduate Fellowship(s) 
 2010-2011 
 2011-2012 
 2012-2013 
@@ -27003,7 +26997,7 @@ Georgetown University, Government/Politics,
 Howard R. Penniman, Sponsor, Ph.D., 1971 
 Deceased 
 VON SIVERS, Peter 
-378 Graduate Fellowship (s) 
+Graduate Fellowship (s) 
 1965-1966 
 University of Munich, Germany, Government/ 
 Politics, Eric Voegelin, Sponsor, Ph.D., 1967 
@@ -28551,7 +28545,7 @@ University of Georgia, Athens, GA 30602-1627
 645 Boulevard, Apt. 2, Athens, GA 30601, 
 sawright@uga.edu 
 WRUCK, Karen Hopper 
-400 Graduate Fellowship(s) 
+Graduate Fellowship(s) 
 1984-1985 
 University of Rochester, Economics, Karl 
 Brunner, Sponsor, Ph.D., 1988 
@@ -28696,7 +28690,7 @@ Address
 439 Clairemont Road, Villanova, PA 19085- 
 1705, arthuryork@hotmail.com 
 YORK, Kathy Ann 
-402 Graduate Fellowship(s) 
+Graduate Fellowship(s) 
 1981-1982 
 1982-1983 
 University of Virginia, Economics, Roland N. 
@@ -28880,7 +28874,7 @@ Winter 1987
 University of Michigan, Government/Politics, 
 George Grassmuck, Sponsor 
 ZlivIIVIERMANN, Andreas Julius 
-404 Graduate Fellowship(s) 
+Graduate Fellowship(s) 
 Fall 1981 
 University of Zurich, Switzerland, Economics, 
 Karl Brunner, Sponsor, Ph.D. 
