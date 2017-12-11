@@ -99,7 +99,7 @@
 "HINDSLEY, Janet M. ","1969-1970","","University of Virginia","","Economics","","","Roland N. ,McKean","","","","","","false"
 "HIRSCH, Barry T. ","1972-1973","","University of Virginia","","Economics","","","Roland N. ,McKean","","","undefined","bhirsch7@gmail.com","true","false"
 "HIRSHLEIFER, David A. ","1981-1982","","University of Chicago","","Economics","","","Gary S. ,Becker","","","undefined","david.h@uci.edu,honglhong@hotmail.com","true","false"
-"HOGAN, Timothy Davis ","Summer 1969","","Virginia Polytechnic Institute & State ","","Economics","true","","Wilson E. Schmidt,","","","undefined","","","false"
+"HOGAN, Timothy Davis ","Summer 1969","","Virginia Polytechnic Institute & State University","false","Economics","true","","Wilson E. Schmidt,","","","undefined","","","false"
 "HOLMES, James M. ","1960-1961","","University of Chicago","","Economics","","","John V. Van ,Sickle","","","undefined","","","false"
 "HOUSER, Sarah L. ","2006-2007","","University of Notre Dame","","Government/Politics","","","Michael P. Zuckert","","","undefined","houser@american.edu","true","false"
 "HOYE, Timothy Kevin ","1971-1972","","Duke University","","Government/Politics","","","G. Ellis ,Sandoz","","","undefined","hoye@twu.edu,thoye@aol.com","true","false"
