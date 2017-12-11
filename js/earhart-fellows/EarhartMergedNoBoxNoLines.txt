@@ -626,7 +626,7 @@ Office of the Chancellor, University of Arkansas
 at Little Rock, 2801 S. University Avenue, Little 
 Rock, AR 72204 
 5801 W. 28th Street, Little Rock, AR 72204- 
-4907, chancellor@uakedu 
+4907, chancellor@uak.edu 
 ANDERSON, G. Edward 
 Graduate Fellowship(s) 
 1982-1983 
@@ -806,7 +806,7 @@ Departments of Philosophy, 599 Lucas Hall,
 University of Missouri, St. Louis, 1 University 
 Boulevard, Saint Louis, MO 63121 
 197 Sanctuary Drive, O'Fallon, MO 63368- 
-8274, ajarico@gmail.com, aricoa@umsLedu 
+8274, ajarico@gmail.com, aricoa@umsl.edu 
 ARIS, E. Maynard 
 Graduate Fellowship(s) 
 1961-1962 
@@ -1861,7 +1861,7 @@ University, VU Station B #351817, Nashville,
 TN 37235-1817 
 743 Rolling Fork Drive, Brentwood, TN 
 37027-5919, bvbenson@gmail.com, brett. 
-benson@vanderbiltedu 
+benson@vanderbilt.edu 
 BENTLEY, Randall B. 
 Graduate Fellowship(s) 
 1988-1989 
@@ -3022,7 +3022,7 @@ Georgetown University, Government/Politics,
 Patrick J. Deneen, Sponsor 
 Address 
 6212 Kilmer Street, Cheverly, MD 20785-1247, 
-chesed.broggi@gmail.com, chesedcoppenger@hotmail. com 
+chesed.broggi@gmail.com, chesedcoppenger@hotmail.com 
 BROIDA, Arthur L. 
 Graduate Fellowship(s) 
 1960-1961 
@@ -3482,7 +3482,7 @@ Institute of Technology, 92 Lomb Memorial
 Drive, Rochester, NY 14623 
 44 Vick Park A, Apt. 1, Rochester, NY 14607- 
 2168, sarahmackenziebums@gmail.com, 
-smburns@mail.rizedu 
+smburns@mail.riz.edu 
 BURTON, Ramona 
 Graduate Fellowship(s) 
 1996-1997 
@@ -3881,7 +3881,7 @@ University of California. Santa Barbara,
 Economics, M. Bruce Johnson, Sponsor 
 Address 
 905 E. Twain Avenue, Apt. A30, Las Vegas, NV 
-89169-4084, hikerne@comcas t. net 
+89169-4084, hikerne@comcast.net 
 CARLSSON, Eric W. 
 Graduate Fellowship(s) 
 1991-1992 
@@ -5005,7 +5005,7 @@ Address
 Department of History, Montreat College, 310 
 Gaither Circle, Montreat, NC 28757 
 301 Richmond Avenue, Swannanoa, NC 
-28778-3114, pconnelly@montreatedu 
+28778-3114, pconnelly@montreat.edu 
 CONNER, Erin M. 
 Graduate Fellowship(s) 
 2002-2003 
@@ -5201,7 +5201,7 @@ Address
 Honors Program, Honors College, Baylor 
 University One Bear Place, #97122, Waco, TX 
 76798-7122 
-500 North Park, Waco, TX 76708, Elizabeth_Corey@baylocedu 
+500 North Park, Waco, TX 76708, Elizabeth_Corey@bayloc.edu 
 CORIVEJO, Felipe 
 Graduate Fellowship(s) 
 1964-1965 
@@ -5856,7 +5856,7 @@ Address
 Department of Economics, St. Olaf College, 
 1520 St. Olaf Avenue, Northfield, MN 55057 
 614 5th Street, E., Northfield, MN 55057- 
-2322, dalgaard@stolafedu 
+2322, dalgaard@stolaf.edu 
 DALTON, Robert S. 
 Graduate Fellowship(s) 
 1983-1984 
@@ -5891,7 +5891,7 @@ Director of Public Administration Program,
 University of South Florida, 4202 E Fowler 
 Avenue SOC107, Tampa, FL 33620 
 14034 Notreville Way, Tampa, FL 33624, 
-jdaly@usfedu 
+jdaly@usf.edu 
 D'AM.ELIO, Joseph P. 
 Graduate Fellowship(s) 
 1969-1970 
@@ -6027,7 +6027,7 @@ Sponsor, Ph.D., 1985
 Address 
 2235 Southgate Boulevard, Houston, TX 
 77030-1120, mndavis@mayerbrownrowe.com, 
-davis.margaret@attnet 
+davis.margaret@att.net 
 DAVIS, Matthew K. 
 Graduate Fellowship(s) 
 1990-1991 
@@ -6039,7 +6039,7 @@ Graduate Institute Director, St. John's College,
 1160 Camino Cruz Blanca, Santa Fe, NM 
 87505-4599 
 650 Granada Street, Santa Fe, NM 87505- 
-8839, mdavis@sjcsfedu 
+8839, mdavis@sjcsf.edu 
 DAVIS, Reed M. 
 Graduate Fellowship(s) 
 1984-1985 
@@ -6567,7 +6567,7 @@ Department of Political Science, Rochester
 Institute of Technology, 92 Lomb Memorial 
 Drive, Rochester, NY 14623 
 115 Harwood Circle, W., Rochester, NY 
-14625-1622, nathan.dinneen@ritedu 
+14625-1622, nathan.dinneen@rit.edu 
 DIPASQUALE, David M. 
 Graduate Fellowship(s) 
 Spring 1993 
@@ -6723,7 +6723,7 @@ Fordham University, Government/Politics,
 Francis Canavan, Sponsor, Ph.D., 1983 
 Address 
 168 Country Club Road, Hopewell Junction, 
-NY 12533-6256, adonovan@comcastnet 
+NY 12533-6256, adonovan@comcast.net 
 DONOVAN, John Vincent 
 Graduate Fellowship(s) 
 1964-1965 
@@ -7243,7 +7243,7 @@ University of Georgia, Business Administration,
 Harold M. Heckman, Sponsor 
 Address 
 1165 Rosewood Drive, Alpharetta, GA 30005- 
-8320, jedwards4568@attnet 
+8320, jedwards4568@att.net 
 EDWARDS, James Wyatt 
 Graduate Fellowship(s) 
 1964-1965 
@@ -9241,7 +9241,7 @@ and Research, 530 Edgemont Road,
 Charlottesville, VA 22903 
 1191 Raintree Drive, #2, Charlottesville, VA 
 22901-0905, JS.Gillespie@VDOT.Virginia.gov, 
-jsgillespie@earthlinknet 
+jsgillespie@earthlink.net 
 GILLESPIE, Kathleen N. 
 Graduate Fellowship(s) 
 1983-1984 
@@ -9980,7 +9980,7 @@ West Alabama, Station 22, Livingston, AL
 35470 
 3615 Rainbow Drive, Tuscaloosa, AL 35405-
 5331, mgriffith@uwa.edu, 
-mfgriffith@bellsouth. net 
+mfgriffith@bellsouth.net 
 GRINDER, Walter Eugene 
 Graduate Fellowship(s) 
 1967-1968 
@@ -10707,7 +10707,7 @@ Duke University, Economics, Joseph J. Spengler,
 Sponsor 
 Address 
 817 First Parish Road, Scituate, MA 02066- 
-3116, douglas.hardy@epix.net, douglas.hardy@charter, net 
+3116, douglas.hardy@epix.net, douglas.hardy@charter.net 
 HARING-COZZI (HARING), Chelsea L. 
 Graduate Fellowship (s) 
 2005-2006 
@@ -10802,7 +10802,7 @@ Address
 Department of Economics, University of 
 Delaware, Newark, DE 19716 
 2808 College View Drive, Churchville, MD 
-21028, harrisw@lerner.udeLedu 
+21028, harrisw@lerner.udeL.edu 
 HARRISON JR., James P. 
 Graduate Fellowship(s) 
 1964-1965 
@@ -12111,7 +12111,7 @@ Department of Political Science, Kean
 University, 1000 Morris Avenue, Union, NJ 
 07083 
 114 Southwood Drive, Old Bridge, NJ 08857, 
-rhunt@keamedu 
+rhunt@kean.edu 
 HUNT, Shane J. 
 Graduate Fellowship(s) 
 1959-1960 
@@ -12564,7 +12564,7 @@ Address
 Department of Politics, Saint Vincent College, 
 300 Fraser Purchase Road, Latrobe, PA 15650 
 1217 Scenic Drive, Latrobe, PA 15650, jason. 
-jividen@stvincentedu 
+jividen@stvincent.edu 
 JOHNSON, Alton C. 
 Graduate Fellowship(s) 
 1956-1957 
@@ -13423,7 +13423,7 @@ Department of Political Science, University of
 Rhode Island, 80 Upper College Road, Suite 4, 
 Kingston, RI 02881 
 1615 South Road, Kingston, RI 02881, 
-HookShot@URLedu 
+HookShot@URL.edu 
 KIM, Ha-Ryong 
 Graduate Fellowship(s) 
 1968-1969 
@@ -14510,7 +14510,7 @@ Department of Political Science, McDaniel
 College, 2 College Hill, Westminster, MD 
 21157 
 12407 Garrison Forest Road, Owings Mills, 
-MD 21117, deahy@mcdanieLedu 
+MD 21117, deahy@mcdanieL.edu 
 LEASURE, James William 
 Graduate Fellowship (s) 
 1959-1960 
@@ -15985,7 +15985,7 @@ Historian, Suite 5000, Rosslyn Plaza North,
 1777 N. Kent Street, Arlington, VA 22209 
 4855 Bayard Boulevard, Bethesda, MD 20816-
 1784, erin.mahan@osd.mil, 
-erinmahan@yahoo. com 
+erinmahan@yahoo.com 
 MAHONEY, Dennis John 
 Graduate Fellowship(s) 
 1977-1978 
@@ -16009,7 +16009,7 @@ Economics, Jack Hirshleifer, Sponsor, Ph.D.,
 Address 
 College of Business, Holcomb Building 
 255, Butler University, 4600 Sunset Avenue, 
-Indianapolis, IN 46208, rmain@butletedu 
+Indianapolis, IN 46208, rmain@butlet.edu 
 MAIN, Thomas J. 
 Graduate Fellowship(s) 
 1986-1987 
@@ -16671,7 +16671,7 @@ Georgetown University, Government/Politics,
 Howard R. Penniman, Sponsor 
 Address 
 205 Yoakum Parkway, #916, Alexandria, VA 
-22304-3800, mmcauliffe@aoLcom 
+22304-3800, mmcauliffe@aoL.com 
 MCAULIFFE JR., Robert Edwin 
 Graduate Fellowship(s) 
 1977-1978 
@@ -18752,7 +18752,7 @@ Address
 Diane Halle Library, Room #114, Endicott 
 College, 376 Hale Street, Beverly, MA 01915 65 
 Bridge Street, Manchester, MA 01944-1462, 
-jmussach@endicottedu 
+jmussach@endicott.edu 
 MUSTAFA, Mentor 
 Graduate Fellowship(s) 
 2005-2006 
@@ -19212,7 +19212,7 @@ Department of Economics and Business,
 Westmont College, 955 La Paz Road, Santa 
 Barbara, CA 93108 
 855 Westmont Road, Santa Barbara, CA 
-93108-1034, noell@westmontedu 
+93108-1034, noell@westmont.edu 
 NOETHER, Monica G. 
 Graduate Fellowship(s) 
 1981-1982 
@@ -20060,7 +20060,7 @@ Wayne State University, Government/Politics,
 Robert E. Pickup, Sponsor 
 Address 
 2117 Tomahawk Road, Okemos, MI 48864- 
-2130, smpaterson@comcastnet 
+2130, smpaterson@comcast.net 
 PATRICK, A.Weyman 
 Graduate Fellowship(s) 
 Summer 1954 
@@ -20196,7 +20196,7 @@ Graduate Fellowship(s)
 Georgetown University, Economics, Goetz A. 
 Briefs, Sponsor, Ph.D., 1963 
 Address 
-6959 Joyce Way, Dallas, TX 75225, pejovicl@sbcglobatnet 
+6959 Joyce Way, Dallas, TX 75225, pejovicl@sbcglobat.net 
 PELLATHY, Gabriel S. 
 Graduate Fellowship(s) 
 1966-1967 
@@ -20850,7 +20850,7 @@ A&T State University, 1601 E. Market Street,
 Greensboro, NC 27411 
 3701 Cotswold Terrace, Unit 7K, Greensboro, 
 NC 27410-8903, porter@lacrosse.com, 
-portert@ncatedu 
+portert@ncat.edu 
 PORTE, Richard H. 
 Graduate Fellowship(s) 
 1977-1978 
@@ -20887,7 +20887,7 @@ University of Dallas, Government/Politics, Leo
 Paul S. de Alvarez, Sponsor, M.A., 1989 
 Address 
 4206 Las Palmas Drive, Austin, TX 78759- 
-5061, johnmposey3@sbcglobatnet 
+5061, johnmposey3@sbcglobat.net 
 POST, Matthew D. 
 Graduate Fellowship(s) 
 2005-2006 
@@ -21038,7 +21038,7 @@ Mason School of Business, Miller Hall 2039-H,
 College of William & Mary, P. 0. Box 8795, 
 Williamsburg, VA 23187 
 20 Mile Course, Williamsburg, VA 23185- 
-5525, Larry.Pulley@mason.wm.edu, lpulley@cox. net 
+5525, Larry.Pulley@mason.wm.edu, lpulley@cox.net 
 PUMPHREY JR., John W. 
 Graduate Fellowship(s) 
 1977-1978 
@@ -21249,7 +21249,7 @@ Department of Government, University of West
 Florida, 11000 University Parkway, 50/127, 
 Pensacola, FL 32514 
 7673 Northpointe Drive, Pensacola, FL 32514, 
-dramsey1@uwEedu 
+dramsey1@uwE.edu 
 RANTALA, Lauri M. 
 Graduate Fellowship(s) 
 1981-1982 
@@ -21370,7 +21370,7 @@ Criminal Justice, Regent University, 1000
 Regent University Drive, Virginia Beach, VA 
 23464 
 5716 Earnhardt Street, Virginia Beach, VA 
-23464, wreddinger@regentedu, wt_reddinger@yahoo. com 
+23464, wreddinger@regentedu, wt_reddinger@yahoo.com 
 REDDY, William H. 
 Graduate Fellowship(s) 
 1958-1959 
@@ -24083,7 +24083,7 @@ Department of Political Science & Law,
 Montclair State University, 1 Normal Avenue, 
 Montclair, NJ 07043 
 53 N. Maryland Avenue, Lake Hopatcong, NJ 
-07849, smithbr@mail.montclaitedu 
+07849, smithbr@mail.montclair.edu 
 SMITH, David L. 
 Graduate Fellowship(s) 
 1961-1962 
@@ -24115,9 +24115,9 @@ University of Pennsylvania, Government/
 Politics, Charles E. Schutz, Sponsor 
 Address 
 119 W. Jefferson Street, Grand Ledge, MI 
-48837, kalminsmit@aoLcom 
-SMITH (MARTIN), Kathryn 
-N. Graduate Fellowship(s) 
+48837, kalminsmit@aoL.com 
+SMITH (MARTIN), Kathryn N. 
+Graduate Fellowship(s) 
 1996-1997 
 1997-1998 
 University of Dallas, English, John E. 
@@ -24239,7 +24239,7 @@ South Florida, St. Petersburg, 140 Seventh
 Avenue South, Saint Petersburg, FL 33701 
 1172 26th Avenue, N., Saint Petersburg, 
 FL 33704-2630, thomasbey@yahoo.com, 
-twsmith2@mail.usfedu 
+twsmith2@mail.usf.edu 
 SMITH, Timothy R. 
 Graduate Fellowship(s) 
 2005-2006 
@@ -27934,7 +27934,7 @@ Address
 Uris Hall, Room 468, Cornell University, 
 Ithaca, NY 14853 
 132 Tompkins Street, Cortland, NY 13045, 
-jpw6@corneledu 
+jpw6@cornel.edu 
 WITT, John Anthony 
 Graduate Fellowship(s) 
 1982-1983 
