@@ -3616,7 +3616,7 @@ Florida State University, Economics, William A.
 Paton Jr. and Homer A. Black, Sponsors, Ph.D., 
 1973 
 Deceased 
-BUZZETTI, Eric 53 
+BUZZETTI, Eric 
 Graduate Fellowship (s) 
 1993-1994 
 Boston College, Government/Politics, Robert 
@@ -10153,7 +10153,7 @@ McKean, Sponsor, Ph.D., 1984
 Address 
 1020 E. 45th Street, Apt. 211, Austin, TX 
 78751-4108, pjgrossman@stcloudstate.edu 
-GROVE, John G. 145 
+GROVE, John G. 
 Graduate Fellowship(s) 
 2012-2013 
 2013-2014 
@@ -14332,7 +14332,7 @@ Graduate Fellowship(s)
 1981-1982 
 Carnegie-Mellon University, Economics, Lester 
 B. Lave, Sponsor, Ph.D. 
-LAEHN, Thomas It 203 
+LAEHN, Thomas It 
 Graduate Fellowship(s) 
 2005-2006 
 2006-2007 
@@ -14899,7 +14899,7 @@ Address
 50 Greenough Street, Brookline, MA 02445- 
 6140, dehmann@newamericancentury.org, 
 timlehmann@gmail.com 
-LEHN, Kenneth M. 211 
+LEHN, Kenneth M. 
 Graduate Fellowship(s) 
 1980-1981 
 Washington University, Economics, Murray L. 
@@ -19043,7 +19043,7 @@ NATHANSON, Philip David
 Graduate Fellowship(s) 
 1974-1975 
 University of Michigan, Economics, Paul W. 
-268 McCracken, Sponsor 
+McCracken, Sponsor 
 Address 
 787 Fairfield Circle, Pasadena, CA 91106-3903 
 NATICE, Paul A. 
@@ -26484,7 +26484,7 @@ Romney Institute of Public Management,
 Brigham Young University, Provo, UT 84602 
 479 E. 300 N. 1, Provo, UT 84606, tyturley@ 
 gmail.com 
-TURNAGE, D. William 371 
+TURNAGE, D. William 
 Graduate Fellowship(s) 
 2006-2007 
 University of Dallas, Philosophy, John E. Alvis, 
@@ -26647,7 +26647,6 @@ Wake Forest University, 1834 Wake Forest
 Road, Winston Salem, NC 27106 
 794 Gateshaven Lane, Winston Salem, NC 
 27103-9747, utleyrl@wfu.edu 
-UY, Marilou Jane D. 
 VAN ELICAN, Rachel N. 
 Graduate Fellowship(s) 
 1987-1988 
@@ -26683,9 +26682,9 @@ philosophychad@gmail.com
 VAUGHAN, Geoffrey M. 
 Graduate Fellowship(s) 
 1994-1995 
-University of Oxford. United Kingdom, 
-Government/Politics, Robert K. Faulkner, 
-Sponsor, D.Phil., 1999 
+University of Oxford. United Kingdom, Government/Politics, 
+Robert K. Faulkner, Sponsor, D.Phil., 1999 
+UY, Marilou Jane D. 
 Graduate Fellowship(s) 
 1983-1984 
 University of California. Los Angeles, 
