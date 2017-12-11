@@ -43,7 +43,7 @@
 "COMPTON, Benjamin H. ","2009-2010","","Clemson University","","Economics","","","Cotton M. ,Lindsay","","","undefined","bcompton@utk.edu","true","false"
 "CONNER, Erin M. ","2002-2003","","Fordham University","","Government/Politics","","",",Mary P. Nichols","","","undefined","erin_m_conner@yahoo.com","true","false"
 "COOPER JR., George E. ","1968-1969","","University of Michigan","","History","","","Clifton L. ,Gallus Jr.","","","undefined","","","false"
-"COREY, Elizabeth Campbell ","1998-1999,1999-2000,2000-2001,2002-2003","","Louisiana State University Government/Politics","false","G. Ellis Sandoz Jr.","true","true","","Ph.D.","2004","undefined","","","false"
+"COREY, Elizabeth Campbell ","1998-1999,1999-2000,2000-2001,2002-2003","","Louisiana State University","","Government/Politics","","",",G. Ellis Sandoz Jr.","Ph.D.","2004","undefined","","","false"
 "CORIVEJO, Felipe ","1964-1965","","Claremont Graduate School","","Government/Politics","","","William S. Stokes","","","","","","false"
 "COUCH (KFALIHER), Amy C. ","Spring 2001","","Fortlham University","false","Government/Politics","","",",Mary P. Nichols","","","undefined","amy.kealiher@gmail.com","true","false"
 "CRANK, T. Harvey ","1959-1960","","University of Virginia","","Economics","","","G. Warren ,Nutter and James M. Buchanan","","","","","","false"
