@@ -96,9 +96,7 @@ async function fpWait() {
 // also, don't write empty lines
 // TODO: click go to next button and get more stages
 function fpHandleData(sLineOfText) {
-    //sLineOfText = sLineOfText.replace(', ', '~');
-
-    const arrsCellText = sLineOfText.split(',');
+    const arrsCellText = sLineOfText.replace(', ', '~').split(',');
     const oOriginalData = {
         _stack: arrsCellText[0],
         name: fsTrimMore(arrsCellText[1]),
@@ -157,14 +155,12 @@ async function fpScrapeInputRecord(sUrl) {
     poScrapeResult = await executionContext.evaluate((_iCurrentInputRecord) => {
         return _fpWait(900)
             .then(function () {
-                /*
                 let _sEmail = $('.emaillabel').parent().find('td span').text();
                 let _arroAffiliations = [];
-                */
 
                 return Promise.resolve({
-                    'email': '_sEmail',
-                    'affiliations': '_arroAffiliations'
+                    'email': _sEmail,
+                    'affiliations': _arroAffiliations
                 });
             })
             .catch(function (err) {
