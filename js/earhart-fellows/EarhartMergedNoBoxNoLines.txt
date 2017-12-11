@@ -397,7 +397,7 @@ Politics, Martin Diamond, Sponsor, Ph.D.,
 1972 
 Address 
 814 Market Street, Havre de Grace, MD 
-21078, allenwi@msu.edu, W B Allen@williambarclayallen.com 
+21078, allenwi@msu.edu, WBAllen@williambarclayallen.com 
 ALLEN JR., William L 
 Graduate Fellowship (s) 
 1964-1965 
@@ -1304,7 +1304,7 @@ Harvard University, Economics, Noel
 B. Reynolds, Sponsor, Ph.D. 
 Address 
 59 Partridge Lane, Belmont, MA 02478-1134, 
-jbarnes@fas.harvard.edu jesse.g.barnes@gmail.com 
+jbarnes@fas.harvard.edu, jesse.g.barnes@gmail.com 
  
 BARNES, Margaret M. 
 Graduate Fellowship(s) 
@@ -5201,8 +5201,7 @@ Address
 Honors Program, Honors College, Baylor 
 University One Bear Place, #97122, Waco, TX 
 76798-7122 
-500 North Park, Waco, TX 76708, Elizabeth_ 
-Corey@baylocedu 
+500 North Park, Waco, TX 76708, Elizabeth_Corey@baylocedu 
 CORIVEJO, Felipe 
 Graduate Fellowship(s) 
 1964-1965 
@@ -5563,8 +5562,7 @@ Machlup, Sponsor, Ph.D., 1964
 Address 
 Vice President, Bloomfield College, 467 
 Franklin Street, Bloomfield, NJ 07003 
-21 Andrews Lane, Princeton, NJ 08540, john_ 
-cross@bloomfield.edu 
+21 Andrews Lane, Princeton, NJ 08540, john_cross@bloomfield.edu 
 CROSS, Laura A. 
 Graduate Fellowship(s) 
 2004-2005 
@@ -6689,7 +6687,7 @@ Address
 Donahoe 8c Young LLP, 16133 Ventura 
 Boulevard, 7th Floor, Encino, CA 91436-2403 
 17318 Quesan Place, Encino, CA 91316-3936, 
-tcdesq@earthlink. net, hello1989@gmail.com 
+tcdesq@earthlink.net, hello1989@gmail.com 
 DONALDSON, John B. 
 Graduate Fellowship(s) 
 1974-1975 
@@ -7024,7 +7022,7 @@ Bowling Green State University, Philosophy,
 Ellen Frankel Paul, Sponsor 
 Address 
 455 W. Burgundy Street, Unit 1538, Highlands 
-Ranch, CO 80129-6627, Ben.thinks@gmail.com bdyer@bgsu.edu 
+Ranch, CO 80129-6627, Ben.thinks@gmail.com, bdyer@bgsu.edu 
 DYKEMA, Eugene R. 
 Graduate Fellowship(s) 
 1978-1979 
@@ -7272,8 +7270,7 @@ Address
 Office of the Provost, Southern Virginia 
 University, One University Hill Drive, Buena 
 Vista, VA 24416 
-55 Ridgefield Way, Lexington, VA 24450, paul_ 
-edwards@southernvirginia.edu 
+55 Ridgefield Way, Lexington, VA 24450, paul_edwards@southernvirginia.edu 
 EDWARDS, Thomas L. 
 Graduate Fellowship(s) 
 Summer 1967 
@@ -10243,8 +10240,7 @@ Address
 Department of Political Science, San Jose 
 State University, San Jose, CA 95192 
 144 S. 3rd Street, Apt. 401, San Jose, CA 
-95112-6500, peter.haas@sjsu.edu, peter_ 
-haas@2xtreme.net 
+95112-6500, peter.haas@sjsu.edu, peter_haas@2xtreme.net 
 HAAS, Richard D. 
 Graduate Fellowship(s) 
 1967-1968 
@@ -11334,7 +11330,7 @@ Department of Political Science, College of the
 Holy Cross, 1 College Street, Worcester, MA 
 01610 
 41 Richmond Avenue, Apt. 2, Worcester, MA 
-01602, Carly.Baruh@gmail.com carly.baruh@utexas.edu 
+01602, Carly.Baruh@gmail.com, carly.baruh@utexas.edu 
 HERSCH, Cy Stefan 
 Graduate Fellowship(s) 
 1997-1998 
@@ -12229,8 +12225,7 @@ Address
 Department of Economics, North Carolina 
 State University, P.O. Box 8110, Raleigh, NC 
 27695 
-306 Furches Street, Raleigh, NC 27607, david_ 
-hyman@ncsu.edu 
+306 Furches Street, Raleigh, NC 27607, david_hyman@ncsu.edu 
 IACHETTA, Michael S. 
 Graduate Fellowship(s) 
 1991-1992 
@@ -14988,7 +14983,7 @@ University of Chicago, Government/Politics,
 Joseph Cropsey, Sponsor 
 Address 
 Lucas Group, 230 West Monroe Street, Suite 
-850, Chicago, IL 60606, davidnlevy@yahoo.com DLevy@LucasGroup.com 
+850, Chicago, IL 60606, davidnlevy@yahoo.com, DLevy@LucasGroup.com 
 LEVY, David T. 
 Graduate Fellowship(s) 
 1976-1977 
@@ -16635,7 +16630,7 @@ Address
 Development Office, Gordon College, 255 
 Grapevine Road, Wenham, MA 01984 
 2 Chapel Hill Rd, Beverly, MA 01915-1313 
-pmaurer@sterling.edu jmaurer@sterling.edu 
+pmaurer@sterling.edu, jmaurer@sterling.edu 
 MAUST, Robert S. 
 Graduate Fellowship (s) 
 1960-1961 
@@ -18305,7 +18300,7 @@ Address
 Department of English, University of Dallas, 
 1845 East Northgate Drive, Irving, TX 75062 
 2503 Newton Circle East, Irving, TX 75062, 
-amoran@udallas.edu adfmoran@yahoo.com 
+amoran@udallas.edu, adfmoran@yahoo.com 
 MORAN, Russell L 
 Graduate Fellowship(s) 
 1960-1961 
@@ -21621,7 +21616,7 @@ University of Washington, 569 Paccar Hall
 Foster School of Busines, Box 353226, Seattle, 
 WA 98195- 
 4181 42Nd Ave Ne, Seattle, WA 98105-5124 
-erice1023@attbi.com edward.rice@excite.com 
+erice1023@attbi.com, edward.rice@excite.com 
 RICE, Jeffrey 
 Graduate Fellowship(s) 
 2005-2006 
@@ -23430,8 +23425,7 @@ Department of Philosophy, St. Mary's Seminary
 & University, 5400 Roland Avenue, Baltimore, 
 MD 21210 
 500 W. University Parkway, Apt. 15T, 
-Baltimore, MD 21210-3334, seaton_ 
-pau12004@yahoo.com, PSeaton@stmarys.edu 
+Baltimore, MD 21210-3334, seaton_pau12004@yahoo.com, PSeaton@stmarys.edu 
 SEBELL, Dustin A. 
 Graduate Fellowship (s) 
 2009-2010 
@@ -27849,8 +27843,7 @@ Lewis and Milton Friedman, Sponsors, Ph.D.,
 Address 
 Department of Economics, Brigham Young 
 University, Provo, UT 84602-2363 
-396 West 4150 North, Provo, UT 84604, larry_ 
-wimmer@byu.edu 
+396 West 4150 North, Provo, UT 84604, larry_wimmer@byu.edu 
 WINBORNE, Warner R. 
 Graduate Fellowship (s) 
 1991-1992 
