@@ -447,7 +447,7 @@ Government/Politics, Charles E. Butterworth,
 Sponsor, Ph.D., 2011 
 ALMON JR., Clopper 
 Graduate Fellowship(s) 
-H. B. Earhart Fell, 
+
 1959-1960 
 Harvard University, Economics, Gottfried 
 Haberler, Sponsor, Ph.D., 1962 
@@ -4634,15 +4634,14 @@ Social Science Center, University of New
 Hampshire, Durham, NH 03824 
 227 Corey Road, Brighton, MA 02135-8323, 
 rebecca.clark@unh.edu 
-CLARICE, Michael P. 
 CLARK, William Michael 
 Graduate Fellowship(s) 
 1975-1976 
 University of Virginia, Economics, Roland N. 
 McKean, Sponsor 
 Address 
-1830 Coventry Lane, Nichols Hills, OK 73120- 
-4704 
+1830 Coventry Lane, Nichols Hills, OK 73120-4704 
+CLARKE, Michael P. 
 Graduate Fellowship(s) 
 1991-1992 
 1992-1993 
@@ -4672,7 +4671,7 @@ Economics, Armen A. Alchian, Sponsor, Ph.D.,
 Address 
 1509 Garcia Avenue, Miami, FL 33146, 
 kwclarkson@aol.com 
-.FFTON, David L 
+CLEETON, David L 
 Graduate Fellowship(s) 
 1979-1980 
 Washington University, St. Louis, Economics, 
@@ -7337,7 +7336,6 @@ Slusser, Sponsor
 Address 
 178 Pennington Harbourton Road, Pennington, 
 NJ 08534-1415 
-EHR/VIANTRAUT, Michael 
 EDWARDS, Paul S. 
 Graduate Fellowship(s) 
 1988-1989 
@@ -7372,6 +7370,7 @@ University of Chicago, Economics, George J.
 Stigler, Sponsor 
 Address 
 215 Regatta Dr, Jupiter, FL 33477-4075 
+EHRMANTRAUT, Michael 
 Graduate Fellowship(s) 
 1992-1993 
 Boston College, Government/Politics, Robert 
@@ -7482,7 +7481,7 @@ Department of Political Science, Horwitz
 House, Kenyon College, Gambier, OH 43022 
 20041 Baker Road, Gambier, OH 43022-9687, 
 elliottj@kenyon.edu 
-H. B. Earhart Fell, 
+
 ELLIOTT, T. Lynn 
 Graduate Fellowship (s) 
 1989-1990 
@@ -8631,7 +8630,7 @@ Street, N.W., Sixth Floor, Washington, DC
 20005 
 10009 Weatherwood Court, Potomac, MD 
 20854-2171, hillel@hillelfradkin.com 
-H. B. Earhart Fell, 
+
 FRAM, Daniel H. 
 Graduate Fellowship(s) 
 2013-2014 
@@ -8815,6 +8814,7 @@ University of Arkansas, Business
 Administration, Nolan E. Williams, Sponsor 
 Address 
 1105 Ash Street, Blossom, TX 75416-2342 
+
 Graduate Fellowship(s) 
 1960-1961 
 University of Chicago, Economics, H. Gregg 
@@ -8924,7 +8924,7 @@ Administration, Paul W. McCracken, Sponsor
 Address 
 1235 Hearthside Drive, Saint Charles, MO 
 63304-4524 
-H. B. Earhart Fell, 
+
 GAMAGE, Robert D. 
 Graduate Fellowship(s) 
 1969-1970 
@@ -10335,7 +10335,7 @@ Address
 4907 Camp Street, Apt. D, New Orleans, IA 
 70115, cgustafs@tulane.edu 
 GUZMAN, Raymundo 
-H. B. Earhart Fell, 
+
 Graduate Fellowship(s) 
 1959-1960 
 University of Chicago, Economics, Wilhelm 
@@ -10476,7 +10476,7 @@ Sponsor, Ph.D., 1998
 Address 
 20877 Needlepine Court, Ashburn, VA 20147, 
 hajdo@adelphia.net 
-H. B. Earhart Fell, 
+
 HAICALA, Scott D. 
 Graduate Fellowship (s) 
 1985-1986 
@@ -11057,7 +11057,7 @@ Washington, DC 20036
 440 Rhode Island Avenue, N.W., #302, 
 Washington, DC 20001-2214, amy.haskell@ 
 gmail.com, amy_haskell@tws.org 
-H. B. Earhart Fell, 
+
 HASLER, Fred Albert 
 Graduate Fellowship(s) 
 1971-1972 
@@ -11211,7 +11211,7 @@ Address
 1415 Aldenham Lane, Reston, VA 20190-3903 
 HEATH, Will Carrington 
 Graduate Fellowship(s) 
-H. B. Earhart Fell, 
+
 1979-1980 
 Louisiana State University, Economics, William 
 E Campbell, Sponsor, Ph.D., 1983 
@@ -11642,7 +11642,7 @@ M.A.
 Address 
 4814 S.E. 30th Avenue, #128, Portland, OR 
 97202-4419 
-H. B. Earhart Fell, 
+
 HILL, Kent R. 
 Graduate Fellowship(s) 
 1978-1979 
@@ -11782,7 +11782,7 @@ Graduate Fellowship (s)
 University of Virginia, Economics, G. Warren 
 Nutter, Sponsor 
 Deceased 
-H. B. Earhart Fell, 
+
 HOEPFL, Craig 
 Graduate Fellowship(s) 
 1981-1982 
@@ -12353,7 +12353,7 @@ L. Pfaltzgraff Jr., Sponsor
 Address 
 74 N. Wooded Brook Circle, Spring, TX 
 77382-1251 
-H. B. Earhart Fell, 
+
 HWANG, Chi Ku 
 Graduate Fellowship(s) 
 1976-1977 
@@ -12939,7 +12939,7 @@ Sponsors, M.A., 2010
 Address 
 211 Prince Street, Alexandria, VA 22314, 
 mikaela.joseph@gmail.com 
-H. B. Earhart Fell, 
+
 JOSEPHSON, Peter 
 Graduate Fellowship(s) 
 1992-1993 
@@ -13238,7 +13238,7 @@ Address
 1904 Pacific Avenue, #4, Venice, CA 90291- 
 4189 
 KEENAN, Robert 
-H. B. Earhart Fell, 
+
 Graduate Fellowship(s) 
 1958-1959 
 1959-1960 
@@ -15415,7 +15415,7 @@ Ohio State University, Economics, George W.
 Eckelberry, Sponsor, Ph.D., 1962 
 LINDSTROM, Talbot 
 Graduate Fellowship(s) 
-H. B. Earhart Fell, 
+
 1965-1966 
 Stanford University, Law, W. Glenn Campbell, 
 Sponsor 
@@ -16888,7 +16888,7 @@ Government/Politics, Deil S. Wright, Sponsor,
 Ph.D. 
 MCALTLIFFE, Marguerite 
 Graduate Fellowship(s) 
-H. B. Earhart Fell, 
+
 1977-1978 
 1978-1979 
 Georgetown University, Government/Politics, 
@@ -17183,13 +17183,13 @@ Briefs, Sponsor, Ph.D., 1967
 Address 
 5013 Brookdale Road, Bethesda, MD 20816- 
 1709, fmcelroy@iwon.com 
-......, 
+
 MCFADDEN, Daniel Little 
 Graduate Fellowship(s) 
 1960-1961 
 University of Minnesota, Economics, Francis 
 M. Boddy, Sponsor, Ph.D., 1962 
-H. B. Earhart Fell, 
+
 MCFADDEN, Vernon 
 Graduate Fellowship(s) 
 1958-1959 
@@ -17775,7 +17775,7 @@ Buchanan, Sponsor, Ph.D., 1989
 Address 
 13-3366 Kaupili Street, Pahoa, HI 96778, 
 hmessenheimer@earthlink.net 
-H. B. Earhart Fell, 
+
 METCALF, John G. 
 Graduate Fellowship (s) 
 1973-1974 
@@ -18513,7 +18513,7 @@ Department of History, University of Iowa, 280
 Schaeffer Hall, Iowa City, IA 52242 
 1685 Ridge Road, Iowa City, IA 52245, 
 michael-e-moore@uiowa.edu 
-H. B. Earhart Fell, 
+
 MOORE, R. Randall 
 Graduate Fellowship(s) 
 1992-1993 
@@ -18795,7 +18795,7 @@ Department of Economics, King's College, 56
 Broadway, New York, NY 10004 
 5403 Safe Harbor Court, Fairfax, VA 22032, 
 pmuelle4@gmu.edu, paulswilus@gmail.com 
-H. B. Earhart Fell, 
+
 MUENCH, Thomas 
 Graduate Fellowship(s) 
 1963-1964 
@@ -19685,7 +19685,13 @@ Graduate Fellowship (s)
 University of Massachusetts, Economics, Simon 
 Rottenberg, Sponsor 
 O'DONNELL, Charles W. 
-276 O'CONNOR-AMBROSE, Sheila M.F. 
+Graduate Fellowship (s) 
+Calendar Year 1961 
+Duquesne University, Economics, Hans E 
+Sennholz, Sponsor 
+Address 
+P.O. Box 235, Fairacres, NM 88033-0235 
+O'CONNOR-AMBROSE, Sheila M.F. 
 Graduate Fellowship (s) 
 2005-2006 
 Emory University, History, Elizabeth 
@@ -19693,12 +19699,6 @@ Fox-Genovese, Sponsor, Ph.D., 2007
 Address 
 20 Proctor Boulevard, Utica, NY 13501, 
 soconnorambrose@mac.com 
-Graduate Fellowship (s) 
-Calendar Year 1961 
-Duquesne University, Economics, Hans E 
-Sennholz, Sponsor 
-Address 
-P.O. Box 235, Fairacres, NM 88033-0235 
 O'DONNELL, Kyle W. 
 Graduate Fellowship (s) 
 2013-2014 
@@ -20374,7 +20374,7 @@ P.O. Box 400787, Charlottesville, VA 22904
 984 Canvas Back Drive, Charlottesville, VA 
 22903-7865, grande1834@hotmail.com, 
 jmp3r@Virginia.edu 
-H. B. Earhart Fell, 
+
 PATTERSON JR., Philip D. 
 Graduate Fellowship(s) 
 1962-1963 
@@ -20521,7 +20521,7 @@ Spring1967
 University of Pennsylvania, International 
 Studies, William R Kintner, Sponsor 
 Deceased 
-H. B. Earhart Fell, 
+
 PENG, Hsiao-ming 
 Graduate Fellowship (s) 
 1964-1965 
@@ -20682,7 +20682,7 @@ Graduate Fellowship(s)
 Claremont Graduate School, Government/ 
 Politics, Harry V. Jaffa, Sponsor, M.A., 1971 
 Deceased 
-H. B. Earhart Fell, 
+
 PETERS, Elizabeth 
 Graduate Fellowship(s) 
 1982-1983 
@@ -21991,7 +21991,7 @@ Richard F. Staar, Sponsor
 Address 
 2780 Ross Road, Palo Alto, CA 94303, 
 charlesridleye@hotmail.com 
-H. B. Earhart Fell, 
+
 RIEBER, William Joseph 
 Graduate Fellowship (s) 
 1978-1979 
@@ -23567,7 +23567,7 @@ McKean, Sponsor
 Address 
 7958 Blitz Court, Dunn Loring, VA 22027, 
 larry.schumann@verizon.nt 
-H. B. Earhart Fell, 
+
 SCHUMM, L Philip 
 Graduate Fellowship(s) 
 1989-1990 
@@ -24581,7 +24581,7 @@ Paul S. de Alvarez, Sponsor
 Address 
 2900 Abby Lane, Wylie, TX 75098-8768, 
 timothy.smith@hcahealthcare.com 
-H. B. Earhart Fell, 
+
 SMULTEA, Ilie J. 
 Graduate Fellowship (s) 
 Summer 1960 
@@ -25288,7 +25288,7 @@ Graduate Fellowship(s)
 1967-1968 
 Stanford University, International Studies, 
 Stefan T. Possony, Sponsor 
-H. B. Earhart Fell, 
+
 STOIANOVICI, Petru Stelian 
 Graduate Fellowship(s) 
 2006-2007 
@@ -25427,7 +25427,7 @@ Address
 421A Seguin Street, New Orleans, LA 70114- 
 2357 
 STUBBLEBINE, William 
-H. B. Earhart Fell, 
+
 Graduate Fellowship (s) 
 1958-1959 
 University of Virginia, Economics, G. Warren 
@@ -26155,7 +26155,7 @@ Address
 1741 W. Wickieup Lane, Phoenix, AZ 85027, 
 mignonlouise@hotmail.com 
 TIEDEMANN, Kenneth Howard 
-H. B. Earhart Fell, 
+
 Graduate Fellowship(s) 
 1968-1969 
 University of Minnesota, Economics, Francis 
@@ -26302,7 +26302,7 @@ Graduate Fellowship(s)
 2005-2006 
 Boston University, Philosophy, Charles L. 
 Griswold Jr., Sponsor, Ph.D., 2007 
-H. B. Earhart Fell, 
+
 TOUREK, Steven Charles 
 Graduate Fellowship(s) 
 1972-1973 
@@ -26334,7 +26334,7 @@ Graduate Fellowship(s)
 1959-1960 
 University of Wisconsin, Economics, Erwin A. 
 Gaumnitz, Sponsor 
-, TRACY, Joseph S. 
+TRACY, Joseph S. 
 Graduate Fellowship(s) 
 1981-1982 
 University of Chicago, Economics, Gary S. 
@@ -27472,7 +27472,7 @@ Economics, Tarleton State University, Box
 T-0920, Stephenville, TX 76402 
 1221 Rivercrest Drive, Glen Rose, TX 76043, 
 dwatson@tarleton.edu, dwat2@hotmail.com 
-WATSON, Micah J. 
+
 WATTS, Thomas M. 
 Graduate Fellowship(s) 
 1961-1962 
@@ -27504,6 +27504,7 @@ Brown University, Economics, Chelcie C.
 Bosland, Sponsor 
 Address 
 6 Black Oak Drive, East Lyme, CT 06333-1501 
+WATSON, Micah J. 
 Graduate Fellowship(s) 
 2002-2003 
 2003-2004 
@@ -28042,7 +28043,7 @@ Department of Economics, Northern Illinois
 University, DeKalb, IL 60115 
 909 Sunnymeade Trail, DeKalb, IL 60115, 
 vlw@niu.edu 
-H. B. Earhart Fell, 
+
 WILDER JR., Marion A. 
 Graduate Fellowship(s) 
 1962-1963 
