@@ -1902,7 +1902,7 @@ BEREA, Anamaria
 Graduate Fellowship(s) 
 2007-2008 
 Spring 2008 
-George Mason University Economics, Peter J. 
+George Mason University, Economics, Peter J. 
 Boettke, Sponsor, Ph.D., 2012 
 BERICEY, David L. 
 Graduate Fellowship(s) 
@@ -2590,7 +2590,7 @@ Address
 BONINE, John E. 
 Graduate Fellowship(s) 
 1966-1967 
-Yale Law School, Law, W. Glenn Campbell, 
+Yale, Law, W. Glenn Campbell, 
 Sponsor 
 Address 
 School of Law, University of Oregon, 1515 
@@ -2677,7 +2677,7 @@ Address
 BORNSCHEIN, Peter G. 
 Graduate Fellowship(s) 
 2008-2009 
-Bowling Green State University Philosophy, 
+Bowling Green State University, Philosophy, 
 Fred D. Miller Jr., Sponsor, Ph.D. 
 Address 
 407 North Revena Boulevard, Ann Arbor, MI 
@@ -3468,7 +3468,7 @@ muttiburked@umkc.edu
 BURKE, Marie 
 Graduate Fellowship(s) 
 1979-1980 
-Fordham University Government/Politics, 
+Fordham University, Government/Politics, 
 Francis Canavan, Sponsor 
 Address 
 4339 Martha Ave, Bronx, NY 10470-1705 
@@ -3700,7 +3700,7 @@ Niemeyer, Sponsor
 CALKINS, Richard A. 
 Graduate Fellowship (s) 
 1968-1969 
-Duke University Economics, Joseph J. Spengler, 
+Duke University, Economics, Joseph J. Spengler, 
 Sponsor 
 CALKINS, Richard Berth 
 Graduate Fellowship(s) 
@@ -3934,7 +3934,7 @@ CARNEY, Brian M.
 Graduate Fellowship(s) 
 1997-1998 
 1998-1999 
-Boston University Philosophy, Charles L. 
+Boston University, Philosophy, Charles L. 
 Griswold Jr., Sponsor, M.A., 2000 
 Address 
 6 Manning Circle, 200 Liberty Street, 11th 
@@ -4544,7 +4544,7 @@ P. Herrick, Sponsor
 CHRISTNER, Kimberly Ann 
 Graduate Fellowship(s) 
 1980-1981 
-Northern Illinois University Government/ 
+Northern Illinois University, Government/ 
 Politics, Morton J. Frisch, Sponsor 
 CHU, Kong 
 Graduate Fellowship(s) 
@@ -4651,7 +4651,7 @@ CLARKE, Michelle Tolman
 Graduate Fellowship(s) 
 2003-2004 
 2004-2005 
-Yale University Government/Politics, Steven B. 
+Yale University, Government/Politics, Steven B. 
 Smith, Sponsor, Ph.D., 2007 
 Address 
 Department of Government, Silsby 210, 
@@ -5242,7 +5242,7 @@ Graduate Fellowship(s)
 1999-2000 
 2000-2001 
 2002-2003 
-Louisiana State University Government/Politics, 
+Louisiana State University, Government/Politics, 
 G. Ellis Sandoz Jr., Sponsor, Ph.D., 2004 
 2006-2007 
 Baylor University International Studies, Mary P. 
@@ -5671,7 +5671,7 @@ Deceased
 CUERVO, Robert E 
 Graduate Fellowship(s) 
 1977-1978 
-Fordham University Government/Politics, 
+Fordham University, Government/Politics, 
 Francis Canavan, Sponsor 
 Address 
 Department of Political Science, Fordham 
@@ -7953,7 +7953,7 @@ FARACI, David N.
 Graduate Fellowship(s) 
 2006-2007 
 2007-2008 
-Bowling Green State University Philosophy, 
+Bowling Green State University, Philosophy, 
 Fred D. Miller Jr., Sponsor, Ph.D., 2012 
 Address 
 Georgetown Institute for the Study of Markets 
@@ -8117,7 +8117,7 @@ Alfred de Grazia, Sponsor
 FERRANDINO, Vincent J. 
 Graduate Fellowship (s) 
 1968-1969 
-New York University Government/Politics, 
+New York University, Government/Politics, 
 Alfred de Grazia, Sponsor 
 Address 
 45 Parkway W, Mount Vernon, NY 10552- 
@@ -9389,7 +9389,7 @@ GINSBERG, Beth S.
 Graduate Fellowship(s) 
 2005-2006 
 2006-2007 
-New York University Government/Politics, 
+New York University, Government/Politics, 
 Lawrence M. Mead, Sponsor, Ph.D., 2007 
 Address 
 Political Science Department, University of 
@@ -10639,7 +10639,7 @@ HANAGAN, Nora A.
 Graduate Fellowship(s) 
 2005-2006 
 2006-2007 
-Duke University Government/Politics, Ruth W. 
+Duke University, Government/Politics, Ruth W. 
 Grant, Sponsor, Ph.D., 2011 
 Address 
 Department of Political Science, Duke 
@@ -10653,7 +10653,7 @@ Graduate Fellowship(s)
 Bowling Green State University, Philosophy, 
 Ellen Frankel Paul, Sponsor 
 1994-1995 
-Bowling Green State University Philosophy, 
+Bowling Green State University, Philosophy, 
 Fred D. Miller Jr., Sponsor, Ph.D., 2000 
 Address 
 Department of Philosophy, University of 
@@ -10779,7 +10779,7 @@ Address
 HANSSEN, Susan E. 
 Graduate Fellowship (s) 
 2001-2002 
-Rice University History, Wilfred M. McClay, 
+Rice University, History, Wilfred M. McClay, 
 Sponsor, Ph.D., 2002 
 Address 
 Department of History, University of Dallas, 
@@ -10801,7 +10801,7 @@ Deceased
 HARDY, Charles 0. 
 Graduate Fellowship (s) 
 Calendar Year 1961 
-Indiana University Government/Politics, John 
+Indiana University, Government/Politics, John 
 V. Van Sickle, Sponsor 
 Address 
 1700 Lindberg Road 206, West Lafayette, IN 
@@ -10809,7 +10809,7 @@ Address
 HARDY, Douglas Lee 
 Graduate Fellowship (s) 
 1968-1969 
-Duke University Economics, Joseph J. Spengler, 
+Duke University, Economics, Joseph J. Spengler, 
 Sponsor 
 Address 
 817 First Parish Road, Scituate, MA 02066- 
@@ -15072,7 +15072,7 @@ Address
 LEVINE, Alan M. 
 Graduate Fellowship(s) 
 1989-1990 
-Harvard University Government/Politics, 
+Harvard University, Government/Politics, 
 Harvey C. Mansfield Jr., Sponsor, Ph.D., 1994 
 Address 
 School of Public Affairs, Department of 
@@ -16117,7 +16117,7 @@ MAGADDINO, Joseph
 Graduate Fellowship (s) 
 1971-1972 
 Virginia Polytechnic Institute & State 
-University Economics, Wilson E. Schmidt, 
+University, Economics, Wilson E. Schmidt, 
 Sponsor, Ph.D. 
 Address 
 Department of Economics, California State 
@@ -17786,7 +17786,7 @@ Graduate Fellowship (s)
 2006-2007 
 2007-2008 
 2008-2009 
-Louisiana State University Government/Politics, 
+Louisiana State University, Government/Politics, 
 G. Ellis Sandoz Jr., Sponsor, Ph.D., 2013 
 Address 
 Instituto de Cultura y Sociedad, Biblioteca de 
@@ -19558,7 +19558,7 @@ Address
 NOYES, Chad E. 
 Graduate Fellowship (s) 
 1999-2000 
-Harvard University Government/Politics, 
+Harvard University, Government/Politics, 
 Harvey C. Mansfield Jr., Sponsor, Ph.D., 2004 
 Address 
 250 Main Street, Unit 936, Ben Lomond, CA 
@@ -20160,7 +20160,7 @@ Address
 PAPKE, James August 
 Graduate Fellowship(s) 
 1958-1959 
-Cornell University Economics, M. Slade 
+Cornell University, Economics, M. Slade 
 Kendrick, Sponsor, Ph.D., 1959 
 PAPPIN, Gladden J. 
 Graduate Fellowship(s) 
@@ -20916,7 +20916,7 @@ PISANO, Mark A.
 Graduate Fellowship(s) 
 1969-1970 
 1970-1971 
-Georgetown University Economics, Henry W. 
+Georgetown University, Economics, Henry W. 
 Briefs, Sponsor 
 PITTS, James E. 
 Graduate Fellowship(s) 
@@ -20961,7 +20961,7 @@ Graduate Fellowship(s)
 University of Chicago, Economics, Svetozar 
 Pejovich, Sponsor, M.A., 1989 
 1989-1990 
-Duke University Economics, Svetozar Pejovich, 
+Duke University, Economics, Svetozar Pejovich, 
 Sponsor, Ph.D., 1992 
 Address 
 School of Economic, Political and Policy 
@@ -22459,7 +22459,7 @@ ROTNER, Loren J.
 Graduate Fellowship(s) 
 2013-2014 
 2014-2015 
-Claremont Graduate University Government/ 
+Claremont Graduate University, Government/ 
 Politics, Charles R. Kesler, Sponsor 
 Address 
 179 East Villanova Drive, Claremont, CA 
@@ -22475,7 +22475,7 @@ Address
 ROURICE, Blair Eugene 
 Graduate Fellowship(s) 
 1964-1965 
-Stanford University Economics, Karl Brandt, 
+Stanford University, Economics, Karl Brandt, 
 Sponsor, Ph.D., 1969 
 ROUWENHORST, K. Geert 
 Graduate Fellowship(s) 
@@ -22549,7 +22549,7 @@ University, 600 Forbes Avenue, Pittsburgh, PA
 RUDBECK, Jason C. 
 Graduate Fellowship(s) 
 2005-2006 
-Clemson University Economics, Cotton M. 
+Clemson University, Economics, Cotton M. 
 Lindsay, Sponsor, Ph.D., 2006 
 Address 
 Department of Economics, 514 Brooks Hall, 
@@ -23250,7 +23250,7 @@ Crawfordsville, IN 47933
 SCHNEIDER, Bernard 
 Graduate Fellowship(s) 
 1968-1969 
-Princeton University Economics, Fritz 
+Princeton University, Economics, Fritz 
 Machlup, Sponsor 
 Address 
 197 Sheephill Road, Apt. F, Riverside, CT 
@@ -23453,7 +23453,7 @@ Address
 SCHULTZ, L Peter 
 Graduate Fellowship(s) 
 1975-1976 
-Northern Illinois University Government/ 
+Northern Illinois University, Government/ 
 Politics, Martin Diamond, Sponsor 
 Address 
 1652 Finwick Drive, Pfafftown, NC 27040- 
@@ -24561,7 +24561,7 @@ Address
 SMITH, William Roger 
 Graduate Fellowship (s) 
 1967-1968 
-Michigan State University Business 
+Michigan State University, Business 
 Administration, E. Maynard Aris, Sponsor 
 Address 
 735 Dogwood Lane, Coldwater, MI 49036- 
@@ -25192,7 +25192,7 @@ Address
 STOBER II, William J. 
 Graduate Fellowship(s) 
 1958-1959 
-Duke University Economics, Harlan L. 
+Duke University, Economics, Harlan L. 
 McCracken, Sponsor, Ph.D., 1965 
 Deceased 
 STOCICTON, Paul N. 
@@ -25394,7 +25394,7 @@ deropa@tampabay.rr.com
 STYRING III, William 
 Graduate Fellowship (s) 
 1968-1969 
-Indiana University Economics, Benjamin A. 
+Indiana University, Economics, Benjamin A. 
 Rogge, Sponsor 
 Address 
 102 E. Southern Avenue, Indianapolis, IN 
@@ -25457,7 +25457,7 @@ Graduate Fellowship(s)
 1985-1986 
 1986-1987 
 1987-1988 
-Georgetown University Government/Politics, 
+Georgetown University, Government/Politics, 
 George W. Carey, Sponsor 
 Deceased 
 SULLIVAN (BERTRAMSON), Vickie B. 
@@ -26107,7 +26107,7 @@ Deceased
 TIRELLO JR., Edward J. 
 Graduate Fellowship(s) 
 Spring 1968 
-Pennsylvania State University Business 
+Pennsylvania State University, Business 
 Administration, Arthur Sharron, Sponsor 
 Address 
 5 Bartons Mill Drive, Washington Crossing, PA 
@@ -26817,7 +26817,7 @@ Address
 VICTORIUS, Marianne Yvonne 
 Graduate Fellowship (s) 
 1953-1954 
-Columbia University Economics, Arthur E 
+Columbia University, Economics, Arthur E 
 Burns, George J. Stigler, and Leo Wolman, 
 Sponsors 
 VIDMER, Richard F. 
@@ -26957,7 +26957,7 @@ Graduate Fellowship (s)
 1996-1997 
 1997-1998 
 1999-2000 
-Indiana University History, Bernard W. 
+Indiana University, History, Bernard W. 
 Sheehan, Sponsor, Ph.D., 2003 
 Address 
 Department of History, Hanover College, P.O. 
@@ -27142,7 +27142,7 @@ Columbus, OH 43209-2394
 WALLACE, James P. 
 Graduate Fellowship(s) 
 1965-1966 
-Brown University Government/Politics, Chelcie 
+Brown University, Government/Politics, Chelcie 
 C. Bosland, Sponsor, Ph.D., 1967 
 WALLACE, Richard Lee 
 Graduate Fellowship(s) 
@@ -27694,7 +27694,7 @@ dominiquewhelan@hotmail.com
 V/HIDDEN, Christopher M. 
 Graduate Fellowship(s) 
 2007-2008 
-Northern Illinois University Government/ 
+Northern Illinois University, Government/ 
 Politics, Larry Arnhart and Gary D. Glenn, 
 Sponsors, Ph.D., 2009 
 Address 
