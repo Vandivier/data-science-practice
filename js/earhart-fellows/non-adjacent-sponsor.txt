@@ -31,7 +31,7 @@
 "BURDICK, William H. ","1958-1959","","New York University","","Economics","","","Hans F. ,Sennholz","","","undefined","","","false"
 "BURNS, Joseph M. ","1960-1961","","University of Chicago","","Economics","","","George J. ,Stigler","","","","","","false"
 "CANIGLIA, Alan Scott ","1979-1980","","University of Virginia","","Economics","","","Roland N. ,McKean","","","undefined","alancaniglia@yahoo.com","true","false"
-"CASEY, Robert J. ","1970-1971'","","University of Oxford","","United Kingdom","true","true",",Government/Politics, Francis Canavan","","","undefined","","","false"
+"CASEY, Robert J. ","1970-1971'","","University of Oxford. United Kingdom","","Government/Politics","true","","Francis Canavan","","","undefined","","","false"
 "CASHMAN, Diane M. ","1982-1983","","University of Massachusetts","","Economics","","","Simon ,Rottenberg","","","undefined","dcashman2@cox.net,dcashman3@gmail.com","true","false"
 "CATHCART, Charles DePass ","1969-1970","","University of Virginia","","Economics","","","G. Warren ,Nutter","","","undefined","","","false"
 "CHANG, Do Young ","Calendar Year 1964,Calendar Year 1965","","University of Michigan","","Government/Politics","","",",Earhart Foundation","MA.","1965","undefined","","","false"
