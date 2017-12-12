@@ -99,6 +99,7 @@ const oTitleLine = {
     'iTerminalTickCount': 'terminal tick count',
     'iTicksPerSecond': 'ticks per second',
     'iBatchSize': 'batch size',
+    'bForceTerminate': 'forced model termination',
     'bBlindMode': 'blind mode'
 };
 
@@ -112,6 +113,8 @@ let wsErrorLog;
 main();
 
 async function main() {
+    let arrsInputRows = new Array(iBatchSize);
+
     browser = await puppeteer.launch();
 
     if (!fs.existsSync(sResultDir)) {
@@ -178,33 +181,33 @@ function fEndProgram() {
 async function fpScrapeInputRecord(sUrl) {
     const _page = await browser.newPage();
     let executionContext;
-    let _$;
-    let pageWorkingCompetitionPage;
     let poScrapeResult;
 
     await _page.goto(sUrl, {
         'timeout': 0
     }); // timeout ref: https://github.com/GoogleChrome/puppeteer/issues/782
 
-    _$ = cheerio.load(await _page.content());
+    await _page.content()
     _page.on('console', _fCleanLog); // ref: https://stackoverflow.com/a/47460782/3931488
 
     executionContext = _page.mainFrame().executionContext();
     poScrapeResult = await executionContext.evaluate((_iCurrentInputRecord) => {
-        return _fpWait(900)
+        return _fpWait(500)
             .then(function () {
-                let sEmail = $('.emaillabel').parent().find('td span').text();
-                let sarrAffiliations = '';
-                let arr$Affiliations = $('#affiliation-body a[name=subaffil]');
+                document.querySelector('.button.start').click();
 
-                arr$Affiliations.each(function (arr, el) {
-                    sarrAffiliations += ('~' + el.innerText.replace(/\s/g, ' ').trim());
-                });
-
-                return Promise.resolve({
-                    'email': sEmail,
-                    'affiliations': sarrAffiliations
-                });
+                return _fpWait(1000) // TODO: wait for model termination. in other words setInterval and check model.done === true
+                    .then(function () {
+                        return Promise.resolve({
+                            'iCountAgents': model.turtles.length,
+                            'iCountJobs': model.patches.filter(function(patch){ return patch.jobData }).length,
+                            'iCountSchools': model.patches.filter(function(patch){ return patch.schoolData }).length,
+                            'iTerminalTickCount': model.anim.ticks,
+                            'iTicksPerSecond': model.anim.ticksPerSec(),
+                            'bForceTerminate': model.bForceTerminate,
+                            'bBlindMode': model.bUseBlindAnim
+                        });
+                    });
             })
             .catch(function (err) {
                 console.log('fpScrapeInputRecord err: ', err);
@@ -290,7 +293,8 @@ function fsScrapedDataToResult(oScraped) {
                 + '"' + oScraped.iStandardDeviationSchoolSuffering + '",'
                 + '"' + oScraped.iTerminalTickCount + '",'
                 + '"' + oScraped.iTicksPerSecond + '",'
-                + '"' + oScraped.iBatchSize + '",'
+                + '"' + iBatchSize + '",' // script global, not on oScraped
+                + '"' + oScraped.bForceTerminate + '"'
                 + '"' + oScraped.bBlindMode + '"'
 
     return sToCsv;
