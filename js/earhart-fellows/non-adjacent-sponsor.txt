@@ -151,7 +151,7 @@
 "MICLOT, James M. ","1977-1978,1981-1982","","Catholic University of America","","Government/Politics","","","Frank Grace","","","undefined","jim@mercurymarkets.com","true","false"
 "MILES, Jonathan K. ","2006-2007","","Bowling Green State University","","Philosophy","","",",Fred D. Miller Jr.","","","undefined","milesjo@quincy.edu","true","false"
 "MIICKELSON, Wayne H. ","1977-1978","","University of Rochester","","Economics","","","Robert L. ,Bunting","","","undefined","wmikkels@uoregon.edu","true","false"
-"MI! LFR, Gibbes U. ","1959-1960","","University of Michigan","","Economics","","","William A. ,Paton","","","","","","true"
+"MILLER, Gibbes U. ","1959-1960","","University of Michigan","","Economics","","","William A. ,Paton","","","","","","true"
 "MILLER (HLOUSKOVA), Romana ","2005-2006","","University of Reading","false","United Kingdom","true","true",",International Studies, Harold W Rood","","","undefined","rhlouskova@hotmail.com","true","false"
 "MIRACLE (HUMPHREY), Diane S. Humphrey ","1961-1962","","Stanford University","","Economics","","","Merrill K. ,Bennett","M.A.","1962","","","","false"
 "MOGHADAM, Assaf ","2001-2002","","Tufts University","","International Studies","","","Robert ,L. Pfaltzgraff Jr.","M.A.","2002","","","","false"

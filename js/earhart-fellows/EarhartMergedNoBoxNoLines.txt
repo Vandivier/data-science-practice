@@ -16705,7 +16705,7 @@ Address
 School of Law, University of Miami, 1311 
 Miller Drive, Miami, FL 33146 
 5791 S.W. 59th Place, South Miami, FL 
-33143-2271, fmcchesney@@law.miami.edu, 
+33143-2271, fmcchesney@law.miami.edu, 
 fmcchesney@swbell.net 
 MCCLANAHAN, Kerry P. 
 Graduate Fellowship(s) 
@@ -27893,7 +27893,7 @@ National Endowment for the Humanities,
 400 7th Street S.W., Washington, DC 20506 
 10009 Crestwood Road, Kensington, MD 
 20895, Adamson44@aol.com, 
-awolfson@neh. gov 
+awolfson@neh.gov 
 WOLLENBERG, David L. 
 Graduate Fellowship(s) 
 2010-2011 
@@ -28141,8 +28141,7 @@ Department of Finance, Fisher Hall 842, Ohio
 State University, 2100 Neil Avenue, Columbus, 
 OH 43210 
 2535 Sherwood Road, Columbus, OH 43209- 
-2153, cmwruck@mac.com, wruck_1@fisher. 
-osu.edu 
+2153, cmwruck@mac.com, wruck_1@fisher.osu.edu 
 WU, Eugene Wen-chin 
 Graduate Fellowship(s) 
 1962-1963 
