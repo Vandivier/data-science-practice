@@ -3502,7 +3502,7 @@ Graduate Fellowship(s)
 1990-1991 
 1991-1992 
 University of Dallas, History, J. Rufus Fears, 
-52 Sponsor, M.A., 1992 
+Sponsor, M.A., 1992 
 Address 
 Fourth 8c Walnut Centre, 105 East Fourth 
 Street, Suite 300, Cincinnati, OH 45202 
@@ -9435,7 +9435,7 @@ Graduate Fellowship(s)
 1975-1976 
 1976-1977 
 University of Florida, Economics, Jerome W. 
-Millirnan, Sponsor 
+Milliman, Sponsor 
 Address 
 7907 Shallowmeade Lane, Chattanooga, TN 
 37421-1931 
@@ -10779,7 +10779,7 @@ Eckelberry, Sponsor, Ph.D., 1967
 HARRIS, Heidi 
 Graduate Fellowship(s) 
 2007-2008 
-Boston University, Culture, Peter L. Berger 
+Boston University, Culture, Peter L. Berger, Sponsor 
 Address 
 1604 Fenwick Village Drive, Savannah, GA 
 31419-8456, hhconcord@gmail.com 
@@ -10800,7 +10800,7 @@ Salem, VA 24153
 517 Washington Avenue, S.W., Roanoke, 
 VA 24016-4219, mdharris@roanoke.edu, 
 marwoodlh@juno.com 
-HARRIS, It Scott 
+HARRIS, R. Scott 
 Graduate Fellowship(s) 
 1974-1975 
 University of California. Los Angeles, 
@@ -11028,7 +11028,7 @@ HEATH, Will Carrington
 Graduate Fellowship(s) 
 1979-1980 
 Louisiana State University, Economics, William 
-E Campbell, Sponsor, Ph.D., 1983 
+F. Campbell, Sponsor, Ph.D., 1983 
 Address 
 205 Laurence Avenue, Lafayette, LA 70503, 
 carywheath@hotmail.com 
@@ -17276,7 +17276,7 @@ travmarina@yahoo.com, marina.travayiakis@tufts.edu
 MELITZ, Jack 
 Graduate Fellowship(s) 
 1959-1960 
-London School of Economics. United Kingdom, Economics,
+London School of economics. United Kingdom, Economics,
 Jacob Viner, Sponsor 
 Address 
 Department of Economics, Tulane University, 
@@ -18399,7 +18399,7 @@ William S. Stokes, Sponsor, Ph.D.,
 MOULTON, Brent R. 
 Graduate Fellowship(s) 
 1979-1980 
-University of Chicago, Economics, Larry T 
+University of Chicago, Economics, Larry T. 
 Wimmer, Sponsor, Ph.D. 
 Address 
 Bureau of Economic Analysis, U.S. Department 
@@ -19120,7 +19120,7 @@ NOELL, Edd Sidney
 Graduate Fellowship(s) 
 1983-1984 
 Louisiana State University, Economics, William 
-E Campbell, Sponsor, Ph.D., 1989 
+F. Campbell, Sponsor, Ph.D., 1989 
 Address 
 Department of Economics and Business, 
 Westmont College, 955 La Paz Road, Santa 
@@ -23741,7 +23741,7 @@ Graduate Fellowship(s)
 1996-1997 
 1997-1998 
 Tufts University, International Studies, Robert 
-338 L. Pfaltzgraff Jr., Sponsor, Ph.D. 
+L. Pfaltzgraff Jr., Sponsor, Ph.D. 
 Address 
 217 Aberdeen Drive, San Carlos, CA 94070- 
 3669 
@@ -26092,7 +26092,7 @@ Kenneth Colegrove, Sponsor
 TURLEY, Ty W. 
 Graduate Fellowship(s) 
 2006-2007 
-London School of Economics. United Kingdom, Economics,
+London School of economics. United Kingdom, Economics,
 Larry T. Wimmer, Sponsor, M.A., 2007 
 Address 
 Romney Institute of Public Management, 
