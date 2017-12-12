@@ -23,15 +23,6 @@ const sInputCsvLocation = __dirname + '/repec.csv';
 const sOutputFileLocation = sResultDir + '/out-repec.csv';
 
 /*
-2.	Economic variables: model, real world
-a.	Standard data = Min, max, average, sd
-b.	Standard for school price, education premium, curiosity, wages, leisure utility, ticks to terminate, population, frequency of education, consumption, total income or total consumption
-
-terminal tick count
-ticks per second
-# concurrent processes (batch size)
-blind mode
-
 1. Did anything predict frequency of education?
 2. Did frequency of education relate to total income or total consumption?
     - only gonna check terminal per capita iUtilityPerTick (operationalization of equilibrium per capita income, and thereby productivity)
@@ -39,19 +30,6 @@ blind mode
 ... sanity check: share of educated population should increase per capita productivity
 
 TODO: write out schema
-
-age
-consumptionUtility
-curiosity*
-iLifetimeUtility
-isEducated*
-iUtilityPerTick*
-job
-leisureUtility
-money*
-productivity
-speed
-timePreference
 
 */
 
@@ -126,7 +104,7 @@ const oTitleLine = {
 
 let browser;
 let iCurrentInputRecord = 0;
-let iTotalInputRecords = 0;
+let iBatchSize = Math.floor(Math.random() * 20);
 let sResultToWrite;
 let wsGotSome;
 let wsErrorLog;
@@ -134,9 +112,6 @@ let wsErrorLog;
 main();
 
 async function main() {
-    let sInputCsv;
-    let arrsInputRows;
-
     browser = await puppeteer.launch();
 
     if (!fs.existsSync(sResultDir)) {
@@ -144,18 +119,11 @@ async function main() {
     }
 
     fSetWriters();
+    console.log('early count, iBatchSize = ' + iBatchSize);
 
-    sInputCsv = await fpReadFile(sInputCsvLocation, 'utf8');
-    arrsInputRows = sInputCsv.split(EOL);
-
-    /** for testing only, shorten rows **/
-    //arrsInputRows = arrsInputRows.slice(0, 5);
-    arrsInputRows.shift()
-    iTotalInputRecords = arrsInputRows.length;
-    console.log('early count, iTotalInputRecords = ' + iTotalInputRecords);
-
-    await utils.forEachReverseAsyncPhased(arrsInputRows, function(sLineOfText, i) {
-        return fpHandleData(sLineOfText);
+    // note: in some applications the parallel approach has seen data loss compared to phased
+    await utils.forEachReverseAsyncParallel(arrsInputRows, function(sLineOfText, i) {
+        return fpHandleData();
     });
 
     console.log('writing result file.');
@@ -180,36 +148,21 @@ async function fpWait() {
 // we will append just once manually
 // also, don't write empty lines
 // TODO: click go to next button and get more stages
-function fpHandleData(sLineOfText) {
-    const arrsCellText = sLineOfText.replace(', ', '~').split(',');
-    const oOriginalData = {
-        _stack: arrsCellText[0],
-        name: fsTrimMore(arrsCellText[1]),
-        web: arrsCellText[2],
-        count: arrsCellText[3],
-    }
+function fpHandleData() {
+    return fpScrapeInputRecord(sRootUrl)
+        .then(function (oScraped) {
+            iCurrentInputRecord++;
+            console.log('scraped input record #: ' +
+                iCurrentInputRecord +
+                '/' + iBatchSize +
+                EOL);
 
-    if (oOriginalData.web) {
-        return fpScrapeInputRecord(oOriginalData.web)
-            .then(function (oScraped) {
-                const oFullData = Object.assign(oScraped, oOriginalData);
-
-                iCurrentInputRecord++;
-                console.log('scraped input record #: '
-                            + iCurrentInputRecord
-                            + '/' + iTotalInputRecords
-                            + EOL);
-
-                sResultToWrite += (fsScrapedDataToResult(oFullData) + EOL);
-                return Promise.resolve();
-            })
-            .catch(function (reason) {
-                console.log('fpHandleData err: ', reason);
-            });
-    }
-
-    iTotalInputRecords--;
-    return Promise.resolve();
+            sResultToWrite += (fsScrapedDataToResult(oScraped) + EOL);
+            return Promise.resolve();
+        })
+        .catch(function (reason) {
+            console.log('fpHandleData err: ', reason);
+        });
 }
 
 function fEndProgram() {
@@ -284,12 +237,61 @@ function fsTrimMore(s) {
 // TODO: generic object-to-csv-row
 function fsScrapedDataToResult(oScraped) {
     let sToCsv = ''
-                + '"' + oScraped._stack + '",'
-                + '"' + oScraped.name + '",'
-                + '"' + oScraped.web + '",'
-                + '"' + oScraped.count + '",'
-                + '"' + oScraped.email + '",'
-                + '"' + oScraped.affiliations + '"'
+                + '"' + oScraped.iCountAgents + '",'
+                + '"' + oScraped.iMinCuriosity + '",'
+                + '"' + oScraped.iMaxCuriosity + '",'
+                + '"' + oScraped.iMeanCuriosity + '",'
+                + '"' + oScraped.iMedianCuriosity + '",'
+                + '"' + oScraped.iStandardDeviationCuriosity + '",'
+                + '"' + oScraped.iMinUtilityPerTick + '",'
+                + '"' + oScraped.iMaxUtilityPerTick + '",'
+                + '"' + oScraped.iMeanUtilityPerTick + '",'
+                + '"' + oScraped.iMedianUtilityPerTick + '",'
+                + '"' + oScraped.iStandardDeviationUtilityPerTick + '",'
+                + '"' + oScraped.iMinMoney + '",'
+                + '"' + oScraped.iMaxMoney + '",'
+                + '"' + oScraped.iMeanMoney + '",'
+                + '"' + oScraped.iMedianMoney + '",'
+                + '"' + oScraped.iStandardDeviationMoney + '",'
+                + '"' + oScraped.iMeanIsEducated + '",'
+                + '"' + oScraped.iMedianIsEducated + '",'
+                + '"' + oScraped.iStandardDeviationIsEducated + '",'
+                + '"' + oScraped.iCountJobs + '",'
+                + '"' + oScraped.iMinWages + '",'
+                + '"' + oScraped.iMaxWages + '",'
+                + '"' + oScraped.iMeanWages + '",'
+                + '"' + oScraped.iMedianWages + '",'
+                + '"' + oScraped.iStandardDeviationWages + '",'
+                + '"' + oScraped.iMinEducatedBonusWages + '",'
+                + '"' + oScraped.iMaxEducatedBonusWages + '",'
+                + '"' + oScraped.iMeanEducatedBonusWages + '",'
+                + '"' + oScraped.iMedianEducatedBonusWages + '",'
+                + '"' + oScraped.iStandardDeviationEducatedBonusWages + '",'
+                + '"' + oScraped.iMinReputation + '",'
+                + '"' + oScraped.iMaxReputation + '",'
+                + '"' + oScraped.iMeanReputation + '",'
+                + '"' + oScraped.iMedianReputation + '",'
+                + '"' + oScraped.iStandardDeviationReputation + '",'
+                + '"' + oScraped.iCountSchools + '",'
+                + '"' + oScraped.iMinSchoolPrice + '",'
+                + '"' + oScraped.iMaxSchoolPrice + '",'
+                + '"' + oScraped.iMeanSchoolPrice + '",'
+                + '"' + oScraped.iMedianSchoolPrice + '",'
+                + '"' + oScraped.iStandardDeviationSchoolPrice + '",'
+                + '"' + oScraped.iMinSchoolReputation + '",'
+                + '"' + oScraped.iMaxSchoolReputation + '",'
+                + '"' + oScraped.iMeanSchoolReputation + '",'
+                + '"' + oScraped.iMedianSchoolReputation + '",'
+                + '"' + oScraped.iStandardDeviationSchoolReputation + '",'
+                + '"' + oScraped.iMinSchoolSuffering + '",'
+                + '"' + oScraped.iMaxSchoolSuffering + '",'
+                + '"' + oScraped.iMeanSchoolSuffering + '",'
+                + '"' + oScraped.iMedianSchoolSuffering + '",'
+                + '"' + oScraped.iStandardDeviationSchoolSuffering + '",'
+                + '"' + oScraped.iTerminalTickCount + '",'
+                + '"' + oScraped.iTicksPerSecond + '",'
+                + '"' + oScraped.iBatchSize + '",'
+                + '"' + oScraped.bBlindMode + '"'
 
     return sToCsv;
 }
