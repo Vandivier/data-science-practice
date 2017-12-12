@@ -19,8 +19,7 @@ const fpWriteFile = util.promisify(fs.writeFile);
 
 const sRootUrl = 'http://localhost:3000/';
 const sResultDir = __dirname + '/results';
-const sInputCsvLocation = __dirname + '/repec.csv';
-const sOutputFileLocation = sResultDir + '/out-repec.csv';
+const sOutputFileLocation = sResultDir + '/result.csv';
 
 /*
 1. Did anything predict frequency of education?
@@ -35,6 +34,8 @@ TODO: write out schema
 
 // TODO: maybe make function to populate properties
 const oTitleLine = {
+    'iTotalUtilityPerTick': 'world utility per tick',
+
     'iCountAgents': 'agent count',
     'iMinCuriosity': 'min curiosity',
     'iMaxCuriosity': 'max curiosity',
@@ -106,7 +107,7 @@ const oTitleLine = {
 let browser;
 let iCurrentInputRecord = 0;
 let iBatchSize = Math.floor(Math.random() * 20);
-let sResultToWrite;
+let sResultToWrite = '';
 let wsGotSome;
 let wsErrorLog;
 
@@ -199,6 +200,7 @@ async function fpScrapeInputRecord(sUrl) {
                 return _fpWait(1000) // TODO: wait for model termination. in other words setInterval and check model.done === true
                     .then(function () {
                         return Promise.resolve({
+                            'iTotalUtilityPerTick': model.iTotalUtilityPerTick,
                             'iCountAgents': model.turtles.length,
                             'iCountJobs': model.patches.filter(function(patch){ return patch.jobData }).length,
                             'iCountSchools': model.patches.filter(function(patch){ return patch.schoolData }).length,
@@ -240,62 +242,67 @@ function fsTrimMore(s) {
 // TODO: generic object-to-csv-row
 function fsScrapedDataToResult(oScraped) {
     let sToCsv = ''
-                + '"' + oScraped.iCountAgents + '",'
-                + '"' + oScraped.iMinCuriosity + '",'
-                + '"' + oScraped.iMaxCuriosity + '",'
-                + '"' + oScraped.iMeanCuriosity + '",'
-                + '"' + oScraped.iMedianCuriosity + '",'
-                + '"' + oScraped.iStandardDeviationCuriosity + '",'
-                + '"' + oScraped.iMinUtilityPerTick + '",'
-                + '"' + oScraped.iMaxUtilityPerTick + '",'
-                + '"' + oScraped.iMeanUtilityPerTick + '",'
-                + '"' + oScraped.iMedianUtilityPerTick + '",'
-                + '"' + oScraped.iStandardDeviationUtilityPerTick + '",'
-                + '"' + oScraped.iMinMoney + '",'
-                + '"' + oScraped.iMaxMoney + '",'
-                + '"' + oScraped.iMeanMoney + '",'
-                + '"' + oScraped.iMedianMoney + '",'
-                + '"' + oScraped.iStandardDeviationMoney + '",'
-                + '"' + oScraped.iMeanIsEducated + '",'
-                + '"' + oScraped.iMedianIsEducated + '",'
-                + '"' + oScraped.iStandardDeviationIsEducated + '",'
-                + '"' + oScraped.iCountJobs + '",'
-                + '"' + oScraped.iMinWages + '",'
-                + '"' + oScraped.iMaxWages + '",'
-                + '"' + oScraped.iMeanWages + '",'
-                + '"' + oScraped.iMedianWages + '",'
-                + '"' + oScraped.iStandardDeviationWages + '",'
-                + '"' + oScraped.iMinEducatedBonusWages + '",'
-                + '"' + oScraped.iMaxEducatedBonusWages + '",'
-                + '"' + oScraped.iMeanEducatedBonusWages + '",'
-                + '"' + oScraped.iMedianEducatedBonusWages + '",'
-                + '"' + oScraped.iStandardDeviationEducatedBonusWages + '",'
-                + '"' + oScraped.iMinReputation + '",'
-                + '"' + oScraped.iMaxReputation + '",'
-                + '"' + oScraped.iMeanReputation + '",'
-                + '"' + oScraped.iMedianReputation + '",'
-                + '"' + oScraped.iStandardDeviationReputation + '",'
-                + '"' + oScraped.iCountSchools + '",'
-                + '"' + oScraped.iMinSchoolPrice + '",'
-                + '"' + oScraped.iMaxSchoolPrice + '",'
-                + '"' + oScraped.iMeanSchoolPrice + '",'
-                + '"' + oScraped.iMedianSchoolPrice + '",'
-                + '"' + oScraped.iStandardDeviationSchoolPrice + '",'
-                + '"' + oScraped.iMinSchoolReputation + '",'
-                + '"' + oScraped.iMaxSchoolReputation + '",'
-                + '"' + oScraped.iMeanSchoolReputation + '",'
-                + '"' + oScraped.iMedianSchoolReputation + '",'
-                + '"' + oScraped.iStandardDeviationSchoolReputation + '",'
-                + '"' + oScraped.iMinSchoolSuffering + '",'
-                + '"' + oScraped.iMaxSchoolSuffering + '",'
-                + '"' + oScraped.iMeanSchoolSuffering + '",'
-                + '"' + oScraped.iMedianSchoolSuffering + '",'
-                + '"' + oScraped.iStandardDeviationSchoolSuffering + '",'
-                + '"' + oScraped.iTerminalTickCount + '",'
-                + '"' + oScraped.iTicksPerSecond + '",'
-                + '"' + iBatchSize + '",' // script global, not on oScraped
-                + '"' + oScraped.bForceTerminate + '"'
-                + '"' + oScraped.bBlindMode + '"'
+                + _fWrap(oScraped.iTotalUtilityPerTick)
+                + _fWrap(oScraped.iCountAgents)
+                + _fWrap(oScraped.iMinCuriosity)
+                + _fWrap(oScraped.iMaxCuriosity)
+                + _fWrap(oScraped.iMeanCuriosity)
+                + _fWrap(oScraped.iMedianCuriosity)
+                + _fWrap(oScraped.iStandardDeviationCuriosity)
+                + _fWrap(oScraped.iMinUtilityPerTick)
+                + _fWrap(oScraped.iMaxUtilityPerTick)
+                + _fWrap(oScraped.iMeanUtilityPerTick)
+                + _fWrap(oScraped.iMedianUtilityPerTick)
+                + _fWrap(oScraped.iStandardDeviationUtilityPerTick)
+                + _fWrap(oScraped.iMinMoney)
+                + _fWrap(oScraped.iMaxMoney)
+                + _fWrap(oScraped.iMeanMoney)
+                + _fWrap(oScraped.iMedianMoney)
+                + _fWrap(oScraped.iStandardDeviationMoney)
+                + _fWrap(oScraped.iMeanIsEducated)
+                + _fWrap(oScraped.iMedianIsEducated)
+                + _fWrap(oScraped.iStandardDeviationIsEducated)
+                + _fWrap(oScraped.iCountJobs)
+                + _fWrap(oScraped.iMinWages)
+                + _fWrap(oScraped.iMaxWages)
+                + _fWrap(oScraped.iMeanWages)
+                + _fWrap(oScraped.iMedianWages)
+                + _fWrap(oScraped.iStandardDeviationWages)
+                + _fWrap(oScraped.iMinEducatedBonusWages)
+                + _fWrap(oScraped.iMaxEducatedBonusWages)
+                + _fWrap(oScraped.iMeanEducatedBonusWages)
+                + _fWrap(oScraped.iMedianEducatedBonusWages)
+                + _fWrap(oScraped.iStandardDeviationEducatedBonusWages)
+                + _fWrap(oScraped.iMinReputation)
+                + _fWrap(oScraped.iMaxReputation)
+                + _fWrap(oScraped.iMeanReputation)
+                + _fWrap(oScraped.iMedianReputation)
+                + _fWrap(oScraped.iStandardDeviationReputation)
+                + _fWrap(oScraped.iCountSchools)
+                + _fWrap(oScraped.iMinSchoolPrice)
+                + _fWrap(oScraped.iMaxSchoolPrice)
+                + _fWrap(oScraped.iMeanSchoolPrice)
+                + _fWrap(oScraped.iMedianSchoolPrice)
+                + _fWrap(oScraped.iStandardDeviationSchoolPrice)
+                + _fWrap(oScraped.iMinSchoolReputation)
+                + _fWrap(oScraped.iMaxSchoolReputation)
+                + _fWrap(oScraped.iMeanSchoolReputation)
+                + _fWrap(oScraped.iMedianSchoolReputation)
+                + _fWrap(oScraped.iStandardDeviationSchoolReputation)
+                + _fWrap(oScraped.iMinSchoolSuffering)
+                + _fWrap(oScraped.iMaxSchoolSuffering)
+                + _fWrap(oScraped.iMeanSchoolSuffering)
+                + _fWrap(oScraped.iMedianSchoolSuffering)
+                + _fWrap(oScraped.iStandardDeviationSchoolSuffering)
+                + _fWrap(oScraped.iTerminalTickCount)
+                + _fWrap(oScraped.iTicksPerSecond)
+                + _fWrap(oScraped.iBatchSize || iBatchSize)
+                + _fWrap(oScraped.bForceTerminate)
+                + _fWrap(oScraped.bBlindMode)
 
-    return sToCsv;
+    return sToCsv.slice(0, -1); // slice off the extra comma
+
+    function _fWrap(s) {
+        return '"' + (s || '') + '",';
+    }
 }
