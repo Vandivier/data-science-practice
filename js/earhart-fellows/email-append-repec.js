@@ -61,13 +61,10 @@ async function main() {
     arrsInputRows = sInputCsv.split(EOL);
 
     /** for testing only, shorten rows **/
-    arrsInputRows = arrsInputRows.slice(0, 5);
+    //arrsInputRows = arrsInputRows.slice(0, 5);
     arrsInputRows.shift()
     iTotalInputRecords = arrsInputRows.length;
     console.log('early count, iTotalInputRecords = ' + iTotalInputRecords);
-    console.log('early count is typically overstated by a factor of ~20');
-    console.log('iTotalInputRecords / 20 = ' + (iTotalInputRecords / 20));
-    console.log('allow up to ~30s per scrape' + EOL);
 
     await utils.forEachReverseAsyncPhased(arrsInputRows, function(sLineOfText, i) {
         return fpHandleData(sLineOfText);
