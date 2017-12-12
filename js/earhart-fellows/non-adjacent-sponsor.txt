@@ -153,7 +153,7 @@
 "MIICKELSON, Wayne H. ","1977-1978","","University of Rochester","","Economics","","","Robert L. ,Bunting","","","undefined","wmikkels@uoregon.edu","true","false"
 "MI! LFR, Gibbes U. ","1959-1960","","University of Michigan","","Economics","","","William A. ,Paton","","","","","","true"
 "MILLER (HLOUSKOVA), Romana ","2005-2006","","University of Reading","false","United Kingdom","true","true",",International Studies, Harold W Rood","","","undefined","rhlouskova@hotmail.com","true","false"
-"Humphrey ","1961-1962","","Stanford University","","Economics","","","Merrill K. ,Bennett","M.A.","1962","","","","false"
+"MIRACLE (HUMPHREY), Diane S. Humphrey ","1961-1962","","Stanford University","","Economics","","","Merrill K. ,Bennett","M.A.","1962","","","","false"
 "MOGHADAM, Assaf ","2001-2002","","Tufts University","","International Studies","","","Robert ,L. Pfaltzgraff Jr.","M.A.","2002","","","","false"
 "MOO RHOUSE, John C. ","1966-1967","","University of Chicago","","Economics","","","Benjamin A. ,Rogge","","","undefined","john.moorhouse@aol.com","true","false"
 "MORGAN, Bruce W. ","1959-1960","","Yale University","","Economics","","","William J. Fellner,","M.A.","1960","undefined","tbone4750@aol.com","true","false"
