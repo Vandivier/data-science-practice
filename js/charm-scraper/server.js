@@ -249,19 +249,53 @@ async function fpScrapeInputRecord(sUrl) {
     let executionContext;
     let poScrapeResult;
 
-    _page.on('console', _fCleanLog); // ref: https://stackoverflow.com/a/47460782/3931488
-
     await _page.goto(sUrl, {
         'timeout': 0
     }); // timeout ref: https://github.com/GoogleChrome/puppeteer/issues/782
-    await _page.content();
+
+    await _page.content()
+    _page.on('console', _fCleanLog); // ref: https://stackoverflow.com/a/47460782/3931488
 
     executionContext = _page.mainFrame().executionContext();
-    await executionContext.evaluate(() => {
+    poScrapeResult = await executionContext.evaluate((_iCurrentInputRecord) => {
         return _fpWait(500)
             .then(function () {
                 document.querySelector('.button.start').click();
-                return _fpWait(1000); // may take a sec for model to init after click
+
+                return _fpWaitForFunction(500, _fbReady)
+                    .then(function () {
+                        return Promise.resolve({
+                            'jobs': model.patches
+                                        .filter(function(patch){ return patch.jobData })
+                                        .map(function(patch) { return patch.jobData }),
+                            'schools': model.patches
+                                        .filter(function(patch){ return patch.schoolData })
+                                        .map(function(patch) { return patch.schoolData }),
+                            'turtles': model.turtles.map(function(_agent){
+                                return {
+                                    'age': _agent.age,
+                                    'consumptionUtility': _agent.consumptionUtility,
+                                    'curiosity': _agent.curiosity,
+                                    'iLifetimeUtility': _agent.iLifetimeUtility,
+                                    'iUtilityPerTick': _agent.iUtilityPerTick,
+                                    'isEducated': _agent.isEducated,
+                                    'leisureUtility': _agent.leisureUtility,
+                                    'money': _agent.money,
+                                    'productivity': _agent.productivity,
+                                    'speed': _agent.speed,
+                                    'timePreference': _agent.timePreference
+                                }
+                            }),
+                            'iTotalUtilityPerTick': model.iTotalUtilityPerTick,
+                            'iTerminalTickCount': model.anim.ticks,
+                            'iTicksPerSecond': model.anim.ticksPerSec(),
+                            'bForceTerminate': model.bForceTerminate || false,
+                            'bBlindMode': model.bUseBlindAnim
+                        });
+                    });
+            })
+            .catch(function (err) {
+                console.log('fpScrapeInputRecord err: ', err);
             });
 
         // larger time allows for slow site response
@@ -271,44 +305,23 @@ async function fpScrapeInputRecord(sUrl) {
             ms = ms || 10000;
             return new Promise(resolve => setTimeout(resolve, ms));
         }
-    });
 
-    await _page.waitForFunction('model.anim.ticks > 500', {
-        'timeout': 0
-    }); // ref: https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pagewaitforfunctionpagefunction-options-args
+        // ref: https://stackoverflow.com/questions/30505960/use-promise-to-wait-until-polled-condition-is-satisfied
+        function _fpWaitForFunction(ms, fb) {
+            return new Promise(function (resolve) {
+                (function _fpWaitLoop() {
+                    if (fb()) return resolve();
+                    setTimeout(_fpWaitLoop, ms);
+                })();
+            });
+        }
 
-    poScrapeResult = await executionContext.evaluate(() => {
-        return Promise.resolve({
-            'jobs': model.patches
-                        .filter(function(patch){ return patch.jobData })
-                        .map(function(patch) { return patch.jobData }),
-            'schools': model.patches
-                        .filter(function(patch){ return patch.schoolData })
-                        .map(function(patch) { return patch.schoolData }),
-            'turtles': model.turtles.map(function(_agent){
-                return {
-                    'age': _agent.age,
-                    'consumptionUtility': _agent.consumptionUtility,
-                    'curiosity': _agent.curiosity,
-                    'iLifetimeUtility': _agent.iLifetimeUtility,
-                    'iUtilityPerTick': _agent.iUtilityPerTick,
-                    'isEducated': _agent.isEducated,
-                    'leisureUtility': _agent.leisureUtility,
-                    'money': _agent.money,
-                    'productivity': _agent.productivity,
-                    'speed': _agent.speed,
-                    'timePreference': _agent.timePreference
-                }
-            }),
-            'iTotalUtilityPerTick': model.iTotalUtilityPerTick,
-            'iTerminalTickCount': model.anim.ticks,
-            'iTicksPerSecond': model.anim.ticksPerSec(),
-            'bForceTerminate': model.bForceTerminate || false,
-            'bBlindMode': model.bUseBlindAnim
-        })
-        .catch(function (err) {
-            console.log('fpScrapeInputRecord err: ', err);
-        });
+        function _fbReady(_resolve) {
+            console.log(model.anim.ticks);
+            if (model.anim.ticks > 500) {
+                return true;
+            }
+        }
     });
 
     _page.close();
