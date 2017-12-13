@@ -243,4 +243,64 @@ _utils.fsTrimMore = function (s) {
     return s && s.replace(/[,"]/g, '').trim();
 }
 
+// ref: https://derickbailey.com/2014/09/21/calculating-standard-deviation-with-array-map-and-array-reduce-in-javascript/
+_utils.standardDeviation = function (arri) {
+    var avg = average(arri);
+
+    var squareDiffs = arri.map(function (value) {
+        var diff = value - avg;
+        var sqrDiff = diff * diff;
+        return sqrDiff;
+    });
+
+    var avgSquareDiff = average(squareDiffs);
+
+    var stdDev = Math.sqrt(avgSquareDiff);
+    return stdDev;
+}
+
+_utils.average = function (arri) {
+    var sum = arri.reduce(function (sum, value) {
+        return sum + value;
+    }, 0);
+
+    var avg = sum / arri.length;
+    return avg;
+}
+
+// ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max
+_utils.max = function (v, i) {
+    if (Array.isArray(v)) {
+        return Math.max(...v)
+    } else if(Number.isInteger(i)) {
+        return Math.max(v, i);
+    }
+}
+
+_utils.min = function (v, i) {
+    if (Array.isArray(v)) {
+        return Math.min(...v)
+    } else if(Number.isInteger(i)) {
+        return Math.min(v, i);
+    }
+}
+
+// ref: https://stackoverflow.com/questions/25305640/find-median-values-from-array-in-javascript-8-values-or-9-values
+_utils.median = function (arri) {
+
+    // extract the .values field and sort the resulting array
+    var m = arri.map(function(v) {
+        return v.values;
+    }).sort(function(a, b) {
+        return a - b;
+    });
+
+    var middle = Math.floor((m.length - 1) / 2); // NB: operator precedence
+    if (m.length % 2) {
+        return m[middle];
+    } else {
+        return (m[middle] + m[middle + 1]) / 2.0;
+    }
+}
+
 module.exports = _utils;
