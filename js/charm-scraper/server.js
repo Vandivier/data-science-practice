@@ -18,6 +18,8 @@
 
 'use strict';
 
+let iTimeStarted = Date.now();
+
 const cheerio = require('cheerio');
 const EOL = require('os').EOL;
 const fs = require('fs');
@@ -236,7 +238,7 @@ function fpHandleData() {
 
 function fEndProgram() {
     browser.close();
-    console.log('Processes completed.');
+    console.log('Processes completed in seconds: ' + ((Date.now() - iTimeStarted) / 1000));
     process.exit();
 }
 
