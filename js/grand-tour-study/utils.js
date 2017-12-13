@@ -245,7 +245,7 @@ _utils.fsTrimMore = function (s) {
 
 // ref: https://derickbailey.com/2014/09/21/calculating-standard-deviation-with-array-map-and-array-reduce-in-javascript/
 _utils.standardDeviation = function (arri) {
-    var avg = average(arri);
+    var avg = _utils.mean(arri);
 
     var squareDiffs = arri.map(function (value) {
         var diff = value - avg;
@@ -253,13 +253,17 @@ _utils.standardDeviation = function (arri) {
         return sqrDiff;
     });
 
-    var avgSquareDiff = average(squareDiffs);
+    var avgSquareDiff = _utils.mean(squareDiffs);
 
     var stdDev = Math.sqrt(avgSquareDiff);
     return stdDev;
 }
 
 _utils.average = function (arri) {
+    return _utils.mean(arri);
+}
+
+_utils.mean = function (arri) {
     var sum = arri.reduce(function (sum, value) {
         return sum + value;
     }, 0);
