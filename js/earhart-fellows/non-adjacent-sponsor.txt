@@ -235,7 +235,7 @@
 "WEICHER, John C. ","Spring 1962","","University of Chicago","","Economics","","","H. ,Gregg Lewis and Milton Friedman","","","undefined","beanpole@verizon.net","true","false"
 "WHITED, Kevin L ","1993-1994","","Southwest Missouri State University","","Security Studies","true","true","William R. Van Cleave,","MA.","1994","undefined","publiustx@gmail.com","true","false"
 "WILLIAMS, David ","1964-1965","","University of Pennsylvania","","International Studies","","",",William R. Kintner","M.A.","","","","","false"
-"WOOD, David 0. ","1961-1962","","University of Virginia","","Economics","","","James M. ,Buchanan","","","","","","true"
+"WOOD, David O. ","1961-1962","","University of Virginia","","Economics","","","James M. ,Buchanan","","","","","","true"
 "WUERTZ, Robert E. ","1970-1971","","University of Virginia","","Economics","","","Roland N. ,McKean","","","undefined","appelrew@gmail.com","true","false"
 "YOSHIHARA, Toshi ","2000-2001,2001-2002","","Tufts University","","International Studies","","","Richard ,H. Shultz Jr.","","","","","","false"
 "ZUCICERT, Michael P. ","1965-1966,1966-1967","","University of Chicago","","Government/Politics","","",",Leo Strauss","","","undefined","zuckert.1@nd.edu","true","false"
