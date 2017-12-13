@@ -160,7 +160,7 @@ function fpHandleData() {
             let arrCuriosity            = oScraped.turtles.map(function(agent){ return agent.curiosity });
             let arrUtilityPerTick       = oScraped.turtles.map(function(agent){ return agent.iUtilityPerTick });
             let arrMoney                = oScraped.turtles.map(function(agent){ return agent.money });
-            let arrIsEducated           = oScraped.turtles.map(function(agent){ return agent.isEducated });
+            let arrIsEducated           = oScraped.turtles.map(function(agent){ return (agent.isEducated ? 1 : 0); });
             let arrWages                = oScraped.jobs.map(function(job){ return job.wages });
             let arrEducatedBonusWages   = oScraped.jobs.map(function(job){ return job.educatedBonusWages });
             let arrJobReputation        = oScraped.jobs.map(function(job){ return job.reputation });
@@ -175,49 +175,50 @@ function fpHandleData() {
             oScraped.iSkewnessCuriosity = skewness(arrCuriosity);
             oScraped.iStandardDeviationCuriosity = utils.standardDeviation(arrCuriosity);
             oScraped.iMinUtilityPerTick = utils.min(arrUtilityPerTick);
-            oScraped.iMaxUtilityPerTick = '';
-            oScraped.iMeanUtilityPerTick = '';
-            oScraped.iSkewnessUtilityPerTick = '';
-            oScraped.iStandardDeviationUtilityPerTick = '';
+            oScraped.iMaxUtilityPerTick = utils.max(arrUtilityPerTick);
+            oScraped.iMeanUtilityPerTick = utils.mean(arrUtilityPerTick);
+            oScraped.iSkewnessUtilityPerTick = skewness(arrUtilityPerTick);
+            oScraped.iStandardDeviationUtilityPerTick = utils.standardDeviation(arrUtilityPerTick);
             oScraped.iMinMoney = utils.min(arrMoney);
-            oScraped.iMaxMoney = '';
-            oScraped.iMeanMoney = '';
-            oScraped.iSkewnessMoney = '';
-            oScraped.iStandardDeviationMoney = '';
+            oScraped.iMaxMoney = utils.max(arrMoney);
+            oScraped.iMeanMoney = utils.mean(arrMoney);
+            oScraped.iSkewnessMoney = skewness(arrMoney);
+            oScraped.iStandardDeviationMoney = utils.standardDeviation(arrMoney);
             oScraped.iMeanIsEducated = utils.mean(arrIsEducated);
             oScraped.iSkewnessIsEducated = skewness(arrIsEducated);
             oScraped.iStandardDeviationIsEducated = utils.standardDeviation(arrIsEducated);
             oScraped.iCountJobs = oScraped.jobs.length;
             oScraped.iMinWages = utils.min(arrWages);
-            oScraped.iMaxWages = '';
-            oScraped.iMeanWages = '';
-            oScraped.iSkewnessWages = '';
-            oScraped.iStandardDeviationWages = '';
+            oScraped.iMaxWages = utils.max(arrWages);
+            oScraped.iMeanWages = utils.mean(arrWages);
+            oScraped.iSkewnessWages = skewness(arrWages);
+            oScraped.iStandardDeviationWages = utils.standardDeviation(arrWages);
             oScraped.iMinEducatedBonusWages = utils.min(arrEducatedBonusWages);
-            oScraped.iMaxEducatedBonusWages = '';
-            oScraped.iMeanEducatedBonusWages = '';
-            oScraped.iSkewnessEducatedBonusWages = '';
-            oScraped.iStandardDeviationEducatedBonusWages = '';
+            oScraped.iMaxEducatedBonusWages = utils.max(arrEducatedBonusWages);
+            oScraped.iMeanEducatedBonusWages = utils.mean(arrEducatedBonusWages);
+            oScraped.iSkewnessEducatedBonusWages = skewness(arrEducatedBonusWages);
+            oScraped.iStandardDeviationEducatedBonusWages = utils.standardDeviation(arrEducatedBonusWages);
             oScraped.iMinReputation = utils.min(arrJobReputation);
-            oScraped.iMaxReputation = '';
-            oScraped.iMeanReputation = '';
-            oScraped.iSkewnessReputation = '';
-            oScraped.iStandardDeviationReputation = '';
+            oScraped.iMaxReputation = utils.max(arrJobReputation);
+            oScraped.iMeanReputation = utils.mean(arrJobReputation);
+            oScraped.iSkewnessReputation = skewness(arrJobReputation);
+            oScraped.iStandardDeviationReputation = utils.standardDeviation(arrJobReputation);
             oScraped.iCountSchools = oScraped.schools.length;
             oScraped.iMinSchoolPrice = utils.min(arrSchoolPrice);
-            oScraped.iMaxSchoolPrice = '';
-            oScraped.iMeanSchoolPrice = '';
-            oScraped.iSkewnessSchoolPrice = '';
-            oScraped.iStandardDeviationSchoolPrice = '';
+            oScraped.iMaxSchoolPrice = utils.max(arrSchoolPrice);
+            oScraped.iMeanSchoolPrice = utils.mean(arrSchoolPrice);
+            oScraped.iSkewnessSchoolPrice = skewness(arrSchoolPrice);
+            oScraped.iStandardDeviationSchoolPrice = utils.standardDeviation(arrSchoolPrice);
             oScraped.iMinSchoolReputation = utils.min(arrSchoolReputation);
-            oScraped.iMaxSchoolReputation = '';
-            oScraped.iMeanSchoolReputation = '';
-            oScraped.iSkewnessSchoolReputation = '';
-            oScraped.iStandardDeviationSchoolReputation = '';
+            oScraped.iMaxSchoolReputation = utils.max(arrSchoolReputation);
+            oScraped.iMeanSchoolReputation = utils.mean(arrSchoolReputation);
+            oScraped.iSkewnessSchoolReputation = skewness(arrSchoolReputation);
+            oScraped.iStandardDeviationSchoolReputation = utils.standardDeviation(arrSchoolReputation);
             oScraped.iMinSchoolSuffering = utils.min(arrSchoolSuffering);
-            oScraped.iMaxSchoolSuffering = '';
-            oScraped.iMeanSchoolSuffering = '';
-            oScraped.iSkewnessSchoolSuffering = '';
+            oScraped.iMaxSchoolSuffering = utils.max(arrSchoolSuffering);
+            oScraped.iMeanSchoolSuffering = utils.mean(arrSchoolSuffering);
+            oScraped.iSkewnessSchoolSuffering = skewness(arrSchoolSuffering);
+            oScraped.iStandardDeviationSchoolSuffering = skewness(arrSchoolSuffering);
 
             iCurrentInputRecord++;
             console.log('scraped input record #: ' +
@@ -248,53 +249,19 @@ async function fpScrapeInputRecord(sUrl) {
     let executionContext;
     let poScrapeResult;
 
+    _page.on('console', _fCleanLog); // ref: https://stackoverflow.com/a/47460782/3931488
+
     await _page.goto(sUrl, {
         'timeout': 0
     }); // timeout ref: https://github.com/GoogleChrome/puppeteer/issues/782
-
-    await _page.content()
-    _page.on('console', _fCleanLog); // ref: https://stackoverflow.com/a/47460782/3931488
+    await _page.content();
 
     executionContext = _page.mainFrame().executionContext();
-    poScrapeResult = await executionContext.evaluate((_iCurrentInputRecord) => {
+    await executionContext.evaluate(() => {
         return _fpWait(500)
             .then(function () {
                 document.querySelector('.button.start').click();
-
-                return _fpWait(1000) // TODO: wait for model termination. in other words setInterval and check model.done === true
-                    .then(function () {
-                        return Promise.resolve({
-                            'jobs': model.patches
-                                        .filter(function(patch){ return patch.jobData })
-                                        .map(function(patch) { return patch.jobData }),
-                            'schools': model.patches
-                                        .filter(function(patch){ return patch.schoolData })
-                                        .map(function(patch) { return patch.schoolData }),
-                            'turtles': model.turtles.map(function(_agent){
-                                return {
-                                    'age': _agent.age,
-                                    'consumptionUtility': _agent.consumptionUtility,
-                                    'curiosity': _agent.curiosity,
-                                    'iLifetimeUtility': _agent.iLifetimeUtility,
-                                    'iUtilityPerTick': _agent.iUtilityPerTick,
-                                    'isEducated': _agent.isEducated,
-                                    'leisureUtility': _agent.leisureUtility,
-                                    'money': _agent.money,
-                                    'productivity': _agent.productivity,
-                                    'speed': _agent.speed,
-                                    'timePreference': _agent.timePreference
-                                }
-                            }),
-                            'iTotalUtilityPerTick': model.iTotalUtilityPerTick,
-                            'iTerminalTickCount': model.anim.ticks,
-                            'iTicksPerSecond': model.anim.ticksPerSec(),
-                            'bForceTerminate': model.bForceTerminate,
-                            'bBlindMode': model.bUseBlindAnim
-                        });
-                    });
-            })
-            .catch(function (err) {
-                console.log('fpScrapeInputRecord err: ', err);
+                return _fpWait(1000); // may take a sec for model to init after click
             });
 
         // larger time allows for slow site response
@@ -304,6 +271,44 @@ async function fpScrapeInputRecord(sUrl) {
             ms = ms || 10000;
             return new Promise(resolve => setTimeout(resolve, ms));
         }
+    });
+
+    await _page.waitForFunction('model.anim.ticks > 500', {
+        'timeout': 0
+    }); // ref: https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pagewaitforfunctionpagefunction-options-args
+
+    poScrapeResult = await executionContext.evaluate(() => {
+        return Promise.resolve({
+            'jobs': model.patches
+                        .filter(function(patch){ return patch.jobData })
+                        .map(function(patch) { return patch.jobData }),
+            'schools': model.patches
+                        .filter(function(patch){ return patch.schoolData })
+                        .map(function(patch) { return patch.schoolData }),
+            'turtles': model.turtles.map(function(_agent){
+                return {
+                    'age': _agent.age,
+                    'consumptionUtility': _agent.consumptionUtility,
+                    'curiosity': _agent.curiosity,
+                    'iLifetimeUtility': _agent.iLifetimeUtility,
+                    'iUtilityPerTick': _agent.iUtilityPerTick,
+                    'isEducated': _agent.isEducated,
+                    'leisureUtility': _agent.leisureUtility,
+                    'money': _agent.money,
+                    'productivity': _agent.productivity,
+                    'speed': _agent.speed,
+                    'timePreference': _agent.timePreference
+                }
+            }),
+            'iTotalUtilityPerTick': model.iTotalUtilityPerTick,
+            'iTerminalTickCount': model.anim.ticks,
+            'iTicksPerSecond': model.anim.ticksPerSec(),
+            'bForceTerminate': model.bForceTerminate || false,
+            'bBlindMode': model.bUseBlindAnim
+        })
+        .catch(function (err) {
+            console.log('fpScrapeInputRecord err: ', err);
+        });
     });
 
     _page.close();
@@ -384,7 +389,11 @@ function fsScrapedDataToResult(oScraped) {
 
     return sToCsv.slice(0, -1); // slice off the extra comma
 
-    function _fWrap(s) {
-        return '"' + (s || '') + '",';
+    function _fWrap(v) {
+        let s = String(v);
+
+        if (s === 'undefined') s = '';
+
+        return '"' + s + '",';
     }
 }
