@@ -155,6 +155,58 @@ async function fpWait() {
 function fpHandleData() {
     return fpScrapeInputRecord(sRootUrl)
         .then(function (oScraped) {
+
+            oScraped.iCountAgents = oScraped.turtles.length;
+            oScraped.iMinCuriosity = '';
+            oScraped.iMaxCuriosity = '';
+            oScraped.iMeanCuriosity = '';
+            oScraped.iMedianCuriosity = '';
+            oScraped.iStandardDeviationCuriosity = '';
+            oScraped.iMinUtilityPerTick = '';
+            oScraped.iMaxUtilityPerTick = '';
+            oScraped.iMeanUtilityPerTick = '';
+            oScraped.iMedianUtilityPerTick = '';
+            oScraped.iStandardDeviationUtilityPerTick = '';
+            oScraped.iMinMoney = '';
+            oScraped.iMaxMoney = '';
+            oScraped.iMeanMoney = '';
+            oScraped.iMedianMoney = '';
+            oScraped.iStandardDeviationMoney = '';
+            oScraped.iMeanIsEducated = '';
+            oScraped.iMedianIsEducated = '';
+            oScraped.iStandardDeviationIsEducated = '';
+            oScraped.iCountJobs = oScraped.jobs.length;
+            oScraped.iMinWages = '';
+            oScraped.iMaxWages = '';
+            oScraped.iMeanWages = '';
+            oScraped.iMedianWages = '';
+            oScraped.iStandardDeviationWages = '';
+            oScraped.iMinEducatedBonusWages = '';
+            oScraped.iMaxEducatedBonusWages = '';
+            oScraped.iMeanEducatedBonusWages = '';
+            oScraped.iMedianEducatedBonusWages = '';
+            oScraped.iStandardDeviationEducatedBonusWages = '';
+            oScraped.iMinReputation = '';
+            oScraped.iMaxReputation = '';
+            oScraped.iMeanReputation = '';
+            oScraped.iMedianReputation = '';
+            oScraped.iStandardDeviationReputation = '';
+            oScraped.iCountSchools = oScraped.schools.length;
+            oScraped.iMinSchoolPrice = '';
+            oScraped.iMaxSchoolPrice = '';
+            oScraped.iMeanSchoolPrice = '';
+            oScraped.iMedianSchoolPrice = '';
+            oScraped.iStandardDeviationSchoolPrice = '';
+            oScraped.iMinSchoolReputation = '';
+            oScraped.iMaxSchoolReputation = '';
+            oScraped.iMeanSchoolReputation = '';
+            oScraped.iMedianSchoolReputation = '';
+            oScraped.iStandardDeviationSchoolReputation = '';
+            oScraped.iMinSchoolSuffering = '';
+            oScraped.iMaxSchoolSuffering = '';
+            oScraped.iMeanSchoolSuffering = '';
+            oScraped.iMedianSchoolSuffering = '';
+
             iCurrentInputRecord++;
             console.log('scraped input record #: ' +
                 iCurrentInputRecord +
@@ -200,10 +252,28 @@ async function fpScrapeInputRecord(sUrl) {
                 return _fpWait(1000) // TODO: wait for model termination. in other words setInterval and check model.done === true
                     .then(function () {
                         return Promise.resolve({
+                            'jobs': model.patches
+                                        .filter(function(patch){ return patch.jobData })
+                                        .map(function(patch) { return patch.jobData }),
+                            'schools': model.patches
+                                        .filter(function(patch){ return patch.schoolData })
+                                        .map(function(patch) { return patch.schoolData }),
+                            'turtles': model.turtles.map(function(_agent){
+                                return {
+                                    'age': _agent.age,
+                                    'consumptionUtility': _agent.consumptionUtility,
+                                    'curiosity': _agent.curiosity,
+                                    'iLifetimeUtility': _agent.iLifetimeUtility,
+                                    'iUtilityPerTick': _agent.iUtilityPerTick,
+                                    'isEducated': _agent.isEducated,
+                                    'leisureUtility': _agent.leisureUtility,
+                                    'money': _agent.money,
+                                    'productivity': _agent.productivity,
+                                    'speed': _agent.speed,
+                                    'timePreference': _agent.timePreference
+                                }
+                            }),
                             'iTotalUtilityPerTick': model.iTotalUtilityPerTick,
-                            'iCountAgents': model.turtles.length,
-                            'iCountJobs': model.patches.filter(function(patch){ return patch.jobData }).length,
-                            'iCountSchools': model.patches.filter(function(patch){ return patch.schoolData }).length,
                             'iTerminalTickCount': model.anim.ticks,
                             'iTicksPerSecond': model.anim.ticksPerSec(),
                             'bForceTerminate': model.bForceTerminate,
