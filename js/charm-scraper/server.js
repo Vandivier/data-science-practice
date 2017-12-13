@@ -1,7 +1,20 @@
 /**
  *  Description:
  *      scrape Charm ABM state
+ *
+ *   TODO:
+ *      1 - Do we care about median values?
+ *      2 - Declarative and organized schema
+ *      3 - sanity check: share of educated population should increase per capita productivity
+ *      4 - function to take param and gen min, max, mean, skew, sd, w/e
  **/
+
+/*
+1. Did anything predict frequency of education?
+2. Did frequency of education relate to total income or total consumption?
+    - only gonna check terminal per capita iUtilityPerTick (operationalization of equilibrium per capita income, and thereby productivity)
+
+*/
 
 'use strict';
 
@@ -10,6 +23,7 @@ const EOL = require('os').EOL;
 const fs = require('fs');
 const Promise = require('bluebird');
 const puppeteer = require('puppeteer');
+const skewness = require('compute-skewness');
 const util = require('util');
 
 const utils = require('../grand-tour-study/utils.js');
@@ -21,18 +35,6 @@ const sRootUrl = 'http://localhost:3000/';
 const sResultDir = __dirname + '/results';
 const sOutputFileLocation = sResultDir + '/result.csv';
 
-/*
-1. Did anything predict frequency of education?
-2. Did frequency of education relate to total income or total consumption?
-    - only gonna check terminal per capita iUtilityPerTick (operationalization of equilibrium per capita income, and thereby productivity)
-
-... sanity check: share of educated population should increase per capita productivity
-
-TODO: write out schema
-
-*/
-
-// TODO: maybe make function to populate properties
 const oTitleLine = {
     'iTotalUtilityPerTick': 'world utility per tick',
 
@@ -40,61 +42,61 @@ const oTitleLine = {
     'iMinCuriosity': 'min curiosity',
     'iMaxCuriosity': 'max curiosity',
     'iMeanCuriosity': 'mean curiosity',
-    'iMedianCuriosity': 'median curiosity',
+    'iSkewnessCuriosity': 'Skewness curiosity',
     'iStandardDeviationCuriosity': 'standard deviation curiosity',
 
     'iMinUtilityPerTick': 'min iUtilityPerTick',
     'iMaxUtilityPerTick': 'max iUtilityPerTick',
     'iMeanUtilityPerTick': 'mean iUtilityPerTick',
-    'iMedianUtilityPerTick': 'median iUtilityPerTick',
+    'iSkewnessUtilityPerTick': 'Skewness iUtilityPerTick',
     'iStandardDeviationUtilityPerTick': 'standard deviation iUtilityPerTick',
 
     'iMinMoney': 'min money',
     'iMaxMoney': 'max money',
     'iMeanMoney': 'mean money',
-    'iMedianMoney': 'median money',
+    'iSkewnessMoney': 'Skewness money',
     'iStandardDeviationMoney': 'standard deviation money',
 
     'iMeanIsEducated': 'mean isEducated',
-    'iMedianIsEducated': 'median isEducated',
+    'iSkewnessIsEducated': 'Skewness isEducated',
     'iStandardDeviationIsEducated': 'standard deviation isEducated',
 
     'iCountJobs': 'job count',
     'iMinWages': 'min wages', // wages in the world or received by agents? in the world for now.
     'iMaxWages': 'max wages',
     'iMeanWages': 'mean wages',
-    'iMedianWages': 'median wages',
+    'iSkewnessWages': 'Skewness wages',
     'iStandardDeviationWages': 'standard deviation wages',
 
     'iMinEducatedBonusWages': 'min educatedBonusWages',
     'iMaxEducatedBonusWages': 'max educatedBonusWages',
     'iMeanEducatedBonusWages': 'mean educatedBonusWages',
-    'iMedianEducatedBonusWages': 'median educatedBonusWages',
+    'iSkewnessEducatedBonusWages': 'Skewness educatedBonusWages',
     'iStandardDeviationEducatedBonusWages': 'standard deviation educatedBonusWages',
 
     'iMinReputation': 'min reputation',
     'iMaxReputation': 'max reputation',
     'iMeanReputation': 'mean reputation',
-    'iMedianReputation': 'median reputation',
+    'iSkewnessReputation': 'Skewness reputation',
     'iStandardDeviationReputation': 'standard deviation reputation',
 
     'iCountSchools': 'school count',
     'iMinSchoolPrice': 'min school price',
     'iMaxSchoolPrice': 'max school price',
     'iMeanSchoolPrice': 'mean school price',
-    'iMedianSchoolPrice': 'median school price',
+    'iSkewnessSchoolPrice': 'Skewness school price',
     'iStandardDeviationSchoolPrice': 'standard deviation school price',
 
     'iMinSchoolReputation': 'min school reputation',
     'iMaxSchoolReputation': 'max school reputation',
     'iMeanSchoolReputation': 'mean school reputation',
-    'iMedianSchoolReputation': 'median school reputation',
+    'iSkewnessSchoolReputation': 'Skewness school reputation',
     'iStandardDeviationSchoolReputation': 'standard deviation school reputation',
 
     'iMinSchoolSuffering': 'min school suffering',
     'iMaxSchoolSuffering': 'max school suffering',
     'iMeanSchoolSuffering': 'mean school suffering',
-    'iMedianSchoolSuffering': 'median school suffering',
+    'iSkewnessSchoolSuffering': 'Skewness school suffering',
     'iStandardDeviationSchoolSuffering': 'standard deviation school suffering',
 
     'iTerminalTickCount': 'terminal tick count',
@@ -154,58 +156,68 @@ async function fpWait() {
 // TODO: click go to next button and get more stages
 function fpHandleData() {
     return fpScrapeInputRecord(sRootUrl)
-        .then(function (oScraped) {
+        .then(function (oScraped) { // TODO: condense to function per parameter of interest
+            let arrCuriosity = oScraped.turtles.map(function(agent){ return agent.curiosity });
+            let arrUtilityPerTick = [];
+            let arrMoney = [];
+            let arrIsEducated = [];
+            let arrWages = [];
+            let arrEducatedBonusWages = [];
+            let arrJobReputation = [];
+            let arrSchoolPrice = [];
+            let arrSchoolReputation = [];
+            let arrSchoolSuffering = [];
 
             oScraped.iCountAgents = oScraped.turtles.length;
-            oScraped.iMinCuriosity = '';
-            oScraped.iMaxCuriosity = '';
-            oScraped.iMeanCuriosity = '';
-            oScraped.iMedianCuriosity = '';
-            oScraped.iStandardDeviationCuriosity = '';
+            oScraped.iMinCuriosity = utils.min(arrCuriosity);
+            oScraped.iMaxCuriosity = utils.max(arrCuriosity);
+            oScraped.iMeanCuriosity = utils.mean(arrCuriosity);
+            oScraped.iSkewnessCuriosity = skewness(arrCuriosity);
+            oScraped.iStandardDeviationCuriosity = utils.standardDeviation(arrCuriosity);
             oScraped.iMinUtilityPerTick = '';
             oScraped.iMaxUtilityPerTick = '';
             oScraped.iMeanUtilityPerTick = '';
-            oScraped.iMedianUtilityPerTick = '';
+            oScraped.iSkewnessUtilityPerTick = '';
             oScraped.iStandardDeviationUtilityPerTick = '';
             oScraped.iMinMoney = '';
             oScraped.iMaxMoney = '';
             oScraped.iMeanMoney = '';
-            oScraped.iMedianMoney = '';
+            oScraped.iSkewnessMoney = '';
             oScraped.iStandardDeviationMoney = '';
             oScraped.iMeanIsEducated = '';
-            oScraped.iMedianIsEducated = '';
+            oScraped.iSkewnessIsEducated = '';
             oScraped.iStandardDeviationIsEducated = '';
             oScraped.iCountJobs = oScraped.jobs.length;
             oScraped.iMinWages = '';
             oScraped.iMaxWages = '';
             oScraped.iMeanWages = '';
-            oScraped.iMedianWages = '';
+            oScraped.iSkewnessWages = '';
             oScraped.iStandardDeviationWages = '';
             oScraped.iMinEducatedBonusWages = '';
             oScraped.iMaxEducatedBonusWages = '';
             oScraped.iMeanEducatedBonusWages = '';
-            oScraped.iMedianEducatedBonusWages = '';
+            oScraped.iSkewnessEducatedBonusWages = '';
             oScraped.iStandardDeviationEducatedBonusWages = '';
             oScraped.iMinReputation = '';
             oScraped.iMaxReputation = '';
             oScraped.iMeanReputation = '';
-            oScraped.iMedianReputation = '';
+            oScraped.iSkewnessReputation = '';
             oScraped.iStandardDeviationReputation = '';
             oScraped.iCountSchools = oScraped.schools.length;
             oScraped.iMinSchoolPrice = '';
             oScraped.iMaxSchoolPrice = '';
             oScraped.iMeanSchoolPrice = '';
-            oScraped.iMedianSchoolPrice = '';
+            oScraped.iSkewnessSchoolPrice = '';
             oScraped.iStandardDeviationSchoolPrice = '';
             oScraped.iMinSchoolReputation = '';
             oScraped.iMaxSchoolReputation = '';
             oScraped.iMeanSchoolReputation = '';
-            oScraped.iMedianSchoolReputation = '';
+            oScraped.iSkewnessSchoolReputation = '';
             oScraped.iStandardDeviationSchoolReputation = '';
             oScraped.iMinSchoolSuffering = '';
             oScraped.iMaxSchoolSuffering = '';
             oScraped.iMeanSchoolSuffering = '';
-            oScraped.iMedianSchoolSuffering = '';
+            oScraped.iSkewnessSchoolSuffering = '';
 
             iCurrentInputRecord++;
             console.log('scraped input record #: ' +
@@ -317,52 +329,52 @@ function fsScrapedDataToResult(oScraped) {
                 + _fWrap(oScraped.iMinCuriosity)
                 + _fWrap(oScraped.iMaxCuriosity)
                 + _fWrap(oScraped.iMeanCuriosity)
-                + _fWrap(oScraped.iMedianCuriosity)
+                + _fWrap(oScraped.iSkewnessCuriosity)
                 + _fWrap(oScraped.iStandardDeviationCuriosity)
                 + _fWrap(oScraped.iMinUtilityPerTick)
                 + _fWrap(oScraped.iMaxUtilityPerTick)
                 + _fWrap(oScraped.iMeanUtilityPerTick)
-                + _fWrap(oScraped.iMedianUtilityPerTick)
+                + _fWrap(oScraped.iSkewnessUtilityPerTick)
                 + _fWrap(oScraped.iStandardDeviationUtilityPerTick)
                 + _fWrap(oScraped.iMinMoney)
                 + _fWrap(oScraped.iMaxMoney)
                 + _fWrap(oScraped.iMeanMoney)
-                + _fWrap(oScraped.iMedianMoney)
+                + _fWrap(oScraped.iSkewnessMoney)
                 + _fWrap(oScraped.iStandardDeviationMoney)
                 + _fWrap(oScraped.iMeanIsEducated)
-                + _fWrap(oScraped.iMedianIsEducated)
+                + _fWrap(oScraped.iSkewnessIsEducated)
                 + _fWrap(oScraped.iStandardDeviationIsEducated)
                 + _fWrap(oScraped.iCountJobs)
                 + _fWrap(oScraped.iMinWages)
                 + _fWrap(oScraped.iMaxWages)
                 + _fWrap(oScraped.iMeanWages)
-                + _fWrap(oScraped.iMedianWages)
+                + _fWrap(oScraped.iSkewnessWages)
                 + _fWrap(oScraped.iStandardDeviationWages)
                 + _fWrap(oScraped.iMinEducatedBonusWages)
                 + _fWrap(oScraped.iMaxEducatedBonusWages)
                 + _fWrap(oScraped.iMeanEducatedBonusWages)
-                + _fWrap(oScraped.iMedianEducatedBonusWages)
+                + _fWrap(oScraped.iSkewnessEducatedBonusWages)
                 + _fWrap(oScraped.iStandardDeviationEducatedBonusWages)
                 + _fWrap(oScraped.iMinReputation)
                 + _fWrap(oScraped.iMaxReputation)
                 + _fWrap(oScraped.iMeanReputation)
-                + _fWrap(oScraped.iMedianReputation)
+                + _fWrap(oScraped.iSkewnessReputation)
                 + _fWrap(oScraped.iStandardDeviationReputation)
                 + _fWrap(oScraped.iCountSchools)
                 + _fWrap(oScraped.iMinSchoolPrice)
                 + _fWrap(oScraped.iMaxSchoolPrice)
                 + _fWrap(oScraped.iMeanSchoolPrice)
-                + _fWrap(oScraped.iMedianSchoolPrice)
+                + _fWrap(oScraped.iSkewnessSchoolPrice)
                 + _fWrap(oScraped.iStandardDeviationSchoolPrice)
                 + _fWrap(oScraped.iMinSchoolReputation)
                 + _fWrap(oScraped.iMaxSchoolReputation)
                 + _fWrap(oScraped.iMeanSchoolReputation)
-                + _fWrap(oScraped.iMedianSchoolReputation)
+                + _fWrap(oScraped.iSkewnessSchoolReputation)
                 + _fWrap(oScraped.iStandardDeviationSchoolReputation)
                 + _fWrap(oScraped.iMinSchoolSuffering)
                 + _fWrap(oScraped.iMaxSchoolSuffering)
                 + _fWrap(oScraped.iMeanSchoolSuffering)
-                + _fWrap(oScraped.iMedianSchoolSuffering)
+                + _fWrap(oScraped.iSkewnessSchoolSuffering)
                 + _fWrap(oScraped.iStandardDeviationSchoolSuffering)
                 + _fWrap(oScraped.iTerminalTickCount)
                 + _fWrap(oScraped.iTicksPerSecond)
