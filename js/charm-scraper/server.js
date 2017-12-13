@@ -316,9 +316,10 @@ async function fpScrapeInputRecord(sUrl) {
             });
         }
 
+        // TODO: real equilibrium condition instead of ticklimit
+        // 1000 is an arbitrary tick limit
         function _fbReady(_resolve) {
-            console.log(model.anim.ticks);
-            if (model.anim.ticks > 500) {
+            if (model.anim.ticks > 1000) {
                 return true;
             }
         }
