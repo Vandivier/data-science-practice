@@ -16,6 +16,8 @@
   "author": "John Vandivier",
   "license": "MIT",
   "devDependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "puppeteer": "0.12.0",
     "split": "^1.0.1"
   }
 }
