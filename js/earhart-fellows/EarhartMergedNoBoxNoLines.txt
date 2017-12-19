@@ -73,7 +73,7 @@ Graduate Fellowship(s)
 2003-2004 
 University of Pennsylvania, Government/Politics, 
 John J. Dilulio Jr., Sponsor 
-ACKERMAN (SCH_ARFF), Xanthe M. 
+ACKERMAN (SCHARFF), Xanthe M. 
 Graduate Fellowship(s) 
 2005-2006 
 Tufts University, International Studies, Richard 
@@ -1101,7 +1101,7 @@ Address,
 Department of History, SHSU Box 2239, 
 Sam Houston State University, Huntsville, TX 
 77341-2239 
-206 Fin 2628 Road, Huntsville, TX 77320- 
+206 Fm 2628 Road, Huntsville, TX 77320- 
 1214, n.baker@mac.com 
 BAKER, Raymond J.D. 
 Graduate Fellowship(s) 
@@ -1365,8 +1365,7 @@ Graduate Fellowship(s)
 Texas A&M University, Economics, S. Charles 
 Maurice, Sponsor, Ph.D., 1984 
 Address,
-Department of Marketing and Finance, Boise 
-22 State University, Boise, ID 83725, ldbarney@boisestate.edu 
+Department of Marketing and Finance, Boise State University, Boise, ID 83725, ldbarney@boisestate.edu 
 BARON, Stephen M. 
 Graduate Fellowship(s) 
 1976-1977 
@@ -2103,7 +2102,7 @@ Graduate Fellowship(s)
 1959-1960 
 McGill University, Canada, Economics, David 
 McCord Wright, Sponsor, Ph.D., 1962 
-BINNENDIJK, An'ika L. 
+BINNENDIJK, Anika L. 
 Graduate Fellowship(s) 
 2006-2007 
 Tufts University, International Studies, Robert 
@@ -9381,8 +9380,7 @@ Becker, Sponsor, Ph.D., 1976
 Address,
 The World Bank, 600 19th Street, N.W., 
 Washington, DC 20433 
-12020 Montrose Village Terrace, Rockville, 
-136 MD 20852-4162, Igoldberg@worldbank.org, 
+12020 Montrose Village Terrace, Rockville, MD 20852-4162, Igoldberg@worldbank.org, 
 igoldberg@angion.com 
 GOLDBERG, Matthew S. 
 Graduate Fellowship(s) 
@@ -10783,8 +10781,7 @@ Graduate Fellowship(s)
 Boston University, Religion, Peter L. Berger, 
 Sponsor, Ph.D., 2005 
 Address,
-Department of Religion, 318 Francis T. West 
-156 Hall, Roanoke College, 221 College Lane, 
+Department of Religion, 318 Francis T. West Hall, Roanoke College, 221 College Lane, 
 Salem, VA 24153 
 517 Washington Avenue, S.W., Roanoke, 
 VA 24016-4219, mdharris@roanoke.edu, 
@@ -12623,8 +12620,7 @@ JOHNSON, Ramon
 Graduate Fellowship(s) 
 1963-1964 
 University of Wisconsin, Business Administration, 
-Erwin A. Gaumnitz, Sponsor, 
-182 Ph.D., 1966 
+Erwin A. Gaumnitz, Sponsor, Ph.D., 1966 
 Address,
 527E. 11th Avenue, Salt Lake City, UT 84103- 
 3204 
@@ -12632,8 +12628,7 @@ JOHNSON, Rhett T.
 Graduate Fellowship(s) 
 1997-1998 
 University of Chicago, Economics, Larry T. 
-Wimmer and B. Delworth Gardner, Sponsors, 
-MA. 
+Wimmer and B. Delworth Gardner, Sponsors, MA. 
 Address,
 Charles River Associates, John Hancock Tower, 
 200 Clarendon Street, T-33, Boston, MA 02116 
@@ -13578,8 +13573,7 @@ University of Chicago, Business Administration,
 George J. Stigler, Sponsor, Ph.D., 1977 
 Address,
 Booth School of Business, University of 
-Chicago, 5807 South Woodlaw Avenue, 
-196 Chicago, IL 60637-1610 
+Chicago, 5807 South Woodlaw Avenue, Chicago, IL 60637-1610 
 10425 S. Hamilton Avenue, Chicago, IL 
 60643-2511, david.kleinman@chicagobooth.edu, d_kleinman@yahoo.com 
 KLEINMAN, Samuel D. 
@@ -13854,8 +13848,7 @@ Graduate Fellowship(s)
 1964-1965 
 1965-1966 
 University of Michigan, Business Administration, 
-W. Allen Spivey, Sponsor, 
-200 MA., 1966 
+W. Allen Spivey, Sponsor, MA., 1966 
 KOTIN, Allan 
 Graduate Fellowship(s) 
 1960-1961 
@@ -13916,7 +13909,7 @@ University, 36 Prospect Street, Providence, RI
 02912 
 300 President Avenue, Providence, RI 02906- 
 5500, Sharon_Krause@Brown.edu 
-'CRAVE, Carl Arthur 
+KRAVE, Carl Arthur 
 Graduate Fellowship(s) 
 1974-1975 
 Columbia University, Economics, C. Lowell 
@@ -14705,8 +14698,7 @@ Harvey C. Mansfield Jr., Sponsor, Ph.D., 1997
 Address,
 Department of Political Science, Acland House 
 22, Kenyon College, Gambier, OH 43022 407 
-N. Main Street, Apt. 4, Mount Vernon, 
-212 OH 43050, leibowitzd@kenyon.edu 
+N. Main Street, Apt. 4, Mount Vernon, OH 43050, leibowitzd@kenyon.edu 
 LEIBOWITZ (SHOICHET), Lisa E 
 Graduate Fellowship(s) 
 1997-1998 
@@ -18442,8 +18434,7 @@ International Studies, Howard R. Penniman,
 Sponsor, Ph.D., 1980 
 Address,
 Department of Government, Georgetown 
-University, 37th and 0 Streets, Washington, 
-264 DC 20057 
+University, 37th and 0 Streets, Washington, DC 20057 
 4615 Western Avenue, N.W., Washington, 
 DC 20016-4339, mujalleo@georgetown.edu, 
 emujalleon@yahoo.com 
@@ -21580,8 +21571,7 @@ University of Michigan, Economics, Paul W.
 McCracken, Sponsor, Ph.D., 1971 
 Address,
 Burnham-Moores Center for Real Estate, 
-University of San Diego, 5998 Alcala Park, San 
-308 Diego, CA 92110 
+University of San Diego, 5998 Alcala Park, San Diego, CA 92110 
 14084 Rue Saint Tropez, Del Mar, CA 92014- 
 3042, mriedy@sandiego.edu, mriedy@netzero.net 
 RIISAGER (KINSELLA), Carly 
@@ -26665,7 +26655,7 @@ Georgescu-Roegen and George W. Stocking,
 Sponsors, Ph.D., 1967 
 Address,
 Department of Oncology, Community Health 
-380 & Epidemiology, Queen's University, Kingston, 
+& Epidemiology, Queen's University, Kingston, 
 Ontario, K7L 3N6 Canada, hugh@hughwalker.com 
 WALKER JR., John E. 
 Graduate Fellowship(s) 
