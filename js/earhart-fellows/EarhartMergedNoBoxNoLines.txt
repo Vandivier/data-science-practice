@@ -72,7 +72,7 @@ ABRAHAM, Arun
 Graduate Fellowship(s) 
 2003-2004 
 University of Pennsylvania, Government/Politics, 
-John J. DiIulio Jr., Sponsor 
+John J. Dilulio Jr., Sponsor 
 ACKERMAN (SCH_ARFF), Xanthe M. 
 Graduate Fellowship(s) 
 2005-2006 
@@ -1165,7 +1165,7 @@ School of Arts and Humanities, University
 of Texas at Dallas, 800 W. Campbell Road, 
 Richardson, TX 75080-3021 
 6931 Lindsley Avenue, Dallas, TX 75223, 
-cbambach@utd a I las.edu 
+cbambach@utdallas.edu 
 BAMBERGER, Gustavo E. 
 Graduate Fellowship(s) 
 1985-1986 
@@ -1539,7 +1539,7 @@ Summer 1971
 Johns Hopkins University, Government/Politics, 
 Gottfried Dietze, Sponsor 
 Deceased 
-BEALES Ill, J. Howard 
+BEALES III, J. Howard 
 Graduate Fellowship(s) 
 1975-1976 
 University of Chicago, Economics, George J. 
@@ -17010,9 +17010,8 @@ memcmahon@mac.com
 MCNAIR, Lawrence N. 
 Graduate Fellowship(s) 
 1970-1971 
-Virginia Polytechnic Institute & State University, 
-Economics, Benjamin A. Rogge, 
-Sponsor 
+Virginia Polytechnic Institute & State University, Economics,
+Benjamin A. Rogge, Sponsor 
 Address,
 5992 Buckland Mill Road, Roanoke, VA 
 24019-6725, lnmcnair@yahoo.com 
