@@ -2287,7 +2287,7 @@ Graduate Fellowship(s)
 Claremont Graduate School, Government/Politics, 
 Harold W. Rood, Sponsor, Ph.D., 1990 
 Address,
-Department of Political Science 8c Sociology, 
+Department of Political Science & Sociology, 
 Northern State University, 1200 S. Jay Street, 
 Aberdeen, SD 57401-7198 
 715 S. Jay Street, Aberdeen, SD 57401, 
@@ -2603,7 +2603,7 @@ University of Notre Dame, Government/
 Politics, Catherine H. and Michael P. Zuckert, 
 Sponsors, Ph.D., 2010 
 Address,
-Department of Politics, Economics 8E 
+Department of Politics, Economics & 
 International Studies, University of Hartford, 
 200 Bloomfield Avenue, West Hartford, CT 
 06117 
@@ -3498,7 +3498,7 @@ Graduate Fellowship(s)
 University of Dallas, History, J. Rufus Fears, 
 Sponsor, M.A., 1992 
 Address,
-Fourth 8c Walnut Centre, 105 East Fourth 
+Fourth & Walnut Centre, 105 East Fourth 
 Street, Suite 300, Cincinnati, OH 45202 
 8555 Kugler Mill Road, Cincinnati, OH 
 45243-1423, dburleigh@dbllaw.com 
@@ -3995,7 +3995,7 @@ Graduate Fellowship(s)
 1970-1971
 University of Oxford. United Kingdom, 
 Government/Politics, Francis Canavan, Sponsor 
-1971-1972 
+1971-1972
 Harvard University, Government/Politics, 
 Francis Canavan, Sponsor 
 Address,
@@ -4851,7 +4851,7 @@ Deceased
 COLLIER, Boyd D. 
 Graduate Fellowship(s) 
 1963-1964 
-72 Baylor University, Economics, Emerson Henke, 
+Baylor University, Economics, Emerson Henke, 
 Sponsor, M.A., 1965 
 Spring 1968 
 University of Texas, Economics, Emerson 
@@ -5257,7 +5257,7 @@ Address,
 COUCH (KFALIHER), Amy C. 
 Graduate Fellowship(s) 
 Spring 2001 
-Fortlham University, Government/Politics, 
+Fordham University, Government/Politics, 
 Mary P. Nichols, Sponsor 
 2001-2002 
 Fall 2002 
@@ -6652,7 +6652,7 @@ Graduate Fellowship(s)
 University of Virginia, Economics, Arthur 
 Kemp, Sponsor 
 Address,
-Donahoe 8c Young LLP, 16133 Ventura 
+Donahoe & Young LLP, 16133 Ventura 
 Boulevard, 7th Floor, Encino, CA 91436-2403 
 17318 Quesan Place, Encino, CA 91316-3936, 
 tcdesq@earthlink.net, hello1989@gmail.com 
@@ -8624,7 +8624,7 @@ Spring 2006
 University of Arizona, Philosophy, David 
 Schmidtz, Sponsor, Ph.D., 2010 
 Address,
-College of William 8c Mary, James Blair 
+College of William & Mary, James Blair 
 Hall, Room 121, 250 James Blair Drive, 
 Williamsburg, VA 23185 
 3308 Evesham Ct, Williamsburg, VA 23185- 
@@ -9888,7 +9888,7 @@ Sponsor
 Tulane University, Philosophy, Harvey C. 
 Mansfield Jr., Sponsor, Ph.D., 2010 
 Address,
-Department of Classics 8c Philosophy, 
+Department of Classics & Philosophy, 
 University of Dallas, 1845 East Northgate 
 Drive, Irving, TX 75062 
 329 E. Colorado Boulevard, Apt. 201, Dallas, 
@@ -9909,7 +9909,7 @@ University of Wisconsin, Government/Politics,
 Burton A. Weisbrod and W. Lee Hansen, 
 Sponsors, Ph.D. 
 Address,
-CNA Analysis 8c Solutions, 4825 Mark Center 
+CNA Analysis & Solutions, 4825 Mark Center 
 Drive, Alexandria, VA 22311 
 10404 Adel Road, Oakton, VA 22124-1601, 
 bgriffis@bright.net 
@@ -10931,7 +10931,7 @@ University of Illinois. Urbana, Economics, Donald L.
 Kemmerer, Sponsor, Ph.D., 1976 
 Address,
 Department of Economics, Box 8795, College 
-of William 8c Mary, Williamsburg, VA 23187- 
+of William & Mary, Williamsburg, VA 23187- 
 8795 
 100 Riverview Plantation Drive, Williamsburg, 
 VA 23188, wjhaus@wm.edu 
@@ -13997,7 +13997,7 @@ Graduate Fellowship(s)
 Northwestern University, International Studies, 
 R. Barry Farrell, Sponsor, Ph.D., 1969 
 Address,
-Department of Government 8z International 
+Department of Government & International 
 Studies, University of South Carolina, 
 Columbia, SC 29208 
 1153 Indian Summer Point, Chapin, SC 
@@ -14598,8 +14598,8 @@ Address,
 LEE, Kie Bok 
 Graduate Fellowship(s) 
 1960-1961 
-University of Virginia, Economics, G. Warren 
-210 Nutter, Sponsor 
+University of Virginia, Economics, 
+G. Warren Nutter, Sponsor 
 1962-1963 
 University of Virginia, Economics, Ronald H. 
 Coase, Sponsor, Ph.D., 1967 
@@ -15441,7 +15441,7 @@ Graduate Fellowship(s)
 Boston University, Religion, Peter L. Berger, 
 Sponsor, Ph.D., 2010 
 Address,
-International 8c Global Studies, Brandeis 
+International & Global Studies, Brandeis 
 University, 415 South Street, Waltham, MA 
 02453 
 65 Fellsmere Road, Newton Center, MA 02459- 
@@ -16592,7 +16592,7 @@ University of Virginia, Economics, Roland N.
 McKean, Sponsor, M.A., 1987 
 Address,
 Thomas Jefferson Program in Public Policy, 
-College of William 8c Mary, P.O. Box 8795, 
+College of William & Mary, P.O. Box 8795, 
 Williamsburg, VA 23187 
 204 Indian Springs Road, Williamsburg, VA 
 23185-3941, mcbeth@wm.edu, jmcbeth® 
@@ -19067,7 +19067,7 @@ Graduate Fellowship(s)
 University of Chicago, Economics, Robert L. 
 Bunting, Sponsor, M.A., 1978 
 Address,
-CEO, Marcus 8E Associates, 1045 Mapunapuna 
+CEO, Marcus & Associates, 1045 Mapunapuna 
 Street, Honolulu, HI 96819 
 1045 Mapunapuna Street, Honolulu, HI 
 96819-4423, dnishikawa@carolina.a.com 
@@ -19603,7 +19603,7 @@ Graduate Fellowship(s)
 Boston University, Philosophy, Charles L. 
 Griswold Jr., Sponsor, Ph.D., 1998 
 Address,
-Department of Philosophy 8c Religion, 
+Department of Philosophy & Religion, 
 Skidmore College, 815 North Broadway, 
 Saratoga Springs, NY 12866 
 81 York Avenue, Saratoga Springs, NY 12866, 
@@ -22526,9 +22526,8 @@ Fred D. Miller Jr., Sponsor, Ph.D., 2011
 SANO, Shinichi 
 Graduate Fellowship(s) 
 1966-1967 
-University of Chicago, Economics, Chiaki 
-Nishiyama 8c Milton Friedman, Sponsor, M.A., 
-1970 
+University of Chicago, Economics, 
+Chiaki Nishiyama & Milton Friedman, Sponsor, M.A., 1970 
 1973-1974 
 University of California. Los Angeles, 
 Economics, Jack Hirshleifer, Sponsor 
@@ -25009,7 +25008,7 @@ Graduate Fellowship (s)
 Baylor University, Business Administration, 
 Emerson Henke, Sponsor, MA., 1966 
 Address,
-Blakely 8c Wakefield, LLP, 6363 Woodway, 
+Blakely & Wakefield, LLP, 6363 Woodway, 
 Suite 502, Houston, TX 77057 
 3118 Lake Street, Houston, TX 77098-2112, 
 dsulak@blakelywakefield.com 
@@ -26024,7 +26023,7 @@ Graduate Fellowship(s)
 Princeton University, Government/Politics, 
 Robert P. George, Sponsor, Ph.D., 2001 
 Address,
-Program in Politics, Philosophy 8c Economics, 
+Program in Politics, Philosophy & Economics, 
 King's College, 56 Broadway, New York, NY 
 10004 
 15A Hibben Road, Princeton, NJ 08540, tubbs.david@gmail.com 
@@ -26045,7 +26044,7 @@ Graduate Fellowship(s)
 Fordham University, English, Vigen Guroian, 
 Sponsor, Ph.D., 2008 
 Address,
-Department of English 8c Writing, Spring Hill 
+Department of English & Writing, Spring Hill 
 College, 4000 Dauphin Street, Mobile, AL 
 36608 
 50 N. Georgia Avenue, Mobile, AL 36604 
@@ -27452,7 +27451,7 @@ Claremont Graduate School, Government/Politics,
 Harry V. Jaffa, Sponsor, Ph.D., 
 1998
 Address,
-Director, Foundation 8E Corporate Relations, 
+Director, Foundation & Corporate Relations, 
 Claremont McKenna College, 400 North 
 Claremont Boulevard, Claremont, CA 91711 
 2196 E. Mountain Street, Pasadena, CA 91104, 
@@ -27835,8 +27834,8 @@ WOLF, Stephen Allen
 Graduate Fellowship(s) 
 1980-1981 
 1981-1982 
-University of Dallas, Government/Politics, Leo 
-Paul S. de Alvarez, Sponsor 
+University of Dallas, Government/Politics,
+Leo Paul S. de Alvarez, Sponsor 
 Deceased 
 WOLFE II, Richard Paul 
 Graduate Fellowship(s) 
@@ -28026,9 +28025,8 @@ alissaworden@yahoo.com, aworden@albany.edu
 WORT, Donald H. 
 Graduate Fellowship(s) 
 1970-1971 
-Michigan State University, Economics, Roland 
-F. Salmonson and James Don Edwards, 
-Sponsors, Ph.D., 1972 
+Michigan State University, Economics, 
+Roland F. Salmonson and James Don Edwards, Sponsors, Ph.D., 1972 
 Address,
 6757 Friars Road, Apt. 21, San Diego, CA 
 92108-1135 
@@ -28418,7 +28416,7 @@ Winter 1987
 1990-1991 
 University of Michigan, Government/Politics, 
 George Grassmuck, Sponsor 
-ZlivIIVIERMANN, Andreas Julius 
+ZIMMERMANN, Andreas Julius 
 Graduate Fellowship(s) 
 Fall 1981 
 University of Zurich, Switzerland, Economics, 
