@@ -644,7 +644,7 @@ ANDERSON, Robert Glenn
 Graduate Fellowship(s) 
 1957-1958 
 New York University, Economics, 
-Hans E Sennholz, Sponsor, MA., 1958 
+Hans F. Sennholz, Sponsor, MA., 1958 
 1958-1959 
 New York University, Economics, 
 William H. Peterson, Sponsor 
@@ -657,7 +657,7 @@ Graduate Fellowship (s)
 2011-2012 
 2012-2013 
 University of Notre Dame, Government/Politics, 
-Robert P George, Sponsor, Ph.D., 2014 
+Robert P. George, Sponsor, Ph.D., 2014 
 Address,
 The Heritage Foundation, 214 Massachusetts 
 Avenue, N.E., Washington, DC 20002 
@@ -1755,7 +1755,7 @@ Fordham University, Government/Politics,
 Michael Davis, Sponsor 
 2001-2002 
 Fordham University, Government/Politics, 
-Mary P Nichols, Sponsor, Ph.D., 2004 
+Mary P. Nichols, Sponsor, Ph.D., 2004 
 Address,
 519 New York Avenue, Takoma Park, MD 
 20912 
@@ -4763,7 +4763,7 @@ Clemson University, Economics,
 Cotton M. Lindsay, Sponsor 
 2010-2011 
 Clemson University, Economics, 
-Robert E Tamura, Sponsor, Ph.D., 2011 
+Robert F. Tamura, Sponsor, Ph.D., 2011 
 Address,
 Department of Economics, 
 University of 
@@ -4887,7 +4887,7 @@ Graduate Fellowship(s)
 1963-1964 
 1964-1965 
 University of Michigan, Business Administration, 
-Raymond W Coleman, Sponsor 
+Raymond W. Coleman, Sponsor 
 Address,
 206 East Drive, Mount Pleasant, MI 48858-2000 
 COOKSON, Chris E. 
@@ -6030,7 +6030,7 @@ DEI ROSSI, James A.
 Graduate Fellowship(s) 
 1960-1961 
 Stanford University, Economics, 
-Merrill K Bennett, Sponsor, M.A., 1963 
+Merrill K. Bennett, Sponsor, M.A., 1963 
 Address,
 928 Theresa Court, Menlo Park, CA 94025-1725 
 DEITCH, Kenneth M. 
@@ -6669,7 +6669,7 @@ DUNN, Brendan
 Graduate Fellowship(s) 
 2003-2004 
 University of Notre Dame, Government/Politics, 
-Michael E Zuckert, Sponsor, Ph.D., 2008 
+Michael P. Zuckert, Sponsor, Ph.D., 2008 
 Address,
 Graduate School of Political Management, 
 George Washington University, 805 21st Street, 
@@ -7859,7 +7859,7 @@ FINLAY, David J.
 Graduate Fellowship(s) 
 1962-1963 
 Stanford University, Government/Politics, 
-W Glenn Campbell, Sponsor, Ph.D., 1962 
+W. Glenn Campbell, Sponsor, Ph.D., 1962 
 Address,
 2760 E. 18th Avenue, Eugene, OR 97403-2203, dfinlayl@comcast.net 
 FINROW, Mary Christina 
@@ -9626,7 +9626,7 @@ GRINDER, Walter Eugene
 Graduate Fellowship(s) 
 1967-1968 
 New York University, Economics, 
-Hans E Sennholz, Sponsor 
+Hans F. Sennholz, Sponsor 
 Address,
 217 Ada Avenue, #32, Mountain View, CA 
 94043, wegrinder@gmail.com 
@@ -9664,7 +9664,7 @@ GROSS, Lorna S.
 Graduate Fellowship(s) 
 1983-1984 
 Clark University, Economics, 
-Attiat E Ott, Sponsor, Ph.D., 1988 
+Attiat F. Ott, Sponsor, Ph.D., 1988 
 Address,
 Athol Memorial Hospital, 2033 Main Street, 
 Athol, MA 01331 
@@ -9720,7 +9720,7 @@ GUARNIERI, Robert L.
 Graduate Fellowship(s) 
 1962-1963 
 New York University, Economics, 
-Hans E Sennholz, Sponsor, Ph.D. 1964 
+Hans F. Sennholz, Sponsor, Ph.D. 1964 
 1964-1965 
 Summer 1965 
 Summer 1966 
@@ -10423,7 +10423,7 @@ HARRIS, William Tooke
 Graduate Fellowship(s) 
 1975-1976 
 Virginia Polytechnic Institute & State University, Economics, 
-Wilson E Schmidt, Sponsor, Ph.D., 1979 
+Wilson E. Schmidt, Sponsor, Ph.D., 1979 
 Address,
 Department of Economics, 
 University of 
@@ -11480,7 +11480,7 @@ University of Notre Dame, Government/Politics,
 Michael P. Zuckert, Sponsor 
 2007-2008 
 University of Notre Dame, Government/Politics, 
-Catherine H. and Michael P Zuckert, Sponsors, Ph.D., 2010 
+Catherine H. and Michael P. Zuckert, Sponsors, Ph.D., 2010 
 Address,
 Department of Government, American 
 University, 4400 Massachusetts Avenue, N.W., 
@@ -11596,7 +11596,7 @@ HUGHES-CROMWICK, Ellen L.
 Graduate Fellowship(s) 
 1982-1983 
 Clark University, Economics, 
-Attiat E Ott, Sponsor, Ph.D., 1986 
+Attiat F. Ott, Sponsor, Ph.D., 1986 
 Address,
 4450 Boulder Pond Drive, Ann Arbor, MI 
 48108, e.hughes-cromwick@comcast.net 
@@ -11757,7 +11757,7 @@ HUTCHINSON, Gladstone A.
 Graduate Fellowship(s) 
 1985-1986 
 Clark University, Economics, 
-Attiat E Ott, Sponsor, Ph.D., 1990 
+Attiat F. Ott, Sponsor, Ph.D., 1990 
 Address,
 2165 Beechwood Street, Orefield, PA 18069-3148, fluneyhutchinson@gmail.com 
 HWA, David J. 
@@ -12051,7 +12051,7 @@ JENSEN, Donald Norman
 Graduate Fellowship(s) 
 1977-1978 
 Harvard University, Government/Politics, 
-James Q Wilson, Sponsor 
+James Q. Wilson, Sponsor 
 Address,
 3301 Coryell Lane, #804, Alexandria, VA 
 22302-2114, jensend@rferl.org, donald.jensen8@gmail.com 
@@ -12425,7 +12425,7 @@ KAPPAS, Peter D.
 Graduate Fellowship(s) 
 1993-1994 
 University of California. Los Angeles, Government/Politics, 
-James Q Wilson, Sponsor, Ph.D., 1997 
+James Q. Wilson, Sponsor, Ph.D., 1997 
 Address,
 Department of Political Science, California 
 State University, Northridge, 18111 Nordhoff 
@@ -12758,7 +12758,7 @@ Graduate Fellowship(s)
 2005-2006 
 2006-2007 
 Georgetown University, Government/Politics, 
-George W Carey, Sponsor, Ph.D., 2008 
+George W. Carey, Sponsor, Ph.D., 2008 
 Address,
 School of Continuing Studies, Georgetown 
 University, 3307 M Street N.W, Washington, 
@@ -14291,7 +14291,7 @@ LENA, Peter D.
 Graduate Fellowship(s) 
 1984-1985 
 Clark University, Economics, 
-Attiat E Ott, Sponsor, Ph.D., 1989 
+Attiat F. Ott, Sponsor, Ph.D., 1989 
 Address,
 47 Nourse Road, Bolton, MA 01740-1018, 
 plena@swbell.net, philipdami@netzero.com 
@@ -15442,7 +15442,7 @@ Graduate Fellowship(s)
 1986-1987 
 1987-1988 
 Harvard University, Government/Politics, 
-James Q Wilson, Sponsor, M.A., 1988 
+James Q. Wilson, Sponsor, M.A., 1988 
 1993-1994 
 Princeton University, Government/Politics, 
 John J. DiIulio Jr., Sponsor, Ph.D., 1994 
@@ -16356,7 +16356,7 @@ Graduate Fellowship(s)
 2007-2008 
 2008-2009 
 University of Georgia, Economics, 
-Dwight R Lee, Sponsor, Ph.D., 2011 
+Dwight R. Lee, Sponsor, Ph.D., 2011 
 Address,
 9524 Highedge Drive, Dallas, TX 75238, 
 tmcgahee@gmail.com 
@@ -17219,13 +17219,13 @@ Graduate Fellowship (s)
 Calendar Year 1962 
 1963-1964 
 New York University, Economics, 
-Hans E Sennholz, Sponsor, MA., 1964 
+Hans F. Sennholz, Sponsor, MA., 1964 
 Deceased 
 MILLER (HLOUSKOVA), Romana 
 Graduate Fellowship (s) 
 2005-2006 
 University of Reading. United Kingdom, International Studies, 
-Harold W Rood, Sponsor 
+Harold W. Rood, Sponsor 
 2006-2007 
 University of Reading. United Kingdom, Government/Politics, 
 Harold W. Rood, Sponsor, Ph.D., 2012 
@@ -17730,7 +17730,7 @@ MORRIS JR., William J.
 Graduate Fellowship(s) 
 1968-1969 
 Michigan State University, Economics, 
-Gardner M. Jones and Roland E Salmonson, Sponsors, Ph.D., 1971 
+Gardner M. Jones and Roland F. Salmonson, Sponsors, Ph.D., 1971 
 Address,
 309 Ridgecrest Circle, Denton, TX 76205-5405, wmorris33@hotmail.com 
 MORRISON, Alasdair A. O. 
@@ -18732,7 +18732,7 @@ O'DONNELL, Charles W.
 Graduate Fellowship (s) 
 Calendar Year 1961 
 Duquesne University, Economics, 
-Hans E Sennholz, Sponsor 
+Hans F. Sennholz, Sponsor 
 Address,
 P.O. Box 235, Fairacres, NM 88033-0235 
 O'CONNOR-AMBROSE, Sheila M.F. 
@@ -19169,7 +19169,7 @@ PALMER, David J.
 Graduate Fellowship(s) 
 1995-1996 
 Duke University, Government/Politics, 
-Ruth W Grant, Sponsor, Ph.D. 
+Ruth W. Grant, Sponsor, Ph.D. 
 Address,
 Perkins Coie, 2901 N. Central Avenue, Suite 
 2000, Phoenix, AZ 85102 
@@ -19524,7 +19524,7 @@ Graduate Fellowship(s)
 Spring and Summer 1965 
 Spring1967 
 University of Pennsylvania, International Studies, 
-William R Kintner, Sponsor 
+William R. Kintner, Sponsor 
 Deceased 
 PENG, Hsiao-ming 
 Graduate Fellowship (s) 
@@ -19533,7 +19533,7 @@ Grove City College, Economics,
 Paul B. Denlinger, Sponsor 
 Summer and Fall 1965 
 Grove City College, Economics, 
-Hans E Sennholz, Sponsor 
+Hans F. Sennholz, Sponsor 
 Calendar 1966 
 Spring 1967 
 New York University, Economics, 
@@ -20043,7 +20043,7 @@ PLAYER (SOBCZYK), Kathleen G.
 Graduate Fellowship (s) 
 2011-2012 
 Clemson University, Economics, 
-Robert E Tamura, Sponsor, Ph.D., 2012 
+Robert F. Tamura, Sponsor, Ph.D., 2012 
 Address,
 119 Beaver Run, Travelers Rest, SC 29690, 
 csobczyk@aol.com 
@@ -20588,7 +20588,7 @@ RATCHFORD, Brian T.
 Graduate Fellowship(s) 
 1968-1969 
 University of Rochester, Economics, 
-Walter Y. Oi and Donald E Gordon, Sponsors, Ph.D., 1972 
+Walter Y. Oi and Donald F. Gordon, Sponsors, Ph.D., 1972 
 Address,
 Department of Marketing, University of Texas, 
 Dallas, 800 West Campbell Road, Richardson, 
@@ -20639,7 +20639,7 @@ REDDY, William H.
 Graduate Fellowship(s) 
 1958-1959 
 New York University, Economics, 
-Hans E Sennholz, Sponsor, M.A., 1959 
+Hans F. Sennholz, Sponsor, M.A., 1959 
 Address,
 5 Southview Road, Chappaqua, NY 10514-1708 
 REEDER, William James 
@@ -23639,7 +23639,7 @@ SPARKS, John A.
 Graduate Fellowship(s) 
 1966-1967 
 University of Michigan, Economics, 
-Hans E Sennholz, Sponsor, J.D., 1969 
+Hans F. Sennholz, Sponsor, J.D., 1969 
 Address,
 Department of Business, Grove City College, 
 100 Campus Drive, Grove City, PA 16127 
@@ -23951,7 +23951,7 @@ STEPHENSON, Paul G.
 Graduate Fellowship (s) 
 Summer 1964 
 Emory University, Government/Politics, 
-Richard E Stir, Sponsor, Ph.D., 1965 
+Richard F. Staar, Sponsor, Ph.D., 1965 
 Address,
 1039 Oak Hill Drive, Cookeville, TN 38501-6612, doniquemotl@yahoo.com 
 STEPHENSON, Matthew A. 
@@ -24202,7 +24202,7 @@ STUART, Kevin E.
 Graduate Fellowship(s) 
 2009-2010 
 University of Texas, Austin, Government/Politics, 
-Robert R George, Sponsor, Ph.D., 2015 
+Robert P. George, Sponsor, Ph.D., 2015 
 Address,
 421A Seguin Street, New Orleans, LA 70114-2357 
 STUBBLEBINE, William 
@@ -25938,7 +25938,7 @@ Vanderbilt University, Economics,
 Nicholas Georgescu-Roegen and George W. Stocking, Sponsors 
 1959-1960 
 Vanderbilt University, Economics, 
-George W Stocking, Sponsor, Ph.D., 1965 
+George W. Stocking, Sponsor, Ph.D., 1965 
 Address,
 2208 Yuma Drive, Columbia, MO 65203-1452 
 WALLER, Jonathan K. 
@@ -26412,7 +26412,7 @@ WHARTENBY (GILBERT), Franldee Gilbert
 Graduate Fellowship(s) 
 1956-1957 
 University of North Carolina. Chapel Hill, Economics, 
-G. T Schwenning, Sponsor 
+G. T. Schwenning, Sponsor 
 WHEATLEY, Simon Maurice 
 Graduate Fellowship(s) 
 1982-1983 
