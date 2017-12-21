@@ -5967,7 +5967,7 @@ College, 1 College Road, Hampden Sydney, VA
 DE MEY, Jules 
 Graduate Fellowship(s) 
 Spring 1964 
-Louvain University, Belgium, Economics, 
+Louvain University. Belgium, Economics, 
 Earhart Foundation, Sponsor 
 Address,
 4500 Dobry Drive, Apt. 324, Sterling Heights, 
@@ -7715,8 +7715,7 @@ Address,
 FELT, David Jonathan 
 Graduate Fellowship (s) 
 2005-2006 
-University of Colorado. Boulder/Stanford 
-University, History, 
+University of Colorado. Boulder/Stanford University, History, 
 Noel B. Reynolds, Sponsor, Ph.D., 2014 
 Address,
 Department of History, 
@@ -8714,7 +8713,7 @@ William Richard Allen, Sponsor
 University of California. Los Angeles, Economics, 
 Benjamin Klein, Sponsor, Ph.D., 1991 
 Address,
-Bush School of Government, Texas A & M 
+Bush School of Government, Texas A&M 
 University, TAMU 4220, College Station, TX 
 77843 
 5805 Nasco Dr B, Austin, TX 78756- 1016, 
@@ -13246,7 +13245,7 @@ Tufts University, International Studies,
 Robert L. Pfaltzgraff Jr. and Richard H. Shultz Jr., Sponsors, Ph.D., 2015 
 Address,
 3131 9th Road N., #24, Arlington, VA 22201-2163, dlknoll@gmail.com, david.knoll@tufts.edu 
-KNOPINSKE (ASKEW), Colleen A. 
+KNOPINSKI (ASKEW), Colleen A. 
 Graduate Fellowship(s) 
 1985-1986 
 University of Colorado. Boulder, Economics, 
@@ -19293,7 +19292,7 @@ Deceased
 PARRY (ROUNDS), Taryn Rounds 
 Graduate Fellowship(s) 
 1986-1987 
-University of Colorado. Boulder. Boulder, Economics, 
+University of Colorado. Boulder, Economics, 
 Fred R. Glahe, Sponsor, M.A., 1987 
 Address,
 19282 Silcott Springs Road, Purcellville, VA 
@@ -21683,8 +21682,7 @@ russell@jsu.edu
 RYAN, Ernest Harold 
 Graduate Fellowship(s) 
 1972-1973 
-Virginia Polytechnic Institute & State University, 
-, Economics, 
+Virginia Polytechnic Institute & State University, Economics, 
 George C. Roche III, Sponsor 
 Address,
 1107 Circle Bend Drive, Missouri City, TX 
@@ -22387,12 +22385,11 @@ Annapolis, MD 21401
 SCHULMAN, Craig T. 
 Graduate Fellowship(s) 
 1989-1990 
-Texas MEM University, Economics, 
+Texas A&M University, Economics, 
 S. Charles Maurice, Sponsor, Ph.D., 1990 
 Address,
 Department of Economics, 
-Texas MEM 
-University, College Station, TX 77843 
+Texas A&M University, College Station, TX 77843 
 718 Plum Hollow Drive, College Station, TX 
 77845, cschulman@brg-expert.com 
 SCHULTZ, Jeffrey D. 
@@ -26007,9 +26004,7 @@ Graduate Fellowship(s)
 Fordham University, Government/Politics, 
 Mary P. Nichols and Francis Canavan, Sponsor, Ph.D., 1993 
 Address,
-Department of Political Science, Sociology, 
-and 
-Geography, Texas Lutheran University, 1000 
+Department of Political Science, Sociology, and Geography, Texas Lutheran University, 1000 
 W. Court Street, Seguin, TX 78155 
 7039 Robin Hood Way, Schertz, TX 78154, 
 gwalsh@t1u.edu 
