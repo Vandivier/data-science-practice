@@ -2514,8 +2514,8 @@ Spring 2005
 University of Notre Dame, Government/Politics, 
 Catherine H. Zuckert, Sponsor 
 2007-2008 
-University of Notre Dame, Government/
-Politics, Catherine H. and Michael P. Zuckert, Sponsors, Ph.D., 2010 
+University of Notre Dame, Government/Politics, 
+Catherine H. and Michael P. Zuckert, Sponsors, Ph.D., 2010 
 Address,
 Department of Politics, Economics & International Studies, 
 University of Hartford, 
@@ -2650,8 +2650,8 @@ Address,
 BOWERS, Clark R. 
 Graduate Fellowship(s) 
 1988-1989 
-Claremont Graduate School, Government/
-Politics, Harold W. Rood, Sponsor 
+Claremont Graduate School, Government/Politics,
+Harold W. Rood, Sponsor 
 Address,
 629 Cape Cod Circle, Valrico, FL 33594- 4381, 
 clarkusal@aol.com 
@@ -4114,8 +4114,8 @@ CHAU, Donovan C.
 Graduate Fellowship(s) 
 2000-2001 
 2001-2002 
-Southwest Missouri State University, National 
-Security Studies, Harold W. Rood, Sponsor, M.A., 2002 
+Southwest Missouri State University, National Security Studies, 
+Harold W. Rood, Sponsor, M.A., 2002 
 2002-2003 
 University of Reading. United Kingdom, Government/Politics, 
 Harold W. Rood, Sponsor, Ph.D., 2005 
@@ -6947,7 +6947,7 @@ EDINGTON, Mark D. W.
 Graduate Fellowship(s) 
 1984-1985 
 Tufts University, International Studies, 
-James E McCarley, Charles E. Schutz, Sponsor 
+James F. McCarley and Charles E. Schutz, Sponsor 
 1985-1986 
 1986-1987 
 1987-1988 
@@ -9777,8 +9777,7 @@ Graduate Fellowship(s)
 New York University, Economics, 
 Ludwig von Mises, Sponsor 
 1962-1963 
-Graduate Institute of International Studies, 
-Switzerland, Economics, 
+Graduate Institute of International Studies. Switzerland, Economics, 
 Hans F. Sennholz, Sponsor 
 Deceased 
 GUEST II, James W. 
@@ -11954,8 +11953,7 @@ EC2R 8AH, United Kingdom, kevin.james@bankofengland.co.uk
 JANAIRO (TALBOT), Elizabeth 
 M. Graduate Fellowship(s) 
 1992-1993 
-Northern Illinois University/Loyola 
-University, Government/Politics, 
+Northern Illinois University/Loyola University, Government/Politics, 
 Morton J. Frisch, Sponsor, Ph.D., 2007 
 Address,
 Department of Political Science, Marquette 
@@ -16089,12 +16087,12 @@ Williamsburg, VA 23187
 MCBRIDE, James H. 
 Graduate Fellowship(s) 
 1962-1963 
-Georgetown University, National Security 
-Studies, Arleigh Burke, Sponsor, MA., 1963 
+Georgetown University, National Security Studies,
+Arleigh Burke, Sponsor, M.A., 1963 
 1963-1964 
 1964-1965 
-Georgetown University, National Security 
-Studies, Arleigh Burke, Sponsor, Ph.D., 1965 
+Georgetown University, National Security Studies,
+Arleigh Burke, Sponsor, Ph.D., 1965 
 Deceased 
 MCBROOM, Martin A. 
 Graduate Fellowship(s) 
@@ -23169,7 +23167,7 @@ SHERRY JR., Peter N.
 Graduate Fellowship(s) 
 1983-1984 
 Harvard University, Government/Politics, 
-James Q, Wilson, Sponsor, Ph.D., 1991 
+James Q. Wilson, Sponsor, Ph.D., 1991 
 Address,
 1834 Irving Street N.W., Washington, DC 
 20010, pskerry@uia.net, peter.skerry@bc.edu 
@@ -23204,8 +23202,8 @@ Graduate Fellowship(s)
 Tufts University, National Security Studies, 
 Robert L. Pfaltzgraff Jr., Sponsor, MA., 1995 
 1995-1996 
-Tufts University, National Security 
-Studies, Robert L. Pfaltzgraff Jr., Sponsor, Ph.D., 1997 
+Tufts University, National Security Studies,
+Robert L. Pfaltzgraff Jr., Sponsor, Ph.D., 1997 
 Address,
 Department of Political Science, 
 Carleton University, 1125 Colonel 
@@ -26558,8 +26556,8 @@ Address,
 WHITED, Kevin L. 
 Graduate Fellowship(s) 
 1993-1994 
-Southwest Missouri State University, National 
-Security Studies, William R. Van Cleave, Sponsor, MA., 1994 
+Southwest Missouri State University, National Security Studies, 
+William R. Van Cleave, Sponsor, MA., 1994 
 1995-1996 
 University of Houston, Government/Politics, 
 Ross M. Lence and Donald S. Lutz, Sponsors 
