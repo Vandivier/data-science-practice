@@ -854,7 +854,7 @@ ASH, Robert W.
 Graduate Fellowship(s) 
 1974-1975 
 University of Michigan, History, 
-Stephen Tonsor, Sponsor, Ph.D. 
+Stephen J. Tonsor, Sponsor, Ph.D. 
 Address,
 178 Poplar Drive, Bozeman, MT 59717, 
 ashrobert@hotmail.com 
@@ -3001,7 +3001,7 @@ Graduate Fellowship(s)
 Fall 2004 
 2006-2007 
 University of Arizona, Philosophy, 
-David Schrnidtz, Sponsor, Ph.D., 2008 
+David Schmidtz, Sponsor, Ph.D., 2008 
 Address,
 Department of Philosophy, 
 National University 
@@ -4235,7 +4235,7 @@ CHISWICK, Barry R.
 Graduate Fellowship(s) 
 1963-1964 
 Columbia University, Economics, 
-Gary Becker, Sponsor, Ph.D., 1967 
+Gary S. Becker, Sponsor, Ph.D., 1967 
 Address,
 3901 Connecticut Avenue, N.W., Apt. 508, 
 Washington, DC 20008, bchiswick@juno.com 
@@ -14122,7 +14122,7 @@ LEFFLER, Keith B.
 Graduate Fellowship(s) 
 1974-1975 
 University of California. Los Angeles, Economics, 
-J. Claybum LaForce, Sponsor, Ph.D., 1977 
+J. Clayburn LaForce, Sponsor, Ph.D., 1977 
 Address,
 Department of Economics, 
 University of 
@@ -14443,7 +14443,7 @@ LEVY, David T.
 Graduate Fellowship(s) 
 1976-1977 
 University of California. Los Angeles, Economics, 
-J. Claybum LaForce, Sponsor, Ph.D., 1981 
+J. Clayburn LaForce, Sponsor, Ph.D., 1981 
 Address,
 Merrick School of Business, University of 
 Baltimore, Baltimore, MD 21201 
