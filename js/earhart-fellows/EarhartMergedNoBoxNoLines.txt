@@ -1017,7 +1017,7 @@ BAJEMA, Natasha E.
 Graduate Fellowship(s) 
 Fall 2005 
 Tufts University, International Studies, 
-Robert L. Pfaltzgraff Jr., Sponsor, Ph.D., 2010
+Robert L. Pfaltzgraff Jr., Sponsor, Ph.D., 2010 
 Address,
 Center for the Study of Weapons of Mass 
 Destruction, National Defense University, 260 
@@ -3093,7 +3093,7 @@ Center, Auburn University, Auburn, AL 36849
 brown32@auburn.edu 
 BROWN, Warren R. 
 Graduate Fellowship(s) 
-1970-1971
+1970-1971 
 Claremont Graduate School, Government/Politics, 
 Martin Diamond, Sponsor, Ph.D., 1976 
 Address,
@@ -3852,10 +3852,10 @@ Houston, TX 77204
 jason.casellas@yahoo.com, jcasellas@uh.edu 
 CASEY, Robert J. 
 Graduate Fellowship(s) 
-1970-1971
+1970-1971 
 University of Oxford. United Kingdom, Government/Politics, 
 Francis Canavan, Sponsor 
-1971-1972
+1971-1972 
 Harvard University, Government/Politics, 
 Francis Canavan, Sponsor 
 Address,
@@ -3980,7 +3980,7 @@ Address,
 Linda, CA 92354-4802 
 CHALABI, Hussein Rushdi 
 Graduate Fellowship (s) 
-1973-1974
+1973-1974 
 Columbia University, Economics, 
 C. Lowell Harriss, Sponsor 
 CHAMBERLAIN, Henry J. 
@@ -6648,7 +6648,7 @@ Address,
 DUGGAN, James F. 
 Graduate Fellowship(s) 
 1959-1960 
-1960-1961
+1960-1961 
 Georgetown University, Government/Politics, 
 Howard R. Penniman, Sponsor, Ph.D., 1963 
 DUNCOMBE, Bruce 
@@ -10339,7 +10339,7 @@ HARING-COZZI (HARING), Chelsea L.
 Graduate Fellowship (s) 
 2005-2006 
 Michigan State University, Government/Politics, 
-Jerry Weinberger, Sponsor, Ph.D., 2008
+Jerry Weinberger, Sponsor, Ph.D., 2008 
 Address,
 318 Wisconsin Road, Frankfort, IL 60423, 
 dharing@gmail.com 
@@ -11011,11 +11011,11 @@ Claremont, CA 91711-6420
 91767-2075, AlanHeslop_NDC@hotmail.com 
 HESSELMANS, Marthe 
 Graduate Fellowship(s) 
-2010-2011
+2010-2011 
 2011-2012 
-2012-2013
+2012-2013 
 2013-2014 
-Spring 2015
+Spring 2015 
 Boston University, Religion,
 Peter L. Berger, Sponsor, Ph.D., 2015 
 HESTON, William Lloyd 
@@ -12440,9 +12440,9 @@ Colorado Springs, CO 80903
 80919-3089 
 KARAKO, Thomas O. 
 Graduate Fellowship(s) 
-2001-2002
-2002-2003
-2003-2004
+2001-2002 
+2002-2003 
+2003-2004 
 Claremont Graduate University, Government/Politics, 
 Harry V. Jaffa, Sponsor, Ph.D., 2009 
 KASHDAN, Andrew D. 
@@ -13964,7 +13964,7 @@ Graduate Fellowship (s)
 1983-1984 
 1984-1985 
 Georgetown University, Government/Politics, 
-Walter F. Berns, Sponsor, Ph.D., 1989
+Walter F. Berns, Sponsor, Ph.D., 1989 
 Address,
 Department of Political Science, McDaniel 
 College, 2 College Hill, Westminster, MD 
@@ -14308,7 +14308,7 @@ Charles S. Hyneman, Sponsor, Ph.D.
 Deceased 
 LENCHES-TAMEDLY, Elisabeth 
 Graduate Fellowship(s) Spring and 
-Summer 1968
+Summer 1968 
 Graduate Institute of International Studies. Switzerland, Economics, 
 Earhart Foundation, Sponsor, Ph.D., 1968 
 LENZNER, Steven J. 
@@ -15978,7 +15978,7 @@ Address,
 82 Park Avenue, North Adams, MA 01247-4338 
 MATUSZEWSKA (MIZGALA), Joanna J. 
 Graduate Fellowship (s) 
-1990-1991
+1990-1991 
 Georgetown University, International Studies, 
 Jeane Jordan Kirkpatrick, Sponsor, Ph.D., 1997 
 MAUER, William A. 
@@ -18384,7 +18384,7 @@ University, One Bear Place #97276, Waco, TX
 David_Nichols@baylor.edu 
 NICHOLS, Donald R. 
 Graduate Fellowship(s) 
-1969-1970
+1969-1970 
 University of Oklahoma, Economics, 
 Theodore P. Herrick, Sponsor 
 NICHOLS JR., James H. 
@@ -18663,7 +18663,7 @@ Address,
 NOYES, Neal E. 
 Graduate Fellowship(s) 
 1974-1975 
-1975-1976
+1975-1976 
 Temple University, Government/Politics, 
 Daniel J. Elazar, Sponsor 
 Address,
@@ -23187,8 +23187,8 @@ University of Texas, Austin, 2225 Speedway,
 Stop C3100, Austin, TX 78712, slesnick@austin.utexas.edu 
 SLOAN, Elinor C. 
 Graduate Fellowship(s) 
-1993-1994
-1994-1995
+1993-1994 
+1994-1995 
 Tufts University, National Security Studies, 
 Robert L. Pfaltzgraff Jr., Sponsor, M.A., 1995 
 1995-1996 
@@ -25216,7 +25216,7 @@ Address,
 P.O. Box 375, Pownal, VT 05261-0375, btrue-weber@aol.com, trueweber@gmail.com 
 TSAGRONIS, S. John 
 Graduate Fellowship(s) 
-1995-1996
+1995-1996 
 Tufts University, International Studies, 
 Robert L. Pfaltzgraff Jr., Sponsor 
 Address,
@@ -26632,7 +26632,7 @@ Graduate Fellowship(s)
 1990-1991 
 1991-1992 
 Claremont Graduate School, Government/Politics, 
-Harry V. Jaffa, Sponsor, Ph.D., 1998
+Harry V. Jaffa, Sponsor, Ph.D., 1998 
 Address,
 Director, Foundation & Corporate Relations, 
 Claremont McKenna College, 400 North 
@@ -27055,7 +27055,7 @@ University of Chicago, Economics,
 Gary S. Becker, Sponsor, Ph.D. 
 WOOD, Arthur William 
 Graduate Fellowship(s) 
-1954-1955
+1954-1955 
 Stanford University, Economics, 
 Merrill K. Bennett, Sponsor, Ph.D., 1956 
 WOOD, Carolyn J. 
@@ -27123,7 +27123,7 @@ WOOD, Sanford W.
 Graduate Fellowship(s) 
 Summer and Fall 1967 
 Vanderbilt University, Philosophy, 
-Earhart Foundation, Sponsor, Ph.D., 1968
+Earhart Foundation, Sponsor, Ph.D., 1968 
 Address,
 Department of Social Sciences, Louisiana 
 Polytechnic Institute, Ruston, LA 71272 
@@ -27484,7 +27484,7 @@ MA 02138
 138 Irving Street, Cambridge, MA 02138 
 ZELDER, Martin R. 
 Graduate Fellowship(s) 
-1986-1987
+1986-1987 
 University of Chicago, Economics, 
 Gary S. Becker, Sponsor, Ph.D., 1989 
 Address,
