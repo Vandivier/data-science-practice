@@ -3154,8 +3154,7 @@ BROWN, Douglas Burr
 Graduate Fellowship(s) 
 1962-1963 
 University of Michigan, Economics, 
-W. Allen 
-Spivey, Sponsor 
+W. Allen Spivey, Sponsor 
 1965-1966 
 University of Michigan, Economics, 
 Paul W. McCracken, Sponsor 
@@ -8590,8 +8589,7 @@ FOX, Daniel J.
 Graduate Fellowship(s) 
 1969-1970 
 University of Michigan, Economics, 
-W. Allen 
-Spivey, Sponsor 
+W. Allen Spivey, Sponsor 
 Address,
 1164 Springdale Road N.E., Atlanta, GA 
 30306-2630, djfox@newburybooks.com 
@@ -12524,8 +12522,7 @@ JARABO-PAYA, Enrique
 Graduate Fellowship(s) 
 1959-1960 
 University of Michigan, Economics, 
-W. Allen 
-Spivey, Sponsor, M.A., 1962 
+W. Allen Spivey, Sponsor, M.A., 1962 
 JARRELL, Gregg Alan 
 Graduate Fellowship(s) 
 1975-1976 
@@ -17368,8 +17365,7 @@ Graduate Fellowship(s)
 Spring 1971 
 1973-1974 
 University of Michigan, Economics, 
-W. Allen 
-Spivey, Sponsor, Ph.D., 1974 
+W. Allen Spivey, Sponsor, Ph.D., 1974 
 Address,
 C.T. Bauer College of Business, University of 
 Houston, 4800 Calhoun Road, Houston, TX 
@@ -20287,8 +20283,7 @@ PAULSON, Richard H.
 Graduate Fellowship(s) 
 1968-1969 
 University of Michigan, Economics, 
-W. Allen 
-Spivey, Sponsor 
+W. Allen Spivey, Sponsor 
 Deceased 
 PAVALKO, Rima 
 Graduate Fellowship(s) 
@@ -21350,8 +21345,7 @@ RAFFEL, Gary A.
 Graduate Fellowship(s) 
 Summer 1975 
 University of Michigan, Economics, 
-W. Allen 
-Spivey, Sponsor 
+W. Allen Spivey, Sponsor 
 RAGAN, James F. 
 Graduate Fellowship(s) 
 1974-1975 
@@ -24095,8 +24089,7 @@ Graduate Fellowship(s)
 University of Arizona, Philosophy, 
 David Schmidtz, Sponsor, Ph.D., 2012 
 Address,
-Department of Philosophy, 
-University of 
+Department of Philosophy, University of 
 Connecticut, 344 Mansfield Road, Unit 1054, 
 Storrs Mansfield, CT 06269 
 113 Orchard Hill Lane, Willimantic, CT 
@@ -24136,8 +24129,7 @@ SIMONDS, Richard Rollin
 Graduate Fellowship(s) 
 1972-1973 
 University of Michigan, Economics, 
-W. Allen 
-Spivey, Sponsor, Ph.D., 1975 
+W. Allen Spivey, Sponsor, Ph.D., 1975 
 Address,
 Department of Finance, 311 Eppley Center, 
 Michigan State University, East Lansing, MI 
