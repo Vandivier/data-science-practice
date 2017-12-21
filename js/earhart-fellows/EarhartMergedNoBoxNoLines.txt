@@ -485,8 +485,7 @@ ALTMAN JR., Frank G.
 Graduate Fellowship(s) 
 1965-1966 
 Georgetown University, Economics, 
-Goetz A. 
-Briefs, Sponsor 
+Goetz A. Briefs, Sponsor 
 ALTMAN, Jonathan A. 
 Graduate Fellowship(s) 
 2008-2009 
@@ -959,8 +958,7 @@ Graduate Fellowship(s)
 1961-1962 
 1962-1963 
 Georgetown University, Economics, 
-Goetz A. 
-Briefs, Sponsor, Ph.D., 1964 
+Goetz A. Briefs, Sponsor, Ph.D., 1964 
 AYBAR, Jose M. 
 Graduate Fellowship(s) 
 1967-1968 
@@ -5480,8 +5478,7 @@ CRAIG, James
 Graduate Fellowship(s) 
 1962-1963 
 Georgetown University, Economics, 
-Goetz A. 
-Briefs, Sponsor 
+Goetz A. Briefs, Sponsor 
 Address,
 213 E. Monroe Avenue, Greenwood, MS 
 38930-3035 
@@ -15920,8 +15917,7 @@ LURITO, Richard J.
 Graduate Fellowship(s) 
 1961-1962 
 Georgetown University, Economics, 
-Goetz A. 
-Briefs, Sponsor, M.A., 1962 
+Goetz A. Briefs, Sponsor, M.A., 1962 
 1962-1963 
 1964-1965 
 Georgetown University, Economics, 
@@ -20399,8 +20395,7 @@ PATRIZI, Giacomo
 Graduate Fellowship(s) 
 1962-1963 
 Georgetown University, Economics, 
-Goetz A. 
-Briefs, Sponsor, Ph.D., 1963 
+Goetz A. Briefs, Sponsor, Ph.D., 1963 
 PATTEN, Ronald J. 
 Graduate Fellowship(s) 
 1962-1963 
@@ -20528,8 +20523,7 @@ PEJOVICH, Svetozar
 Graduate Fellowship(s) 
 1961-1962 
 Georgetown University, Economics, 
-Goetz A. 
-Briefs, Sponsor, Ph.D., 1963 
+Goetz A. Briefs, Sponsor, Ph.D., 1963 
 Address,
 6959 Joyce Way, Dallas, TX 75225, pejovicl@sbcglobat.net 
 PELLATHY, Gabriel S. 
@@ -20783,8 +20777,7 @@ PETERSON, Bruce L.
 Graduate Fellowship(s) 
 Spring 1967 
 Georgetown University, Economics, 
-Goetz A. 
-Briefs, Sponsor 
+Goetz A. Briefs, Sponsor 
 PETERSON, Erick J. 
 Graduate Fellowship(s) 
 1971-1972 
@@ -26041,8 +26034,7 @@ THABET, George T.
 Graduate Fellowship(s) 
 1960-1961 
 Georgetown University, Economics, 
-Goetz A. 
-Briefs, Sponsor 
+Goetz A. Briefs, Sponsor 
 THOMAS, Adam M. 
 Graduate Fellowship(s) 
 2011-2012 
@@ -26863,12 +26855,10 @@ VAN HOUTEN, Jan F.
 Graduate Fellowship(s) 
 1963-1964 
 Georgetown University, Economics, 
-Goetz A. 
-Briefs, Sponsor, M.A., 1964 
+Goetz A. Briefs, Sponsor, M.A., 1964 
 1964-1965 
 Georgetown University, Economics, 
-Goetz A. 
-Briefs, Sponsor, Ph.D., 1966 
+Goetz A. Briefs, Sponsor, Ph.D., 1966 
 Address,
 1640 Birch Road, Mc Lean, VA 22101-4725 
 VAN SCHOELANDT, Chad M. 
