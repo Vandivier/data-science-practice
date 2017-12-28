@@ -6,8 +6,9 @@
 
 'use strict';
 
-let fs = require('fs');
-let split = require('split');
+const fs = require('fs');
+const split = require('split');
+const utils = require('../grand-tour-study/utils.js');
 
 const arrSeasons = ['sprin', 'summe', 'fall ', 'winte'];
 const OSEOL = require('os').EOL;
@@ -69,10 +70,13 @@ let sLastRecordName = 'ABBAS, Hassan'; // it gets parsed out bc above delimiter
 let bVeryFirstRecordDone = false; // very first record has only name, nothing else; skip this record
 let iNonAdjacent = 0;
 
-debugger
 main();
 
 async function main() {
+    await utils.fpWait();
+    debugger
+    console.log('in main()');
+
     fsRecordToCsvLine(oTitleLine);
     fParseTxt();
 }
