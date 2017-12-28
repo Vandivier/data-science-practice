@@ -307,4 +307,21 @@ _utils.median = function (arri) {
     }
 }
 
+// ref: https://github.com/Vandivier/data-science-practice/tree/master/js/charm-scraper
+_utils.fpWait = function (ms) {
+    ms = ms || 10000;
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// ref: https://github.com/Vandivier/data-science-practice/tree/master/js/charm-scraper
+// ref: https://stackoverflow.com/questions/30505960/use-promise-to-wait-until-polled-condition-is-satisfied
+_utils.fpWaitForFunction = function (ms, fb) {
+    return new Promise(function (resolve) {
+        (function _fpWaitLoop() {
+            if (fb()) return resolve();
+            setTimeout(_fpWaitLoop, ms);
+        })();
+    });
+}
+
 module.exports = _utils;
