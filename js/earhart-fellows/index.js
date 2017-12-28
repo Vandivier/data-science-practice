@@ -73,10 +73,7 @@ let iNonAdjacent = 0;
 main();
 
 async function main() {
-    await utils.fpWait();
-    debugger
-    console.log('in main()');
-
+    await utils.fpWait(5000); // only needed to give debugger time to attach
     fsRecordToCsvLine(oTitleLine);
     fParseTxt();
 }
@@ -240,30 +237,33 @@ function fParseAreaOfStudy(sParsedBlock, oRecord) {
 }
 
 function fParseSponsors(sParsedBlock, oRecord) {
-    let _sSponsors = oRecord
-                    .sCommaCollapsedBlock
-                    .split(oRecord.sAreaOfStudy)[1]
-                    .split('Sponsor')[0]
-                    .trim();
-
-    _sSponsors = _sSponsors.slice(1, _sSponsors.length).slice(0, -1); // commas on either side
-    oRecord.sSponsors = _sSponsors.trim();
+    oRecord.arroSponsors = oRecord
+        .sCommaCollapsedBlock
+        .split(oRecord.sAreaOfStudy)[1]
+        .split('Sponsor')
+        .map(function (sSponsorToClean) {
+            if (sSponsorToClean) {
+                return {
+                    'sSponsorName': utils.fsTrimMore(sSponsorToClean)
+                };
+            } else {
+                return {};
+            }
+        });
 }
 
 function fParseCompletionDegree(sParsedBlock, oRecord) {
-    let sTextAfterSponsors,
-        sCharacterAfterSponsors;
+    let sTextAfterSponsors = oRecord
+                .sCommaCollapsedBlock
+                    .split('Sponsor')[1],
+        sCharacterAfterSponsors = sTextAfterSponsors && sTextAfterSponsors[0];
 
-    oRecord.arrSponsorBlocks = oRecord
-        .sCommaCollapsedBlock
-        .split('Sponsor');
+    oRecord.bNonAdjacentSponsors = oRecord
+                .sCommaCollapsedBlock
+                .split('Sponsor')
+                .length > 2;
+    oRecord.vMultipleDegrees = '';
 
-    sTextAfterSponsors = oRecord.arrSponsorBlocks[oRecord.arrSponsorBlocks.length];
-    sCharacterAfterSponsors = sTextAfterSponsors
-        && sTextAfterSponsors[0];
-    oRecord.vMultipleDegrees = ''; // TODO: needed?
-
-    debugger
     if (sCharacterAfterSponsors) {
         if (sCharacterAfterSponsors === 's') {
             sCharacterAfterSponsors = sTextAfterSponsors[1];
