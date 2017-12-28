@@ -69,6 +69,7 @@ let sLastRecordName = 'ABBAS, Hassan'; // it gets parsed out bc above delimiter
 let bVeryFirstRecordDone = false; // very first record has only name, nothing else; skip this record
 let iNonAdjacent = 0;
 
+debugger
 main();
 
 async function main() {
@@ -141,7 +142,8 @@ function fsRecordToCsvLine(oRecord) {
                 + '"' + oRecord.vCharacterAfterPeriod + '",'
                 + '"' + oRecord.bDeceased + '"'
 
-    if (oRecord.bNonAdjacentSponsors) {
+    if (oRecord.arrSponsorBlocks
+        && oRecord.arrSponsorBlocks.length > 2) {
         iNonAdjacent++;
         wsNonAdjacent.write(sToCsv + OSEOL);
     } else {
@@ -245,17 +247,19 @@ function fParseSponsors(sParsedBlock, oRecord) {
 }
 
 function fParseCompletionDegree(sParsedBlock, oRecord) {
-    let sTextAfterSponsors = oRecord
-                .sCommaCollapsedBlock
-                    .split('Sponsor')[1],
-        sCharacterAfterSponsors = sTextAfterSponsors && sTextAfterSponsors[0];
+    let sTextAfterSponsors,
+        sCharacterAfterSponsors;
 
-    oRecord.bNonAdjacentSponsors = oRecord
-                .sCommaCollapsedBlock
-                .split('Sponsor')
-                .length > 2;
-    oRecord.vMultipleDegrees = '';
+    oRecord.arrSponsorBlocks = oRecord
+        .sCommaCollapsedBlock
+        .split('Sponsor');
 
+    sTextAfterSponsors = oRecord.arrSponsorBlocks[oRecord.arrSponsorBlocks.length];
+    sCharacterAfterSponsors = sTextAfterSponsors
+        && sTextAfterSponsors[0];
+    oRecord.vMultipleDegrees = ''; // TODO: needed?
+
+    debugger
     if (sCharacterAfterSponsors) {
         if (sCharacterAfterSponsors === 's') {
             sCharacterAfterSponsors = sTextAfterSponsors[1];
@@ -270,12 +274,10 @@ function fParseCompletionDegree(sParsedBlock, oRecord) {
                 }
                 oRecord.sCompletionDegree = '';
             }
-        }
-        else {
+        } else {
             oRecord.sCompletionDegree = '';
         }
-    }
-    else {
+    } else {
         oRecord.sCompletionDegree = '';
     }
 }

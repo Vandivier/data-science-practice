@@ -4,7 +4,8 @@
   "description": "taking an rtf file of earhart fellows data and massaging to csv",
   "main": "index.js",
   "scripts": {
-    "debug": "node inspect .",
+    "debug": "node --inspect .",
+    "old-debug": "node inspect .",
     "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
