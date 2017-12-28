@@ -58,7 +58,7 @@ const oAreasWithSpace = {
 };
 
 const arrGraduateInstitutions = fs.readFileSync('./graduate-instiutions.csv', 'utf8').split(',');
-const arrDegrees = ['Ph.D.', 'M.A.', 'D.Phil.', 'MA.', 'M.B.A.', 'D.B.A.', 'B.A.', 'D.V.M.'];
+const arrDegrees = ['Ph.D.', 'M.A.', 'D.Phil.', 'MA.', 'M.B.A.', 'Diploma of Advanced Studies', 'J.D.', 'D.B.A.', 'B.A.', 'D.V.M.'];
 const regexDelimiter = /Graduate Fellowship* *\(s\)/;
 const regexEmail = /[\S]+@[\S]+\.[, \S]+/g;
 
