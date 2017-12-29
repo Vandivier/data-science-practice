@@ -98,20 +98,29 @@ function fHandleData(sParsedBlock) {
     sParsedBlock = sParsedBlock.replace(/\/[\r\n]+/g, '/'); // remove whitespace after a slash character
     oRecord.arrSplitByLineBreak = sParsedBlock.split(/(\r\n|\r|\n)/g);
     oRecord.sCommaCollapsedBlock = oRecord
-                                        .arrSplitByLineBreak
-                                        .join(',')
-                                        .replace(/(\r\n|\r|\n|,)+/g, ',');
+        .arrSplitByLineBreak
+        .join(',')
+        .replace(/(\r\n|\r|\n|,)+/g, ',');
 
     for (const sKey in oAreasWithSpace) {
         oRecord.sCommaCollapsedBlock = oRecord.sCommaCollapsedBlock.replace(sKey, oAreasWithSpace[sKey]);
     }
 
+    oRecord.arrSplitByComma = oRecord.sCommaCollapsedBlock
+        .split(',')
+        .filter(truthy => truthy.replace(/\s/g, ''))
+        .map(s => s.trim());
+
     try {
+        fParseSponsors(oRecord);
+
+        /* TODO: refactor below to comply with new sponsor parsing approach */
         fParseName(sParsedBlock, oRecord);
         fParseAcademicYear(sParsedBlock, oRecord);
         fParseGraduateInstitution(sParsedBlock, oRecord);
         fParseAreaOfStudy(sParsedBlock, oRecord);
-        fParseSponsors(sParsedBlock, oRecord);
+
+
         fParseCompletionDegree(sParsedBlock, oRecord);
         fParseCompletionYear(sParsedBlock, oRecord);
         fParseEmailAddress(sParsedBlock, oRecord);
@@ -236,33 +245,36 @@ function fParseAreaOfStudy(sParsedBlock, oRecord) {
     }
 }
 
-function fParseSponsors(sParsedBlock, oRecord) {
+// assume the pattern is [year 0...year n], school, field / sAreaOfStudy, name, 'Sponsor', completion degree
+// edge cases may break this pattern; those will have to be processed by hand for now
+function fParseSponsors(oRecord) {
     oRecord.arroSponsors = oRecord
-        .sCommaCollapsedBlock
-        .split(oRecord.sAreaOfStudy)[1]
-        .split('Sponsor')
-        .map(function (sSponsorToClean) {
-            if (sSponsorToClean) {
+        .arrSplitByComma
+        .map((s, i) => {
+            if (s === 'Sponsor'
+                || s === 'Sponsors') {
                 return {
-                    'sSponsorName': utils.fsTrimMore(sSponsorToClean)
-                };
-            } else {
-                return {};
+                    'index': i,
+                    'sCompletionDegree': oRecord.arrSplitByComma[i + 1],
+                    'sSponsorName': oRecord.arrSplitByComma[i - 1],
+                    'sAreaOfStudy': oRecord.arrSplitByComma[i - 2],
+                    'sGraduateInstitution': oRecord.arrSplitByComma[i - 3]
+                }
             }
-        });
+        })
+        .filter(vTruthy => vTruthy); // filter undefined
 }
 
 function fParseCompletionDegree(sParsedBlock, oRecord) {
     let sTextAfterSponsors = oRecord
-                .sCommaCollapsedBlock
-                    .split('Sponsor')[1],
+        .sCommaCollapsedBlock
+        .split('Sponsor')[1],
         sCharacterAfterSponsors = sTextAfterSponsors && sTextAfterSponsors[0];
-
-    oRecord.bNonAdjacentSponsors = oRecord
-                .sCommaCollapsedBlock
-                .split('Sponsor')
-                .length > 2;
     oRecord.vMultipleDegrees = '';
+
+    if (oRecord.arroSponsors.length > 2) {
+        //debugger
+    }
 
     if (sCharacterAfterSponsors) {
         if (sCharacterAfterSponsors === 's') {
@@ -276,6 +288,7 @@ function fParseCompletionDegree(sParsedBlock, oRecord) {
                 if (fCheckAcademicYear(oRecord.sCompletionDegree)) {
                     oRecord.vMultipleDegrees = true;
                 }
+
                 oRecord.sCompletionDegree = '';
             }
         } else {
