@@ -112,26 +112,29 @@ function fHandleData(sParsedBlock) {
         .map(s => s.trim());
 
     try {
+        fParseStudentName(oRecord);
         fParseSponsors(oRecord);
-
-        /* TODO: refactor below to comply with new sponsor parsing approach */
-        fParseName(sParsedBlock, oRecord);
-        fParseAcademicYear(sParsedBlock, oRecord);
-        fParseGraduateInstitution(sParsedBlock, oRecord);
-        fParseAreaOfStudy(sParsedBlock, oRecord);
-
-
-        fParseCompletionDegree(sParsedBlock, oRecord);
-        fParseCompletionYear(sParsedBlock, oRecord);
         fParseEmailAddress(sParsedBlock, oRecord);
         fParseDeceased(sParsedBlock, oRecord);
         fParseMailingAddress(sParsedBlock, oRecord);
-    }
-    catch (e) {
-        console.log('err', oRecord, e);
+    } catch (e) {
+        console.log('student-level error', oRecord, e);
     }
 
-    fsRecordToCsvLine(oRecord);
+    // the sponsorship is the main level of analysis
+    oRecord.arroSponsors.forEach(function (oSponsor) {
+        try {
+            fParseAcademicYear(oRecord, oSponsor);
+            fParseGraduateInstitution(oRecord, oSponsor);
+            fParseAreaOfStudy(oRecord, oSponsor);
+            fParseCompletionDegree(oRecord, oSponsor);
+            fParseCompletionYear(oRecord, oSponsor);
+        } catch (e) {
+            console.log('sponsor-level error', oRecord, e);
+        }
+
+        fsRecordToCsvLine(oRecord);
+    });
 }
 
 function fsRecordToCsvLine(oRecord) {
@@ -169,7 +172,7 @@ function fNotifyEndProgram() {
 // because the name appears above the sParsedBlock delimeter,
 // name suffers from an index -1 error
 // to resolve, specify the very first name as a global and update each time
-function fParseName(sParsedBlock, oRecord) {
+function fParseStudentName(oRecord) {
     oRecord.sName = sLastRecordName;
     sLastRecordName = oRecord.arrSplitByLineBreak[oRecord.arrSplitByLineBreak.length - 3];
 }
