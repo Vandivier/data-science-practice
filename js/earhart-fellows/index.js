@@ -30,6 +30,26 @@ const oTitleLine = {
     'bDeceased': 'Deceased'
 };
 
+// TODO: conventionalize var name to column title line value
+// proposed rule: encounter each capital letter; splice before first letter and insert spaces in other cases
+const arrTableColumnKeys = [
+    'sName',
+    'sAcademicYear',
+    'vMultipleDegrees',
+    'sGraduateInstitution',
+    'vInstitutionValid',
+    'sAreaOfStudy',
+    'sInvalidPreFixAreaOfStudy',
+    'sInvalidPostFixAreaOfStudy',
+    'sSponsors',
+    'sCompletionDegree',
+    'sCompletionYear',
+    'sMailingAddress',
+    'sEmailAddress',
+    'vCharacterAfterPeriod',
+    'bDeceased'
+];
+
 const arrAreas = [
     'Business Administration',
     'Culture',
@@ -139,24 +159,7 @@ function fHandleData(sParsedBlock) {
 }
 
 function fsRecordToCsvLine(oRecord) {
-    let sToCsv = ''
-                + '"' + oRecord.sName + '",'
-                + '"' + oRecord.sAcademicYear + '",'
-                + '"' + oRecord.vMultipleDegrees + '",'
-                + '"' + oRecord.sGraduateInstitution + '",'
-                + '"' + oRecord.vInstitutionValid + '",'
-                + '"' + oRecord.sAreaOfStudy + '",'
-                + '"' + oRecord.sInvalidPreFixAreaOfStudy + '",'
-                + '"' + oRecord.sInvalidPostFixAreaOfStudy + '",'
-                + '"' + oRecord.sSponsors + '",'
-                + '"' + oRecord.sCompletionDegree + '",'
-                + '"' + oRecord.sCompletionYear + '",'
-                + '"' + oRecord.sMailingAddress + '",'
-                + '"' + oRecord.sEmailAddress + '",'
-                + '"' + oRecord.vCharacterAfterPeriod + '",'
-                + '"' + oRecord.bDeceased + '"'
-
-    wsWriteStream.write(sToCsv + OSEOL);
+    utils.fsRecordToCsvLine(oRecord, arrTableColumnKeys, wsWriteStream);
 }
 
 function fNotifyEndProgram() {
