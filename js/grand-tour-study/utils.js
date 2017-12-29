@@ -324,4 +324,26 @@ _utils.fpWaitForFunction = function (ms, fb) {
     });
 }
 
+// TODO: make private?
+_utils.fsWrapCsvCell = function (v) {
+    let s = String(v);
+
+    if (s === 'undefined') s = '';
+
+    return '"' + s + '",';
+}
+
+// if you provide a write stream it will write, otherwise it just returns the concatenated string
+_utils.fsRecordToCsvLine = function (oRecord, arrTableColumnKeys, wsWriteStream) {
+    let sToCsv = '';
+
+    arrTableColumnKeys.forEach(function (s) {
+        sToCsv += _utils.fsWrapCsvCell(oRecord[s]);
+    });
+
+    sToCsv = sToCsv.slice(0, -1); // remove last trailing comma
+    wsWriteStream && wsWriteStream.write(sToCsv + EOL);
+    return sToCsv
+}
+
 module.exports = _utils;
