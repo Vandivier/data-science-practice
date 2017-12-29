@@ -68,7 +68,6 @@ let wsNonAdjacent = fs.createWriteStream('./non-adjacent-sponsor.txt');
 
 let sLastRecordName = 'ABBAS, Hassan'; // it gets parsed out bc above delimiter
 let bVeryFirstRecordDone = false; // very first record has only name, nothing else; skip this record
-let iNonAdjacent = 0;
 
 main();
 
@@ -133,7 +132,7 @@ function fHandleData(sParsedBlock) {
             console.log('sponsor-level error', oRecord, e);
         }
 
-        fsRecordToCsvLine(oRecord);
+        fsRecordToCsvLine(oSponsor);
     });
 }
 
@@ -155,17 +154,10 @@ function fsRecordToCsvLine(oRecord) {
                 + '"' + oRecord.vCharacterAfterPeriod + '",'
                 + '"' + oRecord.bDeceased + '"'
 
-    if (oRecord.arrSponsorBlocks
-        && oRecord.arrSponsorBlocks.length > 2) {
-        iNonAdjacent++;
-        wsNonAdjacent.write(sToCsv + OSEOL);
-    } else {
-        wsWriteStream.write(sToCsv + OSEOL);
-    }
+    wsWriteStream.write(sToCsv + OSEOL);
 }
 
 function fNotifyEndProgram() {
-    console.log(iNonAdjacent + ' non-adjacent sponsor records identified.');
     console.log('Program completed.');
 }
 
