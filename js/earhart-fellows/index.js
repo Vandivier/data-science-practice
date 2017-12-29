@@ -182,6 +182,8 @@ function fParseAcademicYear(oRecord, oSponsor) {
 
         if (fCheckAcademicYear(sToCheck)) {
             arrsAcademicYears.push(sToCheck);
+        } else {
+            break; // don't keep looking or you might encounter valid years from an invalid location, such as a different sponsorship record for the same student
         }
 
         iYearCandidateIndex--;
@@ -266,10 +268,6 @@ function fParseCompletionDegree(sParsedBlock, oRecord) {
         .split('Sponsor')[1],
         sCharacterAfterSponsors = sTextAfterSponsors && sTextAfterSponsors[0];
     oRecord.vMultipleDegrees = '';
-
-    if (oRecord.arroSponsors.length > 2) {
-        //debugger
-    }
 
     if (sCharacterAfterSponsors) {
         if (sCharacterAfterSponsors === 's') {
