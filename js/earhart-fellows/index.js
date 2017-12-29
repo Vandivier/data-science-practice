@@ -124,10 +124,12 @@ function fHandleData(sParsedBlock) {
     oRecord.arroSponsors.forEach(function (oSponsor) {
         try {
             fParseAcademicYear(oRecord, oSponsor);
+            /*
             fParseGraduateInstitution(oRecord, oSponsor);
             fParseAreaOfStudy(oRecord, oSponsor);
             fParseCompletionDegree(oRecord, oSponsor);
             fParseCompletionYear(oRecord, oSponsor);
+            */
         } catch (e) {
             console.log('sponsor-level error', oRecord, e);
         }
@@ -169,29 +171,23 @@ function fParseStudentName(oRecord) {
     sLastRecordName = oRecord.arrSplitByLineBreak[oRecord.arrSplitByLineBreak.length - 3];
 }
 
-// TODO: multiple years
-function fParseAcademicYear(sParsedBlock, oRecord) {
-    var arrsAcademicYears = [],
-        bSeasonMatch,
-        iCurrentLine = 2, // first possible line w year on it
+// assume the pattern is [year 0...year n], school, field / sAreaOfStudy, name, 'Sponsor', completion degree
+function fParseAcademicYear(oRecord, oSponsor) {
+    let arrsAcademicYears = [],
+        iYearCandidateIndex = oSponsor.index - 4,
         sToCheck;
 
-    for (iCurrentLine; iCurrentLine < oRecord.arrSplitByLineBreak.length; iCurrentLine++) {
-        sToCheck = oRecord.arrSplitByLineBreak[iCurrentLine].trim();
-        oRecord.iLastAcademicYearLine = iCurrentLine;
+    while (iYearCandidateIndex + 1) { // iYearCandidateIndex shouldn't be negative
+        sToCheck = oRecord.arrSplitByComma[iYearCandidateIndex];
 
         if (fCheckAcademicYear(sToCheck)) {
             arrsAcademicYears.push(sToCheck);
         }
-        else if (!sToCheck) { // continue
-        }
-        else {
-            oRecord.iLastAcademicYearLine -= 1;
-            break;
-        }
+
+        iYearCandidateIndex--;
     }
 
-    oRecord.sAcademicYear = arrsAcademicYears.join(',');
+    oSponsor.sAcademicYear = arrsAcademicYears.join(',');
 }
 
 function fParseGraduateInstitution(sParsedBlock, oRecord) {
