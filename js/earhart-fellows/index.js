@@ -113,10 +113,10 @@ function fHandleData(sParsedBlock) {
 
     try {
         fParseStudentName(oRecord);
-        fParseSponsors(oRecord);
         fParseEmailAddress(sParsedBlock, oRecord);
         fParseDeceased(sParsedBlock, oRecord);
         fParseMailingAddress(sParsedBlock, oRecord);
+        fParseSponsors(oRecord);
     } catch (e) {
         console.log('student-level error', oRecord, e);
     }
@@ -254,15 +254,19 @@ function fParseSponsors(oRecord) {
     oRecord.arroSponsors = oRecord
         .arrSplitByComma
         .map((s, i) => {
-            if (s === 'Sponsor'
-                || s === 'Sponsors') {
-                return {
+            let _oSponsor;
+
+            if (s === 'Sponsor' ||
+                s === 'Sponsors') {
+                _oSponsor = {
                     'index': i,
                     'sCompletionDegree': oRecord.arrSplitByComma[i + 1],
                     'sSponsorName': oRecord.arrSplitByComma[i - 1],
                     'sAreaOfStudy': oRecord.arrSplitByComma[i - 2],
                     'sGraduateInstitution': oRecord.arrSplitByComma[i - 3]
                 }
+
+                return Object.assign(_oSponsor, oRecord); // inherit student-level values to each sponsorship record, eg student name
             }
         })
         .filter(vTruthy => vTruthy); // filter undefined
