@@ -307,4 +307,43 @@ _utils.median = function (arri) {
     }
 }
 
+// ref: https://github.com/Vandivier/data-science-practice/tree/master/js/charm-scraper
+_utils.fpWait = function (ms) {
+    ms = ms || 10000;
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// ref: https://github.com/Vandivier/data-science-practice/tree/master/js/charm-scraper
+// ref: https://stackoverflow.com/questions/30505960/use-promise-to-wait-until-polled-condition-is-satisfied
+_utils.fpWaitForFunction = function (ms, fb) {
+    return new Promise(function (resolve) {
+        (function _fpWaitLoop() {
+            if (fb()) return resolve();
+            setTimeout(_fpWaitLoop, ms);
+        })();
+    });
+}
+
+// TODO: make private?
+_utils.fsWrapCsvCell = function (v) {
+    let s = String(v);
+
+    if (s === 'undefined') s = '';
+
+    return '"' + s + '",';
+}
+
+// if you provide a write stream it will write, otherwise it just returns the concatenated string
+_utils.fsRecordToCsvLine = function (oRecord, arrTableColumnKeys, wsWriteStream) {
+    let sToCsv = '';
+
+    arrTableColumnKeys.forEach(function (s) {
+        sToCsv += _utils.fsWrapCsvCell(oRecord[s]);
+    });
+
+    sToCsv = sToCsv.slice(0, -1); // remove last trailing comma
+    wsWriteStream && wsWriteStream.write(sToCsv + EOL);
+    return sToCsv
+}
+
 module.exports = _utils;

@@ -6,8 +6,9 @@
 
 'use strict';
 
-let fs = require('fs');
-let split = require('split');
+const fs = require('fs');
+const split = require('split');
+const utils = require('../grand-tour-study/utils.js');
 
 const arrSeasons = ['sprin', 'summe', 'fall ', 'winte'];
 const OSEOL = require('os').EOL;
@@ -28,6 +29,26 @@ const oTitleLine = {
     'vCharacterAfterPeriod': 'Valid Email Address',
     'bDeceased': 'Deceased'
 };
+
+// TODO: conventionalize var name to column title line value
+// proposed rule: encounter each capital letter; splice before first letter and insert spaces in other cases
+const arrTableColumnKeys = [
+    'sName',
+    'sAcademicYear',
+    'vMultipleDegrees',
+    'sGraduateInstitution',
+    'vInstitutionValid',
+    'sAreaOfStudy',
+    'sInvalidPreFixAreaOfStudy',
+    'sInvalidPostFixAreaOfStudy',
+    'sSponsors',
+    'sCompletionDegree',
+    'sCompletionYear',
+    'sMailingAddress',
+    'sEmailAddress',
+    'vCharacterAfterPeriod',
+    'bDeceased'
+];
 
 const arrAreas = [
     'Business Administration',
@@ -67,11 +88,11 @@ let wsNonAdjacent = fs.createWriteStream('./non-adjacent-sponsor.txt');
 
 let sLastRecordName = 'ABBAS, Hassan'; // it gets parsed out bc above delimiter
 let bVeryFirstRecordDone = false; // very first record has only name, nothing else; skip this record
-let iNonAdjacent = 0;
 
 main();
 
 async function main() {
+    await utils.fpWait(5000); // only needed to give debugger time to attach
     fsRecordToCsvLine(oTitleLine);
     fParseTxt();
 }
@@ -96,95 +117,82 @@ function fHandleData(sParsedBlock) {
     sParsedBlock = sParsedBlock.replace(/\/[\r\n]+/g, '/'); // remove whitespace after a slash character
     oRecord.arrSplitByLineBreak = sParsedBlock.split(/(\r\n|\r|\n)/g);
     oRecord.sCommaCollapsedBlock = oRecord
-                                        .arrSplitByLineBreak
-                                        .join(',')
-                                        .replace(/(\r\n|\r|\n|,)+/g, ',');
+        .arrSplitByLineBreak
+        .join(',')
+        .replace(/(\r\n|\r|\n|,)+/g, ',');
 
     for (const sKey in oAreasWithSpace) {
         oRecord.sCommaCollapsedBlock = oRecord.sCommaCollapsedBlock.replace(sKey, oAreasWithSpace[sKey]);
     }
 
+    oRecord.arrSplitByComma = oRecord.sCommaCollapsedBlock
+        .split(',')
+        .filter(truthy => truthy.replace(/\s/g, ''))
+        .map(s => s.trim());
+
     try {
-        fParseName(sParsedBlock, oRecord);
-        fParseAcademicYear(sParsedBlock, oRecord);
-        fParseGraduateInstitution(sParsedBlock, oRecord);
-        fParseAreaOfStudy(sParsedBlock, oRecord);
-        fParseSponsors(sParsedBlock, oRecord);
-        fParseCompletionDegree(sParsedBlock, oRecord);
-        fParseCompletionYear(sParsedBlock, oRecord);
+        fParseStudentName(oRecord);
         fParseEmailAddress(sParsedBlock, oRecord);
         fParseDeceased(sParsedBlock, oRecord);
         fParseMailingAddress(sParsedBlock, oRecord);
-    }
-    catch (e) {
-        console.log('err', oRecord, e);
+        fParseSponsors(oRecord);
+    } catch (e) {
+        console.log('student-level error', oRecord, e);
     }
 
-    fsRecordToCsvLine(oRecord);
+    // the sponsorship is the main level of analysis
+    oRecord.arroSponsors.forEach(function (oSponsor) {
+        try {
+            fParseAcademicYear(oRecord, oSponsor);
+            /*
+            fParseGraduateInstitution(oRecord, oSponsor);
+            fParseAreaOfStudy(oRecord, oSponsor);
+            fParseCompletionDegree(oRecord, oSponsor);
+            fParseCompletionYear(oRecord, oSponsor);
+            */
+        } catch (e) {
+            console.log('sponsor-level error', oRecord, e);
+        }
+
+        fsRecordToCsvLine(oSponsor);
+    });
 }
 
 function fsRecordToCsvLine(oRecord) {
-    let sToCsv = ''
-                + '"' + oRecord.sName + '",'
-                + '"' + oRecord.sAcademicYear + '",'
-                + '"' + oRecord.vMultipleDegrees + '",'
-                + '"' + oRecord.sGraduateInstitution + '",'
-                + '"' + oRecord.vInstitutionValid + '",'
-                + '"' + oRecord.sAreaOfStudy + '",'
-                + '"' + oRecord.sInvalidPreFixAreaOfStudy + '",'
-                + '"' + oRecord.sInvalidPostFixAreaOfStudy + '",'
-                + '"' + oRecord.sSponsors + '",'
-                + '"' + oRecord.sCompletionDegree + '",'
-                + '"' + oRecord.sCompletionYear + '",'
-                + '"' + oRecord.sMailingAddress + '",'
-                + '"' + oRecord.sEmailAddress + '",'
-                + '"' + oRecord.vCharacterAfterPeriod + '",'
-                + '"' + oRecord.bDeceased + '"'
-
-    if (oRecord.bNonAdjacentSponsors) {
-        iNonAdjacent++;
-        wsNonAdjacent.write(sToCsv + OSEOL);
-    } else {
-        wsWriteStream.write(sToCsv + OSEOL);
-    }
+    utils.fsRecordToCsvLine(oRecord, arrTableColumnKeys, wsWriteStream);
 }
 
 function fNotifyEndProgram() {
-    console.log(iNonAdjacent + ' non-adjacent sponsor records identified.');
     console.log('Program completed.');
 }
 
 // because the name appears above the sParsedBlock delimeter,
 // name suffers from an index -1 error
 // to resolve, specify the very first name as a global and update each time
-function fParseName(sParsedBlock, oRecord) {
+function fParseStudentName(oRecord) {
     oRecord.sName = sLastRecordName;
     sLastRecordName = oRecord.arrSplitByLineBreak[oRecord.arrSplitByLineBreak.length - 3];
 }
 
-// TODO: multiple years
-function fParseAcademicYear(sParsedBlock, oRecord) {
-    var arrsAcademicYears = [],
-        bSeasonMatch,
-        iCurrentLine = 2, // first possible line w year on it
+// assume the pattern is [year 0...year n], school, field / sAreaOfStudy, name, 'Sponsor', completion degree
+function fParseAcademicYear(oRecord, oSponsor) {
+    let arrsAcademicYears = [],
+        iYearCandidateIndex = oSponsor.index - 4,
         sToCheck;
 
-    for (iCurrentLine; iCurrentLine < oRecord.arrSplitByLineBreak.length; iCurrentLine++) {
-        sToCheck = oRecord.arrSplitByLineBreak[iCurrentLine].trim();
-        oRecord.iLastAcademicYearLine = iCurrentLine;
+    while (iYearCandidateIndex + 1) { // iYearCandidateIndex shouldn't be negative
+        sToCheck = oRecord.arrSplitByComma[iYearCandidateIndex];
 
         if (fCheckAcademicYear(sToCheck)) {
             arrsAcademicYears.push(sToCheck);
+        } else {
+            break; // don't keep looking or you might encounter valid years from an invalid location, such as a different sponsorship record for the same student
         }
-        else if (!sToCheck) { // continue
-        }
-        else {
-            oRecord.iLastAcademicYearLine -= 1;
-            break;
-        }
+
+        iYearCandidateIndex--;
     }
 
-    oRecord.sAcademicYear = arrsAcademicYears.join(',');
+    oSponsor.sAcademicYear = arrsAcademicYears.join(',');
 }
 
 function fParseGraduateInstitution(sParsedBlock, oRecord) {
@@ -233,27 +241,35 @@ function fParseAreaOfStudy(sParsedBlock, oRecord) {
     }
 }
 
-function fParseSponsors(sParsedBlock, oRecord) {
-    let _sSponsors = oRecord
-                    .sCommaCollapsedBlock
-                    .split(oRecord.sAreaOfStudy)[1]
-                    .split('Sponsor')[0]
-                    .trim();
+// assume the pattern is [year 0...year n], school, field / sAreaOfStudy, name, 'Sponsor', completion degree
+// edge cases may break this pattern; those will have to be processed by hand for now
+function fParseSponsors(oRecord) {
+    oRecord.arroSponsors = oRecord
+        .arrSplitByComma
+        .map((s, i) => {
+            let _oSponsor;
 
-    _sSponsors = _sSponsors.slice(1, _sSponsors.length).slice(0, -1); // commas on either side
-    oRecord.sSponsors = _sSponsors.trim();
+            if (s === 'Sponsor' ||
+                s === 'Sponsors') {
+                _oSponsor = {
+                    'index': i,
+                    'sCompletionDegree': oRecord.arrSplitByComma[i + 1],
+                    'sSponsorName': oRecord.arrSplitByComma[i - 1],
+                    'sAreaOfStudy': oRecord.arrSplitByComma[i - 2],
+                    'sGraduateInstitution': oRecord.arrSplitByComma[i - 3]
+                }
+
+                return Object.assign(_oSponsor, oRecord); // inherit student-level values to each sponsorship record, eg student name
+            }
+        })
+        .filter(vTruthy => vTruthy); // filter undefined
 }
 
 function fParseCompletionDegree(sParsedBlock, oRecord) {
     let sTextAfterSponsors = oRecord
-                .sCommaCollapsedBlock
-                    .split('Sponsor')[1],
+        .sCommaCollapsedBlock
+        .split('Sponsor')[1],
         sCharacterAfterSponsors = sTextAfterSponsors && sTextAfterSponsors[0];
-
-    oRecord.bNonAdjacentSponsors = oRecord
-                .sCommaCollapsedBlock
-                .split('Sponsor')
-                .length > 2;
     oRecord.vMultipleDegrees = '';
 
     if (sCharacterAfterSponsors) {
@@ -268,14 +284,13 @@ function fParseCompletionDegree(sParsedBlock, oRecord) {
                 if (fCheckAcademicYear(oRecord.sCompletionDegree)) {
                     oRecord.vMultipleDegrees = true;
                 }
+
                 oRecord.sCompletionDegree = '';
             }
-        }
-        else {
+        } else {
             oRecord.sCompletionDegree = '';
         }
-    }
-    else {
+    } else {
         oRecord.sCompletionDegree = '';
     }
 }
