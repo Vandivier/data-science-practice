@@ -17,7 +17,7 @@
   "license": "MIT",
   "devDependencies": {
     "cheerio": "^1.0.0-rc.2",
-    "puppeteer": "^0.13.0",
+    "puppeteer": "^1.0.0-next.1515176243781",
     "split": "^1.0.1"
   }
 }
