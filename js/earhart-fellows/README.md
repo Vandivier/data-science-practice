@@ -15,6 +15,7 @@ Then read output.csv
 Known issues:
 1. The first and last record may be messed up.
 1. For now, non-adjacent-sponsor records must be handled manually
+1. This project depends on some utilities in ./grand-tour-study within the data-science-practice repo. So you need to `npm install` that subproject too.
 
 ## Current Parse Rules
 This parse logic currently supports parsing these 8 variables:
