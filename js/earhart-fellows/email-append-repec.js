@@ -96,7 +96,7 @@ async function fpWait() {
 // also, don't write empty lines
 // TODO: click go to next button and get more stages
 function fpHandleData(sLineOfText) {
-    //sLineOfText = sLineOfText.replace(', ', '~');
+    //sLineOfText = sLineOfText.replace(', ', '~'); // ref: https://github.com/GoogleChrome/puppeteer/issues/1325#issuecomment-355698264
 
     const arrsCellText = sLineOfText.split(',');
     const oOriginalData = {
