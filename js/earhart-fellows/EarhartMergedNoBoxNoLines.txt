@@ -153,7 +153,7 @@ Department of Economics,
 Haning Hall, Ohio 
 University, 91 South May Avenue, Athens, OH 
 45701 
-P.O. Box 500, Athens, OH 45701, dadiel@ohiou.edu, dadie@yahoo.com 
+P.O. Box 500, Athens, OH 45701, dadie1@ohiou.edu, dadie@yahoo.com 
 ADRAGNA, Steven P. 
 Graduate Fellowship(s) 
 1985-1986 
@@ -604,7 +604,7 @@ Address,
 Office of the Chancellor, University of Arkansas 
 at Little Rock, 2801 S. University Avenue, Little 
 Rock, AR 72204 
-5801 W. 28th Street, Little Rock, AR 72204-4907, chancellor@uak.edu 
+5801 W. 28th Street, Little Rock, AR 72204-4907, chancellor@ualr.edu 
 ANDERSON, G. Edward 
 Graduate Fellowship(s) 
 1982-1983 
@@ -1011,7 +1011,7 @@ University of Arizona, Philosophy,
 David Schmidtz, Sponsor 
 Address,
 5014 Applecross Road, Birmingham, AL 
-35242-3916, sameer.bajajl@gmail.com 
+35242-3916, sameer.bajaj1@gmail.com 
 BAJEMA, Natasha E. 
 Graduate Fellowship(s) 
 Fall 2005 
@@ -1406,8 +1406,7 @@ Graduate Fellowship(s)
 University of Chicago, Philosophy, 
 Robert B. Pippin, Sponsor, Ph.D., 2008 
 Address,
-211 Dickinson Road, Glassboro, NJ 08028-2108, n9bauer@gmail.com, nathan.bauere 
-yahoo.com 
+211 Dickinson Road, Glassboro, NJ 08028-2108, n9bauer@gmail.com, nathan.bauer@yahoo.com 
 BAUGH, David E. 
 Graduate Fellowship(s) 
 1990-1991 
@@ -1441,7 +1440,7 @@ Francis Canavan, Sponsor, Ph.D.
 Address,
 Keating 315 Rose Hill Campus, Fordham 
 University, Bronx, NY 10458 
-25 Chester Place, New Rochelle, NY 10801-5305, williarn.baumgarth@hotmail.com, 
+25 Chester Place, New Rochelle, NY 10801-5305, william.baumgarth@hotmail.com, 
 baumgarth@fordham.edu 
 BAXTER (MILLER), Marianne 
 Graduate Fellowship(s) 
@@ -3592,7 +3591,7 @@ Department of Fine Arts, Devlin Hall, Boston
 College, 140 Commonwealth Avenue, Chestnut 
 Hill, MA 02467 
 1907W. Wilson Avenue, Apt. 2C, Chicago, IL 
-60640-5291, aureliacampbellehotmail.com, 
+60640-5291, aureliacampbell@hotmail.com, 
 aurelia.campbell@bc.edu 
 CAMPBELL, Everett J. 
 Graduate Fellowship(s) 
@@ -6196,7 +6195,7 @@ Graduate Fellowship(s)
 1963-1964 
 University of Virginia, Economics, 
 James M. Buchanan, Sponsor 
-DI TERFSA, Peter 
+DI TERESA, Peter 
 Graduate Fellowship(s) 
 1991-1992 
 Harvard University, Government/Politics, 
@@ -9755,8 +9754,7 @@ Graduate Fellowship(s)
 Pepperdine University, Government/Politics, 
 Wilfred M. McClay, Sponsor, M.A., 2011 
 Address,
-PSC 94 Box 2168, APO AE 09824, mjkeim0 
-gmail.com 
+PSC 94 Box 2168, APO AE 09824, mjkeim@gmail.com 
 GRYGO, Elizabeth N. 
 Graduate Fellowship(s) 
 1989-1990 
@@ -20210,7 +20208,7 @@ Graduate Fellowship(s)
 Harvard University, Government/Politics, 
 Edward H. Chamberlin, Sponsor, Ph.D., 1964 
 Deceased 
-PRFSSLY, Paul Moffatt 
+PRESSLY, Paul Moffatt 
 Graduate Fellowship(s) 
 Spring 1969 
 Harvard University, Economics, 
@@ -20350,7 +20348,7 @@ Harvard University, Economics,
 Gottfried Haberler, Sponsor, Ph.D., 1957 
 Address,
 162 Springdale Road, Princeton, NJ 08540, 
-metrics@quandt.corn 
+metrics@quandt.com 
 QUINLAN, Suzanne 
 Graduate Fellowship(s) 
 1972-1973 
