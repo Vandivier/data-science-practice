@@ -267,6 +267,7 @@ function fParseSponsors(oRecord) {
                     'sGraduateInstitution': oRecord.arrSplitByComma[i - 3]
                 }
 
+                if (!arrDegrees.includes(_oSponsor.sCompletionDegree)) _oSponsor.sCompletionDegree = '';
                 return Object.assign(_oSponsor, oRecord); // inherit student-level values to each sponsorship record, eg student name
             }
         })
