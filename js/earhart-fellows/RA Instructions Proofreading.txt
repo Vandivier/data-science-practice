@@ -10,7 +10,7 @@ which shows you all the files. Open EarhartMergedNoBoxNoLines.txt in a text edit
 
 
 You are now ready to contribute to this project! (These are all fixed costs, once you're used to github you will see how awesome it is.)
-1. In text editor click ctr+f and search for "@", click enter until you reach BAYLOR, Christopher A. Now, and this is important, proofread only the Name and Email address(if one exists). There's no need to proofread any of the other stuff. 
+1. In text editor click ctr+f and search for "@", click enter until you reach the entry: BAYLOR, Christopher A. (his email address is cbaylor@holycross.edu) Now, and this is important, proofread only the Name and Email address. There's no need to proofread any of the other info. 
 
 
 
