@@ -173,7 +173,6 @@ function fsRecordToCsvLine(oRecord) {
 }
 
 function fNotifyEndProgram() {
-    console.log(oFirstNameCache);
     console.log('Program completed.');
 }
 
