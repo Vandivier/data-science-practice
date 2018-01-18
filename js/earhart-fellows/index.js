@@ -29,8 +29,10 @@ const oTitleLine = {
     'sEmailAddress': 'Email Address',
     'vCharacterAfterPeriod': 'Valid Email Address',
     'bDeceased': 'Deceased',
+    'sSponsorGenderizedName': 'Simple Sponsor Genderized Name',
     'sSponsorGender': 'Simple Sponsor Gender',
     'sSponsorGenderProbability': 'Simple Sponsor Gender Probability',
+    'sGenderizedName': 'Recipient Genderized Name',
     'sGender': 'Recipient Gender',
     'sGenderProbability': 'Recipient Gender Probability',
 };
@@ -53,8 +55,10 @@ const arrTableColumnKeys = [
     'sEmailAddress',
     'vCharacterAfterPeriod',
     'bDeceased',
+    'sSponsorGenderizedName',
     'sSponsorGender',
     'sSponsorGenderProbability',
+    'sGenderizedName',
     'sGender',
     'sGenderProbability',
 ];
@@ -97,6 +101,7 @@ let wsNonAdjacent = fs.createWriteStream('./non-adjacent-sponsor.txt');
 
 let sLastRecordName = 'ABBAS, Hassan'; // it gets parsed out bc above delimiter
 let bVeryFirstRecordDone = false; // very first record has only name, nothing else; skip this record
+let oFirstNameCache = {};
 
 main();
 
@@ -168,6 +173,7 @@ function fsRecordToCsvLine(oRecord) {
 }
 
 function fNotifyEndProgram() {
+    console.log(oFirstNameCache);
     console.log('Program completed.');
 }
 
@@ -405,14 +411,32 @@ function fCheckAcademicYear(sToCheck) {
 }
 
 async function fpParseRecipientGender(oRecord) {
-    let sFirstName = oRecord.sName.split(', ')[1];
+    let sFirstName = oRecord
+        .sName
+        .split(', ')[1]
+        .split(' ')[0];
 
     return new Promise(function (resolve, reject) {
-        genderize(sFirstName, function (err, obj) {
-            if (err) resolve();
-            oRecord.sGender = obj.gender;
-            oRecord.sGenderProbability = obj.probability;
+        let oCachedResult = oFirstNameCache[sFirstName];
+
+        if (oCachedResult) {
+            oRecord.sGender = oCachedResult.gender;
+            oRecord.sGenderProbability = oCachedResult.probability;
             resolve();
-        })
+        } else {
+            genderize(sFirstName, function (err, obj) {
+                if (err || !obj) {
+                    resolve();
+                } else {
+                    oRecord.sGenderizedName = sFirstName;
+                    oRecord.sGender = obj.gender;
+                    oRecord.sGenderProbability = obj.probability;
+                    oFirstNameCache[sFirstName] = {};
+                    oFirstNameCache[sFirstName].gender = obj.gender;
+                    oFirstNameCache[sFirstName].probability = obj.probability;
+                    resolve();
+                }
+            });
+        }
     });
 }
