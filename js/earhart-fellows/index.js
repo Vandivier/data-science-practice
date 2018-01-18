@@ -7,6 +7,7 @@
 'use strict';
 
 const fs = require('fs');
+const genderize = require('genderize');
 const split = require('split');
 const utils = require('../grand-tour-study/utils.js');
 
@@ -27,7 +28,11 @@ const oTitleLine = {
     'sMailingAddress': 'Mailing Address',
     'sEmailAddress': 'Email Address',
     'vCharacterAfterPeriod': 'Valid Email Address',
-    'bDeceased': 'Deceased'
+    'bDeceased': 'Deceased',
+    'sSponsorGender': 'Simple Sponsor Gender',
+    'sSponsorGenderProbability': 'Simple Sponsor Gender Probability',
+    'sGender': 'Recipient Gender',
+    'sGenderProbability': 'Recipient Gender Probability',
 };
 
 // TODO: conventionalize var name to column title line value
@@ -47,7 +52,11 @@ const arrTableColumnKeys = [
     'sMailingAddress',
     'sEmailAddress',
     'vCharacterAfterPeriod',
-    'bDeceased'
+    'bDeceased',
+    'sSponsorGender',
+    'sSponsorGenderProbability',
+    'sGender',
+    'sGenderProbability',
 ];
 
 const arrAreas = [
@@ -135,6 +144,7 @@ function fHandleData(sParsedBlock) {
         fParseEmailAddress(sParsedBlock, oRecord);
         fParseDeceased(sParsedBlock, oRecord);
         fParseMailingAddress(sParsedBlock, oRecord);
+        fParseRecipientGender(oRecord);
         fParseSponsors(oRecord);
     } catch (e) {
         console.log('student-level error', oRecord, e);
@@ -392,4 +402,9 @@ function fCheckAcademicYear(sToCheck) {
   return (!isNaN(sToCheck[0])
             || fbSeasonMatch(sToCheck)
             || sToCheck.toLowerCase().slice(0,13) === 'calendar year')
+}
+
+function fParseRecipientGender(oRecord) {
+    oRecord.sGender = oRecord.sName;
+    oRecord.sGenderProbability = oRecord.sName;
 }
