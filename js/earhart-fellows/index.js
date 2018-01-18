@@ -145,11 +145,6 @@ function fHandleData(sParsedBlock) {
         try {
             fParseAcademicYear(oRecord, oSponsor);
             fParseCompletionYear(oRecord, oSponsor);
-            /*
-            fParseGraduateInstitution(oRecord, oSponsor);
-            fParseAreaOfStudy(oRecord, oSponsor);
-            fParseCompletionDegree(oRecord, oSponsor);
-            */
         } catch (e) {
             console.log('sponsor-level error', oRecord, e);
         }
@@ -264,7 +259,7 @@ function fParseSponsors(oRecord) {
                 _oSponsor = {
                     'index': i,
                     'sCompletionDegree': oRecord.arrSplitByComma[i + 1],
-                    'sSponsorName': oRecord.arrSplitByComma[i - 1],
+                    'sSponsors': oRecord.arrSplitByComma[i - 1],
                     'sAreaOfStudy': oRecord.arrSplitByComma[i - 2],
                     'sGraduateInstitution': oRecord.arrSplitByComma[i - 3]
                 }
