@@ -20,7 +20,7 @@ You are now ready to contribute to this project! (These are all fixed costs, onc
 
 4. Every now and then save your document. When you do, you will notice the changes will show up in GitHub Desktop. No need to worry about that until you're done for the day. When you're done for the day in the Summary field write the page number you ended on such as p.25. Then click "Commit" and also "Push Origin". I can now access and accept your edits to my branch. 
 
+5. THANK YOU!
 
 
-
-If you get stuck with either Github or GIT, this and the following 2 videoes will likely be of help https://www.youtube.com/watch?v=BCQHnlnPusY&t=7s
+P.S. If you get stuck with either Github or GIT, this and the following 2 videoes will likely be of help https://www.youtube.com/watch?v=BCQHnlnPusY&t=7s
