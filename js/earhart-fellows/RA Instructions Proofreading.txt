@@ -1,0 +1,17 @@
+RA Instructions: Earhart Proofreading
+- Create a user on Github.com 
+- Download install the software https://desktop.github.com/ . Sign in with your github account. 
+- If you don't already have a text editor(not meaning Word or Notepad), download one. I recommend Notepad++ https://notepad-plus-plus.org/
+- Through https://github.com/Mbjoerkh/data-science-practice/tree/sortingoutthosedamntextboxes/js/earhart-fellows you find our repo (earhart-fellows). Clone/Fork this repo by clicking "Clone or Download" then "Open in Desktop".
+This will create a copy of our repo on your device. 
+- From the Github Desktop software, click Current Branch --> New --> then name it anything else than "sortingoutthosedamntextboxes". 
+- Now you have your own "copy" of our repo, and through github desktop you can make changes to it locally on your device(no need for wifi). While being in your new branch; Click Repository--> Show in Explorer
+which shows you all the files. Open EarhartMergedNoBoxNoLines.txt in a text editor such as Notepad++ and Proofreading details.xlsx (in excel). 
+
+
+You are now ready to contribute to this project! (These are all fixed costs, once you're used to github you will see how awesome it is.)
+1. In text editor click ctr+f and search for "@", click enter until you reach BAYLOR, Christopher A. Now, and this is important, proofread only the Name and Email address(if one exists). There's no need to proofread any of the other stuff. 
+
+
+
+If you get stuck with either Github or GIT, this and the following 2 videoes will likely be of help https://www.youtube.com/watch?v=BCQHnlnPusY&t=7s
