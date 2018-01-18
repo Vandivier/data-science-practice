@@ -174,19 +174,27 @@ function fParseStudentName(oRecord) {
     sLastRecordName = oRecord.arrSplitByLineBreak[oRecord.arrSplitByLineBreak.length - 3];
 }
 
-// assume the pattern is [year 0...year n], school, field / sAreaOfStudy, name, 'Sponsor', completion degree
+/**
+ * assume the pattern is [year 0...year n], school, field / sAreaOfStudy, name, 'Sponsor', completion degree
+ * exception: If a valid year comes just after a completion degree,
+ * it is not an academic year it is a completion year
+ **/
 function fParseAcademicYear(oRecord, oSponsor) {
     let arrsAcademicYears = [],
         iYearCandidateIndex = oSponsor.index - 4,
-        sToCheck;
+        sToCheckCompletionYear,
+        sToCheckAcademicYear;
 
     while (iYearCandidateIndex + 1) { // iYearCandidateIndex shouldn't be negative
-        sToCheck = oRecord.arrSplitByComma[iYearCandidateIndex];
+        sToCheckCompletionYear = oRecord.arrSplitByComma[iYearCandidateIndex - 1];
+        sToCheckAcademicYear = oRecord.arrSplitByComma[iYearCandidateIndex];
 
-        if (fCheckAcademicYear(sToCheck)) {
-            arrsAcademicYears.push(sToCheck);
-        } else {
-            break; // don't keep looking or you might encounter valid years from an invalid location, such as a different sponsorship record for the same student
+        if (!arrDegrees.includes(sToCheckCompletionYear)) { // completion year exception check
+            if (fCheckAcademicYear(sToCheckAcademicYear)) {
+                arrsAcademicYears.push(sToCheckAcademicYear);
+            } else {
+                break; // don't keep looking or you might encounter valid years from an invalid location, such as a different sponsorship record for the same student
+            }
         }
 
         iYearCandidateIndex--;
