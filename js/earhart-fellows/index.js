@@ -144,11 +144,11 @@ function fHandleData(sParsedBlock) {
     oRecord.arroSponsors.forEach(function (oSponsor) {
         try {
             fParseAcademicYear(oRecord, oSponsor);
+            fParseCompletionYear(oRecord, oSponsor);
             /*
             fParseGraduateInstitution(oRecord, oSponsor);
             fParseAreaOfStudy(oRecord, oSponsor);
             fParseCompletionDegree(oRecord, oSponsor);
-            fParseCompletionYear(oRecord, oSponsor);
             */
         } catch (e) {
             console.log('sponsor-level error', oRecord, e);
@@ -195,6 +195,8 @@ function fParseAcademicYear(oRecord, oSponsor) {
             } else {
                 break; // don't keep looking or you might encounter valid years from an invalid location, such as a different sponsorship record for the same student
             }
+        } else {
+            oSponsor.sCompletionYear = sToCheckCompletionYear;
         }
 
         iYearCandidateIndex--;
