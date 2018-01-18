@@ -10,7 +10,16 @@ which shows you all the files. Open EarhartMergedNoBoxNoLines.txt in a text edit
 
 
 You are now ready to contribute to this project! (These are all fixed costs, once you're used to github you will see how awesome it is.)
-1. In text editor click ctr+f and search for "@", click enter until you reach the entry: BAYLOR, Christopher A. (his email address is cbaylor@holycross.edu) Now, and this is important, proofread only the Name and Email address. There's no need to proofread any of the other info. 
+1. In text editor click ctr+f and search for "@", click enter until you reach the entry: BAYLOR, Christopher A. (his email address is cbaylor@holycross.edu) Now, and this is important, proofread only the Name and Email address. There's no need to proofread any of the other info, but if you happen to come across something else that is not correct please do tell. 
+2. When you come across an inconsistency, such as the space that I added to "cbaylor@holycross. edu", do two, or if you're really good, three things:
+	Manually fix it(duh)
+	Note it in the Proofreading details.xlsx - I've done it for BAYLOR so you see how. 
+	The mistake you've found is likely to be present in other entries (hence why you note it in the excel sheet). If you're really good, try to alter the search to quickly look for other incidences of the same error. In this case; search for 
+	" .edu". If that leads you to more corrections then great, fix and note them. 
+3. Many/most errors will be harder to search for than in the previous example (I've already fixed as many of them as I could think of), but you may still be able to find some through searching. For instance, yesterday, I found the name Williarn, which obviously (and the book confirmed), should have been William. You can easily search for that. If you already know Regular Expressions you can obviously do a lot more with them, but disregard this if you don't. 
+
+4. Every now and then save your document. When you do, you will notice the changes will show up in GitHub Desktop. No need to worry about that until you're done for the day. When you're done for the day in the Summary field write the page number you ended on such as p.25. Then click "Commit" and also "Push Origin". I can now access and accept your edits to my branch. 
+
 
 
 
