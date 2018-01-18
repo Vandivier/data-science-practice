@@ -101,7 +101,7 @@ let bVeryFirstRecordDone = false; // very first record has only name, nothing el
 main();
 
 async function main() {
-    await utils.fpWait(5000); // only needed to give debugger time to attach
+    //await utils.fpWait(5000); // only needed to give debugger time to attach
     fsRecordToCsvLine(oTitleLine);
     fParseTxt();
 }
@@ -109,11 +109,11 @@ async function main() {
 function fParseTxt() {
     rsReadStream
         .pipe(split(regexDelimiter))
-        .on('data', fHandleData)
+        .on('data', fpHandleData)
         .on('close', fNotifyEndProgram);
 }
 
-function fHandleData(sParsedBlock) {
+async function fpHandleData(sParsedBlock) {
     let oRecord = {};
 
     if (!bVeryFirstRecordDone) {
@@ -144,7 +144,7 @@ function fHandleData(sParsedBlock) {
         fParseEmailAddress(sParsedBlock, oRecord);
         fParseDeceased(sParsedBlock, oRecord);
         fParseMailingAddress(sParsedBlock, oRecord);
-        fParseRecipientGender(oRecord);
+        await fpParseRecipientGender(oRecord);
         fParseSponsors(oRecord);
     } catch (e) {
         console.log('student-level error', oRecord, e);
@@ -404,7 +404,15 @@ function fCheckAcademicYear(sToCheck) {
             || sToCheck.toLowerCase().slice(0,13) === 'calendar year')
 }
 
-function fParseRecipientGender(oRecord) {
-    oRecord.sGender = oRecord.sName;
-    oRecord.sGenderProbability = oRecord.sName;
+async function fpParseRecipientGender(oRecord) {
+    let sFirstName = oRecord.sName.split(', ')[1];
+
+    return new Promise(function (resolve, reject) {
+        genderize(sFirstName, function (err, obj) {
+            if (err) resolve();
+            oRecord.sGender = obj.gender;
+            oRecord.sGenderProbability = obj.probability;
+            resolve();
+        })
+    });
 }
