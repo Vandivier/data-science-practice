@@ -99,6 +99,7 @@ let rsReadStream = fs.createReadStream('./EarhartMergedNoBoxNoLines.txt');
 let wsWriteStream = fs.createWriteStream('./output.csv');
 let wsNonAdjacent = fs.createWriteStream('./non-adjacent-sponsor.txt');
 
+let sFirstNameCacheFile = './first-name-cache.txt';
 let sLastRecordName = 'ABBAS, Hassan'; // it gets parsed out bc above delimiter
 let bVeryFirstRecordDone = false; // very first record has only name, nothing else; skip this record
 let oFirstNameCache = {};
@@ -173,7 +174,10 @@ function fsRecordToCsvLine(oRecord) {
 }
 
 function fNotifyEndProgram() {
-    console.log('Program completed.');
+    console.log(oFirstNameCache);
+    fs.writeFile(sFirstNameCacheFile, JSON.stringify(oFirstNameCache), 'utf8', (err) => {
+        console.log('Program completed.');
+    });
 }
 
 // because the name appears above the sParsedBlock delimeter,
