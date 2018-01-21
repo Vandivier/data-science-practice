@@ -427,6 +427,7 @@ async function fpParseRecipientGender(oRecord) {
         let oCachedResult = oFirstNameCache[sFirstName];
 
         if (oCachedResult) {
+            oRecord.sGenderizedName = sFirstName;
             oRecord.sGender = oCachedResult.gender;
             oRecord.sGenderProbability = oCachedResult.probability;
             resolve();
