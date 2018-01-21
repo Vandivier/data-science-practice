@@ -165,7 +165,7 @@ async function fpHandleData(sParsedBlock) {
         fParseDeceased(sParsedBlock, oRecord);
         fParseMailingAddress(sParsedBlock, oRecord);
         await fpParseRecipientGender(oRecord);
-        fParseSponsors(oRecord);
+        await fpParseSponsors(oRecord);
     } catch (e) {
         console.log('student-level error', oRecord, e);
     }
@@ -303,7 +303,7 @@ function fParseAreaOfStudy(sParsedBlock, oRecord) {
 
 // assume the pattern is [year 0...year n], school, field / sAreaOfStudy, name, 'Sponsor', completion degree
 // edge cases may break this pattern; those will have to be processed by hand for now
-function fParseSponsors(oRecord) {
+async function fpParseSponsors(oRecord) {
     oRecord.arroSponsors = oRecord
         .arrSplitByComma
         .map((s, i) => {
@@ -325,6 +325,10 @@ function fParseSponsors(oRecord) {
             }
         })
         .filter(vTruthy => vTruthy); // filter undefined
+
+    return utils.forEachReverseAsyncPhased(oRecord.arroSponsors, (_oSponsor) => {
+        return fpParseSponsorGender(_oSponsor);
+    });
 }
 
 function fParseCompletionDegree(sParsedBlock, oRecord) {
@@ -475,6 +479,37 @@ async function fpParseRecipientGender(oRecord) {
                     oFirstNameCache[sFirstName] = {};
                     oFirstNameCache[sFirstName].gender = obj.gender;
                     oFirstNameCache[sFirstName].probability = obj.probability;
+                    resolve();
+                }
+            });
+        }
+    });
+}
+
+async function fpParseSponsorGender(oSponsor) {
+    let _sGenderizedName = oSponsor
+        .sSponsors
+        .split(' ')[0];
+
+    return new Promise(function (resolve, reject) {
+        let oCachedResult = oFirstNameCache[_sGenderizedName];
+
+        if (oCachedResult) {
+            oSponsor.sSponsorGenderizedName = _sGenderizedName;
+            oSponsor.sSponsorGender = oCachedResult.gender;
+            oSponsor.sSponsorGenderProbability = oCachedResult.probability;
+            resolve();
+        } else {
+            genderize(_sGenderizedName, function (err, obj) {
+                if (err || !obj) {
+                    resolve();
+                } else {
+                    oSponsor.sSponsorGenderizedName = _sGenderizedName;
+                    oSponsor.sSponsorGender = obj.gender;
+                    oSponsor.sSponsorGenderProbability = obj.probability;
+                    oFirstNameCache[_sGenderizedName] = {};
+                    oFirstNameCache[_sGenderizedName].gender = obj.gender;
+                    oFirstNameCache[_sGenderizedName].probability = obj.probability;
                     resolve();
                 }
             });
