@@ -99,17 +99,31 @@ let rsReadStream = fs.createReadStream('./EarhartMergedNoBoxNoLines.txt');
 let wsWriteStream = fs.createWriteStream('./output.csv');
 let wsNonAdjacent = fs.createWriteStream('./non-adjacent-sponsor.txt');
 
-let sFirstNameCacheFile = './first-name-cache.txt';
+let sFirstNameCacheFileNew = './first-name-cache-new.json';
+let sFirstNameCacheFile = './first-name-cache.json';
+let oFirstNameCache = JSON.parse(fs.readFileSync(sFirstNameCacheFile, 'utf8'));
 let sLastRecordName = 'ABBAS, Hassan'; // it gets parsed out bc above delimiter
 let bVeryFirstRecordDone = false; // very first record has only name, nothing else; skip this record
-let oFirstNameCache = {};
 
 main();
 
 async function main() {
     //await utils.fpWait(5000); // only needed to give debugger time to attach
     fsRecordToCsvLine(oTitleLine);
-    fParseTxt();
+
+    if (false) { // don't waste time or genderize requests if there's a problem
+        fParseTxt();
+    } else {
+        console.log('error obtaining oFirstNameCache');
+        console.log(oFirstNameCache);
+        let oTemp = {};
+        oFirstNameCache.forEach(oGenderRecord => {
+            if (!oTemp[oGenderRecord.name]) {
+                oTemp[oGenderRecord.name] = oGenderRecord;
+            }
+        });
+        fs.writeFileSync(sFirstNameCacheFileNew, JSON.stringify(oTemp), 'utf8');
+    }
 }
 
 function fParseTxt() {
