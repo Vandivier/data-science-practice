@@ -6,6 +6,7 @@
 
 'use strict';
 
+const beautify = require('js-beautify').js_beautify;
 const fs = require('fs');
 const genderize = require('genderize');
 const split = require('split');
@@ -179,7 +180,10 @@ function fsRecordToCsvLine(oRecord) {
 }
 
 function fNotifyEndProgram() {
-    fs.writeFile(sFirstNameCacheFile, JSON.stringify(oFirstNameCache), 'utf8', (err) => {
+    let sBeautifiedData = JSON.stringify(oFirstNameCache);
+    sBeautifiedData = beautify(sBeautifiedData, { indent_size: 4 });
+
+    fs.writeFile(sFirstNameCacheFile, sBeautifiedData, 'utf8', (err) => {
         console.log('Program completed.');
     });
 }
