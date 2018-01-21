@@ -9,12 +9,14 @@
 const beautify = require('js-beautify').js_beautify;
 const fs = require('fs');
 const genderize = require('genderize');
+const reorder = require('csv-reorder');
 const split = require('split');
 const utils = require('../grand-tour-study/utils.js');
 
 const arrSeasons = ['sprin', 'summe', 'fall ', 'winte'];
 const OSEOL = require('os').EOL;
 const oTitleLine = {
+    'sEntryId': 'Entry ID',
     'sName': 'Name',
     'sAcademicYear': 'Academic Year',
     'vMultipleDegrees': 'Multiple Degrees',
@@ -41,6 +43,7 @@ const oTitleLine = {
 // TODO: conventionalize var name to column title line value
 // proposed rule: encounter each capital letter; splice before first letter and insert spaces in other cases
 const arrTableColumnKeys = [
+    'sEntryId',
     'sName',
     'sAcademicYear',
     'vMultipleDegrees',
@@ -96,14 +99,18 @@ const arrDegrees = ['Ph.D.', 'M.A.', 'D.Phil.', 'MA.', 'M.B.A.', 'Diploma of Adv
 const regexDelimiter = /Graduate Fellowship* *\(s\)/;
 const regexEmail = /[\S]+@[\S]+\.[, \S]+/g;
 
+const sFirstNameCacheFile = './first-name-cache.json';
+const sOrderedOutputFilePath = './ordered-output.csv';
+const sOutputFilePath = './output.csv';
+
 let rsReadStream = fs.createReadStream('./EarhartMergedNoBoxNoLines.txt');
-let wsWriteStream = fs.createWriteStream('./output.csv');
+let wsWriteStream = fs.createWriteStream(sOutputFilePath);
 let wsNonAdjacent = fs.createWriteStream('./non-adjacent-sponsor.txt');
 
-let sFirstNameCacheFile = './first-name-cache.json';
 let oFirstNameCache = JSON.parse(fs.readFileSync(sFirstNameCacheFile, 'utf8'));
 let sLastRecordName = 'ABBAS, Hassan'; // it gets parsed out bc above delimiter
 let bVeryFirstRecordDone = false; // very first record has only name, nothing else; skip this record
+let iCurrentEntryId = 1;
 
 main();
 
@@ -152,6 +159,7 @@ async function fpHandleData(sParsedBlock) {
         .map(s => s.trim());
 
     try {
+        fParseStudentEntryId(oRecord);
         fParseStudentName(oRecord);
         fParseEmailAddress(sParsedBlock, oRecord);
         fParseDeceased(sParsedBlock, oRecord);
@@ -184,8 +192,28 @@ function fNotifyEndProgram() {
     sBeautifiedData = beautify(sBeautifiedData, { indent_size: 4 });
 
     fs.writeFile(sFirstNameCacheFile, sBeautifiedData, 'utf8', (err) => {
-        console.log('Program completed.');
+        reorder({
+            input: sOutputFilePath, // too bad input can't be sBeautifiedData
+            output: sOrderedOutputFilePath,
+            sort: 'Entry ID'
+        })
+        .then(metadata => {
+            console.log('Program completed.');
+        })
+        .catch(error => {
+            console.log('Program completed with error.', error);
+        });
     });
+}
+
+// student entry id is never output to csv
+// instead, it is the base for the sponsor entry id
+// eg student id(1) => sponsor id(1_1, 1_2...1_n)
+// where n is the index of the string 'Sponsor' within arrSplitByComma
+// that index denotes an anchoring point for a sponsor record
+function fParseStudentEntryId(oRecord) {
+    oRecord.iEntryId = iCurrentEntryId;
+    iCurrentEntryId++;
 }
 
 // because the name appears above the sParsedBlock delimeter,
@@ -285,6 +313,7 @@ function fParseSponsors(oRecord) {
                 s === 'Sponsors') {
                 _oSponsor = {
                     'index': i,
+                    'sEntryId': oRecord.iEntryId + '_' + i,
                     'sCompletionDegree': oRecord.arrSplitByComma[i + 1],
                     'sSponsors': oRecord.arrSplitByComma[i - 1],
                     'sAreaOfStudy': oRecord.arrSplitByComma[i - 2],
