@@ -15,7 +15,22 @@ BROWN, Douglas Burr (Line 3013)
 #5: Multiple sponsors, 1/2 degrees completed, 
 ALLEN, Andrew J. (Line 332)
 
+Fix cases Gender: Manually Confirmed Male Sponsors	
+A. WEYMAN PATRICK = ALBERT WEYMAN PATRICK
+Hendrik Houthakker
+Armen Albert Alchian
+Burton Weisbrod	
+W. Lee Hansen
+Chelcie C. Bosland
+Chiaki Nishiyama
 
 
 
 
+
+Manually Confirmed Female Sponsors
+Attiat F. Ott
+
+
+Sponsor pairs, Male-Male:
+Burton Weisbrod and W. Lee Hansen
