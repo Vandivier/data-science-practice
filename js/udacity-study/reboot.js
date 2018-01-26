@@ -1,6 +1,7 @@
 // description: after installing Puppeteer v1+, redoing the whole scraper. might be merged back later.
 // largely based on the earhart fellows pattern, but using logic from udacity-employment.js as well
-// ref: email-append-repec, earhart-fellows
+// also based on email-append-repec
+// earhart fellows follows a stream pattern, this doesnt
 // TODO: compare subsample pattern vs working backwards from genderize available names
 
 'use strict'
@@ -8,27 +9,14 @@
 /*** boilerplate pretty much: TODO: extract to lib ***/
 
 //const beautify = require('js-beautify').js_beautify;
-//const EOL = require('os').EOL;
+const EOL = require('os').EOL;
 const fs = require('fs');
-const genderize = require('genderize');
-const reorder = require('csv-reorder');
+//const genderize = require('genderize'); // todo: use genderize
+//const reorder = require('csv-reorder');
 //const split = require('split');
+const puppeteer = require('puppeteer');
+const util = require('util');
 const utils = require('ella-utils');
-
-const fpReadFile = util.promisify(fs.readFile);
-const fpWriteFile = util.promisify(fs.writeFile);
-
-// TODO: conventionalize var name to column title line value
-// proposed rule: encounter each capital letter; splice before first letter and insert spaces in other cases
-// fDehungarianize(sVariableName) => Variable Name
-const arrTableColumnKeys = Object.keys(oTitleLine);
-const sFirstNameCacheFile = './first-name-cache.json';
-const sOrderedOutputFilePath = './ordered-output.csv';
-
-const sRootUrl = 'https://profiles.udacity.com/u/';
-//const sResultDir = __dirname + '/results';
-const sInputCsvLocation = __dirname + '/subsample-test';
-const sOutputFileLocation = __dirname + '/output.csv';
 
 const oTitleLine = {
     'sEntryId': 'Entry ID',
@@ -55,7 +43,21 @@ const oTitleLine = {
     'sGenderProbability': 'Recipient Gender Probability',
 };
 
-let wsWriteStream = fs.createWriteStream(sOutputFilePath);
+
+const fpReadFile = util.promisify(fs.readFile);
+const fpWriteFile = util.promisify(fs.writeFile);
+
+// TODO: conventionalize var name to column title line value
+// proposed rule: encounter each capital letter; splice before first letter and insert spaces in other cases
+// fDehungarianize(sVariableName) => Variable Name
+const arrTableColumnKeys = Object.keys(oTitleLine);
+const sFirstNameCacheFile = './first-name-cache.json';
+const sOrderedOutputFilePath = './ordered-output.csv';
+
+const sRootUrl = 'https://profiles.udacity.com/u/';
+//const sResultDir = __dirname + '/results';
+const sInputCsvLocation = __dirname + '/subsample-test.csv';
+const sOutputFileLocation = __dirname + '/output.csv';
 
 let browser;
 let iCurrentInputRecord = 0;
@@ -83,11 +85,13 @@ async function main() {
 
     browser = await puppeteer.launch();
 
+    /*
     if (!fs.existsSync(sResultDir)) {
         fs.mkdirSync(sResultDir);
     }
+    */
 
-    fSetWriters();
+    //fSetWriters();
 
     sInputCsv = await fpReadFile(sInputCsvLocation, 'utf8');
     arrsInputRows = sInputCsv.split(EOL);
@@ -98,8 +102,12 @@ async function main() {
     iTotalInputRecords = arrsInputRows.length;
     console.log('early count, iTotalInputRecords = ' + iTotalInputRecords);
 
-    await utils.forEachReverseAsyncPhased(arrsInputRows, function(sLineOfText, i) {
-        return fpHandleData(sLineOfText);
+    //arrsInputRows = arrsKnownValidNames
+
+    // array pattern, doesn't work for streams
+    // TODO await utils.forEachReverseAsyncPhased(arrsInputRows, fpHandleData) ?
+    await utils.forEachReverseAsyncPhased(arrsInputRows, function(sInputRecord, i) {
+        return fpHandleData(sInputRecord);
     });
 
     console.log('writing result file.');
@@ -123,74 +131,46 @@ function init() {
 }
 */
 
-function fParseTxt() {
-    /* stream pattern
-    rsReadStream
-        .pipe(split(regexDelimiter))
-        .on('data', fpHandleData)
-        .on('close', fNotifyEndProgram);
-        */
-
-    await utils.forEachAsyncPhased(arrsKnownValidNames, fpHandleData);
-    fNotifyEndProgram();
-}
-
-async function fpHandleData(sParsedBlock) {
-    let oRecord = {};
-
-    if (!bVeryFirstRecordDone) {
-        bVeryFirstRecordDone = true;
-        return;
+// don't write the title line as it appears many times
+// we will append just once manually
+// also, don't write empty lines
+// TODO: click go to next button and get more stages
+function fpHandleData(sInputRecord) {
+    const arrsCells = sInputRecord.split(',');
+    let oRecord = {
+        sFirstName: arrsCells[0],
+        sLastName: arrsCells[1]
     }
 
-    sParsedBlock = sParsedBlock.replace(/;/g, ',');
-    sParsedBlock = sParsedBlock.replace(/\/\s/g, '/'); // remove whitespace after a slash character
-    sParsedBlock = sParsedBlock.replace(/\/[\r\n]+/g, '/'); // remove whitespace after a slash character
-    oRecord.arrSplitByLineBreak = sParsedBlock.split(/(\r\n|\r|\n)/g);
-    oRecord.sCommaCollapsedBlock = oRecord
-        .arrSplitByLineBreak
-        .join(',')
-        .replace(/(\r\n|\r|\n|,)+/g, ',');
+    oRecord.sUrl = sRootUrl + oRecord.sFirstName;
 
-    for (const sKey in oAreasWithSpace) {
-        oRecord.sCommaCollapsedBlock = oRecord.sCommaCollapsedBlock.replace(sKey, oAreasWithSpace[sKey]);
-    }
+    return fpScrapeInputRecord(oRecord.sUrl)
+        .then(function (oScraped) {
+            const oFullData = Object.assign(oScraped, oRecord);
 
-    oRecord.arrSplitByComma = oRecord.sCommaCollapsedBlock
-        .split(',')
-        .filter(truthy => truthy.replace(/\s/g, ''))
-        .map(s => s.trim());
+            iCurrentInputRecord++;
+            console.log('scraped input record #: '
+                        + iCurrentInputRecord
+                        + '/' + iTotalInputRecords
+                        + EOL);
 
-    try {
-        fParseStudentEntryId(oRecord);
-        fParseStudentName(oRecord);
-        fParseEmailAddress(sParsedBlock, oRecord);
-        fParseDeceased(sParsedBlock, oRecord);
-        fParseMailingAddress(sParsedBlock, oRecord);
-        await fpParseRecipientGender(oRecord);
-        await fpParseSponsors(oRecord);
-    } catch (e) {
-        console.log('student-level error', oRecord, e);
-    }
+            sResultToWrite += (fsScrapedDataToResult(oFullData) + EOL);
+            return Promise.resolve();
+        })
+        .catch(function (reason) {
+            console.log('fpHandleData err: ', reason);
+        });
 
-    // the sponsorship is the main level of analysis
-    oRecord.arroSponsors.forEach(function (oSponsor) {
-        try {
-            fParseAcademicYear(oRecord, oSponsor);
-            fParseCompletionYear(oRecord, oSponsor);
-        } catch (e) {
-            console.log('sponsor-level error', oRecord, e);
-        }
-
-        fsRecordToCsvLine(oSponsor);
-    });
+    iTotalInputRecords--;
+    return Promise.resolve();
 }
 
 function fsRecordToCsvLine(oRecord) {
     utils.fsRecordToCsvLine(oRecord, arrTableColumnKeys, wsWriteStream);
 }
 
-function fNotifyEndProgram() {
+/*
+function fEndProgram() {
     let sBeautifiedData = JSON.stringify(oFirstNameCache);
     sBeautifiedData = beautify(sBeautifiedData, { indent_size: 4 });
 
@@ -207,6 +187,13 @@ function fNotifyEndProgram() {
             console.log('Program completed with error.', error);
         });
     });
+}
+*/
+
+function fEndProgram() {
+    browser.close();
+    console.log('Processes completed.');
+    process.exit();
 }
 
 /*** end boilerplate pretty much ***/
