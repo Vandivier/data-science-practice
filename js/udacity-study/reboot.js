@@ -197,3 +197,60 @@ function fEndProgram() {
 }
 
 /*** end boilerplate pretty much ***/
+
+// TODO: change. this is just copied from email-append-repec
+// returns a page which has been navigated to the specified season page
+// note: this whole fucking method is a hack
+// not generalizable or temporally reliable in case of a site refactor
+// target site includes jQuery already. _$ is cheerio, $ is jQuery
+async function fpScrapeInputRecord(sUrl) {
+    const _page = await browser.newPage();
+    let executionContext;
+    let _$;
+    let pageWorkingCompetitionPage;
+    let poScrapeResult;
+
+    await _page.goto(sUrl, {
+        'timeout': 0
+    }); // timeout ref: https://github.com/GoogleChrome/puppeteer/issues/782
+
+    _$ = cheerio.load(await _page.content());
+    _page.on('console', _fCleanLog); // ref: https://stackoverflow.com/a/47460782/3931488
+
+    executionContext = _page.mainFrame().executionContext();
+    poScrapeResult = await executionContext.evaluate((_iCurrentInputRecord) => {
+        return _fpWait(900)
+            .then(function () {
+                let sEmail = $('.emaillabel').parent().find('td span').text();
+                let sarrAffiliations = '';
+                let arr$Affiliations = $('#affiliation-body a[name=subaffil]');
+
+                arr$Affiliations.each(function (arr, el) {
+                    sarrAffiliations += ('~' + el.innerText.replace(/\s/g, ' ').trim());
+                });
+
+                return Promise.resolve({
+                    'email': sEmail,
+                    'affiliations': sarrAffiliations
+                });
+            })
+            .catch(function (err) {
+                console.log('fpScrapeInputRecord err: ', err);
+            });
+
+        // larger time allows for slow site response
+        // some times of day when it's responding fast u can get away
+        // with smaller ms; suggested default of 12.5s
+        function _fpWait(ms) {
+            ms = ms || 10000;
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+    });
+
+    _page.close();
+    return poScrapeResult;
+
+    function _fCleanLog(ConsoleMessage) {
+        console.log(ConsoleMessage.text + EOL);
+    }
+}
