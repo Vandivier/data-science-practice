@@ -21,5 +21,9 @@
     "puppeteer": "0.12.0",
     "split": "^1.0.1"
   },
-  "dependencies": {}
+  "dependencies": {
+	"csv-reorder": "^0.1.1",
+    "genderize": "^1.5.2",
+    "js-beautify": "^1.7.5"
+  }
 }
