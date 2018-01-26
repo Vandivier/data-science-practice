@@ -1,0 +1,21 @@
+Fix Cases
+#1: Multiple sponsors, 1 degree
+ALCALY, Roger E. (Line 274)
+
+#2: 1 sponsor, multiple degrees
+ALLMAN, Dwight D. (Line 406)
+
+#3 : 1 Sponsor, 1 Degree, Multiple Institutions, 
+ARNN, Larry P. (Line 797)
+
+#4: Multiple sponsors, no confirmed degrees
+BROWN, Douglas Burr (Line 3013)
+
+
+#5: Multiple sponsors, 1/2 degrees completed, 
+ALLEN, Andrew J. (Line 332)
+
+
+
+
+

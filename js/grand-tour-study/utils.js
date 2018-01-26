@@ -243,4 +243,107 @@ _utils.fsTrimMore = function (s) {
     return s && s.replace(/[,"]/g, '').trim();
 }
 
+// ref: https://derickbailey.com/2014/09/21/calculating-standard-deviation-with-array-map-and-array-reduce-in-javascript/
+_utils.standardDeviation = function (arri) {
+    var avg = _utils.mean(arri);
+
+    var squareDiffs = arri.map(function (value) {
+        var diff = value - avg;
+        var sqrDiff = diff * diff;
+        return sqrDiff;
+    });
+
+    var avgSquareDiff = _utils.mean(squareDiffs);
+
+    var stdDev = Math.sqrt(avgSquareDiff);
+    return stdDev;
+}
+
+_utils.average = function (arri) {
+    return _utils.mean(arri);
+}
+
+_utils.mean = function (arri) {
+    var sum = arri.reduce(function (sum, value) {
+        return sum + value;
+    }, 0);
+
+    var avg = sum / arri.length;
+    return avg;
+}
+
+// ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max
+_utils.max = function (v, i) {
+    if (Array.isArray(v)) {
+        return Math.max(...v)
+    } else if(Number.isInteger(i)) {
+        return Math.max(v, i);
+    }
+}
+
+_utils.min = function (v, i) {
+    if (Array.isArray(v)) {
+        return Math.min(...v)
+    } else if(Number.isInteger(i)) {
+        return Math.min(v, i);
+    }
+}
+
+// ref: https://stackoverflow.com/questions/25305640/find-median-values-from-array-in-javascript-8-values-or-9-values
+_utils.median = function (arri) {
+
+    // extract the .values field and sort the resulting array
+    var m = arri.map(function(v) {
+        return v.values;
+    }).sort(function(a, b) {
+        return a - b;
+    });
+
+    var middle = Math.floor((m.length - 1) / 2); // NB: operator precedence
+    if (m.length % 2) {
+        return m[middle];
+    } else {
+        return (m[middle] + m[middle + 1]) / 2.0;
+    }
+}
+
+// ref: https://github.com/Vandivier/data-science-practice/tree/master/js/charm-scraper
+_utils.fpWait = function (ms) {
+    ms = ms || 10000;
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// ref: https://github.com/Vandivier/data-science-practice/tree/master/js/charm-scraper
+// ref: https://stackoverflow.com/questions/30505960/use-promise-to-wait-until-polled-condition-is-satisfied
+_utils.fpWaitForFunction = function (ms, fb) {
+    return new Promise(function (resolve) {
+        (function _fpWaitLoop() {
+            if (fb()) return resolve();
+            setTimeout(_fpWaitLoop, ms);
+        })();
+    });
+}
+
+// TODO: make private?
+_utils.fsWrapCsvCell = function (v) {
+    let s = String(v);
+
+    if (s === 'undefined') s = '';
+
+    return '"' + s + '",';
+}
+
+// if you provide a write stream it will write, otherwise it just returns the concatenated string
+_utils.fsRecordToCsvLine = function (oRecord, arrTableColumnKeys, wsWriteStream) {
+    let sToCsv = '';
+
+    arrTableColumnKeys.forEach(function (s) {
+        sToCsv += _utils.fsWrapCsvCell(oRecord[s]);
+    });
+
+    sToCsv = sToCsv.slice(0, -1); // remove last trailing comma
+    wsWriteStream && wsWriteStream.write(sToCsv + EOL);
+    return sToCsv
+}
+
 module.exports = _utils;
