@@ -1,0 +1,21 @@
+{
+  "name": "charm-scraper",
+  "version": "0.0.1",
+  "description": "scrape state data from Charm ABM",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "keywords": [
+    "education",
+    "scraper",
+    "agent based model"
+  ],
+  "author": "John Vandivier",
+  "homepage": "https://github.com/Vandivier/data-science-practice/tree/master/js/charm-scraper",
+  "devDependencies": {
+    "bluebird": "^3.5.0",
+    "cheerio": "^1.0.0-rc.2",
+    "puppeteer": "^0.12.0"
+  }
+}
