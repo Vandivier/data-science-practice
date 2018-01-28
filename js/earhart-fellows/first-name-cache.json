@@ -2934,5 +2934,20 @@
     "Stuart": {},
     "Mohammed": {},
     "Brenan": {},
-    "Calliope": {}
+    "Calliope": {},
+    "Franklyn": {
+        "gender": "male",
+        "probability": 0.96
+    },
+    "Varadarajan": {
+        "gender": null
+    },
+    "Monika": {
+        "gender": "female",
+        "probability": 1
+    },
+    "Dorle": {
+        "gender": "female",
+        "probability": 1
+    }
 }
