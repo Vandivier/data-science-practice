@@ -11,7 +11,7 @@ const fs = require('fs');
 const genderize = require('genderize');
 const reorder = require('csv-reorder');
 const split = require('split');
-const utils = require('../grand-tour-study/utils.js');
+const utils = require('ella-utils');
 
 const arrSeasons = ['sprin', 'summe', 'fall ', 'winte'];
 const OSEOL = require('os').EOL;
