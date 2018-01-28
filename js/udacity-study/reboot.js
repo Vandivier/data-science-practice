@@ -9,7 +9,6 @@
 /*** boilerplate pretty much: TODO: extract to lib ***/
 
 //const beautify = require('js-beautify').js_beautify;
-const cheerio = require('cheerio');
 const EOL = require('os').EOL;
 const fs = require('fs');
 //const genderize = require('genderize'); // todo: use genderize
@@ -22,32 +21,18 @@ const utils = require('ella-utils');
 const oTitleLine = {
     'sEntryId': 'Entry ID',
     'sName': 'Name',
+    'sEmail': 'Email Address',
     'sUserName': 'Username',
     'iEducationCount': 'Count of Education Entries',
     'sLinkedInUrl': 'LinkedIn Url',
     'sResumeUrl': 'Resume Url',
     'bUserExists': 'User Exists',
-    'bKnownFail': 'User Known to have Inaccessible Profile',
+    'bProfileIsPrivate': 'Profile is Private',
+    'bTooManyRequestsError': 'Scrape Blocked for Too Many Requests',
     'bPresentlyEmployed': 'Presently Employed',
     'sProfileLastUpdate': 'Profile Last Updated Date',
     'iTriesRemaining': 'Tries Remaining'
 };
-
-/*
-const oTitleLine = {
-    'sEntryId': iUid,
-    'sName': $('h1').html(),
-    'sUserName': sUsername,
-    'iEducationCount': $('div[class*="educations--section"] div[class*="_education--education"]').length,
-    'sLinkedInUrl': $('a[title="LINKEDIN"]').attr('href'),
-    'sResumeUrl': $('a[title="Resume"]').attr('href'),
-    'bUserExists': $('[class*=profile-container]').length > 0,
-    'bKnownFail': oResponse.knownFail,
-    'bPresentlyEmployed': $('div[class*="works--section"] div[class*="_work--work"] span[class*="_work--present"]').length > 0,
-    'sProfileLastUpdate': $('div[class*="profile--updated"]').text().split(': ')[1],
-    'iTriesRemaining': oResponse.triesRemaining
-};
-*/
 
 const arrTableColumnKeys = Object.keys(oTitleLine);
 const sRootUrl = 'https://profiles.udacity.com/u/';
@@ -164,6 +149,7 @@ function fpHandleData(sInputRecord) {
                         + EOL);
 
             //sResultToWrite += (fsScrapedDataToResult(oFullData) + EOL);
+            fsRecordToCsvLine(oFullData);
             return Promise.resolve();
         })
         .catch(function (reason) {
@@ -211,10 +197,8 @@ function fEndProgram() {
 // returns a page which has been navigated to the specified season page
 // note: this whole fucking method is a hack
 // not generalizable or temporally reliable in case of a site refactor
-// target site includes jQuery already. _$ is cheerio, $ is jQuery
 async function fpScrapeInputRecord(sUrl) {
     const _page = await browser.newPage();
-    let _$;
     let pageWorkingCompetitionPage;
     let oScrapeResult;
 
@@ -222,29 +206,43 @@ async function fpScrapeInputRecord(sUrl) {
         'timeout': 0
     }); // timeout ref: https://github.com/GoogleChrome/puppeteer/issues/782
 
-    _$ = cheerio.load(await _page.content());
+    await _page.content()
     _page.on('console', _fCleanLog); // ref: https://stackoverflow.com/a/47460782/3931488
 
     oScrapeResult = await _page.evaluate((_iCurrentInputRecord) => {
-        return {};
-        /*
-        return _fpWait(900)
+        const script = document.createElement('script') // inject jQuery
+        script.src = 'https://code.jquery.com/jquery-3.3.1.js'; // inject jQuery
+        document.getElementsByTagName('head')[0].appendChild(script); // inject jQuery
+
+        return _fpWait(3000)
             .then(function () {
-                let sEmail = $('.emaillabel').parent().find('td span').text();
-                let sarrAffiliations = '';
                 let arr$Affiliations = $('#affiliation-body a[name=subaffil]');
+                let sarrAffiliations = '';
+                let _oResult = {
+                    'sEntryId': '', //iUid
+                    'sName':  $('h1[class*="user--name"]').html(),
+                    'sEmail': $('.emaillabel').parent().find('td span').text(),
+                    'sUserName': '', //sUsername
+                    'iEducationCount': $('div[class*="educations--section"] div[class*="_education--education"]').length,
+                    'sLinkedInUrl': $('a[title="LINKEDIN"]').attr('href'),
+                    'sResumeUrl': $('a[title="Resume"]').attr('href'),
+                    'bUserExists': $('[class*=profile-container]').length > 0,
+                    'bProfileIsPrivate': $('[class*="toast--message"]').html().trim() === 'Profile is private',
+                    'bTooManyRequestsError': $('[class*="toast--message"]').html().trim() === 'Too many requests',
+                    'bPresentlyEmployed': $('div[class*="works--section"] div[class*="_work--work"] span[class*="_work--present"]').length > 0,
+                    'sProfileLastUpdate': $('div[class*="profile--updated"]').text().split(': ')[1],
+                    'iTriesRemaining': '' //oResponse.triesRemaining
+                };
 
-                arr$Affiliations.each(function (arr, el) {
-                    sarrAffiliations += ('~' + el.innerText.replace(/\s/g, ' ').trim());
+                arr$Affiliations && arr$Affiliations.each(function (arr, el) {
+                    _oResult.sarrAffiliations += ('~' + el.innerText.replace(/\s/g, ' ').trim());
                 });
 
-                return Promise.resolve({
-                    'email': sEmail,
-                    'affiliations': sarrAffiliations
-                });
+                return Promise.resolve(_oResult);
             })
             .catch(function (err) {
                 console.log('fpScrapeInputRecord err: ', err);
+                return err;
             });
 
         // larger time allows for slow site response
@@ -254,7 +252,6 @@ async function fpScrapeInputRecord(sUrl) {
             ms = ms || 10000;
             return new Promise(resolve => setTimeout(resolve, ms));
         }
-        */
     });
 
     _page.close();
@@ -263,6 +260,6 @@ async function fpScrapeInputRecord(sUrl) {
     return oScrapeResult;
 
     function _fCleanLog(ConsoleMessage) {
-        console.log(ConsoleMessage.text + EOL);
+        console.log(ConsoleMessage.text() + EOL);
     }
 }

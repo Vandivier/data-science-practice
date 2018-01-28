@@ -8,7 +8,6 @@
     "start": "node reboot.js"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
     "ella-utils": "^1.0.3",
     "phantom": "^4.0.0",
     "puppeteer": "^1.0.0"
