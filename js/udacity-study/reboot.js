@@ -9,6 +9,7 @@
 /*** boilerplate pretty much: TODO: extract to lib ***/
 
 //const beautify = require('js-beautify').js_beautify;
+const cheerio = require('cheerio');
 const EOL = require('os').EOL;
 const fs = require('fs');
 //const genderize = require('genderize'); // todo: use genderize
@@ -21,43 +22,51 @@ const utils = require('ella-utils');
 const oTitleLine = {
     'sEntryId': 'Entry ID',
     'sName': 'Name',
-    'sAcademicYear': 'Academic Year',
-    'vMultipleDegrees': 'Multiple Degrees',
-    'sGraduateInstitution': 'Graduate Institution',
-    'vInstitutionValid': 'Graduate Institution In Validated List',
-    'sAreaOfStudy': 'Area of Study',
-    'sInvalidPreFixAreaOfStudy': 'Invalid Pre-Fix Area of Study',
-    'sInvalidPostFixAreaOfStudy': 'Invalid Post-Fix Area of Study',
-    'sSponsors': 'Sponsors',
-    'sCompletionDegree': 'Completion Degree',
-    'sCompletionYear': 'Completion Year',
-    'sMailingAddress': 'Mailing Address',
-    'sEmailAddress': 'Email Address',
-    'vCharacterAfterPeriod': 'Valid Email Address',
-    'bDeceased': 'Deceased',
-    'sSponsorGenderizedName': 'Simple Sponsor Genderized Name',
-    'sSponsorGender': 'Simple Sponsor Gender',
-    'sSponsorGenderProbability': 'Simple Sponsor Gender Probability',
-    'sGenderizedName': 'Recipient Genderized Name',
-    'sGender': 'Recipient Gender',
-    'sGenderProbability': 'Recipient Gender Probability',
+    'sUserName': 'Username',
+    'iEducationCount': 'Count of Education Entries',
+    'sLinkedInUrl': 'LinkedIn Url',
+    'sResumeUrl': 'Resume Url',
+    'bUserExists': 'User Exists',
+    'bKnownFail': 'User Known to have Inaccessible Profile',
+    'bPresentlyEmployed': 'Presently Employed',
+    'sProfileLastUpdate': 'Profile Last Updated Date',
+    'iTriesRemaining': 'Tries Remaining'
 };
 
+/*
+const oTitleLine = {
+    'sEntryId': iUid,
+    'sName': $('h1').html(),
+    'sUserName': sUsername,
+    'iEducationCount': $('div[class*="educations--section"] div[class*="_education--education"]').length,
+    'sLinkedInUrl': $('a[title="LINKEDIN"]').attr('href'),
+    'sResumeUrl': $('a[title="Resume"]').attr('href'),
+    'bUserExists': $('[class*=profile-container]').length > 0,
+    'bKnownFail': oResponse.knownFail,
+    'bPresentlyEmployed': $('div[class*="works--section"] div[class*="_work--work"] span[class*="_work--present"]').length > 0,
+    'sProfileLastUpdate': $('div[class*="profile--updated"]').text().split(': ')[1],
+    'iTriesRemaining': oResponse.triesRemaining
+};
+*/
 
-const fpReadFile = util.promisify(fs.readFile);
-const fpWriteFile = util.promisify(fs.writeFile);
+const arrTableColumnKeys = Object.keys(oTitleLine);
+const sRootUrl = 'https://profiles.udacity.com/u/';
 
 // TODO: conventionalize var name to column title line value
 // proposed rule: encounter each capital letter; splice before first letter and insert spaces in other cases
 // fDehungarianize(sVariableName) => Variable Name
-const arrTableColumnKeys = Object.keys(oTitleLine);
-const sFirstNameCacheFile = './first-name-cache.json';
-const sOrderedOutputFilePath = './ordered-output.csv';
-
-const sRootUrl = 'https://profiles.udacity.com/u/';
 //const sResultDir = __dirname + '/results';
-const sInputCsvLocation = __dirname + '/subsample-test.csv';
-const sOutputFileLocation = __dirname + '/output.csv';
+
+const sFirstNameCacheFilePath = './first-name-cache.json';
+const sOrderedOutputFilePath = './ordered-output.csv';
+const sInputFilePath = __dirname + '/subsample-test.csv'; // TODO: use rsReadStream
+const sOutputFilePath = __dirname + '/output.csv';
+
+const fpReadFile = util.promisify(fs.readFile);
+const fpWriteFile = util.promisify(fs.writeFile);
+
+//const rsReadStream = fs.createReadStream('./EarhartMergedNoBoxNoLines.txt');
+const wsWriteStream = fs.createWriteStream(sOutputFilePath);
 
 let browser;
 let iCurrentInputRecord = 0;
@@ -72,9 +81,9 @@ async function main() {
     let sInputCsv;
     let arrsInputRows;
 
+    fsRecordToCsvLine(oTitleLine);
     /*
     //await utils.fpWait(5000); // only needed to give debugger time to attach
-    fsRecordToCsvLine(oTitleLine);
 
     if (typeof oFirstNameCache == 'object') { // don't waste time or genderize requests if there's a problem
         fParseTxt();
@@ -93,7 +102,7 @@ async function main() {
 
     //fSetWriters();
 
-    sInputCsv = await fpReadFile(sInputCsvLocation, 'utf8');
+    sInputCsv = await fpReadFile(sInputFilePath, 'utf8');
     arrsInputRows = sInputCsv.split(EOL);
 
     /** for testing only, shorten rows **/
@@ -110,9 +119,9 @@ async function main() {
         return fpHandleData(sInputRecord);
     });
 
-    console.log('writing result file.');
-    sResultToWrite = fsScrapedDataToResult(oTitleLine) + EOL + sResultToWrite;
-    await fpWriteFile(sOutputFileLocation, sResultToWrite);
+    //console.log('writing result file.');
+    //sResultToWrite = fsScrapedDataToResult(oTitleLine) + EOL + sResultToWrite;
+    //await fpWriteFile(sOutputFilePath, sResultToWrite);
     fEndProgram();
 }
 
@@ -154,7 +163,7 @@ function fpHandleData(sInputRecord) {
                         + '/' + iTotalInputRecords
                         + EOL);
 
-            sResultToWrite += (fsScrapedDataToResult(oFullData) + EOL);
+            //sResultToWrite += (fsScrapedDataToResult(oFullData) + EOL);
             return Promise.resolve();
         })
         .catch(function (reason) {
@@ -174,7 +183,7 @@ function fEndProgram() {
     let sBeautifiedData = JSON.stringify(oFirstNameCache);
     sBeautifiedData = beautify(sBeautifiedData, { indent_size: 4 });
 
-    fs.writeFile(sFirstNameCacheFile, sBeautifiedData, 'utf8', (err) => {
+    fs.writeFile(sFirstNameCacheFilePath, sBeautifiedData, 'utf8', (err) => {
         reorder({
             input: sOutputFilePath, // too bad input can't be sBeautifiedData
             output: sOrderedOutputFilePath,
@@ -205,10 +214,9 @@ function fEndProgram() {
 // target site includes jQuery already. _$ is cheerio, $ is jQuery
 async function fpScrapeInputRecord(sUrl) {
     const _page = await browser.newPage();
-    let executionContext;
     let _$;
     let pageWorkingCompetitionPage;
-    let poScrapeResult;
+    let oScrapeResult;
 
     await _page.goto(sUrl, {
         'timeout': 0
@@ -217,8 +225,9 @@ async function fpScrapeInputRecord(sUrl) {
     _$ = cheerio.load(await _page.content());
     _page.on('console', _fCleanLog); // ref: https://stackoverflow.com/a/47460782/3931488
 
-    executionContext = _page.mainFrame().executionContext();
-    poScrapeResult = await executionContext.evaluate((_iCurrentInputRecord) => {
+    oScrapeResult = await _page.evaluate((_iCurrentInputRecord) => {
+        return {};
+        /*
         return _fpWait(900)
             .then(function () {
                 let sEmail = $('.emaillabel').parent().find('td span').text();
@@ -245,10 +254,13 @@ async function fpScrapeInputRecord(sUrl) {
             ms = ms || 10000;
             return new Promise(resolve => setTimeout(resolve, ms));
         }
+        */
     });
 
     _page.close();
-    return poScrapeResult;
+    console.log(oScrapeResult);
+
+    return oScrapeResult;
 
     function _fCleanLog(ConsoleMessage) {
         console.log(ConsoleMessage.text + EOL);

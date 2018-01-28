@@ -4,6 +4,9 @@
   "license": "MIT",
   "version": "3.3.2",
   "main": "lib/index.js",
+  "scripts": {
+    "start": "node reboot.js"
+  },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "ella-utils": "^1.0.3",
