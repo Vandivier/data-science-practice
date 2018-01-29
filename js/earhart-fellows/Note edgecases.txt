@@ -11,9 +11,11 @@ ARNN, Larry P. (Line 797)
 #4: Multiple sponsors, no confirmed degrees
 BROWN, Douglas Burr (Line 3013)
 
-
 #5: Multiple sponsors, 1/2 degrees completed: 
 ALLEN, Andrew J. (Line 332)
+
+#6: Multiple sponsors, multiple degrees: Fixed
+ANDERSON, Richard K.
 
 Fix cases Gender: Manually Confirmed Male Sponsors	
 A. WEYMAN PATRICK = ALBERT WEYMAN PATRICK
