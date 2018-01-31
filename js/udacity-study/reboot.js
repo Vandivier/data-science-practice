@@ -3,23 +3,27 @@
 // also based on email-append-repec
 // earhart fellows follows a stream pattern, this doesnt
 // TODO: compare subsample pattern vs working backwards from genderize available names
+// TODO: only get sUrl if valid data is not in the cache
+//      valid data includes not a private profile
+// TODO: add other data to cache such as genderized name
+// TODO: get more data like linkedIn stuff
 
 'use strict'
 
 /*** boilerplate pretty much: TODO: extract to lib ***/
 
-//const beautify = require('js-beautify').js_beautify;
+const beautify = require('js-beautify').js_beautify;
 const EOL = require('os').EOL;
 const fs = require('fs');
 //const genderize = require('genderize'); // todo: use genderize
-//const reorder = require('csv-reorder');
+const reorder = require('csv-reorder');
 //const split = require('split');
 const puppeteer = require('puppeteer');
 const util = require('util');
 const utils = require('ella-utils');
 
 const oTitleLine = {
-    'sEntryId': 'Entry ID',
+    'sId': 'Entry ID',
     'sName': 'Name',
     'sEmail': 'Email Address',
     'sUserName': 'Username',
@@ -44,13 +48,15 @@ const sRootUrl = 'https://profiles.udacity.com/u/';
 // fDehungarianize(sVariableName) => Variable Name
 //const sResultDir = __dirname + '/results';
 
-const sFirstNameCacheFilePath = './first-name-cache.json';
+const sCacheFilePath = './cache.json';
 const sOrderedOutputFilePath = './ordered-output.csv';
 const sInputFilePath = __dirname + '/subsample-test.csv'; // TODO: use rsReadStream
 const sOutputFilePath = __dirname + '/output.csv';
 
 const fpReadFile = util.promisify(fs.readFile);
 const fpWriteFile = util.promisify(fs.writeFile);
+
+let oCache = JSON.parse(fs.readFileSync(sCacheFilePath, 'utf8'));
 
 //const rsReadStream = fs.createReadStream('./EarhartMergedNoBoxNoLines.txt');
 const wsWriteStream = fs.createWriteStream(sOutputFilePath);
@@ -69,28 +75,24 @@ async function main() {
     let arrsInputRows;
 
     fsRecordToCsvLine(oTitleLine);
-    /*
     //await utils.fpWait(5000); // only needed to give debugger time to attach
-
-    if (typeof oFirstNameCache == 'object') { // don't waste time or genderize requests if there's a problem
-        fParseTxt();
-    } else {
-        console.log('error obtaining oFirstNameCache');
-    }
-    */
-
-    browser = await puppeteer.launch();
-
     sInputCsv = await fpReadFile(sInputFilePath, 'utf8');
     arrsInputRows = sInputCsv.split(EOL).filter(sLine => sLine); // drop title line and empty trailing lines
 
     /** for testing only, shorten rows **/
     //arrsInputRows = arrsInputRows.slice(0, 5);
-    arrsInputRows.shift()
-    console.log(arrsInputRows);
+    arrsInputRows.shift();
     iTotalInputRecords = arrsInputRows.length;
-    console.log('early count, iTotalInputRecords = ' + iTotalInputRecords);
 
+    if (typeof oCache !== 'object'
+        || !iTotalInputRecords)
+    { // don't waste time or requests if there's a problem
+        console.log('error obtaining oFirstNameCache');
+        fpEndProgram();
+    }
+
+    console.log('early count, iTotalInputRecords = ' + iTotalInputRecords);
+    browser = await puppeteer.launch();
     // array pattern, doesn't work for streams
     // TODO await utils.forEachReverseAsyncPhased(arrsInputRows, fpHandleData) ?
     await utils.forEachReverseAsyncPhased(arrsInputRows, function(_sInputRecord, i) {
@@ -99,9 +101,7 @@ async function main() {
         });
     });
 
-    // TODO: write caches, possibly beautify, and order
-
-    fEndProgram();
+    fpEndProgram();
 }
 
 async function fpHandleData(oRecord) {
@@ -119,9 +119,11 @@ async function fpHandleData(oRecord) {
         oRecord.iModifiedIncrement += 1;
     }
 
-    oRecord.sUrl = sRootUrl
-        + oRecord.sFirstName
+    oRecord.sId = oRecord.sFirstName
         + (oRecord.iModifiedIncrement || '');
+
+    oRecord.sUrl = sRootUrl
+        + oRecord.sId;
 
     oRecord = await fpScrapeInputRecord(oRecord);
     if (oRecord.bUserExists) await fpHandleData(oRecord); // deceptively simple, dangerously recursive
@@ -139,10 +141,33 @@ function fsRecordToCsvLine(oRecord) {
     utils.fsRecordToCsvLine(oRecord, arrTableColumnKeys, wsWriteStream);
 }
 
-function fEndProgram() {
+async function fpEndProgram() {
     browser.close();
-    console.log('Processes completed.');
+    await fpWriteCache();
     process.exit();
+}
+
+async function fpWriteCache() {
+    let sBeautifiedData = JSON.stringify(oCache);
+    sBeautifiedData = beautify(sBeautifiedData, { indent_size: 4 });
+
+    console.log('beautified data', sBeautifiedData);
+
+    await fpWriteFile(sCacheFilePath, sBeautifiedData, 'utf8', err => {
+        reorder({
+            input: sOutputFilePath, // too bad input can't be sBeautifiedData
+            output: sOrderedOutputFilePath,
+            sort: 'Entry ID'
+        })
+        .then(metadata => {
+            console.log('Program completed.');
+        })
+        .catch(error => {
+            console.log('Program completed with error.', error);
+        });
+    });
+
+    return Promise.resolve();
 }
 
 /*** end boilerplate pretty much ***/
@@ -171,7 +196,6 @@ async function fpScrapeInputRecord(oRecord) {
                     let arr$Affiliations = $('#affiliation-body a[name=subaffil]');
                     let sarrAffiliations = '';
                     let _oResult = {
-                        'sEntryId': '', //iUid
                         'sName':  $('h1[class*="user--name"]').html(),
                         'sEmail': $('.emaillabel').parent().find('td span').text(),
                         'sUserName': '', //sUsername
@@ -227,6 +251,7 @@ async function fpScrapeInputRecord(oRecord) {
         oRecord = Object.assign(oRecord, oScrapeResult);
     }
 
+    oCache[oRecord.sId] = oRecord;
     fsRecordToCsvLine(oRecord);
     return Promise.resolve(oRecord);
 
