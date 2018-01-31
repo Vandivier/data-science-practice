@@ -29,6 +29,7 @@ const oTitleLine = {
     'bUserExists': 'User Exists',
     'bProfileIsPrivate': 'Profile is Private',
     'bTooManyRequestsError': 'Scrape Blocked for Too Many Requests',
+    'bOtherError': 'Other Error',
     'bPresentlyEmployed': 'Presently Employed',
     'sProfileLastUpdate': 'Profile Last Updated Date',
     'iTriesRemaining': 'Tries Remaining'
@@ -91,27 +92,14 @@ async function main() {
 
     // array pattern, doesn't work for streams
     // TODO await utils.forEachReverseAsyncPhased(arrsInputRows, fpHandleData) ?
-    //await utils.forEachReverseAsyncPhased(arrsInputRows, function(sInputRecord, i) {
-    //    return fpHandleData(sInputRecord);
-    //});
+    await utils.forEachReverseAsyncPhased(arrsInputRows, function(sInputRecord, i) {
+        return fpHandleData(sInputRecord);
+    });
+
+    // TODO: write caches, possibly beautify, and order
 
     fEndProgram();
 }
-
-/*
-function init() {
-  async.map(arrsKnownValidNames, fScrapeUdacityUserSync, function(err, arroUserObjects) {
-    if (err) console.log('async.map callback ERROR',  err);
-    let sTextToWrite = fsObjectsToCSV(arroUserObjects[0]);                        // there's an extra array layer somewhere... maybe bc i want udacity then linkedin the w/e?
-    streamOutFile.write(sTextToWrite, null, console.log('Done.')); 
-    process.exit(0);      // i don't think we should exit here. I think this callback is just for one promise chain, not Promise.all()
-  //  async.map(arrNames, fScrapeUdacityUserSync, function(err, arroUserObjects) {
-  //    console.log('arrNames is done.');
-  //    process.exit(0);
-  //  });
-  });
-}
-*/
 
 async function fpHandleData(sInputRecord) {
     const arrsCells = sInputRecord.split(',');
@@ -122,33 +110,12 @@ async function fpHandleData(sInputRecord) {
 
     oRecord.sUrl = sRootUrl + oRecord.sFirstName;
 
-    return fpScrapeInputRecord(oRecord.sUrl);
+    return fpScrapeInputRecord(oRecord);
 }
 
 function fsRecordToCsvLine(oRecord) {
     utils.fsRecordToCsvLine(oRecord, arrTableColumnKeys, wsWriteStream);
 }
-
-/*
-function fEndProgram() {
-    let sBeautifiedData = JSON.stringify(oFirstNameCache);
-    sBeautifiedData = beautify(sBeautifiedData, { indent_size: 4 });
-
-    fs.writeFile(sFirstNameCacheFilePath, sBeautifiedData, 'utf8', (err) => {
-        reorder({
-            input: sOutputFilePath, // too bad input can't be sBeautifiedData
-            output: sOrderedOutputFilePath,
-            sort: 'Entry ID'
-        })
-        .then(metadata => {
-            console.log('Program completed.');
-        })
-        .catch(error => {
-            console.log('Program completed with error.', error);
-        });
-    });
-}
-*/
 
 function fEndProgram() {
     browser.close();
@@ -162,12 +129,12 @@ function fEndProgram() {
 // returns a page which has been navigated to the specified season page
 // note: this whole fucking method is a hack
 // not generalizable or temporally reliable in case of a site refactor
-async function fpScrapeInputRecord(sUrl) {
+async function fpScrapeInputRecord(oRecord) {
     const _page = await browser.newPage();
     let oFullData
     let oScrapeResult;
 
-    await _page.goto(sUrl, {
+    await _page.goto(oRecord.sUrl, {
         'timeout': 0
     }); // timeout ref: https://github.com/GoogleChrome/puppeteer/issues/782
 
@@ -180,6 +147,7 @@ async function fpScrapeInputRecord(sUrl) {
         document.getElementsByTagName('head')[0].appendChild(script); // inject jQuery
         console.log('scraping: ' + window.location.href);
 
+        return Promise.reject('test');
         return _fpWait(3000)
             .then(function () {
                 let arr$Affiliations = $('#affiliation-body a[name=subaffil]');
@@ -195,6 +163,7 @@ async function fpScrapeInputRecord(sUrl) {
                     'bUserExists': $('[class*=profile-container]').length > 0,
                     'bProfileIsPrivate': $('[class*="toast--message"]').html().trim() === 'Profile is private',
                     'bTooManyRequestsError': $('[class*="toast--message"]').html().trim() === 'Too many requests',
+                    'bOtherError': false,
                     'bPresentlyEmployed': $('div[class*="works--section"] div[class*="_work--work"] span[class*="_work--present"]').length > 0,
                     'sProfileLastUpdate': $('div[class*="profile--updated"]').text().split(': ')[1],
                     'iTriesRemaining': '' //oResponse.triesRemaining
@@ -219,11 +188,12 @@ async function fpScrapeInputRecord(sUrl) {
             return new Promise(resolve => setTimeout(resolve, ms));
         }
     })
-    /*
     .catch(function (reason) {
         console.log('_page.evaluate err: ', reason);
+        return {
+            'bOtherError': true
+        };
     });
-    */
 
     _page.close();
     oFullData = Object.assign(oScrapeResult, oRecord);
