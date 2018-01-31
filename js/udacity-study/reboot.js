@@ -32,7 +32,8 @@ const oTitleLine = {
     'bOtherError': 'Other Error',
     'bPresentlyEmployed': 'Presently Employed',
     'sProfileLastUpdate': 'Profile Last Updated Date',
-    'iTriesRemaining': 'Tries Remaining'
+    'iTriesRemaining': 'Tries Remaining',
+    'sUrl': 'Url Source'
 };
 
 const arrTableColumnKeys = Object.keys(oTitleLine);
@@ -92,8 +93,10 @@ async function main() {
 
     // array pattern, doesn't work for streams
     // TODO await utils.forEachReverseAsyncPhased(arrsInputRows, fpHandleData) ?
-    await utils.forEachReverseAsyncPhased(arrsInputRows, function(sInputRecord, i) {
-        return fpHandleData(sInputRecord);
+    await utils.forEachReverseAsyncPhased(arrsInputRows, function(_sInputRecord, i) {
+        return fpHandleData({
+            'sInputRecord': _sInputRecord
+        });
     });
 
     // TODO: write caches, possibly beautify, and order
@@ -101,16 +104,35 @@ async function main() {
     fEndProgram();
 }
 
-async function fpHandleData(sInputRecord) {
-    const arrsCells = sInputRecord.split(',');
-    let oRecord = {
-        sFirstName: arrsCells[0],
-        sLastName: arrsCells[1]
+async function fpHandleData(oRecord) {
+    const arrsCells = oRecord.sInputRecord.split(',');
+    let oModifiedRecord;
+
+    if (oRecord.iModifiedIncrement === undefined) { // called normally from main(), forEachReverseAsyncPhased 
+        oRecord.sFirstName = arrsCells[0];
+        oRecord.sLastName = arrsCells[1];
+        oRecord.iModifiedIncrement = 0;
+    } else {
+        // fpHandleData called recursively
+        // increment username and try again; udacity business rule
+        // TODO: not just first name, but try firstlast and maybe last too
+        oRecord.iModifiedIncrement += 1;
     }
 
-    oRecord.sUrl = sRootUrl + oRecord.sFirstName;
+    oRecord.sUrl = sRootUrl
+        + oRecord.sFirstName
+        + (oRecord.iModifiedIncrement || '');
 
-    return fpScrapeInputRecord(oRecord);
+    oRecord = await fpScrapeInputRecord(oRecord);
+    if (oRecord.bUserExists) await fpHandleData(oRecord); // deceptively simple, dangerously recursive
+
+    iCurrentInputRecord++;
+    console.log('scraped input record #: ' +
+        iCurrentInputRecord +
+        '/' + iTotalInputRecords +
+        EOL);
+
+    return Promise.resolve();
 }
 
 function fsRecordToCsvLine(oRecord) {
@@ -125,87 +147,88 @@ function fEndProgram() {
 
 /*** end boilerplate pretty much ***/
 
-// TODO: change. this is just copied from email-append-repec
-// returns a page which has been navigated to the specified season page
-// note: this whole fucking method is a hack
 // not generalizable or temporally reliable in case of a site refactor
 async function fpScrapeInputRecord(oRecord) {
     const _page = await browser.newPage();
-    let oFullData
     let oScrapeResult;
 
     await _page.goto(oRecord.sUrl, {
         'timeout': 0
-    }); // timeout ref: https://github.com/GoogleChrome/puppeteer/issues/782
-
-    await _page.content()
-    _page.on('console', _fCleanLog); // ref: https://stackoverflow.com/a/47460782/3931488
-
-    oScrapeResult = await _page.evaluate((_iCurrentInputRecord) => {
-        const script = document.createElement('script') // inject jQuery
-        script.src = 'https://code.jquery.com/jquery-3.3.1.js'; // inject jQuery
-        document.getElementsByTagName('head')[0].appendChild(script); // inject jQuery
-        console.log('scraping: ' + window.location.href);
-
-        return Promise.reject('test');
-        return _fpWait(3000)
-            .then(function () {
-                let arr$Affiliations = $('#affiliation-body a[name=subaffil]');
-                let sarrAffiliations = '';
-                let _oResult = {
-                    'sEntryId': '', //iUid
-                    'sName':  $('h1[class*="user--name"]').html(),
-                    'sEmail': $('.emaillabel').parent().find('td span').text(),
-                    'sUserName': '', //sUsername
-                    'iEducationCount': $('div[class*="educations--section"] div[class*="_education--education"]').length,
-                    'sLinkedInUrl': $('a[title="LINKEDIN"]').attr('href'),
-                    'sResumeUrl': $('a[title="Resume"]').attr('href'),
-                    'bUserExists': $('[class*=profile-container]').length > 0,
-                    'bProfileIsPrivate': $('[class*="toast--message"]').html().trim() === 'Profile is private',
-                    'bTooManyRequestsError': $('[class*="toast--message"]').html().trim() === 'Too many requests',
-                    'bOtherError': false,
-                    'bPresentlyEmployed': $('div[class*="works--section"] div[class*="_work--work"] span[class*="_work--present"]').length > 0,
-                    'sProfileLastUpdate': $('div[class*="profile--updated"]').text().split(': ')[1],
-                    'iTriesRemaining': '' //oResponse.triesRemaining
-                };
-
-                arr$Affiliations && arr$Affiliations.each(function (arr, el) {
-                    _oResult.sarrAffiliations += ('~' + el.innerText.replace(/\s/g, ' ').trim());
-                });
-
-                return Promise.resolve(_oResult);
-            })
-            .catch(function (err) {
-                console.log('fpScrapeInputRecord err: ', err);
-                return err;
-            });
-
-        // larger time allows for slow site response
-        // some times of day when it's responding fast u can get away
-        // with smaller ms; suggested default of 12.5s
-        function _fpWait(ms) {
-            ms = ms || 10000;
-            return new Promise(resolve => setTimeout(resolve, ms));
-        }
-    })
-    .catch(function (reason) {
-        console.log('_page.evaluate err: ', reason);
-        return {
-            'bOtherError': true
-        };
     });
 
-    _page.close();
-    oFullData = Object.assign(oScrapeResult, oRecord);
+    if (oRecord.bUserExists !== false) { // yes, an exact check is needed.
+        await _page.content()
+        _page.on('console', _fCleanLog); // ref: https://stackoverflow.com/a/47460782/3931488
 
-    iCurrentInputRecord++;
-    console.log('scraped input record #: '
-                + iCurrentInputRecord
-                + '/' + iTotalInputRecords
-                + EOL);
+        oScrapeResult = await _page.evaluate((_iCurrentInputRecord) => {
+            const script = document.createElement('script') // inject jQuery
+            script.src = 'https://code.jquery.com/jquery-3.3.1.js'; // inject jQuery
+            document.getElementsByTagName('head')[0].appendChild(script); // inject jQuery
+            console.log('scraping: ' + window.location.href);
 
-    fsRecordToCsvLine(oFullData);
-    return Promise.resolve();
+            return _fpWait(3000)
+                .then(function () {
+                    let arr$Affiliations = $('#affiliation-body a[name=subaffil]');
+                    let sarrAffiliations = '';
+                    let _oResult = {
+                        'sEntryId': '', //iUid
+                        'sName':  $('h1[class*="user--name"]').html(),
+                        'sEmail': $('.emaillabel').parent().find('td span').text(),
+                        'sUserName': '', //sUsername
+                        'iEducationCount': $('div[class*="educations--section"] div[class*="_education--education"]').length,
+                        'sLinkedInUrl': $('a[title="LINKEDIN"]').attr('href'),
+                        'sResumeUrl': $('a[title="Resume"]').attr('href'),
+                        'bUserExists': $('[class*=profile-container]').length > 0,
+                        'bProfileIsPrivate': $('[class*="toast--message"]').html().trim() === 'Profile is private',
+                        'bTooManyRequestsError': $('[class*="toast--message"]').html().trim() === 'Too many requests',
+                        'bOtherError': false,
+                        'bPresentlyEmployed': $('div[class*="works--section"] div[class*="_work--work"] span[class*="_work--present"]').length > 0,
+                        'sProfileLastUpdate': $('div[class*="profile--updated"]').text().split(': ')[1],
+                        'iTriesRemaining': '' //oResponse.triesRemaining
+                    };
+
+                    arr$Affiliations && arr$Affiliations.each(function (arr, el) {
+                        _oResult.sarrAffiliations += ('~' + el.innerText.replace(/\s/g, ' ').trim());
+                    });
+
+                    return Promise.resolve(_oResult);
+                })
+                .catch(function (err) {
+                    console.log('fpScrapeInputRecord err: ', err);
+                    return err;
+                });
+
+            // larger time allows for slow site response
+            // some times of day when it's responding fast u can get away
+            // with smaller ms; suggested default of 12.5s
+            function _fpWait(ms) {
+                ms = ms || 10000;
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+        })
+        .catch(function (error) {
+
+            if (error.message.includes('Execution context was destroyed')) {
+                // context was destroyed by http redirect to 404 bc user doesn't exist.
+                // well, that's the usual scenario. One can imagine a host of other causes too.
+                return {
+                    'bUserExists': false
+                }
+            }
+
+            console.log('unknown _page.evaluate err: ', error);
+
+            return {
+                'bOtherError': true
+            };
+        });
+
+        _page.close();
+        oRecord = Object.assign(oRecord, oScrapeResult);
+    }
+
+    fsRecordToCsvLine(oRecord);
+    return Promise.resolve(oRecord);
 
     function _fCleanLog(ConsoleMessage) {
         if (ConsoleMessage.type() === 'log') {
