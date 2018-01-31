@@ -79,34 +79,22 @@ async function main() {
 
     browser = await puppeteer.launch();
 
-    /*
-    if (!fs.existsSync(sResultDir)) {
-        fs.mkdirSync(sResultDir);
-    }
-    */
-
-    //fSetWriters();
-
     sInputCsv = await fpReadFile(sInputFilePath, 'utf8');
-    arrsInputRows = sInputCsv.split(EOL);
+    arrsInputRows = sInputCsv.split(EOL).filter(sLine => sLine); // drop title line and empty trailing lines
 
     /** for testing only, shorten rows **/
     //arrsInputRows = arrsInputRows.slice(0, 5);
     arrsInputRows.shift()
+    console.log(arrsInputRows);
     iTotalInputRecords = arrsInputRows.length;
     console.log('early count, iTotalInputRecords = ' + iTotalInputRecords);
 
-    //arrsInputRows = arrsKnownValidNames
-
     // array pattern, doesn't work for streams
     // TODO await utils.forEachReverseAsyncPhased(arrsInputRows, fpHandleData) ?
-    await utils.forEachReverseAsyncPhased(arrsInputRows, function(sInputRecord, i) {
-        return fpHandleData(sInputRecord);
-    });
+    //await utils.forEachReverseAsyncPhased(arrsInputRows, function(sInputRecord, i) {
+    //    return fpHandleData(sInputRecord);
+    //});
 
-    //console.log('writing result file.');
-    //sResultToWrite = fsScrapedDataToResult(oTitleLine) + EOL + sResultToWrite;
-    //await fpWriteFile(sOutputFilePath, sResultToWrite);
     fEndProgram();
 }
 
@@ -125,11 +113,7 @@ function init() {
 }
 */
 
-// don't write the title line as it appears many times
-// we will append just once manually
-// also, don't write empty lines
-// TODO: click go to next button and get more stages
-function fpHandleData(sInputRecord) {
+async function fpHandleData(sInputRecord) {
     const arrsCells = sInputRecord.split(',');
     let oRecord = {
         sFirstName: arrsCells[0],
@@ -138,26 +122,7 @@ function fpHandleData(sInputRecord) {
 
     oRecord.sUrl = sRootUrl + oRecord.sFirstName;
 
-    return fpScrapeInputRecord(oRecord.sUrl)
-        .then(function (oScraped) {
-            const oFullData = Object.assign(oScraped, oRecord);
-
-            iCurrentInputRecord++;
-            console.log('scraped input record #: '
-                        + iCurrentInputRecord
-                        + '/' + iTotalInputRecords
-                        + EOL);
-
-            //sResultToWrite += (fsScrapedDataToResult(oFullData) + EOL);
-            fsRecordToCsvLine(oFullData);
-            return Promise.resolve();
-        })
-        .catch(function (reason) {
-            console.log('fpHandleData err: ', reason);
-        });
-
-    iTotalInputRecords--;
-    return Promise.resolve();
+    return fpScrapeInputRecord(oRecord.sUrl);
 }
 
 function fsRecordToCsvLine(oRecord) {
@@ -199,7 +164,7 @@ function fEndProgram() {
 // not generalizable or temporally reliable in case of a site refactor
 async function fpScrapeInputRecord(sUrl) {
     const _page = await browser.newPage();
-    let pageWorkingCompetitionPage;
+    let oFullData
     let oScrapeResult;
 
     await _page.goto(sUrl, {
@@ -213,6 +178,7 @@ async function fpScrapeInputRecord(sUrl) {
         const script = document.createElement('script') // inject jQuery
         script.src = 'https://code.jquery.com/jquery-3.3.1.js'; // inject jQuery
         document.getElementsByTagName('head')[0].appendChild(script); // inject jQuery
+        console.log('scraping: ' + window.location.href);
 
         return _fpWait(3000)
             .then(function () {
@@ -252,14 +218,28 @@ async function fpScrapeInputRecord(sUrl) {
             ms = ms || 10000;
             return new Promise(resolve => setTimeout(resolve, ms));
         }
+    })
+    /*
+    .catch(function (reason) {
+        console.log('_page.evaluate err: ', reason);
     });
+    */
 
     _page.close();
-    console.log(oScrapeResult);
+    oFullData = Object.assign(oScrapeResult, oRecord);
 
-    return oScrapeResult;
+    iCurrentInputRecord++;
+    console.log('scraped input record #: '
+                + iCurrentInputRecord
+                + '/' + iTotalInputRecords
+                + EOL);
+
+    fsRecordToCsvLine(oFullData);
+    return Promise.resolve();
 
     function _fCleanLog(ConsoleMessage) {
-        console.log(ConsoleMessage.text() + EOL);
+        if (ConsoleMessage.type() === 'log') {
+            console.log(ConsoleMessage.text() + EOL);
+        }
     }
 }
