@@ -1,3 +1,10 @@
+RA Instructions: Earhart CV's
+The goal of this task is just to see if it's worthwhile to try and gather the CV's of fellows and sponsors which would tell us more about their employment, education, funding, and publishing histories etc. Though I am skeptical whether this will work, but why not give it a shot. 
+- Spend about 3 hours total, 90 minutes on fellows, 90 minutes on sponsors. 
+- Look online for their CV's - you're likely to find the sponsors by searching for the sponsors name and the institution of where the fellow was in grad school as these as typically the same. The fellows might be a little trickier as they are generally less accomplished and most of them would get jobs at different institutions than where they attended graduate school.. Therefore, you'll have quickly confirmDon't spend any longer than 5 minutes on any individual you cannot find, but when you can't find someone's CV just write their name on a list. Save the CV's in the following format "Lastname, firstname". I'm struggling with GIT today so just put the CV's in a folder and email it to me. 
+
+
+
 RA Instructions: Earhart Proofreading
 - Create a user on Github.com 
 - Download install the software https://desktop.github.com/ . Sign in with your github account. 
