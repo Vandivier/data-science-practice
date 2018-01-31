@@ -1,0 +1,96 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}31 Jan 2018, 13:20:59
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. view "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.smcl"
+
+. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. clear all
+{txt}
+{com}. set more off
+{txt}
+{com}. *log using "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\Earhart analysis.smcl" ///First time
+> log using "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.smcl", append replace
+. 
+{txt}end of do-file
+
+{com}. import delimited C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\ordered-output.csv
+{res}{text}(22 vars, 3244 obs)
+
+{com}. save "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta"
+{txt}file C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta saved
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. use "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta"
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. use "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta"
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. br
+
+. sort name
+
+. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. format %25s name academicyear graduateinstitution areaofstudy sponsors completiondegree mailingaddress emailaddress validemailaddress deceased
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. format %25s name academicyear graduateinstitution areaofstudy sponsors completiondegree emailaddress validemailaddress deceased
+{txt}
+{com}. format %12s  completiondegree mailingaddress emailaddress validemailaddress deceased
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. format %10s  completiondegree mailingaddress emailaddress validemailaddress deceased
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. format %10s recipientgenderprobability recipientgender recipientgenderizedname simplesponsorgenderprobability simplesponsorgender simplesponsorgenderizedname entryid completiondegree mailingaddress emailaddress validemailaddress deceased
+{err}varlist must contain all numeric or all string variables
+{txt}{search r(109):r(109);}
+
+end of do-file
+
+{search r(109):r(109);}
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. format %4.0g recipientgenderprobability 
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. format %4.0g recipientgenderprobability
+
+. format %4g recipientgenderprobability
+{err}invalid %format
+{txt}{search r(120):r(120);}
+
+{com}. format %4.2g recipientgenderprobability
+
+. exit, clear
