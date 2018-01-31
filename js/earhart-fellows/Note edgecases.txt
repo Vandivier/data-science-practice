@@ -1,21 +1,39 @@
 Fix Cases
-#1: Multiple sponsors, 1 degree
+#1: Multiple sponsors, 1 degree: Fixed
 ALCALY, Roger E. (Line 274)
-
-#2: 1 sponsor, multiple degrees
+#2: 1 sponsor, multiple degrees: Fixed
 ALLMAN, Dwight D. (Line 406)
-
 #3 : 1 Sponsor, 1 Degree, Multiple Institutions, 
 ARNN, Larry P. (Line 797)
-
 #4: Multiple sponsors, no confirmed degrees
 BROWN, Douglas Burr (Line 3013)
-
-
-#5: Multiple sponsors, 1/2 degrees completed, 
+#5: Multiple sponsors, 1/2 degrees completed: 
 ALLEN, Andrew J. (Line 332)
+#6: Multiple sponsors, multiple degrees: Fixed
+ANDERSON, Richard K.
+
+Potential Exogenous Sponsor Variation:
+Alfred Buehler passed away in 1970, 3 students did not receive more funding years, possibly as a result of this? http://www.nytimes.com/1970/01/14/archives/alfred-buehler-tax-expert-dies-wharton-school-professor-and-a.html 
+
+Real edits made to source file:
+Alfed Buehler == Alfred Buehler 
+Multiple simultaneous sponsors separated by commas; replaced commas with ellipsis
+Institutions with subcampus; replaced comma with ellipsis
 
 
+Fix cases Gender: Manually Confirmed Male Sponsors	
+A. WEYMAN PATRICK = ALBERT WEYMAN PATRICK
+Hendrik Houthakker
+Armen Albert Alchian
+Burton Weisbrod	
+W. Lee Hansen
+Chelcie C. Bosland
+Chiaki Nishiyama
 
 
+Manually Confirmed Female Sponsors
+Attiat F. Ott
 
+
+Sponsor pairs, Male-Male:
+Burton Weisbrod and W. Lee Hansen
