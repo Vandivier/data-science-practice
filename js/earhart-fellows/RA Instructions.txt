@@ -1,3 +1,15 @@
+RA Instructions Grab Bag:
+Accreditation: Can you confirm whether Carleton College, Eastern Montana College (now MSU Billings), Grove City College 
+offered graduate degrees at the time the relevant fellows attended? Please document in appropriate folder.. 
+
+
+
+
+
+
+
+
+
 RA Instructions: Earhart CV's
 First clone the "Master" branch from my Repo. I deleted and reinstalled it so you may have to do the same, so make sure you get an updated version (you'll confirm this by seeing that I've made changes to it tonight...)
 The goal of this task is just to see if it's worthwhile to try and gather the CV's of fellows and sponsors which would tell us more about their employment, education, funding, and publishing histories etc. Though I am skeptical whether this will work, but why not give it a shot.
