@@ -12,7 +12,10 @@
     "ella-utils": "^1.0.3",
     "js-beautify": "^1.7.5",
     "phantom": "^4.0.0",
-    "puppeteer": "^1.0.0"
+    "puppeteer": "^1.0.0",
+    "socks": "^2.1.2",
+    "socks-proxy-agent": "^3.0.1",
+    "tor-request": "^1.0.6"
   },
   "devDependencies": {
     "async": "^2.3.0",

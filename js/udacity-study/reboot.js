@@ -18,7 +18,10 @@ const fs = require('fs');
 //const genderize = require('genderize'); // todo: use genderize
 const reorder = require('csv-reorder');
 //const split = require('split');
+const proxyFromCache = require('./proxyFromCache.js')
 const puppeteer = require('puppeteer');
+const SocksClient = require('socks').SocksClient;
+const tr = require('tor-request');
 const util = require('util');
 const utils = require('ella-utils');
 
@@ -68,7 +71,8 @@ let sResultToWrite;
 let wsGotSome;
 let wsErrorLog;
 
-main();
+//main();
+fConfigureSocks();
 
 async function main() {
     let sInputCsv;
@@ -251,7 +255,7 @@ async function fpScrapeInputRecord(oRecord) {
         oRecord = Object.assign(oRecord, oScrapeResult);
     }
 
-    oCache[oRecord.sId] = oRecord;
+    oCache.people[oRecord.sId] = oRecord;
     fsRecordToCsvLine(oRecord);
     return Promise.resolve(oRecord);
 
@@ -261,3 +265,64 @@ async function fpScrapeInputRecord(oRecord) {
         }
     }
 }
+
+// ref: https://www.socks-proxy.net/
+// ref: gimmeproxy.com
+// ref: https://www.socksproxychecker.com/
+// ref: https://github.com/chimurai/http-proxy-middleware
+// ref: https://github.com/webfp/tor-browser-selenium
+// TODO: automated tor browser?
+async function fConfigureSocks() {
+    var url = require('url');
+    var http = require('http');
+    var SocksProxyAgent = require('socks-proxy-agent');
+
+    var proxy = 'socks://' + proxyFromCache.fpGetIp(oCache);
+    console.log('using proxy server %j', proxy);
+    var endpoint = 'http://www.google.com/'; // testing
+    console.log('attempting to GET %j', endpoint);
+    var opts = url.parse(endpoint);
+
+    // create an instance of the `SocksProxyAgent` class with the proxy server information
+    var agent = new SocksProxyAgent(proxy);
+    opts.agent = agent;
+
+    http.get(opts, function (res) {
+        console.log('"response" event!', res.headers);
+        res.pipe(process.stdout);
+    });
+}
+
+/*
+async function fConfigureSocks() {
+    const oSocksOptions = {
+        proxy: {
+            ipaddress: '99.194.10.190',
+            port: 46605,
+            type: 5 // Proxy version (4 or 5)
+        },
+
+        command: 'connect', // SOCKS command (createConnection factory function only supports the connect command)
+
+        destination: {
+            host: 'github.com',
+            port: 80
+        }
+    };
+
+    try {
+        const info = await SocksClient.createConnection(oSocksOptions);
+
+        console.log(info.socket);
+        // <Socket ...>  (this is a raw net.Socket that is established to the destination host through the given proxy server)
+    } catch (err) {
+        console.log('fConfigureSocks err', err);
+    }
+
+    tr.request('https://api.ipify.org', function (err, res, body) {
+        if (!err && res.statusCode == 200) {
+            console.log("Your public (through Tor) IP is: " + body);
+        }
+    });
+}
+*/
