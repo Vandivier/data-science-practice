@@ -71,8 +71,7 @@ let sResultToWrite;
 let wsGotSome;
 let wsErrorLog;
 
-//main();
-fConfigureSocks();
+main();
 
 async function main() {
     let sInputCsv;
@@ -96,10 +95,24 @@ async function main() {
     }
 
     console.log('early count, iTotalInputRecords = ' + iTotalInputRecords);
-    browser = await puppeteer.launch();
+
     // array pattern, doesn't work for streams
     // TODO await utils.forEachReverseAsyncPhased(arrsInputRows, fpHandleData) ?
-    await utils.forEachReverseAsyncPhased(arrsInputRows, function(_sInputRecord, i) {
+    await utils.forEachReverseAsyncPhased(arrsInputRows, async function(_sInputRecord, i) {
+        let sIpArg;
+
+        try {
+            if (!(i % 4)) { // new ip every 4 requests to stop blocks
+                sIpArg = '--proxy-server=' + proxyFromCache.fpGetIp(oCache);
+                browser = await puppeteer.launch({
+                    args: [sIpArg]
+                });
+            }
+        } catch (e) {
+            console.log('proxy error', e);
+            return Promise.resolve();
+        }
+
         return fpHandleData({
             'sInputRecord': _sInputRecord
         });
@@ -271,6 +284,7 @@ async function fpScrapeInputRecord(oRecord) {
 // ref: https://www.socksproxychecker.com/
 // ref: https://github.com/chimurai/http-proxy-middleware
 // ref: https://github.com/webfp/tor-browser-selenium
+// ref: https://github.com/GoogleChrome/puppeteer/pull/427/commits/43c3e533163d1cd7bfbddcb7b3a299fca0c3ef2c
 // TODO: automated tor browser?
 async function fConfigureSocks() {
     var url = require('url');
@@ -292,37 +306,3 @@ async function fConfigureSocks() {
         res.pipe(process.stdout);
     });
 }
-
-/*
-async function fConfigureSocks() {
-    const oSocksOptions = {
-        proxy: {
-            ipaddress: '99.194.10.190',
-            port: 46605,
-            type: 5 // Proxy version (4 or 5)
-        },
-
-        command: 'connect', // SOCKS command (createConnection factory function only supports the connect command)
-
-        destination: {
-            host: 'github.com',
-            port: 80
-        }
-    };
-
-    try {
-        const info = await SocksClient.createConnection(oSocksOptions);
-
-        console.log(info.socket);
-        // <Socket ...>  (this is a raw net.Socket that is established to the destination host through the given proxy server)
-    } catch (err) {
-        console.log('fConfigureSocks err', err);
-    }
-
-    tr.request('https://api.ipify.org', function (err, res, body) {
-        if (!err && res.statusCode == 200) {
-            console.log("Your public (through Tor) IP is: " + body);
-        }
-    });
-}
-*/
