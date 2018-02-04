@@ -4,7 +4,10 @@ let _module = {};
 // test it works or get a new one
 // rinse and repeat
 _module.fpGetIp = async function(oCache) {
-    return oCache.proxies[0]; // testing
+    let arrProxies = oCache.proxies;
+    let sRandomProxy = arrProxies[Math.floor(Math.random() * arrProxies.length)];
+
+    return sRandomProxy;
 }
 
 module.exports = _module;

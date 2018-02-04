@@ -103,7 +103,8 @@ async function main() {
 
         try {
             if (!(i % 4)) { // new ip every 4 requests to stop blocks
-                sIpArg = '--proxy-server=' + proxyFromCache.fpGetIp(oCache);
+                sIpArg = '--proxy-server=socks5://' + await proxyFromCache.fpGetIp(oCache);
+                console.log(sIpArg);
                 browser = await puppeteer.launch({
                     args: [sIpArg]
                 });
@@ -168,8 +169,6 @@ async function fpWriteCache() {
     let sBeautifiedData = JSON.stringify(oCache);
     sBeautifiedData = beautify(sBeautifiedData, { indent_size: 4 });
 
-    console.log('beautified data', sBeautifiedData);
-
     await fpWriteFile(sCacheFilePath, sBeautifiedData, 'utf8', err => {
         reorder({
             input: sOutputFilePath, // too bad input can't be sBeautifiedData
@@ -194,9 +193,14 @@ async function fpScrapeInputRecord(oRecord) {
     const _page = await browser.newPage();
     let oScrapeResult;
 
-    await _page.goto(oRecord.sUrl, {
-        'timeout': 0
-    });
+    try {
+        await _page.goto(oRecord.sUrl, {
+            'timeout': 0
+        });
+    } catch (e) {
+        console.log('navigation error, likely a proxy failure at page')
+        return Promise.resolve({bOtherError: true});
+    }
 
     if (oRecord.bUserExists !== false) { // yes, an exact check is needed.
         await _page.content()
