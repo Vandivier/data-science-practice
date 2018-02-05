@@ -53,7 +53,7 @@ replace gi_1="Columbia University" if regexm(gi_1, "Columbia College")==1
 strgroup sponsors, gen(sponsors_grouped) threshold(0.1)
 codebook sponsors_grouped
 
-***Clean typos in sponsors, substitute and for & --> by spon: tab sponsors
+***Clean typos in sponsors, substitute and for & --> by sponsors_grouped: tab sponsors
 *replace sponsors="" if regexm(sponsors, "")==1
 replace sponsors="Clifton L. Ganus Jr." if regexm(sponsors, "Clifton L. Gallus")==1
 replace sponsors="Christopher Bruell and Robert K. Faulkner" if regexm(sponsors, "Christopher Bruell and Robert K. Faulkners|Christopher Bruen and Robert K. Faulkner")==1
@@ -66,12 +66,12 @@ replace sponsors="Roland F. Salmonson and James Don Edwards" if regexm(sponsors,
 
 
 
+
+
 ***Subinstr inconsistent use of and/&,  
 
 replace sponsors=subinstr(sponsors, "&", "and", 20)
 replace sponsors=subinstr(sponsors, "~", ",", 20)
-
-///TO DO: RICE, Rob
 
 ***Encode clean categorical variables***
 encode areaofstudy, gen(major)
