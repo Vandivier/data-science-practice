@@ -30,11 +30,17 @@ split(gi), gen(gi_) parse(/)
 format gi_1 gi_2 %30s
 strgroup gi_1, gen(gi_grouped) threshold(.05)
 
+***institutions that are the same but have different names/have different names but are the same***
 replace gi_1="London School of Economics" if regexm(gi_1, "London School of economics")==1
 replace gi_1="École des Hautes Etudes en Sciences Sociales" if regexm(gi_1, "Ecol")==1
 replace gi_1="Claremont Graduate University" if regexm(gi_1, "Claremont Graduate School")==1
 replace gi_1="Claremont McKenna College" if regexm(gi_1, "Claremont Men's College")==1
 replace gi_1="Georgetown University" if regexm(gi_1, "Georgetown University")==1 
+replace gi_1="Virginia Polytechnic Institute & State University" if regexm(gi_1, "Virginia Polytechnic Institute ")==1
+replace gi_1="Princeton University" if regexm(gi_1, "Princeton Theological Seminary")==1
+replace gi_1="Yale University" if regexm(gi_1, "Yale Divinity School")==1
+
+
 
 
 *///If we truly care about peer effects maybe undergrad institutions/women's only schools needs to be categorized..?
@@ -56,8 +62,9 @@ replace sponsors="Murray L. Weidenbaum" if regexm(sponsors, "Murray L. Weidenbau
 replace sponsors="Deil S. Wright" if regexm(sponsors, "Dell S. Wright")==1
 replace sponsors="Daniel J. Elazar" if regexm(sponsors, "Daniel J. Elvar")==1
 replace sponsors="E. Maynard Aris" if regexm(sponsors, "E. Maynard Eris")==1
-
 replace sponsors="Roland F. Salmonson and James Don Edwards" if regexm(sponsors, "Roland E Salmonson and James Don Edwards")==1
+
+
 
 ***Subinstr inconsistent use of and/&,  
 
@@ -76,9 +83,6 @@ encode recipientgender, gen(gender_recipient)
 encode country, gen(gi_country)
 
 
-***institutions that are the same but have different names/have different names but are the same***
-
-
 
 
 
@@ -88,6 +92,9 @@ encode country, gen(gi_country)
 replace undergrad=1 if regexm(gi, "Claremont Men's College|Claremont McKenna College|Alma College|Asbury College|Harvard College")==1 ///confirmed all gi's with "College" in name except 3 that are assigned to RA
 */
 
+***Edgecases where we should test whether & document that our assumptions don't influence the results: 
+replace gi_1="Michigan State University" if regexm(gi_1, "Kenyon College and Michigan State University")==1
+replace gi_2="Kenyon College" if regexm(graduateinstitution, "Kenyon College and Michigan State University")==1
 
 
 
