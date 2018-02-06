@@ -95,39 +95,11 @@ async function main() {
     }
 
     console.log('early count, iTotalInputRecords = ' + iTotalInputRecords);
+    browser = await puppeteer.launch();
 
     // array pattern, doesn't work for streams
     // TODO await utils.forEachReverseAsyncPhased(arrsInputRows, fpHandleData) ?
     await utils.forEachReverseAsyncPhased(arrsInputRows, async function(_sInputRecord, i) {
-        let sIpArg;
-
-        try {
-            /*
-            browser = await puppeteer.launch({ // TODO: want headless: false?
-                args: ['--proxy-server=socks5://ams.socks.ipvanish.com:1080']
-            });
-            */
-            
-            browser = await puppeteer.launch();
-            /*
-            browser = await puppeteer.launch({ // TODO: want headless: false?
-                args: ['--proxy-server=socks5://81.171.110.169:1194']
-            });
-            */
-            /*
-            if (!(i % 4)) { // new ip every 4 requests to stop blocks
-                sIpArg = '--proxy-server=socks5://' + await proxyFromCache.fpGetIp(oCache);
-                console.log(sIpArg);
-                browser = await puppeteer.launch({
-                    args: [sIpArg]
-                });
-            }
-            */
-        } catch (e) {
-            console.log('proxy error', e);
-            return Promise.resolve();
-        }
-
         return fpHandleData({
             'sInputRecord': _sInputRecord
         });
@@ -174,7 +146,7 @@ function fsRecordToCsvLine(oRecord) {
 }
 
 async function fpEndProgram() {
-    browser.close();
+    await browser.close();
     await fpWriteCache();
     process.exit();
 }
@@ -205,22 +177,20 @@ async function fpWriteCache() {
 // not generalizable or temporally reliable in case of a site refactor
 async function fpScrapeInputRecord(oRecord) {
     const _page = await browser.newPage();
-    //const sProxyUsername = 'this is fake bro';
-    //const sPassword = 'sry bro u have to buy ur own stable proxy';
     let oScrapeResult;
+    let oCachedResult = oCache.people[oRecord.sId];
 
-    //await _page.authenticate({ sProxyUsername, sPassword }); // ref: https://blog.apify.com/how-to-make-headless-chrome-and-puppeteer-use-a-proxy-server-with-authentication-249a21a79212
-
-    try {
-        await _page.goto(oRecord.sUrl, {
-            'timeout': 0
-        });
-    } catch (e) {
-        console.log('navigation error, likely a proxy failure at page', e)
-        return Promise.resolve({bOtherError: true});
+    if (oCachedResult
+        && (oCachedResult.bProfileIsPrivate
+            || !oCachedResult.bTooManyRequestsError)) {
+        return Promise.resolve(oCachedResult);
     }
 
     if (oRecord.bUserExists !== false) { // yes, an exact check is needed.
+        await _page.goto(oRecord.sUrl, {
+            'timeout': 0
+        });
+
         await _page.content()
         _page.on('console', _fCleanLog); // ref: https://stackoverflow.com/a/47460782/3931488
 
@@ -270,7 +240,6 @@ async function fpScrapeInputRecord(oRecord) {
             }
         })
         .catch(function (error) {
-
             if (error.message.includes('Execution context was destroyed')) {
                 // context was destroyed by http redirect to 404 bc user doesn't exist.
                 // well, that's the usual scenario. One can imagine a host of other causes too.
@@ -286,7 +255,7 @@ async function fpScrapeInputRecord(oRecord) {
             };
         });
 
-        _page.close();
+        await _page.close();
         oRecord = Object.assign(oRecord, oScrapeResult);
     }
 
