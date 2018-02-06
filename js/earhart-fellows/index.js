@@ -115,7 +115,7 @@ let iCurrentEntryId = 1;
 main();
 
 async function main() {
-    //await utils.fpWait(5000); // only needed to give debugger time to attach
+    await utils.fpWait(5000); // only needed to give debugger time to attach
     fsRecordToCsvLine(oTitleLine);
 
     if (typeof oFirstNameCache == 'object') { // don't waste time or genderize requests if there's a problem
