@@ -103,7 +103,7 @@ const sFirstNameCacheFile = './first-name-cache.json';
 const sOrderedOutputFilePath = './ordered-output.csv';
 const sOutputFilePath = './output.csv';
 
-let rsReadStream = fs.createReadStream('./EarhartMergedNoBoxNoLines.txt');
+let rsReadStream = fs.createReadStream('./earhart-source.txt');
 let wsWriteStream = fs.createWriteStream(sOutputFilePath);
 let wsNonAdjacent = fs.createWriteStream('./non-adjacent-sponsor.txt');
 

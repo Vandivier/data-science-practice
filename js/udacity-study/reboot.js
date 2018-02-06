@@ -18,6 +18,7 @@ const fs = require('fs');
 //const genderize = require('genderize'); // todo: use genderize
 const reorder = require('csv-reorder');
 //const split = require('split');
+const proxyFromCache = require('./proxyFromCache.js')
 const puppeteer = require('puppeteer');
 const util = require('util');
 const utils = require('ella-utils');
@@ -93,9 +94,10 @@ async function main() {
 
     console.log('early count, iTotalInputRecords = ' + iTotalInputRecords);
     browser = await puppeteer.launch();
+
     // array pattern, doesn't work for streams
     // TODO await utils.forEachReverseAsyncPhased(arrsInputRows, fpHandleData) ?
-    await utils.forEachReverseAsyncPhased(arrsInputRows, function(_sInputRecord, i) {
+    await utils.forEachReverseAsyncPhased(arrsInputRows, async function(_sInputRecord, i) {
         return fpHandleData({
             'sInputRecord': _sInputRecord
         });
@@ -142,7 +144,7 @@ function fsRecordToCsvLine(oRecord) {
 }
 
 async function fpEndProgram() {
-    browser.close();
+    await browser.close();
     await fpWriteCache();
     process.exit();
 }
@@ -150,8 +152,6 @@ async function fpEndProgram() {
 async function fpWriteCache() {
     let sBeautifiedData = JSON.stringify(oCache);
     sBeautifiedData = beautify(sBeautifiedData, { indent_size: 4 });
-
-    console.log('beautified data', sBeautifiedData);
 
     await fpWriteFile(sCacheFilePath, sBeautifiedData, 'utf8', err => {
         reorder({
@@ -176,12 +176,19 @@ async function fpWriteCache() {
 async function fpScrapeInputRecord(oRecord) {
     const _page = await browser.newPage();
     let oScrapeResult;
+    let oCachedResult = oCache.people[oRecord.sId];
 
-    await _page.goto(oRecord.sUrl, {
-        'timeout': 0
-    });
+    if (oCachedResult
+        && (oCachedResult.bProfileIsPrivate
+            || !oCachedResult.bTooManyRequestsError)) {
+        return Promise.resolve(oCachedResult);
+    }
 
     if (oRecord.bUserExists !== false) { // yes, an exact check is needed.
+        await _page.goto(oRecord.sUrl, {
+            'timeout': 0
+        });
+
         await _page.content()
         _page.on('console', _fCleanLog); // ref: https://stackoverflow.com/a/47460782/3931488
 
@@ -231,7 +238,6 @@ async function fpScrapeInputRecord(oRecord) {
             }
         })
         .catch(function (error) {
-
             if (error.message.includes('Execution context was destroyed')) {
                 // context was destroyed by http redirect to 404 bc user doesn't exist.
                 // well, that's the usual scenario. One can imagine a host of other causes too.
@@ -247,11 +253,11 @@ async function fpScrapeInputRecord(oRecord) {
             };
         });
 
-        _page.close();
+        await _page.close();
         oRecord = Object.assign(oRecord, oScrapeResult);
     }
 
-    oCache[oRecord.sId] = oRecord;
+    oCache.people[oRecord.sId] = oRecord;
     fsRecordToCsvLine(oRecord);
     return Promise.resolve(oRecord);
 

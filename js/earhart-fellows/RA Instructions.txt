@@ -28,7 +28,7 @@ RA Instructions: Earhart Proofreading
 This will create a copy of our repo on your device. 
 - From the Github Desktop software, click Current Branch --> New --> then name it anything else than "sortingoutthosedamntextboxes". 
 - Now you have your own "copy" of our repo, and through github desktop you can make changes to it locally on your device(no need for wifi). While being in your new branch; Click Repository--> Show in Explorer
-which shows you all the files. Open EarhartMergedNoBoxNoLines.txt in a text editor such as Notepad++ and Proofreading details.xlsx (in excel). 
+which shows you all the files. Open earhart-source.txt in a text editor such as Notepad++ and Proofreading details.xlsx (in excel). 
 
 
 You are now ready to contribute to this project! (These are all fixed costs, once you're used to github you will see how awesome it is.)
