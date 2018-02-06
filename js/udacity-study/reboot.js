@@ -20,8 +20,6 @@ const reorder = require('csv-reorder');
 //const split = require('split');
 const proxyFromCache = require('./proxyFromCache.js')
 const puppeteer = require('puppeteer');
-const SocksClient = require('socks').SocksClient;
-const tr = require('tor-request');
 const util = require('util');
 const utils = require('ella-utils');
 
@@ -268,33 +266,4 @@ async function fpScrapeInputRecord(oRecord) {
             console.log(ConsoleMessage.text() + EOL);
         }
     }
-}
-
-// ref: https://www.socks-proxy.net/
-// ref: gimmeproxy.com
-// ref: https://www.socksproxychecker.com/
-// ref: https://github.com/chimurai/http-proxy-middleware
-// ref: https://github.com/webfp/tor-browser-selenium
-// ref: https://github.com/GoogleChrome/puppeteer/pull/427/commits/43c3e533163d1cd7bfbddcb7b3a299fca0c3ef2c
-// TODO: automated tor browser?
-// now utilizing IP vanish paid proxy service: $10 for 1 month or 8 with 20% offer.
-async function fConfigureSocks() {
-    var url = require('url');
-    var http = require('http');
-    var SocksProxyAgent = require('socks-proxy-agent');
-
-    var proxy = 'socks://' + proxyFromCache.fpGetIp(oCache);
-    console.log('using proxy server %j', proxy);
-    var endpoint = 'http://www.google.com/'; // testing
-    console.log('attempting to GET %j', endpoint);
-    var opts = url.parse(endpoint);
-
-    // create an instance of the `SocksProxyAgent` class with the proxy server information
-    var agent = new SocksProxyAgent(proxy);
-    opts.agent = agent;
-
-    http.get(opts, function (res) {
-        console.log('"response" event!', res.headers);
-        res.pipe(process.stdout);
-    });
 }
