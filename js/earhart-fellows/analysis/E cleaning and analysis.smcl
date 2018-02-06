@@ -19974,4 +19974,7 @@ end of do-file
 {txt}{hline 40}{c +}{hline 35}
                                   Total {c |}{res}      3,287      100.00
 
-{com}. 
+{com}. save "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", replace
+{txt}file C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta saved
+
+{com}. exit, clear
