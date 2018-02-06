@@ -18,7 +18,10 @@ const fs = require('fs');
 //const genderize = require('genderize'); // todo: use genderize
 const reorder = require('csv-reorder');
 //const split = require('split');
+const proxyFromCache = require('./proxyFromCache.js')
 const puppeteer = require('puppeteer');
+const SocksClient = require('socks').SocksClient;
+const tr = require('tor-request');
 const util = require('util');
 const utils = require('ella-utils');
 
@@ -92,10 +95,25 @@ async function main() {
     }
 
     console.log('early count, iTotalInputRecords = ' + iTotalInputRecords);
-    browser = await puppeteer.launch();
+
     // array pattern, doesn't work for streams
     // TODO await utils.forEachReverseAsyncPhased(arrsInputRows, fpHandleData) ?
-    await utils.forEachReverseAsyncPhased(arrsInputRows, function(_sInputRecord, i) {
+    await utils.forEachReverseAsyncPhased(arrsInputRows, async function(_sInputRecord, i) {
+        let sIpArg;
+
+        try {
+            if (!(i % 4)) { // new ip every 4 requests to stop blocks
+                sIpArg = '--proxy-server=socks5://' + await proxyFromCache.fpGetIp(oCache);
+                console.log(sIpArg);
+                browser = await puppeteer.launch({
+                    args: [sIpArg]
+                });
+            }
+        } catch (e) {
+            console.log('proxy error', e);
+            return Promise.resolve();
+        }
+
         return fpHandleData({
             'sInputRecord': _sInputRecord
         });
@@ -151,8 +169,6 @@ async function fpWriteCache() {
     let sBeautifiedData = JSON.stringify(oCache);
     sBeautifiedData = beautify(sBeautifiedData, { indent_size: 4 });
 
-    console.log('beautified data', sBeautifiedData);
-
     await fpWriteFile(sCacheFilePath, sBeautifiedData, 'utf8', err => {
         reorder({
             input: sOutputFilePath, // too bad input can't be sBeautifiedData
@@ -177,9 +193,14 @@ async function fpScrapeInputRecord(oRecord) {
     const _page = await browser.newPage();
     let oScrapeResult;
 
-    await _page.goto(oRecord.sUrl, {
-        'timeout': 0
-    });
+    try {
+        await _page.goto(oRecord.sUrl, {
+            'timeout': 0
+        });
+    } catch (e) {
+        console.log('navigation error, likely a proxy failure at page')
+        return Promise.resolve({bOtherError: true});
+    }
 
     if (oRecord.bUserExists !== false) { // yes, an exact check is needed.
         await _page.content()
@@ -251,7 +272,7 @@ async function fpScrapeInputRecord(oRecord) {
         oRecord = Object.assign(oRecord, oScrapeResult);
     }
 
-    oCache[oRecord.sId] = oRecord;
+    oCache.people[oRecord.sId] = oRecord;
     fsRecordToCsvLine(oRecord);
     return Promise.resolve(oRecord);
 
@@ -260,4 +281,32 @@ async function fpScrapeInputRecord(oRecord) {
             console.log(ConsoleMessage.text() + EOL);
         }
     }
+}
+
+// ref: https://www.socks-proxy.net/
+// ref: gimmeproxy.com
+// ref: https://www.socksproxychecker.com/
+// ref: https://github.com/chimurai/http-proxy-middleware
+// ref: https://github.com/webfp/tor-browser-selenium
+// ref: https://github.com/GoogleChrome/puppeteer/pull/427/commits/43c3e533163d1cd7bfbddcb7b3a299fca0c3ef2c
+// TODO: automated tor browser?
+async function fConfigureSocks() {
+    var url = require('url');
+    var http = require('http');
+    var SocksProxyAgent = require('socks-proxy-agent');
+
+    var proxy = 'socks://' + proxyFromCache.fpGetIp(oCache);
+    console.log('using proxy server %j', proxy);
+    var endpoint = 'http://www.google.com/'; // testing
+    console.log('attempting to GET %j', endpoint);
+    var opts = url.parse(endpoint);
+
+    // create an instance of the `SocksProxyAgent` class with the proxy server information
+    var agent = new SocksProxyAgent(proxy);
+    opts.agent = agent;
+
+    http.get(opts, function (res) {
+        console.log('"response" event!', res.headers);
+        res.pipe(process.stdout);
+    });
 }
