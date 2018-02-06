@@ -1,0 +1,48 @@
+RA Instructions Grab Bag:
+Accreditation: Can you confirm whether Carleton College, Eastern Montana College (now MSU Billings), Grove City College 
+offered graduate degrees at the time the relevant fellows attended? Please document in appropriate folder.. 
+
+Confirm history of: MARCUS, Phillip Neal - When did he attend Kenyon Collge and when did he attend Michigan State U.? 
+
+
+
+
+
+
+
+RA Instructions: Earhart CV's
+First clone the "Master" branch from my Repo. I deleted and reinstalled it so you may have to do the same, so make sure you get an updated version (you'll confirm this by seeing that I've made changes to it tonight...)
+The goal of this task is just to see if it's worthwhile to try and gather the CV's of fellows and sponsors which would tell us more about their employment, education, funding, and publishing histories etc. Though I am skeptical whether this will work, but why not give it a shot.
+- Starting with the A's in the familiar file "EarhartMergedNoBoxNoLines" look for each fellows CV online (google their name, their address or graduate institution might also provide a hint for how to find them)
+- Spend about 3 hours total, 90 minutes on fellows, 90 minutes on sponsors. 
+- Look online for their CV's, ideally you'll find an uploaded word or PDF file, but if that's not there you and you do find someone's faculty profile you can save that as a pdf (you do that by clicking print and then instead of choosing a printer you choose "save as pdf"). 
+You're likely to find the sponsors by searching for the sponsors name and the institution of where the fellow was in grad school as these as typically the same. The fellows might be a little trickier as they are generally less accomplished and most of them would get jobs at different institutions than where they attended graduate school.. Therefore, you'll have to quickly confirm that it's the same person even if they have same name; use graduate institution and graduation years as ways to confirm it's the same person. Don't spend any longer than 5 minutes on any individual you cannot find, but when you can't find someone's CV just write their name on a list. Save the CV's in the following format "Lastname, firstname", and save them to the respective folders (fellows cv, sponsors cv)...
+
+
+
+RA Instructions: Earhart Proofreading
+- Create a user on Github.com 
+- Download install the software https://desktop.github.com/ . Sign in with your github account. 
+- If you don't already have a text editor(not meaning Word or Notepad), download one. I recommend Notepad++ https://notepad-plus-plus.org/
+- Through https://github.com/Mbjoerkh/data-science-practice/tree/sortingoutthosedamntextboxes/js/earhart-fellows you find our repo (earhart-fellows). Clone/Fork this repo by clicking "Clone or Download" then "Open in Desktop".
+This will create a copy of our repo on your device. 
+- From the Github Desktop software, click Current Branch --> New --> then name it anything else than "sortingoutthosedamntextboxes". 
+- Now you have your own "copy" of our repo, and through github desktop you can make changes to it locally on your device(no need for wifi). While being in your new branch; Click Repository--> Show in Explorer
+which shows you all the files. Open EarhartMergedNoBoxNoLines.txt in a text editor such as Notepad++ and Proofreading details.xlsx (in excel). 
+
+
+You are now ready to contribute to this project! (These are all fixed costs, once you're used to github you will see how awesome it is.)
+1. In text editor click ctr+f and search for "@", click enter until you reach the entry: BAYLOR, Christopher A. (his email address is cbaylor@holycross.edu) Now, and this is important, proofread only the Name and Email address. There's no need to proofread any of the other info, but if you happen to come across something else that is not correct please do tell. 
+2. When you come across an inconsistency, such as the space that I added to "cbaylor@holycross. edu", do two, or if you're really good, three things:
+	Manually fix it(duh)
+	Note it in the Proofreading details.xlsx - I've done it for BAYLOR so you see how. 
+	The mistake you've found is likely to be present in other entries (hence why you note it in the excel sheet). If you're really good, try to alter the search to quickly look for other incidences of the same error. In this case; search for 
+	" .edu". If that leads you to more corrections then great, fix and note them. 
+3. Many/most errors will be harder to search for than in the previous example (I've already fixed as many of them as I could think of), but you may still be able to find some through searching. For instance, yesterday, I found the name Williarn, which obviously (and the book confirmed), should have been William. You can easily search for that. If you already know Regular Expressions you can obviously do a lot more with them, but disregard this if you don't. 
+
+4. Every now and then save your document. When you do, you will notice the changes will show up in GitHub Desktop. No need to worry about that until you're done for the day. When you're done for the day in the Summary field write the page number you ended on such as p.25. Then click "Commit" and also "Push Origin". I can now access and accept your edits to my branch. 
+
+5. THANK YOU!
+
+
+P.S. If you get stuck with either Github or GIT, this and the following 2 videoes will likely be of help https://www.youtube.com/watch?v=BCQHnlnPusY&t=7s
