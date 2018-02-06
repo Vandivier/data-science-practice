@@ -36,9 +36,14 @@ replace gi_1="École des Hautes Etudes en Sciences Sociales" if regexm(gi_1, "Eco
 replace gi_1="Claremont Graduate University" if regexm(gi_1, "Claremont Graduate School")==1
 replace gi_1="Claremont McKenna College" if regexm(gi_1, "Claremont Men's College")==1
 replace gi_1="Georgetown University" if regexm(gi_1, "Georgetown University")==1 
-replace gi_1="Virginia Polytechnic Institute & State University" if regexm(gi_1, "Virginia Polytechnic Institute ")==1
+replace gi_1="Virginia Polytechnic Institute & State University" if regexm(gi_1, "Virginia Polytechnic Institute")==1
 replace gi_1="Princeton University" if regexm(gi_1, "Princeton Theological Seminary")==1
 replace gi_1="Yale University" if regexm(gi_1, "Yale Divinity School")==1
+replace gi_1="Missouri State University" if regexm(gi_1, "Southwest Missouri State University")==1
+replace gi_1="University of Cambridge" if regexm(gi_1, "Cambridge University")==1
+replace gi_1="University of Notre Dame" if regexm(gi_1, "Notre Dame University")==1
+replace gi_1="University of St. Andrews" if regexm(gi_1, "St. Andrews University")==1
+replace gi_1="University of Oxford" if regexm(gi_1, "Oxford University")==1
 
 
 
@@ -63,7 +68,7 @@ replace sponsors="Deil S. Wright" if regexm(sponsors, "Dell S. Wright")==1
 replace sponsors="Daniel J. Elazar" if regexm(sponsors, "Daniel J. Elvar")==1
 replace sponsors="E. Maynard Aris" if regexm(sponsors, "E. Maynard Eris")==1
 replace sponsors="Roland F. Salmonson and James Don Edwards" if regexm(sponsors, "Roland E Salmonson and James Don Edwards")==1
-
+replace sponsors="John J. DiIulio Jr." if regexm(sponsors, "John J. D")==1
 
 
 
@@ -95,6 +100,7 @@ replace undergrad=1 if regexm(gi, "Claremont Men's College|Claremont McKenna Col
 ***Edgecases where we should test whether & document that our assumptions don't influence the results: 
 replace gi_1="Michigan State University" if regexm(gi_1, "Kenyon College and Michigan State University")==1
 replace gi_2="Kenyon College" if regexm(graduateinstitution, "Kenyon College and Michigan State University")==1
+replace gi_1="Indiana University" if regexm(gi_1, "University of Indiana")==1
 
 
 

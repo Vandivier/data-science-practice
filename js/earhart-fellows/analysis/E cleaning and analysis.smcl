@@ -19978,3 +19978,1157 @@ end of do-file
 {txt}file C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta saved
 
 {com}. exit, clear
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}main
+       {txt}log:  {res}C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 6 Feb 2018, 13:31:10
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. format %25s name academicyear graduateinstitution areaofstudy sponsors emailaddress validemailaddress deceased
+{txt}
+{com}. format %15s  recipientgender recipientgenderizedname simplesponsorgender simplesponsorgenderizedname entryid completiondegree mailingaddress emailaddress validemailaddress deceased
+{txt}
+{com}. format %4.0g recipientgenderprobability 
+{txt}
+{com}. drop graduateinstitutioninvalidatedli invalidprefixareaofstudy invalidpostfixareaofstudy
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. ***Rename Graduateinstitution==gi and fix Graduateinstitution Edgecases: gi_subcampus, gi_country, gi_1/gi_2 , weird gi_1 and gi_2 cases***///TODO
+. split graduateinstitution, generate(gi) parse(~) 
+{res}variables created as string: 
+{txt}{col 1}gi1{col 6}gi2
+
+{com}. rename gi1 gi
+{res}{txt}
+{com}. gen gi_country=gi2 if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==1
+{txt}(3368 missing values generated)
+
+{com}. replace gi_country="USA" if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==0
+{txt}(3368 real changes made)
+
+{com}. rename gi_country country
+{res}{txt}
+{com}. gen gi_subcampus=gi2 if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==0
+{txt}(3154 missing values generated)
+
+{com}. drop gi2
+{txt}
+{com}. order name gi academicyear, first
+{txt}
+{com}. order graduateinstitution entryid gi, last
+{txt}
+{com}. 
+. split(gi), gen(gi_) parse(/)
+{res}variables created as string: 
+{txt}{col 1}gi_1{col 7}gi_2
+
+{com}. format gi_1 gi_2 %30s
+{txt}
+{com}. strgroup gi_1, gen(gi_grouped) threshold(.05)
+{res}{it:gi_1} contains duplicate values. Remove them to speed up calculations.
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. ***institutions that are the same but have different names/have different names but are the same***
+. replace gi_1="London School of Economics" if regexm(gi_1, "London School of economics")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="École des Hautes Etudes en Sciences Sociales" if regexm(gi_1, "Ecol")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="Claremont Graduate University" if regexm(gi_1, "Claremont Graduate School")==1
+{txt}(96 real changes made)
+
+{com}. replace gi_1="Claremont McKenna College" if regexm(gi_1, "Claremont Men's College")==1
+{txt}(6 real changes made)
+
+{com}. replace gi_1="Georgetown University" if regexm(gi_1, "Georgetown University")==1 
+{txt}(1 real change made)
+
+{com}. replace gi_1="Virginia Polytechnic Institute & State University" if regexm(gi_1, "Virginia Polytechnic Institute ")==1
+{txt}(0 real changes made)
+
+{com}. replace gi_1="Princeton University" if regexm(gi_1, "Princeton Theological Seminary")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="Yale University" if regexm(gi_1, "Yale Divinity School")==1
+{txt}(2 real changes made)
+
+{com}. 
+. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. 
+. *///If we truly care about peer effects maybe undergrad institutions/women's only schools needs to be categorized..?
+. replace gi_1="Harvard University" if regexm(gi_1, "Harvard|Radcliffe")==1 
+{txt}(2 real changes made)
+
+{com}. replace gi_1="Columbia University" if regexm(gi_1, "Columbia College")==1 
+{txt}(1 real change made)
+
+{com}. 
+. 
+. 
+. ***Clean/match typo's etc. among sponsors
+. strgroup sponsors, gen(sponsors_grouped) threshold(0.1)
+{res}{it:sponsors} contains duplicate values. Remove them to speed up calculations.
+{txt}
+{com}. codebook sponsors_grouped
+
+{txt}{hline}
+{res}sponsors_grouped{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}type:  numeric ({res}long{txt})
+
+{col 18}range:  [{res}1{txt},{res}360{txt}]{col 55}units:  {res}1
+{col 10}{txt}unique values:  {res}360{col 51}{txt}missing .:  {res}0{txt}/{res}3439
+
+{txt}{col 19}mean:{res}{col 26} 120.079
+{txt}{col 15}std. dev:{res}{col 26} 87.2168
+
+{txt}{col 12}percentiles:{col 32}10%{col 42}25%{col 52}50%{col 62}75%{col 72}90%
+{res}{col 27}      17{col 37}      47{col 47}     104{col 57}     180{col 67}     257
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. 
+. ***Clean typos in sponsors, substitute and for & --> by sponsors_grouped: tab sponsors
+. *replace sponsors="" if regexm(sponsors, "")==1
+. replace sponsors="Clifton L. Ganus Jr." if regexm(sponsors, "Clifton L. Gallus")==1
+{txt}(2 real changes made)
+
+{com}. replace sponsors="Christopher Bruell and Robert K. Faulkner" if regexm(sponsors, "Christopher Bruell and Robert K. Faulkners|Christopher Bruen and Robert K. Faulkner")==1
+{txt}(6 real changes made)
+
+{com}. replace sponsors="Edward C. Banfield" if regexm(sponsors, "Edward C. Bonfield")==1
+{txt}(2 real changes made)
+
+{com}. replace sponsors="Murray L. Weidenbaum" if regexm(sponsors, "Murray L. Weidenbaun")==1
+{txt}(1 real change made)
+
+{com}. replace sponsors="Deil S. Wright" if regexm(sponsors, "Dell S. Wright")==1
+{txt}(5 real changes made)
+
+{com}. replace sponsors="Daniel J. Elazar" if regexm(sponsors, "Daniel J. Elvar")==1
+{txt}(1 real change made)
+
+{com}. replace sponsors="E. Maynard Aris" if regexm(sponsors, "E. Maynard Eris")==1
+{txt}(1 real change made)
+
+{com}. replace sponsors="Roland F. Salmonson and James Don Edwards" if regexm(sponsors, "Roland E Salmonson and James Don Edwards")==1
+{txt}(1 real change made)
+
+{com}. 
+. 
+. 
+. 
+. 
+. ***Subinstr inconsistent use of and/&,  
+. 
+. replace sponsors=subinstr(sponsors, "&", "and", 20)
+{txt}(4 real changes made)
+
+{com}. replace sponsors=subinstr(sponsors, "~", ",", 20)
+{txt}(5 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. 
+. 
+. 
+. 
+. ///Save until proven worthwhile///
+> ***Correct for institutions that ONLY award undergrad degrees/did NOT award graduate degrees at the time Fellow attended..***
+. /*gen undergrad=0
+> replace undergrad=1 if regexm(gi, "Claremont Men's College|Claremont McKenna College|Alma College|Asbury College|Harvard College")==1 ///confirmed all gi's with "College" in name except 3 that are assigned to RA
+> */
+. 
+. ***Edgecases where we should test whether & document that our assumptions don't influence the results: 
+. replace gi_1="Michigan State University" if regexm(gi_1, "Kenyon College and Michigan State University")==1
+{txt}(1 real change made)
+
+{com}. replace gi_2="Kenyon College" if regexm(graduateinstitution, "Kenyon College and Michigan State University")==1
+{txt}(1 real change made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. codebook gi
+
+{txt}{hline}
+{res}gi{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}type:  string ({res}str54{txt})
+
+{col 10}unique values:  {res}171{col 51}{txt}missing "":  {res}0{txt}/{res}3439
+
+{txt}{col 15}examples:  {res}"George Mason University"
+{col 26}"Pennsylvania State University"
+{col 26}"University of Chicago"
+{col 26}"University of Pennsylvania"
+
+{txt}{col 16}warning:  variable has embedded blanks
+
+{com}. tab gi, sort
+
+                                     {txt}gi {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  University of Chicago {c |}{res}        347       10.09       10.09
+{txt}                 University of Virginia {c |}{res}        225        6.54       16.63
+{txt}                 University of Michigan {c |}{res}        147        4.27       20.91
+{txt}               University of California {c |}{res}        135        3.93       24.83
+{txt}                     Harvard University {c |}{res}        113        3.29       28.12
+{txt}                   University of Dallas {c |}{res}         98        2.85       30.97
+{txt}              Claremont Graduate School {c |}{res}         96        2.79       33.76
+{txt}                  Georgetown University {c |}{res}         96        2.79       36.55
+{txt}                        Duke University {c |}{res}         94        2.73       39.28
+{txt}                         Boston College {c |}{res}         91        2.65       41.93
+{txt}              Michigan State University {c |}{res}         81        2.36       44.29
+{txt}                       Tufts University {c |}{res}         75        2.18       46.47
+{txt}                    New York University {c |}{res}         73        2.12       48.59
+{txt}             University of Pennsylvania {c |}{res}         73        2.12       50.71
+{txt}                      Boston University {c |}{res}         63        1.83       52.54
+{txt}                    Columbia University {c |}{res}         63        1.83       54.38
+{txt}               University of Notre Dame {c |}{res}         61        1.77       56.15
+{txt}                        Yale University {c |}{res}         58        1.69       57.84
+{txt}                  Vanderbilt University {c |}{res}         50        1.45       59.29
+{txt}                     Fordham University {c |}{res}         49        1.42       60.72
+{txt}                     Indiana University {c |}{res}         47        1.37       62.08
+{txt}                George Mason University {c |}{res}         46        1.34       63.42
+{txt}           University of North Carolina {c |}{res}         44        1.28       64.70
+{txt}             Louisiana State University {c |}{res}         43        1.25       65.95
+{txt}                Northwestern University {c |}{res}         43        1.25       67.20
+{txt}Virginia Polytechnic Institute & Stat.. {c |}{res}         43        1.25       68.45
+{txt}                   Princeton University {c |}{res}         42        1.22       69.67
+{txt}                University of Rochester {c |}{res}         42        1.22       70.89
+{txt}                    University of Texas {c |}{res}         41        1.19       72.08
+{txt}                    Stanford University {c |}{res}         39        1.13       73.22
+{txt}           Northern Illinois University {c |}{res}         36        1.05       74.27
+{txt}                University of Wisconsin {c |}{res}         36        1.05       75.31
+{txt}      University of Southern California {c |}{res}         35        1.02       76.33
+{txt}               University of Washington {c |}{res}         33        0.96       77.29
+{txt}               Johns Hopkins University {c |}{res}         32        0.93       78.22
+{txt}                 University of Illinois {c |}{res}         32        0.93       79.15
+{txt}           University of South Carolina {c |}{res}         32        0.93       80.08
+{txt}         Bowling Green State University {c |}{res}         31        0.90       80.98
+{txt}                 University of Maryland {c |}{res}         26        0.76       81.74
+{txt}             Carnegie-Mellon University {c |}{res}         25        0.73       82.47
+{txt}         Catholic University of America {c |}{res}         23        0.67       83.13
+{txt}                  University of Arizona {c |}{res}         23        0.67       83.80
+{txt}                University of Minnesota {c |}{res}         23        0.67       84.47
+{txt}          Claremont Graduate University {c |}{res}         21        0.61       85.08
+{txt}               Florida State University {c |}{res}         19        0.55       85.64
+{txt}                  University of Florida {c |}{res}         19        0.55       86.19
+{txt}                  University of Georgia {c |}{res}         19        0.55       86.74
+{txt}                  Washington University {c |}{res}         18        0.52       87.26
+{txt}                     Cornell University {c |}{res}         17        0.49       87.76
+{txt}                       Emory University {c |}{res}         16        0.47       88.22
+{txt}                      Temple University {c |}{res}         15        0.44       88.66
+{txt}                  University of Alabama {c |}{res}         15        0.44       89.10
+{txt}                       Brown University {c |}{res}         14        0.41       89.50
+{txt}                     Clemson University {c |}{res}         14        0.41       89.91
+{txt}           George Washington University {c |}{res}         14        0.41       90.32
+{txt}                 University of Arkansas {c |}{res}         13        0.38       90.69
+{txt}                      Purdue University {c |}{res}         12        0.35       91.04
+{txt}                      Baylor University {c |}{res}         11        0.32       91.36
+{txt}                   Texas A&M University {c |}{res}         11        0.32       91.68
+{txt}                      Tulane University {c |}{res}         11        0.32       92.00
+{txt}                  University of Houston {c |}{res}         11        0.32       92.32
+{txt}                  Ohio State University {c |}{res}         10        0.29       92.61
+{txt}    Southwest Missouri State University {c |}{res}         10        0.29       92.90
+{txt}                 University of Colorado {c |}{res}         10        0.29       93.20
+{txt}               State University of Iowa {c |}{res}          9        0.26       93.46
+{txt}                 University of Oklahoma {c |}{res}          8        0.23       93.69
+{txt}                      McGill University {c |}{res}          7        0.20       93.89
+{txt}                   University of Denver {c |}{res}          7        0.20       94.10
+{txt}                     University of Iowa {c |}{res}          7        0.20       94.30
+{txt}                Claremont Men's College {c |}{res}          6        0.17       94.48
+{txt}                       Clark University {c |}{res}          6        0.17       94.65
+{txt}              Oklahoma State University {c |}{res}          6        0.17       94.82
+{txt}           Southern Illinois University {c |}{res}          6        0.17       95.00
+{txt}                  University of Cologne {c |}{res}          6        0.17       95.17
+{txt}                 University of Kentucky {c |}{res}          6        0.17       95.35
+{txt}            University of Massachusetts {c |}{res}          6        0.17       95.52
+{txt}                   University of Oxford {c |}{res}          6        0.17       95.70
+{txt}  Massachusetts Institute of Technology {c |}{res}          5        0.15       95.84
+{txt}                     University of Bern {c |}{res}          5        0.15       95.99
+{txt}                   University of Munich {c |}{res}          5        0.15       96.13
+{txt}               University of Pittsburgh {c |}{res}          5        0.15       96.28
+{txt}                      Auburn University {c |}{res}          4        0.12       96.39
+{txt}                 Wayne State University {c |}{res}          4        0.12       96.51
+{txt}               Arizona State University {c |}{res}          3        0.09       96.60
+{txt}                     Grove City College {c |}{res}          3        0.09       96.69
+{txt}             London School of Economics {c |}{res}          3        0.09       96.77
+{txt}                  Notre Dame University {c |}{res}          3        0.09       96.86
+{txt}              University of Mississippi {c |}{res}          3        0.09       96.95
+{txt}                  University of Reading {c |}{res}          3        0.09       97.03
+{txt}              University of St. Andrews {c |}{res}          3        0.09       97.12
+{txt}                  Utah State University {c |}{res}          3        0.09       97.21
+{txt}                    American University {c |}{res}          2        0.06       97.27
+{txt}                   Cambridge University {c |}{res}          2        0.06       97.32
+{txt}                    Duquesne University {c |}{res}          2        0.06       97.38
+{txt}Graduate Institute of International S.. {c |}{res}          2        0.06       97.44
+{txt}                      Hillsdale College {c |}{res}          2        0.06       97.50
+{txt}             London School of economics {c |}{res}          2        0.06       97.56
+{txt}              Missouri State University {c |}{res}          2        0.06       97.62
+{txt}          Pennsylvania State University {c |}{res}          2        0.06       97.67
+{txt}         Princeton Theological Seminary {c |}{res}          2        0.06       97.73
+{txt}                  University of Detroit {c |}{res}          2        0.06       97.79
+{txt}                University of Edinburgh {c |}{res}          2        0.06       97.85
+{txt}                     University of Hull {c |}{res}          2        0.06       97.91
+{txt}                   University of Kansas {c |}{res}          2        0.06       97.96
+{txt}                  University of Leipzig {c |}{res}          2        0.06       98.02
+{txt}                 University of Missouri {c |}{res}          2        0.06       98.08
+{txt}                   Yale Divinity School {c |}{res}          2        0.06       98.14
+{txt}                           Alma College {c |}{res}          1        0.03       98.17
+{txt}                         Asbury College {c |}{res}          1        0.03       98.20
+{txt}                    Boston College/UCLA {c |}{res}          1        0.03       98.23
+{txt}Boston University/King's College London {c |}{res}          1        0.03       98.26
+{txt}Boston University/University of Penns.. {c |}{res}          1        0.03       98.28
+{txt}                       Carleton College {c |}{res}          1        0.03       98.31
+{txt}              Claremont McKenna College {c |}{res}          1        0.03       98.34
+{txt}              Colorado State University {c |}{res}          1        0.03       98.37
+{txt}                       Columbia College {c |}{res}          1        0.03       98.40
+{txt}DEcole des Hautes Etudes en Sciences .. {c |}{res}          1        0.03       98.43
+{txt}                      Dartmouth College {c |}{res}          1        0.03       98.46
+{txt}                Eastern Montana College {c |}{res}          1        0.03       98.49
+{txt}Ecole des Hautes Etudes en Sciences S.. {c |}{res}          1        0.03       98.52
+{txt}Friedhrich-Alexander-Universitat Erla.. {c |}{res}          1        0.03       98.55
+{txt}George Mason University/University of.. {c |}{res}          1        0.03       98.58
+{txt}         Georgetown University Hospital {c |}{res}          1        0.03       98.60
+{txt}                       Goethe Institute {c |}{res}          1        0.03       98.63
+{txt}                        Harding College {c |}{res}          1        0.03       98.66
+{txt}                Harvard Business School {c |}{res}          1        0.03       98.69
+{txt}                      Hebrew University {c |}{res}          1        0.03       98.72
+{txt}               Indiana State University {c |}{res}          1        0.03       98.75
+{txt}Kenyon College and Michigan State Uni.. {c |}{res}          1        0.03       98.78
+{txt}        Louisiana Polytechnic Institute {c |}{res}          1        0.03       98.81
+{txt}                     Louvain University {c |}{res}          1        0.03       98.84
+{txt}                      Loyola University {c |}{res}          1        0.03       98.87
+{txt}               Memphis State University {c |}{res}          1        0.03       98.90
+{txt}                       Miami University {c |}{res}          1        0.03       98.92
+{txt}                     Middlebury College {c |}{res}          1        0.03       98.95
+{txt}                   Middlesex University {c |}{res}          1        0.03       98.98
+{txt}                  New School University {c |}{res}          1        0.03       99.01
+{txt}Northern Illinois University/Loyola U.. {c |}{res}          1        0.03       99.04
+{txt}               Ohio Northern University {c |}{res}          1        0.03       99.07
+{txt}                      Oxford University {c |}{res}          1        0.03       99.10
+{txt}                  Pepperdine University {c |}{res}          1        0.03       99.13
+{txt}              Radcliffe/Harvard College {c |}{res}          1        0.03       99.16
+{txt}                        Rice University {c |}{res}          1        0.03       99.19
+{txt}                     Rutgers University {c |}{res}          1        0.03       99.21
+{txt}                 Saint Antony's College {c |}{res}          1        0.03       99.24
+{txt}                   Saint John's College {c |}{res}          1        0.03       99.27
+{txt}          Southern Methodist University {c |}{res}          1        0.03       99.30
+{txt}                 St. Andrews University {c |}{res}          1        0.03       99.33
+{txt}                    Syracuse University {c |}{res}          1        0.03       99.36
+{txt}    Trinity Evangelical Divinity School {c |}{res}          1        0.03       99.39
+{txt}                   University of Berlin {c |}{res}          1        0.03       99.42
+{txt}                University of Cambridge {c |}{res}          1        0.03       99.45
+{txt}University of Dallas/University of To.. {c |}{res}          1        0.03       99.48
+{txt}                University of Frankfurt {c |}{res}          1        0.03       99.51
+{txt}                 University of Freiburg {c |}{res}          1        0.03       99.53
+{txt}                  University of Indiana {c |}{res}          1        0.03       99.56
+{txt}University of Kentucky/University of .. {c |}{res}          1        0.03       99.59
+{txt}                 University of Konstanz {c |}{res}          1        0.03       99.62
+{txt}                   University of London {c |}{res}          1        0.03       99.65
+{txt}               University of New Mexico {c |}{res}          1        0.03       99.68
+{txt}                 University of New York {c |}{res}          1        0.03       99.71
+{txt}University of Oregon/University of Utah {c |}{res}          1        0.03       99.74
+{txt}University of Rochester/University of.. {c |}{res}          1        0.03       99.77
+{txt}                University of Tennessee {c |}{res}          1        0.03       99.80
+{txt}                   University of Toledo {c |}{res}          1        0.03       99.83
+{txt}                  University of Toronto {c |}{res}          1        0.03       99.85
+{txt}                   University of Zurich {c |}{res}          1        0.03       99.88
+{txt}             University of the Americas {c |}{res}          1        0.03       99.91
+{txt}                    Unknown Institution {c |}{res}          1        0.03       99.94
+{txt}                   Villanova University {c |}{res}          1        0.03       99.97
+{txt}Virginia Polytechnic Institute/George.. {c |}{res}          1        0.03      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}      3,439      100.00
+
+{com}. tab gi_1, sort
+
+                                   {txt}gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  University of Chicago {c |}{res}        347       10.09       10.09
+{txt}                 University of Virginia {c |}{res}        225        6.54       16.63
+{txt}                 University of Michigan {c |}{res}        147        4.27       20.91
+{txt}               University of California {c |}{res}        135        3.93       24.83
+{txt}          Claremont Graduate University {c |}{res}        117        3.40       28.23
+{txt}                     Harvard University {c |}{res}        115        3.34       31.58
+{txt}                   University of Dallas {c |}{res}         99        2.88       34.46
+{txt}                  Georgetown University {c |}{res}         97        2.82       37.28
+{txt}                        Duke University {c |}{res}         94        2.73       40.01
+{txt}                         Boston College {c |}{res}         92        2.68       42.69
+{txt}              Michigan State University {c |}{res}         82        2.38       45.07
+{txt}                       Tufts University {c |}{res}         75        2.18       47.25
+{txt}                    New York University {c |}{res}         73        2.12       49.37
+{txt}             University of Pennsylvania {c |}{res}         73        2.12       51.50
+{txt}                      Boston University {c |}{res}         65        1.89       53.39
+{txt}                    Columbia University {c |}{res}         64        1.86       55.25
+{txt}               University of Notre Dame {c |}{res}         61        1.77       57.02
+{txt}                        Yale University {c |}{res}         60        1.74       58.77
+{txt}                  Vanderbilt University {c |}{res}         50        1.45       60.22
+{txt}                     Fordham University {c |}{res}         49        1.42       61.65
+{txt}                George Mason University {c |}{res}         47        1.37       63.01
+{txt}                     Indiana University {c |}{res}         47        1.37       64.38
+{txt}                   Princeton University {c |}{res}         44        1.28       65.66
+{txt}           University of North Carolina {c |}{res}         44        1.28       66.94
+{txt}             Louisiana State University {c |}{res}         43        1.25       68.19
+{txt}                Northwestern University {c |}{res}         43        1.25       69.44
+{txt}                University of Rochester {c |}{res}         43        1.25       70.69
+{txt}Virginia Polytechnic Institute & Stat.. {c |}{res}         43        1.25       71.94
+{txt}                    University of Texas {c |}{res}         41        1.19       73.13
+{txt}                    Stanford University {c |}{res}         39        1.13       74.27
+{txt}           Northern Illinois University {c |}{res}         37        1.08       75.34
+{txt}                University of Wisconsin {c |}{res}         36        1.05       76.39
+{txt}      University of Southern California {c |}{res}         35        1.02       77.41
+{txt}               University of Washington {c |}{res}         33        0.96       78.37
+{txt}               Johns Hopkins University {c |}{res}         32        0.93       79.30
+{txt}                 University of Illinois {c |}{res}         32        0.93       80.23
+{txt}           University of South Carolina {c |}{res}         32        0.93       81.16
+{txt}         Bowling Green State University {c |}{res}         31        0.90       82.06
+{txt}                 University of Maryland {c |}{res}         26        0.76       82.81
+{txt}             Carnegie-Mellon University {c |}{res}         25        0.73       83.54
+{txt}         Catholic University of America {c |}{res}         23        0.67       84.21
+{txt}                  University of Arizona {c |}{res}         23        0.67       84.88
+{txt}                University of Minnesota {c |}{res}         23        0.67       85.55
+{txt}               Florida State University {c |}{res}         19        0.55       86.10
+{txt}                  University of Florida {c |}{res}         19        0.55       86.65
+{txt}                  University of Georgia {c |}{res}         19        0.55       87.21
+{txt}                  Washington University {c |}{res}         18        0.52       87.73
+{txt}                     Cornell University {c |}{res}         17        0.49       88.22
+{txt}                       Emory University {c |}{res}         16        0.47       88.69
+{txt}                      Temple University {c |}{res}         15        0.44       89.12
+{txt}                  University of Alabama {c |}{res}         15        0.44       89.56
+{txt}                       Brown University {c |}{res}         14        0.41       89.97
+{txt}                     Clemson University {c |}{res}         14        0.41       90.38
+{txt}           George Washington University {c |}{res}         14        0.41       90.78
+{txt}                 University of Arkansas {c |}{res}         13        0.38       91.16
+{txt}                      Purdue University {c |}{res}         12        0.35       91.51
+{txt}                      Baylor University {c |}{res}         11        0.32       91.83
+{txt}                   Texas A&M University {c |}{res}         11        0.32       92.15
+{txt}                      Tulane University {c |}{res}         11        0.32       92.47
+{txt}                  University of Houston {c |}{res}         11        0.32       92.79
+{txt}                  Ohio State University {c |}{res}         10        0.29       93.08
+{txt}    Southwest Missouri State University {c |}{res}         10        0.29       93.37
+{txt}                 University of Colorado {c |}{res}         10        0.29       93.66
+{txt}               State University of Iowa {c |}{res}          9        0.26       93.92
+{txt}                 University of Oklahoma {c |}{res}          8        0.23       94.16
+{txt}              Claremont McKenna College {c |}{res}          7        0.20       94.36
+{txt}                      McGill University {c |}{res}          7        0.20       94.56
+{txt}                   University of Denver {c |}{res}          7        0.20       94.77
+{txt}                     University of Iowa {c |}{res}          7        0.20       94.97
+{txt}                 University of Kentucky {c |}{res}          7        0.20       95.17
+{txt}                       Clark University {c |}{res}          6        0.17       95.35
+{txt}              Oklahoma State University {c |}{res}          6        0.17       95.52
+{txt}           Southern Illinois University {c |}{res}          6        0.17       95.70
+{txt}                  University of Cologne {c |}{res}          6        0.17       95.87
+{txt}            University of Massachusetts {c |}{res}          6        0.17       96.05
+{txt}                   University of Oxford {c |}{res}          6        0.17       96.22
+{txt}             London School of Economics {c |}{res}          5        0.15       96.37
+{txt}  Massachusetts Institute of Technology {c |}{res}          5        0.15       96.51
+{txt}                     University of Bern {c |}{res}          5        0.15       96.66
+{txt}                   University of Munich {c |}{res}          5        0.15       96.80
+{txt}               University of Pittsburgh {c |}{res}          5        0.15       96.95
+{txt}                      Auburn University {c |}{res}          4        0.12       97.06
+{txt}                 Wayne State University {c |}{res}          4        0.12       97.18
+{txt}               Arizona State University {c |}{res}          3        0.09       97.27
+{txt}                     Grove City College {c |}{res}          3        0.09       97.35
+{txt}                  Notre Dame University {c |}{res}          3        0.09       97.44
+{txt}              University of Mississippi {c |}{res}          3        0.09       97.53
+{txt}                  University of Reading {c |}{res}          3        0.09       97.62
+{txt}              University of St. Andrews {c |}{res}          3        0.09       97.70
+{txt}                  Utah State University {c |}{res}          3        0.09       97.79
+{txt}                    American University {c |}{res}          2        0.06       97.85
+{txt}                   Cambridge University {c |}{res}          2        0.06       97.91
+{txt}                    Duquesne University {c |}{res}          2        0.06       97.96
+{txt}Graduate Institute of International S.. {c |}{res}          2        0.06       98.02
+{txt}                      Hillsdale College {c |}{res}          2        0.06       98.08
+{txt}              Missouri State University {c |}{res}          2        0.06       98.14
+{txt}          Pennsylvania State University {c |}{res}          2        0.06       98.20
+{txt}                  University of Detroit {c |}{res}          2        0.06       98.26
+{txt}                University of Edinburgh {c |}{res}          2        0.06       98.31
+{txt}                     University of Hull {c |}{res}          2        0.06       98.37
+{txt}                   University of Kansas {c |}{res}          2        0.06       98.43
+{txt}                  University of Leipzig {c |}{res}          2        0.06       98.49
+{txt}                 University of Missouri {c |}{res}          2        0.06       98.55
+{txt}École des Hautes Etudes en Sciences S.. {c |}{res}          2        0.06       98.60
+{txt}                           Alma College {c |}{res}          1        0.03       98.63
+{txt}                         Asbury College {c |}{res}          1        0.03       98.66
+{txt}                       Carleton College {c |}{res}          1        0.03       98.69
+{txt}              Colorado State University {c |}{res}          1        0.03       98.72
+{txt}                      Dartmouth College {c |}{res}          1        0.03       98.75
+{txt}                Eastern Montana College {c |}{res}          1        0.03       98.78
+{txt}Friedhrich-Alexander-Universitat Erla.. {c |}{res}          1        0.03       98.81
+{txt}                       Goethe Institute {c |}{res}          1        0.03       98.84
+{txt}                        Harding College {c |}{res}          1        0.03       98.87
+{txt}                      Hebrew University {c |}{res}          1        0.03       98.90
+{txt}               Indiana State University {c |}{res}          1        0.03       98.92
+{txt}        Louisiana Polytechnic Institute {c |}{res}          1        0.03       98.95
+{txt}                     Louvain University {c |}{res}          1        0.03       98.98
+{txt}                      Loyola University {c |}{res}          1        0.03       99.01
+{txt}               Memphis State University {c |}{res}          1        0.03       99.04
+{txt}                       Miami University {c |}{res}          1        0.03       99.07
+{txt}                     Middlebury College {c |}{res}          1        0.03       99.10
+{txt}                   Middlesex University {c |}{res}          1        0.03       99.13
+{txt}                  New School University {c |}{res}          1        0.03       99.16
+{txt}               Ohio Northern University {c |}{res}          1        0.03       99.19
+{txt}                      Oxford University {c |}{res}          1        0.03       99.21
+{txt}                  Pepperdine University {c |}{res}          1        0.03       99.24
+{txt}                        Rice University {c |}{res}          1        0.03       99.27
+{txt}                     Rutgers University {c |}{res}          1        0.03       99.30
+{txt}                 Saint Antony's College {c |}{res}          1        0.03       99.33
+{txt}                   Saint John's College {c |}{res}          1        0.03       99.36
+{txt}          Southern Methodist University {c |}{res}          1        0.03       99.39
+{txt}                 St. Andrews University {c |}{res}          1        0.03       99.42
+{txt}                    Syracuse University {c |}{res}          1        0.03       99.45
+{txt}    Trinity Evangelical Divinity School {c |}{res}          1        0.03       99.48
+{txt}                   University of Berlin {c |}{res}          1        0.03       99.51
+{txt}                University of Cambridge {c |}{res}          1        0.03       99.53
+{txt}                University of Frankfurt {c |}{res}          1        0.03       99.56
+{txt}                 University of Freiburg {c |}{res}          1        0.03       99.59
+{txt}                  University of Indiana {c |}{res}          1        0.03       99.62
+{txt}                 University of Konstanz {c |}{res}          1        0.03       99.65
+{txt}                   University of London {c |}{res}          1        0.03       99.68
+{txt}               University of New Mexico {c |}{res}          1        0.03       99.71
+{txt}                 University of New York {c |}{res}          1        0.03       99.74
+{txt}                   University of Oregon {c |}{res}          1        0.03       99.77
+{txt}                University of Tennessee {c |}{res}          1        0.03       99.80
+{txt}                   University of Toledo {c |}{res}          1        0.03       99.83
+{txt}                  University of Toronto {c |}{res}          1        0.03       99.85
+{txt}                   University of Zurich {c |}{res}          1        0.03       99.88
+{txt}             University of the Americas {c |}{res}          1        0.03       99.91
+{txt}                    Unknown Institution {c |}{res}          1        0.03       99.94
+{txt}                   Villanova University {c |}{res}          1        0.03       99.97
+{txt}         Virginia Polytechnic Institute {c |}{res}          1        0.03      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}      3,439      100.00
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace gi_1="Missouri State University" if regexm(gi_1, "Southwest Missouri State University")==1
+{txt}(10 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace gi_1="Virginia Polytechnic Institute & State University" if regexm(gi_1, "Virginia Polytechnic Institute")==1
+{txt}(1 real change made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. 
+
+. tab gi_1, sort
+
+                                   {txt}gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  University of Chicago {c |}{res}        347       10.09       10.09
+{txt}                 University of Virginia {c |}{res}        225        6.54       16.63
+{txt}                 University of Michigan {c |}{res}        147        4.27       20.91
+{txt}               University of California {c |}{res}        135        3.93       24.83
+{txt}          Claremont Graduate University {c |}{res}        117        3.40       28.23
+{txt}                     Harvard University {c |}{res}        115        3.34       31.58
+{txt}                   University of Dallas {c |}{res}         99        2.88       34.46
+{txt}                  Georgetown University {c |}{res}         97        2.82       37.28
+{txt}                        Duke University {c |}{res}         94        2.73       40.01
+{txt}                         Boston College {c |}{res}         92        2.68       42.69
+{txt}              Michigan State University {c |}{res}         82        2.38       45.07
+{txt}                       Tufts University {c |}{res}         75        2.18       47.25
+{txt}                    New York University {c |}{res}         73        2.12       49.37
+{txt}             University of Pennsylvania {c |}{res}         73        2.12       51.50
+{txt}                      Boston University {c |}{res}         65        1.89       53.39
+{txt}                    Columbia University {c |}{res}         64        1.86       55.25
+{txt}               University of Notre Dame {c |}{res}         61        1.77       57.02
+{txt}                        Yale University {c |}{res}         60        1.74       58.77
+{txt}                  Vanderbilt University {c |}{res}         50        1.45       60.22
+{txt}                     Fordham University {c |}{res}         49        1.42       61.65
+{txt}                George Mason University {c |}{res}         47        1.37       63.01
+{txt}                     Indiana University {c |}{res}         47        1.37       64.38
+{txt}                   Princeton University {c |}{res}         44        1.28       65.66
+{txt}           University of North Carolina {c |}{res}         44        1.28       66.94
+{txt}Virginia Polytechnic Institute & Stat.. {c |}{res}         44        1.28       68.22
+{txt}             Louisiana State University {c |}{res}         43        1.25       69.47
+{txt}                Northwestern University {c |}{res}         43        1.25       70.72
+{txt}                University of Rochester {c |}{res}         43        1.25       71.97
+{txt}                    University of Texas {c |}{res}         41        1.19       73.16
+{txt}                    Stanford University {c |}{res}         39        1.13       74.29
+{txt}           Northern Illinois University {c |}{res}         37        1.08       75.37
+{txt}                University of Wisconsin {c |}{res}         36        1.05       76.42
+{txt}      University of Southern California {c |}{res}         35        1.02       77.44
+{txt}               University of Washington {c |}{res}         33        0.96       78.39
+{txt}               Johns Hopkins University {c |}{res}         32        0.93       79.33
+{txt}                 University of Illinois {c |}{res}         32        0.93       80.26
+{txt}           University of South Carolina {c |}{res}         32        0.93       81.19
+{txt}         Bowling Green State University {c |}{res}         31        0.90       82.09
+{txt}                 University of Maryland {c |}{res}         26        0.76       82.84
+{txt}             Carnegie-Mellon University {c |}{res}         25        0.73       83.57
+{txt}         Catholic University of America {c |}{res}         23        0.67       84.24
+{txt}                  University of Arizona {c |}{res}         23        0.67       84.91
+{txt}                University of Minnesota {c |}{res}         23        0.67       85.58
+{txt}               Florida State University {c |}{res}         19        0.55       86.13
+{txt}                  University of Florida {c |}{res}         19        0.55       86.68
+{txt}                  University of Georgia {c |}{res}         19        0.55       87.23
+{txt}                  Washington University {c |}{res}         18        0.52       87.76
+{txt}                     Cornell University {c |}{res}         17        0.49       88.25
+{txt}                       Emory University {c |}{res}         16        0.47       88.72
+{txt}                      Temple University {c |}{res}         15        0.44       89.15
+{txt}                  University of Alabama {c |}{res}         15        0.44       89.59
+{txt}                       Brown University {c |}{res}         14        0.41       90.00
+{txt}                     Clemson University {c |}{res}         14        0.41       90.40
+{txt}           George Washington University {c |}{res}         14        0.41       90.81
+{txt}                 University of Arkansas {c |}{res}         13        0.38       91.19
+{txt}              Missouri State University {c |}{res}         12        0.35       91.54
+{txt}                      Purdue University {c |}{res}         12        0.35       91.89
+{txt}                      Baylor University {c |}{res}         11        0.32       92.21
+{txt}                   Texas A&M University {c |}{res}         11        0.32       92.53
+{txt}                      Tulane University {c |}{res}         11        0.32       92.85
+{txt}                  University of Houston {c |}{res}         11        0.32       93.17
+{txt}                  Ohio State University {c |}{res}         10        0.29       93.46
+{txt}                 University of Colorado {c |}{res}         10        0.29       93.75
+{txt}               State University of Iowa {c |}{res}          9        0.26       94.01
+{txt}                 University of Oklahoma {c |}{res}          8        0.23       94.24
+{txt}              Claremont McKenna College {c |}{res}          7        0.20       94.45
+{txt}                      McGill University {c |}{res}          7        0.20       94.65
+{txt}                   University of Denver {c |}{res}          7        0.20       94.85
+{txt}                     University of Iowa {c |}{res}          7        0.20       95.06
+{txt}                 University of Kentucky {c |}{res}          7        0.20       95.26
+{txt}                       Clark University {c |}{res}          6        0.17       95.43
+{txt}              Oklahoma State University {c |}{res}          6        0.17       95.61
+{txt}           Southern Illinois University {c |}{res}          6        0.17       95.78
+{txt}                  University of Cologne {c |}{res}          6        0.17       95.96
+{txt}            University of Massachusetts {c |}{res}          6        0.17       96.13
+{txt}                   University of Oxford {c |}{res}          6        0.17       96.31
+{txt}             London School of Economics {c |}{res}          5        0.15       96.45
+{txt}  Massachusetts Institute of Technology {c |}{res}          5        0.15       96.60
+{txt}                     University of Bern {c |}{res}          5        0.15       96.74
+{txt}                   University of Munich {c |}{res}          5        0.15       96.89
+{txt}               University of Pittsburgh {c |}{res}          5        0.15       97.03
+{txt}                      Auburn University {c |}{res}          4        0.12       97.15
+{txt}                 Wayne State University {c |}{res}          4        0.12       97.27
+{txt}               Arizona State University {c |}{res}          3        0.09       97.35
+{txt}                     Grove City College {c |}{res}          3        0.09       97.44
+{txt}                  Notre Dame University {c |}{res}          3        0.09       97.53
+{txt}              University of Mississippi {c |}{res}          3        0.09       97.62
+{txt}                  University of Reading {c |}{res}          3        0.09       97.70
+{txt}              University of St. Andrews {c |}{res}          3        0.09       97.79
+{txt}                  Utah State University {c |}{res}          3        0.09       97.88
+{txt}                    American University {c |}{res}          2        0.06       97.94
+{txt}                   Cambridge University {c |}{res}          2        0.06       97.99
+{txt}                    Duquesne University {c |}{res}          2        0.06       98.05
+{txt}Graduate Institute of International S.. {c |}{res}          2        0.06       98.11
+{txt}                      Hillsdale College {c |}{res}          2        0.06       98.17
+{txt}          Pennsylvania State University {c |}{res}          2        0.06       98.23
+{txt}                  University of Detroit {c |}{res}          2        0.06       98.28
+{txt}                University of Edinburgh {c |}{res}          2        0.06       98.34
+{txt}                     University of Hull {c |}{res}          2        0.06       98.40
+{txt}                   University of Kansas {c |}{res}          2        0.06       98.46
+{txt}                  University of Leipzig {c |}{res}          2        0.06       98.52
+{txt}                 University of Missouri {c |}{res}          2        0.06       98.58
+{txt}École des Hautes Etudes en Sciences S.. {c |}{res}          2        0.06       98.63
+{txt}                           Alma College {c |}{res}          1        0.03       98.66
+{txt}                         Asbury College {c |}{res}          1        0.03       98.69
+{txt}                       Carleton College {c |}{res}          1        0.03       98.72
+{txt}              Colorado State University {c |}{res}          1        0.03       98.75
+{txt}                      Dartmouth College {c |}{res}          1        0.03       98.78
+{txt}                Eastern Montana College {c |}{res}          1        0.03       98.81
+{txt}Friedhrich-Alexander-Universitat Erla.. {c |}{res}          1        0.03       98.84
+{txt}                       Goethe Institute {c |}{res}          1        0.03       98.87
+{txt}                        Harding College {c |}{res}          1        0.03       98.90
+{txt}                      Hebrew University {c |}{res}          1        0.03       98.92
+{txt}               Indiana State University {c |}{res}          1        0.03       98.95
+{txt}        Louisiana Polytechnic Institute {c |}{res}          1        0.03       98.98
+{txt}                     Louvain University {c |}{res}          1        0.03       99.01
+{txt}                      Loyola University {c |}{res}          1        0.03       99.04
+{txt}               Memphis State University {c |}{res}          1        0.03       99.07
+{txt}                       Miami University {c |}{res}          1        0.03       99.10
+{txt}                     Middlebury College {c |}{res}          1        0.03       99.13
+{txt}                   Middlesex University {c |}{res}          1        0.03       99.16
+{txt}                  New School University {c |}{res}          1        0.03       99.19
+{txt}               Ohio Northern University {c |}{res}          1        0.03       99.21
+{txt}                      Oxford University {c |}{res}          1        0.03       99.24
+{txt}                  Pepperdine University {c |}{res}          1        0.03       99.27
+{txt}                        Rice University {c |}{res}          1        0.03       99.30
+{txt}                     Rutgers University {c |}{res}          1        0.03       99.33
+{txt}                 Saint Antony's College {c |}{res}          1        0.03       99.36
+{txt}                   Saint John's College {c |}{res}          1        0.03       99.39
+{txt}          Southern Methodist University {c |}{res}          1        0.03       99.42
+{txt}                 St. Andrews University {c |}{res}          1        0.03       99.45
+{txt}                    Syracuse University {c |}{res}          1        0.03       99.48
+{txt}    Trinity Evangelical Divinity School {c |}{res}          1        0.03       99.51
+{txt}                   University of Berlin {c |}{res}          1        0.03       99.53
+{txt}                University of Cambridge {c |}{res}          1        0.03       99.56
+{txt}                University of Frankfurt {c |}{res}          1        0.03       99.59
+{txt}                 University of Freiburg {c |}{res}          1        0.03       99.62
+{txt}                  University of Indiana {c |}{res}          1        0.03       99.65
+{txt}                 University of Konstanz {c |}{res}          1        0.03       99.68
+{txt}                   University of London {c |}{res}          1        0.03       99.71
+{txt}               University of New Mexico {c |}{res}          1        0.03       99.74
+{txt}                 University of New York {c |}{res}          1        0.03       99.77
+{txt}                   University of Oregon {c |}{res}          1        0.03       99.80
+{txt}                University of Tennessee {c |}{res}          1        0.03       99.83
+{txt}                   University of Toledo {c |}{res}          1        0.03       99.85
+{txt}                  University of Toronto {c |}{res}          1        0.03       99.88
+{txt}                   University of Zurich {c |}{res}          1        0.03       99.91
+{txt}             University of the Americas {c |}{res}          1        0.03       99.94
+{txt}                    Unknown Institution {c |}{res}          1        0.03       99.97
+{txt}                   Villanova University {c |}{res}          1        0.03      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}      3,439      100.00
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace gi_1="Indiana University" if regexm(gi_1, "University of Indiana")==1
+{txt}(1 real change made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace gi_1="University of Cambridge" if regexm(gi_1, "Cambridge University")==1
+{txt}(2 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace gi_1="University of Notre Dame" if regexm(gi_1, "Notre Dame University")==1
+{txt}(3 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace gi_1="University of St. Andrews" if regexm(gi_1, "St. Andrews University")==1
+{txt}(1 real change made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace gi_1="University of Oxford" if regexm(gi_1, "Oxford University")==1
+{txt}(1 real change made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. 
+
+. tab sponsors, sort
+
+                               {txt}Sponsors {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                       Roland N. McKean {c |}{res}         53        1.54        1.54
+{txt}              Robert L. Pfaltzgraff Jr. {c |}{res}         48        1.40        2.94
+{txt}                       Leland B. Yeager {c |}{res}         42        1.22        4.16
+{txt}                  William R. Van Cleave {c |}{res}         42        1.22        5.38
+{txt}                         Harry V. Jaffa {c |}{res}         41        1.19        6.57
+{txt}                       G. Warren Nutter {c |}{res}         40        1.16        7.73
+{txt}                         Gary S. Becker {c |}{res}         40        1.16        8.90
+{txt}                         Joseph Cropsey {c |}{res}         39        1.13       10.03
+{txt}                      James M. Buchanan {c |}{res}         36        1.05       11.08
+{txt}                      Stephen J. Tonsor {c |}{res}         34        0.99       12.07
+{txt}                            Yale Brozen {c |}{res}         34        0.99       13.06
+{txt}                          Fritz Machlup {c |}{res}         33        0.96       14.02
+{txt}                     Donald L. Kemmerer {c |}{res}         31        0.90       14.92
+{txt}                           Karl Brunner {c |}{res}         30        0.87       15.79
+{txt}                 Leo Paul S. de Alvarez {c |}{res}         30        0.87       16.66
+{txt}                      George J. Stigler {c |}{res}         29        0.84       17.51
+{txt}                     Howard R. Penniman {c |}{res}         29        0.84       18.35
+{txt}                          John E. Alvis {c |}{res}         29        0.84       19.19
+{txt}Christopher Bruell and Robert K. Faul.. {c |}{res}         28        0.81       20.01
+{txt}                       Gerhart Niemeyer {c |}{res}         28        0.81       20.82
+{txt}                Harvey C. Mansfield Jr. {c |}{res}         28        0.81       21.63
+{txt}                       William A. Paton {c |}{res}         27        0.79       22.42
+{txt}                     William R. Kintner {c |}{res}         27        0.79       23.20
+{txt}                      C. Lowell Harriss {c |}{res}         26        0.76       23.96
+{txt}                         Deil S. Wright {c |}{res}         26        0.76       24.72
+{txt}                       Hans F. Sennholz {c |}{res}         26        0.76       25.47
+{txt}                       Alfred de Grazia {c |}{res}         25        0.73       26.20
+{txt}                     Fred D. Miller Jr. {c |}{res}         25        0.73       26.93
+{txt}                    G. Ellis Sandoz Jr. {c |}{res}         25        0.73       27.65
+{txt}                         Harold W. Rood {c |}{res}         25        0.73       28.38
+{txt}                        Peter L. Berger {c |}{res}         25        0.73       29.11
+{txt}                    Donald W. Treadgold {c |}{res}         24        0.70       29.81
+{txt}      Glen E. Thurow and Thomas G. West {c |}{res}         24        0.70       30.50
+{txt}                         David Schmidtz {c |}{res}         23        0.67       31.17
+{txt}                         H. Gregg Lewis {c |}{res}         23        0.67       31.84
+{txt}                       Jack Hirshleifer {c |}{res}         23        0.67       32.51
+{txt}                    Kenneth W. Thompson {c |}{res}         23        0.67       33.18
+{txt}                       Armen A. Alchian {c |}{res}         22        0.64       33.82
+{txt}                     Gottfried Haberler {c |}{res}         22        0.64       34.46
+{txt}                        Henry W. Briefs {c |}{res}         22        0.64       35.10
+{txt}                     Joseph J. Spengler {c |}{res}         22        0.64       35.74
+{txt}                Michael Allen Gillespie {c |}{res}         22        0.64       36.38
+{txt}                      Richard L. Walker {c |}{res}         22        0.64       37.02
+{txt}                Charles L. Griswold Jr. {c |}{res}         21        0.61       37.63
+{txt}                        Mary P. Nichols {c |}{res}         21        0.61       38.24
+{txt}                          Nathan Tarcov {c |}{res}         21        0.61       38.85
+{txt}                       R. Barry Farrell {c |}{res}         21        0.61       39.46
+{txt}                  William Richard Allen {c |}{res}         21        0.61       40.07
+{txt}                       George Grassmuck {c |}{res}         20        0.58       40.65
+{txt}                          Ruth W. Grant {c |}{res}         20        0.58       41.23
+{txt}                        Walter F. Berns {c |}{res}         20        0.58       41.81
+{txt}                 Charles E. Butterworth {c |}{res}         19        0.55       42.37
+{txt}                      Erwin A. Gaumnitz {c |}{res}         19        0.55       42.92
+{txt}                        Larry T. Wimmer {c |}{res}         19        0.55       43.47
+{txt}                       Morton J. Frisch {c |}{res}         19        0.55       44.02
+{txt}                       Robert P. George {c |}{res}         19        0.55       44.58
+{txt}                       Francis M. Boddy {c |}{res}         18        0.52       45.10
+{txt}     H. Gregg Lewis and Milton Friedman {c |}{res}         18        0.52       45.62
+{txt}              Nicholas Georgescu-Roegen {c |}{res}         18        0.52       46.15
+{txt}                        W. Allen Spivey {c |}{res}         18        0.52       46.67
+{txt}                     William J. Fellner {c |}{res}         18        0.52       47.19
+{txt}                      Willmoore Kendall {c |}{res}         18        0.52       47.72
+{txt}                       Allan H. Meltzer {c |}{res}         17        0.49       48.21
+{txt}                           Claes G. Ryn {c |}{res}         17        0.49       48.71
+{txt}                     Earhart Foundation {c |}{res}         17        0.49       49.20
+{txt}                        Francis Canavan {c |}{res}         17        0.49       49.69
+{txt}                            Leo Strauss {c |}{res}         17        0.49       50.19
+{txt}                      M. Richard Zinman {c |}{res}         17        0.49       50.68
+{txt}                             Marc Landy {c |}{res}         17        0.49       51.18
+{txt}                            Allan Bloom {c |}{res}         16        0.47       51.64
+{txt}                       Arthur M. Melzer {c |}{res}         16        0.47       52.11
+{txt}                      Benjamin A. Rogge {c |}{res}         16        0.47       52.57
+{txt}                        Howard S. Ellis {c |}{res}         16        0.47       53.04
+{txt}                        Milton Friedman {c |}{res}         16        0.47       53.50
+{txt}                      Paul W. McCracken {c |}{res}         16        0.47       53.97
+{txt}                  Richard H. Shultz Jr. {c |}{res}         16        0.47       54.43
+{txt}                       Alex N. Dragnich {c |}{res}         15        0.44       54.87
+{txt}                       Arthur M. Weimer {c |}{res}         15        0.44       55.31
+{txt}                       Daniel J. Elazar {c |}{res}         15        0.44       55.74
+{txt} G. Warren Nutter and James M. Buchanan {c |}{res}         15        0.44       56.18
+{txt}                      Janusz K. Zawodny {c |}{res}         15        0.44       56.62
+{txt}                   Murray L. Weidenbaum {c |}{res}         15        0.44       57.05
+{txt}                      Nolan E. Williams {c |}{res}         15        0.44       57.49
+{txt}   Robert Scigliano and David Lowenthal {c |}{res}         15        0.44       57.92
+{txt}                       Gottfried Dietze {c |}{res}         14        0.41       58.33
+{txt}                      Harold M. Heckman {c |}{res}         14        0.41       58.74
+{txt}                       Jerry Weinberger {c |}{res}         14        0.41       59.15
+{txt}                       Noel B. Reynolds {c |}{res}         14        0.41       59.55
+{txt}                    Robert E. Lucas Jr. {c |}{res}         14        0.41       59.96
+{txt}                        Steven B. Smith {c |}{res}         14        0.41       60.37
+{txt}                           Walter Y. Oi {c |}{res}         14        0.41       60.77
+{txt}                            Alan Heslop {c |}{res}         13        0.38       61.15
+{txt}   Burton A. Weisbrod and W. Lee Hansen {c |}{res}         13        0.38       61.53
+{txt}    Catherine H. and Michael P. Zuckert {c |}{res}         13        0.38       61.91
+{txt}                      Charles R. Kesler {c |}{res}         13        0.38       62.29
+{txt}                        George W. Carey {c |}{res}         13        0.38       62.66
+{txt}                         Gordon Tullock {c |}{res}         13        0.38       63.04
+{txt}                       Peter J. Boettke {c |}{res}         13        0.38       63.42
+{txt}                       Robert B. Pippin {c |}{res}         13        0.38       63.80
+{txt}                         Arthur Waldron {c |}{res}         12        0.35       64.15
+{txt}                            Carl Leiden {c |}{res}         12        0.35       64.50
+{txt}                     Charles S. Hyneman {c |}{res}         12        0.35       64.84
+{txt}                   Clifton L. Ganus Jr. {c |}{res}         12        0.35       65.19
+{txt}                     David I. Meiselman {c |}{res}         12        0.35       65.54
+{txt}                     John V. Van Sickle {c |}{res}         12        0.35       65.89
+{txt}                       M. Bruce Johnson {c |}{res}         12        0.35       66.24
+{txt}                    Marshall R. Colberg {c |}{res}         12        0.35       66.59
+{txt}                      Robert H. Horwitz {c |}{res}         12        0.35       66.94
+{txt}                       Thomas L. Pangle {c |}{res}         12        0.35       67.29
+{txt}                          Vigen Guroian {c |}{res}         12        0.35       67.64
+{txt}                      Williard E. Stone {c |}{res}         12        0.35       67.98
+{txt}                            Arthur Kemp {c |}{res}         11        0.32       68.30
+{txt}                     Chelcie C. Bosland {c |}{res}         11        0.32       68.62
+{txt}                    David McCord Wright {c |}{res}         11        0.32       68.94
+{txt}                    Donald J. Boudreaux {c |}{res}         11        0.32       69.26
+{txt}                 Elizabeth Fox-Genovese {c |}{res}         11        0.32       69.58
+{txt}                     Friedrich A. Hayek {c |}{res}         11        0.32       69.90
+{txt}Larry T. Wimmer and B. Delworth Gardner {c |}{res}         11        0.32       70.22
+{txt}                     Merrill K. Bennett {c |}{res}         11        0.32       70.54
+{txt}                          Michael Davis {c |}{res}         11        0.32       70.86
+{txt}                     Michael P. Zuckert {c |}{res}         11        0.32       71.18
+{txt}                      Wilson E. Schmidt {c |}{res}         11        0.32       71.50
+{txt}                     Wilton T. Anderson {c |}{res}         11        0.32       71.82
+{txt}                   Catherine H. Zuckert {c |}{res}         10        0.29       72.11
+{txt}                      Cotton M. Lindsay {c |}{res}         10        0.29       72.40
+{txt}                            Frank Grace {c |}{res}         10        0.29       72.70
+{txt}                        Goetz A. Briefs {c |}{res}         10        0.29       72.99
+{txt}                   Israel Mayer Kirzner {c |}{res}         10        0.29       73.28
+{txt}Robert L. Pfaltzgraff Jr. and Richard.. {c |}{res}         10        0.29       73.57
+{txt}                       Stanley H. Rosen {c |}{res}         10        0.29       73.86
+{txt}                         Susan M. Shell {c |}{res}         10        0.29       74.15
+{txt}                     Vernon Lomax Smith {c |}{res}         10        0.29       74.44
+{txt}                       W. David Maxwell {c |}{res}         10        0.29       74.73
+{txt}                      W. Glenn Campbell {c |}{res}         10        0.29       75.02
+{txt}                     Clarence Philbrook {c |}{res}          9        0.26       75.28
+{txt}                          Fred R. Glahe {c |}{res}          9        0.26       75.55
+{txt}                        James Q. Wilson {c |}{res}          9        0.26       75.81
+{txt}                         Martin Diamond {c |}{res}          9        0.26       76.07
+{txt}                      Robert L. Bunting {c |}{res}          9        0.26       76.33
+{txt}                       Wayne E. Shroyer {c |}{res}          9        0.26       76.59
+{txt}                      William S. Stokes {c |}{res}          9        0.26       76.85
+{txt}                            A. J. Meyer {c |}{res}          8        0.23       77.09
+{txt}                     Anthony Costantino {c |}{res}          8        0.23       77.32
+{txt}                        Clyde N. Wilson {c |}{res}          8        0.23       77.55
+{txt}                          David N. Rowe {c |}{res}          8        0.23       77.78
+{txt}                         Donald S. Lutz {c |}{res}          8        0.23       78.02
+{txt}                        E. Maynard Aris {c |}{res}          8        0.23       78.25
+{txt}                   Edward H. Chamberlin {c |}{res}          8        0.23       78.48
+{txt}                   George W. Eckelberry {c |}{res}          8        0.23       78.71
+{txt}                    Harlan L. McCracken {c |}{res}          8        0.23       78.95
+{txt}                  Hendrik S. Houthakker {c |}{res}          8        0.23       79.18
+{txt}                    James R. Stoner Jr. {c |}{res}          8        0.23       79.41
+{txt}                       James S. Coleman {c |}{res}          8        0.23       79.65
+{txt}                    John J. DiIulio Jr. {c |}{res}          8        0.23       79.88
+{txt}                      M. Slade Kendrick {c |}{res}          8        0.23       80.11
+{txt}                      Patrick J. Deneen {c |}{res}          8        0.23       80.34
+{txt}                            Paul Garner {c |}{res}          8        0.23       80.58
+{txt}                     Robert K. Faulkner {c |}{res}          8        0.23       80.81
+{txt}                       Robert Scigliano {c |}{res}          8        0.23       81.04
+{txt}                      Wilfred M. McClay {c |}{res}          8        0.23       81.27
+{txt}William A. Paton Jr. and Homer A. Black {c |}{res}          8        0.23       81.51
+{txt}                          Arleigh Burke {c |}{res}          7        0.20       81.71
+{txt}                         Benjamin Klein {c |}{res}          7        0.20       81.91
+{txt}                     Edward C. Banfield {c |}{res}          7        0.20       82.12
+{txt}                          Emerson Henke {c |}{res}          7        0.20       82.32
+{txt}                          Franz Michael {c |}{res}          7        0.20       82.52
+{txt}                       G. T. Schwenning {c |}{res}          7        0.20       82.73
+{txt}                            Herman Belz {c |}{res}          7        0.20       82.93
+{txt}                      Karl A. Wittfogel {c |}{res}          7        0.20       83.13
+{txt}                         Kurt L. London {c |}{res}          7        0.20       83.34
+{txt}        Larry Arnhart and Gary D. Glenn {c |}{res}          7        0.20       83.54
+{txt}                        Procter Thomson {c |}{res}          7        0.20       83.75
+{txt}                       Reginald D. Lang {c |}{res}          7        0.20       83.95
+{txt}                     Robert G. Caldwell {c |}{res}          7        0.20       84.15
+{txt}                          Ross M. Lence {c |}{res}          7        0.20       84.36
+{txt}                       Simon Rottenberg {c |}{res}          7        0.20       84.56
+{txt}                    Theodore P. Herrick {c |}{res}          7        0.20       84.76
+{txt}                         Timothy Fuller {c |}{res}          7        0.20       84.97
+{txt}                        William D. Ross {c |}{res}          7        0.20       85.17
+{txt}                         Arnold Collery {c |}{res}          6        0.17       85.34
+{txt}                         Arthur Sharron {c |}{res}          6        0.17       85.52
+{txt}                          Attiat F. Ott {c |}{res}          6        0.17       85.69
+{txt}                     Bernard W. Sheehan {c |}{res}          6        0.17       85.87
+{txt}   Carl Leiden and James R. Steintrager {c |}{res}          6        0.17       86.04
+{txt}                       Clare E. Griffin {c |}{res}          6        0.17       86.22
+{txt}                      Colin D. Campbell {c |}{res}          6        0.17       86.39
+{txt}                     Ellen Frankel Paul {c |}{res}          6        0.17       86.57
+{txt}                     George W. Stocking {c |}{res}          6        0.17       86.74
+{txt}                    J. Clayburn LaForce {c |}{res}          6        0.17       86.91
+{txt}                            Karl Brandt {c |}{res}          6        0.17       87.09
+{txt}                             Paul Heyne {c |}{res}          6        0.17       87.26
+{txt}                        Ronald H. Coase {c |}{res}          6        0.17       87.44
+{txt}                     S. Charles Maurice {c |}{res}          6        0.17       87.61
+{txt}                          Stanley Parry {c |}{res}          6        0.17       87.79
+{txt}                      Stefan T. Possony {c |}{res}          6        0.17       87.96
+{txt}                  Stephen M. DuBrul Jr. {c |}{res}          6        0.17       88.14
+{txt}                      William C. Havard {c |}{res}          6        0.17       88.31
+{txt}                      Alan Charles Kors {c |}{res}          5        0.15       88.46
+{txt}                  Charles Cortez Abbott {c |}{res}          5        0.15       88.60
+{txt}                          Eric Voegelin {c |}{res}          5        0.15       88.75
+{txt}                       Fred C. Robinson {c |}{res}          5        0.15       88.89
+{txt}                   James A. Steintrager {c |}{res}          5        0.15       89.04
+{txt}                  James Washington Bell {c |}{res}          5        0.15       89.18
+{txt}    John E. Champion and Homer A. Black {c |}{res}          5        0.15       89.33
+{txt}                        Joshua Mitchell {c |}{res}          5        0.15       89.47
+{txt}                         Lester B. Lave {c |}{res}          5        0.15       89.62
+{txt}                       Ludwig von Mises {c |}{res}          5        0.15       89.76
+{txt}                         Mario J. Rizzo {c |}{res}          5        0.15       89.91
+{txt}                       Nicholas Capaldi {c |}{res}          5        0.15       90.06
+{txt}                     Oswald H. Brownlee {c |}{res}          5        0.15       90.20
+{txt}                      Paul B. Denlinger {c |}{res}          5        0.15       90.35
+{txt}           Richard Muth and Yale Brozen {c |}{res}          5        0.15       90.49
+{txt}                         Robert D. Haun {c |}{res}          5        0.15       90.64
+{txt}                      Robert M. Slusser {c |}{res}          5        0.15       90.78
+{txt}W. Wesley McDonald and Paul E. Gottfr.. {c |}{res}          5        0.15       90.93
+{txt}                       William Huizingh {c |}{res}          5        0.15       91.07
+{txt}                    William M. McGovern {c |}{res}          5        0.15       91.22
+{txt}                      A. Weyman Patrick {c |}{res}          4        0.12       91.33
+{txt}                       David B. Mustard {c |}{res}          4        0.12       91.45
+{txt}      Donald Pruis and John Vanden Berg {c |}{res}          4        0.12       91.57
+{txt}                          Dwight R. Lee {c |}{res}          4        0.12       91.68
+{txt}                   Ferdinand A. Hermens {c |}{res}          4        0.12       91.80
+{txt}                       Forrest McDonald {c |}{res}          4        0.12       91.92
+{txt}                         Francois Furet {c |}{res}          4        0.12       92.03
+{txt}                        G. Carl Wiegand {c |}{res}          4        0.12       92.15
+{txt}                    George C. Roche III {c |}{res}          4        0.12       92.27
+{txt}                         Harold Demsetz {c |}{res}          4        0.12       92.38
+{txt}                            Jacob Viner {c |}{res}          4        0.12       92.50
+{txt}                     Jerome W. Milliman {c |}{res}          4        0.12       92.61
+{txt}                        Karen I. Vaughn {c |}{res}          4        0.12       92.73
+{txt}                         Klaus H. Wolff {c |}{res}          4        0.12       92.85
+{txt}                       Lawrence M. Mead {c |}{res}          4        0.12       92.96
+{txt}                       Louis M. Spadaro {c |}{res}          4        0.12       93.08
+{txt}                           Mark N. Katz {c |}{res}          4        0.12       93.20
+{txt}     Milton Friedman and H. Gregg Lewis {c |}{res}          4        0.12       93.31
+{txt}                         Norma Thompson {c |}{res}          4        0.12       93.43
+{txt}                        P. Dean Russell {c |}{res}          4        0.12       93.54
+{txt}                       Robert F. Tamura {c |}{res}          4        0.12       93.66
+{txt}Roland F. Salmonson and James Don Edw.. {c |}{res}          4        0.12       93.78
+{txt}Thomas D. Willett and William Craig S.. {c |}{res}          4        0.12       93.89
+{txt}                            Uri Ra'anan {c |}{res}          4        0.12       94.01
+{txt}                    William F. Campbell {c |}{res}          4        0.12       94.13
+{txt}                    William H. Peterson {c |}{res}          4        0.12       94.24
+{txt}                         Alfred Buehler {c |}{res}          3        0.09       94.33
+{txt}                     Arlen R. Hellwarth {c |}{res}          3        0.09       94.42
+{txt}                      Charles E. Schutz {c |}{res}          3        0.09       94.50
+{txt}                       Chiaki Nishiyama {c |}{res}          3        0.09       94.59
+{txt}                       Ellis W. Lamborn {c |}{res}          3        0.09       94.68
+{txt}                      Francis G. Wilson {c |}{res}          3        0.09       94.77
+{txt}                          Gary D. Glenn {c |}{res}          3        0.09       94.85
+{txt}                     George A. Panichas {c |}{res}          3        0.09       94.94
+{txt}H. Gregg Lewis, Frank Knight, and Mil.. {c |}{res}          3        0.09       95.03
+{txt}      Harry J. Rehn and G. Carl Wiegand {c |}{res}          3        0.09       95.11
+{txt}                     Herbert J. Storing {c |}{res}          3        0.09       95.20
+{txt}                         J. Rufus Fears {c |}{res}          3        0.09       95.29
+{txt}                      James Don Edwards {c |}{res}          3        0.09       95.38
+{txt}                       James K. Pollock {c |}{res}          3        0.09       95.46
+{txt}                      John H. Hallowell {c |}{res}          3        0.09       95.55
+{txt}                          John J. Agria {c |}{res}          3        0.09       95.64
+{txt}                      Kenneth Colegrove {c |}{res}          3        0.09       95.73
+{txt}                     Melvin E. Bradford {c |}{res}          3        0.09       95.81
+{txt}                       Musa Y. Hussayni {c |}{res}          3        0.09       95.90
+{txt}Nicholas Georgescu-Roegen and George .. {c |}{res}          3        0.09       95.99
+{txt}                       Richard F. Staar {c |}{res}          3        0.09       96.07
+{txt}                       Robert E. Pickup {c |}{res}          3        0.09       96.16
+{txt}  Roland N. McKean and Leland B. Yeager {c |}{res}          3        0.09       96.25
+{txt}                         Thomas G. West {c |}{res}          3        0.09       96.34
+{txt}                     William C. Tuthill {c |}{res}          3        0.09       96.42
+{txt}Alan N. Sabrosky and William R. Kintner {c |}{res}          2        0.06       96.48
+{txt}                        Albert H. Hobbs {c |}{res}          2        0.06       96.54
+{txt}  Allan Meltzer and Robert E. Lucas Jr. {c |}{res}          2        0.06       96.60
+{txt}                      Barrie Richardson {c |}{res}          2        0.06       96.66
+{txt}                  Charles Elmo Ferguson {c |}{res}          2        0.06       96.71
+{txt}                          Desire Barath {c |}{res}          2        0.06       96.77
+{txt}                     E. Christian Kopff {c |}{res}          2        0.06       96.83
+{txt}            Frederick R. Warren-Boulton {c |}{res}          2        0.06       96.89
+{txt}Gardner M. Jones and Roland F. Salmon.. {c |}{res}          2        0.06       96.95
+{txt}       George J. Stigler and Leo Wolman {c |}{res}          2        0.06       97.00
+{txt}                      George M. Wattles {c |}{res}          2        0.06       97.06
+{txt}Gottfried Haberler and William H. Cha.. {c |}{res}          2        0.06       97.12
+{txt}                           Jacob Mincer {c |}{res}          2        0.06       97.18
+{txt}                    James B. Meriwether {c |}{res}          2        0.06       97.24
+{txt}                     James E. Dougherty {c |}{res}          2        0.06       97.30
+{txt}                        James V. Schall {c |}{res}          2        0.06       97.35
+{txt}                          John H. Moore {c |}{res}          2        0.06       97.41
+{txt}   John Vanden Berg and Donald E. Pruis {c |}{res}          2        0.06       97.47
+{txt}                       Joseph Hamburger {c |}{res}          2        0.06       97.53
+{txt}                     Kenneth G. Elzinga {c |}{res}          2        0.06       97.59
+{txt}                    Lee Robert Johnston {c |}{res}          2        0.06       97.64
+{txt}                             Leo Wolman {c |}{res}          2        0.06       97.70
+{txt}                           Mark Perlman {c |}{res}          2        0.06       97.76
+{txt}    Mary P. Nichols and Francis Canavan {c |}{res}          2        0.06       97.82
+{txt}                         Othel J. Curry {c |}{res}          2        0.06       97.88
+{txt}                           Paul A. Rahe {c |}{res}          2        0.06       97.94
+{txt}                     Raymond W. Coleman {c |}{res}          2        0.06       97.99
+{txt}       Ross M. Lence and Donald S. Lutz {c |}{res}          2        0.06       98.05
+{txt}                      Svetozar Pejovich {c |}{res}          2        0.06       98.11
+{txt}                      Thomas D. Willett {c |}{res}          2        0.06       98.17
+{txt}      Walter Y. Oi and Donald F. Gordon {c |}{res}          2        0.06       98.23
+{txt}                         A. James Meigs {c |}{res}          1        0.03       98.26
+{txt}Arthur F. Burns, George J. Stigler, a.. {c |}{res}          1        0.03       98.28
+{txt}                     Charles F. Haywood {c |}{res}          1        0.03       98.31
+{txt}                     Charles R. Dechert {c |}{res}          1        0.03       98.34
+{txt}Charles S. Hyneman and Gottfried Dietze {c |}{res}          1        0.03       98.37
+{txt}   Chiaki Nishiyama and Milton Friedman {c |}{res}          1        0.03       98.40
+{txt}                       Don J. Pearlberg {c |}{res}          1        0.03       98.43
+{txt}                          Don Paarlberg {c |}{res}          1        0.03       98.46
+{txt}                       Donald F. Gordon {c |}{res}          1        0.03       98.49
+{txt}                           Donald Kagan {c |}{res}          1        0.03       98.52
+{txt}     Eric Voegelin and Gerhart Niemeyer {c |}{res}          1        0.03       98.55
+{txt}                        Eugene McGregor {c |}{res}          1        0.03       98.58
+{txt}                  Frederick A. Bradford {c |}{res}          1        0.03       98.60
+{txt}                    Frederick S. Morton {c |}{res}          1        0.03       98.63
+{txt}     G. Carl Wiegand and Harry V. Jaffa {c |}{res}          1        0.03       98.66
+{txt}                        G. Ellis Sandoz {c |}{res}          1        0.03       98.69
+{txt}  G. Warren Nutter and Chiaki Nishiyama {c |}{res}          1        0.03       98.72
+{txt}                      George K. Romoser {c |}{res}          1        0.03       98.75
+{txt} Gottfried Haberler and Procter Thomson {c |}{res}          1        0.03       98.78
+{txt}                     Hamilton A.R. Gibb {c |}{res}          1        0.03       98.81
+{txt}                          Harry M. Clor {c |}{res}          1        0.03       98.84
+{txt}      Henry De Wit and John Vanden Berg {c |}{res}          1        0.03       98.87
+{txt}                         Henry G. Manne {c |}{res}          1        0.03       98.90
+{txt}                      Howard H. Peckham {c |}{res}          1        0.03       98.92
+{txt}                          J. G. Mehling {c |}{res}          1        0.03       98.95
+{txt}James Don Edwards and Roland F. Salmo.. {c |}{res}          1        0.03       98.98
+{txt} James Don Edwards and William A. Paton {c |}{res}          1        0.03       99.01
+{txt} James Don Edwards and William Huizingh {c |}{res}          1        0.03       99.04
+{txt}James F. McCarley and Charles E. Schutz {c |}{res}          1        0.03       99.07
+{txt}James Washington Bell, John V. Van Si.. {c |}{res}          1        0.03       99.10
+{txt}               Jeane Jordan Kirkpatrick {c |}{res}          1        0.03       99.13
+{txt}              Joan Wylie and J. R. Hall {c |}{res}          1        0.03       99.16
+{txt}                    John J. Daltlio Jr. {c |}{res}          1        0.03       99.19
+{txt}                    John J. Dilulio Jr. {c |}{res}          1        0.03       99.21
+{txt}John V. Van Sickle and Arthur M. Weimer {c |}{res}          1        0.03       99.24
+{txt}                       John Vanden Berg {c |}{res}          1        0.03       99.27
+{txt}                          Larry Arnhart {c |}{res}          1        0.03       99.30
+{txt}                      Laurence M. Gould {c |}{res}          1        0.03       99.33
+{txt}                            Leo Schmidt {c |}{res}          1        0.03       99.36
+{txt}                         M. H. Waterman {c |}{res}          1        0.03       99.39
+{txt}             Marina von Neumann Whitman {c |}{res}          1        0.03       99.42
+{txt}                         Paul A. Cantor {c |}{res}          1        0.03       99.45
+{txt}                      Paul E. Gottfried {c |}{res}          1        0.03       99.48
+{txt}                          Paul L. Adams {c |}{res}          1        0.03       99.51
+{txt}                  Richard W. Richardson {c |}{res}          1        0.03       99.53
+{txt}                      Russell A. Fraser {c |}{res}          1        0.03       99.56
+{txt}                           Russell Kirk {c |}{res}          1        0.03       99.59
+{txt}                  Seymour Martin Lipset {c |}{res}          1        0.03       99.62
+{txt}   Simon Rottenberg and Vernon L. Smith {c |}{res}          1        0.03       99.65
+{txt}     Stanley Parry and Gerhart Niemeyer {c |}{res}          1        0.03       99.68
+{txt}                     Stephan Thernstrom {c |}{res}          1        0.03       99.71
+{txt}                    Stephen A. McKnight {c |}{res}          1        0.03       99.74
+{txt}                        Sylvester Petro {c |}{res}          1        0.03       99.77
+{txt}                          W. Lee Hansen {c |}{res}          1        0.03       99.80
+{txt}                     Walter E. Williams {c |}{res}          1        0.03       99.83
+{txt}   Wilhelm Ropke and John V. Van Sickle {c |}{res}          1        0.03       99.85
+{txt}                      William B. Palmer {c |}{res}          1        0.03       99.88
+{txt}              William Craig Stubblebine {c |}{res}          1        0.03       99.91
+{txt}                        William H. Hutt {c |}{res}          1        0.03       99.94
+{txt}William M. McGovern and R. Barry Farr.. {c |}{res}          1        0.03       99.97
+{txt}                       Wilson L. Farman {c |}{res}          1        0.03      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}      3,439      100.00
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace sponsors="John J. DiIulio Jr." if regexm(sponsors, "John J. D")==1
+{txt}(2 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. save "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", replace
+{txt}file C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta saved
+
+{com}. 
+{txt}end of do-file
+
+{com}. view "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.smcl"
+
+. 
