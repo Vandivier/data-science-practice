@@ -102,6 +102,19 @@ async function main() {
         let sIpArg;
 
         try {
+            /*
+            browser = await puppeteer.launch({ // TODO: want headless: false?
+                args: ['--proxy-server=socks5://ams.socks.ipvanish.com:1080']
+            });
+            */
+            
+            browser = await puppeteer.launch();
+            /*
+            browser = await puppeteer.launch({ // TODO: want headless: false?
+                args: ['--proxy-server=socks5://81.171.110.169:1194']
+            });
+            */
+            /*
             if (!(i % 4)) { // new ip every 4 requests to stop blocks
                 sIpArg = '--proxy-server=socks5://' + await proxyFromCache.fpGetIp(oCache);
                 console.log(sIpArg);
@@ -109,6 +122,7 @@ async function main() {
                     args: [sIpArg]
                 });
             }
+            */
         } catch (e) {
             console.log('proxy error', e);
             return Promise.resolve();
@@ -191,14 +205,18 @@ async function fpWriteCache() {
 // not generalizable or temporally reliable in case of a site refactor
 async function fpScrapeInputRecord(oRecord) {
     const _page = await browser.newPage();
+    //const sProxyUsername = 'this is fake bro';
+    //const sPassword = 'sry bro u have to buy ur own stable proxy';
     let oScrapeResult;
+
+    //await _page.authenticate({ sProxyUsername, sPassword }); // ref: https://blog.apify.com/how-to-make-headless-chrome-and-puppeteer-use-a-proxy-server-with-authentication-249a21a79212
 
     try {
         await _page.goto(oRecord.sUrl, {
             'timeout': 0
         });
     } catch (e) {
-        console.log('navigation error, likely a proxy failure at page')
+        console.log('navigation error, likely a proxy failure at page', e)
         return Promise.resolve({bOtherError: true});
     }
 
@@ -290,6 +308,7 @@ async function fpScrapeInputRecord(oRecord) {
 // ref: https://github.com/webfp/tor-browser-selenium
 // ref: https://github.com/GoogleChrome/puppeteer/pull/427/commits/43c3e533163d1cd7bfbddcb7b3a299fca0c3ef2c
 // TODO: automated tor browser?
+// now utilizing IP vanish paid proxy service: $10 for 1 month or 8 with 20% offer.
 async function fConfigureSocks() {
     var url = require('url');
     var http = require('http');
