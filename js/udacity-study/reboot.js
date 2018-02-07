@@ -214,8 +214,8 @@ async function fpScrapeInputRecord(oRecord) {
                         'sLinkedInUrl': $('a[title="LINKEDIN"]').attr('href'),
                         'sResumeUrl': $('a[title="Resume"]').attr('href'),
                         'bUserExists': $('[class*=profile-container]').length > 0,
-                        'bProfileIsPrivate': fsSafeTrim($('[class*="toast--message"]').html()) === 'Profile is private',
-                        'bTooManyRequestsError': fsSafeTrim($('[class*="toast--message"]').html()) === 'Too many requests',
+                        'bProfileIsPrivate': _fsSafeTrim($('[class*="toast--message"]').html()) === 'Profile is private',
+                        'bTooManyRequestsError': _fsSafeTrim($('[class*="toast--message"]').html()) === 'Too many requests',
                         'bOtherError': false,
                         'bPresentlyEmployed': $('div[class*="works--section"] div[class*="_work--work"] span[class*="_work--present"]').length > 0,
                         'sProfileLastUpdate': $('div[class*="profile--updated"]').text().split(': ')[1],
@@ -223,7 +223,7 @@ async function fpScrapeInputRecord(oRecord) {
                     };
 
                     arr$Affiliations && arr$Affiliations.each(function (arr, el) {
-                        let sTrimmed = fsSafeTrim(el.innerText.replace(/\s/g, ' '));
+                        let sTrimmed = _fsSafeTrim(el.innerText.replace(/\s/g, ' '));
                         _oResult.sarrAffiliations += ('~' + sTrimmed);
                     });
 
@@ -237,9 +237,13 @@ async function fpScrapeInputRecord(oRecord) {
             // larger time allows for slow site response
             // some times of day when it's responding fast u can get away
             // with smaller ms; suggested default of 12.5s
-            function _fpWait(ms) {
+            function _fpWait (ms) {
                 ms = ms || 10000;
                 return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
+            function _fsSafeTrim (s) {
+                return s && s.replace(/[,"]/g, '').trim();
             }
         })
         .catch(function (error) {
@@ -276,8 +280,4 @@ async function fpScrapeInputRecord(oRecord) {
             console.log(ConsoleMessage);
         }
     }
-}
-
-function fsSafeTrim (s) {
-    return s && s.replace(/[,"]/g, '').trim();
 }
