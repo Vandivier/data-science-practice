@@ -76,7 +76,7 @@ async function main() {
     let arrsInputRows;
 
     fsRecordToCsvLine(oTitleLine);
-    //await utils.fpWait(5000); // only needed to give debugger time to attach
+    await utils.fpWait(5000); // only needed to give debugger time to attach
     sInputCsv = await fpReadFile(sInputFilePath, 'utf8');
     arrsInputRows = sInputCsv.split(EOL).filter(sLine => sLine); // drop title line and empty trailing lines
 
@@ -180,7 +180,7 @@ async function fpScrapeInputRecord(oRecord) {
     let oScrapeResult;
     let oCachedResult = oCache.people[oRecord.sId];
 
-    //debugger
+    debugger
 
     if (oCachedResult
         && (oCachedResult.bProfileIsPrivate
@@ -214,8 +214,8 @@ async function fpScrapeInputRecord(oRecord) {
                         'sLinkedInUrl': $('a[title="LINKEDIN"]').attr('href'),
                         'sResumeUrl': $('a[title="Resume"]').attr('href'),
                         'bUserExists': $('[class*=profile-container]').length > 0,
-                        'bProfileIsPrivate': $('[class*="toast--message"]').html().trim() === 'Profile is private',
-                        'bTooManyRequestsError': $('[class*="toast--message"]').html().trim() === 'Too many requests',
+                        'bProfileIsPrivate': fsSafeTrim($('[class*="toast--message"]').html()) === 'Profile is private',
+                        'bTooManyRequestsError': fsSafeTrim($('[class*="toast--message"]').html()) === 'Too many requests',
                         'bOtherError': false,
                         'bPresentlyEmployed': $('div[class*="works--section"] div[class*="_work--work"] span[class*="_work--present"]').length > 0,
                         'sProfileLastUpdate': $('div[class*="profile--updated"]').text().split(': ')[1],
@@ -223,7 +223,8 @@ async function fpScrapeInputRecord(oRecord) {
                     };
 
                     arr$Affiliations && arr$Affiliations.each(function (arr, el) {
-                        _oResult.sarrAffiliations += ('~' + el.innerText.replace(/\s/g, ' ').trim());
+                        let sTrimmed = fsSafeTrim(el.innerText.replace(/\s/g, ' '));
+                        _oResult.sarrAffiliations += ('~' + sTrimmed);
                     });
 
                     return Promise.resolve(_oResult);
@@ -258,9 +259,9 @@ async function fpScrapeInputRecord(oRecord) {
         });
 
         await _page.close();
-        oRecord = Object.assign(oRecord, oScrapeResult);
     }
 
+    oRecord = Object.assign(oRecord, oScrapeResult);
     oCache.people[oRecord.sId] = JSON.parse(JSON.stringify(oRecord));
     fsRecordToCsvLine(oRecord);
     return Promise.resolve(oRecord);
@@ -269,5 +270,14 @@ async function fpScrapeInputRecord(oRecord) {
         if (ConsoleMessage.type() === 'log') {
             console.log(ConsoleMessage.text() + EOL);
         }
+        if (ConsoleMessage.type() === 'error'
+            || ConsoleMessage.text().includes('fpScrapeInputRecord err'))
+        {
+            console.log(ConsoleMessage);
+        }
     }
+}
+
+function fsSafeTrim (s) {
+    return s && s.replace(/[,"]/g, '').trim();
 }
