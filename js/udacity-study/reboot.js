@@ -18,7 +18,7 @@ const fs = require('fs');
 //const genderize = require('genderize'); // todo: use genderize
 const reorder = require('csv-reorder');
 //const split = require('split');
-const proxyFromCache = require('./proxyFromCache.js')
+//const proxyFromCache = require('./proxyFromCache.js')
 const puppeteer = require('puppeteer');
 const util = require('util');
 const utils = require('ella-utils');
@@ -110,6 +110,8 @@ async function fpHandleData(oRecord) {
     const arrsCells = oRecord.sInputRecord.split(',');
     let oModifiedRecord;
 
+    oRecord = JSON.parse(JSON.stringify(oRecord));
+
     if (oRecord.iModifiedIncrement === undefined) { // called normally from main(), forEachReverseAsyncPhased 
         oRecord.sFirstName = arrsCells[0];
         oRecord.sLastName = arrsCells[1];
@@ -178,13 +180,15 @@ async function fpScrapeInputRecord(oRecord) {
     let oScrapeResult;
     let oCachedResult = oCache.people[oRecord.sId];
 
+    //debugger
+
     if (oCachedResult
         && (oCachedResult.bProfileIsPrivate
-            || !oCachedResult.bTooManyRequestsError)) {
-        return Promise.resolve(oCachedResult);
-    }
-
-    if (oRecord.bUserExists !== false) { // yes, an exact check is needed.
+            || !oCachedResult.bTooManyRequestsError)
+        && oCachedResult.bUserExists !== undefined)
+    {
+        oScrapeResult = oCachedResult;
+    } else if (oRecord.bUserExists !== false) { // yes, an exact check is needed.
         await _page.goto(oRecord.sUrl, {
             'timeout': 0
         });
@@ -257,7 +261,7 @@ async function fpScrapeInputRecord(oRecord) {
         oRecord = Object.assign(oRecord, oScrapeResult);
     }
 
-    oCache.people[oRecord.sId] = oRecord;
+    oCache.people[oRecord.sId] = JSON.parse(JSON.stringify(oRecord));
     fsRecordToCsvLine(oRecord);
     return Promise.resolve(oRecord);
 
