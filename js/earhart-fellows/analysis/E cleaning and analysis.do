@@ -80,17 +80,95 @@ replace academicyear = academicyear + "H1" if academicyear!=""
 split academicyear, gen(semester) parse(" ")
 
 gen abnormal_academicyear=fundingyear if regexm(fundingyear, "[a-zA-Z]")==1
-
-
-/* This is where shit starts hitting the fan..
+replace abnormal_academicyear=subinstr(abnormal_academicyear, "-", "H2 ", 5000)
 split abnormal_academicyear, gen(ay) parse(",")
-replace ay1=subinstr(ay1, "-", "H2 ", 5000)
+replace ay1=ay1 + "H1" if regexm(ay1, "^Fall ")==1
+replace ay1=ay1 + "H2" if regexm(ay1, "Spring [0-9]")==1
+
+replace ay5=ay5 + "H1" if regexm(ay5, "H2 ")==1
+replace ay4=ay4 + "H1" if regexm(ay4, "H2 ")==1
+replace ay3=ay3 + "H1" if regexm(ay3, "H2 ")==1
+replace ay2=ay2 + "H1" if regexm(ay2, "H2 ")==1
+replace ay1=ay1 + "H1" if regexm(ay1, "H2 ")==1
+
+*Remove the abnormal terms from abnormal years...
+gen ay11=ay1 if regexm(ay1, "Summer|Winter|Calendar Year")==1
+gen ay12=ay2 if regexm(ay2, "Summer|Winter|Calendar Year")==1
+gen ay13=ay3 if regexm(ay3, "Summer|Winter|Calendar Year")==1
+gen ay14=ay4 if regexm(ay4, "Summer|Winter|Calendar Year")==1
+gen ay15=ay5 if regexm(ay5, "Summer|Winter|Calendar Year")==1
+
+replace ay1="" if regexm(ay1, "Summer|Winter|Calendar Year")==1
+replace ay2="" if regexm(ay2, "Summer|Winter|Calendar Year")==1
+replace ay3="" if regexm(ay3, "Summer|Winter|Calendar Year")==1
+replace ay4="" if regexm(ay4, "Summer|Winter|Calendar Year")==1
+replace ay5="" if regexm(ay5, "Summer|Winter|Calendar Year")==1
+
+*Add H1/H2 and replace "Fall " with ""
+replace ay2=ay2 + "H1" if regexm(ay2, "Fall ")==1
+replace ay2=ay2 + "H2" if regexm(ay2, "Spring ")==1
+replace ay3=ay3 + "H1" if regexm(ay3, "Fall ")==1
+replace ay3=ay3 + "H2" if regexm(ay3, "Spring ")==1
+replace ay4=ay4 + "H1" if regexm(ay4, "Fall ")==1
+replace ay4=ay4 + "H2" if regexm(ay4, "Spring ")==1
+replace ay5=ay5 + "H1" if regexm(ay5, "Fall ")==1
+replace ay5=ay5 + "H2" if regexm(ay5, "Spring ")==1
+
+
+
+replace ay1=subinstr(ay1, "Fall ", "", 5000)
+replace ay1=subinstr(ay1, "Spring ", "", 5000)
+replace ay2=subinstr(ay2, "Fall ", "", 5000)
+replace ay2=subinstr(ay2, "Spring ", "", 5000)
+replace ay3=subinstr(ay3, "Fall ", "", 5000)
+replace ay3=subinstr(ay3, "Spring ", "", 5000)
+replace ay4=subinstr(ay4, "Fall ", "", 5000)
+replace ay4=subinstr(ay4, "Spring ", "", 5000)
+replace ay5=subinstr(ay5, "Fall ", "", 5000)
+replace ay5=subinstr(ay5, "Spring ", "", 5000)
+
+*split ay1,2,3,4,5 to 1-10 then replace semesters with semesters
+split ay1, gen(ay_1) parse(" ")
+split ay2, gen(ay_2) parse(" ")
+split ay3, gen(ay_3) parse(" ")
+split ay4, gen(ay_4) parse(" ")
+split ay5, gen(ay_5) parse(" ")
+
+
+
+replace semester1=ay_11 if ay_11!=""
+replace semester2=ay_12 if ay_12!=""
+replace semester3=ay_21 if ay_21!=""
+replace semester4=ay_22 if ay_22!=""
+replace semester5=ay_31 if ay_31!=""
+replace semester6=ay_32 if ay_32!=""
+replace semester7=ay_41 if ay_41!=""
+replace semester8=ay_42 if ay_42!=""
+replace semester9=ay_51 if ay_51!=""
+replace semester10=ay_52 if ay_52!=""
+
+
+
+
+
+/*
 replace ay1=subinstr(ay1, "Calendar Year ", "", 5000)
 replace ay1=ay1 + "H1H2" if regexm(ay1, " ")==0 
 
 replace ay1=ay1 + "H1" if regexm(ay1, "H2 ")==1
 replace ay1=subinstr(ay1, "Fall ", "H1 $", 5000)
 */
+
+/*gen ay1=substr(abnormal_academicyear, 1, 4) + "H1" if regexm(abnormal_academicyear, "^[0-9][0-9][0-9][0-9]")==1
+replace abnormal_academicyear=subinstr(abnormal_academicyear, "[0-9][0-9][0-9][0-9]", "", 5000)
+
+gen ay2=substr(abnormal_academicyear, 6, 4) + "H2" if regexm(abnormal_academicyear, "^[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]")==1
+replace abnormal_academicyear=subinstr(abnormal_academicyear, "-", "H1 ", 5000)
+replace abnormal_academicyear=subinstr(abnormal_academicyear, ",", "H2 ", 5000)
+*/
+
+
+
 
 
 

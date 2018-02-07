@@ -32621,4 +32621,1237 @@ end of do-file
 
 {com}. use "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta"
 
+. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. save "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", replace
+{txt}file C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta saved
+
+{com}. 
+{txt}end of do-file
+
+{com}. exit, clear
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}main
+       {txt}log:  {res}C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 7 Feb 2018, 13:33:21
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. use "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta"
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. br
+
+. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace abnormal_academicyear=subinstr(abnormal_academicyear, "-", "H1 ", 5000)
+{txt}abnormal_academicyear was {res}str55{txt} now {res}str59
+{txt}(95 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace abnormal_academicyear=subinstr(abnormal_academicyear, ",", "H2 ", 5000)
+{txt}abnormal_academicyear was {res}str59{txt} now {res}str67
+{txt}(115 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. drop abnormal_academicyear
+
+. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen abnormal_academicyear=fundingyear if regexm(fundingyear, "[a-zA-Z]")==1
+{txt}(3153 missing values generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. help regexs
+
+. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen ay1=regexr(abnormal_academicyear, "", "[0-9][0-9][0-9][0-9]")
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. drop ay1
+
+. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen ay1=substr(abnormal_academicyear, "[0-9][0-9][0-9][0-9]")
+{err}invalid syntax
+{txt}{search r(198):r(198);}
+
+end of do-file
+
+{search r(198):r(198);}
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen ay1=substr(abnormal_academicyear, [0-9][0-9][0-9][0-9])
+{err}equation [0-9] not found
+{txt}{search r(303):r(303);}
+
+end of do-file
+
+{search r(303):r(303);}
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen ay1=substr(abnormal_academicyear, 1, 4) if regexm(abnormal_academicyear, "[0-9]{c -(}4{c )-}-")==1
+{txt}(3439 missing values generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. drop ay1
+
+. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen ay1=substr(abnormal_academicyear, 1, 4) if regexm(abnormal_academicyear, "[0-9][0-9][0-9][0-9]")==1
+{txt}(3153 missing values generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. drop ay1
+
+. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen ay1=substr(abnormal_academicyear, 1, 4) if regexm(abnormal_academicyear, "^[0-9][0-9][0-9][0-9]")==1
+{txt}(3406 missing values generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. drop ay1
+
+. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen ay1=substr(abnormal_academicyear, 1, 4) + "H1" if regexm(abnormal_academicyear, "^[0-9][0-9][0-9][0-9]")==1
+{txt}(3406 missing values generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen ay2=substr(abnormal_academicyear, 6, 4) + "H2" if regexm(abnormal_academicyear, "^[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]")==1
+{txt}(3406 missing values generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. subinstr(abnormal_academicyear, "^[0-9][0-9][0-9][0-9]", "")
+{err}unrecognized command:  subinstr
+{txt}{search r(199):r(199);}
+
+end of do-file
+
+{search r(199):r(199);}
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. subinstr(abnormal_academicyear, "^[0-9][0-9][0-9][0-9]", "")
+{err}unrecognized command:  subinstr
+{txt}{search r(199):r(199);}
+
+end of do-file
+
+{search r(199):r(199);}
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace abnormal_academicyear=subinstr(abnormal_academicyear, "^[0-9][0-9][0-9][0-9]", "")
+{err}invalid syntax
+{txt}{search r(198):r(198);}
+
+end of do-file
+
+{search r(198):r(198);}
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace abnormal_academicyear=subinstr(abnormal_academicyear, "^[0-9][0-9][0-9][0-9]", "", 5000)
+{txt}(0 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace abnormal_academicyear=subinstr(abnormal_academicyear, ^"[0-9][0-9][0-9][0-9]", "", 5000)
+{err}^" invalid name
+{txt}{search r(198):r(198);}
+
+end of do-file
+
+{search r(198):r(198);}
+
+{com}. drop ay1 ay2
+
+. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace abnormal_academicyear=subinstr(abnormal_academicyear, "-", "H2 ", 5000)
+{txt}abnormal_academicyear was {res}str55{txt} now {res}str59
+{txt}(95 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace abnormal_academicyear=subinstr(abnormal_academicyear, ",", "H1 ", 5000)
+{txt}abnormal_academicyear was {res}str59{txt} now {res}str67
+{txt}(115 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. drop abnormal_academicyear
+
+. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen abnormal_academicyear=fundingyear if regexm(fundingyear, "[a-zA-Z]")==1
+{txt}(3153 missing values generated)
+
+{com}. replace abnormal_academicyear=subinstr(abnormal_academicyear, "-", "H2 ", 5000)
+{txt}abnormal_academicyear was {res}str55{txt} now {res}str59
+{txt}(95 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. split abnormal_academicyear, gen(ay) parse(",")
+{res}variables created as string: 
+{txt}{col 1}ay1{col 6}ay2{col 11}ay3{col 16}ay4{col 21}ay5
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace ay1=ay1 + "H1" if regexm(ay1, "^Fall ")==1
+{txt}(58 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace ay1=ay1 + "H2" if regexm(ay1, "Spring [0-9]")==1
+{txt}ay1 was {res}str22{txt} now {res}str24
+{txt}(65 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace ay5=ay5 + "H1" if regexm(ay5, "H2 ")==1
+{txt}ay5 was {res}str11{txt} now {res}str13
+{txt}(2 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace ay4=ay4 + "H1" if regexm(ay4, "H2 ")==1
+{txt}ay4 was {res}str11{txt} now {res}str13
+{txt}(9 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace ay3=ay3 + "H1" if regexm(ay3, "H2 ")==1
+{txt}(26 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace ay2=ay2 + "H1" if regexm(ay2, "H2 ")==1
+{txt}(62 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace ay1=ay1 + "H1" if regexm(ay1, "H2 ")==1
+{txt}(33 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen ay10=ay1 if regexm(ay1, "Summer|Winter|Calendar Year")==1
+{txt}(3308 missing values generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace ay1="" if regexm(ay1, "Summer|Winter|Calendar Year")==1
+{txt}(131 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. rename ay10 ay11
+{res}
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen ay12=ay2 if if regexm(ay1, "Summer|Winter|Calendar Year")==1
+{err}if not found
+{txt}{search r(111):r(111);}
+
+end of do-file
+
+{search r(111):r(111);}
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen ay12=ay2 if regexm(ay1, "Summer|Winter|Calendar Year")==1
+{txt}(3439 missing values generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen ay12=ay2 if regexm(ay2, "Summer|Winter|Calendar Year")==1
+{err}ay12 already defined
+{txt}{search r(110):r(110);}
+
+end of do-file
+
+{search r(110):r(110);}
+
+{com}. drop ay12
+
+. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen ay12=ay2 if regexm(ay2, "Summer|Winter|Calendar Year")==1
+{txt}(3408 missing values generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen ay13=ay3 if regexm(ay3, "Summer|Winter|Calendar Year")==1
+{txt}(3433 missing values generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen ay14=ay4 if regexm(ay4, "Summer|Winter|Calendar Year")==1
+{txt}(3438 missing values generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen ay15=ay5 if regexm(ay5, "Summer|Winter|Calendar Year")==1
+{txt}(3439 missing values generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace ay2="" if regexm(ay2, "Summer|Winter|Calendar Year")==1
+{txt}(31 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace ay1="" if regexm(ay1, "Summer|Winter|Calendar Year")==1
+{txt}(0 real changes made)
+
+{com}. replace ay2="" if regexm(ay2, "Summer|Winter|Calendar Year")==1
+{txt}(0 real changes made)
+
+{com}. replace ay3="" if regexm(ay3, "Summer|Winter|Calendar Year")==1
+{txt}(6 real changes made)
+
+{com}. replace ay4="" if regexm(ay4, "Summer|Winter|Calendar Year")==1
+{txt}(1 real change made)
+
+{com}. replace ay5="" if regexm(ay5, "Summer|Winter|Calendar Year")==1
+{txt}(0 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. codebook ay1
+
+{txt}{hline}
+{res}ay1{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}type:  string ({res}str24{txt}), but longest is str13
+
+{col 10}unique values:  {res}80{col 51}{txt}missing "":  {res}3284{txt}/{res}3439
+
+{txt}{col 15}examples:  {res}""
+{col 26}""
+{col 26}""
+{col 26}""
+
+{txt}{col 16}warning:  variable has embedded blanks
+
+{com}. tab ay1
+
+                     {txt}ay1 {c |}      Freq.     Percent        Cum.
+{hline 25}{c +}{hline 35}
+           1961H2 1962H1 {c |}{res}          2        1.29        1.29
+{txt}           1962H2 1963H1 {c |}{res}          1        0.65        1.94
+{txt}           1963H2 1964H1 {c |}{res}          1        0.65        2.58
+{txt}           1964H2 1965H1 {c |}{res}          1        0.65        3.23
+{txt}           1965H2 1966H1 {c |}{res}          2        1.29        4.52
+{txt}           1966H2 1967H1 {c |}{res}          1        0.65        5.16
+{txt}           1967H2 1968H1 {c |}{res}          1        0.65        5.81
+{txt}           1968H2 1969H1 {c |}{res}          2        1.29        7.10
+{txt}           1969H2 1970H1 {c |}{res}          2        1.29        8.39
+{txt}           1971H2 1972H1 {c |}{res}          2        1.29        9.68
+{txt}           1972H2 1973H1 {c |}{res}          1        0.65       10.32
+{txt}           1973H2 1974H1 {c |}{res}          1        0.65       10.97
+{txt}           1974H2 1975H1 {c |}{res}          1        0.65       11.61
+{txt}           1975H2 1976H1 {c |}{res}          2        1.29       12.90
+{txt}           1980H2 1981H1 {c |}{res}          2        1.29       14.19
+{txt}           1982H2 1983H1 {c |}{res}          2        1.29       15.48
+{txt}           1987H2 1988H1 {c |}{res}          1        0.65       16.13
+{txt}           1992H2 1993H1 {c |}{res}          1        0.65       16.77
+{txt}           1993H2 1994H1 {c |}{res}          2        1.29       18.06
+{txt}           2003H2 2004H1 {c |}{res}          1        0.65       18.71
+{txt}           2005H2 2006H1 {c |}{res}          1        0.65       19.35
+{txt}           2006H2 2007H1 {c |}{res}          1        0.65       20.00
+{txt}           2008H2 2009H1 {c |}{res}          2        1.29       21.29
+{txt}             Fall 1963H1 {c |}{res}          1        0.65       21.94
+{txt}             Fall 1964H1 {c |}{res}          1        0.65       22.58
+{txt}             Fall 1965H1 {c |}{res}          1        0.65       23.23
+{txt}             Fall 1966H1 {c |}{res}          1        0.65       23.87
+{txt}             Fall 1967H1 {c |}{res}          1        0.65       24.52
+{txt}             Fall 1970H1 {c |}{res}          1        0.65       25.16
+{txt}             Fall 1971H1 {c |}{res}          2        1.29       26.45
+{txt}             Fall 1972H1 {c |}{res}          1        0.65       27.10
+{txt}             Fall 1974H1 {c |}{res}          4        2.58       29.68
+{txt}             Fall 1975H1 {c |}{res}          2        1.29       30.97
+{txt}             Fall 1979H1 {c |}{res}          1        0.65       31.61
+{txt}             Fall 1980H1 {c |}{res}          4        2.58       34.19
+{txt}             Fall 1981H1 {c |}{res}          3        1.94       36.13
+{txt}             Fall 1982H1 {c |}{res}          1        0.65       36.77
+{txt}             Fall 1988H1 {c |}{res}          1        0.65       37.42
+{txt}             Fall 1989H1 {c |}{res}          1        0.65       38.06
+{txt}             Fall 1992H1 {c |}{res}          2        1.29       39.35
+{txt}             Fall 1997H1 {c |}{res}          1        0.65       40.00
+{txt}             Fall 1998H1 {c |}{res}          2        1.29       41.29
+{txt}             Fall 2001H1 {c |}{res}          3        1.94       43.23
+{txt}             Fall 2002H1 {c |}{res}          5        3.23       46.45
+{txt}             Fall 2003H1 {c |}{res}          4        2.58       49.03
+{txt}             Fall 2004H1 {c |}{res}          4        2.58       51.61
+{txt}             Fall 2005H1 {c |}{res}          8        5.16       56.77
+{txt}             Fall 2006H1 {c |}{res}          2        1.29       58.06
+{txt}             Fall 2011H1 {c |}{res}          1        0.65       58.71
+{txt}           Spring 1957H2 {c |}{res}          1        0.65       59.35
+{txt}           Spring 1958H2 {c |}{res}          3        1.94       61.29
+{txt}           Spring 1959H2 {c |}{res}          1        0.65       61.94
+{txt}           Spring 1960H2 {c |}{res}          2        1.29       63.23
+{txt}           Spring 1962H2 {c |}{res}          3        1.94       65.16
+{txt}           Spring 1963H2 {c |}{res}          1        0.65       65.81
+{txt}           Spring 1964H2 {c |}{res}          3        1.94       67.74
+{txt}           Spring 1965H2 {c |}{res}          1        0.65       68.39
+{txt}           Spring 1967H2 {c |}{res}          5        3.23       71.61
+{txt}           Spring 1968H2 {c |}{res}          8        5.16       76.77
+{txt}           Spring 1969H2 {c |}{res}          3        1.94       78.71
+{txt}           Spring 1972H2 {c |}{res}          1        0.65       79.35
+{txt}           Spring 1973H2 {c |}{res}          1        0.65       80.00
+{txt}           Spring 1974H2 {c |}{res}          1        0.65       80.65
+{txt}           Spring 1976H2 {c |}{res}          1        0.65       81.29
+{txt}           Spring 1977H2 {c |}{res}          1        0.65       81.94
+{txt}           Spring 1980H2 {c |}{res}          1        0.65       82.58
+{txt}           Spring 1983H2 {c |}{res}          3        1.94       84.52
+{txt}           Spring 1985H2 {c |}{res}          2        1.29       85.81
+{txt}           Spring 1987H2 {c |}{res}          1        0.65       86.45
+{txt}           Spring 1988H2 {c |}{res}          2        1.29       87.74
+{txt}           Spring 1989H2 {c |}{res}          2        1.29       89.03
+{txt}           Spring 1997H2 {c |}{res}          1        0.65       89.68
+{txt}           Spring 2001H2 {c |}{res}          2        1.29       90.97
+{txt}           Spring 2002H2 {c |}{res}          3        1.94       92.90
+{txt}           Spring 2004H2 {c |}{res}          1        0.65       93.55
+{txt}           Spring 2005H2 {c |}{res}          4        2.58       96.13
+{txt}           Spring 2006H2 {c |}{res}          1        0.65       96.77
+{txt}           Spring 2008H2 {c |}{res}          2        1.29       98.06
+{txt}           Spring 2011H2 {c |}{res}          2        1.29       99.35
+{txt}           Spring 2015H2 {c |}{res}          1        0.65      100.00
+{txt}{hline 25}{c +}{hline 35}
+                   Total {c |}{res}        155      100.00
+
+{com}. gen ay100=subinstr(ay1, "Fall ", "", 5000")
+{err}too few quotes
+{txt}{search r(132):r(132);}
+
+{com}. gen ay100=subinstr(ay1, "Fall ", "", 5000)
+{txt}(3284 missing values generated)
+
+{com}. drop ay100
+
+. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace ay1=subinstr(ay1, "Fall ", "", 5000)
+{txt}(58 real changes made)
+
+{com}. replace ay1=subinstr(ay1, "Spring ", "", 5000")
+{err}too few quotes
+{txt}{search r(132):r(132);}
+
+end of do-file
+
+{search r(132):r(132);}
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace ay1=subinstr(ay1, "Fall ", "", 5000)
+{txt}(0 real changes made)
+
+{com}. replace ay1=subinstr(ay1, "Spring ", "", 5000)
+{txt}(64 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. codebook ay2
+
+{txt}{hline}
+{res}ay2{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}type:  string ({res}str22{txt}), but longest is str13
+
+{col 10}unique values:  {res}50{col 51}{txt}missing "":  {res}3355{txt}/{res}3439
+
+{txt}{col 15}examples:  {res}""
+{col 26}""
+{col 26}""
+{col 26}""
+
+{txt}{col 16}warning:  variable has embedded blanks
+
+{com}. tab ay2
+
+                   {txt}ay2 {c |}      Freq.     Percent        Cum.
+{hline 23}{c +}{hline 35}
+         1957H2 1958H1 {c |}{res}          1        1.19        1.19
+{txt}         1958H2 1959H1 {c |}{res}          1        1.19        2.38
+{txt}         1959H2 1960H1 {c |}{res}          1        1.19        3.57
+{txt}         1960H2 1961H1 {c |}{res}          2        2.38        5.95
+{txt}         1962H2 1963H1 {c |}{res}          2        2.38        8.33
+{txt}         1963H2 1964H1 {c |}{res}          4        4.76       13.10
+{txt}         1964H2 1965H1 {c |}{res}          3        3.57       16.67
+{txt}         1965H2 1966H1 {c |}{res}          4        4.76       21.43
+{txt}         1966H2 1967H1 {c |}{res}          2        2.38       23.81
+{txt}         1967H2 1968H1 {c |}{res}          5        5.95       29.76
+{txt}         1968H2 1969H1 {c |}{res}          3        3.57       33.33
+{txt}         1969H2 1970H1 {c |}{res}          3        3.57       36.90
+{txt}         1970H2 1971H1 {c |}{res}          3        3.57       40.48
+{txt}         1971H2 1972H1 {c |}{res}          1        1.19       41.67
+{txt}         1973H2 1974H1 {c |}{res}          2        2.38       44.05
+{txt}         1974H2 1975H1 {c |}{res}          2        2.38       46.43
+{txt}         1975H2 1976H1 {c |}{res}          1        1.19       47.62
+{txt}         1976H2 1977H1 {c |}{res}          1        1.19       48.81
+{txt}         1979H2 1980H1 {c |}{res}          2        2.38       51.19
+{txt}         1980H2 1981H1 {c |}{res}          1        1.19       52.38
+{txt}         1981H2 1982H1 {c |}{res}          2        2.38       54.76
+{txt}         1982H2 1983H1 {c |}{res}          2        2.38       57.14
+{txt}         1983H2 1984H1 {c |}{res}          1        1.19       58.33
+{txt}         1988H2 1989H1 {c |}{res}          1        1.19       59.52
+{txt}         1991H2 1992H1 {c |}{res}          1        1.19       60.71
+{txt}         1996H2 1997H1 {c |}{res}          1        1.19       61.90
+{txt}         1997H2 1998H1 {c |}{res}          2        2.38       64.29
+{txt}         1999H2 2000H1 {c |}{res}          1        1.19       65.48
+{txt}         2001H2 2002H1 {c |}{res}          1        1.19       66.67
+{txt}         2002H2 2003H1 {c |}{res}          1        1.19       67.86
+{txt}         2003H2 2004H1 {c |}{res}          1        1.19       69.05
+{txt}         2006H2 2007H1 {c |}{res}          1        1.19       70.24
+{txt}         2007H2 2008H1 {c |}{res}          1        1.19       71.43
+{txt}         2010H2 2011H1 {c |}{res}          1        1.19       72.62
+{txt}         2013H2 2014H1 {c |}{res}          1        1.19       73.81
+{txt}             Fall 1964 {c |}{res}          1        1.19       75.00
+{txt}             Fall 1978 {c |}{res}          1        1.19       76.19
+{txt}             Fall 2002 {c |}{res}          1        1.19       77.38
+{txt}             Fall 2004 {c |}{res}          2        2.38       79.76
+{txt}           Spring 1955 {c |}{res}          1        1.19       80.95
+{txt}           Spring 1965 {c |}{res}          3        3.57       84.52
+{txt}           Spring 1969 {c |}{res}          2        2.38       86.90
+{txt}           Spring 1971 {c |}{res}          1        1.19       88.10
+{txt}           Spring 1972 {c |}{res}          1        1.19       89.29
+{txt}           Spring 1973 {c |}{res}          1        1.19       90.48
+{txt}           Spring 1987 {c |}{res}          1        1.19       91.67
+{txt}           Spring 1993 {c |}{res}          2        2.38       94.05
+{txt}           Spring 2002 {c |}{res}          2        2.38       96.43
+{txt}           Spring 2004 {c |}{res}          1        1.19       97.62
+{txt}           Spring 2008 {c |}{res}          2        2.38      100.00
+{txt}{hline 23}{c +}{hline 35}
+                 Total {c |}{res}         84      100.00
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace ay2=ay2 + "H2" if regexm(ay2, "Spring ")==1
+{txt}(17 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace ay2=ay2 + "H1" if regexm(ay2, "Fall ")==1
+{txt}(5 real changes made)
+
+{com}. replace ay2=ay2 + "H2" if regexm(ay2, "Spring ")==1
+{txt}(17 real changes made)
+
+{com}. replace ay3=ay3 + "H1" if regexm(ay3, "Fall ")==1
+{txt}(2 real changes made)
+
+{com}. replace ay3=ay3 + "H2" if regexm(ay3, "Spring ")==1
+{txt}(7 real changes made)
+
+{com}. replace ay4=ay4 + "H1" if regexm(ay4, "Fall ")==1
+{txt}(0 real changes made)
+
+{com}. replace ay4=ay4 + "H2" if regexm(ay4, "Spring ")==1
+{txt}(0 real changes made)
+
+{com}. replace ay5=ay5 + "H1" if regexm(ay5, "Fall ")==1
+{txt}(0 real changes made)
+
+{com}. replace ay5=ay5 + "H2" if regexm(ay5, "Spring ")==1
+{txt}(0 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace ay1=subinstr(ay1, "Fall ", "", 5000)
+{txt}(0 real changes made)
+
+{com}. replace ay1=subinstr(ay1, "Spring ", "", 5000)
+{txt}(0 real changes made)
+
+{com}. replace ay2=subinstr(ay2, "Fall ", "", 5000)
+{txt}(5 real changes made)
+
+{com}. replace ay2=subinstr(ay2, "Spring ", "", 5000)
+{txt}(17 real changes made)
+
+{com}. replace ay3=subinstr(ay3, "Fall ", "", 5000)
+{txt}(2 real changes made)
+
+{com}. replace ay3=subinstr(ay3, "Spring ", "", 5000)
+{txt}(7 real changes made)
+
+{com}. replace ay4=subinstr(ay4, "Fall ", "", 5000)
+{txt}(0 real changes made)
+
+{com}. replace ay4=subinstr(ay4, "Spring ", "", 5000)
+{txt}(0 real changes made)
+
+{com}. replace ay5=subinstr(ay5, "Fall ", "", 5000)
+{txt}(0 real changes made)
+
+{com}. replace ay5=subinstr(ay5, "Spring ", "", 5000)
+{txt}(0 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. tab ay1
+
+                     {txt}ay1 {c |}      Freq.     Percent        Cum.
+{hline 25}{c +}{hline 35}
+                  1957H2 {c |}{res}          1        0.65        0.65
+{txt}                  1958H2 {c |}{res}          3        1.94        2.58
+{txt}                  1959H2 {c |}{res}          1        0.65        3.23
+{txt}                  1960H2 {c |}{res}          2        1.29        4.52
+{txt}           1961H2 1962H1 {c |}{res}          2        1.29        5.81
+{txt}                  1962H2 {c |}{res}          3        1.94        7.74
+{txt}           1962H2 1963H1 {c |}{res}          1        0.65        8.39
+{txt}                  1963H1 {c |}{res}          1        0.65        9.03
+{txt}                  1963H2 {c |}{res}          1        0.65        9.68
+{txt}           1963H2 1964H1 {c |}{res}          1        0.65       10.32
+{txt}                  1964H1 {c |}{res}          1        0.65       10.97
+{txt}                  1964H2 {c |}{res}          3        1.94       12.90
+{txt}           1964H2 1965H1 {c |}{res}          1        0.65       13.55
+{txt}                  1965H1 {c |}{res}          1        0.65       14.19
+{txt}                  1965H2 {c |}{res}          1        0.65       14.84
+{txt}           1965H2 1966H1 {c |}{res}          2        1.29       16.13
+{txt}                  1966H1 {c |}{res}          1        0.65       16.77
+{txt}           1966H2 1967H1 {c |}{res}          1        0.65       17.42
+{txt}                  1967H1 {c |}{res}          1        0.65       18.06
+{txt}                  1967H2 {c |}{res}          5        3.23       21.29
+{txt}           1967H2 1968H1 {c |}{res}          1        0.65       21.94
+{txt}                  1968H2 {c |}{res}          8        5.16       27.10
+{txt}           1968H2 1969H1 {c |}{res}          2        1.29       28.39
+{txt}                  1969H2 {c |}{res}          3        1.94       30.32
+{txt}           1969H2 1970H1 {c |}{res}          2        1.29       31.61
+{txt}                  1970H1 {c |}{res}          1        0.65       32.26
+{txt}                  1971H1 {c |}{res}          2        1.29       33.55
+{txt}           1971H2 1972H1 {c |}{res}          2        1.29       34.84
+{txt}                  1972H1 {c |}{res}          1        0.65       35.48
+{txt}                  1972H2 {c |}{res}          1        0.65       36.13
+{txt}           1972H2 1973H1 {c |}{res}          1        0.65       36.77
+{txt}                  1973H2 {c |}{res}          1        0.65       37.42
+{txt}           1973H2 1974H1 {c |}{res}          1        0.65       38.06
+{txt}                  1974H1 {c |}{res}          4        2.58       40.65
+{txt}                  1974H2 {c |}{res}          1        0.65       41.29
+{txt}           1974H2 1975H1 {c |}{res}          1        0.65       41.94
+{txt}                  1975H1 {c |}{res}          2        1.29       43.23
+{txt}           1975H2 1976H1 {c |}{res}          2        1.29       44.52
+{txt}                  1976H2 {c |}{res}          1        0.65       45.16
+{txt}                  1977H2 {c |}{res}          1        0.65       45.81
+{txt}                  1979H1 {c |}{res}          1        0.65       46.45
+{txt}                  1980H1 {c |}{res}          4        2.58       49.03
+{txt}                  1980H2 {c |}{res}          1        0.65       49.68
+{txt}           1980H2 1981H1 {c |}{res}          2        1.29       50.97
+{txt}                  1981H1 {c |}{res}          3        1.94       52.90
+{txt}                  1982H1 {c |}{res}          1        0.65       53.55
+{txt}           1982H2 1983H1 {c |}{res}          2        1.29       54.84
+{txt}                  1983H2 {c |}{res}          3        1.94       56.77
+{txt}                  1985H2 {c |}{res}          2        1.29       58.06
+{txt}                  1987H2 {c |}{res}          1        0.65       58.71
+{txt}           1987H2 1988H1 {c |}{res}          1        0.65       59.35
+{txt}                  1988H1 {c |}{res}          1        0.65       60.00
+{txt}                  1988H2 {c |}{res}          2        1.29       61.29
+{txt}                  1989H1 {c |}{res}          1        0.65       61.94
+{txt}                  1989H2 {c |}{res}          2        1.29       63.23
+{txt}                  1992H1 {c |}{res}          2        1.29       64.52
+{txt}           1992H2 1993H1 {c |}{res}          1        0.65       65.16
+{txt}           1993H2 1994H1 {c |}{res}          2        1.29       66.45
+{txt}                  1997H1 {c |}{res}          1        0.65       67.10
+{txt}                  1997H2 {c |}{res}          1        0.65       67.74
+{txt}                  1998H1 {c |}{res}          2        1.29       69.03
+{txt}                  2001H1 {c |}{res}          3        1.94       70.97
+{txt}                  2001H2 {c |}{res}          2        1.29       72.26
+{txt}                  2002H1 {c |}{res}          5        3.23       75.48
+{txt}                  2002H2 {c |}{res}          3        1.94       77.42
+{txt}                  2003H1 {c |}{res}          4        2.58       80.00
+{txt}           2003H2 2004H1 {c |}{res}          1        0.65       80.65
+{txt}                  2004H1 {c |}{res}          4        2.58       83.23
+{txt}                  2004H2 {c |}{res}          1        0.65       83.87
+{txt}                  2005H1 {c |}{res}          8        5.16       89.03
+{txt}                  2005H2 {c |}{res}          4        2.58       91.61
+{txt}           2005H2 2006H1 {c |}{res}          1        0.65       92.26
+{txt}                  2006H1 {c |}{res}          2        1.29       93.55
+{txt}                  2006H2 {c |}{res}          1        0.65       94.19
+{txt}           2006H2 2007H1 {c |}{res}          1        0.65       94.84
+{txt}                  2008H2 {c |}{res}          2        1.29       96.13
+{txt}           2008H2 2009H1 {c |}{res}          2        1.29       97.42
+{txt}                  2011H1 {c |}{res}          1        0.65       98.06
+{txt}                  2011H2 {c |}{res}          2        1.29       99.35
+{txt}                  2015H2 {c |}{res}          1        0.65      100.00
+{txt}{hline 25}{c +}{hline 35}
+                   Total {c |}{res}        155      100.00
+
+{com}. tab ay2
+
+                   {txt}ay2 {c |}      Freq.     Percent        Cum.
+{hline 23}{c +}{hline 35}
+              1955H2H2 {c |}{res}          1        1.19        1.19
+{txt}         1957H2 1958H1 {c |}{res}          1        1.19        2.38
+{txt}         1958H2 1959H1 {c |}{res}          1        1.19        3.57
+{txt}         1959H2 1960H1 {c |}{res}          1        1.19        4.76
+{txt}         1960H2 1961H1 {c |}{res}          2        2.38        7.14
+{txt}         1962H2 1963H1 {c |}{res}          2        2.38        9.52
+{txt}         1963H2 1964H1 {c |}{res}          4        4.76       14.29
+{txt}                1964H1 {c |}{res}          1        1.19       15.48
+{txt}         1964H2 1965H1 {c |}{res}          3        3.57       19.05
+{txt}         1965H2 1966H1 {c |}{res}          4        4.76       23.81
+{txt}              1965H2H2 {c |}{res}          3        3.57       27.38
+{txt}         1966H2 1967H1 {c |}{res}          2        2.38       29.76
+{txt}         1967H2 1968H1 {c |}{res}          5        5.95       35.71
+{txt}         1968H2 1969H1 {c |}{res}          3        3.57       39.29
+{txt}         1969H2 1970H1 {c |}{res}          3        3.57       42.86
+{txt}              1969H2H2 {c |}{res}          2        2.38       45.24
+{txt}         1970H2 1971H1 {c |}{res}          3        3.57       48.81
+{txt}         1971H2 1972H1 {c |}{res}          1        1.19       50.00
+{txt}              1971H2H2 {c |}{res}          1        1.19       51.19
+{txt}              1972H2H2 {c |}{res}          1        1.19       52.38
+{txt}         1973H2 1974H1 {c |}{res}          2        2.38       54.76
+{txt}              1973H2H2 {c |}{res}          1        1.19       55.95
+{txt}         1974H2 1975H1 {c |}{res}          2        2.38       58.33
+{txt}         1975H2 1976H1 {c |}{res}          1        1.19       59.52
+{txt}         1976H2 1977H1 {c |}{res}          1        1.19       60.71
+{txt}                1978H1 {c |}{res}          1        1.19       61.90
+{txt}         1979H2 1980H1 {c |}{res}          2        2.38       64.29
+{txt}         1980H2 1981H1 {c |}{res}          1        1.19       65.48
+{txt}         1981H2 1982H1 {c |}{res}          2        2.38       67.86
+{txt}         1982H2 1983H1 {c |}{res}          2        2.38       70.24
+{txt}         1983H2 1984H1 {c |}{res}          1        1.19       71.43
+{txt}              1987H2H2 {c |}{res}          1        1.19       72.62
+{txt}         1988H2 1989H1 {c |}{res}          1        1.19       73.81
+{txt}         1991H2 1992H1 {c |}{res}          1        1.19       75.00
+{txt}              1993H2H2 {c |}{res}          2        2.38       77.38
+{txt}         1996H2 1997H1 {c |}{res}          1        1.19       78.57
+{txt}         1997H2 1998H1 {c |}{res}          2        2.38       80.95
+{txt}         1999H2 2000H1 {c |}{res}          1        1.19       82.14
+{txt}         2001H2 2002H1 {c |}{res}          1        1.19       83.33
+{txt}                2002H1 {c |}{res}          1        1.19       84.52
+{txt}         2002H2 2003H1 {c |}{res}          1        1.19       85.71
+{txt}              2002H2H2 {c |}{res}          2        2.38       88.10
+{txt}         2003H2 2004H1 {c |}{res}          1        1.19       89.29
+{txt}                2004H1 {c |}{res}          2        2.38       91.67
+{txt}              2004H2H2 {c |}{res}          1        1.19       92.86
+{txt}         2006H2 2007H1 {c |}{res}          1        1.19       94.05
+{txt}         2007H2 2008H1 {c |}{res}          1        1.19       95.24
+{txt}              2008H2H2 {c |}{res}          2        2.38       97.62
+{txt}         2010H2 2011H1 {c |}{res}          1        1.19       98.81
+{txt}         2013H2 2014H1 {c |}{res}          1        1.19      100.00
+{txt}{hline 23}{c +}{hline 35}
+                 Total {c |}{res}         84      100.00
+
+{com}. replace ay2=subinstr(ay2, "H2H2 ", "H2", 5000)
+{txt}(0 real changes made)
+
+{com}. replace ay2=subinstr(ay2, "H2H2", "H2", 5000)
+{txt}(17 real changes made)
+
+{com}. tab ay1
+
+                     {txt}ay1 {c |}      Freq.     Percent        Cum.
+{hline 25}{c +}{hline 35}
+                  1957H2 {c |}{res}          1        0.65        0.65
+{txt}                  1958H2 {c |}{res}          3        1.94        2.58
+{txt}                  1959H2 {c |}{res}          1        0.65        3.23
+{txt}                  1960H2 {c |}{res}          2        1.29        4.52
+{txt}           1961H2 1962H1 {c |}{res}          2        1.29        5.81
+{txt}                  1962H2 {c |}{res}          3        1.94        7.74
+{txt}           1962H2 1963H1 {c |}{res}          1        0.65        8.39
+{txt}                  1963H1 {c |}{res}          1        0.65        9.03
+{txt}                  1963H2 {c |}{res}          1        0.65        9.68
+{txt}           1963H2 1964H1 {c |}{res}          1        0.65       10.32
+{txt}                  1964H1 {c |}{res}          1        0.65       10.97
+{txt}                  1964H2 {c |}{res}          3        1.94       12.90
+{txt}           1964H2 1965H1 {c |}{res}          1        0.65       13.55
+{txt}                  1965H1 {c |}{res}          1        0.65       14.19
+{txt}                  1965H2 {c |}{res}          1        0.65       14.84
+{txt}           1965H2 1966H1 {c |}{res}          2        1.29       16.13
+{txt}                  1966H1 {c |}{res}          1        0.65       16.77
+{txt}           1966H2 1967H1 {c |}{res}          1        0.65       17.42
+{txt}                  1967H1 {c |}{res}          1        0.65       18.06
+{txt}                  1967H2 {c |}{res}          5        3.23       21.29
+{txt}           1967H2 1968H1 {c |}{res}          1        0.65       21.94
+{txt}                  1968H2 {c |}{res}          8        5.16       27.10
+{txt}           1968H2 1969H1 {c |}{res}          2        1.29       28.39
+{txt}                  1969H2 {c |}{res}          3        1.94       30.32
+{txt}           1969H2 1970H1 {c |}{res}          2        1.29       31.61
+{txt}                  1970H1 {c |}{res}          1        0.65       32.26
+{txt}                  1971H1 {c |}{res}          2        1.29       33.55
+{txt}           1971H2 1972H1 {c |}{res}          2        1.29       34.84
+{txt}                  1972H1 {c |}{res}          1        0.65       35.48
+{txt}                  1972H2 {c |}{res}          1        0.65       36.13
+{txt}           1972H2 1973H1 {c |}{res}          1        0.65       36.77
+{txt}                  1973H2 {c |}{res}          1        0.65       37.42
+{txt}           1973H2 1974H1 {c |}{res}          1        0.65       38.06
+{txt}                  1974H1 {c |}{res}          4        2.58       40.65
+{txt}                  1974H2 {c |}{res}          1        0.65       41.29
+{txt}           1974H2 1975H1 {c |}{res}          1        0.65       41.94
+{txt}                  1975H1 {c |}{res}          2        1.29       43.23
+{txt}           1975H2 1976H1 {c |}{res}          2        1.29       44.52
+{txt}                  1976H2 {c |}{res}          1        0.65       45.16
+{txt}                  1977H2 {c |}{res}          1        0.65       45.81
+{txt}                  1979H1 {c |}{res}          1        0.65       46.45
+{txt}                  1980H1 {c |}{res}          4        2.58       49.03
+{txt}                  1980H2 {c |}{res}          1        0.65       49.68
+{txt}           1980H2 1981H1 {c |}{res}          2        1.29       50.97
+{txt}                  1981H1 {c |}{res}          3        1.94       52.90
+{txt}                  1982H1 {c |}{res}          1        0.65       53.55
+{txt}           1982H2 1983H1 {c |}{res}          2        1.29       54.84
+{txt}                  1983H2 {c |}{res}          3        1.94       56.77
+{txt}                  1985H2 {c |}{res}          2        1.29       58.06
+{txt}                  1987H2 {c |}{res}          1        0.65       58.71
+{txt}           1987H2 1988H1 {c |}{res}          1        0.65       59.35
+{txt}                  1988H1 {c |}{res}          1        0.65       60.00
+{txt}                  1988H2 {c |}{res}          2        1.29       61.29
+{txt}                  1989H1 {c |}{res}          1        0.65       61.94
+{txt}                  1989H2 {c |}{res}          2        1.29       63.23
+{txt}                  1992H1 {c |}{res}          2        1.29       64.52
+{txt}           1992H2 1993H1 {c |}{res}          1        0.65       65.16
+{txt}           1993H2 1994H1 {c |}{res}          2        1.29       66.45
+{txt}                  1997H1 {c |}{res}          1        0.65       67.10
+{txt}                  1997H2 {c |}{res}          1        0.65       67.74
+{txt}                  1998H1 {c |}{res}          2        1.29       69.03
+{txt}                  2001H1 {c |}{res}          3        1.94       70.97
+{txt}                  2001H2 {c |}{res}          2        1.29       72.26
+{txt}                  2002H1 {c |}{res}          5        3.23       75.48
+{txt}                  2002H2 {c |}{res}          3        1.94       77.42
+{txt}                  2003H1 {c |}{res}          4        2.58       80.00
+{txt}           2003H2 2004H1 {c |}{res}          1        0.65       80.65
+{txt}                  2004H1 {c |}{res}          4        2.58       83.23
+{txt}                  2004H2 {c |}{res}          1        0.65       83.87
+{txt}                  2005H1 {c |}{res}          8        5.16       89.03
+{txt}                  2005H2 {c |}{res}          4        2.58       91.61
+{txt}           2005H2 2006H1 {c |}{res}          1        0.65       92.26
+{txt}                  2006H1 {c |}{res}          2        1.29       93.55
+{txt}                  2006H2 {c |}{res}          1        0.65       94.19
+{txt}           2006H2 2007H1 {c |}{res}          1        0.65       94.84
+{txt}                  2008H2 {c |}{res}          2        1.29       96.13
+{txt}           2008H2 2009H1 {c |}{res}          2        1.29       97.42
+{txt}                  2011H1 {c |}{res}          1        0.65       98.06
+{txt}                  2011H2 {c |}{res}          2        1.29       99.35
+{txt}                  2015H2 {c |}{res}          1        0.65      100.00
+{txt}{hline 25}{c +}{hline 35}
+                   Total {c |}{res}        155      100.00
+
+{com}. tab ay2
+
+                   {txt}ay2 {c |}      Freq.     Percent        Cum.
+{hline 23}{c +}{hline 35}
+                1955H2 {c |}{res}          1        1.19        1.19
+{txt}         1957H2 1958H1 {c |}{res}          1        1.19        2.38
+{txt}         1958H2 1959H1 {c |}{res}          1        1.19        3.57
+{txt}         1959H2 1960H1 {c |}{res}          1        1.19        4.76
+{txt}         1960H2 1961H1 {c |}{res}          2        2.38        7.14
+{txt}         1962H2 1963H1 {c |}{res}          2        2.38        9.52
+{txt}         1963H2 1964H1 {c |}{res}          4        4.76       14.29
+{txt}                1964H1 {c |}{res}          1        1.19       15.48
+{txt}         1964H2 1965H1 {c |}{res}          3        3.57       19.05
+{txt}                1965H2 {c |}{res}          3        3.57       22.62
+{txt}         1965H2 1966H1 {c |}{res}          4        4.76       27.38
+{txt}         1966H2 1967H1 {c |}{res}          2        2.38       29.76
+{txt}         1967H2 1968H1 {c |}{res}          5        5.95       35.71
+{txt}         1968H2 1969H1 {c |}{res}          3        3.57       39.29
+{txt}                1969H2 {c |}{res}          2        2.38       41.67
+{txt}         1969H2 1970H1 {c |}{res}          3        3.57       45.24
+{txt}         1970H2 1971H1 {c |}{res}          3        3.57       48.81
+{txt}                1971H2 {c |}{res}          1        1.19       50.00
+{txt}         1971H2 1972H1 {c |}{res}          1        1.19       51.19
+{txt}                1972H2 {c |}{res}          1        1.19       52.38
+{txt}                1973H2 {c |}{res}          1        1.19       53.57
+{txt}         1973H2 1974H1 {c |}{res}          2        2.38       55.95
+{txt}         1974H2 1975H1 {c |}{res}          2        2.38       58.33
+{txt}         1975H2 1976H1 {c |}{res}          1        1.19       59.52
+{txt}         1976H2 1977H1 {c |}{res}          1        1.19       60.71
+{txt}                1978H1 {c |}{res}          1        1.19       61.90
+{txt}         1979H2 1980H1 {c |}{res}          2        2.38       64.29
+{txt}         1980H2 1981H1 {c |}{res}          1        1.19       65.48
+{txt}         1981H2 1982H1 {c |}{res}          2        2.38       67.86
+{txt}         1982H2 1983H1 {c |}{res}          2        2.38       70.24
+{txt}         1983H2 1984H1 {c |}{res}          1        1.19       71.43
+{txt}                1987H2 {c |}{res}          1        1.19       72.62
+{txt}         1988H2 1989H1 {c |}{res}          1        1.19       73.81
+{txt}         1991H2 1992H1 {c |}{res}          1        1.19       75.00
+{txt}                1993H2 {c |}{res}          2        2.38       77.38
+{txt}         1996H2 1997H1 {c |}{res}          1        1.19       78.57
+{txt}         1997H2 1998H1 {c |}{res}          2        2.38       80.95
+{txt}         1999H2 2000H1 {c |}{res}          1        1.19       82.14
+{txt}         2001H2 2002H1 {c |}{res}          1        1.19       83.33
+{txt}                2002H1 {c |}{res}          1        1.19       84.52
+{txt}                2002H2 {c |}{res}          2        2.38       86.90
+{txt}         2002H2 2003H1 {c |}{res}          1        1.19       88.10
+{txt}         2003H2 2004H1 {c |}{res}          1        1.19       89.29
+{txt}                2004H1 {c |}{res}          2        2.38       91.67
+{txt}                2004H2 {c |}{res}          1        1.19       92.86
+{txt}         2006H2 2007H1 {c |}{res}          1        1.19       94.05
+{txt}         2007H2 2008H1 {c |}{res}          1        1.19       95.24
+{txt}                2008H2 {c |}{res}          2        2.38       97.62
+{txt}         2010H2 2011H1 {c |}{res}          1        1.19       98.81
+{txt}         2013H2 2014H1 {c |}{res}          1        1.19      100.00
+{txt}{hline 23}{c +}{hline 35}
+                 Total {c |}{res}         84      100.00
+
+{com}. tab ay3
+
+               {txt}ay3 {c |}      Freq.     Percent        Cum.
+{hline 19}{c +}{hline 35}
+     1960H2 1961H1 {c |}{res}          1        2.86        2.86
+{txt}     1962H2 1963H1 {c |}{res}          1        2.86        5.71
+{txt}     1963H2 1964H1 {c |}{res}          1        2.86        8.57
+{txt}     1964H2 1965H1 {c |}{res}          1        2.86       11.43
+{txt}     1965H2 1966H1 {c |}{res}          1        2.86       14.29
+{txt}     1966H2 1967H1 {c |}{res}          3        8.57       22.86
+{txt}            1967H2 {c |}{res}          3        8.57       31.43
+{txt}            1968H2 {c |}{res}          1        2.86       34.29
+{txt}     1968H2 1969H1 {c |}{res}          2        5.71       40.00
+{txt}     1969H2 1970H1 {c |}{res}          1        2.86       42.86
+{txt}     1970H2 1971H1 {c |}{res}          1        2.86       45.71
+{txt}     1971H2 1972H1 {c |}{res}          1        2.86       48.57
+{txt}     1972H2 1973H1 {c |}{res}          1        2.86       51.43
+{txt}            1973H2 {c |}{res}          1        2.86       54.29
+{txt}     1974H2 1975H1 {c |}{res}          2        5.71       60.00
+{txt}     1977H2 1978H1 {c |}{res}          1        2.86       62.86
+{txt}            1981H2 {c |}{res}          2        5.71       68.57
+{txt}     1989H2 1990H1 {c |}{res}          1        2.86       71.43
+{txt}            1991H1 {c |}{res}          1        2.86       74.29
+{txt}     1995H2 1996H1 {c |}{res}          1        2.86       77.14
+{txt}     1996H2 1997H1 {c |}{res}          2        5.71       82.86
+{txt}     1998H2 1999H1 {c |}{res}          1        2.86       85.71
+{txt}            2000H1 {c |}{res}          1        2.86       88.57
+{txt}     2005H2 2006H1 {c |}{res}          1        2.86       91.43
+{txt}     2007H2 2008H1 {c |}{res}          2        5.71       97.14
+{txt}     2012H2 2013H1 {c |}{res}          1        2.86      100.00
+{txt}{hline 19}{c +}{hline 35}
+             Total {c |}{res}         35      100.00
+
+{com}. tab ay4
+
+          {txt}ay4 {c |}      Freq.     Percent        Cum.
+{hline 14}{c +}{hline 35}
+1961H2 1962H1 {c |}{res}          1       11.11       11.11
+{txt}1963H2 1964H1 {c |}{res}          1       11.11       22.22
+{txt}1964H2 1965H1 {c |}{res}          2       22.22       44.44
+{txt}1969H2 1970H1 {c |}{res}          1       11.11       55.56
+{txt}1973H2 1974H1 {c |}{res}          1       11.11       66.67
+{txt}2004H2 2005H1 {c |}{res}          1       11.11       77.78
+{txt}2006H2 2007H1 {c |}{res}          1       11.11       88.89
+{txt}2011H2 2012H1 {c |}{res}          1       11.11      100.00
+{txt}{hline 14}{c +}{hline 35}
+        Total {c |}{res}          9      100.00
+
+{com}. tab ay5
+
+          {txt}ay5 {c |}      Freq.     Percent        Cum.
+{hline 14}{c +}{hline 35}
+1968H2 1969H1 {c |}{res}          1       50.00       50.00
+{txt}2010H2 2011H1 {c |}{res}          1       50.00      100.00
+{txt}{hline 14}{c +}{hline 35}
+        Total {c |}{res}          2      100.00
+
+{com}. tab ay11-ay15
+{err}too many variables specified
+{txt}{search r(103):r(103);}
+
+{com}. tab ay11
+
+                    {txt}ay11 {c |}      Freq.     Percent        Cum.
+{hline 25}{c +}{hline 35}
+      Calendar Year 1957 {c |}{res}          1        0.76        0.76
+{txt}      Calendar Year 1958 {c |}{res}          1        0.76        1.53
+{txt}      Calendar Year 1961 {c |}{res}          2        1.53        3.05
+{txt}      Calendar Year 1962 {c |}{res}          3        2.29        5.34
+{txt}      Calendar Year 1964 {c |}{res}          2        1.53        6.87
+{txt}      Calendar Year 1965 {c |}{res}          4        3.05        9.92
+{txt}      Calendar Year 1967 {c |}{res}          2        1.53       11.45
+{txt}      Calendar Year 1970 {c |}{res}          1        0.76       12.21
+{txt}      Calendar Year 1972 {c |}{res}          1        0.76       12.98
+{txt}      Calendar Year 1973 {c |}{res}          1        0.76       13.74
+{txt}  Spring and Summer 1959 {c |}{res}          1        0.76       14.50
+{txt}  Spring and Summer 1963 {c |}{res}          1        0.76       15.27
+{txt}  Spring and Summer 1964 {c |}{res}          1        0.76       16.03
+{txt}  Spring and Summer 1966 {c |}{res}          3        2.29       18.32
+{txt}  Spring and Summer 1967 {c |}{res}          1        0.76       19.08
+{txt}  Spring and Summer 1968 {c |}{res}          1        0.76       19.85
+{txt}  Spring and Summer 1969 {c |}{res}          1        0.76       20.61
+{txt}  Spring and Summer 1970 {c |}{res}          1        0.76       21.37
+{txt}  Spring and Summer 1972 {c |}{res}          2        1.53       22.90
+{txt}  Spring and Summer 1977 {c |}{res}          1        0.76       23.66
+{txt}             Summer 1952 {c |}{res}          1        0.76       24.43
+{txt}             Summer 1953 {c |}{res}          1        0.76       25.19
+{txt}             Summer 1954 {c |}{res}          2        1.53       26.72
+{txt}             Summer 1955 {c |}{res}          1        0.76       27.48
+{txt}             Summer 1956 {c |}{res}          1        0.76       28.24
+{txt}             Summer 1957 {c |}{res}          3        2.29       30.53
+{txt}             Summer 1958 {c |}{res}          1        0.76       31.30
+{txt}             Summer 1959 {c |}{res}          1        0.76       32.06
+{txt}             Summer 1961 {c |}{res}          1        0.76       32.82
+{txt}             Summer 1962 {c |}{res}          5        3.82       36.64
+{txt}             Summer 1963 {c |}{res}          3        2.29       38.93
+{txt}             Summer 1964 {c |}{res}          4        3.05       41.98
+{txt}             Summer 1965 {c |}{res}          8        6.11       48.09
+{txt}             Summer 1966 {c |}{res}          4        3.05       51.15
+{txt}             Summer 1967 {c |}{res}          4        3.05       54.20
+{txt}             Summer 1968 {c |}{res}          6        4.58       58.78
+{txt}             Summer 1969 {c |}{res}         12        9.16       67.94
+{txt}             Summer 1970 {c |}{res}          7        5.34       73.28
+{txt}             Summer 1971 {c |}{res}          5        3.82       77.10
+{txt}             Summer 1973 {c |}{res}          1        0.76       77.86
+{txt}             Summer 1974 {c |}{res}          1        0.76       78.63
+{txt}             Summer 1975 {c |}{res}          1        0.76       79.39
+{txt}             Summer 1976 {c |}{res}          2        1.53       80.92
+{txt}             Summer 1977 {c |}{res}          3        2.29       83.21
+{txt}             Summer 1978 {c |}{res}          2        1.53       84.73
+{txt}             Summer 1979 {c |}{res}          1        0.76       85.50
+{txt}             Summer 1984 {c |}{res}          1        0.76       86.26
+{txt}             Summer 1991 {c |}{res}          2        1.53       87.79
+{txt}    Summer and Fall 1953 {c |}{res}          1        0.76       88.55
+{txt}    Summer and Fall 1959 {c |}{res}          1        0.76       89.31
+{txt}    Summer and Fall 1963 {c |}{res}          1        0.76       90.08
+{txt}    Summer and Fall 1965 {c |}{res}          1        0.76       90.84
+{txt}    Summer and Fall 1967 {c |}{res}          2        1.53       92.37
+{txt}    Summer and Fall 1970 {c |}{res}          1        0.76       93.13
+{txt}    Summer and Fall 1975 {c |}{res}          1        0.76       93.89
+{txt}    Summer and Fall 1976 {c |}{res}          2        1.53       95.42
+{txt}    Summer and Fall 1981 {c |}{res}          1        0.76       96.18
+{txt}    Summer and Fall 1984 {c |}{res}          1        0.76       96.95
+{txt}    Summer and Fall 1993 {c |}{res}          1        0.76       97.71
+{txt}             Winter 1975 {c |}{res}          1        0.76       98.47
+{txt}             Winter 1983 {c |}{res}          1        0.76       99.24
+{txt}Winter and Spring 1988H2 {c |}{res}          1        0.76      100.00
+{txt}{hline 25}{c +}{hline 35}
+                   Total {c |}{res}        131      100.00
+
+{com}. tab ay12
+
+                  {txt}ay12 {c |}      Freq.     Percent        Cum.
+{hline 23}{c +}{hline 35}
+    Calendar Year 1960 {c |}{res}          2        6.45        6.45
+{txt}    Calendar Year 1962 {c |}{res}          1        3.23        9.68
+{txt}    Calendar Year 1964 {c |}{res}          2        6.45       16.13
+{txt}    Calendar Year 1972 {c |}{res}          1        3.23       19.35
+{txt}Spring and Summer 1965 {c |}{res}          1        3.23       22.58
+{txt}Spring and Summer 1975 {c |}{res}          1        3.23       25.81
+{txt}           Summer 1954 {c |}{res}          1        3.23       29.03
+{txt}           Summer 1957 {c |}{res}          1        3.23       32.26
+{txt}           Summer 1960 {c |}{res}          1        3.23       35.48
+{txt}           Summer 1961 {c |}{res}          1        3.23       38.71
+{txt}           Summer 1962 {c |}{res}          1        3.23       41.94
+{txt}           Summer 1965 {c |}{res}          1        3.23       45.16
+{txt}           Summer 1966 {c |}{res}          1        3.23       48.39
+{txt}           Summer 1967 {c |}{res}          2        6.45       54.84
+{txt}           Summer 1968 {c |}{res}          2        6.45       61.29
+{txt}           Summer 1969 {c |}{res}          2        6.45       67.74
+{txt}           Summer 1970 {c |}{res}          1        3.23       70.97
+{txt}           Summer 1973 {c |}{res}          1        3.23       74.19
+{txt}           Summer 1976 {c |}{res}          1        3.23       77.42
+{txt}           Summer 1977 {c |}{res}          1        3.23       80.65
+{txt}  Summer and Fall 1965 {c |}{res}          1        3.23       83.87
+{txt}  Summer and Fall 1968 {c |}{res}          1        3.23       87.10
+{txt}  Summer and Fall 1969 {c |}{res}          1        3.23       90.32
+{txt}  Summer and Fall 1975 {c |}{res}          1        3.23       93.55
+{txt}           Winter 1990 {c |}{res}          1        3.23       96.77
+{txt}           Winter 1992 {c |}{res}          1        3.23      100.00
+{txt}{hline 23}{c +}{hline 35}
+                 Total {c |}{res}         31      100.00
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. split ay1, gen(ay_) parse(" ")
+{res}variables created as string: 
+{txt}{col 1}ay_1{col 7}ay_2
+
+{com}. 
+{txt}end of do-file
+
+{com}. drop ay_1 ay_2
+
+. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. *split ay1,2,3,4,5 to 1-10 then replace semesters with semesters
+. split ay1, gen(ay_1) parse(" ")
+{res}variables created as string: 
+{txt}{col 1}ay_11{col 8}ay_12
+
+{com}. split ay2, gen(ay_2) parse(" ")
+{res}variables created as string: 
+{txt}{col 1}ay_21{col 8}ay_22
+
+{com}. split ay3, gen(ay_3) parse(" ")
+{res}variables created as string: 
+{txt}{col 1}ay_31{col 8}ay_32
+
+{com}. split ay4, gen(ay_4) parse(" ")
+{res}variables created as string: 
+{txt}{col 1}ay_41{col 8}ay_42
+
+{com}. split ay5, gen(ay_5) parse(" ")
+{res}variables created as string: 
+{txt}{col 1}ay_51{col 8}ay_52
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace semester1=ay_11 if ay_11!=""
+{txt}(155 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace semester1=ay_11 if ay_11!=""
+{txt}(0 real changes made)
+
+{com}. replace semester2=ay_12 if ay_12!=""
+{txt}(33 real changes made)
+
+{com}. replace semester3=ay_21 if ay_21!=""
+{txt}(84 real changes made)
+
+{com}. replace semester4=ay_22 if ay_22!=""
+{txt}(62 real changes made)
+
+{com}. replace semester5=ay_31 if ay_31!=""
+{txt}(35 real changes made)
+
+{com}. replace semester6=ay_32 if ay_32!=""
+{txt}(26 real changes made)
+
+{com}. replace semester7=ay_41 if ay_41!=""
+{txt}(9 real changes made)
+
+{com}. replace semester8=ay_42 if ay_42!=""
+{txt}(9 real changes made)
+
+{com}. replace semester9=ay_51 if ay_51!=""
+{txt}(2 real changes made)
+
+{com}. replace semester10=ay_52 if ay_52!=""
+{txt}(2 real changes made)
+
+{com}. 
 . 
+{txt}end of do-file
+
+{com}. sort sponsors
+
+. sort semester1
+
+. br if regexm(sponsors, "Buchanan")==1
+
+. br
+
+. br academicyear
+
+. sort semesters1-semesters10
+{err}variable semesters1 not found
+{txt}{search r(111):r(111);}
+
+{com}. sort semester1-semester10
+
+. sort semester1
+
+. save "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", replace
+{txt}file C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta saved
+
+{com}. 
