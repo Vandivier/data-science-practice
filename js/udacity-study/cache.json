@@ -11,7 +11,7 @@
             "sUserName": "",
             "iEducationCount": 0,
             "bUserExists": true,
-            "bProfileIsPrivate": false,
+            "bProfileIsPrivate": true,
             "bTooManyRequestsError": false,
             "bOtherError": false,
             "bPresentlyEmployed": false,

@@ -1,5 +1,5 @@
 "Entry ID","Name","Email Address","Username","Count of Education Entries","LinkedIn Url","Resume Url","User Exists","Profile is Private","Scrape Blocked for Too Many Requests","Other Error","Presently Employed","Profile Last Updated Date","Tries Remaining","Url Source"
-"john","","","","0","","","true","false","false","false","false","","","https://profiles.udacity.com/u/john"
+"john","","","","0","","","true","true","false","false","false","","","https://profiles.udacity.com/u/john"
 "john1","John McGuigan","","","0","","","true","false","false","false","true","","","https://profiles.udacity.com/u/john1"
 "john2","John McGuigan","","","0","","","true","true","false","false","false","","","https://profiles.udacity.com/u/john2"
 "john3","John Galeazzi","","","0","","","true","false","false","false","true","","","https://profiles.udacity.com/u/john3"

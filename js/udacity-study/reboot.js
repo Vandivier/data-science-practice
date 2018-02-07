@@ -7,6 +7,8 @@
 //      valid data includes not a private profile
 // TODO: add other data to cache such as genderized name
 // TODO: get more data like linkedIn stuff
+// ref: https://www.quora.com/How-do-setup-IP-rotation-for-my-web-crawler
+// ref: https://scrapinghub.com/crawlera
 
 'use strict'
 
