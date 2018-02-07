@@ -45,17 +45,12 @@ replace gi_1="University of Notre Dame" if regexm(gi_1, "Notre Dame University")
 replace gi_1="University of St. Andrews" if regexm(gi_1, "St. Andrews University")==1
 replace gi_1="University of Oxford" if regexm(gi_1, "Oxford University")==1
 
-
-
-
 *///If we truly care about peer effects maybe undergrad institutions/women's only schools needs to be categorized..?
 replace gi_1="Harvard University" if regexm(gi_1, "Harvard|Radcliffe")==1 
 replace gi_1="Columbia University" if regexm(gi_1, "Columbia College")==1 
 
-
-
 ***Clean/match typo's etc. among sponsors
-strgroup sponsors, gen(sponsors_grouped) threshold(0.1)
+strgroup sponsors, gen(sponsors_grouped) threshold(0.01)
 codebook sponsors_grouped
 
 ***Clean typos in sponsors, substitute and for & --> by sponsors_grouped: tab sponsors
@@ -69,14 +64,38 @@ replace sponsors="Daniel J. Elazar" if regexm(sponsors, "Daniel J. Elvar")==1
 replace sponsors="E. Maynard Aris" if regexm(sponsors, "E. Maynard Eris")==1
 replace sponsors="Roland F. Salmonson and James Don Edwards" if regexm(sponsors, "Roland E Salmonson and James Don Edwards")==1
 replace sponsors="John J. DiIulio Jr." if regexm(sponsors, "John J. D")==1
-
-
+replace sponsors="G. Ellis Sandoz Jr." if regexm(sponsors, "G. Ellis Sandoz")==1
 
 
 ***Subinstr inconsistent use of and/&,  
+replace sponsors=subinstr(sponsors, "&", "and", 5000)
+replace sponsors=subinstr(sponsors, "~", ",", 5000)
 
-replace sponsors=subinstr(sponsors, "&", "and", 20)
-replace sponsors=subinstr(sponsors, "~", ",", 20)
+***Academic years; single terms, summer, winter etc. ///REORDER THE YEARS??
+rename academicyear fundingyear
+gen academicyear=fundingyear if regexm(fundingyear, "[a-zA-Z]")==0
+replace academicyear=subinstr(academicyear, "-", "H2 ", 5000)
+replace academicyear=subinstr(academicyear, ",", "H1 ", 5000)
+replace academicyear = academicyear + "H1" if academicyear!=""
+split academicyear, gen(semester) parse(" ")
+
+gen abnormal_academicyear=fundingyear if regexm(fundingyear, "[a-zA-Z]")==1
+
+
+/* This is where shit starts hitting the fan..
+split abnormal_academicyear, gen(ay) parse(",")
+replace ay1=subinstr(ay1, "-", "H2 ", 5000)
+replace ay1=subinstr(ay1, "Calendar Year ", "", 5000)
+replace ay1=ay1 + "H1H2" if regexm(ay1, " ")==0 
+
+replace ay1=ay1 + "H1" if regexm(ay1, "H2 ")==1
+replace ay1=subinstr(ay1, "Fall ", "H1 $", 5000)
+*/
+
+
+
+
+
 
 ***Encode clean categorical variables***
 encode areaofstudy, gen(major)
