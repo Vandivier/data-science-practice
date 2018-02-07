@@ -177,8 +177,9 @@ async function fpWriteCache() {
 // not generalizable or temporally reliable in case of a site refactor
 async function fpScrapeInputRecord(oRecord) {
     const _page = await browser.newPage();
-    let oScrapeResult;
     let oCachedResult = oCache.people[oRecord.sId];
+    let oMergedRecord;
+    let oScrapeResult;
 
     debugger
 
@@ -202,7 +203,8 @@ async function fpScrapeInputRecord(oRecord) {
             document.getElementsByTagName('head')[0].appendChild(script); // inject jQuery
             console.log('scraping: ' + window.location.href);
 
-            return _fpWait(3000)
+            // toast message will disappear if you wait too long
+            return _fpWait(1000)
                 .then(function () {
                     let arr$Affiliations = $('#affiliation-body a[name=subaffil]');
                     let sarrAffiliations = '';
@@ -214,7 +216,7 @@ async function fpScrapeInputRecord(oRecord) {
                         'sLinkedInUrl': $('a[title="LINKEDIN"]').attr('href'),
                         'sResumeUrl': $('a[title="Resume"]').attr('href'),
                         'bUserExists': $('[class*=profile-container]').length > 0,
-                        'bProfileIsPrivate': _fsSafeTrim($('[class*="toast--message"]').html()) === 'Profile is private',
+                        'bProfileIsPrivate': $('[class*="toast--message"]').html() === 'Profile is private',
                         'bTooManyRequestsError': _fsSafeTrim($('[class*="toast--message"]').html()) === 'Too many requests',
                         'bOtherError': false,
                         'bPresentlyEmployed': $('div[class*="works--section"] div[class*="_work--work"] span[class*="_work--present"]').length > 0,
@@ -265,10 +267,10 @@ async function fpScrapeInputRecord(oRecord) {
         await _page.close();
     }
 
-    oRecord = Object.assign(oRecord, oScrapeResult);
-    oCache.people[oRecord.sId] = JSON.parse(JSON.stringify(oRecord));
-    fsRecordToCsvLine(oRecord);
-    return Promise.resolve(oRecord);
+    oMergedRecord = Object.assign(oRecord, oScrapeResult);
+    oCache.people[oRecord.sId] = JSON.parse(JSON.stringify(oMergedRecord));
+    fsRecordToCsvLine(oMergedRecord);
+    return Promise.resolve(oRecord); // return prior to merging to minimize invalid data passed on
 
     function _fCleanLog(ConsoleMessage) {
         if (ConsoleMessage.type() === 'log') {
