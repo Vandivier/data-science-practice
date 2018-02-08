@@ -9,6 +9,7 @@
 // TODO: get more data like linkedIn stuff
 // ref: https://www.quora.com/How-do-setup-IP-rotation-for-my-web-crawler
 // ref: https://scrapinghub.com/crawlera
+// ref: http://www.engrjpmunoz.com/5-tools-everyone-in-the-data-scraper-industry-should-be-using/
 
 'use strict'
 
@@ -98,41 +99,42 @@ async function main() {
     browser = await puppeteer.launch();
 
     // array pattern, doesn't work for streams
-    // TODO await utils.forEachReverseAsyncPhased(arrsInputRows, fpHandleData) ?
     await utils.forEachReverseAsyncPhased(arrsInputRows, async function(_sInputRecord, i) {
-        return fpHandleData({
-            'sInputRecord': _sInputRecord
-        });
+        const arrsCells = _sInputRecord.split(',');
+        const oRecordFromSource = { // oRecords can be from source or generated; these are all from source
+            sFirstName: arrsCells[0],
+            sLastName: arrsCells[1],
+            iModifiedIncrement: 0
+        };
+
+        return fpHandleData(oRecordFromSource);
     });
 
     fpEndProgram();
 }
 
-async function fpHandleData(oRecord) {
-    const arrsCells = oRecord.sInputRecord.split(',');
-    let oModifiedRecord;
-
-    oRecord = JSON.parse(JSON.stringify(oRecord));
-
-    if (oRecord.iModifiedIncrement === undefined) { // called normally from main(), forEachReverseAsyncPhased 
-        oRecord.sFirstName = arrsCells[0];
-        oRecord.sLastName = arrsCells[1];
-        oRecord.iModifiedIncrement = 0;
-    } else {
-        // fpHandleData called recursively
-        // increment username and try again; udacity business rule
-        // TODO: not just first name, but try firstlast and maybe last too
-        oRecord.iModifiedIncrement += 1;
-    }
+// to limit reference errors, only these things should ever be passed in through oMinimalRecord:
+// first name, last name, modified increment
+// increment username to generate a new guessed username and try again until verified failure; udacity username business rule
+// TODO: not just first name, but try firstlast and maybe last too
+async function fpHandleData(oMinimalRecord) {
+    const oRecord = JSON.parse(JSON.stringify(oMinimalRecord)); // dereference for safety, shouldn't be needed tho
+    let _oScrapeResult;
 
     oRecord.sId = oRecord.sFirstName
-        + (oRecord.iModifiedIncrement || '');
+        + (oRecord.iModifiedIncrement || ''); // '0' shouldn't appear
 
     oRecord.sUrl = sRootUrl
         + oRecord.sId;
 
-    oRecord = await fpScrapeInputRecord(oRecord);
-    if (oRecord.bUserExists) await fpHandleData(oRecord); // deceptively simple, dangerously recursive
+    _oScrapeResult = await fpScrapeInputRecord(oRecord);
+    if (_oScrapeResult.bUserExists) { // deceptively simple, dangerously recursive
+        await fpHandleData({
+            sFirstName: _oScrapeResult.sFirstName,
+            sLastName: _oScrapeResult.sLastName,
+            iModifiedIncrement: (_oScrapeResult.iModifiedIncrement + 1)
+        });
+    }
 
     iCurrentInputRecord++;
     console.log('scraped input record #: ' +
@@ -190,7 +192,7 @@ async function fpScrapeInputRecord(oRecord) {
             || !oCachedResult.bTooManyRequestsError)
         && oCachedResult.bUserExists !== undefined)
     {
-        oScrapeResult = oCachedResult;
+        oScrapeResult = JSON.parse(JSON.stringify(oCachedResult));
     } else if (oRecord.bUserExists !== false) { // yes, an exact check is needed.
         await _page.goto(oRecord.sUrl, {
             'timeout': 0
@@ -272,7 +274,7 @@ async function fpScrapeInputRecord(oRecord) {
     oMergedRecord = Object.assign(oRecord, oScrapeResult);
     oCache.people[oRecord.sId] = JSON.parse(JSON.stringify(oMergedRecord));
     fsRecordToCsvLine(oMergedRecord);
-    return Promise.resolve(oRecord); // return prior to merging to minimize invalid data passed on
+    return Promise.resolve(JSON.parse(JSON.stringify(oRecord))); // return prior to merging to minimize invalid data passed on
 
     function _fCleanLog(ConsoleMessage) {
         if (ConsoleMessage.type() === 'log') {
