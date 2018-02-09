@@ -116,7 +116,7 @@ async function main() {
     }
 
     console.log('early count, iTotalInputRecords = ' + iTotalInputRecords);
-    browser = await puppeteer.launch();
+    browser = await Apify.launchPuppeteer(); // ref: https://www.apify.com/docs/sdk/apify-runtime-js/latest
 
     // array pattern, doesn't work for streams
     await utils.forEachReverseAsyncPhased(arrsInputRows, async function(_sInputRecord, i) {

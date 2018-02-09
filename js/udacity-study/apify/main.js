@@ -3,7 +3,7 @@ const typeCheck = require('type-check').typeCheck;
 
 // Definition of the input
 const INPUT_TYPE = `{
-    message: Maybe String,
+    url: Maybe String,
 }`;
 
 Apify.main(async () => {
@@ -18,12 +18,19 @@ Apify.main(async () => {
         throw new Error('Received invalid input');
     }
 
-    // Here's the place for your magic...
-    console.log(`Input message: ${input.message}`);
+    const browser = await Apify.launchPuppeteer(); // ref: https://www.apify.com/docs/sdk/apify-runtime-js/latest
+    const page = await browser.newPage();
+
+    console.log(`getting title from: ${input.url}`);
+    await page.goto(input.url);
+    const pageTitle = await page.title();
+
+    await browser.close();
 
     // Store the output
     const output = {
-        message: `${input.message} Hello my friend!`
+        pageTitle
     };
+
     await Apify.setValue('OUTPUT', output)
 });

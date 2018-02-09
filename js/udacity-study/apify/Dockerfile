@@ -5,7 +5,7 @@
 #  apify/actor-node-puppeteer
 # However, you can use any other image from Docker Hub.
 # For more information, see https://www.apify.com/docs/actor#base-images
-FROM apify/actor-node-basic
+FROM apify/actor-node-puppeteer
 
 # Copy all files and directories from the directory to the Docker image
 COPY . ./
