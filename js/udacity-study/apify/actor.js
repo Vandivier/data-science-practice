@@ -76,11 +76,11 @@ let wsErrorLog;
 
 Apify.main(async () => {
     // Get input of your act
-    const input = await Apify.getValue('INPUT');
-    console.log('My input:');
-    console.dir(input);
+    //let input = await Apify.getValue('INPUT');
+    //console.log('My input:');
+    //console.dir(input);
 
-    main();
+    await main();
 
     // And then save output
     const output = {
@@ -92,18 +92,20 @@ Apify.main(async () => {
     await Apify.setValue('OUTPUT', output);
 });
 
-main();
+//main();
 
 async function main() {
+    let arrsFirstNames = await Apify.getValue('INPUT').firstNames;
+    console.log('first names', arrsFirstNames)
+    /*
     let sInputCsv;
     let arrsInputRows;
 
-    fsRecordToCsvLine(oTitleLine);
-    await utils.fpWait(5000); // only needed to give debugger time to attach
+    //fsRecordToCsvLine(oTitleLine);
+    //await utils.fpWait(5000); // only needed to give debugger time to attach
     sInputCsv = await fpReadFile(sInputFilePath, 'utf8');
     arrsInputRows = sInputCsv.split(EOL).filter(sLine => sLine); // drop title line and empty trailing lines
 
-    /** for testing only, shorten rows **/
     //arrsInputRows = arrsInputRows.slice(0, 5);
     arrsInputRows.shift();
     iTotalInputRecords = arrsInputRows.length;
@@ -116,21 +118,22 @@ async function main() {
     }
 
     console.log('early count, iTotalInputRecords = ' + iTotalInputRecords);
+    */
     browser = await Apify.launchPuppeteer(); // ref: https://www.apify.com/docs/sdk/apify-runtime-js/latest
 
     // array pattern, doesn't work for streams
-    await utils.forEachReverseAsyncPhased(arrsInputRows, async function(_sInputRecord, i) {
-        const arrsCells = _sInputRecord.split(',');
+    await utils.forEachReverseAsyncPhased(arrsFirstNames, async function(_sInputRecord, i) {
+        //const arrsCells = _sInputRecord.split(',');
         const oRecordFromSource = { // oRecords can be from source or generated; these are all from source
-            sFirstName: arrsCells[0],
-            sLastName: arrsCells[1],
+            sFirstName: _sInputRecord,
+            sLastName: 'smith', // todo: change
             iModifiedIncrement: 0
         };
 
         return fpHandleData(oRecordFromSource);
     });
 
-    fpEndProgram();
+    return fpEndProgram();
 }
 
 // to limit reference errors, only these things should ever be passed in through oMinimalRecord:
@@ -171,8 +174,9 @@ function fsRecordToCsvLine(oRecord) {
 
 async function fpEndProgram() {
     await browser.close();
-    await fpWriteCache();
-    process.exit();
+    //await fpWriteCache(); // TODO: uncomment and fix
+    return Promise.resolve();
+    //process.exit();
 }
 
 async function fpWriteCache() {
