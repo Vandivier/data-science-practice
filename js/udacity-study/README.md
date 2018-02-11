@@ -13,6 +13,7 @@ Then read ordered-output.csv
 ## Business Notes
 
 Username selection is based on modifying common first and last names. I have two main sources for name selection:
+
     1. [SSO Top Names Over the Last 100 Years](https://www.ssa.gov/oact/babynames/decades/century.html)
     2. Random subsample process on a massive list of all known names.
 
@@ -28,4 +29,4 @@ Have a suggestion for this npm module? Submit an issue.
 
 ## TODO
 
-See commends in code. reboot.js
+See comments in code. reboot.js
