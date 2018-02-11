@@ -63,7 +63,7 @@ const fpReadFile = util.promisify(fs.readFile);
 const fpWriteFile = util.promisify(fs.writeFile);
 
 //let oCache = JSON.parse(fs.readFileSync(sCacheFilePath, 'utf8'));
-let oCache = await Apify.getValue('CACHE');
+let oCache;
 
 //const rsReadStream = fs.createReadStream('./EarhartMergedNoBoxNoLines.txt');
 const wsWriteStream = fs.createWriteStream(sOutputFilePath);
@@ -80,7 +80,10 @@ Apify.main(async () => {
 });
 
 async function main() {
-    let arrsFirstNames = await Apify.getValue('INPUT').firstNames;
+    let oInput = await Apify.getValue('INPUT');
+    let arrsFirstNames = oInput.firstNames;
+    oCache = await Apify.getValue('CACHE');
+
     console.log('first names', arrsFirstNames)
     /*
     let sInputCsv;
