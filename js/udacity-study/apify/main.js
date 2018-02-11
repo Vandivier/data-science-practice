@@ -62,7 +62,8 @@ const sOutputFilePath = __dirname + '/output.csv';
 const fpReadFile = util.promisify(fs.readFile);
 const fpWriteFile = util.promisify(fs.writeFile);
 
-let oCache = JSON.parse(fs.readFileSync(sCacheFilePath, 'utf8'));
+//let oCache = JSON.parse(fs.readFileSync(sCacheFilePath, 'utf8'));
+let oCache = await Apify.getValue('CACHE');
 
 //const rsReadStream = fs.createReadStream('./EarhartMergedNoBoxNoLines.txt');
 const wsWriteStream = fs.createWriteStream(sOutputFilePath);
@@ -75,24 +76,8 @@ let wsGotSome;
 let wsErrorLog;
 
 Apify.main(async () => {
-    // Get input of your act
-    //let input = await Apify.getValue('INPUT');
-    //console.log('My input:');
-    //console.dir(input);
-
     await main();
-
-    // And then save output
-    const output = {
-        html,
-        crawledAt: new Date(),
-    };
-    console.log('My output:');
-    console.dir(output);
-    await Apify.setValue('OUTPUT', output);
 });
-
-//main();
 
 async function main() {
     let arrsFirstNames = await Apify.getValue('INPUT').firstNames;
@@ -174,6 +159,10 @@ function fsRecordToCsvLine(oRecord) {
 
 async function fpEndProgram() {
     await browser.close();
+
+    await Apify.setValue('CACHE', oCache);
+    //await Apify.setValue('OUTPUT', output);
+
     //await fpWriteCache(); // TODO: uncomment and fix
     return Promise.resolve();
     //process.exit();
@@ -209,7 +198,7 @@ async function fpScrapeInputRecord(oRecord) {
     let oMergedRecord;
     let oScrapeResult;
 
-    debugger
+    //debugger
 
     if (oCachedResult
         && (oCachedResult.bProfileIsPrivate
@@ -297,7 +286,7 @@ async function fpScrapeInputRecord(oRecord) {
 
     oMergedRecord = Object.assign(oRecord, oScrapeResult);
     oCache.people[oRecord.sId] = JSON.parse(JSON.stringify(oMergedRecord));
-    fsRecordToCsvLine(oMergedRecord);
+    //fsRecordToCsvLine(oMergedRecord);
     return Promise.resolve(JSON.parse(JSON.stringify(oRecord))); // return prior to merging to minimize invalid data passed on
 
     function _fCleanLog(ConsoleMessage) {
