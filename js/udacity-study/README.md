@@ -20,6 +20,8 @@ Username selection is based on modifying common first and last names. I have two
 
 The main file right now is called `reboot.js`. If things take off with scrapehub then `actor.js` may become the main file.
 
+This project is superseded by an apify scraper found [here in it's own repo](https://github.com/Vandivier/udacity-apify).
+
 ## Feature Requests
 
 Have a suggestion for this npm module? Submit an issue.
