@@ -33854,4 +33854,2072 @@ end of do-file
 . save "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", replace
 {txt}file C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta saved
 
+{com}. {smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}main
+       {txt}log:  {res}C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}12 Feb 2018, 11:08:53
+{txt}
 {com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. import delimited C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\ordered-output.csv
+{res}{text}(22 vars, 3464 obs)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. save "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", replace
+{txt}file C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta saved
+
+{com}. 
+. use "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta"
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. br
+
+. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. ***Format 
+. format %25s name academicyear graduateinstitution areaofstudy sponsors emailaddress validemailaddress deceased
+{txt}
+{com}. format %15s  recipientgender recipientgenderizedname simplesponsorgender simplesponsorgenderizedname entryid completiondegree mailingaddress emailaddress validemailaddress deceased
+{txt}
+{com}. format %4.0g recipientgenderprobability 
+{txt}
+{com}. drop graduateinstitutioninvalidatedli invalidprefixareaofstudy invalidpostfixareaofstudy
+{txt}
+{com}. 
+. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. split graduateinstitution, generate(gi) parse(~) 
+{res}variables created as string: 
+{txt}{col 1}gi1{col 6}gi2
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. rename gi1 gi
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen gi_country=gi2 if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==1
+{txt}(3393 missing values generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace gi_country="USA" if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==0
+{txt}(3393 real changes made)
+
+{com}. rename gi_country country
+{res}{txt}
+{com}. gen gi_subcampus=gi2 if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==0
+{txt}(3178 missing values generated)
+
+{com}. drop gi2
+{txt}
+{com}. order name gi academicyear, first
+{txt}
+{com}. order graduateinstitution entryid gi, last
+{txt}
+{com}. 
+. 
+{txt}end of do-file
+
+{com}. sort gi2
+{err}variable gi2 not found
+{txt}{search r(111):r(111);}
+
+{com}. sort gi2
+{err}variable gi2 not found
+{txt}{search r(111):r(111);}
+
+{com}. sort gi_country
+{err}variable gi_country not found
+{txt}{search r(111):r(111);}
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. use "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta"
+{err}no; data in memory would be lost
+{txt}{search r(4):r(4);}
+
+end of do-file
+
+{search r(4):r(4);}
+
+{com}. use help
+{err}no; data in memory would be lost
+{txt}{search r(4):r(4);}
+
+{com}. help use
+
+. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. use "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", clear
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. format %25s name academicyear graduateinstitution areaofstudy sponsors emailaddress validemailaddress deceased
+{txt}
+{com}. format %15s  recipientgender recipientgenderizedname simplesponsorgender simplesponsorgenderizedname entryid completiondegree mailingaddress emailaddress validemailaddress deceased
+{txt}
+{com}. format %4.0g recipientgenderprobability 
+{txt}
+{com}. drop graduateinstitutioninvalidatedli invalidprefixareaofstudy invalidpostfixareaofstudy
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. ***Rename Graduateinstitution==gi and fix Graduateinstitution Edgecases: gi_subcampus, gi_country, gi_1/gi_2 , weird gi_1 and gi_2 cases***///TODO
+. split graduateinstitution, generate(gi) parse(~) 
+{res}variables created as string: 
+{txt}{col 1}gi1{col 6}gi2
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. rename gi1 gi
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen gi_country=gi2 if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==1
+{txt}(3393 missing values generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. sort gi2
+
+. tab gi2
+
+                         {txt}gi2 {c |}      Freq.     Percent        Cum.
+{hline 29}{c +}{hline 35}
+                      Austin {c |}{res}         30        8.40        8.40
+{txt}                     Belgium {c |}{res}          1        0.28        8.68
+{txt}                    Berkeley {c |}{res}         23        6.44       15.13
+{txt}                 Bloomington {c |}{res}          1        0.28       15.41
+{txt}                     Boulder {c |}{res}         10        2.80       18.21
+{txt} Boulder/Stanford University {c |}{res}          1        0.28       18.49
+{txt}                      Canada {c |}{res}          9        2.52       21.01
+{txt}                 Chapel Hill {c |}{res}         42       11.76       32.77
+{txt}                College Park {c |}{res}         26        7.28       40.06
+{txt}                       Davis {c |}{res}          1        0.28       40.34
+{txt}                      France {c |}{res}          2        0.56       40.90
+{txt}                     Germany {c |}{res}         19        5.32       46.22
+{txt}              Hunter College {c |}{res}          1        0.28       46.50
+{txt}                      Israel {c |}{res}          1        0.28       46.78
+{txt}                 Los Angeles {c |}{res}         92       25.77       72.55
+{txt}                     Madison {c |}{res}          5        1.40       73.95
+{txt}                      Mexico {c |}{res}          1        0.28       74.23
+{txt}                   Riverside {c |}{res}          2        0.56       74.79
+{txt}                   San Diego {c |}{res}          4        1.12       75.91
+{txt}               Santa Barbara {c |}{res}         13        3.64       79.55
+{txt}                   St. Louis {c |}{res}          5        1.40       80.95
+{txt}                 Switzerland {c |}{res}          8        2.24       83.19
+{txt}              United Kingdom {c |}{res}         30        8.40       91.60
+{txt}                      Urbana {c |}{res}         30        8.40      100.00
+{txt}{hline 29}{c +}{hline 35}
+                       Total {c |}{res}        357      100.00
+
+{com}. tab gi2, sort
+
+                         {txt}gi2 {c |}      Freq.     Percent        Cum.
+{hline 29}{c +}{hline 35}
+                 Los Angeles {c |}{res}         92       25.77       25.77
+{txt}                 Chapel Hill {c |}{res}         42       11.76       37.54
+{txt}                      Austin {c |}{res}         30        8.40       45.94
+{txt}              United Kingdom {c |}{res}         30        8.40       54.34
+{txt}                      Urbana {c |}{res}         30        8.40       62.75
+{txt}                College Park {c |}{res}         26        7.28       70.03
+{txt}                    Berkeley {c |}{res}         23        6.44       76.47
+{txt}                     Germany {c |}{res}         19        5.32       81.79
+{txt}               Santa Barbara {c |}{res}         13        3.64       85.43
+{txt}                     Boulder {c |}{res}         10        2.80       88.24
+{txt}                      Canada {c |}{res}          9        2.52       90.76
+{txt}                 Switzerland {c |}{res}          8        2.24       93.00
+{txt}                     Madison {c |}{res}          5        1.40       94.40
+{txt}                   St. Louis {c |}{res}          5        1.40       95.80
+{txt}                   San Diego {c |}{res}          4        1.12       96.92
+{txt}                      France {c |}{res}          2        0.56       97.48
+{txt}                   Riverside {c |}{res}          2        0.56       98.04
+{txt}                     Belgium {c |}{res}          1        0.28       98.32
+{txt}                 Bloomington {c |}{res}          1        0.28       98.60
+{txt} Boulder/Stanford University {c |}{res}          1        0.28       98.88
+{txt}                       Davis {c |}{res}          1        0.28       99.16
+{txt}              Hunter College {c |}{res}          1        0.28       99.44
+{txt}                      Israel {c |}{res}          1        0.28       99.72
+{txt}                      Mexico {c |}{res}          1        0.28      100.00
+{txt}{hline 29}{c +}{hline 35}
+                       Total {c |}{res}        357      100.00
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace gi_country="USA" if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==0
+{txt}(3393 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. gen gi_subcampus=gi2 if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==0
+{txt}(3178 missing values generated)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. drop gi2
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. order name gi academicyear, first
+{txt}
+{com}. order graduateinstitution entryid gi, last
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. br if regexm(gi, "/")==1
+
+. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. split(gi), gen(gi_) parse(/)
+{res}variables created as string: 
+{txt}{col 1}gi_1{col 7}gi_2
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. format gi_1 gi_2 %30s
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. strgroup gi_1, gen(gi_grouped) threshold(.05)
+{res}{it:gi_1} contains duplicate values. Remove them to speed up calculations.
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. drop gi_grouped
+
+. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. ***institutions that are the same but have different names/have different names but are the same***
+. replace gi_1="London School of Economics" if regexm(gi_1, "London School of economics")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="École des Hautes Etudes en Sciences Sociales" if regexm(gi_1, "Ecol")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="Claremont Graduate University" if regexm(gi_1, "Claremont Graduate School")==1
+{txt}(96 real changes made)
+
+{com}. replace gi_1="Claremont McKenna College" if regexm(gi_1, "Claremont Men's College")==1
+{txt}(6 real changes made)
+
+{com}. replace gi_1="Georgetown University" if regexm(gi_1, "Georgetown University")==1 
+{txt}(1 real change made)
+
+{com}. replace gi_1="Virginia Polytechnic Institute & State University" if regexm(gi_1, "Virginia Polytechnic Institute")==1
+{txt}(1 real change made)
+
+{com}. replace gi_1="Princeton University" if regexm(gi_1, "Princeton Theological Seminary")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="Yale University" if regexm(gi_1, "Yale Divinity School")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="Missouri State University" if regexm(gi_1, "Southwest Missouri State University")==1
+{txt}(10 real changes made)
+
+{com}. replace gi_1="University of Cambridge" if regexm(gi_1, "Cambridge University")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="University of Notre Dame" if regexm(gi_1, "Notre Dame University")==1
+{txt}(3 real changes made)
+
+{com}. replace gi_1="University of St. Andrews" if regexm(gi_1, "St. Andrews University")==1
+{txt}(1 real change made)
+
+{com}. replace gi_1="University of Oxford" if regexm(gi_1, "Oxford University")==1
+{txt}(1 real change made)
+
+{com}. 
+. *///If we truly care about peer effects maybe undergrad institutions/women's only schools needs to be categorized..?
+. replace gi_1="Harvard University" if regexm(gi_1, "Harvard|Radcliffe")==1 
+{txt}(2 real changes made)
+
+{com}. replace gi_1="Columbia University" if regexm(gi_1, "Columbia College")==1 
+{txt}(1 real change made)
+
+{com}. 
+. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. ***Edgecases where we should test whether & document that our assumptions don't influence the results: 
+. replace gi_1="Michigan State University" if regexm(gi_1, "Kenyon College and Michigan State University")==1
+{txt}(1 real change made)
+
+{com}. replace gi_2="Kenyon College" if regexm(graduateinstitution, "Kenyon College and Michigan State University")==1
+{txt}(1 real change made)
+
+{com}. replace gi_1="Indiana University" if regexm(gi_1, "University of Indiana")==1
+{txt}(1 real change made)
+
+{com}. replace gi_1="Princeton University" if regexm(gi_1, "Princeton Theological Seminary")==1
+{txt}(0 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. use "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", clear
+{txt}
+{com}. ***Format 
+. format %25s name academicyear graduateinstitution areaofstudy sponsors emailaddress validemailaddress deceased
+{txt}
+{com}. format %15s  recipientgender recipientgenderizedname simplesponsorgender simplesponsorgenderizedname entryid completiondegree mailingaddress emailaddress validemailaddress deceased
+{txt}
+{com}. format %4.0g recipientgenderprobability 
+{txt}
+{com}. drop graduateinstitutioninvalidatedli invalidprefixareaofstudy invalidpostfixareaofstudy
+{txt}
+{com}. 
+. ***Rename Graduateinstitution==gi and fix Graduateinstitution Edgecases: gi_subcampus, gi_country, gi_1/gi_2 , weird gi_1 and gi_2 cases***
+. split graduateinstitution, generate(gi) parse(~) 
+{res}variables created as string: 
+{txt}{col 1}gi1{col 6}gi2
+
+{com}. rename gi1 gi
+{res}{txt}
+{com}. gen gi_country=gi2 if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==1
+{txt}(3393 missing values generated)
+
+{com}. replace gi_country="USA" if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==0
+{txt}(3393 real changes made)
+
+{com}. gen gi_subcampus=gi2 if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==0
+{txt}(3178 missing values generated)
+
+{com}. drop gi2
+{txt}
+{com}. order name gi academicyear, first
+{txt}
+{com}. order graduateinstitution entryid gi, last
+{txt}
+{com}. *gi_1/gi_2*
+. split(gi), gen(gi_) parse(/)
+{res}variables created as string: 
+{txt}{col 1}gi_1{col 7}gi_2
+
+{com}. format gi_1 gi_2 %30s
+{txt}
+{com}. strgroup gi_1, gen(gi_grouped) threshold(.05)
+{res}{it:gi_1} contains duplicate values. Remove them to speed up calculations.
+{txt}
+{com}. 
+. ***institutions that are the same but have different names/have different names but are the same***
+. replace gi_1="London School of Economics" if regexm(gi_1, "London School of economics")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="École des Hautes Etudes en Sciences Sociales" if regexm(gi_1, "Ecol")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="Claremont Graduate University" if regexm(gi_1, "Claremont Graduate School")==1
+{txt}(96 real changes made)
+
+{com}. replace gi_1="Claremont McKenna College" if regexm(gi_1, "Claremont Men's College")==1
+{txt}(6 real changes made)
+
+{com}. replace gi_1="Georgetown University" if regexm(gi_1, "Georgetown University")==1 
+{txt}(1 real change made)
+
+{com}. replace gi_1="Virginia Polytechnic Institute & State University" if regexm(gi_1, "Virginia Polytechnic Institute")==1
+{txt}(1 real change made)
+
+{com}. replace gi_1="Yale University" if regexm(gi_1, "Yale Divinity School")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="Missouri State University" if regexm(gi_1, "Southwest Missouri State University")==1
+{txt}(10 real changes made)
+
+{com}. replace gi_1="University of Cambridge" if regexm(gi_1, "Cambridge University")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="University of Notre Dame" if regexm(gi_1, "Notre Dame University")==1
+{txt}(3 real changes made)
+
+{com}. replace gi_1="University of St. Andrews" if regexm(gi_1, "St. Andrews University")==1
+{txt}(1 real change made)
+
+{com}. replace gi_1="University of Oxford" if regexm(gi_1, "Oxford University")==1
+{txt}(1 real change made)
+
+{com}. 
+. *///If we truly care about peer effects maybe undergrad institutions/women's only schools needs to be categorized..?
+. replace gi_1="Harvard University" if regexm(gi_1, "Harvard|Radcliffe")==1 
+{txt}(2 real changes made)
+
+{com}. replace gi_1="Columbia University" if regexm(gi_1, "Columbia College")==1 
+{txt}(1 real change made)
+
+{com}. 
+. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. use "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", clear
+{txt}
+{com}. ***Format 
+. format %25s name academicyear graduateinstitution areaofstudy sponsors emailaddress validemailaddress deceased
+{txt}
+{com}. format %15s  recipientgender recipientgenderizedname simplesponsorgender simplesponsorgenderizedname entryid completiondegree mailingaddress emailaddress validemailaddress deceased
+{txt}
+{com}. format %4.0g recipientgenderprobability 
+{txt}
+{com}. drop graduateinstitutioninvalidatedli invalidprefixareaofstudy invalidpostfixareaofstudy
+{txt}
+{com}. 
+. ***Rename Graduateinstitution==gi and fix Graduateinstitution Edgecases: gi_subcampus, gi_country, gi_1/gi_2 , weird gi_1 and gi_2 cases***
+. split graduateinstitution, generate(gi) parse(~) 
+{res}variables created as string: 
+{txt}{col 1}gi1{col 6}gi2
+
+{com}. rename gi1 gi
+{res}{txt}
+{com}. gen gi_country=gi2 if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==1
+{txt}(3393 missing values generated)
+
+{com}. replace gi_country="USA" if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==0
+{txt}(3393 real changes made)
+
+{com}. gen gi_subcampus=gi2 if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==0
+{txt}(3178 missing values generated)
+
+{com}. drop gi2
+{txt}
+{com}. order name gi academicyear, first
+{txt}
+{com}. order graduateinstitution entryid gi, last
+{txt}
+{com}. *gi_1/gi_2*
+. split(gi), gen(gi_) parse(/)
+{res}variables created as string: 
+{txt}{col 1}gi_1{col 7}gi_2
+
+{com}. format gi_1 gi_2 %30s
+{txt}
+{com}. 
+. ***institutions that are the same but have different names/have different names but are the same***
+. replace gi_1="London School of Economics" if regexm(gi_1, "London School of economics")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="École des Hautes Etudes en Sciences Sociales" if regexm(gi_1, "Ecol")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="Claremont Graduate University" if regexm(gi_1, "Claremont Graduate School")==1
+{txt}(96 real changes made)
+
+{com}. replace gi_1="Claremont McKenna College" if regexm(gi_1, "Claremont Men's College")==1
+{txt}(6 real changes made)
+
+{com}. replace gi_1="Georgetown University" if regexm(gi_1, "Georgetown University")==1 
+{txt}(1 real change made)
+
+{com}. replace gi_1="Virginia Polytechnic Institute & State University" if regexm(gi_1, "Virginia Polytechnic Institute")==1
+{txt}(1 real change made)
+
+{com}. replace gi_1="Yale University" if regexm(gi_1, "Yale Divinity School")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="Missouri State University" if regexm(gi_1, "Southwest Missouri State University")==1
+{txt}(10 real changes made)
+
+{com}. replace gi_1="University of Cambridge" if regexm(gi_1, "Cambridge University")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="University of Notre Dame" if regexm(gi_1, "Notre Dame University")==1
+{txt}(3 real changes made)
+
+{com}. replace gi_1="University of St. Andrews" if regexm(gi_1, "St. Andrews University")==1
+{txt}(1 real change made)
+
+{com}. replace gi_1="University of Oxford" if regexm(gi_1, "Oxford University")==1
+{txt}(1 real change made)
+
+{com}. 
+. ***///If we truly care about peer effects maybe undergrad institutions/women's only schools needs to be categorized..?
+. replace gi_1="Harvard University" if regexm(gi_1, "Harvard|Radcliffe")==1 
+{txt}(2 real changes made)
+
+{com}. replace gi_1="Columbia University" if regexm(gi_1, "Columbia College")==1 
+{txt}(1 real change made)
+
+{com}. 
+. ***Stringgroup to see whether typo's exist in gi_1
+. strgroup gi_1, gen(gi_grouped) threshold(.01)
+{res}{it:gi_1} contains duplicate values. Remove them to speed up calculations.
+{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. sort gi_grouped
+
+. sort gi_1
+
+. by gi_grouped, tab gi_1
+{err}: required
+{txt}{search r(100):r(100);}
+
+{com}. by gi_grouped: tab gi_1
+{err}not sorted
+{txt}{search r(5):r(5);}
+
+{com}. sort gi_grouped
+
+. by gi_grouped: tab gi_1
+
+{txt}{hline}
+-> gi_grouped = 1
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                     University of Hull {c |}{res}          2      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          2      100.00
+
+{txt}{hline}
+-> gi_grouped = 2
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+             University of Pennsylvania {c |}{res}         75      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         75      100.00
+
+{txt}{hline}
+-> gi_grouped = 3
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+         Catholic University of America {c |}{res}         23      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         23      100.00
+
+{txt}{hline}
+-> gi_grouped = 4
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                   University of Dallas {c |}{res}         99      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         99      100.00
+
+{txt}{hline}
+-> gi_grouped = 5
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+               University of California {c |}{res}        135      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}        135      100.00
+
+{txt}{hline}
+-> gi_grouped = 6
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+      University of Southern California {c |}{res}         35      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         35      100.00
+
+{txt}{hline}
+-> gi_grouped = 7
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                     Harvard University {c |}{res}        116      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}        116      100.00
+
+{txt}{hline}
+-> gi_grouped = 8
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                       Brown University {c |}{res}         14      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         14      100.00
+
+{txt}{hline}
+-> gi_grouped = 9
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+               Johns Hopkins University {c |}{res}         34      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         34      100.00
+
+{txt}{hline}
+-> gi_grouped = 10
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                 University of Michigan {c |}{res}        150      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}        150      100.00
+
+{txt}{hline}
+-> gi_grouped = 11
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                         Boston College {c |}{res}         92      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         92      100.00
+
+{txt}{hline}
+-> gi_grouped = 12
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  University of Chicago {c |}{res}        351      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}        351      100.00
+
+{txt}{hline}
+-> gi_grouped = 13
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  University of Cologne {c |}{res}          6      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          6      100.00
+
+{txt}{hline}
+-> gi_grouped = 14
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  Georgetown University {c |}{res}         97      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         97      100.00
+
+{txt}{hline}
+-> gi_grouped = 15
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+             London School of Economics {c |}{res}          5      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          5      100.00
+
+{txt}{hline}
+-> gi_grouped = 16
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                      Boston University {c |}{res}         66      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         66      100.00
+
+{txt}{hline}
+-> gi_grouped = 17
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+               University of Notre Dame {c |}{res}         64      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         64      100.00
+
+{txt}{hline}
+-> gi_grouped = 18
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+           George Washington University {c |}{res}         14      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         14      100.00
+
+{txt}{hline}
+-> gi_grouped = 19
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                    New York University {c |}{res}         73      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         73      100.00
+
+{txt}{hline}
+-> gi_grouped = 20
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+               University of Washington {c |}{res}         33      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         33      100.00
+
+{txt}{hline}
+-> gi_grouped = 21
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                    Stanford University {c |}{res}         39      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         39      100.00
+
+{txt}{hline}
+-> gi_grouped = 22
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                 University of Virginia {c |}{res}        226      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}        226      100.00
+
+{txt}{hline}
+-> gi_grouped = 23
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  Washington University {c |}{res}         18      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         18      100.00
+
+{txt}{hline}
+-> gi_grouped = 24
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                   Texas A&M University {c |}{res}         11      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         11      100.00
+
+{txt}{hline}
+-> gi_grouped = 25
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                    University of Texas {c |}{res}         41      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         41      100.00
+
+{txt}{hline}
+-> gi_grouped = 26
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                       Tufts University {c |}{res}         77      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         77      100.00
+
+{txt}{hline}
+-> gi_grouped = 27
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                        Duke University {c |}{res}         94      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         94      100.00
+
+{txt}{hline}
+-> gi_grouped = 28
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                      Tulane University {c |}{res}         11      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         11      100.00
+
+{txt}{hline}
+-> gi_grouped = 29
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+               Florida State University {c |}{res}         19      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         19      100.00
+
+{txt}{hline}
+-> gi_grouped = 30
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                University of Wisconsin {c |}{res}         36      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         36      100.00
+
+{txt}{hline}
+-> gi_grouped = 31
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+           University of North Carolina {c |}{res}         44      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         44      100.00
+
+{txt}{hline}
+-> gi_grouped = 32
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  University of Georgia {c |}{res}         19      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         19      100.00
+
+{txt}{hline}
+-> gi_grouped = 33
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                           Alma College {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 34
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+          Claremont Graduate University {c |}{res}        117      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}        117      100.00
+
+{txt}{hline}
+-> gi_grouped = 35
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  University of Florida {c |}{res}         19      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         19      100.00
+
+{txt}{hline}
+-> gi_grouped = 36
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                 University of Colorado {c |}{res}         11      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         11      100.00
+
+{txt}{hline}
+-> gi_grouped = 37
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                Northwestern University {c |}{res}         43      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         43      100.00
+
+{txt}{hline}
+-> gi_grouped = 38
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                    Columbia University {c |}{res}         65      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         65      100.00
+
+{txt}{hline}
+-> gi_grouped = 39
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                   Princeton University {c |}{res}         42      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         42      100.00
+
+{txt}{hline}
+-> gi_grouped = 40
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+              Michigan State University {c |}{res}         81      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         81      100.00
+
+{txt}{hline}
+-> gi_grouped = 41
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+Virginia Polytechnic Institute & Stat.. {c |}{res}         44      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         44      100.00
+
+{txt}{hline}
+-> gi_grouped = 42
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  Vanderbilt University {c |}{res}         50      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         50      100.00
+
+{txt}{hline}
+-> gi_grouped = 43
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                University of Rochester {c |}{res}         43      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         43      100.00
+
+{txt}{hline}
+-> gi_grouped = 44
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                      Purdue University {c |}{res}         12      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         12      100.00
+
+{txt}{hline}
+-> gi_grouped = 45
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                 University of Oklahoma {c |}{res}          8      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          8      100.00
+
+{txt}{hline}
+-> gi_grouped = 46
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                     Indiana University {c |}{res}         47      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         47      100.00
+
+{txt}{hline}
+-> gi_grouped = 47
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+            University of Massachusetts {c |}{res}          6      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          6      100.00
+
+{txt}{hline}
+-> gi_grouped = 48
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                     Fordham University {c |}{res}         49      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         49      100.00
+
+{txt}{hline}
+-> gi_grouped = 49
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                     Clemson University {c |}{res}         15      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         15      100.00
+
+{txt}{hline}
+-> gi_grouped = 50
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                University of Minnesota {c |}{res}         23      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         23      100.00
+
+{txt}{hline}
+-> gi_grouped = 51
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+             Louisiana State University {c |}{res}         43      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         43      100.00
+
+{txt}{hline}
+-> gi_grouped = 52
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+           Northern Illinois University {c |}{res}         37      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         37      100.00
+
+{txt}{hline}
+-> gi_grouped = 53
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                       Clark University {c |}{res}          6      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          6      100.00
+
+{txt}{hline}
+-> gi_grouped = 54
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                   University of Oxford {c |}{res}          7      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          7      100.00
+
+{txt}{hline}
+-> gi_grouped = 55
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  Pepperdine University {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 56
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+Graduate Institute of International S.. {c |}{res}          2      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          2      100.00
+
+{txt}{hline}
+-> gi_grouped = 57
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+          Pennsylvania State University {c |}{res}          2      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          2      100.00
+
+{txt}{hline}
+-> gi_grouped = 58
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                       Emory University {c |}{res}         17      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         17      100.00
+
+{txt}{hline}
+-> gi_grouped = 59
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                George Mason University {c |}{res}         47      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         47      100.00
+
+{txt}{hline}
+-> gi_grouped = 60
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                 University of Maryland {c |}{res}         26      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         26      100.00
+
+{txt}{hline}
+-> gi_grouped = 61
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                     University of Iowa {c |}{res}          7      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          7      100.00
+
+{txt}{hline}
+-> gi_grouped = 62
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+             University of the Americas {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 63
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+         Bowling Green State University {c |}{res}         31      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         31      100.00
+
+{txt}{hline}
+-> gi_grouped = 64
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                   University of Kansas {c |}{res}          2      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          2      100.00
+
+{txt}{hline}
+-> gi_grouped = 65
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                 University of Arkansas {c |}{res}         13      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         13      100.00
+
+{txt}{hline}
+-> gi_grouped = 66
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                        Yale University {c |}{res}         61      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         61      100.00
+
+{txt}{hline}
+-> gi_grouped = 67
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                        Rice University {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 68
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                 University of Illinois {c |}{res}         32      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         32      100.00
+
+{txt}{hline}
+-> gi_grouped = 69
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  University of Arizona {c |}{res}         23      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         23      100.00
+
+{txt}{hline}
+-> gi_grouped = 70
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  Ohio State University {c |}{res}         11      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         11      100.00
+
+{txt}{hline}
+-> gi_grouped = 71
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+              Claremont McKenna College {c |}{res}          7      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          7      100.00
+
+{txt}{hline}
+-> gi_grouped = 72
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+        Louisiana Polytechnic Institute {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 73
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                   University of Denver {c |}{res}          7      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          7      100.00
+
+{txt}{hline}
+-> gi_grouped = 74
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+           University of South Carolina {c |}{res}         32      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         32      100.00
+
+{txt}{hline}
+-> gi_grouped = 75
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                     Cornell University {c |}{res}         17      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         17      100.00
+
+{txt}{hline}
+-> gi_grouped = 76
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+           Southern Illinois University {c |}{res}          6      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          6      100.00
+
+{txt}{hline}
+-> gi_grouped = 77
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  University of Leipzig {c |}{res}          2      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          2      100.00
+
+{txt}{hline}
+-> gi_grouped = 78
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+             Carnegie-Mellon University {c |}{res}         26      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         26      100.00
+
+{txt}{hline}
+-> gi_grouped = 79
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                 Saint Antony's College {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 80
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+               Indiana State University {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 81
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  University of Alabama {c |}{res}         15      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         15      100.00
+
+{txt}{hline}
+-> gi_grouped = 82
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                University of Tennessee {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 83
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  University of Houston {c |}{res}         11      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         11      100.00
+
+{txt}{hline}
+-> gi_grouped = 84
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                   University of Berlin {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 85
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+              Missouri State University {c |}{res}         12      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         12      100.00
+
+{txt}{hline}
+-> gi_grouped = 86
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+               University of Pittsburgh {c |}{res}          6      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          6      100.00
+
+{txt}{hline}
+-> gi_grouped = 87
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+              Oklahoma State University {c |}{res}          6      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          6      100.00
+
+{txt}{hline}
+-> gi_grouped = 88
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                    Syracuse University {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 89
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                      Temple University {c |}{res}         15      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         15      100.00
+
+{txt}{hline}
+-> gi_grouped = 90
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+               State University of Iowa {c |}{res}          9      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          9      100.00
+
+{txt}{hline}
+-> gi_grouped = 91
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                        Harding College {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 92
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                      Baylor University {c |}{res}         11      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         11      100.00
+
+{txt}{hline}
+-> gi_grouped = 93
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+              University of St. Andrews {c |}{res}          4      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          4      100.00
+
+{txt}{hline}
+-> gi_grouped = 94
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                      Hebrew University {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 95
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                      Auburn University {c |}{res}          4      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          4      100.00
+
+{txt}{hline}
+-> gi_grouped = 96
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                     Rutgers University {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 97
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                University of Cambridge {c |}{res}          3      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          3      100.00
+
+{txt}{hline}
+-> gi_grouped = 98
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  University of Detroit {c |}{res}          2      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          2      100.00
+
+{txt}{hline}
+-> gi_grouped = 99
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                   Villanova University {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 100
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                      Hillsdale College {c |}{res}          2      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          2      100.00
+
+{txt}{hline}
+-> gi_grouped = 101
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+Kenyon College and Michigan State Uni.. {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 102
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+               Arizona State University {c |}{res}          3      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          3      100.00
+
+{txt}{hline}
+-> gi_grouped = 103
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+  Massachusetts Institute of Technology {c |}{res}          5      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          5      100.00
+
+{txt}{hline}
+-> gi_grouped = 104
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+École des Hautes Etudes en Sciences S.. {c |}{res}          2      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          2      100.00
+
+{txt}{hline}
+-> gi_grouped = 105
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                     University of Bern {c |}{res}          5      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          5      100.00
+
+{txt}{hline}
+-> gi_grouped = 106
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  University of Reading {c |}{res}          3      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          3      100.00
+
+{txt}{hline}
+-> gi_grouped = 107
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                       Miami University {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 108
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                 University of Missouri {c |}{res}          2      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          2      100.00
+
+{txt}{hline}
+-> gi_grouped = 109
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+         Princeton Theological Seminary {c |}{res}          2      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          2      100.00
+
+{txt}{hline}
+-> gi_grouped = 110
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                      McGill University {c |}{res}          7      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          7      100.00
+
+{txt}{hline}
+-> gi_grouped = 111
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+              University of Mississippi {c |}{res}          3      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          3      100.00
+
+{txt}{hline}
+-> gi_grouped = 112
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  Utah State University {c |}{res}          3      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          3      100.00
+
+{txt}{hline}
+-> gi_grouped = 113
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  New School University {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 114
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                 Wayne State University {c |}{res}          4      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          4      100.00
+
+{txt}{hline}
+-> gi_grouped = 115
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                    Duquesne University {c |}{res}          2      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          2      100.00
+
+{txt}{hline}
+-> gi_grouped = 116
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                    Unknown Institution {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 117
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                   University of Munich {c |}{res}          5      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          5      100.00
+
+{txt}{hline}
+-> gi_grouped = 118
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                     Grove City College {c |}{res}          3      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          3      100.00
+
+{txt}{hline}
+-> gi_grouped = 119
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                                History {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 120
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                 University of Kentucky {c |}{res}          7      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          7      100.00
+
+{txt}{hline}
+-> gi_grouped = 121
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+              Colorado State University {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 122
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                    American University {c |}{res}          2      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          2      100.00
+
+{txt}{hline}
+-> gi_grouped = 123
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                       Goethe Institute {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 124
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                University of Edinburgh {c |}{res}          2      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          2      100.00
+
+{txt}{hline}
+-> gi_grouped = 125
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                      Loyola University {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 126
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                 University of Konstanz {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 127
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                 University of New York {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 128
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+Friedhrich-Alexander-Universitat Erla.. {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 129
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                   Saint John's College {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 130
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                      Dartmouth College {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 131
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  University of Toronto {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 132
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  University of Indiana {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 133
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+               Ohio Northern University {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 134
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                   University of Zurich {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 135
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                     Middlebury College {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 136
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+               University of New Mexico {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 137
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+    Trinity Evangelical Divinity School {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 138
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                   University of Oregon {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 139
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                Eastern Montana College {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 140
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                University of Frankfurt {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 141
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                   University of London {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 142
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+          Southern Methodist University {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 143
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                         Asbury College {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 144
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                     Louvain University {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 145
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                       Carleton College {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 146
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                   University of Toledo {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 147
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+               Memphis State University {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 148
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                   Middlesex University {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+{txt}{hline}
+-> gi_grouped = 149
+
+                                   gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                 University of Freiburg {c |}{res}          1      100.00      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}          1      100.00
+
+
+{com}. tab gi_1, sort
+
+                                   {txt}gi_1 {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                  University of Chicago {c |}{res}        351       10.13       10.13
+{txt}                 University of Virginia {c |}{res}        226        6.52       16.66
+{txt}                 University of Michigan {c |}{res}        150        4.33       20.99
+{txt}               University of California {c |}{res}        135        3.90       24.88
+{txt}          Claremont Graduate University {c |}{res}        117        3.38       28.26
+{txt}                     Harvard University {c |}{res}        116        3.35       31.61
+{txt}                   University of Dallas {c |}{res}         99        2.86       34.47
+{txt}                  Georgetown University {c |}{res}         97        2.80       37.27
+{txt}                        Duke University {c |}{res}         94        2.71       39.98
+{txt}                         Boston College {c |}{res}         92        2.66       42.64
+{txt}              Michigan State University {c |}{res}         81        2.34       44.98
+{txt}                       Tufts University {c |}{res}         77        2.22       47.20
+{txt}             University of Pennsylvania {c |}{res}         75        2.17       49.36
+{txt}                    New York University {c |}{res}         73        2.11       51.47
+{txt}                      Boston University {c |}{res}         66        1.91       53.38
+{txt}                    Columbia University {c |}{res}         65        1.88       55.25
+{txt}               University of Notre Dame {c |}{res}         64        1.85       57.10
+{txt}                        Yale University {c |}{res}         61        1.76       58.86
+{txt}                  Vanderbilt University {c |}{res}         50        1.44       60.31
+{txt}                     Fordham University {c |}{res}         49        1.41       61.72
+{txt}                George Mason University {c |}{res}         47        1.36       63.08
+{txt}                     Indiana University {c |}{res}         47        1.36       64.43
+{txt}           University of North Carolina {c |}{res}         44        1.27       65.70
+{txt}Virginia Polytechnic Institute & Stat.. {c |}{res}         44        1.27       66.97
+{txt}             Louisiana State University {c |}{res}         43        1.24       68.22
+{txt}                Northwestern University {c |}{res}         43        1.24       69.46
+{txt}                University of Rochester {c |}{res}         43        1.24       70.70
+{txt}                   Princeton University {c |}{res}         42        1.21       71.91
+{txt}                    University of Texas {c |}{res}         41        1.18       73.09
+{txt}                    Stanford University {c |}{res}         39        1.13       74.22
+{txt}           Northern Illinois University {c |}{res}         37        1.07       75.29
+{txt}                University of Wisconsin {c |}{res}         36        1.04       76.33
+{txt}      University of Southern California {c |}{res}         35        1.01       77.34
+{txt}               Johns Hopkins University {c |}{res}         34        0.98       78.32
+{txt}               University of Washington {c |}{res}         33        0.95       79.27
+{txt}                 University of Illinois {c |}{res}         32        0.92       80.20
+{txt}           University of South Carolina {c |}{res}         32        0.92       81.12
+{txt}         Bowling Green State University {c |}{res}         31        0.89       82.02
+{txt}             Carnegie-Mellon University {c |}{res}         26        0.75       82.77
+{txt}                 University of Maryland {c |}{res}         26        0.75       83.52
+{txt}         Catholic University of America {c |}{res}         23        0.66       84.18
+{txt}                  University of Arizona {c |}{res}         23        0.66       84.84
+{txt}                University of Minnesota {c |}{res}         23        0.66       85.51
+{txt}               Florida State University {c |}{res}         19        0.55       86.06
+{txt}                  University of Florida {c |}{res}         19        0.55       86.61
+{txt}                  University of Georgia {c |}{res}         19        0.55       87.15
+{txt}                  Washington University {c |}{res}         18        0.52       87.67
+{txt}                     Cornell University {c |}{res}         17        0.49       88.16
+{txt}                       Emory University {c |}{res}         17        0.49       88.65
+{txt}                     Clemson University {c |}{res}         15        0.43       89.09
+{txt}                      Temple University {c |}{res}         15        0.43       89.52
+{txt}                  University of Alabama {c |}{res}         15        0.43       89.95
+{txt}                       Brown University {c |}{res}         14        0.40       90.36
+{txt}           George Washington University {c |}{res}         14        0.40       90.76
+{txt}                 University of Arkansas {c |}{res}         13        0.38       91.14
+{txt}              Missouri State University {c |}{res}         12        0.35       91.48
+{txt}                      Purdue University {c |}{res}         12        0.35       91.83
+{txt}                      Baylor University {c |}{res}         11        0.32       92.15
+{txt}                  Ohio State University {c |}{res}         11        0.32       92.47
+{txt}                   Texas A&M University {c |}{res}         11        0.32       92.78
+{txt}                      Tulane University {c |}{res}         11        0.32       93.10
+{txt}                 University of Colorado {c |}{res}         11        0.32       93.42
+{txt}                  University of Houston {c |}{res}         11        0.32       93.74
+{txt}               State University of Iowa {c |}{res}          9        0.26       94.00
+{txt}                 University of Oklahoma {c |}{res}          8        0.23       94.23
+{txt}              Claremont McKenna College {c |}{res}          7        0.20       94.43
+{txt}                      McGill University {c |}{res}          7        0.20       94.63
+{txt}                   University of Denver {c |}{res}          7        0.20       94.83
+{txt}                     University of Iowa {c |}{res}          7        0.20       95.03
+{txt}                 University of Kentucky {c |}{res}          7        0.20       95.24
+{txt}                   University of Oxford {c |}{res}          7        0.20       95.44
+{txt}                       Clark University {c |}{res}          6        0.17       95.61
+{txt}              Oklahoma State University {c |}{res}          6        0.17       95.79
+{txt}           Southern Illinois University {c |}{res}          6        0.17       95.96
+{txt}                  University of Cologne {c |}{res}          6        0.17       96.13
+{txt}            University of Massachusetts {c |}{res}          6        0.17       96.30
+{txt}               University of Pittsburgh {c |}{res}          6        0.17       96.48
+{txt}             London School of Economics {c |}{res}          5        0.14       96.62
+{txt}  Massachusetts Institute of Technology {c |}{res}          5        0.14       96.77
+{txt}                     University of Bern {c |}{res}          5        0.14       96.91
+{txt}                   University of Munich {c |}{res}          5        0.14       97.06
+{txt}                      Auburn University {c |}{res}          4        0.12       97.17
+{txt}              University of St. Andrews {c |}{res}          4        0.12       97.29
+{txt}                 Wayne State University {c |}{res}          4        0.12       97.40
+{txt}               Arizona State University {c |}{res}          3        0.09       97.49
+{txt}                     Grove City College {c |}{res}          3        0.09       97.58
+{txt}                University of Cambridge {c |}{res}          3        0.09       97.66
+{txt}              University of Mississippi {c |}{res}          3        0.09       97.75
+{txt}                  University of Reading {c |}{res}          3        0.09       97.83
+{txt}                  Utah State University {c |}{res}          3        0.09       97.92
+{txt}                    American University {c |}{res}          2        0.06       97.98
+{txt}                    Duquesne University {c |}{res}          2        0.06       98.04
+{txt}Graduate Institute of International S.. {c |}{res}          2        0.06       98.09
+{txt}                      Hillsdale College {c |}{res}          2        0.06       98.15
+{txt}          Pennsylvania State University {c |}{res}          2        0.06       98.21
+{txt}         Princeton Theological Seminary {c |}{res}          2        0.06       98.27
+{txt}                  University of Detroit {c |}{res}          2        0.06       98.33
+{txt}                University of Edinburgh {c |}{res}          2        0.06       98.38
+{txt}                     University of Hull {c |}{res}          2        0.06       98.44
+{txt}                   University of Kansas {c |}{res}          2        0.06       98.50
+{txt}                  University of Leipzig {c |}{res}          2        0.06       98.56
+{txt}                 University of Missouri {c |}{res}          2        0.06       98.61
+{txt}École des Hautes Etudes en Sciences S.. {c |}{res}          2        0.06       98.67
+{txt}                           Alma College {c |}{res}          1        0.03       98.70
+{txt}                         Asbury College {c |}{res}          1        0.03       98.73
+{txt}                       Carleton College {c |}{res}          1        0.03       98.76
+{txt}              Colorado State University {c |}{res}          1        0.03       98.79
+{txt}                      Dartmouth College {c |}{res}          1        0.03       98.82
+{txt}                Eastern Montana College {c |}{res}          1        0.03       98.85
+{txt}Friedhrich-Alexander-Universitat Erla.. {c |}{res}          1        0.03       98.87
+{txt}                       Goethe Institute {c |}{res}          1        0.03       98.90
+{txt}                        Harding College {c |}{res}          1        0.03       98.93
+{txt}                      Hebrew University {c |}{res}          1        0.03       98.96
+{txt}                                History {c |}{res}          1        0.03       98.99
+{txt}               Indiana State University {c |}{res}          1        0.03       99.02
+{txt}Kenyon College and Michigan State Uni.. {c |}{res}          1        0.03       99.05
+{txt}        Louisiana Polytechnic Institute {c |}{res}          1        0.03       99.08
+{txt}                     Louvain University {c |}{res}          1        0.03       99.11
+{txt}                      Loyola University {c |}{res}          1        0.03       99.13
+{txt}               Memphis State University {c |}{res}          1        0.03       99.16
+{txt}                       Miami University {c |}{res}          1        0.03       99.19
+{txt}                     Middlebury College {c |}{res}          1        0.03       99.22
+{txt}                   Middlesex University {c |}{res}          1        0.03       99.25
+{txt}                  New School University {c |}{res}          1        0.03       99.28
+{txt}               Ohio Northern University {c |}{res}          1        0.03       99.31
+{txt}                  Pepperdine University {c |}{res}          1        0.03       99.34
+{txt}                        Rice University {c |}{res}          1        0.03       99.36
+{txt}                     Rutgers University {c |}{res}          1        0.03       99.39
+{txt}                 Saint Antony's College {c |}{res}          1        0.03       99.42
+{txt}                   Saint John's College {c |}{res}          1        0.03       99.45
+{txt}          Southern Methodist University {c |}{res}          1        0.03       99.48
+{txt}                    Syracuse University {c |}{res}          1        0.03       99.51
+{txt}    Trinity Evangelical Divinity School {c |}{res}          1        0.03       99.54
+{txt}                   University of Berlin {c |}{res}          1        0.03       99.57
+{txt}                University of Frankfurt {c |}{res}          1        0.03       99.60
+{txt}                 University of Freiburg {c |}{res}          1        0.03       99.62
+{txt}                  University of Indiana {c |}{res}          1        0.03       99.65
+{txt}                 University of Konstanz {c |}{res}          1        0.03       99.68
+{txt}                   University of London {c |}{res}          1        0.03       99.71
+{txt}               University of New Mexico {c |}{res}          1        0.03       99.74
+{txt}                 University of New York {c |}{res}          1        0.03       99.77
+{txt}                   University of Oregon {c |}{res}          1        0.03       99.80
+{txt}                University of Tennessee {c |}{res}          1        0.03       99.83
+{txt}                   University of Toledo {c |}{res}          1        0.03       99.86
+{txt}                  University of Toronto {c |}{res}          1        0.03       99.88
+{txt}                   University of Zurich {c |}{res}          1        0.03       99.91
+{txt}             University of the Americas {c |}{res}          1        0.03       99.94
+{txt}                    Unknown Institution {c |}{res}          1        0.03       99.97
+{txt}                   Villanova University {c |}{res}          1        0.03      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}      3,464      100.00
+
+{com}. br if regexm(gi_1, "History")==1
+
+. 
