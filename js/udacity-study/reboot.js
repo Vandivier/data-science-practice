@@ -7,6 +7,9 @@
 //      valid data includes not a private profile
 // TODO: add other data to cache such as genderized name
 // TODO: get more data like linkedIn stuff
+// ref: https://www.quora.com/How-do-setup-IP-rotation-for-my-web-crawler
+// ref: https://scrapinghub.com/crawlera
+// ref: http://www.engrjpmunoz.com/5-tools-everyone-in-the-data-scraper-industry-should-be-using/
 
 'use strict'
 
@@ -18,7 +21,7 @@ const fs = require('fs');
 //const genderize = require('genderize'); // todo: use genderize
 const reorder = require('csv-reorder');
 //const split = require('split');
-const proxyFromCache = require('./proxyFromCache.js')
+//const proxyFromCache = require('./proxyFromCache.js')
 const puppeteer = require('puppeteer');
 const util = require('util');
 const utils = require('ella-utils');
@@ -76,7 +79,7 @@ async function main() {
     let arrsInputRows;
 
     fsRecordToCsvLine(oTitleLine);
-    //await utils.fpWait(5000); // only needed to give debugger time to attach
+    await utils.fpWait(5000); // only needed to give debugger time to attach
     sInputCsv = await fpReadFile(sInputFilePath, 'utf8');
     arrsInputRows = sInputCsv.split(EOL).filter(sLine => sLine); // drop title line and empty trailing lines
 
@@ -96,39 +99,42 @@ async function main() {
     browser = await puppeteer.launch();
 
     // array pattern, doesn't work for streams
-    // TODO await utils.forEachReverseAsyncPhased(arrsInputRows, fpHandleData) ?
     await utils.forEachReverseAsyncPhased(arrsInputRows, async function(_sInputRecord, i) {
-        return fpHandleData({
-            'sInputRecord': _sInputRecord
-        });
+        const arrsCells = _sInputRecord.split(',');
+        const oRecordFromSource = { // oRecords can be from source or generated; these are all from source
+            sFirstName: arrsCells[0],
+            sLastName: arrsCells[1],
+            iModifiedIncrement: 0
+        };
+
+        return fpHandleData(oRecordFromSource);
     });
 
     fpEndProgram();
 }
 
-async function fpHandleData(oRecord) {
-    const arrsCells = oRecord.sInputRecord.split(',');
-    let oModifiedRecord;
-
-    if (oRecord.iModifiedIncrement === undefined) { // called normally from main(), forEachReverseAsyncPhased 
-        oRecord.sFirstName = arrsCells[0];
-        oRecord.sLastName = arrsCells[1];
-        oRecord.iModifiedIncrement = 0;
-    } else {
-        // fpHandleData called recursively
-        // increment username and try again; udacity business rule
-        // TODO: not just first name, but try firstlast and maybe last too
-        oRecord.iModifiedIncrement += 1;
-    }
+// to limit reference errors, only these things should ever be passed in through oMinimalRecord:
+// first name, last name, modified increment
+// increment username to generate a new guessed username and try again until verified failure; udacity username business rule
+// TODO: not just first name, but try firstlast and maybe last too
+async function fpHandleData(oMinimalRecord) {
+    const oRecord = JSON.parse(JSON.stringify(oMinimalRecord)); // dereference for safety, shouldn't be needed tho
+    let _oScrapeResult;
 
     oRecord.sId = oRecord.sFirstName
-        + (oRecord.iModifiedIncrement || '');
+        + (oRecord.iModifiedIncrement || ''); // '0' shouldn't appear
 
     oRecord.sUrl = sRootUrl
         + oRecord.sId;
 
-    oRecord = await fpScrapeInputRecord(oRecord);
-    if (oRecord.bUserExists) await fpHandleData(oRecord); // deceptively simple, dangerously recursive
+    _oScrapeResult = await fpScrapeInputRecord(oRecord);
+    if (_oScrapeResult.bUserExists) { // deceptively simple, dangerously recursive
+        await fpHandleData({
+            sFirstName: _oScrapeResult.sFirstName,
+            sLastName: _oScrapeResult.sLastName,
+            iModifiedIncrement: (_oScrapeResult.iModifiedIncrement + 1)
+        });
+    }
 
     iCurrentInputRecord++;
     console.log('scraped input record #: ' +
@@ -175,16 +181,19 @@ async function fpWriteCache() {
 // not generalizable or temporally reliable in case of a site refactor
 async function fpScrapeInputRecord(oRecord) {
     const _page = await browser.newPage();
-    let oScrapeResult;
     let oCachedResult = oCache.people[oRecord.sId];
+    let oMergedRecord;
+    let oScrapeResult;
+
+    debugger
 
     if (oCachedResult
         && (oCachedResult.bProfileIsPrivate
-            || !oCachedResult.bTooManyRequestsError)) {
-        return Promise.resolve(oCachedResult);
-    }
-
-    if (oRecord.bUserExists !== false) { // yes, an exact check is needed.
+            || !oCachedResult.bTooManyRequestsError)
+        && oCachedResult.bUserExists !== undefined)
+    {
+        oScrapeResult = JSON.parse(JSON.stringify(oCachedResult));
+    } else if (oRecord.bUserExists !== false) { // yes, an exact check is needed.
         await _page.goto(oRecord.sUrl, {
             'timeout': 0
         });
@@ -198,7 +207,8 @@ async function fpScrapeInputRecord(oRecord) {
             document.getElementsByTagName('head')[0].appendChild(script); // inject jQuery
             console.log('scraping: ' + window.location.href);
 
-            return _fpWait(3000)
+            // toast message will disappear if you wait too long
+            return _fpWait(1000)
                 .then(function () {
                     let arr$Affiliations = $('#affiliation-body a[name=subaffil]');
                     let sarrAffiliations = '';
@@ -210,8 +220,8 @@ async function fpScrapeInputRecord(oRecord) {
                         'sLinkedInUrl': $('a[title="LINKEDIN"]').attr('href'),
                         'sResumeUrl': $('a[title="Resume"]').attr('href'),
                         'bUserExists': $('[class*=profile-container]').length > 0,
-                        'bProfileIsPrivate': $('[class*="toast--message"]').html().trim() === 'Profile is private',
-                        'bTooManyRequestsError': $('[class*="toast--message"]').html().trim() === 'Too many requests',
+                        'bProfileIsPrivate': $('[class*="toast--message"]').html() === 'Profile is private',
+                        'bTooManyRequestsError': _fsSafeTrim($('[class*="toast--message"]').html()) === 'Too many requests',
                         'bOtherError': false,
                         'bPresentlyEmployed': $('div[class*="works--section"] div[class*="_work--work"] span[class*="_work--present"]').length > 0,
                         'sProfileLastUpdate': $('div[class*="profile--updated"]').text().split(': ')[1],
@@ -219,7 +229,8 @@ async function fpScrapeInputRecord(oRecord) {
                     };
 
                     arr$Affiliations && arr$Affiliations.each(function (arr, el) {
-                        _oResult.sarrAffiliations += ('~' + el.innerText.replace(/\s/g, ' ').trim());
+                        let sTrimmed = _fsSafeTrim(el.innerText.replace(/\s/g, ' '));
+                        _oResult.sarrAffiliations += ('~' + sTrimmed);
                     });
 
                     return Promise.resolve(_oResult);
@@ -232,9 +243,13 @@ async function fpScrapeInputRecord(oRecord) {
             // larger time allows for slow site response
             // some times of day when it's responding fast u can get away
             // with smaller ms; suggested default of 12.5s
-            function _fpWait(ms) {
+            function _fpWait (ms) {
                 ms = ms || 10000;
                 return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
+            function _fsSafeTrim (s) {
+                return s && s.replace(/[,"]/g, '').trim();
             }
         })
         .catch(function (error) {
@@ -254,16 +269,21 @@ async function fpScrapeInputRecord(oRecord) {
         });
 
         await _page.close();
-        oRecord = Object.assign(oRecord, oScrapeResult);
     }
 
-    oCache.people[oRecord.sId] = oRecord;
-    fsRecordToCsvLine(oRecord);
-    return Promise.resolve(oRecord);
+    oMergedRecord = Object.assign(oRecord, oScrapeResult);
+    oCache.people[oRecord.sId] = JSON.parse(JSON.stringify(oMergedRecord));
+    fsRecordToCsvLine(oMergedRecord);
+    return Promise.resolve(JSON.parse(JSON.stringify(oRecord))); // return prior to merging to minimize invalid data passed on
 
     function _fCleanLog(ConsoleMessage) {
         if (ConsoleMessage.type() === 'log') {
             console.log(ConsoleMessage.text() + EOL);
+        }
+        if (ConsoleMessage.type() === 'error'
+            || ConsoleMessage.text().includes('fpScrapeInputRecord err'))
+        {
+            console.log(ConsoleMessage);
         }
     }
 }
