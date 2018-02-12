@@ -129,7 +129,7 @@ function fParseTxt() {
     rsReadStream
         .pipe(split(regexDelimiter))
         .on('data', fpHandleData)
-        .on('close', fNotifyEndProgram);
+        .on('close', fpNotifyEndProgram);
 }
 
 async function fpHandleData(sParsedBlock) {
@@ -187,8 +187,12 @@ function fsRecordToCsvLine(oRecord) {
     utils.fsRecordToCsvLine(oRecord, arrTableColumnKeys, wsWriteStream);
 }
 
-function fNotifyEndProgram() {
-    let sBeautifiedData = JSON.stringify(oFirstNameCache);
+async function fpNotifyEndProgram() {
+    let sBeautifiedData;
+
+    await utils.fpWait(10000); // allow ongoing processes to hopefully complete; not guaranteed
+
+    sBeautifiedData = JSON.stringify(oFirstNameCache);
     sBeautifiedData = beautify(sBeautifiedData, { indent_size: 4 });
 
     fs.writeFile(sFirstNameCacheFile, sBeautifiedData, 'utf8', (err) => {
