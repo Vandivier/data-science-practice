@@ -151,7 +151,7 @@ replace fundingyear=regexr(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]","")
 replace fundingyear=subinstr(fundingyear, ",,",",",10)
 *replace fundingyear=subinstr(fundingyear, ",","",1) if regexm(fundingyear, "^,")==1
 replace fundingyear=subinstr(fundingyear, ",","",1) if regexm(fundingyear, ",$")==1
-***DONE?
+***CONTINUE FROM HERE WITH DIVIDING YEARS INTO HALFYEARS
 
 replace abnormaltimeperiod=abnormaltimeperiod + "," + regexs(0) if regexm(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]")==1
 replace abnormaltimeperiod=abnormaltimeperiod + "," + regexs(0) if regexm(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]")==1
