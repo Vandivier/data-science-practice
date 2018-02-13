@@ -43392,4 +43392,1198 @@ end of do-file
 {com}. 
 {txt}end of do-file
 
+{com}. br fundingyear
+
+. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace fundingyear=subinstr(fundingyear,",","H1,",10)
+{txt}fundingyear was {res}str55{txt} now {res}str57
+{txt}(821 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace fundingyear=subinstr(fundingyear,"-","H2,",10)
+{txt}fundingyear was {res}str57{txt} now {res}str67
+{txt}(3271 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. br if regexm(fundingyear, "")==1
+
+. br if regexm(fundingyear, "")==0
+
+. br if regexm(fundingyear, "[0-9]")==0
+
+. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace fundingyear=fundingyear + "H1" if regexm(fundingyear, "[0-9]")==1
+{txt}fundingyear was {res}str67{txt} now {res}str69
+{txt}(3271 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. br
+
+. tab abnormaltimeperiod
+
+                     {txt}abnormaltimeperiod {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                   Summer and Fall 1953 {c |}{res}          1        6.25        6.25
+{txt}                   Summer and Fall 1959 {c |}{res}          1        6.25       12.50
+{txt}                   Summer and Fall 1963 {c |}{res}          1        6.25       18.75
+{txt}                   Summer and Fall 1965 {c |}{res}          2       12.50       31.25
+{txt}                   Summer and Fall 1967 {c |}{res}          2       12.50       43.75
+{txt}                   Summer and Fall 1968 {c |}{res}          1        6.25       50.00
+{txt}                   Summer and Fall 1969 {c |}{res}          1        6.25       56.25
+{txt}                   Summer and Fall 1970 {c |}{res}          1        6.25       62.50
+{txt}                   Summer and Fall 1975 {c |}{res}          1        6.25       68.75
+{txt}                   Summer and Fall 1976 {c |}{res}          1        6.25       75.00
+{txt}Summer and Fall 1976,Summer and Fall .. {c |}{res}          1        6.25       81.25
+{txt}                   Summer and Fall 1981 {c |}{res}          1        6.25       87.50
+{txt}                   Summer and Fall 1984 {c |}{res}          1        6.25       93.75
+{txt}                   Summer and Fall 1993 {c |}{res}          1        6.25      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         16      100.00
+
+{com}. tab abnormaltimeperiod, sort
+
+                     {txt}abnormaltimeperiod {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                   Summer and Fall 1965 {c |}{res}          2       12.50       12.50
+{txt}                   Summer and Fall 1967 {c |}{res}          2       12.50       25.00
+{txt}                   Summer and Fall 1953 {c |}{res}          1        6.25       31.25
+{txt}                   Summer and Fall 1959 {c |}{res}          1        6.25       37.50
+{txt}                   Summer and Fall 1963 {c |}{res}          1        6.25       43.75
+{txt}                   Summer and Fall 1968 {c |}{res}          1        6.25       50.00
+{txt}                   Summer and Fall 1969 {c |}{res}          1        6.25       56.25
+{txt}                   Summer and Fall 1970 {c |}{res}          1        6.25       62.50
+{txt}                   Summer and Fall 1975 {c |}{res}          1        6.25       68.75
+{txt}                   Summer and Fall 1976 {c |}{res}          1        6.25       75.00
+{txt}Summer and Fall 1976,Summer and Fall .. {c |}{res}          1        6.25       81.25
+{txt}                   Summer and Fall 1981 {c |}{res}          1        6.25       87.50
+{txt}                   Summer and Fall 1984 {c |}{res}          1        6.25       93.75
+{txt}                   Summer and Fall 1993 {c |}{res}          1        6.25      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}         16      100.00
+
+{com}. tab oddsem, sort
+
+                 {txt}oddsem {c |}      Freq.     Percent        Cum.
+{hline 24}{c +}{hline 35}
+            Spring 1968 {c |}{res}          9       10.47       10.47
+{txt}            Spring 1967 {c |}{res}          7        8.14       18.60
+{txt}            Spring 2002 {c |}{res}          5        5.81       24.42
+{txt}            Spring 1965 {c |}{res}          4        4.65       29.07
+{txt}            Spring 1969 {c |}{res}          4        4.65       33.72
+{txt}            Spring 2005 {c |}{res}          4        4.65       38.37
+{txt}            Spring 2008 {c |}{res}          4        4.65       43.02
+{txt}            Spring 1958 {c |}{res}          3        3.49       46.51
+{txt}            Spring 1962 {c |}{res}          3        3.49       50.00
+{txt}            Spring 1964 {c |}{res}          3        3.49       53.49
+{txt}            Spring 1973 {c |}{res}          3        3.49       56.98
+{txt}            Spring 1983 {c |}{res}          3        3.49       60.47
+{txt}            Spring 1960 {c |}{res}          2        2.33       62.79
+{txt}            Spring 1972 {c |}{res}          2        2.33       65.12
+{txt}            Spring 1981 {c |}{res}          2        2.33       67.44
+{txt}            Spring 1985 {c |}{res}          2        2.33       69.77
+{txt}            Spring 1987 {c |}{res}          2        2.33       72.09
+{txt}            Spring 1988 {c |}{res}          2        2.33       74.42
+{txt}            Spring 1989 {c |}{res}          2        2.33       76.74
+{txt}            Spring 1993 {c |}{res}          2        2.33       79.07
+{txt}            Spring 2001 {c |}{res}          2        2.33       81.40
+{txt}            Spring 2004 {c |}{res}          2        2.33       83.72
+{txt}            Spring 2011 {c |}{res}          2        2.33       86.05
+{txt}Spring 1957,Spring 1955 {c |}{res}          1        1.16       87.21
+{txt}            Spring 1959 {c |}{res}          1        1.16       88.37
+{txt}            Spring 1963 {c |}{res}          1        1.16       89.53
+{txt}Spring 1969,Spring 1967 {c |}{res}          1        1.16       90.70
+{txt}            Spring 1971 {c |}{res}          1        1.16       91.86
+{txt}            Spring 1974 {c |}{res}          1        1.16       93.02
+{txt}            Spring 1976 {c |}{res}          1        1.16       94.19
+{txt}            Spring 1977 {c |}{res}          1        1.16       95.35
+{txt}            Spring 1980 {c |}{res}          1        1.16       96.51
+{txt}            Spring 1997 {c |}{res}          1        1.16       97.67
+{txt}            Spring 2006 {c |}{res}          1        1.16       98.84
+{txt}            Spring 2015 {c |}{res}          1        1.16      100.00
+{txt}{hline 24}{c +}{hline 35}
+                  Total {c |}{res}         86      100.00
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace oddsem=oddsem + "H1"
+{txt}oddsem was {res}str23{txt} now {res}str25
+{txt}(3464 real changes made)
+
+{com}. replace oddsem=subinstr(oddsem,"Spring ","",5)
+{txt}(86 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. 
+. import delimited "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\ordered-output.csv", clear
+{res}{text}(22 vars, 3464 obs)
+
+{com}. save "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", replace
+{txt}file C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta saved
+
+{com}. 
+. use "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", clear
+{txt}
+{com}. ***Format 
+. format %25s name academicyear graduateinstitution areaofstudy sponsors emailaddress validemailaddress deceased
+{txt}
+{com}. format %15s  recipientgender recipientgenderizedname simplesponsorgender simplesponsorgenderizedname entryid completiondegree mailingaddress emailaddress validemailaddress deceased
+{txt}
+{com}. format %4.0g recipientgenderprobability 
+{txt}
+{com}. drop graduateinstitutioninvalidatedli invalidprefixareaofstudy invalidpostfixareaofstudy
+{txt}
+{com}. 
+. ***Rename Graduateinstitution==gi and fix Graduateinstitution Edgecases: gi_subcampus, gi_country, gi_1/gi_2 , weird gi_1 and gi_2 cases***
+. split graduateinstitution, generate(gi) parse(~) 
+{res}variables created as string: 
+{txt}{col 1}gi1{col 6}gi2
+
+{com}. rename gi1 gi
+{res}{txt}
+{com}. gen gi_country=gi2 if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==1
+{txt}(3393 missing values generated)
+
+{com}. replace gi_country="USA" if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==0
+{txt}(3393 real changes made)
+
+{com}. gen gi_subcampus=gi2 if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==0
+{txt}(3178 missing values generated)
+
+{com}. drop gi2
+{txt}
+{com}. order name gi academicyear, first
+{txt}
+{com}. order graduateinstitution entryid gi, last
+{txt}
+{com}. *gi_1/gi_2*
+. split(gi), gen(gi_) parse(/)
+{res}variables created as string: 
+{txt}{col 1}gi_1{col 7}gi_2
+
+{com}. format gi_1 gi_2 %30s
+{txt}
+{com}. 
+. ***institutions that are the same but have different names/have different names but are the same***
+. replace gi_1="London School of Economics" if regexm(gi_1, "London School of economics")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="École des Hautes Etudes en Sciences Sociales" if regexm(gi_1, "Ecol")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="Claremont Graduate University" if regexm(gi_1, "Claremont Graduate School")==1
+{txt}(96 real changes made)
+
+{com}. replace gi_1="Claremont McKenna College" if regexm(gi_1, "Claremont Men's College")==1
+{txt}(6 real changes made)
+
+{com}. replace gi_1="Georgetown University" if regexm(gi_1, "Georgetown University")==1 
+{txt}(1 real change made)
+
+{com}. replace gi_1="Virginia Polytechnic Institute & State University" if regexm(gi_1, "Virginia Polytechnic Institute")==1
+{txt}(1 real change made)
+
+{com}. replace gi_1="Yale University" if regexm(gi_1, "Yale Divinity School")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="Missouri State University" if regexm(gi_1, "Southwest Missouri State University")==1
+{txt}(10 real changes made)
+
+{com}. replace gi_1="University of Cambridge" if regexm(gi_1, "Cambridge University")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="University of Notre Dame" if regexm(gi_1, "Notre Dame University")==1
+{txt}(3 real changes made)
+
+{com}. replace gi_1="University of St. Andrews" if regexm(gi_1, "St. Andrews University")==1
+{txt}(1 real change made)
+
+{com}. replace gi_1="University of Oxford" if regexm(gi_1, "Oxford University")==1
+{txt}(1 real change made)
+
+{com}. 
+. ***///If we truly care about peer effects maybe undergrad institutions/women's only schools needs to be categorized..?
+. replace gi_1="Harvard University" if regexm(gi_1, "Harvard|Radcliffe")==1 
+{txt}(2 real changes made)
+
+{com}. replace gi_1="Columbia University" if regexm(gi_1, "Columbia College")==1 
+{txt}(1 real change made)
+
+{com}. 
+. ***Edgecases where we should test whether & document that our assumptions don't influence the results: 
+. replace gi_1="Michigan State University" if regexm(gi_1, "Kenyon College and Michigan State University")==1
+{txt}(1 real change made)
+
+{com}. replace gi_2="Kenyon College" if regexm(graduateinstitution, "Kenyon College and Michigan State University")==1
+{txt}(1 real change made)
+
+{com}. replace gi_1="Indiana University" if regexm(gi_1, "University of Indiana")==1
+{txt}(1 real change made)
+
+{com}. *replace gi_1="Princeton University" if regexm(gi_1, "Princeton Theological Seminary")==1 ///Not the same according to one comment... Make sure not influential to results...
+> 
+. ***Stringgroup to see whether typo's exist in gi_1
+. strgroup gi_1, gen(gi_grouped) threshold(.01)
+{res}{it:gi_1} contains duplicate values. Remove them to speed up calculations.
+{txt}
+{com}. 
+. ***Clean/match typo's etc. among sponsors
+. strgroup sponsors, gen(sponsors_grouped) threshold(0.01)
+{res}{it:sponsors} contains duplicate values. Remove them to speed up calculations.
+{txt}
+{com}. codebook sponsors_grouped
+
+{txt}{hline}
+{res}sponsors_grouped{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}type:  numeric ({res}long{txt})
+
+{col 18}range:  [{res}1{txt},{res}373{txt}]{col 55}units:  {res}1
+{col 10}{txt}unique values:  {res}373{col 51}{txt}missing .:  {res}0{txt}/{res}3464
+
+{txt}{col 19}mean:{res}{col 26} 121.752
+{txt}{col 15}std. dev:{res}{col 26}  89.352
+
+{txt}{col 12}percentiles:{col 32}10%{col 42}25%{col 52}50%{col 62}75%{col 72}90%
+{res}{col 27}      17{col 37}      47{col 47}     105{col 57}     181{col 67}     261
+{txt}
+{com}. 
+. ***Clean typos in sponsors, substitute and for & --> by sponsors_grouped: tab sponsors
+. *replace sponsors="" if regexm(sponsors, "")==1
+. replace sponsors="Clifton L. Ganus Jr." if regexm(sponsors, "Clifton L. Gallus")==1
+{txt}(2 real changes made)
+
+{com}. replace sponsors="Christopher Bruell and Robert K. Faulkner" if regexm(sponsors, "Christopher Bruell and Robert K. Faulkners|Christopher Bruen and Robert K. Faulkner")==1
+{txt}(6 real changes made)
+
+{com}. replace sponsors="Edward C. Banfield" if regexm(sponsors, "Edward C. Bonfield")==1
+{txt}(2 real changes made)
+
+{com}. replace sponsors="Murray L. Weidenbaum" if regexm(sponsors, "Murray L. Weidenbaun")==1
+{txt}(1 real change made)
+
+{com}. replace sponsors="Deil S. Wright" if regexm(sponsors, "Dell S. Wright")==1
+{txt}(5 real changes made)
+
+{com}. replace sponsors="Daniel J. Elazar" if regexm(sponsors, "Daniel J. Elvar")==1
+{txt}(1 real change made)
+
+{com}. replace sponsors="E. Maynard Aris" if regexm(sponsors, "E. Maynard Eris")==1
+{txt}(1 real change made)
+
+{com}. replace sponsors="Roland F. Salmonson and James Don Edwards" if regexm(sponsors, "Roland E Salmonson and James Don Edwards")==1
+{txt}(1 real change made)
+
+{com}. replace sponsors="John J. DiIulio Jr." if regexm(sponsors, "John J. D")==1
+{txt}(2 real changes made)
+
+{com}. replace sponsors="G. Ellis Sandoz Jr." if regexm(sponsors, "G. Ellis Sandoz")==1
+{txt}(1 real change made)
+
+{com}. 
+. ***Subinstr inconsistent use of and/&,  
+. replace sponsors=subinstr(sponsors, "&", "and", 5000)
+{txt}(4 real changes made)
+
+{com}. replace sponsors=subinstr(sponsors, "~", ",", 5000)
+{txt}(5 real changes made)
+
+{com}. 
+. ***Academic years; single terms, summer, winter etc. Start with extracting all instances of "and" i.e. "Summer and Fall 2000" - otherwise we will erroneously delete/confuse the terms.. Then replace these with ""
+. rename academicyear fundingyear
+{res}{txt}
+{com}. gen abnormaltimeperiod=""
+{txt}(3464 missing values generated)
+
+{com}. gen abnormaltimeperiod2=""
+{txt}(3464 missing values generated)
+
+{com}. gen abnormaltimeperiod3=""
+{txt}(3464 missing values generated)
+
+{com}. 
+. *summer and fall first, then spring and summer, winter and spring /// 
+> ///Why on earth did I do this 3 times? In theory one fellow could have received funding for summer and fall multiple times and this method only replaces the first instance, so repeat until no real changes are made.
+> 
+. replace abnormaltimeperiod=regexs(0) if regexm(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]")==1
+{txt}abnormaltimeperiod was {res}str1{txt} now {res}str20
+{txt}(16 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]","")
+{txt}(16 real changes made)
+
+{com}. replace abnormaltimeperiod=abnormaltimeperiod + "," + regexs(0) if regexm(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]")==1
+{txt}abnormaltimeperiod was {res}str20{txt} now {res}str41
+{txt}(1 real change made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]","")
+{txt}(1 real change made)
+
+{com}. replace abnormaltimeperiod=abnormaltimeperiod + "," + regexs(0) if regexm(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. 
+. replace abnormaltimeperiod2=regexs(0) if regexm(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]")==1
+{txt}abnormaltimeperiod2 was {res}str1{txt} now {res}str22
+{txt}(16 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]","")
+{txt}(16 real changes made)
+
+{com}. replace abnormaltimeperiod2=abnormaltimeperiod2 + "," + regexs(0) if regexm(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. replace abnormaltimeperiod2=abnormaltimeperiod2 + "," + regexs(0) if regexm(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. 
+. replace abnormaltimeperiod3=regexs(0) if regexm(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]")==1
+{txt}abnormaltimeperiod3 was {res}str1{txt} now {res}str22
+{txt}(1 real change made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]","")
+{txt}(1 real change made)
+
+{com}. replace abnormaltimeperiod3=abnormaltimeperiod3 + "," + regexs(0) if regexm(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. replace abnormaltimeperiod3=abnormaltimeperiod3 + "," + regexs(0) if regexm(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. 
+. sort abnormaltimeperiod
+{txt}
+{com}. ***Note to self - appears like all the "and" observations are dealt with at this point. With "and" terms extracted -- do the same for odd semesters(oddsem) such as "Fall 2000"
+. gen oddsem=""
+{txt}(3464 missing values generated)
+
+{com}. gen oddsem2=""
+{txt}(3464 missing values generated)
+
+{com}. gen oddsem3=""
+{txt}(3464 missing values generated)
+
+{com}. gen oddsem4=""
+{txt}(3464 missing values generated)
+
+{com}. gen oddsem5=""
+{txt}(3464 missing values generated)
+
+{com}. 
+. replace oddsem=regexs(0) if regexm(fundingyear, "Spring [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem was {res}str1{txt} now {res}str11
+{txt}(86 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Spring [0-9][0-9][0-9][0-9]","")
+{txt}(86 real changes made)
+
+{com}. replace oddsem=oddsem + "," + regexs(0) if regexm(fundingyear, "Spring [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem was {res}str11{txt} now {res}str23
+{txt}(2 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Spring [0-9][0-9][0-9][0-9]","")
+{txt}(2 real changes made)
+
+{com}. 
+. replace oddsem2=regexs(0) if regexm(fundingyear, "Fall [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem2 was {res}str1{txt} now {res}str9
+{txt}(64 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Fall [0-9][0-9][0-9][0-9]","")
+{txt}(64 real changes made)
+
+{com}. replace oddsem2=oddsem2 + "," + regexs(0) if regexm(fundingyear, "Fall [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem2 was {res}str9{txt} now {res}str19
+{txt}(2 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Fall [0-9][0-9][0-9][0-9]","")
+{txt}(2 real changes made)
+
+{com}. replace oddsem2=oddsem2 + "," + regexs(0) if regexm(fundingyear, "Fall [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Fall [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. 
+. replace oddsem3=regexs(0) if regexm(fundingyear, "Summer [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem3 was {res}str1{txt} now {res}str11
+{txt}(95 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Summer [0-9][0-9][0-9][0-9]","")
+{txt}(95 real changes made)
+
+{com}. replace oddsem3=oddsem3 + "," + regexs(0) if regexm(fundingyear, "Summer [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem3 was {res}str11{txt} now {res}str23
+{txt}(12 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Summer [0-9][0-9][0-9][0-9]","")
+{txt}(12 real changes made)
+
+{com}. replace oddsem3=oddsem3 + "," + regexs(0) if regexm(fundingyear, "Summer [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem3 was {res}str23{txt} now {res}str35
+{txt}(2 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Summer [0-9][0-9][0-9][0-9]","")
+{txt}(2 real changes made)
+
+{com}. replace oddsem3=oddsem3 + "," + regexs(0) if regexm(fundingyear, "Summer [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Summer [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. 
+. replace oddsem4=regexs(0) if regexm(fundingyear, "Winter [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem4 was {res}str1{txt} now {res}str11
+{txt}(5 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Winter [0-9][0-9][0-9][0-9]","")
+{txt}(5 real changes made)
+
+{com}. replace oddsem4=oddsem4 + "," + regexs(0) if regexm(fundingyear, "Winter [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Winter [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. 
+. replace oddsem5=regexs(0) if regexm(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem5 was {res}str1{txt} now {res}str18
+{txt}(22 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]","")
+{txt}(22 real changes made)
+
+{com}. replace oddsem5=oddsem5 + "," + regexs(0) if regexm(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem5 was {res}str18{txt} now {res}str37
+{txt}(3 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]","")
+{txt}(3 real changes made)
+
+{com}. replace oddsem5=oddsem5 + "," + regexs(0) if regexm(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. 
+. *now remove double commas and commas as first character PS only remove 1 commma from last character comma..!
+. replace fundingyear=subinstr(fundingyear, ",,",",",10)
+{txt}(20 real changes made)
+
+{com}. replace fundingyear=subinstr(fundingyear, ",","",1) if regexm(fundingyear, "^,")==1
+{txt}(84 real changes made)
+
+{com}. replace fundingyear=subinstr(fundingyear, ",","",1) if regexm(fundingyear, ",$")==1
+{txt}(28 real changes made)
+
+{com}. 
+. ***CONTINUE FROM HERE WITH DIVIDING YEARS INTO HALFYEARS
+. replace fundingyear=subinstr(fundingyear,",","H1,",10)
+{txt}fundingyear was {res}str55{txt} now {res}str57
+{txt}(820 real changes made)
+
+{com}. replace fundingyear=subinstr(fundingyear,"-","H2,",10)
+{txt}fundingyear was {res}str57{txt} now {res}str67
+{txt}(3271 real changes made)
+
+{com}. ***Currently no H1 after final year
+. replace fundingyear=fundingyear + "H1" if regexm(fundingyear, "[0-9]")==1
+{txt}fundingyear was {res}str67{txt} now {res}str69
+{txt}(3271 real changes made)
+
+{com}. ***Looks good at this point but I haven't looked super closely - continuing with oddsem and abnormaltimeperiods(which btw was a terrible choice of variablename..)
+. replace oddsem=oddsem + "H1" if regexm(oddsem, "Spring")==1
+{txt}oddsem was {res}str23{txt} now {res}str25
+{txt}(86 real changes made)
+
+{com}. replace oddsem=subinstr(oddsem,"Spring ","",5)
+{txt}(86 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace oddsem=oddsem + "H1" if regexm(oddsem, "Spring")==1
+{txt}(0 real changes made)
+
+{com}. replace oddsem=subinstr(oddsem,"Spring ","",5)
+{txt}(0 real changes made)
+
+{com}. replace oddsem2=oddsem2 + "H2" if regexm(oddsem2, "Fall")==1
+{txt}oddsem2 was {res}str19{txt} now {res}str21
+{txt}(64 real changes made)
+
+{com}. replace oddsem2=subinstr(oddsem2,"Fall ","",5)
+{txt}(64 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. tab oddsem2
+
+              {txt}oddsem2 {c |}      Freq.     Percent        Cum.
+{hline 22}{c +}{hline 35}
+               1963H2 {c |}{res}          1        1.56        1.56
+{txt}               1964H2 {c |}{res}          2        3.13        4.69
+{txt}               1965H2 {c |}{res}          1        1.56        6.25
+{txt}               1966H2 {c |}{res}          1        1.56        7.81
+{txt}               1967H2 {c |}{res}          1        1.56        9.38
+{txt}               1968H2 {c |}{res}          1        1.56       10.94
+{txt}               1970H2 {c |}{res}          1        1.56       12.50
+{txt}               1971H2 {c |}{res}          2        3.13       15.63
+{txt}               1972H2 {c |}{res}          1        1.56       17.19
+{txt}               1974H2 {c |}{res}          4        6.25       23.44
+{txt}               1975H2 {c |}{res}          2        3.13       26.56
+{txt}               1978H2 {c |}{res}          1        1.56       28.13
+{txt}               1979H2 {c |}{res}          1        1.56       29.69
+{txt}               1980H2 {c |}{res}          4        6.25       35.94
+{txt}               1981H2 {c |}{res}          3        4.69       40.63
+{txt}               1982H2 {c |}{res}          1        1.56       42.19
+{txt}               1988H2 {c |}{res}          1        1.56       43.75
+{txt}               1989H2 {c |}{res}          1        1.56       45.31
+{txt}               1991H2 {c |}{res}          1        1.56       46.88
+{txt}               1992H2 {c |}{res}          2        3.13       50.00
+{txt}               1997H2 {c |}{res}          1        1.56       51.56
+{txt}               1998H2 {c |}{res}          2        3.13       54.69
+{txt}               2000H2 {c |}{res}          1        1.56       56.25
+{txt}               2001H2 {c |}{res}          3        4.69       60.94
+{txt}               2002H2 {c |}{res}          5        7.81       68.75
+{txt}          2003,2002H2 {c |}{res}          1        1.56       70.31
+{txt}               2003H2 {c |}{res}          3        4.69       75.00
+{txt}               2004H2 {c |}{res}          5        7.81       82.81
+{txt}          2005,2004H2 {c |}{res}          1        1.56       84.38
+{txt}               2005H2 {c |}{res}          7       10.94       95.31
+{txt}               2006H2 {c |}{res}          2        3.13       98.44
+{txt}               2011H2 {c |}{res}          1        1.56      100.00
+{txt}{hline 22}{c +}{hline 35}
+                Total {c |}{res}         64      100.00
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace oddsem2=subinstr(oddsem2,",","H2,",5)
+{txt}(2 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace oddsem2=subinstr(oddsem2,",","H2,",5)
+{txt}(2 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. tab oddsem2
+
+              {txt}oddsem2 {c |}      Freq.     Percent        Cum.
+{hline 22}{c +}{hline 35}
+               1963H2 {c |}{res}          1        1.56        1.56
+{txt}               1964H2 {c |}{res}          2        3.13        4.69
+{txt}               1965H2 {c |}{res}          1        1.56        6.25
+{txt}               1966H2 {c |}{res}          1        1.56        7.81
+{txt}               1967H2 {c |}{res}          1        1.56        9.38
+{txt}               1968H2 {c |}{res}          1        1.56       10.94
+{txt}               1970H2 {c |}{res}          1        1.56       12.50
+{txt}               1971H2 {c |}{res}          2        3.13       15.63
+{txt}               1972H2 {c |}{res}          1        1.56       17.19
+{txt}               1974H2 {c |}{res}          4        6.25       23.44
+{txt}               1975H2 {c |}{res}          2        3.13       26.56
+{txt}               1978H2 {c |}{res}          1        1.56       28.13
+{txt}               1979H2 {c |}{res}          1        1.56       29.69
+{txt}               1980H2 {c |}{res}          4        6.25       35.94
+{txt}               1981H2 {c |}{res}          3        4.69       40.63
+{txt}               1982H2 {c |}{res}          1        1.56       42.19
+{txt}               1988H2 {c |}{res}          1        1.56       43.75
+{txt}               1989H2 {c |}{res}          1        1.56       45.31
+{txt}               1991H2 {c |}{res}          1        1.56       46.88
+{txt}               1992H2 {c |}{res}          2        3.13       50.00
+{txt}               1997H2 {c |}{res}          1        1.56       51.56
+{txt}               1998H2 {c |}{res}          2        3.13       54.69
+{txt}               2000H2 {c |}{res}          1        1.56       56.25
+{txt}               2001H2 {c |}{res}          3        4.69       60.94
+{txt}               2002H2 {c |}{res}          5        7.81       68.75
+{txt}               2003H2 {c |}{res}          3        4.69       73.44
+{txt}      2003H2H2,2002H2 {c |}{res}          1        1.56       75.00
+{txt}               2004H2 {c |}{res}          5        7.81       82.81
+{txt}               2005H2 {c |}{res}          7       10.94       93.75
+{txt}      2005H2H2,2004H2 {c |}{res}          1        1.56       95.31
+{txt}               2006H2 {c |}{res}          2        3.13       98.44
+{txt}               2011H2 {c |}{res}          1        1.56      100.00
+{txt}{hline 22}{c +}{hline 35}
+                Total {c |}{res}         64      100.00
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. import delimited "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\ordered-output.csv", clear
+{res}{text}(22 vars, 3464 obs)
+
+{com}. save "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", replace
+{txt}file C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta saved
+
+{com}. 
+. use "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", clear
+{txt}
+{com}. ***Format 
+. format %25s name academicyear graduateinstitution areaofstudy sponsors emailaddress validemailaddress deceased
+{txt}
+{com}. format %15s  recipientgender recipientgenderizedname simplesponsorgender simplesponsorgenderizedname entryid completiondegree mailingaddress emailaddress validemailaddress deceased
+{txt}
+{com}. format %4.0g recipientgenderprobability 
+{txt}
+{com}. drop graduateinstitutioninvalidatedli invalidprefixareaofstudy invalidpostfixareaofstudy
+{txt}
+{com}. 
+. ***Rename Graduateinstitution==gi and fix Graduateinstitution Edgecases: gi_subcampus, gi_country, gi_1/gi_2 , weird gi_1 and gi_2 cases***
+. split graduateinstitution, generate(gi) parse(~) 
+{res}variables created as string: 
+{txt}{col 1}gi1{col 6}gi2
+
+{com}. rename gi1 gi
+{res}{txt}
+{com}. gen gi_country=gi2 if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==1
+{txt}(3393 missing values generated)
+
+{com}. replace gi_country="USA" if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==0
+{txt}(3393 real changes made)
+
+{com}. gen gi_subcampus=gi2 if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==0
+{txt}(3178 missing values generated)
+
+{com}. drop gi2
+{txt}
+{com}. order name gi academicyear, first
+{txt}
+{com}. order graduateinstitution entryid gi, last
+{txt}
+{com}. *gi_1/gi_2*
+. split(gi), gen(gi_) parse(/)
+{res}variables created as string: 
+{txt}{col 1}gi_1{col 7}gi_2
+
+{com}. format gi_1 gi_2 %30s
+{txt}
+{com}. 
+. ***institutions that are the same but have different names/have different names but are the same***
+. replace gi_1="London School of Economics" if regexm(gi_1, "London School of economics")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="École des Hautes Etudes en Sciences Sociales" if regexm(gi_1, "Ecol")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="Claremont Graduate University" if regexm(gi_1, "Claremont Graduate School")==1
+{txt}(96 real changes made)
+
+{com}. replace gi_1="Claremont McKenna College" if regexm(gi_1, "Claremont Men's College")==1
+{txt}(6 real changes made)
+
+{com}. replace gi_1="Georgetown University" if regexm(gi_1, "Georgetown University")==1 
+{txt}(1 real change made)
+
+{com}. replace gi_1="Virginia Polytechnic Institute & State University" if regexm(gi_1, "Virginia Polytechnic Institute")==1
+{txt}(1 real change made)
+
+{com}. replace gi_1="Yale University" if regexm(gi_1, "Yale Divinity School")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="Missouri State University" if regexm(gi_1, "Southwest Missouri State University")==1
+{txt}(10 real changes made)
+
+{com}. replace gi_1="University of Cambridge" if regexm(gi_1, "Cambridge University")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="University of Notre Dame" if regexm(gi_1, "Notre Dame University")==1
+{txt}(3 real changes made)
+
+{com}. replace gi_1="University of St. Andrews" if regexm(gi_1, "St. Andrews University")==1
+{txt}(1 real change made)
+
+{com}. replace gi_1="University of Oxford" if regexm(gi_1, "Oxford University")==1
+{txt}(1 real change made)
+
+{com}. 
+. ***///If we truly care about peer effects maybe undergrad institutions/women's only schools needs to be categorized..?
+. replace gi_1="Harvard University" if regexm(gi_1, "Harvard|Radcliffe")==1 
+{txt}(2 real changes made)
+
+{com}. replace gi_1="Columbia University" if regexm(gi_1, "Columbia College")==1 
+{txt}(1 real change made)
+
+{com}. 
+. ***Edgecases where we should test whether & document that our assumptions don't influence the results: 
+. replace gi_1="Michigan State University" if regexm(gi_1, "Kenyon College and Michigan State University")==1
+{txt}(1 real change made)
+
+{com}. replace gi_2="Kenyon College" if regexm(graduateinstitution, "Kenyon College and Michigan State University")==1
+{txt}(1 real change made)
+
+{com}. replace gi_1="Indiana University" if regexm(gi_1, "University of Indiana")==1
+{txt}(1 real change made)
+
+{com}. *replace gi_1="Princeton University" if regexm(gi_1, "Princeton Theological Seminary")==1 ///Not the same according to one comment... Make sure not influential to results...
+> 
+. ***Stringgroup to see whether typo's exist in gi_1
+. strgroup gi_1, gen(gi_grouped) threshold(.01)
+{res}{it:gi_1} contains duplicate values. Remove them to speed up calculations.
+{txt}
+{com}. 
+. ***Clean/match typo's etc. among sponsors
+. strgroup sponsors, gen(sponsors_grouped) threshold(0.01)
+{res}{it:sponsors} contains duplicate values. Remove them to speed up calculations.
+{txt}
+{com}. codebook sponsors_grouped
+
+{txt}{hline}
+{res}sponsors_grouped{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}type:  numeric ({res}long{txt})
+
+{col 18}range:  [{res}1{txt},{res}373{txt}]{col 55}units:  {res}1
+{col 10}{txt}unique values:  {res}373{col 51}{txt}missing .:  {res}0{txt}/{res}3464
+
+{txt}{col 19}mean:{res}{col 26} 121.752
+{txt}{col 15}std. dev:{res}{col 26}  89.352
+
+{txt}{col 12}percentiles:{col 32}10%{col 42}25%{col 52}50%{col 62}75%{col 72}90%
+{res}{col 27}      17{col 37}      47{col 47}     105{col 57}     181{col 67}     261
+{txt}
+{com}. 
+. ***Clean typos in sponsors, substitute and for & --> by sponsors_grouped: tab sponsors
+. *replace sponsors="" if regexm(sponsors, "")==1
+. replace sponsors="Clifton L. Ganus Jr." if regexm(sponsors, "Clifton L. Gallus")==1
+{txt}(2 real changes made)
+
+{com}. replace sponsors="Christopher Bruell and Robert K. Faulkner" if regexm(sponsors, "Christopher Bruell and Robert K. Faulkners|Christopher Bruen and Robert K. Faulkner")==1
+{txt}(6 real changes made)
+
+{com}. replace sponsors="Edward C. Banfield" if regexm(sponsors, "Edward C. Bonfield")==1
+{txt}(2 real changes made)
+
+{com}. replace sponsors="Murray L. Weidenbaum" if regexm(sponsors, "Murray L. Weidenbaun")==1
+{txt}(1 real change made)
+
+{com}. replace sponsors="Deil S. Wright" if regexm(sponsors, "Dell S. Wright")==1
+{txt}(5 real changes made)
+
+{com}. replace sponsors="Daniel J. Elazar" if regexm(sponsors, "Daniel J. Elvar")==1
+{txt}(1 real change made)
+
+{com}. replace sponsors="E. Maynard Aris" if regexm(sponsors, "E. Maynard Eris")==1
+{txt}(1 real change made)
+
+{com}. replace sponsors="Roland F. Salmonson and James Don Edwards" if regexm(sponsors, "Roland E Salmonson and James Don Edwards")==1
+{txt}(1 real change made)
+
+{com}. replace sponsors="John J. DiIulio Jr." if regexm(sponsors, "John J. D")==1
+{txt}(2 real changes made)
+
+{com}. replace sponsors="G. Ellis Sandoz Jr." if regexm(sponsors, "G. Ellis Sandoz")==1
+{txt}(1 real change made)
+
+{com}. 
+. ***Subinstr inconsistent use of and/&,  
+. replace sponsors=subinstr(sponsors, "&", "and", 5000)
+{txt}(4 real changes made)
+
+{com}. replace sponsors=subinstr(sponsors, "~", ",", 5000)
+{txt}(5 real changes made)
+
+{com}. 
+. ***Academic years; single terms, summer, winter etc. Start with extracting all instances of "and" i.e. "Summer and Fall 2000" - otherwise we will erroneously delete/confuse the terms.. Then replace these with ""
+. rename academicyear fundingyear
+{res}{txt}
+{com}. gen abnormaltimeperiod=""
+{txt}(3464 missing values generated)
+
+{com}. gen abnormaltimeperiod2=""
+{txt}(3464 missing values generated)
+
+{com}. gen abnormaltimeperiod3=""
+{txt}(3464 missing values generated)
+
+{com}. 
+. *summer and fall first, then spring and summer, winter and spring /// 
+> ///Why on earth did I do this 3 times? In theory one fellow could have received funding for summer and fall multiple times and this method only replaces the first instance, so repeat until no real changes are made.
+> 
+. replace abnormaltimeperiod=regexs(0) if regexm(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]")==1
+{txt}abnormaltimeperiod was {res}str1{txt} now {res}str20
+{txt}(16 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]","")
+{txt}(16 real changes made)
+
+{com}. replace abnormaltimeperiod=abnormaltimeperiod + "," + regexs(0) if regexm(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]")==1
+{txt}abnormaltimeperiod was {res}str20{txt} now {res}str41
+{txt}(1 real change made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]","")
+{txt}(1 real change made)
+
+{com}. replace abnormaltimeperiod=abnormaltimeperiod + "," + regexs(0) if regexm(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. 
+. replace abnormaltimeperiod2=regexs(0) if regexm(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]")==1
+{txt}abnormaltimeperiod2 was {res}str1{txt} now {res}str22
+{txt}(16 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]","")
+{txt}(16 real changes made)
+
+{com}. replace abnormaltimeperiod2=abnormaltimeperiod2 + "," + regexs(0) if regexm(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. replace abnormaltimeperiod2=abnormaltimeperiod2 + "," + regexs(0) if regexm(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. 
+. replace abnormaltimeperiod3=regexs(0) if regexm(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]")==1
+{txt}abnormaltimeperiod3 was {res}str1{txt} now {res}str22
+{txt}(1 real change made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]","")
+{txt}(1 real change made)
+
+{com}. replace abnormaltimeperiod3=abnormaltimeperiod3 + "," + regexs(0) if regexm(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. replace abnormaltimeperiod3=abnormaltimeperiod3 + "," + regexs(0) if regexm(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. 
+. sort abnormaltimeperiod
+{txt}
+{com}. ***Note to self - appears like all the "and" observations are dealt with at this point. With "and" terms extracted -- do the same for odd semesters(oddsem) such as "Fall 2000"
+. gen oddsem=""
+{txt}(3464 missing values generated)
+
+{com}. gen oddsem2=""
+{txt}(3464 missing values generated)
+
+{com}. gen oddsem3=""
+{txt}(3464 missing values generated)
+
+{com}. gen oddsem4=""
+{txt}(3464 missing values generated)
+
+{com}. gen oddsem5=""
+{txt}(3464 missing values generated)
+
+{com}. 
+. replace oddsem=regexs(0) if regexm(fundingyear, "Spring [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem was {res}str1{txt} now {res}str11
+{txt}(86 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Spring [0-9][0-9][0-9][0-9]","")
+{txt}(86 real changes made)
+
+{com}. replace oddsem=oddsem + "," + regexs(0) if regexm(fundingyear, "Spring [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem was {res}str11{txt} now {res}str23
+{txt}(2 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Spring [0-9][0-9][0-9][0-9]","")
+{txt}(2 real changes made)
+
+{com}. 
+. replace oddsem2=regexs(0) if regexm(fundingyear, "Fall [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem2 was {res}str1{txt} now {res}str9
+{txt}(64 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Fall [0-9][0-9][0-9][0-9]","")
+{txt}(64 real changes made)
+
+{com}. replace oddsem2=oddsem2 + "," + regexs(0) if regexm(fundingyear, "Fall [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem2 was {res}str9{txt} now {res}str19
+{txt}(2 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Fall [0-9][0-9][0-9][0-9]","")
+{txt}(2 real changes made)
+
+{com}. replace oddsem2=oddsem2 + "," + regexs(0) if regexm(fundingyear, "Fall [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Fall [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. 
+. replace oddsem3=regexs(0) if regexm(fundingyear, "Summer [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem3 was {res}str1{txt} now {res}str11
+{txt}(95 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Summer [0-9][0-9][0-9][0-9]","")
+{txt}(95 real changes made)
+
+{com}. replace oddsem3=oddsem3 + "," + regexs(0) if regexm(fundingyear, "Summer [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem3 was {res}str11{txt} now {res}str23
+{txt}(12 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Summer [0-9][0-9][0-9][0-9]","")
+{txt}(12 real changes made)
+
+{com}. replace oddsem3=oddsem3 + "," + regexs(0) if regexm(fundingyear, "Summer [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem3 was {res}str23{txt} now {res}str35
+{txt}(2 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Summer [0-9][0-9][0-9][0-9]","")
+{txt}(2 real changes made)
+
+{com}. replace oddsem3=oddsem3 + "," + regexs(0) if regexm(fundingyear, "Summer [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Summer [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. 
+. replace oddsem4=regexs(0) if regexm(fundingyear, "Winter [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem4 was {res}str1{txt} now {res}str11
+{txt}(5 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Winter [0-9][0-9][0-9][0-9]","")
+{txt}(5 real changes made)
+
+{com}. replace oddsem4=oddsem4 + "," + regexs(0) if regexm(fundingyear, "Winter [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Winter [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. 
+. replace oddsem5=regexs(0) if regexm(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem5 was {res}str1{txt} now {res}str18
+{txt}(22 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]","")
+{txt}(22 real changes made)
+
+{com}. replace oddsem5=oddsem5 + "," + regexs(0) if regexm(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem5 was {res}str18{txt} now {res}str37
+{txt}(3 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]","")
+{txt}(3 real changes made)
+
+{com}. replace oddsem5=oddsem5 + "," + regexs(0) if regexm(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. 
+. *now remove double commas and commas as first character PS only remove 1 commma from last character comma..!
+. replace fundingyear=subinstr(fundingyear, ",,",",",10)
+{txt}(20 real changes made)
+
+{com}. replace fundingyear=subinstr(fundingyear, ",","",1) if regexm(fundingyear, "^,")==1
+{txt}(84 real changes made)
+
+{com}. replace fundingyear=subinstr(fundingyear, ",","",1) if regexm(fundingyear, ",$")==1
+{txt}(28 real changes made)
+
+{com}. 
+. ***CONTINUE FROM HERE WITH DIVIDING YEARS INTO HALFYEARS
+. replace fundingyear=subinstr(fundingyear,",","H1,",10)
+{txt}fundingyear was {res}str55{txt} now {res}str57
+{txt}(820 real changes made)
+
+{com}. replace fundingyear=subinstr(fundingyear,"-","H2,",10)
+{txt}fundingyear was {res}str57{txt} now {res}str67
+{txt}(3271 real changes made)
+
+{com}. ***Currently no H1 after final year
+. replace fundingyear=fundingyear + "H1" if regexm(fundingyear, "[0-9]")==1
+{txt}fundingyear was {res}str67{txt} now {res}str69
+{txt}(3271 real changes made)
+
+{com}. ***Looks good at this point but I haven't looked super closely - continuing with oddsem and abnormaltimeperiods(which btw was a terrible choice of variablename..)
+. replace oddsem=oddsem + "H1" if regexm(oddsem, "Spring")==1
+{txt}oddsem was {res}str23{txt} now {res}str25
+{txt}(86 real changes made)
+
+{com}. replace oddsem=subinstr(oddsem,"Spring ","",5)
+{txt}(86 real changes made)
+
+{com}. replace oddsem2=oddsem2 + "H2" if regexm(oddsem2, "Fall")==1
+{txt}oddsem2 was {res}str19{txt} now {res}str21
+{txt}(64 real changes made)
+
+{com}. replace oddsem2=subinstr(oddsem2,"Fall ","",5)
+{txt}(64 real changes made)
+
+{com}. ***some variables have multiple semesters, add H1/2 before comma
+. replace oddsem2=subinstr(oddsem2,",","H2,",5)
+{txt}(2 real changes made)
+
+{com}. 
+{txt}end of do-file
+
+{com}. tab obsem2
+{err}variable obsem2 not found
+{txt}{search r(111):r(111);}
+
+{com}. tab oddsem2
+
+              {txt}oddsem2 {c |}      Freq.     Percent        Cum.
+{hline 22}{c +}{hline 35}
+               1963H2 {c |}{res}          1        1.56        1.56
+{txt}               1964H2 {c |}{res}          2        3.13        4.69
+{txt}               1965H2 {c |}{res}          1        1.56        6.25
+{txt}               1966H2 {c |}{res}          1        1.56        7.81
+{txt}               1967H2 {c |}{res}          1        1.56        9.38
+{txt}               1968H2 {c |}{res}          1        1.56       10.94
+{txt}               1970H2 {c |}{res}          1        1.56       12.50
+{txt}               1971H2 {c |}{res}          2        3.13       15.63
+{txt}               1972H2 {c |}{res}          1        1.56       17.19
+{txt}               1974H2 {c |}{res}          4        6.25       23.44
+{txt}               1975H2 {c |}{res}          2        3.13       26.56
+{txt}               1978H2 {c |}{res}          1        1.56       28.13
+{txt}               1979H2 {c |}{res}          1        1.56       29.69
+{txt}               1980H2 {c |}{res}          4        6.25       35.94
+{txt}               1981H2 {c |}{res}          3        4.69       40.63
+{txt}               1982H2 {c |}{res}          1        1.56       42.19
+{txt}               1988H2 {c |}{res}          1        1.56       43.75
+{txt}               1989H2 {c |}{res}          1        1.56       45.31
+{txt}               1991H2 {c |}{res}          1        1.56       46.88
+{txt}               1992H2 {c |}{res}          2        3.13       50.00
+{txt}               1997H2 {c |}{res}          1        1.56       51.56
+{txt}               1998H2 {c |}{res}          2        3.13       54.69
+{txt}               2000H2 {c |}{res}          1        1.56       56.25
+{txt}               2001H2 {c |}{res}          3        4.69       60.94
+{txt}               2002H2 {c |}{res}          5        7.81       68.75
+{txt}               2003H2 {c |}{res}          3        4.69       73.44
+{txt}        2003H2,2002H2 {c |}{res}          1        1.56       75.00
+{txt}               2004H2 {c |}{res}          5        7.81       82.81
+{txt}               2005H2 {c |}{res}          7       10.94       93.75
+{txt}        2005H2,2004H2 {c |}{res}          1        1.56       95.31
+{txt}               2006H2 {c |}{res}          2        3.13       98.44
+{txt}               2011H2 {c |}{res}          1        1.56      100.00
+{txt}{hline 22}{c +}{hline 35}
+                Total {c |}{res}         64      100.00
+
+{com}. tab oddsem3
+
+                            {txt}oddsem3 {c |}      Freq.     Percent        Cum.
+{hline 36}{c +}{hline 35}
+                        Summer 1952 {c |}{res}          1        1.05        1.05
+{txt}                        Summer 1953 {c |}{res}          1        1.05        2.11
+{txt}                        Summer 1954 {c |}{res}          2        2.11        4.21
+{txt}                        Summer 1955 {c |}{res}          1        1.05        5.26
+{txt}                        Summer 1956 {c |}{res}          1        1.05        6.32
+{txt}                        Summer 1957 {c |}{res}          2        2.11        8.42
+{txt}Summer 1957,Summer 1954,Summer 1953 {c |}{res}          1        1.05        9.47
+{txt}            Summer 1958,Summer 1957 {c |}{res}          1        1.05       10.53
+{txt}                        Summer 1959 {c |}{res}          1        1.05       11.58
+{txt}                        Summer 1960 {c |}{res}          1        1.05       12.63
+{txt}                        Summer 1961 {c |}{res}          1        1.05       13.68
+{txt}                        Summer 1962 {c |}{res}          5        5.26       18.95
+{txt}            Summer 1962,Summer 1961 {c |}{res}          1        1.05       20.00
+{txt}                        Summer 1963 {c |}{res}          4        4.21       24.21
+{txt}                        Summer 1964 {c |}{res}          4        4.21       28.42
+{txt}                        Summer 1965 {c |}{res}          9        9.47       37.89
+{txt}            Summer 1965,Summer 1964 {c |}{res}          1        1.05       38.95
+{txt}                        Summer 1966 {c |}{res}          4        4.21       43.16
+{txt}            Summer 1966,Summer 1965 {c |}{res}          1        1.05       44.21
+{txt}                        Summer 1967 {c |}{res}          5        5.26       49.47
+{txt}                        Summer 1968 {c |}{res}          7        7.37       56.84
+{txt}                        Summer 1969 {c |}{res}         12       12.63       69.47
+{txt}            Summer 1969,Summer 1968 {c |}{res}          1        1.05       70.53
+{txt}                        Summer 1970 {c |}{res}          5        5.26       75.79
+{txt}            Summer 1970,Summer 1967 {c |}{res}          1        1.05       76.84
+{txt}            Summer 1970,Summer 1969 {c |}{res}          1        1.05       77.89
+{txt}                        Summer 1971 {c |}{res}          3        3.16       81.05
+{txt}            Summer 1971,Summer 1970 {c |}{res}          1        1.05       82.11
+{txt}Summer 1971,Summer 1970,Summer 1969 {c |}{res}          1        1.05       83.16
+{txt}                        Summer 1973 {c |}{res}          2        2.11       85.26
+{txt}                        Summer 1974 {c |}{res}          1        1.05       86.32
+{txt}                        Summer 1975 {c |}{res}          2        2.11       88.42
+{txt}                        Summer 1976 {c |}{res}          2        2.11       90.53
+{txt}                        Summer 1977 {c |}{res}          2        2.11       92.63
+{txt}            Summer 1977,Summer 1976 {c |}{res}          1        1.05       93.68
+{txt}                        Summer 1978 {c |}{res}          1        1.05       94.74
+{txt}            Summer 1978,Summer 1977 {c |}{res}          1        1.05       95.79
+{txt}                        Summer 1979 {c |}{res}          1        1.05       96.84
+{txt}                        Summer 1984 {c |}{res}          1        1.05       97.89
+{txt}                        Summer 1991 {c |}{res}          2        2.11      100.00
+{txt}{hline 36}{c +}{hline 35}
+                              Total {c |}{res}         95      100.00
+
+{com}. tab oddsem4
+
+    {txt}oddsem4 {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Winter 1975 {c |}{res}          1       20.00       20.00
+{txt}Winter 1983 {c |}{res}          1       20.00       40.00
+{txt}Winter 1987 {c |}{res}          1       20.00       60.00
+{txt}Winter 1990 {c |}{res}          1       20.00       80.00
+{txt}Winter 1992 {c |}{res}          1       20.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}          5      100.00
+
+{com}. tab oddsem5
+
+                              {txt}oddsem5 {c |}      Freq.     Percent        Cum.
+{hline 38}{c +}{hline 35}
+                   Calendar Year 1957 {c |}{res}          1        4.55        4.55
+{txt}                   Calendar Year 1958 {c |}{res}          1        4.55        9.09
+{txt}                   Calendar Year 1960 {c |}{res}          2        9.09       18.18
+{txt}                   Calendar Year 1961 {c |}{res}          2        9.09       27.27
+{txt}                   Calendar Year 1962 {c |}{res}          4       18.18       45.45
+{txt}                   Calendar Year 1964 {c |}{res}          3       13.64       59.09
+{txt}                   Calendar Year 1965 {c |}{res}          2        9.09       68.18
+{txt}Calendar Year 1965,Calendar Year 1964 {c |}{res}          2        9.09       77.27
+{txt}                   Calendar Year 1967 {c |}{res}          2        9.09       86.36
+{txt}                   Calendar Year 1970 {c |}{res}          1        4.55       90.91
+{txt}                   Calendar Year 1972 {c |}{res}          1        4.55       95.45
+{txt}Calendar Year 1973,Calendar Year 1972 {c |}{res}          1        4.55      100.00
+{txt}{hline 38}{c +}{hline 35}
+                                Total {c |}{res}         22      100.00
+
 {com}. 

@@ -151,40 +151,19 @@ replace fundingyear=regexr(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]","")
 replace fundingyear=subinstr(fundingyear, ",,",",",10)
 replace fundingyear=subinstr(fundingyear, ",","",1) if regexm(fundingyear, "^,")==1
 replace fundingyear=subinstr(fundingyear, ",","",1) if regexm(fundingyear, ",$")==1
+
 ***CONTINUE FROM HERE WITH DIVIDING YEARS INTO HALFYEARS
-
-replace abnormaltimeperiod=abnormaltimeperiod + "," + regexs(0) if regexm(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]")==1
-replace abnormaltimeperiod=abnormaltimeperiod + "," + regexs(0) if regexm(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]")==1
-
-replace abnormaltimeperiod=abnormaltimeperiod + "," + regexs(0) if regexm(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]")==1
-replace abnormaltimeperiod=abnormaltimeperiod + "," + regexs(0) if regexm(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]")==1
-
-replace fundingyear=regexr(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]","")
-replace fundingyear=regexr(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]","")
-replace fundingyear=regexr(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]","")
-
-replace fundingyear=regexr(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]","")
-replace fundingyear=regexr(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]","")
-replace fundingyear=regexr(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]","")
-
-replace fundingyear=regexr(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]","")
-replace fundingyear=regexr(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]","")
-replace fundingyear=regexr(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]","")
-
-
-
-
-|Fall [0-9][0-9][0-9][0-9],|Summer [0-9][0-9][0-9][0-9],|Summer [0-9][0-9][0-9][0-9]|Winter [0-9][0-9][0-9][0-9],|Winter [0-9][0-9][0-9][0-9]|Calendar Year [0-9][0-9][0-9][0-9],|Calendar Year [0-9][0-9][0-9][0-9]")==1
-replace abnormaltimeperiod=regexs(0) if regexm(fundingyear,"Fall [0-9][0-9][0-9][0-9]|Fall [0-9][0-9][0-9][0-9],|Summer [0-9][0-9][0-9][0-9],|Summer [0-9][0-9][0-9][0-9]|Winter [0-9][0-9][0-9][0-9],|Winter [0-9][0-9][0-9][0-9]|Calendar Year [0-9][0-9][0-9][0-9],|Calendar Year [0-9][0-9][0-9][0-9]")==1
-
-
-
-replace fundingyear=subinstr(fundingyear,"Summer [0-9][0-9][0-9][0-9]","",.)
-
-replace abnormaltimeperiod=regexr(fundingyear,"[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9],","")
-|Winter and Spring [0-9][0-9][0-9][0-9],|Summer and Fall [0-9][0-9][0-9][0-9],|Summer and Fall [0-9][0-9][0-9][0-9]|Spring and Summer [0-9][0-9][0-9][0-9],|Spring and Summer [0-9][0-9][0-9][0-9]","")==1
-replace abnormaltimeperiod=regexs(3) if regexm(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]|Winter and Spring [0-9][0-9][0-9][0-9],|Summer and Fall [0-9][0-9][0-9][0-9],|Summer and Fall [0-9][0-9][0-9][0-9]|Spring and Summer [0-9][0-9][0-9][0-9],|Spring and Summer [0-9][0-9][0-9][0-9]")==1
-
+replace fundingyear=subinstr(fundingyear,",","H1,",10)
+replace fundingyear=subinstr(fundingyear,"-","H2,",10)
+***Currently no H1 after final year
+replace fundingyear=fundingyear + "H1" if regexm(fundingyear, "[0-9]")==1
+***Looks good at this point but I haven't looked super closely - continuing with oddsem and abnormaltimeperiods(which btw was a terrible choice of variablename..)
+replace oddsem=oddsem + "H1" if regexm(oddsem, "Spring")==1
+replace oddsem=subinstr(oddsem,"Spring ","",5)
+replace oddsem2=oddsem2 + "H2" if regexm(oddsem2, "Fall")==1
+replace oddsem2=subinstr(oddsem2,"Fall ","",5)
+***some variables have multiple semesters, add H1/2 before comma
+replace oddsem2=subinstr(oddsem2,",","H2,",5)
 
 
 gen academicyear=fundingyear if regexm(fundingyear, "[a-zA-Z]")==0
@@ -280,7 +259,44 @@ gen ay2=substr(abnormal_academicyear, 6, 4) + "H2" if regexm(abnormal_academicye
 replace abnormal_academicyear=subinstr(abnormal_academicyear, "-", "H1 ", 5000)
 replace abnormal_academicyear=subinstr(abnormal_academicyear, ",", "H2 ", 5000)
 */
+/*
 
+
+
+
+replace abnormaltimeperiod=abnormaltimeperiod + "," + regexs(0) if regexm(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]")==1
+replace abnormaltimeperiod=abnormaltimeperiod + "," + regexs(0) if regexm(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]")==1
+
+replace abnormaltimeperiod=abnormaltimeperiod + "," + regexs(0) if regexm(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]")==1
+replace abnormaltimeperiod=abnormaltimeperiod + "," + regexs(0) if regexm(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]")==1
+
+replace fundingyear=regexr(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]","")
+replace fundingyear=regexr(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]","")
+replace fundingyear=regexr(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]","")
+
+replace fundingyear=regexr(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]","")
+replace fundingyear=regexr(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]","")
+replace fundingyear=regexr(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]","")
+
+replace fundingyear=regexr(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]","")
+replace fundingyear=regexr(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]","")
+replace fundingyear=regexr(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]","")
+
+
+
+
+|Fall [0-9][0-9][0-9][0-9],|Summer [0-9][0-9][0-9][0-9],|Summer [0-9][0-9][0-9][0-9]|Winter [0-9][0-9][0-9][0-9],|Winter [0-9][0-9][0-9][0-9]|Calendar Year [0-9][0-9][0-9][0-9],|Calendar Year [0-9][0-9][0-9][0-9]")==1
+replace abnormaltimeperiod=regexs(0) if regexm(fundingyear,"Fall [0-9][0-9][0-9][0-9]|Fall [0-9][0-9][0-9][0-9],|Summer [0-9][0-9][0-9][0-9],|Summer [0-9][0-9][0-9][0-9]|Winter [0-9][0-9][0-9][0-9],|Winter [0-9][0-9][0-9][0-9]|Calendar Year [0-9][0-9][0-9][0-9],|Calendar Year [0-9][0-9][0-9][0-9]")==1
+
+
+
+replace fundingyear=subinstr(fundingyear,"Summer [0-9][0-9][0-9][0-9]","",.)
+
+replace abnormaltimeperiod=regexr(fundingyear,"[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9],","")
+|Winter and Spring [0-9][0-9][0-9][0-9],|Summer and Fall [0-9][0-9][0-9][0-9],|Summer and Fall [0-9][0-9][0-9][0-9]|Spring and Summer [0-9][0-9][0-9][0-9],|Spring and Summer [0-9][0-9][0-9][0-9]","")==1
+replace abnormaltimeperiod=regexs(3) if regexm(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]|Winter and Spring [0-9][0-9][0-9][0-9],|Summer and Fall [0-9][0-9][0-9][0-9],|Summer and Fall [0-9][0-9][0-9][0-9]|Spring and Summer [0-9][0-9][0-9][0-9],|Spring and Summer [0-9][0-9][0-9][0-9]")==1
+
+*/
 
 
 
