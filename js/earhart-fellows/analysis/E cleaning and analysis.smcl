@@ -44586,4 +44586,7 @@ Winter 1975 {c |}{res}          1       20.00       20.00
 {txt}{hline 38}{c +}{hline 35}
                                 Total {c |}{res}         22      100.00
 
-{com}. 
+{com}. save "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", replace
+{txt}file C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta saved
+
+{com}. exit, clear
