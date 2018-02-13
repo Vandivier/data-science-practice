@@ -42999,4 +42999,397 @@ end of do-file
 . 
 {txt}end of do-file
 
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. 
+. import delimited "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\ordered-output.csv", clear
+{res}{text}(22 vars, 3464 obs)
+
+{com}. save "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", replace
+{txt}file C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta saved
+
+{com}. 
+. use "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", clear
+{txt}
+{com}. ***Format 
+. format %25s name academicyear graduateinstitution areaofstudy sponsors emailaddress validemailaddress deceased
+{txt}
+{com}. format %15s  recipientgender recipientgenderizedname simplesponsorgender simplesponsorgenderizedname entryid completiondegree mailingaddress emailaddress validemailaddress deceased
+{txt}
+{com}. format %4.0g recipientgenderprobability 
+{txt}
+{com}. drop graduateinstitutioninvalidatedli invalidprefixareaofstudy invalidpostfixareaofstudy
+{txt}
+{com}. 
+. ***Rename Graduateinstitution==gi and fix Graduateinstitution Edgecases: gi_subcampus, gi_country, gi_1/gi_2 , weird gi_1 and gi_2 cases***
+. split graduateinstitution, generate(gi) parse(~) 
+{res}variables created as string: 
+{txt}{col 1}gi1{col 6}gi2
+
+{com}. rename gi1 gi
+{res}{txt}
+{com}. gen gi_country=gi2 if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==1
+{txt}(3393 missing values generated)
+
+{com}. replace gi_country="USA" if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==0
+{txt}(3393 real changes made)
+
+{com}. gen gi_subcampus=gi2 if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==0
+{txt}(3178 missing values generated)
+
+{com}. drop gi2
+{txt}
+{com}. order name gi academicyear, first
+{txt}
+{com}. order graduateinstitution entryid gi, last
+{txt}
+{com}. *gi_1/gi_2*
+. split(gi), gen(gi_) parse(/)
+{res}variables created as string: 
+{txt}{col 1}gi_1{col 7}gi_2
+
+{com}. format gi_1 gi_2 %30s
+{txt}
+{com}. 
+. ***institutions that are the same but have different names/have different names but are the same***
+. replace gi_1="London School of Economics" if regexm(gi_1, "London School of economics")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="École des Hautes Etudes en Sciences Sociales" if regexm(gi_1, "Ecol")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="Claremont Graduate University" if regexm(gi_1, "Claremont Graduate School")==1
+{txt}(96 real changes made)
+
+{com}. replace gi_1="Claremont McKenna College" if regexm(gi_1, "Claremont Men's College")==1
+{txt}(6 real changes made)
+
+{com}. replace gi_1="Georgetown University" if regexm(gi_1, "Georgetown University")==1 
+{txt}(1 real change made)
+
+{com}. replace gi_1="Virginia Polytechnic Institute & State University" if regexm(gi_1, "Virginia Polytechnic Institute")==1
+{txt}(1 real change made)
+
+{com}. replace gi_1="Yale University" if regexm(gi_1, "Yale Divinity School")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="Missouri State University" if regexm(gi_1, "Southwest Missouri State University")==1
+{txt}(10 real changes made)
+
+{com}. replace gi_1="University of Cambridge" if regexm(gi_1, "Cambridge University")==1
+{txt}(2 real changes made)
+
+{com}. replace gi_1="University of Notre Dame" if regexm(gi_1, "Notre Dame University")==1
+{txt}(3 real changes made)
+
+{com}. replace gi_1="University of St. Andrews" if regexm(gi_1, "St. Andrews University")==1
+{txt}(1 real change made)
+
+{com}. replace gi_1="University of Oxford" if regexm(gi_1, "Oxford University")==1
+{txt}(1 real change made)
+
+{com}. 
+. ***///If we truly care about peer effects maybe undergrad institutions/women's only schools needs to be categorized..?
+. replace gi_1="Harvard University" if regexm(gi_1, "Harvard|Radcliffe")==1 
+{txt}(2 real changes made)
+
+{com}. replace gi_1="Columbia University" if regexm(gi_1, "Columbia College")==1 
+{txt}(1 real change made)
+
+{com}. 
+. ***Edgecases where we should test whether & document that our assumptions don't influence the results: 
+. replace gi_1="Michigan State University" if regexm(gi_1, "Kenyon College and Michigan State University")==1
+{txt}(1 real change made)
+
+{com}. replace gi_2="Kenyon College" if regexm(graduateinstitution, "Kenyon College and Michigan State University")==1
+{txt}(1 real change made)
+
+{com}. replace gi_1="Indiana University" if regexm(gi_1, "University of Indiana")==1
+{txt}(1 real change made)
+
+{com}. *replace gi_1="Princeton University" if regexm(gi_1, "Princeton Theological Seminary")==1 ///Not the same according to one comment... Make sure not influential to results...
+> 
+. ***Stringgroup to see whether typo's exist in gi_1
+. strgroup gi_1, gen(gi_grouped) threshold(.01)
+{res}{it:gi_1} contains duplicate values. Remove them to speed up calculations.
+{txt}
+{com}. 
+. ***Clean/match typo's etc. among sponsors
+. strgroup sponsors, gen(sponsors_grouped) threshold(0.01)
+{res}{it:sponsors} contains duplicate values. Remove them to speed up calculations.
+{txt}
+{com}. codebook sponsors_grouped
+
+{txt}{hline}
+{res}sponsors_grouped{right:(unlabeled)}
+{txt}{hline}
+
+{col 19}type:  numeric ({res}long{txt})
+
+{col 18}range:  [{res}1{txt},{res}373{txt}]{col 55}units:  {res}1
+{col 10}{txt}unique values:  {res}373{col 51}{txt}missing .:  {res}0{txt}/{res}3464
+
+{txt}{col 19}mean:{res}{col 26} 121.752
+{txt}{col 15}std. dev:{res}{col 26}  89.352
+
+{txt}{col 12}percentiles:{col 32}10%{col 42}25%{col 52}50%{col 62}75%{col 72}90%
+{res}{col 27}      17{col 37}      47{col 47}     105{col 57}     181{col 67}     261
+{txt}
+{com}. 
+. ***Clean typos in sponsors, substitute and for & --> by sponsors_grouped: tab sponsors
+. *replace sponsors="" if regexm(sponsors, "")==1
+. replace sponsors="Clifton L. Ganus Jr." if regexm(sponsors, "Clifton L. Gallus")==1
+{txt}(2 real changes made)
+
+{com}. replace sponsors="Christopher Bruell and Robert K. Faulkner" if regexm(sponsors, "Christopher Bruell and Robert K. Faulkners|Christopher Bruen and Robert K. Faulkner")==1
+{txt}(6 real changes made)
+
+{com}. replace sponsors="Edward C. Banfield" if regexm(sponsors, "Edward C. Bonfield")==1
+{txt}(2 real changes made)
+
+{com}. replace sponsors="Murray L. Weidenbaum" if regexm(sponsors, "Murray L. Weidenbaun")==1
+{txt}(1 real change made)
+
+{com}. replace sponsors="Deil S. Wright" if regexm(sponsors, "Dell S. Wright")==1
+{txt}(5 real changes made)
+
+{com}. replace sponsors="Daniel J. Elazar" if regexm(sponsors, "Daniel J. Elvar")==1
+{txt}(1 real change made)
+
+{com}. replace sponsors="E. Maynard Aris" if regexm(sponsors, "E. Maynard Eris")==1
+{txt}(1 real change made)
+
+{com}. replace sponsors="Roland F. Salmonson and James Don Edwards" if regexm(sponsors, "Roland E Salmonson and James Don Edwards")==1
+{txt}(1 real change made)
+
+{com}. replace sponsors="John J. DiIulio Jr." if regexm(sponsors, "John J. D")==1
+{txt}(2 real changes made)
+
+{com}. replace sponsors="G. Ellis Sandoz Jr." if regexm(sponsors, "G. Ellis Sandoz")==1
+{txt}(1 real change made)
+
+{com}. 
+. ***Subinstr inconsistent use of and/&,  
+. replace sponsors=subinstr(sponsors, "&", "and", 5000)
+{txt}(4 real changes made)
+
+{com}. replace sponsors=subinstr(sponsors, "~", ",", 5000)
+{txt}(5 real changes made)
+
+{com}. 
+. ***Academic years; single terms, summer, winter etc. Start with extracting all instances of "and" i.e. "Summer and Fall 2000" - otherwise we will erroneously delete/confuse the terms.. Then replace these with ""
+. rename academicyear fundingyear
+{res}{txt}
+{com}. gen abnormaltimeperiod=""
+{txt}(3464 missing values generated)
+
+{com}. gen abnormaltimeperiod2=""
+{txt}(3464 missing values generated)
+
+{com}. gen abnormaltimeperiod3=""
+{txt}(3464 missing values generated)
+
+{com}. 
+. *summer and fall first, then spring and summer, winter and spring /// 
+> ///Why on earth did I do this 3 times? In theory one fellow could have received funding for summer and fall multiple times and this method only replaces the first instance, so repeat until no real changes are made.
+> 
+. replace abnormaltimeperiod=regexs(0) if regexm(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]")==1
+{txt}abnormaltimeperiod was {res}str1{txt} now {res}str20
+{txt}(16 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]","")
+{txt}(16 real changes made)
+
+{com}. replace abnormaltimeperiod=abnormaltimeperiod + "," + regexs(0) if regexm(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]")==1
+{txt}abnormaltimeperiod was {res}str20{txt} now {res}str41
+{txt}(1 real change made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]","")
+{txt}(1 real change made)
+
+{com}. replace abnormaltimeperiod=abnormaltimeperiod + "," + regexs(0) if regexm(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. 
+. replace abnormaltimeperiod2=regexs(0) if regexm(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]")==1
+{txt}abnormaltimeperiod2 was {res}str1{txt} now {res}str22
+{txt}(16 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]","")
+{txt}(16 real changes made)
+
+{com}. replace abnormaltimeperiod2=abnormaltimeperiod2 + "," + regexs(0) if regexm(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. replace abnormaltimeperiod2=abnormaltimeperiod2 + "," + regexs(0) if regexm(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. 
+. replace abnormaltimeperiod3=regexs(0) if regexm(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]")==1
+{txt}abnormaltimeperiod3 was {res}str1{txt} now {res}str22
+{txt}(1 real change made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]","")
+{txt}(1 real change made)
+
+{com}. replace abnormaltimeperiod3=abnormaltimeperiod3 + "," + regexs(0) if regexm(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. replace abnormaltimeperiod3=abnormaltimeperiod3 + "," + regexs(0) if regexm(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. 
+. sort abnormaltimeperiod
+{txt}
+{com}. ***Note to self - appears like all the "and" observations are dealt with at this point. With "and" terms extracted -- do the same for odd semesters(oddsem) such as "Fall 2000"
+. gen oddsem=""
+{txt}(3464 missing values generated)
+
+{com}. gen oddsem2=""
+{txt}(3464 missing values generated)
+
+{com}. gen oddsem3=""
+{txt}(3464 missing values generated)
+
+{com}. gen oddsem4=""
+{txt}(3464 missing values generated)
+
+{com}. gen oddsem5=""
+{txt}(3464 missing values generated)
+
+{com}. 
+. replace oddsem=regexs(0) if regexm(fundingyear, "Spring [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem was {res}str1{txt} now {res}str11
+{txt}(86 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Spring [0-9][0-9][0-9][0-9]","")
+{txt}(86 real changes made)
+
+{com}. replace oddsem=oddsem + "," + regexs(0) if regexm(fundingyear, "Spring [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem was {res}str11{txt} now {res}str23
+{txt}(2 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Spring [0-9][0-9][0-9][0-9]","")
+{txt}(2 real changes made)
+
+{com}. 
+. replace oddsem2=regexs(0) if regexm(fundingyear, "Fall [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem2 was {res}str1{txt} now {res}str9
+{txt}(64 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Fall [0-9][0-9][0-9][0-9]","")
+{txt}(64 real changes made)
+
+{com}. replace oddsem2=oddsem2 + "," + regexs(0) if regexm(fundingyear, "Fall [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem2 was {res}str9{txt} now {res}str19
+{txt}(2 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Fall [0-9][0-9][0-9][0-9]","")
+{txt}(2 real changes made)
+
+{com}. replace oddsem2=oddsem2 + "," + regexs(0) if regexm(fundingyear, "Fall [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Fall [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. 
+. replace oddsem3=regexs(0) if regexm(fundingyear, "Summer [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem3 was {res}str1{txt} now {res}str11
+{txt}(95 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Summer [0-9][0-9][0-9][0-9]","")
+{txt}(95 real changes made)
+
+{com}. replace oddsem3=oddsem3 + "," + regexs(0) if regexm(fundingyear, "Summer [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem3 was {res}str11{txt} now {res}str23
+{txt}(12 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Summer [0-9][0-9][0-9][0-9]","")
+{txt}(12 real changes made)
+
+{com}. replace oddsem3=oddsem3 + "," + regexs(0) if regexm(fundingyear, "Summer [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem3 was {res}str23{txt} now {res}str35
+{txt}(2 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Summer [0-9][0-9][0-9][0-9]","")
+{txt}(2 real changes made)
+
+{com}. replace oddsem3=oddsem3 + "," + regexs(0) if regexm(fundingyear, "Summer [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Summer [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. 
+. replace oddsem4=regexs(0) if regexm(fundingyear, "Winter [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem4 was {res}str1{txt} now {res}str11
+{txt}(5 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Winter [0-9][0-9][0-9][0-9]","")
+{txt}(5 real changes made)
+
+{com}. replace oddsem4=oddsem4 + "," + regexs(0) if regexm(fundingyear, "Winter [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Winter [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. 
+. replace oddsem5=regexs(0) if regexm(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem5 was {res}str1{txt} now {res}str18
+{txt}(22 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]","")
+{txt}(22 real changes made)
+
+{com}. replace oddsem5=oddsem5 + "," + regexs(0) if regexm(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]")==1
+{txt}oddsem5 was {res}str18{txt} now {res}str37
+{txt}(3 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]","")
+{txt}(3 real changes made)
+
+{com}. replace oddsem5=oddsem5 + "," + regexs(0) if regexm(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]")==1
+{txt}(0 real changes made)
+
+{com}. replace fundingyear=regexr(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]","")
+{txt}(0 real changes made)
+
+{com}. 
+. *now remove double commas and commas as first character PS only remove 1 commma from last character comma..!
+. replace fundingyear=subinstr(fundingyear, ",,",",",10)
+{txt}(20 real changes made)
+
+{com}. *replace fundingyear=subinstr(fundingyear, ",","",1) if regexm(fundingyear, "^,")==1
+. replace fundingyear=subinstr(fundingyear, ",","",1) if regexm(fundingyear, ",$")==1
+{txt}(48 real changes made)
+
+{com}. ***CONTINUE FROM HERE WITH DIVIDING YEARS INTO HALFYEARS
+. 
+{txt}end of do-file
+
+{com}. do "C:\Users\Markus\AppData\Local\Temp\STD00000000.tmp"
+{txt}
+{com}. replace fundingyear=subinstr(fundingyear, ",","",1) if regexm(fundingyear, "^,")==1
+{txt}(63 real changes made)
+
+{com}. 
+{txt}end of do-file
+
 {com}. 
