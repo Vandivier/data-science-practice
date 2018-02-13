@@ -149,7 +149,7 @@ replace fundingyear=regexr(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]","")
 
 *now remove double commas and commas as first character PS only remove 1 commma from last character comma..!
 replace fundingyear=subinstr(fundingyear, ",,",",",10)
-*replace fundingyear=subinstr(fundingyear, ",","",1) if regexm(fundingyear, "^,")==1
+replace fundingyear=subinstr(fundingyear, ",","",1) if regexm(fundingyear, "^,")==1
 replace fundingyear=subinstr(fundingyear, ",","",1) if regexm(fundingyear, ",$")==1
 ***CONTINUE FROM HERE WITH DIVIDING YEARS INTO HALFYEARS
 
