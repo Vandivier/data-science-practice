@@ -50,6 +50,7 @@ replace gi_1="Columbia University" if regexm(gi_1, "Columbia College")==1
 replace gi_1="Michigan State University" if regexm(gi_1, "Kenyon College and Michigan State University")==1
 replace gi_2="Kenyon College" if regexm(graduateinstitution, "Kenyon College and Michigan State University")==1
 replace gi_1="Indiana University" if regexm(gi_1, "University of Indiana")==1
+
 *replace gi_1="Princeton University" if regexm(gi_1, "Princeton Theological Seminary")==1 ///Not the same according to one comment... Make sure not influential to results...
 
 ***Stringgroup to see whether typo's exist in gi_1
