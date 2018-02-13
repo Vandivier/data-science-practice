@@ -1,34 +1,32 @@
-clear all
-set more off
-
-import delimited C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\ordered-output.csv
-save "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", replace
-
-*** START THE LOG ***
+***ALWAYS START BY STARTING THE LOG***
 *log using "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\Earhart analysis.smcl" ///First time
 log using "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.smcl", append name(main)
 
-use "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta"
+clear all
+set more off
+
+import delimited "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\ordered-output.csv", clear
+save "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", replace
+
+use "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", clear
 ***Format 
 format %25s name academicyear graduateinstitution areaofstudy sponsors emailaddress validemailaddress deceased
 format %15s  recipientgender recipientgenderizedname simplesponsorgender simplesponsorgenderizedname entryid completiondegree mailingaddress emailaddress validemailaddress deceased
 format %4.0g recipientgenderprobability 
 drop graduateinstitutioninvalidatedli invalidprefixareaofstudy invalidpostfixareaofstudy
 
-***Rename Graduateinstitution==gi and fix Graduateinstitution Edgecases: gi_subcampus, gi_country, gi_1/gi_2 , weird gi_1 and gi_2 cases***///TODO
+***Rename Graduateinstitution==gi and fix Graduateinstitution Edgecases: gi_subcampus, gi_country, gi_1/gi_2 , weird gi_1 and gi_2 cases***
 split graduateinstitution, generate(gi) parse(~) 
 rename gi1 gi
 gen gi_country=gi2 if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==1
 replace gi_country="USA" if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==0
-rename gi_country country
 gen gi_subcampus=gi2 if regexm(gi2, "Switzerland|United Kingdom|Canada|Mexico|Israel|Germany|France|Belgium")==0
 drop gi2
 order name gi academicyear, first
 order graduateinstitution entryid gi, last
-
+*gi_1/gi_2*
 split(gi), gen(gi_) parse(/)
 format gi_1 gi_2 %30s
-strgroup gi_1, gen(gi_grouped) threshold(.05)
 
 ***institutions that are the same but have different names/have different names but are the same***
 replace gi_1="London School of Economics" if regexm(gi_1, "London School of economics")==1
@@ -37,7 +35,6 @@ replace gi_1="Claremont Graduate University" if regexm(gi_1, "Claremont Graduate
 replace gi_1="Claremont McKenna College" if regexm(gi_1, "Claremont Men's College")==1
 replace gi_1="Georgetown University" if regexm(gi_1, "Georgetown University")==1 
 replace gi_1="Virginia Polytechnic Institute & State University" if regexm(gi_1, "Virginia Polytechnic Institute")==1
-replace gi_1="Princeton University" if regexm(gi_1, "Princeton Theological Seminary")==1
 replace gi_1="Yale University" if regexm(gi_1, "Yale Divinity School")==1
 replace gi_1="Missouri State University" if regexm(gi_1, "Southwest Missouri State University")==1
 replace gi_1="University of Cambridge" if regexm(gi_1, "Cambridge University")==1
@@ -45,9 +42,18 @@ replace gi_1="University of Notre Dame" if regexm(gi_1, "Notre Dame University")
 replace gi_1="University of St. Andrews" if regexm(gi_1, "St. Andrews University")==1
 replace gi_1="University of Oxford" if regexm(gi_1, "Oxford University")==1
 
-*///If we truly care about peer effects maybe undergrad institutions/women's only schools needs to be categorized..?
+***///If we truly care about peer effects maybe undergrad institutions/women's only schools needs to be categorized..?
 replace gi_1="Harvard University" if regexm(gi_1, "Harvard|Radcliffe")==1 
 replace gi_1="Columbia University" if regexm(gi_1, "Columbia College")==1 
+
+***Edgecases where we should test whether & document that our assumptions don't influence the results: 
+replace gi_1="Michigan State University" if regexm(gi_1, "Kenyon College and Michigan State University")==1
+replace gi_2="Kenyon College" if regexm(graduateinstitution, "Kenyon College and Michigan State University")==1
+replace gi_1="Indiana University" if regexm(gi_1, "University of Indiana")==1
+*replace gi_1="Princeton University" if regexm(gi_1, "Princeton Theological Seminary")==1 ///Not the same according to one comment... Make sure not influential to results...
+
+***Stringgroup to see whether typo's exist in gi_1
+strgroup gi_1, gen(gi_grouped) threshold(.01)
 
 ***Clean/match typo's etc. among sponsors
 strgroup sponsors, gen(sponsors_grouped) threshold(0.01)
@@ -66,13 +72,121 @@ replace sponsors="Roland F. Salmonson and James Don Edwards" if regexm(sponsors,
 replace sponsors="John J. DiIulio Jr." if regexm(sponsors, "John J. D")==1
 replace sponsors="G. Ellis Sandoz Jr." if regexm(sponsors, "G. Ellis Sandoz")==1
 
-
 ***Subinstr inconsistent use of and/&,  
 replace sponsors=subinstr(sponsors, "&", "and", 5000)
 replace sponsors=subinstr(sponsors, "~", ",", 5000)
 
-***Academic years; single terms, summer, winter etc. ///REORDER THE YEARS??
+***Academic years; single terms, summer, winter etc. Start with extracting all instances of "and" i.e. "Summer and Fall 2000" - otherwise we will erroneously delete/confuse the terms.. Then replace these with ""
 rename academicyear fundingyear
+gen abnormaltimeperiod=""
+gen abnormaltimeperiod2=""
+gen abnormaltimeperiod3=""
+
+*summer and fall first, then spring and summer, winter and spring /// 
+///Why on earth did I do this 3 times? In theory one fellow could have received funding for summer and fall multiple times and this method only replaces the first instance, so repeat until no real changes are made.
+
+replace abnormaltimeperiod=regexs(0) if regexm(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]","")
+replace abnormaltimeperiod=abnormaltimeperiod + "," + regexs(0) if regexm(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]","")
+replace abnormaltimeperiod=abnormaltimeperiod + "," + regexs(0) if regexm(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]","")
+
+replace abnormaltimeperiod2=regexs(0) if regexm(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]","")
+replace abnormaltimeperiod2=abnormaltimeperiod2 + "," + regexs(0) if regexm(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]","")
+replace abnormaltimeperiod2=abnormaltimeperiod2 + "," + regexs(0) if regexm(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]","")
+
+replace abnormaltimeperiod3=regexs(0) if regexm(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]","")
+replace abnormaltimeperiod3=abnormaltimeperiod3 + "," + regexs(0) if regexm(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]","")
+replace abnormaltimeperiod3=abnormaltimeperiod3 + "," + regexs(0) if regexm(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]","")
+
+sort abnormaltimeperiod
+***Note to self - appears like all the "and" observations are dealt with at this point. With "and" terms extracted -- do the same for odd semesters(oddsem) such as "Fall 2000"
+gen oddsem=""
+gen oddsem2=""
+gen oddsem3=""
+gen oddsem4=""
+gen oddsem5=""
+
+replace oddsem=regexs(0) if regexm(fundingyear, "Spring [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear, "Spring [0-9][0-9][0-9][0-9]","")
+replace oddsem=oddsem + "," + regexs(0) if regexm(fundingyear, "Spring [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear, "Spring [0-9][0-9][0-9][0-9]","")
+
+replace oddsem2=regexs(0) if regexm(fundingyear, "Fall [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear, "Fall [0-9][0-9][0-9][0-9]","")
+replace oddsem2=oddsem2 + "," + regexs(0) if regexm(fundingyear, "Fall [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear, "Fall [0-9][0-9][0-9][0-9]","")
+replace oddsem2=oddsem2 + "," + regexs(0) if regexm(fundingyear, "Fall [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear, "Fall [0-9][0-9][0-9][0-9]","")
+
+replace oddsem3=regexs(0) if regexm(fundingyear, "Summer [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear, "Summer [0-9][0-9][0-9][0-9]","")
+replace oddsem3=oddsem3 + "," + regexs(0) if regexm(fundingyear, "Summer [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear, "Summer [0-9][0-9][0-9][0-9]","")
+replace oddsem3=oddsem3 + "," + regexs(0) if regexm(fundingyear, "Summer [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear, "Summer [0-9][0-9][0-9][0-9]","")
+replace oddsem3=oddsem3 + "," + regexs(0) if regexm(fundingyear, "Summer [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear, "Summer [0-9][0-9][0-9][0-9]","")
+
+replace oddsem4=regexs(0) if regexm(fundingyear, "Winter [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear, "Winter [0-9][0-9][0-9][0-9]","")
+replace oddsem4=oddsem4 + "," + regexs(0) if regexm(fundingyear, "Winter [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear, "Winter [0-9][0-9][0-9][0-9]","")
+
+replace oddsem5=regexs(0) if regexm(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]","")
+replace oddsem5=oddsem5 + "," + regexs(0) if regexm(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]","")
+replace oddsem5=oddsem5 + "," + regexs(0) if regexm(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]")==1
+replace fundingyear=regexr(fundingyear, "Calendar Year [0-9][0-9][0-9][0-9]","")
+
+*now remove double commas and commas as first character PS only remove 1 commma from last character comma..!
+replace fundingyear=subinstr(fundingyear, ",,",",",10)
+replace fundingyear=subinstr(fundingyear, ",","",1) if regexm(fundingyear, "^,")==1
+replace fundingyear=subinstr(fundingyear, ",","",1) if regexm(fundingyear, ",$")==1
+***CONTINUE FROM HERE WITH DIVIDING YEARS INTO HALFYEARS
+
+replace abnormaltimeperiod=abnormaltimeperiod + "," + regexs(0) if regexm(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]")==1
+replace abnormaltimeperiod=abnormaltimeperiod + "," + regexs(0) if regexm(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]")==1
+
+replace abnormaltimeperiod=abnormaltimeperiod + "," + regexs(0) if regexm(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]")==1
+replace abnormaltimeperiod=abnormaltimeperiod + "," + regexs(0) if regexm(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]")==1
+
+replace fundingyear=regexr(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]","")
+replace fundingyear=regexr(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]","")
+replace fundingyear=regexr(fundingyear,"Summer and Fall [0-9][0-9][0-9][0-9]","")
+
+replace fundingyear=regexr(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]","")
+replace fundingyear=regexr(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]","")
+replace fundingyear=regexr(fundingyear,"Spring and Summer [0-9][0-9][0-9][0-9]","")
+
+replace fundingyear=regexr(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]","")
+replace fundingyear=regexr(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]","")
+replace fundingyear=regexr(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]","")
+
+
+
+
+|Fall [0-9][0-9][0-9][0-9],|Summer [0-9][0-9][0-9][0-9],|Summer [0-9][0-9][0-9][0-9]|Winter [0-9][0-9][0-9][0-9],|Winter [0-9][0-9][0-9][0-9]|Calendar Year [0-9][0-9][0-9][0-9],|Calendar Year [0-9][0-9][0-9][0-9]")==1
+replace abnormaltimeperiod=regexs(0) if regexm(fundingyear,"Fall [0-9][0-9][0-9][0-9]|Fall [0-9][0-9][0-9][0-9],|Summer [0-9][0-9][0-9][0-9],|Summer [0-9][0-9][0-9][0-9]|Winter [0-9][0-9][0-9][0-9],|Winter [0-9][0-9][0-9][0-9]|Calendar Year [0-9][0-9][0-9][0-9],|Calendar Year [0-9][0-9][0-9][0-9]")==1
+
+
+
+replace fundingyear=subinstr(fundingyear,"Summer [0-9][0-9][0-9][0-9]","",.)
+
+replace abnormaltimeperiod=regexr(fundingyear,"[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9],","")
+|Winter and Spring [0-9][0-9][0-9][0-9],|Summer and Fall [0-9][0-9][0-9][0-9],|Summer and Fall [0-9][0-9][0-9][0-9]|Spring and Summer [0-9][0-9][0-9][0-9],|Spring and Summer [0-9][0-9][0-9][0-9]","")==1
+replace abnormaltimeperiod=regexs(3) if regexm(fundingyear,"Winter and Spring [0-9][0-9][0-9][0-9]|Winter and Spring [0-9][0-9][0-9][0-9],|Summer and Fall [0-9][0-9][0-9][0-9],|Summer and Fall [0-9][0-9][0-9][0-9]|Spring and Summer [0-9][0-9][0-9][0-9],|Spring and Summer [0-9][0-9][0-9][0-9]")==1
+
+
+
 gen academicyear=fundingyear if regexm(fundingyear, "[a-zA-Z]")==0
 replace academicyear=subinstr(academicyear, "-", "H2 ", 5000)
 replace academicyear=subinstr(academicyear, ",", "H1 ", 5000)
@@ -171,8 +285,8 @@ replace abnormal_academicyear=subinstr(abnormal_academicyear, ",", "H2 ", 5000)
 
 
 
-
-
+***Rename some variable
+rename gi_country country
 
 
 ***Encode clean categorical variables***
@@ -193,11 +307,6 @@ encode country, gen(gi_country)
 /*gen undergrad=0
 replace undergrad=1 if regexm(gi, "Claremont Men's College|Claremont McKenna College|Alma College|Asbury College|Harvard College")==1 ///confirmed all gi's with "College" in name except 3 that are assigned to RA
 */
-
-***Edgecases where we should test whether & document that our assumptions don't influence the results: 
-replace gi_1="Michigan State University" if regexm(gi_1, "Kenyon College and Michigan State University")==1
-replace gi_2="Kenyon College" if regexm(graduateinstitution, "Kenyon College and Michigan State University")==1
-replace gi_1="Indiana University" if regexm(gi_1, "University of Indiana")==1
 
 
 
