@@ -12,10 +12,9 @@ Note that this is related to some other projects:
 2. vandivier / udacity-apify                                    is mature and working, but no IP rotation
 3. vandivier / data-science-practice / python / udacity-python  the latest member of the family, more a learning project than a mature useful thing
 
-Built with Yeoman's [`generator-python`](https://www.npmjs.com/package/generator-python).
+Built with Yeoman's [`generator-python-lib`](https://gitlab.com/hyper-expanse/generator-python-lib/tree/master).
 
 # Relevant Links
 
 1. [add youtube link to live learning vid when ready]
 2. http://notesfromthelifeboat.com/post/python-project/
-3. https://gitlab.com/hyper-expanse/generator-python-lib/tree/master
