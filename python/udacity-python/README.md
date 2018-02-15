@@ -18,4 +18,4 @@ Built with Yeoman's [`generator-python`](https://www.npmjs.com/package/generator
 
 1. [add youtube link to live learning vid when ready]
 2. http://notesfromthelifeboat.com/post/python-project/
-3. https://github.com/Flushot/generator-python
+3. https://gitlab.com/hyper-expanse/generator-python-lib/tree/master

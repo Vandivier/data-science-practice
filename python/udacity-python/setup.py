@@ -1,49 +1,70 @@
-#!/usr/bin/env python
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+"""
+Setup script.
+"""
 
-# Allow trove classifiers in previous python versions
-from sys import version
-if version < '2.2.3':
-    from distutils.dist import DistributionMetadata
-    DistributionMetadata.classifiers = None
-    DistributionMetadata.download_url = None
+from distutils.core import Command
+from setuptools import setup
 
-from udacity-python import __version__ as version
 
-def requireModules(moduleNames=None):
-    import re
-    if moduleNames is None:
-        moduleNames = []
-    else:
-        moduleNames = moduleNames
+class Coverage(Command):
+    """
+    Coverage setup.
+    """
 
-    commentPattern = re.compile(r'^\w*?#')
-    moduleNames.extend(
-        filter(lambda line: not commentPattern.match(line), 
-            open('requirements.txt').readlines()))
+    description = (
+        "Run test suite against single instance of"
+        "Python and collect coverage data."
+    )
+    user_options = []
 
-    return moduleNames
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        import coverage
+        import unittest
+
+        cov = coverage.coverage(config_file='.coveragerc')
+        cov.erase()
+        cov.start()
+
+        test_loader = unittest.TestLoader()
+        test_suite = test_loader.discover(start_dir='tests')
+        unittest.TextTestRunner().run(test_suite)
+
+        cov.stop()
+        cov.save()
+        cov.report()
+        cov.html_report()
+
 
 setup(
-    name='udacity-python',
-    version=version,
-
     author='John Vandivier',
     author_email='john@afterecon.com',
-
-    description='scraping udacity with python',
-    long_description=open('README.txt').read(),
-    classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
-        'Intended Audience :: Developers'
+    description='udacity-python',
+    download_url='',
+    cmdclass={
+        'coverage': Coverage,
+    },
+    install_requires=[
     ],
-
-    install_requires=requireModules([
-
-    ]),
-
-    test_suite='udacity-python'
+    license='Apache License (2.0)',
+    name='udacity-python',
+    packages=[
+        'udacity-python',
+    ],
+    scripts=[],
+    test_suite='tests',
+    tests_require=[
+        'codecov>=2.0.3,<3.0.0',
+        'coverage>=4.0.3,<5.0.0',
+        'Sphinx>=1.4.1,<2.0.0',
+        'tox>=2.3.1,<3.0.0',
+        'virtualenv>=15.0.1,<16.0.0'
+    ],
+    url='',
+    version='1.0.0'
 )

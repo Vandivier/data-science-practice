@@ -1,0 +1,10 @@
+{
+  "generator-python-lib": {
+    "projectName": "udacity-python",
+    "fullName": "John Vandivier",
+    "email": "john@afterecon.com",
+    "gitlabName": "n/a",
+    "ciProvider": "None",
+    "version": "4.0.36"
+  }
+}
