@@ -1,0 +1,15 @@
+{
+  "name": "udacity-scrapoxy",
+  "version": "1.0.0",
+  "description": "scrape udacity with scrapoxy to rotate ip",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "scrape",
+    "scrapoxy"
+  ],
+  "author": "John Vandivier",
+  "license": "MIT"
+}
