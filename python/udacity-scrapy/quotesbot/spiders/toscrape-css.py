@@ -9,13 +9,9 @@ class ToScrapeCSSSpider(scrapy.Spider):
     ]
 
     def parse(self, response):
-        regex = re.compile(r" +", flags=re.MULTILINE)
-
         for i, quote in enumerate(response.css("p")):
             arrText = quote.xpath('.//text()').extract()
-            sAllText = ' '.join(arrText)
-            sPostProcessed = regex.sub(" ", sAllText)
-            #re.sub( '\s+', ' ', mystring ).strip()
+            sPostProcessed = ''.join(arrText)
 
             yield {
                 'anchorCount': '',
