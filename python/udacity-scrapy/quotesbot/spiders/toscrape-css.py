@@ -21,8 +21,18 @@ class ToScrapeCSSSpider(scrapy.Spider):
                 'text': sPostProcessed
             }
 
-            '''
-        next_page_url = response.css("li.next > a::attr(href)").extract_first()
-        if next_page_url is not None:
-            yield scrapy.Request(response.urljoin(next_page_url))
-            '''
+        #arroCandidates = response.css("a::attr(href)").extract()
+        listoCandidates = response.css("a")
+        for o in listoCandidates:
+            _arrText = o.xpath('.//text()').extract()
+
+            for sText in _arrText:
+                bCondition = sText.split(' ')[0].lower() == 'falcon'
+                sNextPageUrl = o.css("::attr(href)") if bCondition else None
+                if bCondition:
+                    print(sNextPageUrl)
+                    break
+
+        print('context check ' + sNextPageUrl)
+        if sNextPageUrl is not None:
+            yield scrapy.Request(response.urljoin(sNextPageUrl))
