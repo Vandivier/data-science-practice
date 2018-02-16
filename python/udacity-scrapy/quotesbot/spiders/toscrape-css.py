@@ -15,7 +15,7 @@ class ToScrapeCSSSpider(scrapy.Spider):
             sFirstWord = sPostProcessed.split(' ')[0]
 
             yield {
-                'anchorCount': '',
+                'anchorCount': sum(1 for _i in quote.css("a").extract()),
                 'index': i,
                 'firstWord': sFirstWord,
                 'text': sPostProcessed
