@@ -28,11 +28,12 @@ class ToScrapeCSSSpider(scrapy.Spider):
             _arrText = o.xpath('.//text()').extract()
 
             for sText in _arrText:
-                sNextPageUrl = sText.split(' ')[0].lower()
-                print(sNextPageUrl)
-                bCondition = sNextPageUrl == 'falcon'
+                sFalconCheck = sText.split(' ')[0].lower()
+                print(sFalconCheck)
+                bCondition = sFalconCheck == 'falcon'
 
                 if bCondition:
+                    sNextPageUrl = o.css("::attr(href)").extract_first()
                     yield scrapy.Request(response.urljoin(sNextPageUrl))
                     break
 
