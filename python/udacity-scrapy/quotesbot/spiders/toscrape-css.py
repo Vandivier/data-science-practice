@@ -12,11 +12,12 @@ class ToScrapeCSSSpider(scrapy.Spider):
         for i, quote in enumerate(response.css("p")):
             arrText = quote.xpath('.//text()').extract()
             sPostProcessed = ''.join(arrText)
+            sFirstWord = sPostProcessed.split(' ')[0]
 
             yield {
                 'anchorCount': '',
                 'index': i,
-                'firstWord': '',
+                'firstWord': sFirstWord,
                 'text': sPostProcessed
             }
 
