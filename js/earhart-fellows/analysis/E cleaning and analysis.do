@@ -163,7 +163,7 @@ replace oddsem=oddsem + "H1" if regexm(oddsem, "Spring")==1
 replace oddsem=subinstr(oddsem,"Spring ","",5)
 replace oddsem2=oddsem2 + "H2" if regexm(oddsem2, "Fall")==1
 replace oddsem2=subinstr(oddsem2,"Fall ","",5)
-***some variables have multiple semesters, add H1/2 before comma
+***some variables have multiple semesters, add H1/H2 before comma
 replace oddsem2=subinstr(oddsem2,",","H2,",5)
 
 
@@ -228,8 +228,6 @@ split ay3, gen(ay_3) parse(" ")
 split ay4, gen(ay_4) parse(" ")
 split ay5, gen(ay_5) parse(" ")
 
-
-
 replace semester1=ay_11 if ay_11!=""
 replace semester2=ay_12 if ay_12!=""
 replace semester3=ay_21 if ay_21!=""
@@ -241,10 +239,39 @@ replace semester8=ay_42 if ay_42!=""
 replace semester9=ay_51 if ay_51!=""
 replace semester10=ay_52 if ay_52!=""
 
+***Match fellows and sponsors to see who went from being fellow to sponsor***///THIS DIDN'T WORK -TRYING AGAIN WITH RECLINK
+split name, gen(name_match) parse(",")
+gen name_match=name_match2 + " " + name_match1
+drop name_match1 name_match2
+split sponsors, gen(sponsors_match) parse(" and ")
+
+matchit name_match sponsors_match1, gen(f2s) ///Matching sponsors and fellow names for each entry, not over the entire variable. 
+
+***trying with reclink
+gen id=_n
+replace name_match=lower(name_match)
+reclink name_match using "C:\Users\Markus\Desktop\sponsors.dta", idmaster(id) idusing(B) uvarlist(A) gen(f2s)
+reclink name_match using "C:\Users\Markus\Desktop\sponsors.dta", idmaster(id) idusing(B) uvarlist(A) gen(f2s2)
+
+
+***Trying with instructions from Steve Smela
+capture drop WasSponsor
+gen WasSponsor = 0
+
+local Obs = _N
+
+forvalues i = 1 / `Obs' {
+	forvalues j = 1 / `Obs' {
+*		di `i' `j'
+		replace WasSponsor = 1 in `i' if name[`i'] == sponsors[`j'] 
+	}
+}	
 
 
 
 
+
+***DISREGARD***
 /*
 replace ay1=subinstr(ay1, "Calendar Year ", "", 5000)
 replace ay1=ay1 + "H1H2" if regexm(ay1, " ")==0 
@@ -327,8 +354,9 @@ replace undergrad=1 if regexm(gi, "Claremont Men's College|Claremont McKenna Col
 
 
 
-
-
-
-
 save "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", replace
+
+
+
+
+
