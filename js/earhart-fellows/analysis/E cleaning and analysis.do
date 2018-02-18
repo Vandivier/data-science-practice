@@ -7,6 +7,12 @@ set more off
 
 import delimited "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\ordered-output.csv", clear
 save "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", replace
+***
+
+***Start here unless you want to do the entire process from the CSV file.
+***ALWAYS START BY STARTING THE LOG***
+*log using "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\Earhart analysis.smcl" ///First time
+log using "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.smcl", append name(main)
 
 use "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", clear
 ***Format 
@@ -353,7 +359,7 @@ replace undergrad=1 if regexm(gi, "Claremont Men's College|Claremont McKenna Col
 */
 
 
-
+export excel using "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.xls", firstrow(variables) replace
 save "C:\Users\Markus\Desktop\GIT\data-science-practice\js\earhart-fellows\analysis\E cleaning and analysis.dta", replace
 
 
