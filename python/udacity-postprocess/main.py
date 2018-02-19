@@ -18,6 +18,6 @@ def main():
     listoEmployed = [o for o in listoEmploymentMeasured if False]
     iPercentEmployed = len(listoEmployed) / len(listoEmploymentMeasured)
 
-    pprint(iPercentEmployed)
+    pprint("Percent employed: " + str(iPercentEmployed))
 
 main()
