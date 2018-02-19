@@ -19,5 +19,8 @@ def main():
     iPercentEmployed = len(listoEmployed) / len(listoEmploymentMeasured)
 
     pprint("Percent employed: " + str(iPercentEmployed))
+    pprint("Sample size with employment data: " + str(len(listoEmploymentMeasured)))
+    pprint("Total sample size: " + str(len(listoPeople)))
+    pprint("Percent of observations with employment data: " + str(len(listoEmploymentMeasured) / len(listoPeople)))
 
 main()
