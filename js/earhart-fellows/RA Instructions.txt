@@ -1,8 +1,24 @@
-RA Instructions Grab Bag:
-Accreditation: Can you confirm whether Carleton College, Eastern Montana College (now MSU Billings), Grove City College 
-offered graduate degrees at the time the relevant fellows attended? Please document in appropriate folder.. 
+RA Instructions Grab Bag: 
+*Think of 5-10 minutes as the most you want to spend trying to figure out any given instance I ask you about here, unless otherwise noted. I understand the wealth of information out there, if you can't figure something out just note it and move on. 
 
-Confirm history of: MARCUS, Phillip Neal - When did he attend Kenyon Collge and when did he attend Michigan State U.? 
+1. Spend 30-60 mins to see if you can find a consistent way to classify the time periods when institutions assign graduate degrees. The time period in question is from 1950 until today - if there is some higher ed website/database or anything easily accessible but more consistent than Wikipedia, that would be very helpful for us. Try GMU libraries as well. If you can't find anything no worries, but worth a shot. If you do find something, let me know before you proceed with the remaining tasks, and we may alter our methods.. The ideal source would be a dataset/database/annual publication of institutions in the US that awards graduate degrees. 
+
+2a. If no single good source was found in 1., please look for name changes etc. for each of the institions in "institutions as of 2-13.xlsx". If you find a clear instance of two schools "being the same", please note it and document in RA folder. If you're not sure but have reason to think it may be the case, please just alert me and briefly state the reason you think they might be the same. 
+2b. For all institutions where this is the case, please note their subcampuses in the appropriate row in the excel file i.e. UCLA, UCSD, UCSB, UC Riverside, etc. No need to do anything if an institution don't have a "sub-campus". You only need to do this for "state university systems" such as University of California, North Carolina, Texas, etc. But if you come across instances of Private Schools that have different "subcampuses" that seem distinct, please alert me. The rule of thumb you can apply is "would it make any difference if a resume said University of X-A or University of X-B?" for a potential employer? If your answer is "Yes" please note the names in the excel sheet. In the case of University of California, it clearly matters a great deal if someone attended UC Berkeley or UC Riverside.
+
+3. Accreditation: Can you confirm whether Carleton College, Eastern Montana College (now MSU Billings), Grove City College offered graduate degrees at the time the relevant fellows attended? Please document in appropriate folder.. 
+
+4. Please confirm that it appears to you that each of the below institutions really are the same. If they are just delete the line from this file.  
+replace gi_1="Missouri State University" if regexm(gi_1, "Southwest Missouri State University")==1
+replace gi_1="University of Cambridge" if regexm(gi_1, "Cambridge University")==1
+replace gi_1="University of Notre Dame" if regexm(gi_1, "Notre Dame University")==1
+replace gi_1="University of St. Andrews" if regexm(gi_1, "St. Andrews University")==1
+replace gi_1="University of Oxford" if regexm(gi_1, "Oxford University")==1
+replace gi_1="Columbia University" if regexm(gi_1, "Columbia College")==1 
+replace gi_2="Kenyon College" if regexm(graduateinstitution, "Kenyon College and Michigan State University")==1
+replace gi_1="Indiana University" if regexm(gi_1, "University of Indiana")==1
+
+5. Confirm history of: MARCUS, Phillip Neal - When did he attend Kenyon College and when did he attend Michigan State U.? 
 
 
 
