@@ -20,4 +20,7 @@ gen boughtSample = 0
 replace boughtSample = 1 if _region1 != .
 
 // reg exploration
+reg q2 employer unemployed provider male _region* _income* _stem* _industry* _age* boughtSample     // employer pref w correction, intial; not significant factor
+reg q3 employer unemployed provider male _region* _income* _stem* _industry* _age* boughtSample     // q3 is more predictable than q2 (R^2 .7, adjusted is awful)
 
+// TODO: charts w datasplash!
