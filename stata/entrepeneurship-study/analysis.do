@@ -1,6 +1,6 @@
 use "D:\PUMS\data\reduced-2014-ACS-PUMS.dta", clear           //comments are aligned here
 
-tab cow, gen(_cow)                                            // splitting cow as _cow; ref: http://www.ats.ucla.edu/stat/stata/faq/dummy.htm */
+tab cow, gen(_cow)                                            // splitting cow as _cow; ref: https://stats.idre.ucla.edu/stata/faq/how-can-i-create-dummy-variables-in-stata/ */
 generate selfemployedflag = 0                                 // pipe as "or" in line 15. if worker is classed under _cow6 or _cow7 they are self-employed.
 replace selfemployedflag = 1  if _cow6 == 1 | _cow7 == 1
 sum selfemployedflag                                          // mean of ~.062 indicating ~6.2% of the population was self-employed in 2014.
