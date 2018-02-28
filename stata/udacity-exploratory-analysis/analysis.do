@@ -59,6 +59,7 @@ reg q2 employer                                                                 
 reg q2 q4                                                                                           // strong anti-innovation bias exists
 reg q6 employer                                                                                     // strong anti-foreign bias by employers not found
 reg q2 q6                                                                                           // strong nationalism doesn't really effect alt favorability
+reg _stem3 _industry*                                                                               // IT professionals are uniquely unsure about whether they work in STEM
 
 // reg exploration, long
 reg q2 employer unemployed cprovider1 male _region* _income* _stem* _industry* _age* boughtSample     // employer pref w correction, intial; not significant factor
