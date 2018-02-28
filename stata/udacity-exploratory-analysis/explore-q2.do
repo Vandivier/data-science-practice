@@ -33,17 +33,3 @@ reg q2 aq* unemployed _region3 _stem3 _industry* cage1
 
 // short. max factor p = .1. adj R^2 = .3813
 reg q2 aq* _region3 _stem3 _industry*
-
-//clear
-//do "D:\GitHub\data-science-practice\stata\udacity-exploratory-analysis\analysis.do"
-
-//non-marginal effects approach
-
-//drop _region2
-//drop _region5
-//drop aq6
-//drop male
-//drop employer
-
-// non-marginal long
-//reg q2 aq* unemployed _region* _income* _stem* _industry* _age2 cage* cincome* cprovider*
