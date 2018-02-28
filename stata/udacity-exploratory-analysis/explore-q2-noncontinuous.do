@@ -41,3 +41,11 @@ reg q2 aq* unemployed _region* _income* _stem3 _industry* cincome*
 
 // short reg: all factors under p = .1, adj r2 = .3841
 reg q2 aq3 aq5 _income2 _stem3 _industry2 _industry12
+
+// robust multifactor analysis: common factors from continuous and noncontinous, adj-r2 = .26
+reg q2 aq3 aq5 _stem3 _industry2 _industry12
+
+// min p = .2
+reg q2 aq3 aq5 _industry12
+
+// TODO: without aq*

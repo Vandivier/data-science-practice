@@ -32,4 +32,6 @@ reg q2 aq* employer unemployed _region* _stem3 _industry* cage*
 reg q2 aq* unemployed _region3 _stem3 _industry* cage1
 
 // short. max factor p = .1. adj R^2 = .3813
-reg q2 aq* _region3 _stem3 _industry*
+reg q2 aq* _region3 _stem3 _industry*           // equivalent to: `reg q2 aq3 aq5 _region3 _stem3 _industry2 _industry7 _industry12`
+
+// TODO: without aq*
