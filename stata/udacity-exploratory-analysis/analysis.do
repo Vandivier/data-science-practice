@@ -19,6 +19,12 @@ drop age
 gen boughtSample = 0
 replace boughtSample = 1 if _region1 != .
 
+// refer to all questions EXCEPT variable of interest q2 with aq*
+gen aq3 = q3
+gen aq4 = q4
+gen aq5 = q5
+gen aq6 = q6
+
 // generate continuous age
 gen cage1 = 1 if _age1 == 1
 replace cage = 2 if _age2 == 1
@@ -42,17 +48,24 @@ replace cincome = 11 if _income11 == 1
 gen cincome2 = cincome1*cincome1
 gen cincome3 = cincome1*cincome1*cincome1
 
-// reg exploration
-reg q2 employer unemployed provider male _region* _income* _stem* _industry* _age* boughtSample     // employer pref w correction, intial; not significant factor
-reg q3 employer unemployed provider male _region* _income* _stem* _industry* _age* boughtSample     // q3 is more predictable than q2 (R^2 .7, adjusted is awful)
+gen cprovider1 = providercount
+gen cprovider2 = cprovider1*cprovider1
+gen cprovider3 = cprovider1*cprovider1*cprovider1
+drop providercount
+
+// reg exploration, short
+reg q2 q3                                                                                           // strong cross-correlation, but R^2 of only .2: Good!
 reg q2 employer                                                                                     // In a simple regression, employers are more positive than average!
+reg q2 q4                                                                                           // strong anti-innovation bias exists
+reg q6 employer                                                                                     // strong anti-foreign bias by employers not found
+reg q2 q6                                                                                           // strong nationalism doesn't really effect alt favorability
+
+// reg exploration, long
+reg q2 employer unemployed cprovider1 male _region* _income* _stem* _industry* _age* boughtSample     // employer pref w correction, intial; not significant factor
+reg q3 employer unemployed cprovider1 male _region* _income* _stem* _industry* _age* boughtSample     // q3 is more predictable than q2 (R^2 .7, adjusted is awful)
 
 // notice industry effects are very different from q2 and q3; as expected: law, accounting, and health are bad for entry level by alt; unexpected is transportation
+// I will need to seperately analyze q2 and q3; therefore making seperate explore-* .do files
 
-
-
-// understanding q3;
-// only _industry12 was significant; _industry6 is it; construct 'bad industries' group
-drop _industry1
-drop _industry2
-
+// all the tricks, just to see max R^2: It's .59. Not bad imo
+reg q2 aq* boughtSample employer male unemployed _region* _income* _stem* _industry* _age* cage* cincome* cprovider*
