@@ -10,3 +10,7 @@ Related projects:
 ## Notes
 
 Check git history for expanded data file under ./data-long
+
+## TODO
+
+1. exponential effects for q2-4 cross correlation
