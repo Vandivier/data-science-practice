@@ -27,6 +27,15 @@ gen aq4 = q4
 gen aq5 = q5
 gen aq6 = q6
 
+// refer to questions outside of varible of interest index with eq*
+gen index = q2 + q3 + q5
+gen eq4 = q4
+gen eq4squared = q4*q4
+gen eq4cubed = q4*q4*q4
+gen eq6 = q6
+gen eq6squared = q6*q6
+gen eq6cubed = q6*q6*q6
+
 // generate continuous age
 gen cage1 = 1 if _age1 == 1
 replace cage1 = 2 if _age2 == 1
