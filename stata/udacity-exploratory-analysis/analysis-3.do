@@ -49,7 +49,6 @@ replace cincome1 = 7 if _income7 == 1
 replace cincome1 = 8 if _income8 == 1
 replace cincome1 = 9 if _income9 == 1
 replace cincome1 = 10 if _income10 == 1
-replace cincome1 = 11 if _income11 == 1
 gen cincome2 = cincome1*cincome1
 gen cincome3 = cincome1*cincome1*cincome1
 
@@ -63,5 +62,18 @@ drop income
 drop stem
 drop industry
 drop age
-drop _age*
-drop _income*
+
+// for the record this was explored; perfectly collinear
+reg index provider*
+
+// regress everything to start; r2 =.44, adj r2 negative
+reg index eq* boughtSample employer male unemployed _region* _income* _stem* _industry* _age* cage* cincome* cprovider*
+
+// p < .5
+// r2 = .39
+// adj r2 = .21
+reg index eq4squared eq4cubed eq6 eq6cubed employer male unemployed _region3 _region5 _income9 _stem2 _industry2 _industry4 _industry5 _industry6  _industry9- _industry12 _age2 cprovider1 cprovider2
+
+// q2 reanalysis
+// q2 r2 = .42
+reg q2 eq* boughtSample employer male unemployed _region* _income* _stem* _industry* _age* cage* cincome* cprovider*
