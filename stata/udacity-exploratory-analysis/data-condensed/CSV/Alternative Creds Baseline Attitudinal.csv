@@ -1,4 +1,4 @@
-unemployed,employer,q2,q3,q4,q5,q6,providerCount,udacity,udemy,coursera,pluralsight,lynda,stem,industry,age,male,income,region
+unemployed,employer,q2,q3,q4,q5,q6,providerCount,provider_udacity,provider_udemy,provider_coursera,provider_pluralsight,provider_lynda,stem,industry,age,male,income,region
 0,1,7,4,5,7,0,2,1,,1,,,Yes,"Finance, Investment, or Accounting",,,,
 0,0,3,2,0,6,10,3,,1,1,,1,Yes,Information Technology,,,,
 0,1,10,6,8,8,5,2,1,1,,,,No,Education,,,,
