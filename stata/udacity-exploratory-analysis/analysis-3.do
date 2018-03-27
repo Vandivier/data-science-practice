@@ -68,42 +68,61 @@ reg index provider*
 
 // d2ilong
 // r2:              .44
-// adjr2:           ?-
-// f-complexity:    ?
-// q-complexity:    ?
+// adjr2:           -.05
+// f-complexity:    58
+// q-complexity:    10
 reg index eq* boughtSample employer male unemployed _region* _income* _stem* _industry* _age* cage* cincome* cprovider*
 
 // d2iweak
 // r2:              .39
 // adjr2:           .21
-// f-complexity:    ?
-// q-complexity:    ?
+// f-complexity:    23
+// q-complexity:    10
 // notes: p < .5
 reg index eq4squared eq4cubed eq6 eq6cubed employer male unemployed _region3 _region5 _income9 _stem2 _industry2 _industry4 _industry5 _industry6  _industry9- _industry12 _age2 cprovider1 cprovider2
 
 // d2imaxar
-// r2:              ?
-// adjr2:           ?
-// f-complexity:    ?
-// q-complexity:    ?
+// r2:              .35
+// adjr2:           .25
+// f-complexity:    14
+// q-complexity:    7
 reg index eq4squared eq4cubed eq6 eq6cubed male unemployed _region3 _region5 _industry4 _industry6  _industry9 _industry12 cprovider1
 
 // d2istrong
-// r2:              ?
-// adjr2:           ?
-// f-complexity:    ?
-// q-complexity:    ?
+// r2:              .22
+// adjr2:           .18
+// f-complexity:    7
+// q-complexity:    3
 // notes: strong factors, p < .1
 reg index eq4squared eq4cubed eq6 eq6cubed _industry6  _industry9
 
 // d2qlong
 // r2:              .42
-// adjr2:           ?-
-// f-complexity:    ?
-// q-complexity:    ?
-// notes: q2 reanalysis
+// adjr2:           -.09
+// f-complexity:    58
+// q-complexity:    10
+// notes: q2 reanalysis.
+// Model df != f-complexity; df = 44, omits constant and ommitted vars, even some whole questions.
+// Here's a consideration not captured in f-complexity: Derived values are relatively cheap. Eg eq6squared and eq6cubed are derived.
 reg q2 eq* boughtSample employer male unemployed _region* _income* _stem* _industry* _age* cage* cincome* cprovider*
 
-// p < .5
+// d2qweak
+// r2:              .39
+// adjr2:           .20
+// f-complexity:    23
+// q-complexity:    10
+reg q2 eq4 eq6squared eq6cubed male unemployed _region3 _region5 _region6 _income2 _income3 _income6 _stem1 _stem2 _industry2 _industry6 _industry7 _industry9 _industry12 _age2 cage2 cincome3 cprovider1
 
+// d2qmaxar
+// r2:              .37
+// adjr2:           .21
+// f-complexity:    20
+// q-complexity:    9
+reg q2 eq4 eq6squared eq6cubed unemployed _region3 _region6 _income2 _income3 _income6 _stem1 _stem2 _industry2 _industry6 _industry7 _industry9 _industry12 _age2 cincome3 cprovider1
 
+// d2qstrong
+// r2:              .18
+// adjr2:           .13
+// f-complexity:    6
+// q-complexity:    3
+reg q2 eq6squared eq6cubed _income2 _industry6 _industry9
