@@ -78,6 +78,3 @@ reg q3 employer unemployed cprovider1 male _region* _income* _stem* _industry* _
 
 // notice industry effects are very different from q2 and q3; as expected: law, accounting, and health are bad for entry level by alt; unexpected is transportation
 // I will need to seperately analyze q2 and q3; therefore making seperate explore-* .do files
-
-// all the tricks, just to see max R^2: It's .59. Not bad imo
-reg q2 aq* boughtSample employer male unemployed _region* _income* _stem* _industry* _age* cage* cincome* cprovider*
