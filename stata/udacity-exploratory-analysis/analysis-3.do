@@ -66,22 +66,44 @@ drop age
 // for the record this was explored; perfectly collinear
 reg index provider*
 
-// regress everything to start; r2 =.44, adj r2 negative
+// d2ilong
+// r2:              .44
+// adjr2:           ?-
+// f-complexity:    ?
+// q-complexity:    ?
 reg index eq* boughtSample employer male unemployed _region* _income* _stem* _industry* _age* cage* cincome* cprovider*
 
-// p < .5
-// r2 = .39
-// adj r2 = .21
+// d2iweak
+// r2:              .39
+// adjr2:           .21
+// f-complexity:    ?
+// q-complexity:    ?
+// notes: p < .5
 reg index eq4squared eq4cubed eq6 eq6cubed employer male unemployed _region3 _region5 _income9 _stem2 _industry2 _industry4 _industry5 _industry6  _industry9- _industry12 _age2 cprovider1 cprovider2
 
-// max adj r2
+// d2imaxar
+// r2:              ?
+// adjr2:           ?
+// f-complexity:    ?
+// q-complexity:    ?
 reg index eq4squared eq4cubed eq6 eq6cubed male unemployed _region3 _region5 _industry4 _industry6  _industry9 _industry12 cprovider1
 
-// strong factors, p < .1
+// d2istrong
+// r2:              ?
+// adjr2:           ?
+// f-complexity:    ?
+// q-complexity:    ?
+// notes: strong factors, p < .1
 reg index eq4squared eq4cubed eq6 eq6cubed _industry6  _industry9
 
-// q2 reanalysis
-// q2 r2 = .42
+// d2qlong
+// r2:              .42
+// adjr2:           ?-
+// f-complexity:    ?
+// q-complexity:    ?
+// notes: q2 reanalysis
 reg q2 eq* boughtSample employer male unemployed _region* _income* _stem* _industry* _age* cage* cincome* cprovider*
 
 // p < .5
+
+
