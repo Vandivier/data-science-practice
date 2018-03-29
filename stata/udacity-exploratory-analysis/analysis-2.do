@@ -8,7 +8,7 @@ do "D:\GitHub\data-science-practice\stata\udacity-exploratory-analysis\analysis.
 
 // d1ilong
 // r2:              .49
-// adjr2:           .02
+// adjr2:           .03
 // f-complexity:    59
 // q-complexity:    10
 reg index eq* boughtSample employer male unemployed _region* _income* _stem* _industry* _age* cage* cincome* cprovider*
