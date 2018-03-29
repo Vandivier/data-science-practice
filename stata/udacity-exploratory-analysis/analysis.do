@@ -78,3 +78,6 @@ reg q3 employer unemployed cprovider1 male _region* _income* _stem* _industry* _
 
 // notice industry effects are very different from q2 and q3; as expected: law, accounting, and health are bad for entry level by alt; unexpected is transportation
 // I will need to seperately analyze q2 and q3; therefore making seperate explore-* .do files
+
+// long long regression for ez copy and paste: 
+// reg index eq4 eq4s eq4c eq6 eq6s eq6c boughtSample employer male unemployed _region1 _region2 _region3 _region4 _region5 _region6 _region7 _region8 _region9 _income1 _income2 _income3 _income4 _income5 _income6 _income7 _income8 _income9 _income10 _income11 _stem1 _stem2 _stem3 _industry1 _industry2 _industry3 _industry4 _industry5 _industry6 _industry7 _industry8 _industry9 _industry10 _industry11 _industry12 _age1 _age2 _age3 _age4 cage1 cage2 cage3 cincome1 cincome2 cincome3 cprovider1 cprovider2 cprovider3

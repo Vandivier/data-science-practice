@@ -1,7 +1,7 @@
 clear
 //import delimited "D:\GitHub\data-science-practice\stata\udacity-exploratory-analysis\data-condensed\CSV\dropped-income-6.csv"
 
-import delimited "C:\Users\john.vandivier\workspace\data-science-practice\stata\udacity-exploratory-analysis\data-condensed\CSV\Alternative Creds Baseline Attitudinal.csv"
+import delimited "C:\Users\john.vandivier\workspace\data-science-practice\stata\udacity-exploratory-analysis\data-condensed\CSV\dropped-income-6.csv"
 
 // tab/gen ref: https://stats.idre.ucla.edu/stata/faq/how-can-i-create-dummy-variables-in-stata/ */
 // destring. ref: https://www.reed.edu/psychology/stata/gs/tutorials/destring.html
@@ -67,7 +67,7 @@ drop age
 reg index provider*
 
 // d2ilong
-// r2:              .57
+// r2:              .44
 // adjr2:           -.05
 // f-complexity:    58
 // q-complexity:    10
@@ -75,11 +75,11 @@ reg index eq* boughtSample employer male unemployed _region* _income* _stem* _in
 
 // d2iweak
 // r2:              .39
-// adjr2:           .21
-// f-complexity:    23
-// q-complexity:    10
+// adjr2:           .22
+// f-complexity:    22
+// q-complexity:    9
 // notes: p < .5
-reg index eq4squared eq4cubed eq6 eq6cubed employer male unemployed _region3 _region5 _income9 _stem2 _industry2 _industry4 _industry5 _industry6  _industry9- _industry12 _age2 cprovider1 cprovider2
+reg index eq4squared eq4cubed eq6 eq6cubed employer male unemployed _region3 _region5 _income9 _industry2 _industry4 _industry5 _industry6  _industry9- _industry12 _age2 cprovider1 cprovider2
 
 // d2imaxar
 // r2:              .35
