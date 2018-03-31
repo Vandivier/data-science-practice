@@ -19,11 +19,12 @@ This occured after the following:
     c. each recipe consists of 5 steps:
       1. Choose List Page or Detail Page type (I chose detail page)
       2. Enter column definitions (See section II)
-      3. Enter Action definitions (none used)
+      3. Enter Action definitions (See section III)
       4. Enter post-processing JS (none used within the tool; see point 10)
       5. Save with a scraper name (It's irrevant, but I named mine Udacity Scraper)
   9 - manual collection expanded the sample: I took a defensible sample and a broad sample; after-the-fact compared to see if there was a noticeable selection bias
   10- Data miner output is further refined by data-miner-cleaner.js because in some cases it couldn't parse certain html, etc
+  11- nvm, data miner still sends a remote bot instead of triggering locally; so i am making console-scraper.js
 
 TODO: Kairos on image for age, gender, more: https://www.kairos.com/features
 Genderize and Name Prims
@@ -40,5 +41,44 @@ II. Columns
          'Extract': 'HTML',
          'Selector': '[class*=user--user--]',
         },
+        {
+         'Name': 'sCurrentlyEmployed',
+         'Extract': 'Text',
+         'Selector': '[class*=date--present--]',
+        },
+        {
+         'Name': 'sLanguagesSpoken',
+         'Extract': 'Text',
+         'Selector': '[class*=work-preferences--language--]',
+        },
+        {
+         'Name': 'sProfileLastUpdated',
+         'Extract': 'Text',
+         'Selector': '[class*=profile--updated--]',
+        },
+        {
+         'Name': 'sExperienceHtml',
+         'Extract': 'HTML',
+         'Selector': '[class*=works--section--]',
+        },
+        {
+         'Name': 'sEducationHtml',
+         'Extract': 'HTML',
+         'Selector': '[class*=educations--section--]',
+        },
     ]
 
+III. Actions
+    [
+        {
+         'Type': 'Click on Element',
+         'WaitTime': 3,
+         'Selector': '[class*=works--more--]',
+        },
+        {
+         'Type': 'Infinite Scroll (Click)',
+         'WaitTime': 3,
+         'MaxCounter': 10,
+         'Selector': '[class*=educations--more--]',
+        },
+    ]
