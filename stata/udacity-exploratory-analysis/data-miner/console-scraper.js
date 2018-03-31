@@ -39,8 +39,12 @@ var bDownloadTextResult = true; // if false just print result to web console.
         _oResult.sImageUrl = $('[class*=user--photo--]')[0].src;
         _oResult.sLinkedInUrl = $('a[title="LINKEDIN"]').attr('href');
         _oResult.sGitHubUrl = $('a[title="GITHUB"]').attr('href');
+        _oResult.sKaggleUrl = $('a[title="KAGGLE"]').attr('href');
+        _oResult.sPersonalSiteUrl = $('a[title="PERSONAL SITE"]').attr('href');
+        _oResult.sStackOverflow = $('a[title="STACK OVERFLOW"]').attr('href');
         _oResult.sTwitterUrl = $('a[title="TWITTER"]').attr('href');
         _oResult.sResumeUrl = $('a[title="Resume"]').attr('href');
+        _oResult.iDetailCount = $('[class*=_account-link--link]').length;
 
         _oResult.sExperienceHtml = $('[class*=works--section--]').html();
         _oResult.sEducationHtml = $('[class*=educations--section--]').html();
