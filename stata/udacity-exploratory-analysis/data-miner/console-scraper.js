@@ -2,7 +2,7 @@
 
 var bDownloadTextResult = true; // if false just print result to web console.
 
-(async function (_iCurrentInputRecord) {
+(async function () {
     const script = document.createElement('script') // inject jQuery
     script.src = 'https://code.jquery.com/jquery-3.3.1.js'; // inject jQuery
     document.getElementsByTagName('head')[0].appendChild(script); // inject jQuery
@@ -16,15 +16,20 @@ var bDownloadTextResult = true; // if false just print result to web console.
         'bTooManyRequestsError': _fsSafeTrim($('[class*="toast--message"]').html()) === 'Too many requests'
     };
 
-    document.querySelector('[class*="educations--more--"').click();
-    document.querySelector('[class*="works--more--"').click();
+    let elMoreEducation = document.querySelector('[class*="educations--more--"');
+    elMoreEducation && elMoreEducation.click();
+    let elMoreWork = document.querySelector('[class*="works--more--"');
+    elMoreWork && elMoreWork.click();
 
     // wait a bit longer for UI to render if it is a valid scrape target
     if (!_oResult.bProfileIsPrivate &&
         !_oResult.bTooManyRequestsError) {
 
+        _oResult.sScrapedUrl = window.location.href;
+        _oResult.sScrapedUserId = window.location.href.split('/')[window.location.href.split('/').length - 1];
+
         _oResult.sProfileLastUpdate = $('div[class*="profile--updated"]').text();
-        _oResult.sUserName = $('h1[class*="user--name"]').html();
+        _oResult.sName = $('h1[class*="user--name"]').html();
         _oResult.sLocation = $('[alt="location marker"]').next().html();
         _oResult.sEmail = $('[alt="email"]').parent().text();
         _oResult.sStateOrCountry = _oResult.sLocation
@@ -43,12 +48,14 @@ var bDownloadTextResult = true; // if false just print result to web console.
         _oResult.iEducationCount = $('div[class*="educations--section"] div[class*="index--education"]').length;
         _oResult.iExperienceCount = $('div[class*="works--section"] div[class*="_work--work"]').length;
         _oResult.bPresentlyEmployed = $('div[class*="works--section"] span[class*="date--present"]').length > 0;
+        _oResult.iAgeEstimate = fEstimateAge($('[class*=educations--section] [class*=_date--date]'),
+                                     $('[class*=works--section] [class*=_date--date]'));
 
         _oResult.sLanguagesSpoken = $('[class*=work-preferences--language--]').text();
     }
 
     if (bDownloadTextResult) {
-        fDownloadText(_oResult.sUserName, JSON.stringify(_oResult));
+        fDownloadText(_oResult.sScrapedUserId, JSON.stringify(_oResult));
     }
     else {
         console.log(_oResult);
@@ -74,5 +81,31 @@ var bDownloadTextResult = true; // if false just print result to web console.
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
+    }
+
+    function fEstimateAge(collEd, collWork) {
+        const iCurrentYear = (new Date().getFullYear());
+        let iSchoolBasedAge = 23 + (iCurrentYear - fiOldestYear(collEd));
+        let iWorkBasedAge = 16 + (iCurrentYear - fiOldestYear(collWork));
+
+        if (!collEd.length
+            && !collWork.length) {
+            return null;
+        }
+        else {
+            return Math.min(iSchoolBasedAge, iWorkBasedAge);
+        }
+
+        function fiOldestYear(coll) {
+            let iOldestYear = (new Date().getFullYear());
+
+            coll.each(function(i, el){
+                let sEarlierYear = el.innerText.split(' ')[1];
+                let iCandidateYear = parseInt(sEarlierYear);
+                iOldestYear = Math.min(iOldestYear, iCandidateYear);
+            });
+
+            return iOldestYear;
+        }
     }
 })();
