@@ -48,7 +48,7 @@ var bDownloadTextResult = true; // if false just print result to web console.
     }
 
     if (bDownloadTextResult) {
-        
+        fDownloadText(_oResult.sUserName, JSON.stringify(_oResult));
     }
     else {
         console.log(_oResult);
@@ -64,5 +64,15 @@ var bDownloadTextResult = true; // if false just print result to web console.
 
     function _fsSafeTrim(s) {
         return s && s.replace(/[,"]/g, '').trim();
+    }
+
+    // ref: https://stackoverflow.com/a/20194533/3931488
+    function fDownloadText(sFileName, sContent) {
+        var a = window.document.createElement('a');
+        a.href = window.URL.createObjectURL(new Blob([sContent], {type: 'text/plain'}));
+        a.download = sFileName + '.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
     }
 })();
