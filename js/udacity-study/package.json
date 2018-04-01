@@ -5,7 +5,8 @@
   "version": "3.3.2",
   "main": "lib/index.js",
   "scripts": {
-    "start": "node reboot.js",
+    "start": "node process-manually-scraped-records",
+    "reboot": "node reboot.js",
     "debug": "node --inspect reboot.js"
   },
   "dependencies": {

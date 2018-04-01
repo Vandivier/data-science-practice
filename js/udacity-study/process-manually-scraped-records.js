@@ -4,6 +4,7 @@ const glob = require('glob');
 const util = require('util');
 const utils = require('ella-utils');
 
+const fpGlob = util.promisify(glob);
 const fpReadFile = util.promisify(fs.readFile);
 const fpReadDir = util.promisify(fs.readdir);
 const fpWriteFile = util.promisify(fs.writeFile);
@@ -16,21 +17,15 @@ main();
 async function main() {
     const options = {};
 
-    glob("**/*.txt", options, function (er, arrsFiles) {
+    await fpGlob("**/*.txt", options)
+    .then(arrsFiles => {
         console.log(arrsFiles);
-      // files is an array of filenames.
-      // If the `nonull` option is set, and nothing
-      // was found, then files is ["**/*.js"]
-      // er is an error object or null.
-    });
+    })
+    .catch(e => console.log('fpGlob error: ', e))
+
+    console.log('test');
 }
-/*
-fs.readdir(testFolder, (err, files) => {
-  files.forEach(file => {
-    console.log(file);
-  });
-})
-*/
+
 async function fpWriteOutput() {
     let sBeautifiedData = JSON.stringify(oRecord);
     sBeautifiedData = beautify(sBeautifiedData, { indent_size: 4 });
