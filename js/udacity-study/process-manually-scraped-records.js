@@ -50,7 +50,7 @@ async function fpWriteOutput(oRecord) {
     let sBeautifiedData = JSON.stringify(oRecord);
     sBeautifiedData = beautify(sBeautifiedData, { indent_size: 4 });
 
-    return fpWriteFile(oRecord.sOutputLocation, sBeautifiedData, 'utf8', err => {
+    fpWriteFile(oRecord.sOutputLocation, sBeautifiedData, 'utf8', err => {
         if (err) console.log('error', err);
         return Promise.resolve();
     })
