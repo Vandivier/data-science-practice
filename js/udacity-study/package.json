@@ -10,6 +10,7 @@
     "debug": "node --inspect reboot.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "csv-reorder": "^0.1.1",
     "ella-utils": "^1.0.3",
     "glob": "^7.1.2",

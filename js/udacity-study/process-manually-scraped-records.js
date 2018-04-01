@@ -1,4 +1,5 @@
 
+const axios = require('axios');
 const beautify = require('js-beautify').js_beautify;
 const fs = require('fs');
 const glob = require('glob');
@@ -40,7 +41,10 @@ async function fpProcessRecord(sLocation) {
         fs.mkdirSync(oRecord.sOutputDirectory);
     }
 
-    console.log(oRecord.sOutputLocation);
+    if (oRecord.sScrapedUserId === 'adam1') { // to limit API usage during development
+        await fpAddKairosData(oRecord);
+        console.log(oRecord.gender);
+    }
 
     return fpWriteOutput(oRecord);
 }
@@ -55,4 +59,37 @@ async function fpWriteOutput(oRecord) {
         return Promise.resolve();
     })
     .catch(e => console.log('fpWriteOutput.fpWriteFile error: ', e));
+}
+
+// ref: https://www.kairos.com/docs/getting-started
+async function fpAddKairosData(oRecord) {
+    let oData = {
+        image: oRecord.sImageUrl
+    };
+    let oOptions = {};
+
+    if (oData.image) {
+        /*
+        const options = {
+            body: JSON.stringify(oData),
+            method: 'POST',
+        };
+        */
+
+        return axios.post('http://api.kairos.com/detect', oData)
+        .then(oKairosResponse => {
+            let oAttributes = oKairosResponse
+                && oKairosResponse.images
+                && oKairosResponse.images.length
+                && oKairosResponse.images[0].faces.length
+                && oKairosResponse.images[0].faces[0].attributes;
+
+            console.log('got kairos response!', oKairosResponse);
+            oRecord = Object.assign(oRecord, oAttributes);
+            return Promise.resolve();
+        })
+        .catch(err => console.log('fpAddKairosData.axios.post error: ', err));
+    }
+
+    return Promise.resolve();
 }
