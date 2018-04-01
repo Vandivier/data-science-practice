@@ -82,5 +82,3 @@ III. Actions
          'Selector': '[class*=educations--more--]',
         },
     ]
-
-names to try - chris, jeff, paul, peter, adam, abigail, alison, josh, justin, tim, markus, dominic, nic, regina, max, joshua8+, tricia, camila, mohammed, Muhammad
