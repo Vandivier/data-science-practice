@@ -45,13 +45,14 @@ async function fpProcessRecord(sLocation) {
     return fpWriteOutput(oRecord);
 }
 
+// TODO: I think this is broken because I don't return or await fpWriteFile
 async function fpWriteOutput(oRecord) {
     let sBeautifiedData = JSON.stringify(oRecord);
     sBeautifiedData = beautify(sBeautifiedData, { indent_size: 4 });
 
-    await fpWriteFile(oRecord.sOutputLocation, sBeautifiedData, 'utf8', err => {
+    return fpWriteFile(oRecord.sOutputLocation, sBeautifiedData, 'utf8', err => {
         if (err) console.log('error', err);
-    });
-
-    return Promise.resolve();
+        return Promise.resolve();
+    })
+    .catch(e => console.log('fpWriteOutput.fpWriteFile error: ', e));
 }
