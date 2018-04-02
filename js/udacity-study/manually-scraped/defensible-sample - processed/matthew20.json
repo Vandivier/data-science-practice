@@ -18,6 +18,7 @@
     "bPresentlyEmployed": false,
     "iAgeEstimate": 16,
     "sLanguagesSpoken": "",
+    "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/matthew20.jpg",
     "sInputLocation": "manually-scraped/defensible-sample/matthew20.txt",
     "sInputBaseName": "defensible-sample",
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",

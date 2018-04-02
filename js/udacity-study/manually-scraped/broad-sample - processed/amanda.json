@@ -18,6 +18,7 @@
     "bPresentlyEmployed": false,
     "iAgeEstimate": null,
     "sLanguagesSpoken": "English, Spanish, Italian",
+    "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/amanda.jpg",
     "sInputLocation": "manually-scraped/broad-sample/amanda.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",

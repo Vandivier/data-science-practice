@@ -22,6 +22,7 @@
     "bPresentlyEmployed": false,
     "iAgeEstimate": 27,
     "sLanguagesSpoken": "English, Russian, Ukrainian, Polish, German",
+    "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/alex21.jpg",
     "sInputLocation": "manually-scraped/broad-sample/alex21.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",

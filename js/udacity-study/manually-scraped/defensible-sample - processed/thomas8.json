@@ -17,6 +17,7 @@
     "bPresentlyEmployed": false,
     "iAgeEstimate": null,
     "sLanguagesSpoken": "Japanese",
+    "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/thomas8.jpg",
     "sInputLocation": "manually-scraped/defensible-sample/thomas8.txt",
     "sInputBaseName": "defensible-sample",
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",

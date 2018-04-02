@@ -20,6 +20,7 @@
     "bPresentlyEmployed": false,
     "iAgeEstimate": 16,
     "sLanguagesSpoken": "English, Chinese",
+    "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/bill.jpg",
     "sInputLocation": "manually-scraped/broad-sample/bill.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",

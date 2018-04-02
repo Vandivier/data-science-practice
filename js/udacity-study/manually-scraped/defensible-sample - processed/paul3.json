@@ -21,6 +21,7 @@
     "bPresentlyEmployed": false,
     "iAgeEstimate": 22,
     "sLanguagesSpoken": "Russian, English",
+    "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/paul3.jpg",
     "sInputLocation": "manually-scraped/defensible-sample/paul3.txt",
     "sInputBaseName": "defensible-sample",
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",

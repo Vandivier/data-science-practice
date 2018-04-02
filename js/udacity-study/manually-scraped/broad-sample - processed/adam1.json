@@ -21,8 +21,24 @@
     "bPresentlyEmployed": true,
     "iAgeEstimate": 27,
     "sLanguagesSpoken": "English, Spanish",
+    "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/adam1.jpg",
     "sInputLocation": "manually-scraped/broad-sample/adam1.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/adam1.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/adam1.json",
+    "oKairosData": {
+        "age": 33,
+        "asian": 0.0037,
+        "black": 0.00035,
+        "gender": {
+            "femaleConfidence": 0.00009,
+            "maleConfidence": 0.99991,
+            "type": "M"
+        },
+        "glasses": "Eye",
+        "hispanic": 0.01938,
+        "lips": "Apart",
+        "other": 0.00369,
+        "white": 0.97288
+    }
 }

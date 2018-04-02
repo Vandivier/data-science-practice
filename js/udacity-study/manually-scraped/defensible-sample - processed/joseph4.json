@@ -21,6 +21,7 @@
     "bPresentlyEmployed": true,
     "iAgeEstimate": 27,
     "sLanguagesSpoken": "English",
+    "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/joseph4.jpg",
     "sInputLocation": "manually-scraped/defensible-sample/joseph4.txt",
     "sInputBaseName": "defensible-sample",
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",

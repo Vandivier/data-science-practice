@@ -23,6 +23,7 @@
     "bPresentlyEmployed": false,
     "iAgeEstimate": 28,
     "sLanguagesSpoken": "None",
+    "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/erica1.jpg",
     "sInputLocation": "manually-scraped/broad-sample/erica1.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",

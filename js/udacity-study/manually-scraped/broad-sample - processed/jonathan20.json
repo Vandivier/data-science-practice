@@ -18,6 +18,7 @@
     "bPresentlyEmployed": false,
     "iAgeEstimate": 16,
     "sLanguagesSpoken": "English, Spanish",
+    "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/jonathan20.jpg",
     "sInputLocation": "manually-scraped/broad-sample/jonathan20.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",

@@ -21,6 +21,7 @@
     "bPresentlyEmployed": true,
     "iAgeEstimate": 18,
     "sLanguagesSpoken": "Chinese, English",
+    "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/eric23.jpg",
     "sInputLocation": "manually-scraped/broad-sample/eric23.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",

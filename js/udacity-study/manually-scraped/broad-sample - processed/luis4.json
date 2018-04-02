@@ -19,6 +19,7 @@
     "bPresentlyEmployed": false,
     "iAgeEstimate": null,
     "sLanguagesSpoken": "Portuguese, English, Spanish",
+    "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/luis4.jpg",
     "sInputLocation": "manually-scraped/broad-sample/luis4.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",

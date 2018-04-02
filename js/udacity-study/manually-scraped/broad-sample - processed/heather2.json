@@ -19,6 +19,7 @@
     "bPresentlyEmployed": false,
     "iAgeEstimate": 37,
     "sLanguagesSpoken": "English, French (read), Latin (read)",
+    "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/heather2.jpg",
     "sInputLocation": "manually-scraped/broad-sample/heather2.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",

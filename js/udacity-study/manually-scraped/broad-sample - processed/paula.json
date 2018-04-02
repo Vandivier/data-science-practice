@@ -16,6 +16,7 @@
     "bPresentlyEmployed": true,
     "iAgeEstimate": 20,
     "sLanguagesSpoken": "Indonesian, English, French, Spanish, German",
+    "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/paula.jpg",
     "sInputLocation": "manually-scraped/broad-sample/paula.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",

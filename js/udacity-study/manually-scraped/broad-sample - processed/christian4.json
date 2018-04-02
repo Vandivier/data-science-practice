@@ -23,6 +23,7 @@
     "bPresentlyEmployed": true,
     "iAgeEstimate": 23,
     "sLanguagesSpoken": "Norwegian, English",
+    "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/christian4.jpg",
     "sInputLocation": "manually-scraped/broad-sample/christian4.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",

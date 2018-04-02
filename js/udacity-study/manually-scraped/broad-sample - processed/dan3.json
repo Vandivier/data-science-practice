@@ -17,6 +17,7 @@
     "bPresentlyEmployed": true,
     "iAgeEstimate": 22,
     "sLanguagesSpoken": "",
+    "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/dan3.jpg",
     "sInputLocation": "manually-scraped/broad-sample/dan3.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",

@@ -21,6 +21,7 @@
     "bPresentlyEmployed": true,
     "iAgeEstimate": null,
     "sLanguagesSpoken": "",
+    "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/peter8.jpg",
     "sInputLocation": "manually-scraped/broad-sample/peter8.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",

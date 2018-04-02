@@ -21,6 +21,7 @@
     "bPresentlyEmployed": true,
     "iAgeEstimate": null,
     "sLanguagesSpoken": "Spanish, French",
+    "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/daniel2.jpg",
     "sInputLocation": "manually-scraped/defensible-sample/daniel2.txt",
     "sInputBaseName": "defensible-sample",
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",

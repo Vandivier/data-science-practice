@@ -20,6 +20,7 @@
     "bPresentlyEmployed": true,
     "iAgeEstimate": 27,
     "sLanguagesSpoken": "English, Greek",
+    "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/maria.jpg",
     "sInputLocation": "manually-scraped/broad-sample/maria.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",

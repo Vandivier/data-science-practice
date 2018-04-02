@@ -12,6 +12,9 @@ const fpReadFile = util.promisify(fs.readFile);
 const fpReadDir = util.promisify(fs.readdir);
 const fpWriteFile = util.promisify(fs.writeFile);
 
+const oKairosAuth = JSON.parse(fs.readFileSync('kairos-auth.json', 'utf8'));
+const sImagePrefix = 'https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/';
+
 main();
 
 async function main() {
@@ -28,6 +31,9 @@ async function fpProcessRecord(sLocation) {
     let oRecord = await fpReadFile(sLocation)
         .then(sRecord => JSON.parse(sRecord))
 
+    oRecord.sImageOnGithubUrl = sImagePrefix
+            + oRecord.sScrapedUserId
+            + '.jpg';
     oRecord.sInputLocation = sLocation;
     oRecord.sInputBaseName = path.basename(path.dirname(sLocation)); // ref: https://stackoverflow.com/questions/42956127/get-parent-directory-name-in-node-js
     oRecord.sOutputDirectory = path.dirname(sLocation)
@@ -43,7 +49,7 @@ async function fpProcessRecord(sLocation) {
 
     if (oRecord.sScrapedUserId === 'adam1') { // to limit API usage during development
         await fpAddKairosData(oRecord);
-        console.log(oRecord.gender);
+        console.log(oRecord.oKairosData);
     }
 
     return fpWriteOutput(oRecord);
@@ -62,30 +68,38 @@ async function fpWriteOutput(oRecord) {
 }
 
 // ref: https://www.kairos.com/docs/getting-started
+// get credentials from your free account at https://developer.kairos.com/admin
+// copy fake-kairos-auth.json and fill in fields
+// obviously, I .gitignore the real kairos-auth.json
 async function fpAddKairosData(oRecord) {
-    let oData = {
-        image: oRecord.sImageUrl
+    let oOptions = {
+        data: {
+            image: oRecord.sImageOnGithubUrl
+        },
+        headers: {
+            app_id: oKairosAuth.appid,
+            app_key: oKairosAuth.key,
+        },
+        method: 'POST',
+        url: 'http://api.kairos.com/detect',
     };
-    let oOptions = {};
 
-    if (oData.image) {
-        /*
-        const options = {
-            body: JSON.stringify(oData),
-            method: 'POST',
-        };
-        */
+    if (oRecord.sImageUrl) {
+        return axios.request(oOptions)
+        .then(response => {
+            let _oKairosData = response
+                && response.data
+                && response.data.images
+                && response.data.images.length
+                && response.data.images[0].faces.length
+                && response.data.images[0].faces[0].attributes;
 
-        return axios.post('http://api.kairos.com/detect', oData)
-        .then(oKairosResponse => {
-            let oAttributes = oKairosResponse
-                && oKairosResponse.images
-                && oKairosResponse.images.length
-                && oKairosResponse.images[0].faces.length
-                && oKairosResponse.images[0].faces[0].attributes;
+            oRecord.oKairosData = _oKairosData;
 
-            console.log('got kairos response!', oKairosResponse);
-            oRecord = Object.assign(oRecord, oAttributes);
+            if (response.data.Errors) {
+                console.log('fpAddKairosData business error: ', response.data.Errors)
+            }
+
             return Promise.resolve();
         })
         .catch(err => console.log('fpAddKairosData.axios.post error: ', err));

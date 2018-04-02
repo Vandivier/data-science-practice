@@ -22,6 +22,7 @@
     "bPresentlyEmployed": true,
     "iAgeEstimate": null,
     "sLanguagesSpoken": "Chinese (Mandarin) - Basic, German - Intermediate, English - Native Speaker, Spanish - Basic, French - Basic",
+    "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/daniel29.jpg",
     "sInputLocation": "manually-scraped/defensible-sample/daniel29.txt",
     "sInputBaseName": "defensible-sample",
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",

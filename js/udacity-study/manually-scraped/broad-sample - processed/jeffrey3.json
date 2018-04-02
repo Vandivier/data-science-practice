@@ -21,6 +21,7 @@
     "bPresentlyEmployed": false,
     "iAgeEstimate": 27,
     "sLanguagesSpoken": "English",
+    "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/jeffrey3.jpg",
     "sInputLocation": "manually-scraped/broad-sample/jeffrey3.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
