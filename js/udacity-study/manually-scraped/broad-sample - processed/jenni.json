@@ -20,8 +20,8 @@
     "iAgeEstimate": null,
     "sLanguagesSpoken": "English, Finnish",
     "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/jenni.jpg",
-    "sInputLocation": "manually-scraped/broad-sample/jenni.txt",
+    "sInputLocation": "broad-sample/jenni.txt",
     "sInputBaseName": "broad-sample",
-    "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/jenni.json"
+    "sOutputDirectory": "broad-sample - processed",
+    "sOutputLocation": "broad-sample - processed/jenni.json"
 }

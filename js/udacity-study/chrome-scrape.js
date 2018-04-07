@@ -219,13 +219,13 @@ function init() {
   });
 }
 
-// TODO: make util
+// TODO: use ella-utils
 function isNumeric(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
-// TODO: make util
 // TODO: make writing logic generic as it is dup in process-names.fScrapedDataToCSV()
+// TODO: use ella-utils
 function fsObjectsToCSV(arroUserObjects, arrsKeys, sTitleLine) {
   arrsKeys = arrsKeys || Object.keys(arroUserObjects[0]);                         // if not passed, get all of them in whatever order
   sTitleLine = sTitleLine || arrsKeys.reduce((acc, val) => {
@@ -239,7 +239,7 @@ function fsObjectsToCSV(arroUserObjects, arrsKeys, sTitleLine) {
   return sTitleLine;
 }
 
-// TODO: make util
+// TODO: use ella-utils
 function fsObjectToCSVLine(oUser, arrsKeys) {
   let sLine = '';
 

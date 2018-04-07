@@ -21,8 +21,8 @@
     "iAgeEstimate": 27,
     "sLanguagesSpoken": "English, Greek",
     "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/maria.jpg",
-    "sInputLocation": "manually-scraped/broad-sample/maria.txt",
+    "sInputLocation": "broad-sample/maria.txt",
     "sInputBaseName": "broad-sample",
-    "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/maria.json"
+    "sOutputDirectory": "broad-sample - processed",
+    "sOutputLocation": "broad-sample - processed/maria.json"
 }

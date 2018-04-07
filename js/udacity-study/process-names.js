@@ -82,6 +82,7 @@ function* giConsoleUpdaterFactory() {
 
 let giConsoleUpdater = giConsoleUpdaterFactory();
 
+// TODO: use ella-utils.fsObjectsToCSV
 // TODO: column first and last name
 // TODO: request from a names list, or loop name + i; i++ until 404
 //    eg /dustinlongenecker public, /johnsmith2 404, /john and /john2 both exist (but private), /john3 exists and public with linkedIn.

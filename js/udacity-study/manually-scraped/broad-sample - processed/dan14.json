@@ -23,8 +23,8 @@
     "iAgeEstimate": 21,
     "sLanguagesSpoken": "English, Thai",
     "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/dan14.jpg",
-    "sInputLocation": "manually-scraped/broad-sample/dan14.txt",
+    "sInputLocation": "broad-sample/dan14.txt",
     "sInputBaseName": "broad-sample",
-    "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/dan14.json"
+    "sOutputDirectory": "broad-sample - processed",
+    "sOutputLocation": "broad-sample - processed/dan14.json"
 }

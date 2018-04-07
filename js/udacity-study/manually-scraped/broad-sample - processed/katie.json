@@ -18,8 +18,8 @@
     "iAgeEstimate": null,
     "sLanguagesSpoken": "None",
     "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/katie.jpg",
-    "sInputLocation": "manually-scraped/broad-sample/katie.txt",
+    "sInputLocation": "broad-sample/katie.txt",
     "sInputBaseName": "broad-sample",
-    "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/katie.json"
+    "sOutputDirectory": "broad-sample - processed",
+    "sOutputLocation": "broad-sample - processed/katie.json"
 }

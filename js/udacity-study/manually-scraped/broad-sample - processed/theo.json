@@ -24,8 +24,8 @@
     "iAgeEstimate": 34,
     "sLanguagesSpoken": "English",
     "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/theo.jpg",
-    "sInputLocation": "manually-scraped/broad-sample/theo.txt",
+    "sInputLocation": "broad-sample/theo.txt",
     "sInputBaseName": "broad-sample",
-    "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/theo.json"
+    "sOutputDirectory": "broad-sample - processed",
+    "sOutputLocation": "broad-sample - processed/theo.json"
 }

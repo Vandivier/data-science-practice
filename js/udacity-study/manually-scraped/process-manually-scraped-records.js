@@ -12,17 +12,44 @@ const fpReadFile = util.promisify(fs.readFile);
 const fpReadDir = util.promisify(fs.readdir);
 const fpWriteFile = util.promisify(fs.writeFile);
 
-const oKairosAuth = JSON.parse(fs.readFileSync('kairos-auth.json', 'utf8'));
+const oKairosAuth = JSON.parse(fs.readFileSync(__dirname + '/../kairos-auth.json', 'utf8'));
 const sImagePrefix = 'https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/';
+
+const oTitleLine = {
+    "sScrapedUserId": "User ID",
+    "sProfileLastUpdate": "Months Since Last Profile Update",
+    "sName": "Name",
+    "sStateOrCountry": "State or Country",
+    "sImageUrl": "https://s3-us-west-2.amazonaws.com/udacity-profiles/production/photo/4635953505.jpg#1522551447733",
+    // TODO: github stars & commits
+    "iDetailCount": "Count of Udacity Information Details",
+    "iCountOfNanodegrees": "Count of Udacity Nanodegrees",
+    "iEducationCount": "Count of Udacity Education Entries",
+    "iExperienceCount": "Count of Udacity Experience Entries",
+    "bPresentlyEmployed": "Presently Employed",
+    "iAgeEstimate": "Age Estimated by Education and Experience",
+    "sLanguagesSpoken": "Languages Spoken", // TODO: count and maybe check by language eg English dummy
+    "sInputBaseName": "Sample Group Name",
+    "oKairosData": "Kairo Data" // TODO: break this up
+};
+
+const sOutFileLocation = __dirname + '/manually-scraped-results.csv';
 
 main();
 
 async function main() {
     const options = {};
 
-    await fpGlob("manually-scraped/**/*.txt", options)
+    await fpGlob(__dirname + 'manually-scraped/**/*.txt', options)
     .then(arrsFiles => utils.forEachReverseAsyncPhased(arrsFiles, fpProcessRecord))
-    .catch(e => console.log('fpGlob error: ', e));
+    .catch(e => console.log('fpGlob fpProcessRecord error: ', e));
+
+    await fpGlob('**/*.txt', options)
+    .then(arrsFiles => utils.fpObjectsToCSV(arrsFiles, {
+        oTitleLine,
+        sOutFileLocation,
+    }))
+    .catch(e => console.log('fpGlob fpObjectsToCSV error: ', e));
 
     console.log('Program completed.');
 }
