@@ -21,8 +21,8 @@
     "iAgeEstimate": 22,
     "sLanguagesSpoken": "English, Arabic",
     "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/mina.jpg",
-    "sInputLocation": "broad-sample/mina.txt",
+    "sInputLocation": "manually-scraped/broad-sample/mina.txt",
     "sInputBaseName": "broad-sample",
-    "sOutputDirectory": "broad-sample - processed",
-    "sOutputLocation": "broad-sample - processed/mina.json"
+    "sOutputDirectory": "manually-scraped/broad-sample - processed",
+    "sOutputLocation": "manually-scraped/broad-sample - processed/mina.json"
 }

@@ -17,8 +17,8 @@
     "iAgeEstimate": 20,
     "sLanguagesSpoken": "Indonesian, English, French, Spanish, German",
     "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/paula.jpg",
-    "sInputLocation": "broad-sample/paula.txt",
+    "sInputLocation": "manually-scraped/broad-sample/paula.txt",
     "sInputBaseName": "broad-sample",
-    "sOutputDirectory": "broad-sample - processed",
-    "sOutputLocation": "broad-sample - processed/paula.json"
+    "sOutputDirectory": "manually-scraped/broad-sample - processed",
+    "sOutputLocation": "manually-scraped/broad-sample - processed/paula.json"
 }

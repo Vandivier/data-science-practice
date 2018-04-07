@@ -22,8 +22,8 @@
     "iAgeEstimate": 16,
     "sLanguagesSpoken": "None",
     "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/matthew.jpg",
-    "sInputLocation": "defensible-sample/matthew.txt",
+    "sInputLocation": "manually-scraped/defensible-sample/matthew.txt",
     "sInputBaseName": "defensible-sample",
-    "sOutputDirectory": "defensible-sample - processed",
-    "sOutputLocation": "defensible-sample - processed/matthew.json"
+    "sOutputDirectory": "manually-scraped/defensible-sample - processed",
+    "sOutputLocation": "manually-scraped/defensible-sample - processed/matthew.json"
 }

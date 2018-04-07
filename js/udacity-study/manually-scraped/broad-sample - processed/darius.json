@@ -23,8 +23,8 @@
     "iAgeEstimate": 23,
     "sLanguagesSpoken": "English, Chinese",
     "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/darius.jpg",
-    "sInputLocation": "broad-sample/darius.txt",
+    "sInputLocation": "manually-scraped/broad-sample/darius.txt",
     "sInputBaseName": "broad-sample",
-    "sOutputDirectory": "broad-sample - processed",
-    "sOutputLocation": "broad-sample - processed/darius.json"
+    "sOutputDirectory": "manually-scraped/broad-sample - processed",
+    "sOutputLocation": "manually-scraped/broad-sample - processed/darius.json"
 }

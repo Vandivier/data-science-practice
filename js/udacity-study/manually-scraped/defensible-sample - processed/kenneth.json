@@ -22,8 +22,8 @@
     "iAgeEstimate": 30,
     "sLanguagesSpoken": "English",
     "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/kenneth.jpg",
-    "sInputLocation": "defensible-sample/kenneth.txt",
+    "sInputLocation": "manually-scraped/defensible-sample/kenneth.txt",
     "sInputBaseName": "defensible-sample",
-    "sOutputDirectory": "defensible-sample - processed",
-    "sOutputLocation": "defensible-sample - processed/kenneth.json"
+    "sOutputDirectory": "manually-scraped/defensible-sample - processed",
+    "sOutputLocation": "manually-scraped/defensible-sample - processed/kenneth.json"
 }

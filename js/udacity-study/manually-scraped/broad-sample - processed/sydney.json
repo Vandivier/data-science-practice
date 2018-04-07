@@ -21,8 +21,8 @@
     "iAgeEstimate": 23,
     "sLanguagesSpoken": "English",
     "sImageOnGithubUrl": "https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/sydney.jpg",
-    "sInputLocation": "broad-sample/sydney.txt",
+    "sInputLocation": "manually-scraped/broad-sample/sydney.txt",
     "sInputBaseName": "broad-sample",
-    "sOutputDirectory": "broad-sample - processed",
-    "sOutputLocation": "broad-sample - processed/sydney.json"
+    "sOutputDirectory": "manually-scraped/broad-sample - processed",
+    "sOutputLocation": "manually-scraped/broad-sample - processed/sydney.json"
 }

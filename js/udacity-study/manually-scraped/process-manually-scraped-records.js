@@ -20,7 +20,7 @@ const oTitleLine = {
     "sProfileLastUpdate": "Months Since Last Profile Update",
     "sName": "Name",
     "sStateOrCountry": "State or Country",
-    "sImageUrl": "https://s3-us-west-2.amazonaws.com/udacity-profiles/production/photo/4635953505.jpg#1522551447733",
+    //"sImageUrl": "https://s3-us-west-2.amazonaws.com/udacity-profiles/production/photo/4635953505.jpg#1522551447733",
     // TODO: github stars & commits
     "iDetailCount": "Count of Udacity Information Details",
     "iCountOfNanodegrees": "Count of Udacity Nanodegrees",
@@ -40,16 +40,13 @@ main();
 async function main() {
     const options = {};
 
-    await fpGlob(__dirname + 'manually-scraped/**/*.txt', options)
+    await fpGlob('manually-scraped/**/*.txt', options)
     .then(arrsFiles => utils.forEachReverseAsyncPhased(arrsFiles, fpProcessRecord))
-    .catch(e => console.log('fpGlob fpProcessRecord error: ', e));
-
-    await fpGlob('**/*.txt', options)
-    .then(arrsFiles => utils.fpObjectsToCSV(arrsFiles, {
+    .then(arroProcessedFiles => utils.fpObjectsToCSV(arroProcessedFiles, {
         oTitleLine,
         sOutFileLocation,
     }))
-    .catch(e => console.log('fpGlob fpObjectsToCSV error: ', e));
+    .catch(e => console.log('fpGlob error: ', e));
 
     console.log('Program completed.');
 }
@@ -82,16 +79,13 @@ async function fpProcessRecord(sLocation) {
     return fpWriteOutput(oRecord);
 }
 
-// TODO: I think this is broken because I don't return or await fpWriteFile
 async function fpWriteOutput(oRecord) {
     let sBeautifiedData = JSON.stringify(oRecord);
     sBeautifiedData = beautify(sBeautifiedData, { indent_size: 4 });
 
-    fpWriteFile(oRecord.sOutputLocation, sBeautifiedData, 'utf8', err => {
-        if (err) console.log('error', err);
-        return Promise.resolve();
-    })
-    .catch(e => console.log('fpWriteOutput.fpWriteFile error: ', e));
+    await fpWriteFile(oRecord.sOutputLocation, sBeautifiedData, 'utf8')
+        .catch(e => console.log('fpWriteOutput.fpWriteFile error: ', e));
+    return oRecord;
 }
 
 // ref: https://www.kairos.com/docs/getting-started
