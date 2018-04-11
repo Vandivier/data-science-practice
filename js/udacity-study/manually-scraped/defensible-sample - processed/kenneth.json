@@ -26,7 +26,7 @@
     "sInputBaseName": "defensible-sample",
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
     "sOutputLocation": "manually-scraped/defensible-sample - processed/kenneth.json",
-    "bNameTruncated": false,
+    "bNameTruncated": true,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,

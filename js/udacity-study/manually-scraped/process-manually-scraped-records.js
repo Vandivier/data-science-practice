@@ -80,8 +80,8 @@ async function fpProcessRecord(sLocation) {
         console.log(oRecord.oKairosData);
     }
 
-    oRecord.sName = oRecord.sName.split(',')[0]; // get rid of `, Jr.`, etc
     oRecord.bNameTruncated = oRecord.sName.split(',').length > 1; // has `, Jr.`, etc
+    oRecord.sName = oRecord.sName.split(',')[0]; // get rid of `, Jr.`, etc
 
     try {
         fGetLanguagesSpoken(oRecord);
