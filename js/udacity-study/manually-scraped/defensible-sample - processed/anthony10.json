@@ -26,6 +26,7 @@
     "sInputBaseName": "defensible-sample",
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
     "sOutputLocation": "manually-scraped/defensible-sample - processed/anthony10.json",
+    "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": false,

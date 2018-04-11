@@ -26,6 +26,7 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/brian1.json",
+    "bNameTruncated": false,
     "iLanguagesSpoken": 2,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,

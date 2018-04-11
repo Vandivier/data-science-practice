@@ -41,6 +41,7 @@
         "other": 0.00369,
         "white": 0.97288
     },
+    "bNameTruncated": false,
     "iLanguagesSpoken": 2,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": true,

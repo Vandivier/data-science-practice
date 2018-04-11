@@ -25,6 +25,7 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/jillian.json",
+    "bNameTruncated": false,
     "iLanguagesSpoken": 0,
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": false,

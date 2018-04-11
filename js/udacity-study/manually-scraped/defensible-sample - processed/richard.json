@@ -28,6 +28,7 @@
     "sInputBaseName": "defensible-sample",
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
     "sOutputLocation": "manually-scraped/defensible-sample - processed/richard.json",
+    "bNameTruncated": false,
     "iLanguagesSpoken": 3,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,

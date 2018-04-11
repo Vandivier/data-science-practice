@@ -19,6 +19,7 @@ const oTitleLine = {
     "sScrapedUserId": "User ID",
     "sProfileLastUpdate": "Months Since Last Profile Update",
     "sName": "Name",
+    "bNameTruncated": "Name Truncated",
     "sStateOrCountry": "State or Country",
     //"sImageUrl": "https://s3-us-west-2.amazonaws.com/udacity-profiles/production/photo/4635953505.jpg#1522551447733",
     // TODO: github stars & commits
@@ -78,6 +79,9 @@ async function fpProcessRecord(sLocation) {
         await fpAddKairosData(oRecord);
         console.log(oRecord.oKairosData);
     }
+
+    oRecord.sName = oRecord.sName.split(',')[0]; // get rid of `, Jr.`, etc
+    oRecord.bNameTruncated = oRecord.sName.split(',').length > 1; // has `, Jr.`, etc
 
     try {
         fGetLanguagesSpoken(oRecord);

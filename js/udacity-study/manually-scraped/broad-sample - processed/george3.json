@@ -28,6 +28,7 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/george3.json",
+    "bNameTruncated": false,
     "iLanguagesSpoken": 0,
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": false,

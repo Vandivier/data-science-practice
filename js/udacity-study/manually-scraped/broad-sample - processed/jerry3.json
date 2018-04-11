@@ -22,6 +22,7 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/jerry3.json",
+    "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": false,

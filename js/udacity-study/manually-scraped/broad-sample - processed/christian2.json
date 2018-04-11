@@ -29,6 +29,7 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/christian2.json",
+    "bNameTruncated": false,
     "iLanguagesSpoken": 5,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": true,
