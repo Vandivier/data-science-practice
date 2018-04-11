@@ -20,5 +20,9 @@
     "sInputLocation": "manually-scraped/broad-sample/paula.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/paula.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/paula.json",
+    "iLanguagesSpoken": 5,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": true,
+    "bSpeaksOther": true
 }

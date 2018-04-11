@@ -24,5 +24,9 @@
     "sInputLocation": "manually-scraped/broad-sample/matt.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/matt.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/matt.json",
+    "iLanguagesSpoken": 2,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": true
 }

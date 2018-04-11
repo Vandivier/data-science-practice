@@ -23,5 +23,9 @@
     "sInputLocation": "manually-scraped/defensible-sample/linda1.txt",
     "sInputBaseName": "defensible-sample",
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
-    "sOutputLocation": "manually-scraped/defensible-sample - processed/linda1.json"
+    "sOutputLocation": "manually-scraped/defensible-sample - processed/linda1.json",
+    "iLanguagesSpoken": 1,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": false
 }

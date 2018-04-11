@@ -25,5 +25,9 @@
     "sInputLocation": "manually-scraped/broad-sample/dan15.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/dan15.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/dan15.json",
+    "iLanguagesSpoken": 1,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": false
 }

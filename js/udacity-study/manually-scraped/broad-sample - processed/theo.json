@@ -27,5 +27,9 @@
     "sInputLocation": "manually-scraped/broad-sample/theo.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/theo.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/theo.json",
+    "iLanguagesSpoken": 1,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": false
 }

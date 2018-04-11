@@ -23,5 +23,9 @@
     "sInputLocation": "manually-scraped/broad-sample/jenni.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/jenni.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/jenni.json",
+    "iLanguagesSpoken": 2,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": true
 }

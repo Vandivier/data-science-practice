@@ -24,5 +24,9 @@
     "sInputLocation": "manually-scraped/broad-sample/davidsmith2.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/davidsmith2.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/davidsmith2.json",
+    "iLanguagesSpoken": 1,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": false
 }

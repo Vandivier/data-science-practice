@@ -26,5 +26,9 @@
     "sInputLocation": "manually-scraped/broad-sample/sam11.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/sam11.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/sam11.json",
+    "iLanguagesSpoken": 0,
+    "bSpeaksEnglish": false,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": false
 }

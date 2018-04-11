@@ -25,5 +25,9 @@
     "sInputLocation": "manually-scraped/defensible-sample/james32.txt",
     "sInputBaseName": "defensible-sample",
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
-    "sOutputLocation": "manually-scraped/defensible-sample - processed/james32.json"
+    "sOutputLocation": "manually-scraped/defensible-sample - processed/james32.json",
+    "iLanguagesSpoken": 2,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": true,
+    "bSpeaksOther": false
 }

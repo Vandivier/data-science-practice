@@ -23,5 +23,9 @@
     "sInputLocation": "manually-scraped/broad-sample/katherine.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/katherine.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/katherine.json",
+    "iLanguagesSpoken": 1,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": false
 }

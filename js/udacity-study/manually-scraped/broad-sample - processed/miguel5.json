@@ -26,5 +26,9 @@
     "sInputLocation": "manually-scraped/broad-sample/miguel5.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/miguel5.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/miguel5.json",
+    "iLanguagesSpoken": 1,
+    "bSpeaksEnglish": false,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": true
 }

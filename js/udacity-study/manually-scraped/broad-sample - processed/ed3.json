@@ -23,5 +23,9 @@
     "sInputLocation": "manually-scraped/broad-sample/ed3.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/ed3.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/ed3.json",
+    "iLanguagesSpoken": 1,
+    "bSpeaksEnglish": false,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": true
 }

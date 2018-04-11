@@ -25,5 +25,9 @@
     "sInputLocation": "manually-scraped/broad-sample/nicholas17.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/nicholas17.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/nicholas17.json",
+    "iLanguagesSpoken": 1,
+    "bSpeaksEnglish": false,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": true
 }

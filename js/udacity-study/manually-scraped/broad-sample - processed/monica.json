@@ -21,5 +21,9 @@
     "sInputLocation": "manually-scraped/broad-sample/monica.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/monica.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/monica.json",
+    "iLanguagesSpoken": 1,
+    "bSpeaksEnglish": false,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": true
 }

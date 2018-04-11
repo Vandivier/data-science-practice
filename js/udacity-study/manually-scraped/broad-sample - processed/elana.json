@@ -25,5 +25,9 @@
     "sInputLocation": "manually-scraped/broad-sample/elana.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/elana.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/elana.json",
+    "iLanguagesSpoken": 0,
+    "bSpeaksEnglish": false,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": false
 }

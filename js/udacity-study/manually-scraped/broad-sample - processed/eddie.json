@@ -23,5 +23,9 @@
     "sInputLocation": "manually-scraped/broad-sample/eddie.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/eddie.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/eddie.json",
+    "iLanguagesSpoken": 2,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": true,
+    "bSpeaksOther": false
 }

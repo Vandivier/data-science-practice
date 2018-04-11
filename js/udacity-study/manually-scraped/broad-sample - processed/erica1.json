@@ -27,5 +27,9 @@
     "sInputLocation": "manually-scraped/broad-sample/erica1.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/erica1.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/erica1.json",
+    "iLanguagesSpoken": 0,
+    "bSpeaksEnglish": false,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": false
 }

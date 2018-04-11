@@ -26,5 +26,9 @@
     "sInputLocation": "manually-scraped/defensible-sample/mark18.txt",
     "sInputBaseName": "defensible-sample",
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
-    "sOutputLocation": "manually-scraped/defensible-sample - processed/mark18.json"
+    "sOutputLocation": "manually-scraped/defensible-sample - processed/mark18.json",
+    "iLanguagesSpoken": 2,
+    "bSpeaksEnglish": false,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": true
 }

@@ -25,5 +25,9 @@
     "sInputLocation": "manually-scraped/broad-sample/will5.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/will5.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/will5.json",
+    "iLanguagesSpoken": 3,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": true,
+    "bSpeaksOther": true
 }

@@ -26,5 +26,9 @@
     "sInputLocation": "manually-scraped/broad-sample/sara.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/sara.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/sara.json",
+    "iLanguagesSpoken": 2,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": true,
+    "bSpeaksOther": false
 }

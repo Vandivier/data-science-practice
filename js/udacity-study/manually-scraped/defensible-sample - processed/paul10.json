@@ -22,5 +22,9 @@
     "sInputLocation": "manually-scraped/defensible-sample/paul10.txt",
     "sInputBaseName": "defensible-sample",
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
-    "sOutputLocation": "manually-scraped/defensible-sample - processed/paul10.json"
+    "sOutputLocation": "manually-scraped/defensible-sample - processed/paul10.json",
+    "iLanguagesSpoken": 0,
+    "bSpeaksEnglish": false,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": false
 }

@@ -22,5 +22,9 @@
     "sInputLocation": "manually-scraped/broad-sample/sandy2.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/sandy2.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/sandy2.json",
+    "iLanguagesSpoken": 1,
+    "bSpeaksEnglish": false,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": true
 }

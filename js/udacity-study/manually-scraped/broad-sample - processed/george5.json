@@ -23,5 +23,9 @@
     "sInputLocation": "manually-scraped/broad-sample/george5.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/george5.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/george5.json",
+    "iLanguagesSpoken": 5,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": true
 }

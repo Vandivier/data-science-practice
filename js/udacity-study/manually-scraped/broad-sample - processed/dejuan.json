@@ -21,5 +21,9 @@
     "sInputLocation": "manually-scraped/broad-sample/dejuan.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/dejuan.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/dejuan.json",
+    "iLanguagesSpoken": 1,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": false
 }

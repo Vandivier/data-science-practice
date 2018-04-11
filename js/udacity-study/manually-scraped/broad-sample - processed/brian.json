@@ -24,5 +24,9 @@
     "sInputLocation": "manually-scraped/broad-sample/brian.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/brian.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/brian.json",
+    "iLanguagesSpoken": 1,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": false
 }

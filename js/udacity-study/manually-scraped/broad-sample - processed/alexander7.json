@@ -22,5 +22,9 @@
     "sInputLocation": "manually-scraped/broad-sample/alexander7.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/alexander7.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/alexander7.json",
+    "iLanguagesSpoken": 2,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": true
 }

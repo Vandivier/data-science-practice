@@ -24,5 +24,9 @@
     "sInputLocation": "manually-scraped/defensible-sample/richard19.txt",
     "sInputBaseName": "defensible-sample",
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
-    "sOutputLocation": "manually-scraped/defensible-sample - processed/richard19.json"
+    "sOutputLocation": "manually-scraped/defensible-sample - processed/richard19.json",
+    "iLanguagesSpoken": 1,
+    "bSpeaksEnglish": false,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": true
 }

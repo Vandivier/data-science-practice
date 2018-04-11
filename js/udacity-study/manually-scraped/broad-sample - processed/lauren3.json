@@ -23,5 +23,9 @@
     "sInputLocation": "manually-scraped/broad-sample/lauren3.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/lauren3.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/lauren3.json",
+    "iLanguagesSpoken": 2,
+    "bSpeaksEnglish": false,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": true
 }

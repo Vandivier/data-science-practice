@@ -23,5 +23,9 @@
     "sInputLocation": "manually-scraped/broad-sample/bill3.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/bill3.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/bill3.json",
+    "iLanguagesSpoken": 0,
+    "bSpeaksEnglish": false,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": false
 }

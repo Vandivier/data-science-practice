@@ -25,5 +25,9 @@
     "sInputLocation": "manually-scraped/broad-sample/alejandro1.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/alejandro1.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/alejandro1.json",
+    "iLanguagesSpoken": 2,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": true,
+    "bSpeaksOther": false
 }

@@ -28,5 +28,9 @@
     "sInputLocation": "manually-scraped/broad-sample/christian2.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/christian2.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/christian2.json",
+    "iLanguagesSpoken": 5,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": true,
+    "bSpeaksOther": true
 }

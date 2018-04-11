@@ -25,5 +25,9 @@
     "sInputLocation": "manually-scraped/broad-sample/sid.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/sid.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/sid.json",
+    "iLanguagesSpoken": 3,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": true
 }

@@ -28,7 +28,10 @@ const oTitleLine = {
     "iExperienceCount": "Count of Udacity Experience Entries",
     "bPresentlyEmployed": "Presently Employed",
     "iAgeEstimate": "Age Estimated by Education and Experience",
-    "sLanguagesSpoken": "Languages Spoken", // TODO: count and maybe check by language eg English dummy
+    "iLanguagesSpoken": "Count Languages Spoken",
+    "bSpeaksEnglish": "Speaks English",
+    "bSpeaksSpanish": "Speaks Spanish",
+    "bSpeaksOther": "Speaks Other Language",
     "sInputBaseName": "Sample Group Name",
     "oKairosData": "Kairo Data" // TODO: break this up
 };
@@ -53,7 +56,7 @@ async function main() {
 
 async function fpProcessRecord(sLocation) {
     let oRecord = await fpReadFile(sLocation)
-        .then(sRecord => JSON.parse(sRecord))
+        .then(sRecord => JSON.parse(sRecord));
 
     oRecord.sImageOnGithubUrl = sImagePrefix
             + oRecord.sScrapedUserId
@@ -76,7 +79,48 @@ async function fpProcessRecord(sLocation) {
         console.log(oRecord.oKairosData);
     }
 
+    try {
+        fGetLanguagesSpoken(oRecord);
+    } catch (e) {
+        console.log('late fpProcessRecord err: ', e);
+    }
+
     return fpWriteOutput(oRecord);
+}
+
+// easily extend to include other languages if we find any significance
+function fGetLanguagesSpoken(oRecord) {
+    let arrLanguagesSpoken = oRecord.sLanguagesSpoken
+        .split(',')
+        .map(sLanguage => sLanguage.toLowerCase().trim());
+    let bSpeaksEnglish = arrLanguagesSpoken.toLowerCase;
+    let iKnownLanguages = 0;
+
+    if (arrLanguagesSpoken.includes('none')) {
+        oRecord.iLanguagesSpoken = 0;
+    } else {
+        oRecord.iLanguagesSpoken = arrLanguagesSpoken.length;
+    }
+
+    if (arrLanguagesSpoken.includes('english')) {
+        oRecord.bSpeaksEnglish = true;
+        iKnownLanguages++;
+    } else {
+        oRecord.bSpeaksEnglish = false;
+    }
+
+    if (arrLanguagesSpoken.includes('spanish')) {
+        oRecord.bSpeaksSpanish = true;
+        iKnownLanguages++;
+    } else {
+        oRecord.bSpeaksSpanish = false;
+    }
+
+    if (oRecord.iLanguagesSpoken > iKnownLanguages) {
+        oRecord.bSpeaksOther = true;
+    } else {
+        oRecord.bSpeaksOther = false;
+    }
 }
 
 async function fpWriteOutput(oRecord) {

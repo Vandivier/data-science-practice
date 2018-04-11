@@ -23,5 +23,9 @@
     "sInputLocation": "manually-scraped/broad-sample/clay.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/clay.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/clay.json",
+    "iLanguagesSpoken": 1,
+    "bSpeaksEnglish": false,
+    "bSpeaksSpanish": true,
+    "bSpeaksOther": false
 }

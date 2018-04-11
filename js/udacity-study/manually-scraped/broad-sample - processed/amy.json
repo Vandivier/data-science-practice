@@ -25,5 +25,9 @@
     "sInputLocation": "manually-scraped/broad-sample/amy.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/amy.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/amy.json",
+    "iLanguagesSpoken": 0,
+    "bSpeaksEnglish": false,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": false
 }

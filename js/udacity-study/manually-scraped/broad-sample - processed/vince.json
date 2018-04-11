@@ -25,5 +25,9 @@
     "sInputLocation": "manually-scraped/broad-sample/vince.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/vince.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/vince.json",
+    "iLanguagesSpoken": 2,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": true
 }

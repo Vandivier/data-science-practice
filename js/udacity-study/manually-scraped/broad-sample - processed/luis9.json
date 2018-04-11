@@ -22,5 +22,9 @@
     "sInputLocation": "manually-scraped/broad-sample/luis9.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/luis9.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/luis9.json",
+    "iLanguagesSpoken": 1,
+    "bSpeaksEnglish": false,
+    "bSpeaksSpanish": true,
+    "bSpeaksOther": false
 }

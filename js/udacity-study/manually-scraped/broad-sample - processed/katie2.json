@@ -25,5 +25,9 @@
     "sInputLocation": "manually-scraped/broad-sample/katie2.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/katie2.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/katie2.json",
+    "iLanguagesSpoken": 1,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": false
 }

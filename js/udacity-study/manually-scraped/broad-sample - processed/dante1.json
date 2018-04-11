@@ -25,5 +25,9 @@
     "sInputLocation": "manually-scraped/broad-sample/dante1.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/dante1.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/dante1.json",
+    "iLanguagesSpoken": 1,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": false
 }

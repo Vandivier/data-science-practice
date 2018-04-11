@@ -25,5 +25,9 @@
     "sInputLocation": "manually-scraped/broad-sample/ahmed.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/ahmed.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/ahmed.json",
+    "iLanguagesSpoken": 1,
+    "bSpeaksEnglish": false,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": true
 }

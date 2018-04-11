@@ -25,5 +25,9 @@
     "sInputLocation": "manually-scraped/defensible-sample/anthony10.txt",
     "sInputBaseName": "defensible-sample",
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
-    "sOutputLocation": "manually-scraped/defensible-sample - processed/anthony10.json"
+    "sOutputLocation": "manually-scraped/defensible-sample - processed/anthony10.json",
+    "iLanguagesSpoken": 1,
+    "bSpeaksEnglish": false,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": true
 }

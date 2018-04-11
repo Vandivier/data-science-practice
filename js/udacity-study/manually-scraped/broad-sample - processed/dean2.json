@@ -27,5 +27,9 @@
     "sInputLocation": "manually-scraped/broad-sample/dean2.txt",
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
-    "sOutputLocation": "manually-scraped/broad-sample - processed/dean2.json"
+    "sOutputLocation": "manually-scraped/broad-sample - processed/dean2.json",
+    "iLanguagesSpoken": 1,
+    "bSpeaksEnglish": true,
+    "bSpeaksSpanish": false,
+    "bSpeaksOther": false
 }
