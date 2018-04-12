@@ -50,7 +50,7 @@ var bDownloadTextResult = true; // if false just print result to web console.
         _oResult.sEducationHtml = $('[class*=educations--section--]').html();
         _oResult.iCountOfNanodegrees = $('[class*=_degree--nanodegree]').length;
         _oResult.iEducationCount = $('div[class*="educations--section"] div[class*="index--education"]').length;
-        _oResult.iExperienceCount = $('div[class*="works--section"] div[class*="_work--work"]').length;
+        _oResult.iExperienceCount = $('div[class*="works--section"] div[class*="index--work--"]').length;
         _oResult.bPresentlyEmployed = $('div[class*="works--section"] span[class*="date--present"]').length > 0;
         _oResult.iAgeEstimate = fEstimateAge($('[class*=educations--section] [class*=_date--date]'),
                                      $('[class*=works--section] [class*=_date--date]'));
