@@ -12,7 +12,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "csv-reorder": "^0.1.1",
-    "ella-utils": "^1.0.3",
+    "ella-utils": "^1.0.4",
     "glob": "^7.1.2",
     "js-beautify": "^1.7.5",
     "phantom": "^4.0.0",
