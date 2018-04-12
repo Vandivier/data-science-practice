@@ -28,5 +28,7 @@
     "iLanguagesSpoken": 2,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
-    "bSpeaksOther": true
+    "bSpeaksOther": true,
+    "sState": "CT",
+    "sCountry": "United States"
 }

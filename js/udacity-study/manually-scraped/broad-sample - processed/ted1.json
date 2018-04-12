@@ -26,5 +26,7 @@
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
-    "bSpeaksOther": false
+    "bSpeaksOther": false,
+    "sState": "VA",
+    "sCountry": "United States"
 }

@@ -30,5 +30,6 @@
     "iLanguagesSpoken": 3,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
-    "bSpeaksOther": true
+    "bSpeaksOther": true,
+    "sCountry": "Canada"
 }

@@ -162,6 +162,7 @@ function fFixLocation(oResult) {
         && oResult.sLocation.split(', ');
     let sStateCandidate;
 
+    if (!arrsLocation) return;
     if (arrsLocation.length === 1) {
         sStateCandidate = arrsLocation[0];
     } else {

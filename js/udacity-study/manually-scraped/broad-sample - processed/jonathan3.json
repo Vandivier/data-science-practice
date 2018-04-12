@@ -28,5 +28,7 @@
     "iLanguagesSpoken": 3,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
-    "bSpeaksOther": true
+    "bSpeaksOther": true,
+    "sState": "CA",
+    "sCountry": "United States"
 }

@@ -27,5 +27,7 @@
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": false,
-    "bSpeaksOther": true
+    "bSpeaksOther": true,
+    "sState": "OH",
+    "sCountry": "United States"
 }

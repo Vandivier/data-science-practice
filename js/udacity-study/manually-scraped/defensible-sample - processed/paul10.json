@@ -27,5 +27,6 @@
     "iLanguagesSpoken": 0,
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": false,
-    "bSpeaksOther": false
+    "bSpeaksOther": false,
+    "sCountry": "United Kingdom"
 }

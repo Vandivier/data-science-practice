@@ -32,5 +32,7 @@
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": true,
-    "bSpeaksOther": false
+    "bSpeaksOther": false,
+    "sState": "CO",
+    "sCountry": "United States"
 }

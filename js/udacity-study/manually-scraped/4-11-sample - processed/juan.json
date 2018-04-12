@@ -28,5 +28,6 @@
     "iLanguagesSpoken": 2,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": true,
-    "bSpeaksOther": false
+    "bSpeaksOther": false,
+    "sCountry": "Argentina"
 }
