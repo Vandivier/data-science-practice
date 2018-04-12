@@ -95,9 +95,12 @@ async function fpProcessRecord(sLocation) {
         fs.mkdirSync(oRecord.sOutputDirectory);
     }
 
+    // TODO: cache and check the cache for that.
     //if (oRecord.sScrapedUserId === 'adam1') { // to limit API usage during development
     if (arrsCapturedProfilePictures.includes(oRecord.sScrapedUserId)) {
         oRecord.bShouldHaveKairos = true;
+        console.log('getting kairos for ' + oRecord.sScrapedUserId);
+        await utils.fpWait(2000); // throttle a bit to be nice :)
         await fpAddKairosData(oRecord);
     }
 

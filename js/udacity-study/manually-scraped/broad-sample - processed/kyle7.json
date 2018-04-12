@@ -26,6 +26,7 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/kyle7.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,

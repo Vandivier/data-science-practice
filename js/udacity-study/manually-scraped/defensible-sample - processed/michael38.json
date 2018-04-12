@@ -27,6 +27,7 @@
     "sInputBaseName": "defensible-sample",
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
     "sOutputLocation": "manually-scraped/defensible-sample - processed/michael38.json",
+    "bShouldHaveKairos": true,
     "iKairosAge": 28,
     "iKairosAsian": 0.00521,
     "iKairosBlack": 0.00008,

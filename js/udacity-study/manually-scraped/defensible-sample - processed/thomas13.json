@@ -23,6 +23,7 @@
     "sInputBaseName": "defensible-sample",
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
     "sOutputLocation": "manually-scraped/defensible-sample - processed/thomas13.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 3,
     "bSpeaksEnglish": true,
