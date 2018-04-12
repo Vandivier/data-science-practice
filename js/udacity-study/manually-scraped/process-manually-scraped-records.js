@@ -39,14 +39,21 @@ const oTitleLine = {
 
 const sOutFileLocation = __dirname + '/manually-scraped-results.csv';
 
-const arrsCapturedProfilePictures = [
-    ''
-];
+let arrsCapturedProfilePictures = [];
 
 main();
 
 async function main() {
     const options = {};
+
+    await fpGlob('manually-scraped/profile-pics/*.jpg', options)
+    .then(arrsFiles => {
+        arrsCapturedProfilePictures = arrsFiles.map(s => {
+            let arrs = s.split('/');
+            arrs = arrs[arrs.length - 1].split('.jpg');
+            return arrs[0];
+        });
+    });
 
     await fpGlob('manually-scraped/**/*.txt', options)
     .then(arrsFiles => utils.forEachReverseAsyncPhased(arrsFiles, fpProcessRecord))
