@@ -15,6 +15,9 @@ const fpWriteFile = util.promisify(fs.writeFile);
 const oKairosAuth = JSON.parse(fs.readFileSync(__dirname + '/../kairos-auth.json', 'utf8'));
 const sImagePrefix = 'https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/';
 
+// TODO: github stars & commits
+// TODO: linkedin stuff
+// TODO: survey
 const oTitleLine = {
     "sScrapedUserId": "User ID",
     "sProfileLastUpdate": "Months Since Last Profile Update",
@@ -22,8 +25,6 @@ const oTitleLine = {
     "bNameTruncated": "Name Truncated",
     "sState": "US State",
     "sCountry": "Country",
-    //"sImageUrl": "https://s3-us-west-2.amazonaws.com/udacity-profiles/production/photo/4635953505.jpg#1522551447733",
-    // TODO: github stars & commits
     "iDetailCount": "Count of Udacity Information Details",
     "iCountOfNanodegrees": "Count of Udacity Nanodegrees",
     "iEducationCount": "Count of Udacity Education Entries",
@@ -35,7 +36,13 @@ const oTitleLine = {
     "bSpeaksSpanish": "Speaks Spanish",
     "bSpeaksOther": "Speaks Other Language",
     "sInputBaseName": "Sample Group Name",
-    "oKairosData": "Kairo Data" // TODO: break this up
+    "iKairosAge": "Kairos Age",
+    "iKairosAsian": "Kairos Asian",
+    "iKairosBlack": "Kairos Black",
+    "iKairosMaleConfidence": "Kairos Male Confidence",
+    "iKairosHispanic": "Kairos Hispanic",
+    "iKairosOtherEthnicity": "Kairos Other Ethnicity",
+    "iKairosWhite": "Kairos White",
 };
 
 const sOutFileLocation = __dirname + '/manually-scraped-results.csv';
@@ -90,7 +97,6 @@ async function fpProcessRecord(sLocation) {
     if (oRecord.sScrapedUserId === 'adam1') { // to limit API usage during development
     //if (arrsCapturedProfilePictures.includes(oRecord.sScrapedUserId)) {
         await fpAddKairosData(oRecord);
-        console.log(oRecord.oKairosData);
     }
 
     oRecord.bNameTruncated = oRecord.sName.split(',').length > 1; // has `, Jr.`, etc
@@ -213,7 +219,15 @@ async function fpAddKairosData(oRecord) {
                 && response.data.images[0].faces.length
                 && response.data.images[0].faces[0].attributes;
 
-            oRecord.oKairosData = _oKairosData;
+            if (_oKairosData) {
+                oRecord.iKairosAge = _oKairosData.age;
+                oRecord.iKairosAsian = _oKairosData.asian;
+                oRecord.iKairosBlack = _oKairosData.black;
+                oRecord.iKairosMaleConfidence = _oKairosData.gender.maleConfidence;
+                oRecord.iKairosHispanic = _oKairosData.hispanic;
+                oRecord.iKairosOtherEthnicity = _oKairosData.other;
+                oRecord.iKairosWhite = _oKairosData.white;
+            }
 
             if (response.data.Errors) {
                 console.log('fpAddKairosData business error: ', response.data.Errors)
