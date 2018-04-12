@@ -7,6 +7,7 @@ const path = require('path');
 const util = require('util');
 const utils = require('ella-utils');
 
+const fpAccess = util.promisify(fs.access);
 const fpGlob = util.promisify(glob);
 const fpReadFile = util.promisify(fs.readFile);
 const fpReadDir = util.promisify(fs.readdir);
@@ -95,12 +96,10 @@ async function fpProcessRecord(sLocation) {
         fs.mkdirSync(oRecord.sOutputDirectory);
     }
 
-    // TODO: cache and check the cache for that.
     //if (oRecord.sScrapedUserId === 'adam1') { // to limit API usage during development
     if (arrsCapturedProfilePictures.includes(oRecord.sScrapedUserId)) {
         oRecord.bShouldHaveKairos = true;
         console.log('getting kairos for ' + oRecord.sScrapedUserId);
-        await utils.fpWait(2000); // throttle a bit to be nice :)
         await fpAddKairosData(oRecord);
     }
 
@@ -215,32 +214,44 @@ async function fpAddKairosData(oRecord) {
     };
 
     if (oRecord.sImageUrl) {
-        return axios.request(oOptions)
-        .then(response => {
-            let _oKairosData = response
-                && response.data
-                && response.data.images
-                && response.data.images.length
-                && response.data.images[0].faces.length
-                && response.data.images[0].faces[0].attributes;
+        try {
+            let oOldData = await fpReadFile(oRecord.sOutputLocation)
+                .then(sRecord => JSON.parse(sRecord));
 
-            if (_oKairosData) {
-                oRecord.iKairosAge = _oKairosData.age;
-                oRecord.iKairosAsian = _oKairosData.asian;
-                oRecord.iKairosBlack = _oKairosData.black;
-                oRecord.iKairosMaleConfidence = _oKairosData.gender.maleConfidence;
-                oRecord.iKairosHispanic = _oKairosData.hispanic;
-                oRecord.iKairosOtherEthnicity = _oKairosData.other;
-                oRecord.iKairosWhite = _oKairosData.white;
-            }
+            oRecord.iKairosAge = oOldData.iKairosAge;
+            oRecord.iKairosAsian = oOldData.iKairosAsian;
+            oRecord.iKairosBlack = oOldData.iKairosBlack;
+            oRecord.iKairosMaleConfidence = oOldData.iKairosMaleConfidence;
+            oRecord.iKairosHispanic = oOldData.iKairosHispanic;
+            oRecord.iKairosOtherEthnicity = oOldData.iKairosOtherEthnicity;
+            oRecord.iKairosWhite = oOldData.iKairosWhite;
+        } catch (e) {
+            await utils.fpWait(2000); // throttle a bit to be nice :)
+            oRecord.oKairosData = await axios.request(oOptions)
+            .then(response => {
+                let _oKairosData = response &&
+                    response.data &&
+                    response.data.images &&
+                    response.data.images.length &&
+                    response.data.images[0].faces.length &&
+                    response.data.images[0].faces[0].attributes;
 
-            if (response.data.Errors) {
-                console.log('fpAddKairosData business error: ', response.data.Errors)
-            }
+                if (response.data.Errors) {
+                    console.log('fpAddKairosData business error: ', response.data.Errors)
+                }
 
-            return Promise.resolve();
-        })
-        .catch(err => console.log('fpAddKairosData.axios.post error: ', err));
+                return Promise.resolve(_oKairosData || {});
+            })
+            .catch(err => console.log('fpAddKairosData.axios.post error: ', err));
+
+            oRecord.iKairosAge = oKairosData.age;
+            oRecord.iKairosAsian = oKairosData.asian;
+            oRecord.iKairosBlack = oKairosData.black;
+            oRecord.iKairosMaleConfidence = oKairosData.gender.maleConfidence;
+            oRecord.iKairosHispanic = oKairosData.hispanic;
+            oRecord.iKairosOtherEthnicity = oKairosData.other;
+            oRecord.iKairosWhite = oKairosData.white;
+        }
     }
 
     return Promise.resolve();
