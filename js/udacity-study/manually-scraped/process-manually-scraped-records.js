@@ -39,6 +39,10 @@ const oTitleLine = {
 
 const sOutFileLocation = __dirname + '/manually-scraped-results.csv';
 
+const arrsCapturedProfilePictures = [
+    ''
+];
+
 main();
 
 async function main() {
@@ -75,7 +79,8 @@ async function fpProcessRecord(sLocation) {
         fs.mkdirSync(oRecord.sOutputDirectory);
     }
 
-    if (oRecord.sScrapedUserId === 'adam1') { // to limit API usage during development
+    //if (oRecord.sScrapedUserId === 'adam1') { // to limit API usage during development
+    if (arrsCapturedProfilePictures.includes(oRecord.sScrapedUserId)) {
         await fpAddKairosData(oRecord);
         console.log(oRecord.oKairosData);
     }

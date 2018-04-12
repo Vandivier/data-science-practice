@@ -26,8 +26,9 @@ This occured after the following:
   10- Data miner output is further refined by data-miner-cleaner.js because in some cases it couldn't parse certain html, etc
   11- nvm, data miner still sends a remote bot instead of triggering locally; so i am making console-scraper.js
 
-TODO: Kairos on image for age, gender, more: https://www.kairos.com/features
-Genderize and Name Prims
+TODO:
+1. Genderize, Name Prism, other enhancers
+2. if no image on udacity, get from linkedIn
 
 II. Columns
     [

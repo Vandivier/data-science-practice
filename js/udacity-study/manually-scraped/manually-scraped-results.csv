@@ -349,9 +349,14 @@ true,true,true,,,30,,2,2,5,1,,defensible-sample,Kenneth K. Slachta,Profile last 
 ,true,true,,,23,,2,,7,1,,broad-sample,Adam,Profile last updated 9 months ago,adam6,CA
 ,true,,true,,22,,2,1,2,1,,broad-sample,Adam,Profile last updated 9 months ago,adam3,CA
 ,,,true,,,,1,,,1,,broad-sample,Adam,Profile last updated 9 months ago,adam19,MA
-,true,true,,true,27,,2,1,4,2,[object Object],broad-sample,Adam,Profile last updated 9 months ago,adam1,NC
+,true,true,,true,27,,2,1,4,2,,broad-sample,Adam,Profile last updated 9 months ago,adam1,NC
 ,true,true,,,,2,,5,4,1,,4-11-sample,Shane,Profile last updated 2 months ago,shane,PA
+,,,true,,,,,,,1,,4-11-sample,Marcus,Profile last updated 9 months ago,marcus3,Canada
+,,true,,,30,,,1,3,1,,4-11-sample,Marcus,Profile last updated 9 months ago,marcus,CA
 ,,true,true,,16,,,1,,2,,4-11-sample,Logan,Profile last updated 9 months ago,logan,CA
+,true,true,,true,26,1,,2,4,2,,4-11-sample,Juan José García,Profile last updated 9 months ago,juan,Argentina
+,true,true,true,true,27,,,1,3,3,,4-11-sample,jose,Profile last updated 9 months ago,jose1,Mexico
+,true,true,true,,,,,2,7,2,,4-11-sample,John Brown,Profile last updated 9 months ago,johnbrown,IL
 ,true,,,,27,1,,2,1,,,4-11-sample,Jesse,Profile last updated 9 months ago,jesse7,WI
 ,true,true,,,36,,,1,1,1,,4-11-sample,Jacob Cavazos,Profile last updated 9 months ago,jacob7,TX
 ,,true,true,true,,,,,,4,,4-11-sample,Felix Prados,Profile last updated 9 months ago,felix,Spain
@@ -365,3 +370,6 @@ true,true,true,,,30,,2,2,5,1,,defensible-sample,Kenneth K. Slachta,Profile last 
 ,true,true,,,22,,,1,4,1,,4-11-sample,Ben,Profile last updated 9 months ago,ben11,NC
 ,true,true,,,23,,,2,5,1,,4-11-sample,Ben,Profile last updated 9 months ago,ben10,TX
 ,true,true,,true,21,2,,3,1,2,,4-11-sample,Antonio Ruballos,Profile last updated 9 months ago,antonio3,CA
+,,true,,,,1,,1,,1,,4-11-sample,Anne,Profile last updated 9 months ago,anne,Canada
+,,,,,,,,2,,,,4-11-sample,albert,Profile last updated 9 months ago,albert,CA
+,,true,,,16,,,1,,1,,4-11-sample,Al Carruth,Profile last updated 9 months ago,al,TX
