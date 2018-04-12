@@ -1,50 +1,50 @@
 Name Truncated,Presently Employed,Speaks English,Speaks Other Language,Speaks Spanish,Age Estimated by Education and Experience,Count of Udacity Nanodegrees,Count of Udacity Information Details,Count of Udacity Education Entries,Count of Udacity Experience Entries,Kairos Age,Kairos Asian,Kairos Black,Kairos Hispanic,Kairos Male Confidence,Kairos Other Ethnicity,Kairos White,Count Languages Spoken,Country,Sample Group Name,Name,Months Since Last Profile Update,User ID,US State
-,true,,,,23,,2,1,3,,,,,,,,,Czechia,defensible-sample,William Warner Weidenborner,Profile last updated 9 months ago,william8,
+,true,,,,23,,2,1,3,32,0.00815,0.00063,0.17241,0.99992,0.01028,0.80854,,Czechia,defensible-sample,William Warner Weidenborner,Profile last updated 9 months ago,william8,
 ,true,,,,19,,,1,1,,,,,,,,,United States,defensible-sample,William,Profile last updated 9 months ago,william4,CA
 ,,,true,,,,,,,,,,,,,,1,United States,defensible-sample,Thomas,Profile last updated 9 months ago,thomas8,CO
-,,true,true,,21,,3,2,1,,,,,,,,2,United States,defensible-sample,Thomas,Profile last updated 9 months ago,thomas17,FL
+,,true,true,,21,,3,2,1,42,0.00003,0.00022,0.01244,0.99936,0.00025,0.98706,2,United States,defensible-sample,Thomas,Profile last updated 9 months ago,thomas17,FL
 ,,true,true,,,,1,,,,,,,,,,3,Canada,defensible-sample,Thomas,Profile last updated 9 months ago,thomas13,
 ,true,true,,,22,,2,1,5,,,,,,,,1,United States,defensible-sample,Steven,Profile last updated 9 months ago,steven3,FL
-,true,,,,27,1,,3,4,,,,,,,,,United States,defensible-sample,Robert,Profile last updated 9 months ago,robert9,VT
+,true,,,,27,1,,3,4,41,,0.00003,0.0002,0.99797,0.00001,0.99975,,United States,defensible-sample,Robert,Profile last updated 9 months ago,robert9,VT
 ,true,true,true,,20,,1,1,1,,,,,,,,2,Australia,defensible-sample,Robert Hua,Profile last updated 9 months ago,robert8,
-,true,,,true,23,,2,2,2,,,,,,,,1,United States,defensible-sample,Robert,Profile last updated 9 months ago,robert7,TX
-,true,true,,,,1,4,4,4,,,,,,,,1,United States,defensible-sample,Robert C McKee,Profile last updated 5 months ago,robert19,TX
+,true,,,true,23,,2,2,2,27,0.00101,0.00112,0.02723,1,0.00591,0.96472,1,United States,defensible-sample,Robert,Profile last updated 9 months ago,robert7,TX
+,true,true,,,,1,4,4,4,28,0.0008,0.00018,0.10497,1,0.00356,0.89048,1,United States,defensible-sample,Robert C McKee,Profile last updated 5 months ago,robert19,TX
 ,true,true,,,26,,1,1,1,,,,,,,,1,United States,defensible-sample,Robert,Profile last updated 9 months ago,robert14,CA
-,true,true,,,33,1,3,3,3,,,,,,,,1,United States,defensible-sample,Richard,Profile last updated 9 months ago,richard6,FL
+,true,true,,,33,1,3,3,3,37,0.00083,0.00032,0.02006,0.99799,0.00364,0.97515,1,United States,defensible-sample,Richard,Profile last updated 9 months ago,richard6,FL
 ,,true,,,16,,,2,,,,,,,,,1,United Kingdom,defensible-sample,Richard Jackson,Profile last updated 9 months ago,richard5,
 ,,,true,,,,3,,,,,,,,,,1,United States,defensible-sample,Richard,Profile last updated 9 months ago,richard19,CA
-,true,true,true,,,1,4,2,1,,,,,,,,3,United Kingdom,defensible-sample,Richard Ivan,Profile last updated 9 months ago,richard16,
-,true,true,true,,,2,4,4,1,,,,,,,,3,Canada,defensible-sample,Richard Della,Profile last updated 9 months ago,richard,
+,true,true,true,,,1,4,2,1,25,0.01008,0.00184,0.0183,0.99999,0.04575,0.92403,3,United Kingdom,defensible-sample,Richard Ivan,Profile last updated 9 months ago,richard16,
+,true,true,true,,,2,4,4,1,35,0.00003,0.99978,0.0001,0.99983,0.00009,,3,Canada,defensible-sample,Richard Della,Profile last updated 9 months ago,richard,
 ,,true,,,16,,1,1,,,,,,,,,1,United States,defensible-sample,Paul,Profile last updated 9 months ago,paul9,
 ,,true,true,,22,,2,1,1,,,,,,,,2,Russia,defensible-sample,Pavel Turanchoks,Profile last updated 9 months ago,paul3,
 ,,,,,,1,,1,,,,,,,,,,United Kingdom,defensible-sample,paul,Profile last updated 9 months ago,paul10,
 ,,true,,,,,,,,,,,,,,,1,United States,defensible-sample,Nancy,Profile last updated 9 months ago,nancy,CA
-,true,true,,,23,,1,1,8,,,,,,,,1,United States,defensible-sample,Michael Doino,Profile last updated 9 months ago,michael7,NY
-,,,,,26,,2,1,1,,,,,,,,,United States,defensible-sample,Michael,Profile last updated 9 months ago,michael51,MI
+,true,true,,,23,,1,1,8,40,0.00025,0.0002,0.00958,0.99999,0.00048,0.9895,1,United States,defensible-sample,Michael Doino,Profile last updated 9 months ago,michael7,NY
+,,,,,26,,2,1,1,35,0.00007,0.00033,0.00378,1,0.00011,0.99571,,United States,defensible-sample,Michael,Profile last updated 9 months ago,michael51,MI
 ,true,true,,,23,,4,,1,,,,,,,,1,United Kingdom,defensible-sample,Michael,Profile last updated 24 days ago,michael49,
-,true,,,,,1,3,4,4,,,,,,,,,United States,defensible-sample,Michael,Profile last updated 4 days ago,michael41,MI
-,true,true,,true,20,1,4,2,1,,,,,,,,2,United States,defensible-sample,Michael,Profile last updated 9 months ago,michael40,NY
-,,true,,,,,1,,,,,,,,,,1,United States,defensible-sample,Michael,Profile last updated 9 months ago,michael4,CO
-,true,true,,,,1,3,3,3,,,,,,,,1,United States,defensible-sample,Michael,Profile last updated 9 months ago,michael38,WA
-,,,,true,23,,4,1,3,,,,,,,,1,United States,defensible-sample,Michael,Profile last updated 9 months ago,michael36,CO
-,,true,,,,,2,,,,,,,,,,1,United States,defensible-sample,Michael,Profile last updated 9 months ago,michael32,MA
-,,,true,,,,,,,,,,,,,,1,United States,defensible-sample,Michael A Donatelli,Profile last updated 9 months ago,michael20,NJ
-,,,,,,,1,,,,,,,,,,,United States,defensible-sample,Michael,Profile last updated 9 months ago,michael18,CA
-,,true,,,,,2,,,,,,,,,,1,United States,defensible-sample,Michael Zimmer,Profile last updated 9 months ago,michael17,IL
-,true,true,true,true,24,1,3,3,3,,,,,,,,3,United States,defensible-sample,Michael,Profile last updated 9 months ago,michael11,CO
-,true,true,,,22,,2,3,3,,,,,,,,1,United States,defensible-sample,Matthew,Profile last updated 9 months ago,matthew8,MD
+,true,,,,,1,3,4,4,26,0.96098,0.00211,0.01555,0.99561,0.01811,0.00324,,United States,defensible-sample,Michael,Profile last updated 4 days ago,michael41,MI
+,true,true,,true,20,1,4,2,1,32,0.13049,0.00565,0.23911,0.99984,0.47453,0.15021,2,United States,defensible-sample,Michael,Profile last updated 9 months ago,michael40,NY
+,,true,,,,,1,,,27,0.99993,,,0.99963,0.00006,,1,United States,defensible-sample,Michael,Profile last updated 9 months ago,michael4,CO
+,true,true,,,,1,3,3,3,28,0.00521,0.00008,0.33785,0.99999,0.00506,0.65181,1,United States,defensible-sample,Michael,Profile last updated 9 months ago,michael38,WA
+,,,,true,23,,4,1,3,34,0.00005,0.00003,0.00432,0.97601,0.00008,0.99553,1,United States,defensible-sample,Michael,Profile last updated 9 months ago,michael36,CO
+,,true,,,,,2,,,27,0.00058,0.00039,0.02547,1,0.00159,0.97197,1,United States,defensible-sample,Michael,Profile last updated 9 months ago,michael32,MA
+,,,true,,,,,,,41,0.00008,0.00005,0.03816,0.99991,0.00031,0.96141,1,United States,defensible-sample,Michael A Donatelli,Profile last updated 9 months ago,michael20,NJ
+,,,,,,,1,,,30,0.99652,0.0001,0.00054,0.9999,0.00281,0.00002,,United States,defensible-sample,Michael,Profile last updated 9 months ago,michael18,CA
+,,true,,,,,2,,,52,0.00071,0.00009,0.06363,0.99999,0.00209,0.93348,1,United States,defensible-sample,Michael Zimmer,Profile last updated 9 months ago,michael17,IL
+,true,true,true,true,24,1,3,3,3,26,0.01551,0.02588,0.20997,0.99998,0.03788,0.71075,3,United States,defensible-sample,Michael,Profile last updated 9 months ago,michael11,CO
+,true,true,,,22,,2,3,3,33,0.00035,0.00001,0.00363,1,0.00027,0.99575,1,United States,defensible-sample,Matthew,Profile last updated 9 months ago,matthew8,MD
 ,true,true,,,39,,1,1,1,,,,,,,,1,Australia,defensible-sample,Matthew,Profile last updated 9 months ago,matthew4,
 ,,,true,,16,,,1,,,,,,,,,1,United States,defensible-sample,Matthew,Profile last updated 9 months ago,matthew20,OH
-,,true,,,,,3,,,,,,,,,,1,United States,defensible-sample,Matthew Hartwig,Profile last updated 9 months ago,matthew14,CA
+,,true,,,,,3,,,24,0.02931,0.01641,0.1847,0.98716,0.08603,0.68354,1,United States,defensible-sample,Matthew Hartwig,Profile last updated 9 months ago,matthew14,CA
 ,,true,,,16,,,1,,,,,,,,,1,United States,defensible-sample,Matthew,Profile last updated 9 months ago,matthew13,NC
-,,true,,,16,,,1,,,,,,,,,1,United States,defensible-sample,Matthew,Profile last updated 9 months ago,matthew1,CO
+,,true,,,16,,,1,,28,0.00023,0.02344,0.04263,0.99993,0.00063,0.93307,1,United States,defensible-sample,Matthew,Profile last updated 9 months ago,matthew1,CO
 ,,,,,16,1,3,2,,,,,,,,,,United States,defensible-sample,Matthew Barker,Profile last updated 9 months ago,matthew,MO
-,true,true,,,26,2,4,4,4,,,,,,,,1,United States,defensible-sample,Mary,Profile last updated 9 months ago,mary6,PA
-,true,true,,,26,1,4,3,3,,,,,,,,1,United States,defensible-sample,Mark,Profile last updated 9 months ago,mark9,PA
-,true,,true,,31,1,3,3,4,,,,,,,,2,United States,defensible-sample,Mark Philip Mavromatis,Profile last updated 9 months ago,mark18,CA
+,true,true,,,26,2,4,4,4,54,0.00001,,0.01452,0.00014,0.00004,0.98542,1,United States,defensible-sample,Mary,Profile last updated 9 months ago,mary6,PA
+,true,true,,,26,1,4,3,3,31,0.00532,0.002,0.21683,0.99984,0.00911,0.76675,1,United States,defensible-sample,Mark,Profile last updated 9 months ago,mark9,PA
+,true,,true,,31,1,3,3,4,36,0.00347,0.00119,0.0505,0.99981,0.00576,0.93907,2,United States,defensible-sample,Mark Philip Mavromatis,Profile last updated 9 months ago,mark18,CA
 ,,true,,,16,,,3,,,,,,,,,1,United States,defensible-sample,Mark Liu,Profile last updated 9 months ago,mark14,CA
 ,true,true,,,22,,2,,1,,,,,,,,1,United Kingdom,defensible-sample,Mark,Profile last updated 9 months ago,mark12,
-,,true,,,,,2,,,,,,,,,,1,United States,defensible-sample,Linda Webster,Profile last updated 9 months ago,linda1,WA
+,,true,,,,,2,,,31,0.00001,0.00002,0.00637,0.00001,0.00032,0.99328,1,United States,defensible-sample,Linda Webster,Profile last updated 9 months ago,linda1,WA
 ,,true,,,,,2,,,,,,,,,,1,United States,defensible-sample,Kenneth,Profile last updated 9 months ago,kenneth3,WA
 true,true,true,,,30,,2,2,5,,,,,,,,1,United States,defensible-sample,Kenneth K. Slachta,Profile last updated 9 months ago,kenneth,AZ
 ,,,true,,,,1,,,,,,,,,,1,United States,defensible-sample,Karen Verlaque,Profile last updated 9 months ago,karen2,CT
@@ -349,7 +349,7 @@ true,true,true,,,30,,2,2,5,,,,,,,,1,United States,defensible-sample,Kenneth K. S
 ,true,true,,,23,,2,,7,,,,,,,,1,United States,broad-sample,Adam,Profile last updated 9 months ago,adam6,CA
 ,true,,true,,22,,2,1,2,,,,,,,,1,United States,broad-sample,Adam,Profile last updated 9 months ago,adam3,CA
 ,,,true,,,,1,,,,,,,,,,1,United States,broad-sample,Adam,Profile last updated 9 months ago,adam19,MA
-,true,true,,true,27,,2,1,4,33,0.0037,0.00035,0.01938,0.99991,0.00369,0.97288,2,United States,broad-sample,Adam,Profile last updated 9 months ago,adam1,NC
+,true,true,,true,27,,2,1,4,,,,,,,,2,United States,broad-sample,Adam,Profile last updated 9 months ago,adam1,NC
 ,true,true,,true,23,1,,2,2,,,,,,,,2,United States,4-11-sample,Zack Russell,Profile last updated 9 months ago,zack1,CA
 ,true,,true,,,1,,3,1,,,,,,,,1,United States,4-11-sample,Zack,Profile last updated 9 months ago,zack,MA
 ,,,,,,,,,,,,,,,,,,United States,4-11-sample,Zachary Kamykowski,Profile last updated 9 months ago,zachary6,TX

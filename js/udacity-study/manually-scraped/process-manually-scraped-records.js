@@ -36,6 +36,7 @@ const oTitleLine = {
     "bSpeaksSpanish": "Speaks Spanish",
     "bSpeaksOther": "Speaks Other Language",
     "sInputBaseName": "Sample Group Name",
+    "bShouldHaveKairos": "Has Kairos",
     "iKairosAge": "Kairos Age",
     "iKairosAsian": "Kairos Asian",
     "iKairosBlack": "Kairos Black",
@@ -94,8 +95,9 @@ async function fpProcessRecord(sLocation) {
         fs.mkdirSync(oRecord.sOutputDirectory);
     }
 
-    if (oRecord.sScrapedUserId === 'adam1') { // to limit API usage during development
-    //if (arrsCapturedProfilePictures.includes(oRecord.sScrapedUserId)) {
+    //if (oRecord.sScrapedUserId === 'adam1') { // to limit API usage during development
+    if (arrsCapturedProfilePictures.includes(oRecord.sScrapedUserId)) {
+        oRecord.bShouldHaveKairos = true;
         await fpAddKairosData(oRecord);
     }
 
