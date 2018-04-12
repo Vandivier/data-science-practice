@@ -103,6 +103,12 @@ async function fpProcessRecord(sLocation) {
         await fpAddKairosData(oRecord);
     }
 
+    if (oRecord.sGitHubUrl) { // to limit API usage during development
+        oRecord.bShouldHaveKairos = true;
+        console.log('getting kairos for ' + oRecord.sScrapedUserId);
+        await fpAddKairosData(oRecord);
+    }
+
     oRecord.bNameTruncated = oRecord.sName.split(',').length > 1; // has `, Jr.`, etc
     oRecord.sName = oRecord.sName.split(',')[0]; // get rid of `, Jr.`, etc
 
