@@ -52,5 +52,7 @@ gen interacted3 = interacted1*interacted1*interacted1
 drop ageestimated
 drop name*
 
-// long regression
+// long regression, r2 = .52
 reg voi_employed age* n* interacted* _*
+// long logit, r2 = .42
+logit voi_employed age* n* interacted* _*
