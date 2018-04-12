@@ -85,6 +85,7 @@ async function fpProcessRecord(sLocation) {
 
     try {
         fGetLanguagesSpoken(oRecord);
+        fFixExperienceCount(oRecord);
     } catch (e) {
         console.log('late fpProcessRecord err: ', e);
     }
@@ -125,6 +126,16 @@ function fGetLanguagesSpoken(oRecord) {
     } else {
         oRecord.bSpeaksOther = false;
     }
+}
+
+// fix checked into console scraper on 4/11
+// for earlier records, this treatment is equivalent so no need to re-scrape
+// earlier scraper was improperly counting everyone as 0 experience
+function fFixExperienceCount(oRecord) {
+    oRecord.iExperienceCount = (oRecord.sExperienceHtml
+                                && oRecord.sExperienceHtml.match(/index--work--/g)
+                                || []
+                               ).length;
 }
 
 async function fpWriteOutput(oRecord) {

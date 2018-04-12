@@ -16,7 +16,7 @@
     "sEducationHtml": "<noscript></noscript><div class=\"educations--container--2Kh5z layout--contain--1ajpu\"><h3 class=\"educations--header--3zvQV text--header--J3NTI\">education</h3></div><div><noscript></noscript><div class=\"index--education--2zyOF card--public-card--2WFzx card--card--39vhq card--_card--1s5yM card--_section_base--2wQ2Z card--_card_base--3HmP0 card--padded--1G2nA index--cardStyles--3BOJM index--first--2a7zL\"><div class=\"index--flex--3Vawg\"><div class=\"_degree--degree--23H26 text--label--1NK8z\"><span>PhD Student, Mathematics</span></div><div class=\"_date--date--2Hoio text--smallCaps--24__2 text--small--2Mqto\">August 2014 - October 2015</div></div><div class=\"index--school--2lHOh\">Purdue University</div><div class=\"index--description--2wi-Z text--description--1xNC_\"></div></div></div><div><noscript></noscript><div class=\"index--education--2zyOF card--public-card--2WFzx card--card--39vhq card--_card--1s5yM card--_section_base--2wQ2Z card--_card_base--3HmP0 card--padded--1G2nA index--cardStyles--3BOJM\"><div class=\"index--flex--3Vawg\"><div class=\"_degree--degree--23H26 text--label--1NK8z\"><span>Bachelor's Degree, Mathematics</span></div><div class=\"_date--date--2Hoio text--smallCaps--24__2 text--small--2Mqto\">September 2011 - June 2013</div></div><div class=\"index--school--2lHOh\">University of Washington</div><div class=\"index--description--2wi-Z text--description--1xNC_\"></div></div></div>",
     "iCountOfNanodegrees": 0,
     "iEducationCount": 2,
-    "iExperienceCount": 0,
+    "iExperienceCount": 2,
     "bPresentlyEmployed": false,
     "iAgeEstimate": 26,
     "sLanguagesSpoken": "None",
