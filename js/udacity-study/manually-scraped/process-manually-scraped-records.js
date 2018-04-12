@@ -20,7 +20,8 @@ const oTitleLine = {
     "sProfileLastUpdate": "Months Since Last Profile Update",
     "sName": "Name",
     "bNameTruncated": "Name Truncated",
-    "sStateOrCountry": "State or Country",
+    "sState": "US State",
+    "sCountry": "Country",
     //"sImageUrl": "https://s3-us-west-2.amazonaws.com/udacity-profiles/production/photo/4635953505.jpg#1522551447733",
     // TODO: github stars & commits
     "iDetailCount": "Count of Udacity Information Details",
@@ -98,6 +99,7 @@ async function fpProcessRecord(sLocation) {
     try {
         fGetLanguagesSpoken(oRecord);
         fFixExperienceCount(oRecord);
+        fFixLocation(oRecord);
     } catch (e) {
         console.log('late fpProcessRecord err: ', e);
     }
@@ -148,6 +150,30 @@ function fFixExperienceCount(oRecord) {
                                 && oRecord.sExperienceHtml.match(/index--work--/g)
                                 || []
                                ).length;
+}
+
+// previously, I assumed it's like city, state/country
+// that's often but not always true
+// sometimes it's just country
+// rarely, it's state, country
+// also, I need to provide United States as a country to capture national effects
+function fFixLocation(oResult) {
+    let arrsLocation = oResult.sLocation
+        && oResult.sLocation.split(', ');
+    let sStateCandidate;
+
+    if (arrsLocation.length === 1) {
+        sStateCandidate = arrsLocation[0];
+    } else {
+        sStateCandidate = arrsLocation[1];
+    }
+
+    if (sStateCandidate.length === 2) {
+        oResult.sState = sStateCandidate;
+        oResult.sCountry = 'United States';
+    } else {
+        oResult.sCountry = sStateCandidate;
+    }
 }
 
 async function fpWriteOutput(oRecord) {
