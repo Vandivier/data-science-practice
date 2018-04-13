@@ -1,5 +1,14 @@
 // ref: vandivier/github/udacity-apify/main.js
 
+// TODO: you could also:
+// 1 - scrape the languages they are working with from pinned or repo page
+// 2 - scrape stars and issues on their repos
+// 3 - scrape which repos are forked from * and discount those
+// 4 - check if they have a website linked
+// 5 - scrape location (maybe it's diff from udacity)
+// 6 - scrape if they have an image
+// 7 - make this thing automated - I don't think GitHub will burn us like Udacity did w automation blocks
+
 var bDownloadTextResult = true; // if false just print result to web console.
 
 (async function () {

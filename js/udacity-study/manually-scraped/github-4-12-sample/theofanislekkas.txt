@@ -1,0 +1,1 @@
+{"sGithubUserName":"theofanislekkas","sGithubEmail":"theofanis.lekkas@theofanislekkas.com","sGithubAnnualCommits":"33","sGithubRepos":"26","sGithubFollowers":"14"}

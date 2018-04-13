@@ -1,0 +1,1 @@
+{"sGithubUserName":"skattoju","sGithubEmail":"siddharthakattoju@gmail.com","sGithubAnnualCommits":"18","sGithubRepos":"11","sGithubFollowers":"15"}
