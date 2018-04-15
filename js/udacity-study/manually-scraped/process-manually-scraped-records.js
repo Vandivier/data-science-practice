@@ -52,7 +52,6 @@ const oTitleLine = {
     "bGitHubAccountFound": "GitHub Account Found and Scraped",
     "sGitHubUrl": "GitHub URL",
     "sGithubUserName": "GitHub User Name",
-    "sGithubEmail": "GitHub White",
     "sGithubAnnualCommits": "GitHub Annual Commits",
     "sGithubRepos": "GitHub Repo Count",
     "sGithubFollowers": "GitHub Follower Count",
