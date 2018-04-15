@@ -68,6 +68,8 @@ main();
 async function main() {
     const options = {};
 
+    await utils.fpWait(2000); // for chrom debugger to attach
+
     await fpGlob('manually-scraped/profile-pics/*.jpg', options)
     .then(arrsFiles => {
         arrsCapturedProfilePictures = arrsFiles.map(s => {
@@ -277,9 +279,12 @@ async function fpAddKairosData(oRecord) {
                 oRecord.iKairosHispanic = oOldData.iKairosHispanic;
                 oRecord.iKairosOtherEthnicity = oOldData.iKairosOtherEthnicity;
                 oRecord.iKairosWhite = oOldData.iKairosWhite;
-            } else if(!oRecord.bKairosImageRejected
-                      || (oRecord.bKairosImageRejected && oRecord.bForceNewKairosAttempt)) {
+            } else if (!oOldData.bKairosImageRejected
+                       || (oOldData.bKairosImageRejected && oOldData.bForceNewKairosAttempt))
+            {
                 await fpNewKairosCall(oRecord);
+            } else {
+                oRecord.bKairosImageRejected = true;
             }
         } catch (e) {
             await fpNewKairosCall(oRecord);
