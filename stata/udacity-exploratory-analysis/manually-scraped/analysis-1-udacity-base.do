@@ -49,6 +49,13 @@ gen interacted1 = age1*nnano1
 gen interacted2 = interacted1*interacted1
 gen interacted3 = interacted1*interacted1*interacted1
 
+gen workingage = 0
+replace workingage = 1 if age1 >= 16
+replace workingage = 0 if missing(age1)
+
+gen workingandusperson = workingage
+replace workingandusperson = 0 if _country27 == 0
+
 drop ageestimated
 drop name*
 
@@ -194,3 +201,12 @@ logit voi_employed age* ndet3 nedu1 nedu3 nexp1 nexp2 _lastupdate10 _speaksother
 // note: nedu noob effect preserved, nnano non-noob effect preserved.
 //          nnano is similar to nexp in this non-noob regard, so maybe larger composition of human capital?
 logit voi_employed age* ndet3 nedu1 nedu3 nexp1 nexp2 nnano1 interacted3 _lastupdate10 _speaksother1 _usstate18 _usstate2
+
+// exploratory6
+// n:               397
+// r2:              .19
+// adjr2:           .19
+// f-complexity:    1
+// q-complexity:    1
+// note: just now created this var...good thing it's collinear w/ age1 so I don't have to redo everything.
+reg voi_employed workingage
