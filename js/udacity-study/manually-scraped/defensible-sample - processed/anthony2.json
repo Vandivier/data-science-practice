@@ -27,6 +27,7 @@
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
     "sOutputLocation": "manually-scraped/defensible-sample - processed/anthony2.json",
     "bShouldHaveKairos": true,
+    "bKairosBadPicture": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,

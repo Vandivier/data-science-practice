@@ -26,6 +26,7 @@
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
     "sOutputLocation": "manually-scraped/defensible-sample - processed/daniel34.json",
     "bShouldHaveKairos": true,
+    "bKairosBadPicture": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 0,
     "bSpeaksEnglish": false,

@@ -27,6 +27,7 @@
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/ahmed.json",
     "bShouldHaveKairos": true,
+    "bKairosBadPicture": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": false,

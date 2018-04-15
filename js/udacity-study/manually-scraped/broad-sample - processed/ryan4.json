@@ -26,6 +26,7 @@
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/ryan4.json",
     "bShouldHaveKairos": true,
+    "bKairosBadPicture": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 7,
     "bSpeaksEnglish": true,

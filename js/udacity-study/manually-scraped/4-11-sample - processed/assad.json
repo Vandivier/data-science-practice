@@ -25,6 +25,7 @@
     "sOutputDirectory": "manually-scraped/4-11-sample - processed",
     "sOutputLocation": "manually-scraped/4-11-sample - processed/assad.json",
     "bShouldHaveKairos": true,
+    "bKairosBadPicture": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 3,
     "bSpeaksEnglish": true,
