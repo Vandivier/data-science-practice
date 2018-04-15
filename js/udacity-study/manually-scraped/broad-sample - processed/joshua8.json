@@ -26,8 +26,6 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/joshua8.json",
-    "bShouldHaveKairos": true,
-    "bKairosBadPicture": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,

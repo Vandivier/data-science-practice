@@ -26,8 +26,6 @@
     "sInputBaseName": "defensible-sample",
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
     "sOutputLocation": "manually-scraped/defensible-sample - processed/paul3.json",
-    "bShouldHaveKairos": true,
-    "bKairosBadPicture": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 2,
     "bSpeaksEnglish": true,

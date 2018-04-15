@@ -26,7 +26,7 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/lauren.json",
-    "bShouldHaveKairos": true,
+    "bKairosImageSubmitted": true,
     "iKairosAge": 29,
     "iKairosAsian": 0.00001,
     "iKairosBlack": 0.00002,

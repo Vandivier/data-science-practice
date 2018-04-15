@@ -26,8 +26,6 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/will5.json",
-    "bShouldHaveKairos": true,
-    "bKairosBadPicture": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 3,
     "bSpeaksEnglish": true,

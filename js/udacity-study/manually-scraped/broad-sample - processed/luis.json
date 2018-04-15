@@ -28,8 +28,6 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/luis.json",
-    "bShouldHaveKairos": true,
-    "bKairosBadPicture": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 5,
     "bSpeaksEnglish": true,
