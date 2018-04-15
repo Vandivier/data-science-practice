@@ -38,6 +38,7 @@ const oTitleLine = {
     "bSpeaksSpanish": "Speaks Spanish",
     "bSpeaksOther": "Speaks Other Language",
     "sInputBaseName": "Sample Group Name",
+    "sScrapedUrl": "Udacity URL",
     "bShouldHaveKairos": "Has Kairos",
     "iKairosAge": "Kairos Age",
     "iKairosAsian": "Kairos Asian",
@@ -59,6 +60,7 @@ const oTitleLine = {
 const sOutFileLocation = __dirname + '/manually-scraped-results.csv';
 
 let arrsCapturedProfilePictures = [];
+let oGitHubIds = {};
 
 main();
 
@@ -74,12 +76,13 @@ async function main() {
         });
     });
 
-    await fpGlob('manually-scraped/github-4-12-sample/*.txt', options)
+    await fpGlob('manually-scraped/github-*-sample/*.txt', options)
     .then(arrsFiles => {
-        arrsGitHubIds = arrsFiles.map(s => {
+        arrsFiles.map(s => {
             let arrs = s.split('/');
             arrs = arrs[arrs.length - 1].split('.txt');
-            return arrs[0];
+            oGitHubIds[arrs[0]] = s;
+            return; // TODO: do I want to return a Promise?
         });
     });
 
@@ -222,18 +225,16 @@ function fFixLocation(oRecord) {
 async function fpGetGithubData(oRecord) {
     let sGitHubId = oRecord.sGitHubUrl
         && oRecord.sGitHubUrl.split('github.com/')[1];
-    let oGitHubData = {};
-    let sGitHubDataLocation = '';
+    let oGitHubData;
+    let sGitHubDataLocation;
 
     sGitHubId = sGitHubId && sGitHubId.split('/')[0];
+    sGitHubDataLocation = oGitHubIds[sGitHubId];
 
     if (sGitHubId) {
         oRecord.bGithubAccountClaimed = true;
 
-        if (arrsGitHubIds.includes(sGitHubId)) {
-            sGitHubDataLocation = 'manually-scraped/github-4-12-sample/'
-                + sGitHubId
-                + '.txt';
+        if (sGitHubDataLocation) {
             oGitHubData = await fpReadFile(sGitHubDataLocation)
                 .then(sRecord => JSON.parse(sRecord));
 

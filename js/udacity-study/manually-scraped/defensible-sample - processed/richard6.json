@@ -43,5 +43,10 @@
     "sState": "FL",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "richardhanksjr",
+    "sGithubEmail": "richardhanksjr@gmail.com",
+    "sGithubAnnualCommits": "16",
+    "sGithubRepos": "37",
+    "sGithubFollowers": "2",
+    "bGitHubAccountFound": true
 }

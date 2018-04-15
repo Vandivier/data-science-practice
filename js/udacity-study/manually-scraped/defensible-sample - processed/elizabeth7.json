@@ -44,5 +44,10 @@
     "sState": "IL",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "elizabethsn7",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "75",
+    "sGithubRepos": "40",
+    "sGithubFollowers": "6",
+    "bGitHubAccountFound": true
 }

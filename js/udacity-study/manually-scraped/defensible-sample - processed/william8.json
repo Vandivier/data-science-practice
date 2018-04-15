@@ -41,5 +41,10 @@
     "bSpeaksOther": false,
     "sCountry": "Czechia",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "BillWW",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "4",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

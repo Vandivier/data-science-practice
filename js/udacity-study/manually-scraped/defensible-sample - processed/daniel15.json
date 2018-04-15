@@ -37,5 +37,10 @@
     "sState": "NY",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "DropTheLogic",
+    "sGithubEmail": "DannyBrianMarquez@gmail.com",
+    "sGithubAnnualCommits": "65",
+    "sGithubRepos": "49",
+    "sGithubFollowers": "3",
+    "bGitHubAccountFound": true
 }

@@ -40,5 +40,10 @@
     "sState": "WA",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "jpl5007",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "2",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

@@ -36,5 +36,10 @@
     "sState": "CO",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "TheRealBlimX",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "8",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

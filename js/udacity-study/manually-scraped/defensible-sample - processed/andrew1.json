@@ -43,5 +43,10 @@
     "sState": "CA",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "anvo268",
+    "sGithubEmail": "andrewvoorhees@gmail.com",
+    "sGithubAnnualCommits": "204",
+    "sGithubRepos": "2",
+    "sGithubFollowers": "2",
+    "bGitHubAccountFound": true
 }

@@ -44,5 +44,10 @@
     "sState": "PA",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "jlaurelli",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "7",
+    "sGithubRepos": "12",
+    "sGithubFollowers": "4",
+    "bGitHubAccountFound": true
 }

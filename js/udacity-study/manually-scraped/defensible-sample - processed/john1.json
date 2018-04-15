@@ -42,5 +42,10 @@
     "sState": "PA",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "jrm5100",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "7",
+    "sGithubRepos": "14",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

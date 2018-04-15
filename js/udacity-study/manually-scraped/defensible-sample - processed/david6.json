@@ -39,5 +39,10 @@
     "bSpeaksOther": true,
     "sCountry": "Portugal",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "davidCarpinteiro",
+    "sGithubEmail": "david_carpinteiro@hotmail.com",
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "3",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

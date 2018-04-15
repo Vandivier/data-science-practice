@@ -42,5 +42,10 @@
     "sState": "MD",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "mtomney",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "14",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

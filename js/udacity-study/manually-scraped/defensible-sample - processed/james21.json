@@ -46,5 +46,10 @@
     "sState": "CA",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "kcbighuge",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "116",
+    "sGithubRepos": "40",
+    "sGithubFollowers": "12",
+    "bGitHubAccountFound": true
 }

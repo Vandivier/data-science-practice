@@ -35,5 +35,10 @@
     "sState": "FL",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "smatejcek",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "22",
+    "sGithubRepos": "11",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

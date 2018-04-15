@@ -34,5 +34,10 @@
     "bSpeaksOther": true,
     "sCountry": "Russia",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "Turanchoks",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "12",
+    "sGithubRepos": "20",
+    "sGithubFollowers": "5",
+    "bGitHubAccountFound": true
 }

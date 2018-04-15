@@ -42,5 +42,10 @@
     "sState": "CA",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "danielstallworthmit",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "243",
+    "sGithubRepos": "56",
+    "sGithubFollowers": "4",
+    "bGitHubAccountFound": true
 }

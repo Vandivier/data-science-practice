@@ -36,5 +36,10 @@
     "sState": "CA",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "thegibster",
+    "sGithubEmail": "andrewgibbs@outlook.com",
+    "sGithubAnnualCommits": "99",
+    "sGithubRepos": "51",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

@@ -44,5 +44,10 @@
     "sState": "NY",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "michaelrios2015",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "19",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

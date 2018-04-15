@@ -35,5 +35,10 @@
     "sState": "MO",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "mattcbarker",
+    "sGithubEmail": "frostmoth@gmail.com",
+    "sGithubAnnualCommits": "31",
+    "sGithubRepos": "10",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

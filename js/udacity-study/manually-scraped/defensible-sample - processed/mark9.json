@@ -44,5 +44,10 @@
     "sState": "PA",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "mrkjesus2",
+    "sGithubEmail": "markweig@gmail.com",
+    "sGithubAnnualCommits": "1",
+    "sGithubRepos": "16",
+    "sGithubFollowers": "5",
+    "bGitHubAccountFound": true
 }

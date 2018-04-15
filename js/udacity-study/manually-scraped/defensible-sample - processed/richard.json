@@ -43,5 +43,10 @@
     "bSpeaksOther": true,
     "sCountry": "Canada",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "Dellonbit",
+    "sGithubEmail": "gtchdella@gmail.com",
+    "sGithubAnnualCommits": "10",
+    "sGithubRepos": "16",
+    "sGithubFollowers": "1",
+    "bGitHubAccountFound": true
 }

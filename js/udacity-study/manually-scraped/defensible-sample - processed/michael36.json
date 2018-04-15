@@ -44,5 +44,10 @@
     "sState": "CO",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "mbarlow12",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "432",
+    "sGithubRepos": "14",
+    "sGithubFollowers": "2",
+    "bGitHubAccountFound": true
 }

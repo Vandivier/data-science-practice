@@ -33,5 +33,10 @@
     "sState": "MA",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "zzambushzz",
+    "sGithubEmail": "aweber@constantcontact.com",
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "6",
+    "sGithubFollowers": "1",
+    "bGitHubAccountFound": true
 }

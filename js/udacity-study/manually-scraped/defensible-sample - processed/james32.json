@@ -42,5 +42,10 @@
     "sState": "IN",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "jamesbvsh",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "16",
+    "sGithubFollowers": "8",
+    "bGitHubAccountFound": true
 }

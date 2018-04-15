@@ -40,5 +40,10 @@
     "sState": "WA",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "lindawebster",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "1",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

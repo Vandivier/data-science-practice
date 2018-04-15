@@ -43,5 +43,10 @@
     "sState": "WA",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "JamesLogan-III",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "9",
+    "sGithubRepos": "12",
+    "sGithubFollowers": "3",
+    "bGitHubAccountFound": true
 }

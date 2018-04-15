@@ -43,5 +43,10 @@
     "sState": "NY",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "galeazzij",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "12",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

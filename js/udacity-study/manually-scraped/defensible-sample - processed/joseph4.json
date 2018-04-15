@@ -35,5 +35,10 @@
     "sState": "CA",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "jperenia",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "2",
+    "sGithubFollowers": "2",
+    "bGitHubAccountFound": true
 }

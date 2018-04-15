@@ -42,5 +42,10 @@
     "bSpeaksOther": true,
     "sCountry": "Singapore",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "ideatrap",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "174",
+    "sGithubRepos": "20",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

@@ -42,5 +42,10 @@
     "sState": "TX",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "rdliii3",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "2",
+    "sGithubRepos": "6",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

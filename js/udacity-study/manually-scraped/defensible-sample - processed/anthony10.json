@@ -42,5 +42,10 @@
     "sState": "CA",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "zazo",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "13",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

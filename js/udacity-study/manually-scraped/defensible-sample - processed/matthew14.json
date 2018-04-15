@@ -41,5 +41,10 @@
     "sState": "CA",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "matthartwig",
+    "sGithubEmail": "matthewjoelhartwig@gmail.com",
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "2",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

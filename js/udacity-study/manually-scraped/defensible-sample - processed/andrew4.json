@@ -42,5 +42,10 @@
     "bSpeaksOther": false,
     "sCountry": "United Kingdom",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "survivorandy",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "3",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

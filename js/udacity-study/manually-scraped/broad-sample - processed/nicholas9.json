@@ -44,5 +44,10 @@
     "sState": "WA",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "nhuntwalker",
+    "sGithubEmail": "nhuntwalker@gmail.com",
+    "sGithubAnnualCommits": "1,029",
+    "sGithubRepos": "86",
+    "sGithubFollowers": "63",
+    "bGitHubAccountFound": true
 }

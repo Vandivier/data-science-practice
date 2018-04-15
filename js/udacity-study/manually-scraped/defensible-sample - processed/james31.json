@@ -35,5 +35,10 @@
     "sState": "TX",
     "sCountry": "United States",
     "bGithubAccountClaimed": true,
-    "bGitHubAccountFound": false
+    "sGithubUserName": "Nomadic-Cosmologist",
+    "sGithubEmail": "thenomadiccosmologist@gmail.com",
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "4",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }
