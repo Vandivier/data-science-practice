@@ -237,9 +237,9 @@ async function fpGetGithubData(oRecord) {
 
             oRecord.sGithubUserName = oGitHubData.sGithubUserName;
             oRecord.sGithubEmail = oGitHubData.sGithubEmail;
-            oRecord.sGithubAnnualCommits = oGitHubData.sGithubAnnualCommits;
-            oRecord.sGithubRepos = oGitHubData.sGithubRepos;
-            oRecord.sGithubFollowers = oGitHubData.sGithubFollowers;
+            oRecord.sGithubAnnualCommits = oGitHubData.sGithubAnnualCommits.replace(',','');
+            oRecord.sGithubRepos = oGitHubData.sGithubRepos.replace(',','');
+            oRecord.sGithubFollowers = oGitHubData.sGithubFollowers.replace(',','');
             oRecord.bGitHubAccountFound = true;
         } else {
             oRecord.bGitHubAccountFound = false;
