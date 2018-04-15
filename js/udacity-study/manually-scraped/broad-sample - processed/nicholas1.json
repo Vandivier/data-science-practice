@@ -27,11 +27,18 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/nicholas1.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "CA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "nickfp1985",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "139",
+    "sGithubRepos": "38",
+    "sGithubFollowers": "6",
+    "bGitHubAccountFound": true
 }

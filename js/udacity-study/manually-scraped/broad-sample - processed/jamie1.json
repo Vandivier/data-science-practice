@@ -39,5 +39,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "UT",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "jdutson",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "3",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

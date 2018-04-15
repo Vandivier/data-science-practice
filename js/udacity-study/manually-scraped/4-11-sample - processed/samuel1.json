@@ -23,17 +23,11 @@
     "sOutputDirectory": "manually-scraped/4-11-sample - processed",
     "sOutputLocation": "manually-scraped/4-11-sample - processed/samuel1.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 21,
-    "iKairosAsian": 0.02833,
-    "iKairosBlack": 0.01272,
-    "iKairosMaleConfidence": 0.9995,
-    "iKairosHispanic": 0.68415,
-    "iKairosOtherEthnicity": 0.09653,
-    "iKairosWhite": 0.17827,
     "bNameTruncated": false,
     "iLanguagesSpoken": 2,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
-    "sCountry": "Brazil"
+    "sCountry": "Brazil",
+    "bGitHubAccountFound": false
 }

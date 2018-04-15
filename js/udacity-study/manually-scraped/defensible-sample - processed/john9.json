@@ -26,18 +26,12 @@
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
     "sOutputLocation": "manually-scraped/defensible-sample - processed/john9.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 27,
-    "iKairosAsian": 0.00074,
-    "iKairosBlack": 0.00007,
-    "iKairosMaleConfidence": 0.99261,
-    "iKairosHispanic": 0.03155,
-    "iKairosOtherEthnicity": 0.00182,
-    "iKairosWhite": 0.96583,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "OH",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

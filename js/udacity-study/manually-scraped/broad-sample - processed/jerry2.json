@@ -41,5 +41,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "CT",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "jerrybennett",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "413",
+    "sGithubRepos": "357",
+    "sGithubFollowers": "11",
+    "bGitHubAccountFound": true
 }

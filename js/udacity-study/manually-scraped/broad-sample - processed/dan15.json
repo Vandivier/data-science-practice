@@ -39,5 +39,11 @@
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
-    "sCountry": "Canada"
+    "sCountry": "Canada",
+    "sGithubUserName": "DanWeatherbee",
+    "sGithubEmail": "dan@jedi-clan.us",
+    "sGithubAnnualCommits": "336",
+    "sGithubRepos": "18",
+    "sGithubFollowers": "1",
+    "bGitHubAccountFound": true
 }

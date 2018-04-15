@@ -25,5 +25,6 @@
     "iLanguagesSpoken": 5,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": true,
-    "bSpeaksOther": true
+    "bSpeaksOther": true,
+    "bGitHubAccountFound": false
 }

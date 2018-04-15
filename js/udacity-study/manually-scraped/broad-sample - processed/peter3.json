@@ -40,5 +40,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "ME",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "peterd413",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "4",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

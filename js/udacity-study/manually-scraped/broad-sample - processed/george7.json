@@ -34,5 +34,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "IL",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "geopar",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "0",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

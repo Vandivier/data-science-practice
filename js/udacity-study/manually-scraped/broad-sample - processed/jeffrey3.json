@@ -39,5 +39,11 @@
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "webdevjeffus",
+    "sGithubEmail": "webdevjeffus@gmail.com",
+    "sGithubAnnualCommits": "29",
+    "sGithubRepos": "19",
+    "sGithubFollowers": "9",
+    "bGitHubAccountFound": true
 }

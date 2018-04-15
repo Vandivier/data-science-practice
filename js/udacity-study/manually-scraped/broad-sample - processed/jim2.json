@@ -40,5 +40,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "MO",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "PoseidonAW",
+    "sGithubEmail": "jrothfork@gmail.com",
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "5",
+    "sGithubFollowers": "2",
+    "bGitHubAccountFound": true
 }

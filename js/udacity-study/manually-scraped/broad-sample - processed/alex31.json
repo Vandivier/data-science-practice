@@ -41,5 +41,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "GA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "awells111",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "320",
+    "sGithubRepos": "17",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

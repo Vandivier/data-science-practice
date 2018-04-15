@@ -23,18 +23,12 @@
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/jeff7.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 48,
-    "iKairosAsian": 0.00326,
-    "iKairosBlack": 0.00029,
-    "iKairosMaleConfidence": 0.99856,
-    "iKairosHispanic": 0.00897,
-    "iKairosOtherEthnicity": 0.0005,
-    "iKairosWhite": 0.98698,
     "bNameTruncated": false,
     "iLanguagesSpoken": 0,
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "AZ",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

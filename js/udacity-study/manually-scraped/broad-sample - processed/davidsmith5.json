@@ -42,5 +42,11 @@
     "bSpeaksSpanish": true,
     "bSpeaksOther": false,
     "sState": "FL",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "dksmith01",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "8",
+    "sGithubFollowers": "1",
+    "bGitHubAccountFound": true
 }

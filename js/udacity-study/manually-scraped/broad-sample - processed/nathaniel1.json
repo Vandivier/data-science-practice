@@ -25,18 +25,12 @@
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/nathaniel1.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 39,
-    "iKairosAsian": 0.00134,
-    "iKairosBlack": 0.00062,
-    "iKairosMaleConfidence": 0.99998,
-    "iKairosHispanic": 0.06297,
-    "iKairosOtherEthnicity": 0.00159,
-    "iKairosWhite": 0.93348,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "ID",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

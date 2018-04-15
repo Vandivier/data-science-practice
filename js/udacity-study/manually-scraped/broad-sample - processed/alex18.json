@@ -39,5 +39,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "CA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "alexromo3rd",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "94",
+    "sGithubRepos": "11",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

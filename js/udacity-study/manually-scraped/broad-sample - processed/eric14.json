@@ -40,5 +40,11 @@
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
-    "sCountry": "Sweden"
+    "sCountry": "Sweden",
+    "sGithubUserName": "EricPerbos",
+    "sGithubEmail": "eric.perbos.brinck@insead.edu",
+    "sGithubAnnualCommits": "112",
+    "sGithubRepos": "32",
+    "sGithubFollowers": "6",
+    "bGitHubAccountFound": true
 }

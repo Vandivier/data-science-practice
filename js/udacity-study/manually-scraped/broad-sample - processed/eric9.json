@@ -41,5 +41,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "MN",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "brewso",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "16",
+    "sGithubRepos": "9",
+    "sGithubFollowers": "1",
+    "bGitHubAccountFound": true
 }

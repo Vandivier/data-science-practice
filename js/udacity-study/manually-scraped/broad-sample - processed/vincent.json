@@ -27,5 +27,6 @@
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
-    "sCountry": "Australia"
+    "sCountry": "Australia",
+    "bGitHubAccountFound": false
 }

@@ -41,5 +41,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "OK",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "birdwell",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "982",
+    "sGithubRepos": "71",
+    "sGithubFollowers": "26",
+    "bGitHubAccountFound": true
 }

@@ -39,5 +39,11 @@
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "alwang85",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "29",
+    "sGithubFollowers": "5",
+    "bGitHubAccountFound": true
 }

@@ -26,10 +26,17 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/nicholas17.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
-    "sCountry": "United Kingdom"
+    "sCountry": "United Kingdom",
+    "sGithubUserName": "Niko88",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "8",
+    "sGithubRepos": "8",
+    "sGithubFollowers": "1",
+    "bGitHubAccountFound": true
 }

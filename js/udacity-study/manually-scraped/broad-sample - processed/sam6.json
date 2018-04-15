@@ -39,5 +39,11 @@
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
-    "sCountry": "United Kingdom"
+    "sCountry": "United Kingdom",
+    "sGithubUserName": "SamPittard",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "0",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

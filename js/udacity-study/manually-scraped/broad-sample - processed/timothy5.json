@@ -43,5 +43,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "PA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "timmyhall",
+    "sGithubEmail": "timmy_hall@icloud.com",
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "12",
+    "sGithubFollowers": "4",
+    "bGitHubAccountFound": true
 }

@@ -28,11 +28,18 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/theo.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "IL",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "theofanislekkas",
+    "sGithubEmail": "theofanis.lekkas@theofanislekkas.com",
+    "sGithubAnnualCommits": "33",
+    "sGithubRepos": "26",
+    "sGithubFollowers": "14",
+    "bGitHubAccountFound": true
 }

@@ -39,5 +39,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "CA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "adamguttentag",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "8",
+    "sGithubFollowers": "1",
+    "bGitHubAccountFound": true
 }

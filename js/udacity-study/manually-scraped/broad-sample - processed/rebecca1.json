@@ -40,5 +40,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "WA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "RebeccaEvans",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "1",
+    "sGithubRepos": "1",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

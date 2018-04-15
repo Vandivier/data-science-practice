@@ -27,11 +27,18 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/jerry.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "OR",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "jerrywardlow",
+    "sGithubEmail": "jerry@jerryoftheyear.com",
+    "sGithubAnnualCommits": "2,794",
+    "sGithubRepos": "42",
+    "sGithubFollowers": "38",
+    "bGitHubAccountFound": true
 }

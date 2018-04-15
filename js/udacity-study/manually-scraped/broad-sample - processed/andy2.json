@@ -31,5 +31,11 @@
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
-    "sCountry": "Russia"
+    "sCountry": "Russia",
+    "sGithubUserName": "konopkov",
+    "sGithubEmail": "konopkov@gmail.com",
+    "sGithubAnnualCommits": "29",
+    "sGithubRepos": "5",
+    "sGithubFollowers": "1",
+    "bGitHubAccountFound": true
 }

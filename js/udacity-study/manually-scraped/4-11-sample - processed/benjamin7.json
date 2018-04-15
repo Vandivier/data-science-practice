@@ -25,18 +25,12 @@
     "sOutputDirectory": "manually-scraped/4-11-sample - processed",
     "sOutputLocation": "manually-scraped/4-11-sample - processed/benjamin7.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 28,
-    "iKairosAsian": 0.99998,
-    "iKairosBlack": 0,
-    "iKairosMaleConfidence": 0.98738,
-    "iKairosHispanic": 0,
-    "iKairosOtherEthnicity": 0.00002,
-    "iKairosWhite": 0,
     "bNameTruncated": false,
     "iLanguagesSpoken": 3,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "CA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

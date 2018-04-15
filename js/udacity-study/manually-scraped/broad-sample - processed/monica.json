@@ -27,5 +27,6 @@
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
-    "sCountry": "India"
+    "sCountry": "India",
+    "bGitHubAccountFound": false
 }

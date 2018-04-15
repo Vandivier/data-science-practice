@@ -40,5 +40,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "WA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "idlesentry",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "14",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

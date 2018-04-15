@@ -25,18 +25,12 @@
     "sOutputDirectory": "manually-scraped/4-11-sample - processed",
     "sOutputLocation": "manually-scraped/4-11-sample - processed/ben8.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 34,
-    "iKairosAsian": 0.0002,
-    "iKairosBlack": 0.00004,
-    "iKairosMaleConfidence": 1,
-    "iKairosHispanic": 0.00255,
-    "iKairosOtherEthnicity": 0.00025,
-    "iKairosWhite": 0.99696,
     "bNameTruncated": false,
     "iLanguagesSpoken": 2,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": true,
     "bSpeaksOther": false,
     "sState": "CA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

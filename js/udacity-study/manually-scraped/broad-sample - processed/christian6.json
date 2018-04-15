@@ -41,5 +41,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "PA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "crivera2013",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "2",
+    "sGithubRepos": "10",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

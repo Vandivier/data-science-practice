@@ -40,5 +40,6 @@
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
-    "sCountry": "Singapore"
+    "sCountry": "Singapore",
+    "bGitHubAccountFound": false
 }

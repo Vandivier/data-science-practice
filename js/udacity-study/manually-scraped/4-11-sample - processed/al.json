@@ -24,18 +24,12 @@
     "sOutputDirectory": "manually-scraped/4-11-sample - processed",
     "sOutputLocation": "manually-scraped/4-11-sample - processed/al.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 53,
-    "iKairosAsian": 0.00096,
-    "iKairosBlack": 0.00119,
-    "iKairosMaleConfidence": 0.69971,
-    "iKairosHispanic": 0.05043,
-    "iKairosOtherEthnicity": 0.00082,
-    "iKairosWhite": 0.94659,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "TX",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

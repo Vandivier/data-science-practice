@@ -41,5 +41,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "OR",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "Worley",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "8",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

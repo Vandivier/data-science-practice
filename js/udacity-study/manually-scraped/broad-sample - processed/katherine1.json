@@ -38,5 +38,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "NY",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "katggarcia",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "7",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

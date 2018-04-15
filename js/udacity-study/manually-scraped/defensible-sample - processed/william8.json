@@ -39,5 +39,6 @@
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
-    "sCountry": "Czechia"
+    "sCountry": "Czechia",
+    "bGitHubAccountFound": false
 }

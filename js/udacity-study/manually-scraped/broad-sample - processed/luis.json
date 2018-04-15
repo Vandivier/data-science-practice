@@ -28,10 +28,17 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/luis.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 5,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": true,
     "bSpeaksOther": true,
-    "sCountry": "United Kingdom"
+    "sCountry": "United Kingdom",
+    "sGithubUserName": "salcekosma",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "24",
+    "sGithubRepos": "16",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

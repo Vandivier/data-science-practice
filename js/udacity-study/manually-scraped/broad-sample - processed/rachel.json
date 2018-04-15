@@ -40,5 +40,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "CA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "elleKlein",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "6",
+    "sGithubFollowers": "1",
+    "bGitHubAccountFound": true
 }

@@ -40,5 +40,11 @@
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
-    "sCountry": "Canada"
+    "sCountry": "Canada",
+    "sGithubUserName": "dariusboey",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "7",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

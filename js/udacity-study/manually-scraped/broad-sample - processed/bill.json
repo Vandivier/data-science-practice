@@ -39,5 +39,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "NC",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "bging4",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "139",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

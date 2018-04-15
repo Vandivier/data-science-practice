@@ -24,18 +24,12 @@
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/amanda.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 26,
-    "iKairosAsian": 0.00293,
-    "iKairosBlack": 0.00002,
-    "iKairosMaleConfidence": 0.00002,
-    "iKairosHispanic": 0.01897,
-    "iKairosOtherEthnicity": 0.00114,
-    "iKairosWhite": 0.97694,
     "bNameTruncated": false,
     "iLanguagesSpoken": 3,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": true,
     "bSpeaksOther": true,
     "sState": "CA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

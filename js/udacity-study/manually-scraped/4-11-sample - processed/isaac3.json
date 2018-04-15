@@ -25,18 +25,12 @@
     "sOutputDirectory": "manually-scraped/4-11-sample - processed",
     "sOutputLocation": "manually-scraped/4-11-sample - processed/isaac3.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 31,
-    "iKairosAsian": 0.00008,
-    "iKairosBlack": 0.00015,
-    "iKairosMaleConfidence": 0.99118,
-    "iKairosHispanic": 0.02034,
-    "iKairosOtherEthnicity": 0.00044,
-    "iKairosWhite": 0.97899,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "CA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

@@ -24,17 +24,11 @@
     "sOutputDirectory": "manually-scraped/4-11-sample - processed",
     "sOutputLocation": "manually-scraped/4-11-sample - processed/anne.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 33,
-    "iKairosAsian": 0.026,
-    "iKairosBlack": 0.00361,
-    "iKairosMaleConfidence": 0.00191,
-    "iKairosHispanic": 0.66102,
-    "iKairosOtherEthnicity": 0.00436,
-    "iKairosWhite": 0.30502,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
-    "sCountry": "Canada"
+    "sCountry": "Canada",
+    "bGitHubAccountFound": false
 }

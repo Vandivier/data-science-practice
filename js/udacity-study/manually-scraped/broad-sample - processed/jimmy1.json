@@ -42,5 +42,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "CA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "jimmythongtran",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "310",
+    "sGithubRepos": "25",
+    "sGithubFollowers": "12",
+    "bGitHubAccountFound": true
 }

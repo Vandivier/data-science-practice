@@ -43,5 +43,6 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "VT",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

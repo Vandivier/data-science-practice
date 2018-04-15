@@ -35,5 +35,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "UT",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "Geosynchronous",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "15",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

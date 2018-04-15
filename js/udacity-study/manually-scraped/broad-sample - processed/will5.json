@@ -26,11 +26,18 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/will5.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 3,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": true,
     "bSpeaksOther": true,
     "sState": "FL",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "daernac",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "11",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

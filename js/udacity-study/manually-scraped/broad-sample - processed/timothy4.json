@@ -40,5 +40,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "TX",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "timbo138",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "0",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

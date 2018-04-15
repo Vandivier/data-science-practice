@@ -39,5 +39,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "IN",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "MediaMstr",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "0",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

@@ -26,18 +26,12 @@
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
     "sOutputLocation": "manually-scraped/defensible-sample - processed/elizabeth6.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 30,
-    "iKairosAsian": 0.0523,
-    "iKairosBlack": 0.00355,
-    "iKairosMaleConfidence": 0.0154,
-    "iKairosHispanic": 0.25155,
-    "iKairosOtherEthnicity": 0.01702,
-    "iKairosWhite": 0.67558,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "TX",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

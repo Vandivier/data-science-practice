@@ -26,18 +26,12 @@
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/ron.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 44,
-    "iKairosAsian": 0,
-    "iKairosBlack": 0,
-    "iKairosMaleConfidence": 0.98944,
-    "iKairosHispanic": 0.00017,
-    "iKairosOtherEthnicity": 0,
-    "iKairosWhite": 0.99983,
     "bNameTruncated": false,
     "iLanguagesSpoken": 0,
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "CA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

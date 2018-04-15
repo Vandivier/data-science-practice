@@ -40,5 +40,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "TX",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "erickao08",
+    "sGithubEmail": "erickao08@hotmail.com",
+    "sGithubAnnualCommits": "71",
+    "sGithubRepos": "27",
+    "sGithubFollowers": "1",
+    "bGitHubAccountFound": true
 }

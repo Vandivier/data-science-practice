@@ -23,18 +23,12 @@
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/dejuan.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 27,
-    "iKairosAsian": 0.00069,
-    "iKairosBlack": 0.99795,
-    "iKairosMaleConfidence": 0.9836,
-    "iKairosHispanic": 0.00096,
-    "iKairosOtherEthnicity": 0.00038,
-    "iKairosWhite": 0.00003,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "IL",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

@@ -25,17 +25,11 @@
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/jonathan7.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 40,
-    "iKairosAsian": 0.00134,
-    "iKairosBlack": 0.00307,
-    "iKairosMaleConfidence": 0.99999,
-    "iKairosHispanic": 0.05745,
-    "iKairosOtherEthnicity": 0.00654,
-    "iKairosWhite": 0.9316,
     "bNameTruncated": false,
     "iLanguagesSpoken": 2,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
-    "sCountry": "United Kingdom"
+    "sCountry": "United Kingdom",
+    "bGitHubAccountFound": false
 }

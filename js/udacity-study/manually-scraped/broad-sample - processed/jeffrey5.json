@@ -26,18 +26,12 @@
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/jeffrey5.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 27,
-    "iKairosAsian": 0.99922,
-    "iKairosBlack": 0,
-    "iKairosMaleConfidence": 0.95774,
-    "iKairosHispanic": 0.00009,
-    "iKairosOtherEthnicity": 0.00067,
-    "iKairosWhite": 0.00001,
     "bNameTruncated": false,
     "iLanguagesSpoken": 2,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "CA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

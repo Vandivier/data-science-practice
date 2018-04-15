@@ -28,18 +28,12 @@
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
     "sOutputLocation": "manually-scraped/defensible-sample - processed/thomas17.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 42,
-    "iKairosAsian": 0.00003,
-    "iKairosBlack": 0.00022,
-    "iKairosMaleConfidence": 0.99936,
-    "iKairosHispanic": 0.01244,
-    "iKairosOtherEthnicity": 0.00025,
-    "iKairosWhite": 0.98706,
     "bNameTruncated": false,
     "iLanguagesSpoken": 2,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "FL",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

@@ -25,11 +25,18 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/patrick10.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "OR",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "Gnosder",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "24",
+    "sGithubRepos": "2",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

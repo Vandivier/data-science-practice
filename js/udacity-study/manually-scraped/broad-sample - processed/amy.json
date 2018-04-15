@@ -40,5 +40,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "TX",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "amytthompson",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "11",
+    "sGithubFollowers": "1",
+    "bGitHubAccountFound": true
 }

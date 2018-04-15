@@ -13,7 +13,7 @@ const fpReadFile = util.promisify(fs.readFile);
 const fpReadDir = util.promisify(fs.readdir);
 const fpWriteFile = util.promisify(fs.writeFile);
 
-const oKairosAuth = JSON.parse(fs.readFileSync(__dirname + '/../kairos-auth.json', 'utf8'));
+const oKairosAuth = JSON.parse(fs.readFileSync(__dirname + '/kairos-auth.json', 'utf8'));
 const sImagePrefix = 'https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/';
 
 // TODO: github stars & commits
@@ -45,6 +45,11 @@ const oTitleLine = {
     "iKairosHispanic": "Kairos Hispanic",
     "iKairosOtherEthnicity": "Kairos Other Ethnicity",
     "iKairosWhite": "Kairos White",
+    "sGithubUserName": "GitHub User Name",
+    "sGithubEmail": "GitHub White",
+    "sGithubAnnualCommits": "GitHub Annual Commits",
+    "sGithubRepos": "GitHub Repo Count",
+    "sGithubFollowers": "GitHub Follower Count",
 };
 
 const sOutFileLocation = __dirname + '/manually-scraped-results.csv';
@@ -65,8 +70,20 @@ async function main() {
         });
     });
 
+    await fpGlob('manually-scraped/github-4-12-sample/*.txt', options)
+    .then(arrsFiles => {
+        arrsGitHubIds = arrsFiles.map(s => {
+            let arrs = s.split('/');
+            arrs = arrs[arrs.length - 1].split('.txt');
+            return arrs[0];
+        });
+    });
+
     await fpGlob('manually-scraped/**/*.txt', options)
     .then(arrsFiles => utils.forEachReverseAsyncPhased(arrsFiles, fpProcessRecord))
+    .then(arroProcessedFiles => arroProcessedFiles
+            .filter(oProcessedFile => oProcessedFile.sScrapedUserId)
+         )
     .then(arroProcessedFiles => utils.fpObjectsToCSV(arroProcessedFiles, {
         oTitleLine,
         sOutFileLocation,
@@ -79,6 +96,10 @@ async function main() {
 async function fpProcessRecord(sLocation) {
     let oRecord = await fpReadFile(sLocation)
         .then(sRecord => JSON.parse(sRecord));
+
+    if (!oRecord.sScrapedUserId) {  // it's not a Udacity data file. maybe should be called sUdacityUserId
+        return Promise.resolve({}); // return empty obj which will get filtered before csv writing
+    }
 
     oRecord.sImageOnGithubUrl = sImagePrefix
             + oRecord.sScrapedUserId
@@ -116,6 +137,7 @@ async function fpProcessRecord(sLocation) {
         fGetLanguagesSpoken(oRecord);
         fFixExperienceCount(oRecord);
         fFixLocation(oRecord);
+        await fpGetGithubData(oRecord);
     } catch (e) {
         console.log('late fpProcessRecord err: ', e);
     }
@@ -173,9 +195,9 @@ function fFixExperienceCount(oRecord) {
 // sometimes it's just country
 // rarely, it's state, country
 // also, I need to provide United States as a country to capture national effects
-function fFixLocation(oResult) {
-    let arrsLocation = oResult.sLocation
-        && oResult.sLocation.split(', ');
+function fFixLocation(oRecord) {
+    let arrsLocation = oRecord.sLocation
+        && oRecord.sLocation.split(', ');
     let sStateCandidate;
 
     if (!arrsLocation) return;
@@ -186,11 +208,41 @@ function fFixLocation(oResult) {
     }
 
     if (sStateCandidate.length === 2) {
-        oResult.sState = sStateCandidate;
-        oResult.sCountry = 'United States';
+        oRecord.sState = sStateCandidate;
+        oRecord.sCountry = 'United States';
     } else {
-        oResult.sCountry = sStateCandidate;
+        oRecord.sCountry = sStateCandidate;
     }
+}
+
+async function fpGetGithubData(oRecord) {
+    let sGitHubId = oRecord.sGitHubUrl
+        && oRecord.sGitHubUrl.split('github.com/')[1];
+    let oGitHubData = {};
+    let sGitHubDataLocation = '';
+
+    sGitHubId = sGitHubId && sGitHubId.split('/')[0];
+
+    if (sGitHubId
+        && arrsGitHubIds.includes(sGitHubId))
+    { // you might have an Id, but it wasn't found, maybe because you deleted your listed GitHub account
+        sGitHubDataLocation = 'manually-scraped/github-4-12-sample/'
+            + sGitHubId
+            + '.txt';
+        oGitHubData = await fpReadFile(sGitHubDataLocation)
+            .then(sRecord => JSON.parse(sRecord));
+
+        oRecord.sGithubUserName = oGitHubData.sGithubUserName;
+        oRecord.sGithubEmail = oGitHubData.sGithubEmail;
+        oRecord.sGithubAnnualCommits = oGitHubData.sGithubAnnualCommits;
+        oRecord.sGithubRepos = oGitHubData.sGithubRepos;
+        oRecord.sGithubFollowers = oGitHubData.sGithubFollowers;
+        oRecord.bGitHubAccountFound = true;
+    } else {
+        oRecord.bGitHubAccountFound = false;
+    }
+
+    return Promise.resolve();
 }
 
 async function fpWriteOutput(oRecord) {

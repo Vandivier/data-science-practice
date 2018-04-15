@@ -41,5 +41,11 @@
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
-    "sCountry": "United Arab Emirates"
+    "sCountry": "United Arab Emirates",
+    "sGithubUserName": "leBoer",
+    "sGithubEmail": "christianborre@gmail.com",
+    "sGithubAnnualCommits": "65",
+    "sGithubRepos": "36",
+    "sGithubFollowers": "3",
+    "bGitHubAccountFound": true
 }

@@ -25,11 +25,18 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/ryan4.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 7,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": true,
     "bSpeaksOther": true,
     "sState": "IL",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "rko2",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "30",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

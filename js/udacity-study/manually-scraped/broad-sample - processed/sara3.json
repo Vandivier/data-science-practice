@@ -29,5 +29,6 @@
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
-    "sCountry": "Egypt"
+    "sCountry": "Egypt",
+    "bGitHubAccountFound": false
 }

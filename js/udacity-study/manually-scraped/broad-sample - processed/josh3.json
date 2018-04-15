@@ -41,5 +41,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "DC",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "joshpson",
+    "sGithubEmail": "jpearson846@gmail.com",
+    "sGithubAnnualCommits": "125",
+    "sGithubRepos": "58",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

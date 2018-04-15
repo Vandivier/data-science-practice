@@ -38,5 +38,11 @@
     "bSpeaksSpanish": true,
     "bSpeaksOther": false,
     "sState": "TX",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "RayneDance",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "17",
+    "sGithubRepos": "4",
+    "sGithubFollowers": "1",
+    "bGitHubAccountFound": true
 }

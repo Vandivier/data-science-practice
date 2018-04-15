@@ -36,5 +36,11 @@
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
-    "sCountry": "Australia"
+    "sCountry": "Australia",
+    "sGithubUserName": "aleighton",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "61",
+    "sGithubRepos": "12",
+    "sGithubFollowers": "1",
+    "bGitHubAccountFound": true
 }

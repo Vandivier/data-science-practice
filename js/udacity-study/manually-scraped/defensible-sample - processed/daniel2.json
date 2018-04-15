@@ -40,5 +40,6 @@
     "bSpeaksSpanish": true,
     "bSpeaksOther": true,
     "sState": "CA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

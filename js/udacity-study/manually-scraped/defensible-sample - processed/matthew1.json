@@ -24,18 +24,12 @@
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
     "sOutputLocation": "manually-scraped/defensible-sample - processed/matthew1.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 28,
-    "iKairosAsian": 0.00023,
-    "iKairosBlack": 0.02344,
-    "iKairosMaleConfidence": 0.99993,
-    "iKairosHispanic": 0.04263,
-    "iKairosOtherEthnicity": 0.00063,
-    "iKairosWhite": 0.93307,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "CO",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

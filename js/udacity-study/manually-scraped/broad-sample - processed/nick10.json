@@ -42,5 +42,11 @@
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
-    "sCountry": "Switzerland"
+    "sCountry": "Switzerland",
+    "sGithubUserName": "shawger",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "6",
+    "sGithubRepos": "9",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

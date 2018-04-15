@@ -24,11 +24,18 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/pedro2.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 3,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": true,
     "bSpeaksOther": true,
     "sState": "NY",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "BurgosNY",
+    "sGithubEmail": "pedroburgos@gmail.com",
+    "sGithubAnnualCommits": "23",
+    "sGithubRepos": "19",
+    "sGithubFollowers": "30",
+    "bGitHubAccountFound": true
 }

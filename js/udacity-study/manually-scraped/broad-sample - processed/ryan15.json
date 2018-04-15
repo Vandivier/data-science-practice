@@ -38,5 +38,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "FL",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "ryhoff83",
+    "sGithubEmail": "ryhoff83@gmail.com",
+    "sGithubAnnualCommits": "3",
+    "sGithubRepos": "2",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

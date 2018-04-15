@@ -32,5 +32,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "NY",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "carnivalweenie",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "1",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

@@ -26,11 +26,18 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/joshua8.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "OH",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "jleath",
+    "sGithubEmail": "joshua.leath@icloud.com",
+    "sGithubAnnualCommits": "9",
+    "sGithubRepos": "11",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

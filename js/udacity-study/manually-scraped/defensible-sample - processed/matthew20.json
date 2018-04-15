@@ -29,5 +29,6 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "OH",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

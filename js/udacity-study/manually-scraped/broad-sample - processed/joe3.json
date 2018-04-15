@@ -35,5 +35,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "NY",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "coderjs",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "15",
+    "sGithubFollowers": "1",
+    "bGitHubAccountFound": true
 }

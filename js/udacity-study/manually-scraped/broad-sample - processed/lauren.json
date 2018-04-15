@@ -40,5 +40,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "MA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "LMsmith",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "5",
+    "sGithubRepos": "20",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

@@ -42,5 +42,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "MI",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "firefly454",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "12",
+    "sGithubFollowers": "6",
+    "bGitHubAccountFound": true
 }

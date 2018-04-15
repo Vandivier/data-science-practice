@@ -33,5 +33,11 @@
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
-    "sCountry": "Taiwan"
+    "sCountry": "Taiwan",
+    "sGithubUserName": "jeffrey1183",
+    "sGithubEmail": "wangefcn@gmail.com",
+    "sGithubAnnualCommits": "492",
+    "sGithubRepos": "11",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

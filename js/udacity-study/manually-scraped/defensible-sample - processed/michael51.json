@@ -27,18 +27,12 @@
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
     "sOutputLocation": "manually-scraped/defensible-sample - processed/michael51.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 35,
-    "iKairosAsian": 0.00007,
-    "iKairosBlack": 0.00033,
-    "iKairosMaleConfidence": 1,
-    "iKairosHispanic": 0.00378,
-    "iKairosOtherEthnicity": 0.00011,
-    "iKairosWhite": 0.99571,
     "bNameTruncated": false,
     "iLanguagesSpoken": 0,
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "MI",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

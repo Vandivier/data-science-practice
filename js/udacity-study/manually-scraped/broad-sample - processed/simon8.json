@@ -42,5 +42,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "CA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "sxhan",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "126",
+    "sGithubRepos": "12",
+    "sGithubFollowers": "3",
+    "bGitHubAccountFound": true
 }

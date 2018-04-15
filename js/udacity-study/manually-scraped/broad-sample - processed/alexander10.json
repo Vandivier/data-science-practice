@@ -41,5 +41,11 @@
     "bSpeaksSpanish": true,
     "bSpeaksOther": false,
     "sState": "MN",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "KuharAC",
+    "sGithubEmail": "kuharac@gmail.com",
+    "sGithubAnnualCommits": "145",
+    "sGithubRepos": "6",
+    "sGithubFollowers": "2",
+    "bGitHubAccountFound": true
 }

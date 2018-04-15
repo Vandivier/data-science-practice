@@ -26,17 +26,11 @@
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/mina.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 29,
-    "iKairosAsian": 0.01678,
-    "iKairosBlack": 0.00272,
-    "iKairosMaleConfidence": 0.99993,
-    "iKairosHispanic": 0.18724,
-    "iKairosOtherEthnicity": 0.07535,
-    "iKairosWhite": 0.71791,
     "bNameTruncated": false,
     "iLanguagesSpoken": 2,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
-    "sCountry": "Egypt"
+    "sCountry": "Egypt",
+    "bGitHubAccountFound": false
 }

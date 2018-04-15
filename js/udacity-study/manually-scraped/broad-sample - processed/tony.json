@@ -41,5 +41,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "MN",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "morr0350",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "1",
+    "sGithubRepos": "17",
+    "sGithubFollowers": "1",
+    "bGitHubAccountFound": true
 }

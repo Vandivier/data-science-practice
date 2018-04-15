@@ -28,18 +28,12 @@
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/timothy3.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 32,
-    "iKairosAsian": 0.00345,
-    "iKairosBlack": 0.24875,
-    "iKairosMaleConfidence": 0.99999,
-    "iKairosHispanic": 0.54856,
-    "iKairosOtherEthnicity": 0.02602,
-    "iKairosWhite": 0.17322,
     "bNameTruncated": false,
     "iLanguagesSpoken": 3,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "NY",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

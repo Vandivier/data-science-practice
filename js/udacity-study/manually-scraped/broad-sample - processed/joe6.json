@@ -40,5 +40,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "VA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "josepheletto",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "2",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

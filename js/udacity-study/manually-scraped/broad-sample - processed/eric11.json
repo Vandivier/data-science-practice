@@ -27,18 +27,12 @@
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/eric11.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 26,
-    "iKairosAsian": 0.00042,
-    "iKairosBlack": 0.0019,
-    "iKairosMaleConfidence": 0.9995,
-    "iKairosHispanic": 0.05666,
-    "iKairosOtherEthnicity": 0.00227,
-    "iKairosWhite": 0.93874,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "TX",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

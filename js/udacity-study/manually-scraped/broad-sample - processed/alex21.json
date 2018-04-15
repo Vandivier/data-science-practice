@@ -40,5 +40,11 @@
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
-    "sCountry": "Poland"
+    "sCountry": "Poland",
+    "sGithubUserName": "OleksiiReutov",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "1",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

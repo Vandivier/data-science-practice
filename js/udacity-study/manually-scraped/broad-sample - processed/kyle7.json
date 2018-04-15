@@ -33,5 +33,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "MN",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "klubrant",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "2",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

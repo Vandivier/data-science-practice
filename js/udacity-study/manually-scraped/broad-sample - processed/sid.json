@@ -26,10 +26,17 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/sid.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 3,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
-    "sCountry": "Canada"
+    "sCountry": "Canada",
+    "sGithubUserName": "skattoju",
+    "sGithubEmail": "siddharthakattoju@gmail.com",
+    "sGithubAnnualCommits": "18",
+    "sGithubRepos": "11",
+    "sGithubFollowers": "15",
+    "bGitHubAccountFound": true
 }

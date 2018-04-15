@@ -24,11 +24,18 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/clay.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": true,
     "bSpeaksOther": false,
     "sState": "CA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "ckashby",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "66",
+    "sGithubRepos": "78",
+    "sGithubFollowers": "3",
+    "bGitHubAccountFound": true
 }

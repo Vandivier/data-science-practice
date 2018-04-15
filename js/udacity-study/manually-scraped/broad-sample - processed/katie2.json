@@ -40,5 +40,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "CA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "katiezeff",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "13",
+    "sGithubRepos": "10",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

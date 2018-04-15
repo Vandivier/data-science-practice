@@ -26,10 +26,17 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/george4.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 5,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": true,
     "bSpeaksOther": true,
-    "sCountry": "Greece"
+    "sCountry": "Greece",
+    "sGithubUserName": "georgioscc",
+    "sGithubEmail": "hello@georgios.cc",
+    "sGithubAnnualCommits": "8",
+    "sGithubRepos": "3",
+    "sGithubFollowers": "3",
+    "bGitHubAccountFound": true
 }

@@ -24,10 +24,17 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/jenni.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 2,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
-    "sCountry": "Finland"
+    "sCountry": "Finland",
+    "sGithubUserName": "jimlinteri",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "121",
+    "sGithubRepos": "5",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

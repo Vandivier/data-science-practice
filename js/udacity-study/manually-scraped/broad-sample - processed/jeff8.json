@@ -42,5 +42,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "CO",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "linkco",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "3",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

@@ -40,5 +40,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "OK",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "p2dski",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "197",
+    "sGithubRepos": "14",
+    "sGithubFollowers": "1",
+    "bGitHubAccountFound": true
 }

@@ -32,5 +32,11 @@
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "bmyoung",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "6",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

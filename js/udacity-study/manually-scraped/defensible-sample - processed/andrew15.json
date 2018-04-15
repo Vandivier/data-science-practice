@@ -25,18 +25,12 @@
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
     "sOutputLocation": "manually-scraped/defensible-sample - processed/andrew15.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 53,
-    "iKairosAsian": 0.0001,
-    "iKairosBlack": 0.00026,
-    "iKairosMaleConfidence": 0.9983,
-    "iKairosHispanic": 0.02668,
-    "iKairosOtherEthnicity": 0.0012,
-    "iKairosWhite": 0.97176,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "MA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

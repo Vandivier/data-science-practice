@@ -26,11 +26,18 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/elana.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 0,
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "NY",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "ElanaLaskin",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "51",
+    "sGithubRepos": "12",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

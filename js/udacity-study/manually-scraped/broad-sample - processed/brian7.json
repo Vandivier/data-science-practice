@@ -26,18 +26,12 @@
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/brian7.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 36,
-    "iKairosAsian": 0.00012,
-    "iKairosBlack": 0.00006,
-    "iKairosMaleConfidence": 1,
-    "iKairosHispanic": 0.01035,
-    "iKairosOtherEthnicity": 0.00038,
-    "iKairosWhite": 0.98909,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "NY",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

@@ -35,5 +35,11 @@
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": true,
     "bSpeaksOther": true,
-    "sCountry": "Germany"
+    "sCountry": "Germany",
+    "sGithubUserName": "cmondorf",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "84",
+    "sGithubRepos": "22",
+    "sGithubFollowers": "1",
+    "bGitHubAccountFound": true
 }

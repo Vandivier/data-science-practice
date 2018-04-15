@@ -25,10 +25,17 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/eric15.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
-    "sCountry": "Canada"
+    "sCountry": "Canada",
+    "sGithubUserName": "ericzawo",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "1",
+    "sGithubRepos": "9",
+    "sGithubFollowers": "2",
+    "bGitHubAccountFound": true
 }

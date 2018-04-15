@@ -26,11 +26,18 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/alex14.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "MI",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "apdarr",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "40",
+    "sGithubRepos": "18",
+    "sGithubFollowers": "2",
+    "bGitHubAccountFound": true
 }

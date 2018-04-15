@@ -27,11 +27,18 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/trey.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "TX",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "thetreythomas",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "2",
+    "sGithubRepos": "13",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

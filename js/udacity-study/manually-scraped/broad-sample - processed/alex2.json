@@ -39,5 +39,11 @@
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": true,
     "bSpeaksOther": false,
-    "sCountry": "Mexico"
+    "sCountry": "Mexico",
+    "sGithubUserName": "arekssu",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "15",
+    "sGithubRepos": "17",
+    "sGithubFollowers": "1",
+    "bGitHubAccountFound": true
 }

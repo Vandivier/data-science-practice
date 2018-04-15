@@ -25,18 +25,12 @@
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/amy2.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 36,
-    "iKairosAsian": 0.00152,
-    "iKairosBlack": 0.00007,
-    "iKairosMaleConfidence": 0.00004,
-    "iKairosHispanic": 0.22389,
-    "iKairosOtherEthnicity": 0.00253,
-    "iKairosWhite": 0.77199,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "TX",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

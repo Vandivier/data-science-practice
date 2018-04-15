@@ -24,17 +24,11 @@
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/alex28.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 44,
-    "iKairosAsian": 0.01135,
-    "iKairosBlack": 0.00322,
-    "iKairosMaleConfidence": 0.9991,
-    "iKairosHispanic": 0.42773,
-    "iKairosOtherEthnicity": 0.03307,
-    "iKairosWhite": 0.52463,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
-    "sCountry": "Spain"
+    "sCountry": "Spain",
+    "bGitHubAccountFound": false
 }

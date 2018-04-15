@@ -40,5 +40,11 @@
     "bSpeaksSpanish": true,
     "bSpeaksOther": false,
     "sState": "NC",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "iamadamgreen",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "1",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

@@ -26,11 +26,18 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/josh2.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 0,
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "GA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "Bubcat",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "0",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

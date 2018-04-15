@@ -25,11 +25,18 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/sam1.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 2,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "FL",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "Sambok",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "878",
+    "sGithubRepos": "12",
+    "sGithubFollowers": "27",
+    "bGitHubAccountFound": true
 }

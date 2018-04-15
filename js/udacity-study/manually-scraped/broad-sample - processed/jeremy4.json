@@ -41,5 +41,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "ND",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "aperfectdork",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "2",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

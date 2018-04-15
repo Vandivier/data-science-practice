@@ -32,5 +32,6 @@
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
-    "sCountry": "Canada"
+    "sCountry": "Canada",
+    "bGitHubAccountFound": false
 }

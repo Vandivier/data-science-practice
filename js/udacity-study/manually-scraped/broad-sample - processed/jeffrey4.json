@@ -40,5 +40,11 @@
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
-    "sCountry": "Portugal"
+    "sCountry": "Portugal",
+    "sGithubUserName": "jknight",
+    "sGithubEmail": "jeffrey.knight@gmail[.com",
+    "sGithubAnnualCommits": "3",
+    "sGithubRepos": "18",
+    "sGithubFollowers": "10",
+    "bGitHubAccountFound": true
 }

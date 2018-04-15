@@ -24,10 +24,17 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/bill3.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 0,
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
-    "sCountry": "China"
+    "sCountry": "China",
+    "sGithubUserName": "xiekuncn",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "1",
+    "sGithubRepos": "19",
+    "sGithubFollowers": "8",
+    "bGitHubAccountFound": true
 }

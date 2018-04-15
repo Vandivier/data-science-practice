@@ -26,18 +26,12 @@
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/nicholas8.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 29,
-    "iKairosAsian": 0.00287,
-    "iKairosBlack": 0.00228,
-    "iKairosMaleConfidence": 0.99959,
-    "iKairosHispanic": 0.01959,
-    "iKairosOtherEthnicity": 0.00229,
-    "iKairosWhite": 0.97297,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "OR",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

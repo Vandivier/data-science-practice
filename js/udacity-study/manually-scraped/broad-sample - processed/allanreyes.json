@@ -27,11 +27,18 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/allanreyes.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "CA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "allanbreyes",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "2,544",
+    "sGithubRepos": "53",
+    "sGithubFollowers": "363",
+    "bGitHubAccountFound": true
 }

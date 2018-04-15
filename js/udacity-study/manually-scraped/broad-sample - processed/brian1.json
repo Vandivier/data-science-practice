@@ -40,5 +40,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "CA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "bgkonzman",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "9",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

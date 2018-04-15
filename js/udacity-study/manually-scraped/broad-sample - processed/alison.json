@@ -40,5 +40,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "MA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "cat6376",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "76",
+    "sGithubRepos": "9",
+    "sGithubFollowers": "1",
+    "bGitHubAccountFound": true
 }

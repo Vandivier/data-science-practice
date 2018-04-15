@@ -39,5 +39,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "ID",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "dflsmith",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "7",
+    "sGithubRepos": "7",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

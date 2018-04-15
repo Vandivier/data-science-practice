@@ -25,18 +25,12 @@
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
     "sOutputLocation": "manually-scraped/defensible-sample - processed/andrew27.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 27,
-    "iKairosAsian": 0.0023,
-    "iKairosBlack": 0.00152,
-    "iKairosMaleConfidence": 0.99998,
-    "iKairosHispanic": 0.05354,
-    "iKairosOtherEthnicity": 0.00618,
-    "iKairosWhite": 0.93645,
     "bNameTruncated": false,
     "iLanguagesSpoken": 0,
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "NY",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

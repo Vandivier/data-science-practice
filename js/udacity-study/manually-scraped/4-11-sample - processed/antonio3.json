@@ -25,18 +25,12 @@
     "sOutputDirectory": "manually-scraped/4-11-sample - processed",
     "sOutputLocation": "manually-scraped/4-11-sample - processed/antonio3.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 25,
-    "iKairosAsian": 0.58399,
-    "iKairosBlack": 0.01329,
-    "iKairosMaleConfidence": 0.99812,
-    "iKairosHispanic": 0.2879,
-    "iKairosOtherEthnicity": 0.09448,
-    "iKairosWhite": 0.02035,
     "bNameTruncated": false,
     "iLanguagesSpoken": 2,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": true,
     "bSpeaksOther": false,
     "sState": "CA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

@@ -23,18 +23,12 @@
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
     "sOutputLocation": "manually-scraped/defensible-sample - processed/james22.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 26,
-    "iKairosAsian": 0.01115,
-    "iKairosBlack": 0.01127,
-    "iKairosMaleConfidence": 0.99994,
-    "iKairosHispanic": 0.16132,
-    "iKairosOtherEthnicity": 0.05561,
-    "iKairosWhite": 0.76064,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "NY",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

@@ -24,18 +24,12 @@
     "sOutputDirectory": "manually-scraped/defensible-sample - processed",
     "sOutputLocation": "manually-scraped/defensible-sample - processed/karen2.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 35,
-    "iKairosAsian": 0.05152,
-    "iKairosBlack": 0.01101,
-    "iKairosMaleConfidence": 0.00025,
-    "iKairosHispanic": 0.10615,
-    "iKairosOtherEthnicity": 0.02761,
-    "iKairosWhite": 0.80371,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": false,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "CT",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

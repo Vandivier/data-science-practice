@@ -39,5 +39,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "TX",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "Keggeraider",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "44",
+    "sGithubRepos": "3",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

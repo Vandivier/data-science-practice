@@ -25,18 +25,12 @@
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/maya1.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 37,
-    "iKairosAsian": 0.05274,
-    "iKairosBlack": 0.00363,
-    "iKairosMaleConfidence": 0.02959,
-    "iKairosHispanic": 0.41694,
-    "iKairosOtherEthnicity": 0.09696,
-    "iKairosWhite": 0.42974,
     "bNameTruncated": false,
     "iLanguagesSpoken": 3,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "MD",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

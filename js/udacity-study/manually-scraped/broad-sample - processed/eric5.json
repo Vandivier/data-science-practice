@@ -41,5 +41,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "GA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "ericmartz",
+    "sGithubEmail": "ericmartz@gmail.com",
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "20",
+    "sGithubFollowers": "1",
+    "bGitHubAccountFound": true
 }

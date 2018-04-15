@@ -25,11 +25,18 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/matt.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 2,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "CA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "Zerobark30",
+    "sGithubEmail": "matthewpwells@gmail.com",
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "13",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

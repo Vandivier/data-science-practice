@@ -40,5 +40,11 @@
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": true,
     "bSpeaksOther": false,
-    "sCountry": "Mexico"
+    "sCountry": "Mexico",
+    "sGithubUserName": "Sae86",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "0",
+    "sGithubRepos": "5",
+    "sGithubFollowers": "2",
+    "bGitHubAccountFound": true
 }

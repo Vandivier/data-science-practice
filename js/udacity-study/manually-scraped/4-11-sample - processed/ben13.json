@@ -25,18 +25,12 @@
     "sOutputDirectory": "manually-scraped/4-11-sample - processed",
     "sOutputLocation": "manually-scraped/4-11-sample - processed/ben13.json",
     "bShouldHaveKairos": true,
-    "iKairosAge": 36,
-    "iKairosAsian": 0.0064,
-    "iKairosBlack": 0.00366,
-    "iKairosMaleConfidence": 0.99988,
-    "iKairosHispanic": 0.01996,
-    "iKairosOtherEthnicity": 0.0093,
-    "iKairosWhite": 0.96068,
     "bNameTruncated": false,
     "iLanguagesSpoken": 2,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sState": "CT",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "bGitHubAccountFound": false
 }

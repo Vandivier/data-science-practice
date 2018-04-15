@@ -23,11 +23,18 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/patrick1.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 1,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "NY",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "pbscrimmage",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "197",
+    "sGithubRepos": "8",
+    "sGithubFollowers": "0",
+    "bGitHubAccountFound": true
 }

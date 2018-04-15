@@ -42,5 +42,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "NC",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "dhackelman",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "183",
+    "sGithubRepos": "45",
+    "sGithubFollowers": "4",
+    "bGitHubAccountFound": true
 }

@@ -42,5 +42,11 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sState": "CA",
-    "sCountry": "United States"
+    "sCountry": "United States",
+    "sGithubUserName": "Ryanglambert",
+    "sGithubEmail": "ryan.g.lambert@gmail.com",
+    "sGithubAnnualCommits": "245",
+    "sGithubRepos": "40",
+    "sGithubFollowers": "13",
+    "bGitHubAccountFound": true
 }

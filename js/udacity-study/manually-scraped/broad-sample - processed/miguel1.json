@@ -28,10 +28,17 @@
     "sInputBaseName": "broad-sample",
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/miguel1.json",
+    "bShouldHaveKairos": true,
     "bNameTruncated": false,
     "iLanguagesSpoken": 2,
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": true,
     "bSpeaksOther": false,
-    "sCountry": "Spain"
+    "sCountry": "Spain",
+    "sGithubUserName": "miguel-sanchez",
+    "sGithubEmail": null,
+    "sGithubAnnualCommits": "10",
+    "sGithubRepos": "6",
+    "sGithubFollowers": "1",
+    "bGitHubAccountFound": true
 }

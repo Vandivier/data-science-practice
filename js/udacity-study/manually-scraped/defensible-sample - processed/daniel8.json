@@ -42,5 +42,6 @@
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": true,
     "bSpeaksOther": true,
-    "sCountry": "Brazil"
+    "sCountry": "Brazil",
+    "bGitHubAccountFound": false
 }
