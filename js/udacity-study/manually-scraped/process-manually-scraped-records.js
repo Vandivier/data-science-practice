@@ -39,7 +39,8 @@ const oTitleLine = {
     "bSpeaksOther": "Speaks Other Language",
     "sInputBaseName": "Sample Group Name",
     "sScrapedUrl": "Udacity URL",
-    "bShouldHaveKairos": "Has Kairos",
+    "bKairosImageSubmitted": "Image Submitted to Kairos",
+    "bKairosImageRejected": "Image Rejected by Kairos",
     "iKairosAge": "Kairos Age",
     "iKairosAsian": "Kairos Asian",
     "iKairosBlack": "Kairos Black",
@@ -126,13 +127,7 @@ async function fpProcessRecord(sLocation) {
 
     //if (oRecord.sScrapedUserId === 'adam1') { // to limit API usage during development
     if (arrsCapturedProfilePictures.includes(oRecord.sScrapedUserId)) {
-        oRecord.bShouldHaveKairos = true;
-        console.log('getting kairos for ' + oRecord.sScrapedUserId);
-        await fpAddKairosData(oRecord);
-    }
-
-    if (oRecord.sGitHubUrl) { // to limit API usage during development
-        oRecord.bShouldHaveKairos = true;
+        oRecord.bKairosImageSubmitted = true;
         console.log('getting kairos for ' + oRecord.sScrapedUserId);
         await fpAddKairosData(oRecord);
     }
@@ -282,7 +277,8 @@ async function fpAddKairosData(oRecord) {
                 oRecord.iKairosHispanic = oOldData.iKairosHispanic;
                 oRecord.iKairosOtherEthnicity = oOldData.iKairosOtherEthnicity;
                 oRecord.iKairosWhite = oOldData.iKairosWhite;
-            } else {
+            } else if(!oRecord.bKairosImageRejected
+                      || (oRecord.bKairosImageRejected && oRecord.bForceNewKairosAttempt)) {
                 await fpNewKairosCall(oRecord);
             }
         } catch (e) {
@@ -319,10 +315,10 @@ async function fpNewKairosCall(oRecord) {
             response.data.images[0].faces[0].attributes;
 
         if (response.data.Errors) {
-            oRecord.bKairosBadPicture = true;
+            oRecord.bKairosImageRejected = true;
             console.log('fpAddKairosData business error: ', response.data.Errors)
         } else {
-            oRecord.bKairosBadPicture = false;
+            oRecord.bKairosImageRejected = false;
             oRecord.iKairosAge = _oKairosData.age;
             oRecord.iKairosAsian = _oKairosData.asian;
             oRecord.iKairosBlack = _oKairosData.black;
