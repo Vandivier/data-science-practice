@@ -1,0 +1,1 @@
+{"sGithubUserName":"DanieldeR","sGithubEmail":"derepentigny.daniel@gmail.com","sGithubAnnualCommits":"0","sGithubRepos":"4","sGithubFollowers":"0"}

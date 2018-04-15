@@ -1,0 +1,1 @@
+{"sGithubUserName":"smatejcek","sGithubEmail":null,"sGithubAnnualCommits":"22","sGithubRepos":"11","sGithubFollowers":"0"}
