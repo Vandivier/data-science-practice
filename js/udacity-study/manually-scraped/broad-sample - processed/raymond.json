@@ -25,7 +25,6 @@
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/raymond.json",
     "bKairosImageSubmitted": true,
-    "bKairosImageRejected": false,
     "iKairosAge": 51,
     "iKairosAsian": 0.02259,
     "iKairosBlack": 0.00039,

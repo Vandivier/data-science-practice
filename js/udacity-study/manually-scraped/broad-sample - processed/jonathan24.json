@@ -24,7 +24,6 @@
     "sOutputDirectory": "manually-scraped/broad-sample - processed",
     "sOutputLocation": "manually-scraped/broad-sample - processed/jonathan24.json",
     "bKairosImageSubmitted": true,
-    "bKairosImageRejected": false,
     "iKairosAge": 33,
     "iKairosAsian": 0.00474,
     "iKairosBlack": 0.01112,
