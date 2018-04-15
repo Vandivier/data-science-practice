@@ -41,6 +41,7 @@
     "bSpeaksSpanish": true,
     "bSpeaksOther": false,
     "sCountry": "Canada",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "arosa81",
     "sGithubEmail": "alex.j.rosa@gmail.com",
     "sGithubAnnualCommits": "28",

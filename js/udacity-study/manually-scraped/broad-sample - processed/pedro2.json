@@ -32,6 +32,7 @@
     "bSpeaksOther": true,
     "sState": "NY",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "BurgosNY",
     "sGithubEmail": "pedroburgos@gmail.com",
     "sGithubAnnualCommits": "23",

@@ -33,6 +33,7 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sCountry": "Australia",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "seanandersonau",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "0",

@@ -35,6 +35,7 @@
     "bSpeaksOther": false,
     "sState": "TX",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "thetreythomas",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "2",

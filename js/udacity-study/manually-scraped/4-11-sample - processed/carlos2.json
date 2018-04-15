@@ -30,5 +30,6 @@
     "bSpeaksSpanish": true,
     "bSpeaksOther": false,
     "sCountry": "Mexico",
+    "bGithubAccountClaimed": false,
     "bGitHubAccountFound": false
 }

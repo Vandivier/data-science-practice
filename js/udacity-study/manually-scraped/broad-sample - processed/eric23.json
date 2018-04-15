@@ -41,6 +41,7 @@
     "bSpeaksOther": true,
     "sState": "TX",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "erickao08",
     "sGithubEmail": "erickao08@hotmail.com",
     "sGithubAnnualCommits": "71",

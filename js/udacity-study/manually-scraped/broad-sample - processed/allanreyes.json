@@ -35,6 +35,7 @@
     "bSpeaksOther": false,
     "sState": "CA",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "allanbreyes",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "2,544",

@@ -41,6 +41,7 @@
     "bSpeaksOther": true,
     "sState": "WA",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "idlesentry",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "0",

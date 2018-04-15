@@ -43,6 +43,7 @@
     "bSpeaksOther": false,
     "sState": "NC",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "dhackelman",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "183",

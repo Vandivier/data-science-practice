@@ -33,6 +33,7 @@
     "bSpeaksOther": true,
     "sState": "CA",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "Zerobark30",
     "sGithubEmail": "matthewpwells@gmail.com",
     "sGithubAnnualCommits": "0",

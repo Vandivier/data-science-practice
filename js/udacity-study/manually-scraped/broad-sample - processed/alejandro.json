@@ -39,6 +39,7 @@
     "bSpeaksSpanish": true,
     "bSpeaksOther": false,
     "sCountry": "Dominican Republic",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "vashAlejandro",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "35",

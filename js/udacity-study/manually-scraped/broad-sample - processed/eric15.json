@@ -32,6 +32,7 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sCountry": "Canada",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "ericzawo",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "1",

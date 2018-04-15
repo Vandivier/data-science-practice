@@ -34,6 +34,7 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "riana254",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "0",

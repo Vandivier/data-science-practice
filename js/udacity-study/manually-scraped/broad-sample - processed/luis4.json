@@ -38,6 +38,7 @@
     "bSpeaksSpanish": true,
     "bSpeaksOther": true,
     "sCountry": "Brazil",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "lfelipe",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "20",

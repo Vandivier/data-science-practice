@@ -42,6 +42,7 @@
     "bSpeaksOther": true,
     "sState": "CA",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "rtvu",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "0",

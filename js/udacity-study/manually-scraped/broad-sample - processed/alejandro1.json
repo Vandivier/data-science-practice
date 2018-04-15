@@ -41,6 +41,7 @@
     "bSpeaksOther": false,
     "sState": "CA",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "arubio-solset",
     "sGithubEmail": "alejandro.rubio@solutionset.com",
     "sGithubAnnualCommits": "0",

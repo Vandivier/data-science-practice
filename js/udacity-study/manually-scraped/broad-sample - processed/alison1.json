@@ -33,6 +33,7 @@
     "bSpeaksOther": true,
     "sState": "NY",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "carnivalweenie",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "0",

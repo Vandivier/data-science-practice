@@ -26,5 +26,6 @@
     "bSpeaksEnglish": true,
     "bSpeaksSpanish": true,
     "bSpeaksOther": true,
+    "bGithubAccountClaimed": false,
     "bGitHubAccountFound": false
 }

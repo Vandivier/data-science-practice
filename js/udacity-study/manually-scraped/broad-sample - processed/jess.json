@@ -42,6 +42,7 @@
     "bSpeaksOther": false,
     "sState": "TX",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "jessgates",
     "sGithubEmail": "gates.jess@gmail.com",
     "sGithubAnnualCommits": "58",

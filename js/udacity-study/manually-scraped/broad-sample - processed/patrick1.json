@@ -31,6 +31,7 @@
     "bSpeaksOther": false,
     "sState": "NY",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "pbscrimmage",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "197",

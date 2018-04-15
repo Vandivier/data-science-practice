@@ -42,6 +42,7 @@
     "bSpeaksOther": false,
     "sState": "TX",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "Yojim6o",
     "sGithubEmail": "jgs2017@gmail.com",
     "sGithubAnnualCommits": "1,962",

@@ -42,6 +42,7 @@
     "bSpeaksOther": false,
     "sState": "OR",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "Worley",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "0",

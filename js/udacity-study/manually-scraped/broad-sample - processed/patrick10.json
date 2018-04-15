@@ -33,6 +33,7 @@
     "bSpeaksOther": true,
     "sState": "OR",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "Gnosder",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "24",

@@ -34,6 +34,7 @@
     "bSpeaksOther": false,
     "sState": "OH",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "jleath",
     "sGithubEmail": "joshua.leath@icloud.com",
     "sGithubAnnualCommits": "9",

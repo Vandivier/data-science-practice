@@ -36,6 +36,7 @@
     "bSpeaksOther": false,
     "sState": "UT",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "Geosynchronous",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "0",

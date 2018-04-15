@@ -39,6 +39,7 @@
     "bSpeaksOther": true,
     "sState": "NY",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "katggarcia",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "0",

@@ -42,6 +42,7 @@
     "bSpeaksOther": false,
     "sState": "PA",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "crivera2013",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "2",

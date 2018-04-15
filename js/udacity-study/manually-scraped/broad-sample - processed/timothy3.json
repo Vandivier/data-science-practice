@@ -35,5 +35,6 @@
     "bSpeaksOther": true,
     "sState": "NY",
     "sCountry": "United States",
+    "bGithubAccountClaimed": false,
     "bGitHubAccountFound": false
 }

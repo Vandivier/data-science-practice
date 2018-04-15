@@ -42,6 +42,7 @@
     "bSpeaksOther": false,
     "sState": "MN",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "krumholz",
     "sGithubEmail": "nick.krumholz@gmail.com",
     "sGithubAnnualCommits": "64",

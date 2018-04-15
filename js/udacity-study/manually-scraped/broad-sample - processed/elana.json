@@ -34,6 +34,7 @@
     "bSpeaksOther": false,
     "sState": "NY",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "ElanaLaskin",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "51",

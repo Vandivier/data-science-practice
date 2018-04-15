@@ -34,6 +34,7 @@
     "bSpeaksOther": false,
     "sState": "MI",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "apdarr",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "40",

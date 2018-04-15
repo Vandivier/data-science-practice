@@ -34,6 +34,7 @@
     "bSpeaksOther": false,
     "sState": "GA",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "Bubcat",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "0",

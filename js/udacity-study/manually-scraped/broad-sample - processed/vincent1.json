@@ -33,6 +33,7 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "VincentPurdie",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "0",

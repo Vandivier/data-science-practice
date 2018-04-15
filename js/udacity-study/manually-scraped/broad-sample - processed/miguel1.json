@@ -35,6 +35,7 @@
     "bSpeaksSpanish": true,
     "bSpeaksOther": false,
     "sCountry": "Spain",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "miguel-sanchez",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "10",

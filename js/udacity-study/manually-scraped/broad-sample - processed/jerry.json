@@ -35,6 +35,7 @@
     "bSpeaksOther": false,
     "sState": "OR",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "jerrywardlow",
     "sGithubEmail": "jerry@jerryoftheyear.com",
     "sGithubAnnualCommits": "2,794",

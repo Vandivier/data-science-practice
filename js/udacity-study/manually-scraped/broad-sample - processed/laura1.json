@@ -39,6 +39,7 @@
     "bSpeaksOther": true,
     "sState": "CA",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "mslaurahamilton",
     "sGithubEmail": "mslaura@theportablebaby.com",
     "sGithubAnnualCommits": "0",

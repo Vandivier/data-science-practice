@@ -39,6 +39,7 @@
     "bSpeaksOther": false,
     "sState": "TX",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "RayneDance",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "17",

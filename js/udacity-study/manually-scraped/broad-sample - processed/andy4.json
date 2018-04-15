@@ -35,5 +35,6 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sCountry": "Taiwan",
+    "bGithubAccountClaimed": true,
     "bGitHubAccountFound": false
 }

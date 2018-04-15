@@ -43,6 +43,7 @@
     "bSpeaksOther": false,
     "sState": "CO",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "linkco",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "0",

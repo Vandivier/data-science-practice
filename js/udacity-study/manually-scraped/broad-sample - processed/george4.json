@@ -33,6 +33,7 @@
     "bSpeaksSpanish": true,
     "bSpeaksOther": true,
     "sCountry": "Greece",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "georgioscc",
     "sGithubEmail": "hello@georgios.cc",
     "sGithubAnnualCommits": "8",

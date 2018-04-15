@@ -35,6 +35,7 @@
     "bSpeaksSpanish": true,
     "bSpeaksOther": true,
     "sCountry": "United Kingdom",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "salcekosma",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "24",

@@ -42,6 +42,7 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "dooster",
     "sGithubEmail": "jisbender@gmail.com",
     "sGithubAnnualCommits": "0",

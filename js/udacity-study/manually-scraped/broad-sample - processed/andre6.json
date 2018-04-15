@@ -28,5 +28,6 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sCountry": "Peru",
+    "bGithubAccountClaimed": false,
     "bGitHubAccountFound": false
 }

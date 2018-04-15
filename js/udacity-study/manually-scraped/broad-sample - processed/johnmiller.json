@@ -43,6 +43,7 @@
     "bSpeaksOther": false,
     "sState": "WI",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "TheChronicMonster",
     "sGithubEmail": "legendzing@gmail.com",
     "sGithubAnnualCommits": "30",

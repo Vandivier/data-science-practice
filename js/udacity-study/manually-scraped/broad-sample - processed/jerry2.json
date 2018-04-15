@@ -42,6 +42,7 @@
     "bSpeaksOther": false,
     "sState": "CT",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "jerrybennett",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "413",

@@ -40,6 +40,7 @@
     "bSpeaksSpanish": true,
     "bSpeaksOther": false,
     "sCountry": "Mexico",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "arekssu",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "15",

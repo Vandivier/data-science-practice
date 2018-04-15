@@ -43,6 +43,7 @@
     "bSpeaksOther": true,
     "sState": "CA",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "jaggyluis",
     "sGithubEmail": "luis.jaggy@gmail.com",
     "sGithubAnnualCommits": "39",

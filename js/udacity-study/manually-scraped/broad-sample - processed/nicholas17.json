@@ -33,6 +33,7 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sCountry": "United Kingdom",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "Niko88",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "8",

@@ -41,6 +41,7 @@
     "bSpeaksOther": true,
     "sState": "CA",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "vincechan",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "196",

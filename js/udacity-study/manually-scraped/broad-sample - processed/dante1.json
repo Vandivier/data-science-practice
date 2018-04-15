@@ -40,6 +40,7 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sCountry": "Australia",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "dantz15",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "0",

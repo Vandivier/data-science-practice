@@ -41,6 +41,7 @@
     "bSpeaksOther": true,
     "sState": "OK",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "p2dski",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "197",

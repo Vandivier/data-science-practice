@@ -41,6 +41,7 @@
     "bSpeaksOther": true,
     "sState": "MA",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "cat6376",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "76",

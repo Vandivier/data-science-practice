@@ -43,6 +43,7 @@
     "bSpeaksOther": true,
     "sState": "CA",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "jimmythongtran",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "310",

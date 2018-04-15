@@ -36,6 +36,7 @@
     "bSpeaksOther": false,
     "sState": "IL",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "theofanislekkas",
     "sGithubEmail": "theofanis.lekkas@theofanislekkas.com",
     "sGithubAnnualCommits": "33",

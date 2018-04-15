@@ -44,6 +44,7 @@
     "bSpeaksOther": false,
     "sState": "PA",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "timmyhall",
     "sGithubEmail": "timmy_hall@icloud.com",
     "sGithubAnnualCommits": "0",

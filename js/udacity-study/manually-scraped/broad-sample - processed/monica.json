@@ -28,5 +28,6 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sCountry": "India",
+    "bGithubAccountClaimed": false,
     "bGitHubAccountFound": false
 }

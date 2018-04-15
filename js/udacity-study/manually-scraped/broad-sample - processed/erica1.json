@@ -43,6 +43,7 @@
     "bSpeaksOther": false,
     "sState": "MI",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "firefly454",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "0",

@@ -35,6 +35,7 @@
     "bSpeaksOther": false,
     "sState": "IL",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "geopar",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "0",

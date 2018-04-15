@@ -38,6 +38,7 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sCountry": "Czechia",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "gmacavei",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "2",

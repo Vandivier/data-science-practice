@@ -41,6 +41,7 @@
     "bSpeaksOther": false,
     "sState": "WA",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "RebeccaEvans",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "1",

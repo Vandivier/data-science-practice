@@ -33,6 +33,7 @@
     "bSpeaksOther": false,
     "sState": "OR",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "borisiskra",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "3",

@@ -33,6 +33,7 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sCountry": "Canada",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "skattoju",
     "sGithubEmail": "siddharthakattoju@gmail.com",
     "sGithubAnnualCommits": "18",

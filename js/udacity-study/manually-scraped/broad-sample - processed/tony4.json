@@ -32,5 +32,6 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sCountry": "Ireland",
+    "bGithubAccountClaimed": false,
     "bGitHubAccountFound": false
 }

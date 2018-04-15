@@ -40,6 +40,7 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "webdevjeffus",
     "sGithubEmail": "webdevjeffus@gmail.com",
     "sGithubAnnualCommits": "29",

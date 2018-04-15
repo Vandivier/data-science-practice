@@ -33,6 +33,7 @@
     "bSpeaksOther": true,
     "sState": "IL",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "rko2",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "0",

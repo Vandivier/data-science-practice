@@ -41,6 +41,7 @@
     "bSpeaksOther": true,
     "sState": "CA",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "bgkonzman",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "0",

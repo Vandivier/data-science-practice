@@ -40,6 +40,7 @@
     "bSpeaksOther": false,
     "sState": "ID",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "dflsmith",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "7",

@@ -34,6 +34,7 @@
     "bSpeaksOther": false,
     "sState": "MN",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "klubrant",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "0",

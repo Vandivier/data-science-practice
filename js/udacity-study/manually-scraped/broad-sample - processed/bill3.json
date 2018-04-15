@@ -31,6 +31,7 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sCountry": "China",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "xiekuncn",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "1",

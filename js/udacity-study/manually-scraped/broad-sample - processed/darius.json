@@ -41,6 +41,7 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sCountry": "Canada",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "dariusboey",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "0",

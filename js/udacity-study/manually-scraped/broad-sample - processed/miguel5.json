@@ -41,6 +41,7 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sCountry": "Spain",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "MiguelGonzalez",
     "sGithubEmail": "miguelgonzalezgomez@gmail.com",
     "sGithubAnnualCommits": "75",

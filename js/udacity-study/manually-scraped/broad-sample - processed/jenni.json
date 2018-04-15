@@ -31,6 +31,7 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sCountry": "Finland",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "jimlinteri",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "121",

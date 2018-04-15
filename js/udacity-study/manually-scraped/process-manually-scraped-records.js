@@ -16,7 +16,8 @@ const fpWriteFile = util.promisify(fs.writeFile);
 const oKairosAuth = JSON.parse(fs.readFileSync(__dirname + '/kairos-auth.json', 'utf8'));
 const sImagePrefix = 'https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/';
 
-// TODO: github stars & commits
+// TODO: CSV sorts alpha on the key name, not on the value; maybe change that or make it configable
+// TODO: false is coerced to empty string; it's fine if properly interpreted, but maybe change that so 'unobserved' !== false
 // TODO: linkedin stuff
 // TODO: survey
 const oTitleLine = {
@@ -45,6 +46,9 @@ const oTitleLine = {
     "iKairosHispanic": "Kairos Hispanic",
     "iKairosOtherEthnicity": "Kairos Other Ethnicity",
     "iKairosWhite": "Kairos White",
+    "bGithubAccountClaimed": "GitHub Account Claimed on Udacity Profile",
+    "bGitHubAccountFound": "GitHub Account Found and Scraped",
+    "sGitHubUrl": "GitHub URL",
     "sGithubUserName": "GitHub User Name",
     "sGithubEmail": "GitHub White",
     "sGithubAnnualCommits": "GitHub Annual Commits",
@@ -223,22 +227,27 @@ async function fpGetGithubData(oRecord) {
 
     sGitHubId = sGitHubId && sGitHubId.split('/')[0];
 
-    if (sGitHubId
-        && arrsGitHubIds.includes(sGitHubId))
-    { // you might have an Id, but it wasn't found, maybe because you deleted your listed GitHub account
-        sGitHubDataLocation = 'manually-scraped/github-4-12-sample/'
-            + sGitHubId
-            + '.txt';
-        oGitHubData = await fpReadFile(sGitHubDataLocation)
-            .then(sRecord => JSON.parse(sRecord));
+    if (sGitHubId) {
+        oRecord.bGithubAccountClaimed = true;
 
-        oRecord.sGithubUserName = oGitHubData.sGithubUserName;
-        oRecord.sGithubEmail = oGitHubData.sGithubEmail;
-        oRecord.sGithubAnnualCommits = oGitHubData.sGithubAnnualCommits;
-        oRecord.sGithubRepos = oGitHubData.sGithubRepos;
-        oRecord.sGithubFollowers = oGitHubData.sGithubFollowers;
-        oRecord.bGitHubAccountFound = true;
+        if (arrsGitHubIds.includes(sGitHubId)) {
+            sGitHubDataLocation = 'manually-scraped/github-4-12-sample/'
+                + sGitHubId
+                + '.txt';
+            oGitHubData = await fpReadFile(sGitHubDataLocation)
+                .then(sRecord => JSON.parse(sRecord));
+
+            oRecord.sGithubUserName = oGitHubData.sGithubUserName;
+            oRecord.sGithubEmail = oGitHubData.sGithubEmail;
+            oRecord.sGithubAnnualCommits = oGitHubData.sGithubAnnualCommits;
+            oRecord.sGithubRepos = oGitHubData.sGithubRepos;
+            oRecord.sGithubFollowers = oGitHubData.sGithubFollowers;
+            oRecord.bGitHubAccountFound = true;
+        } else {
+            oRecord.bGitHubAccountFound = false;
+        }
     } else {
+        oRecord.bGithubAccountClaimed = false;
         oRecord.bGitHubAccountFound = false;
     }
 

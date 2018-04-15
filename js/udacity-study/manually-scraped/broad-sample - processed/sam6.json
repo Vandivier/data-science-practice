@@ -40,6 +40,7 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sCountry": "United Kingdom",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "SamPittard",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "0",

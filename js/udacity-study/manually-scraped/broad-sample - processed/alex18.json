@@ -40,6 +40,7 @@
     "bSpeaksOther": false,
     "sState": "CA",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "alexromo3rd",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "94",

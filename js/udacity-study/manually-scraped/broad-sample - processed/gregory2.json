@@ -40,6 +40,7 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sCountry": "Canada",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "TheTTGGuy",
     "sGithubEmail": "greg@gregviers.com",
     "sGithubAnnualCommits": "22",

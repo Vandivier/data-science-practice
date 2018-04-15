@@ -36,6 +36,7 @@
     "bSpeaksSpanish": true,
     "bSpeaksOther": true,
     "sCountry": "Germany",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "cmondorf",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "84",

@@ -42,6 +42,7 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": true,
     "sCountry": "Canada",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "rtang91",
     "sGithubEmail": "rtang91@gmail.com",
     "sGithubAnnualCommits": "2",

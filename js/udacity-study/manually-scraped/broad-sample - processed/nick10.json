@@ -43,6 +43,7 @@
     "bSpeaksSpanish": false,
     "bSpeaksOther": false,
     "sCountry": "Switzerland",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "shawger",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "6",

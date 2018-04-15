@@ -41,6 +41,7 @@
     "bSpeaksOther": false,
     "sState": "TX",
     "sCountry": "United States",
+    "bGithubAccountClaimed": true,
     "sGithubUserName": "sirchip",
     "sGithubEmail": null,
     "sGithubAnnualCommits": "0",
