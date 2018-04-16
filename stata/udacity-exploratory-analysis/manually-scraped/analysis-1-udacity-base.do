@@ -74,7 +74,7 @@ reg voi_employed age* n* interacted* _*
 // f-complexity:    28
 // q-complexity:    1
 // note: country matters, but it is entirely collinear with other stuff in the long regression
-reg voi_employed country*
+reg voi_employed _country*
 
 // d1weak
 // n:               197
@@ -174,7 +174,7 @@ logit voi_employed age* ndet3 nedu1 nedu3 nexp1 nexp2 nexp3 nlang1 nlang3 nnano1
 // adjr2:           n/a
 // f-complexity:    21
 // q-complexity:    7
-// note: strong factor model, p < .3. There is no adjr2 for logit, and this is half between weak and strong.
+// note: medium factor model, p < .3. There is no adjr2 for logit, and this is half between weak and strong.
 // note: pure nnano disappeared, although interacted is still here
 // note: q-complexity no different from weak model
 logit voi_employed age* ndet3 nedu1 nedu3 nexp1 nexp2 nlang1 nlang3 interacted1 interacted2 _lastupdate10 _speaksenglish1 _speaksother1 _speaksspanish1 _usstate11 _usstate18 _usstate2 _usstate7
