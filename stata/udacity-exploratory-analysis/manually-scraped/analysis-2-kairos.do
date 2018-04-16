@@ -5,6 +5,8 @@ replace _imagerejected = 0 if _imagerejected != 1
 tab imagesubmitted, gen(_imagesubmitted)
 replace _imagesubmitted = 0 if _imagesubmitted != 1
 
+gen kairosmale = 0
+replace kairosmale = 1 if kairosmaleconfidence > .5
 gen agekairos1 = kairosage
 gen agekairos2 = agekairos1*agekairos1
 gen agekairos3 = agekairos1*agekairos1*agekairos1
@@ -58,59 +60,62 @@ reg voi_employed age1 age2 age3
 reg voi_employed agekairos*
 
 // d1weakkairos
-// n:               197
-// r2:              .52
-// adjr2:           .36
-// f-complexity:    51
-// q-complexity:    7
+// n:               103
+// r2:              .73
+// adjr2:           .37
+// f-complexity:    59
+// q-complexity:    9
 // note: weak factor model, p < .5
-reg voi_employed
+reg voi_employed age1 age2 age3 ndet2 ndet3 nedu1 nedu3 nexp2 nlang1 nlang2 nlang3 nnano1 interacted* _lastupdate10 _lastupdate11 _lastupdate7 _samplegroup3 _speaksenglish1 _speaksspanish1 _usstate1 _usstate10 _usstate11 _usstate12 _usstate14 _usstate15 _usstate16 _usstate17 _usstate18 _usstate19 _usstate2 _usstate20 _usstate21 _usstate22 _usstate23 _usstate24 _usstate25 _usstate26 _usstate27 _usstate28 _usstate29 _usstate3 _usstate30 _usstate31 _usstate32 _usstate34 _usstate4 _usstate5 _usstate7 _usstate8 kairos*
 
 // d1maxarkairos
-// n:               197
-// r2:              .49
-// adjr2:           .40
-// f-complexity:    30
-// q-complexity:    7
-reg voi_employed
+// n:               103
+// r2:              .71
+// adjr2:           .41
+// f-complexity:    52
+// q-complexity:    9
+reg voi_employed age1 age2 age3 ndet2 ndet3 nedu1 nedu3 nlang2 interacted* _lastupdate10 _lastupdate7 _samplegroup3 _speaksspanish1 _usstate1 _usstate10 _usstate11 _usstate12 _usstate14 _usstate15 _usstate16 _usstate17 _usstate18 _usstate19 _usstate2 _usstate20 _usstate21 _usstate22 _usstate23 _usstate24 _usstate25 _usstate26 _usstate27 _usstate28 _usstate29 _usstate3 _usstate30 _usstate31 _usstate32 _usstate34 _usstate4 _usstate7 _usstate8 kairos*
 
 // d1strongkairos
 // n:               197
-// r2:              .43
-// adjr2:           .38
-// f-complexity:    17
-// q-complexity:    7
+// r2:              .33
+// adjr2:           .32
+// f-complexity:    5
+// q-complexity:    3
 // note: strong factor model, p < .1
-reg voi_employed
+// note: _usstate23 = New Jersey
+reg voi_employed age1 age2 age3 _usstate23
 
 // d1longlogitkairos
 // n:               60
 // r2:              1.0 (pseudo)
 // adjr2:           n/a
-// f-complexity:    ?
+// f-complexity:    114
 // q-complexity:    10
 logit voi_employed age* n* interacted* _* workingandus kairos*
 
 // d1weaklogitkairos
-// n:               197
-// r2:              .42 (pseudo)
+// n:               114
+// r2:              .4 (pseudo)
 // adjr2:           n/a
-// f-complexity:    24
-// q-complexity:    7
-logit voi_employed
+// f-complexity:    22
+// q-complexity:    8
+// note: I got a perfect prediction with no factors showing z, so I couldn't select which to eliminate
+//          then, I reduced from d1weakkairos using iter(1000) and got to here
+logit voi_employed age1 age2 age3 ndet2 ndet3 nedu1 nedu3 nlang1 nlang2 interacted* _lastupdate10 _samplegroup3 _usstate19 _usstate2 _usstate27 _usstate7 kairosasian kairosmale kairosmaleconfidence, iter(1000)
 
 // d1mediumlogitkairos
-// n:               197
-// r2:              .41 (pseudo)
-// adjr2:           n/a
-// f-complexity:    21
-// q-complexity:    7
-logit voi_employed
-
-// d1stronglogitkairos
-// n:               197
+// n:               116
 // r2:              .36 (pseudo)
 // adjr2:           n/a
-// f-complexity:    12
-// q-complexity:    7
-logit voi_employed
+// f-complexity:    16
+// q-complexity:    8
+logit voi_employed age1 age2 age3 ndet3 nedu1 nedu3 nlang1 interacted3 _lastupdate10 _samplegroup3 _usstate19 _usstate2 _usstate27 kairosmale kairosmaleconfidence, iter(1000)
+
+// d1stronglogitkairos
+// n:               260
+// r2:              .25 (pseudo)
+// adjr2:           n/a
+// f-complexity:    4
+// q-complexity:    2
+logit voi_employed age1 age2 age3, iter(1000)
