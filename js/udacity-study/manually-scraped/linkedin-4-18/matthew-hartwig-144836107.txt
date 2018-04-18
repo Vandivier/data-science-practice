@@ -1,0 +1,1 @@
+{"iLinkedInConnections":"5","sLinkedInFullName":"Matthew Hartwig","sLinkedInPath":"matthew-hartwig-144836107","sLinkedInImageUrl":"","iLinkedInAccomplishments":0,"iLinkedInExperience":1,"iLinkedInEducation":1,"bLinkedInCurrentlyEmployed":true}
