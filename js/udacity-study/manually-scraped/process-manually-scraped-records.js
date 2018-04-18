@@ -55,6 +55,13 @@ const oTitleLine = {
     "sGithubAnnualCommits": "GitHub Annual Commits",
     "sGithubRepos": "GitHub Repo Count",
     "sGithubFollowers": "GitHub Follower Count",
+    "sLinkedInUrl": "LinkedIn URL",
+    "sLinkedInImageUrl": "LinkedIn Image URL",
+    "iLinkedInConnections": "LinkedIn Connections",
+    "iLinkedInAccomplishments": "LinkedIn Accomplishments",
+    "iLinkedInExperience": "LinkedIn Experience",
+    "iLinkedInEducation": "LinkedIn Education",
+    "bLinkedInCurrentlyEmployed": "LinkedIn Currently Employed",
 };
 
 const sOutFileLocation = __dirname + '/manually-scraped-results.csv';
@@ -88,6 +95,7 @@ async function main() {
         });
     });
 
+    // for each udacity file
     await fpGlob('manually-scraped/**/*.txt', options)
     .then(arrsFiles => utils.forEachReverseAsyncPhased(arrsFiles, fpProcessRecord))
     .then(arroProcessedFiles => arroProcessedFiles
@@ -141,6 +149,7 @@ async function fpProcessRecord(sLocation) {
         fFixExperienceCount(oRecord);
         fFixLocation(oRecord);
         await fpGetGithubData(oRecord);
+        await fpGetLinkedInData(oRecord);
     } catch (e) {
         console.log('late fpProcessRecord err: ', e);
     }
@@ -248,6 +257,10 @@ async function fpGetGithubData(oRecord) {
         oRecord.bGitHubAccountFound = false;
     }
 
+    return Promise.resolve();
+}
+
+async function fpGetLinkedInData(oRecord) {
     return Promise.resolve();
 }
 
