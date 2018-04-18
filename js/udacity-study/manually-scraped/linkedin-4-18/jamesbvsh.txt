@@ -1,0 +1,1 @@
+{"iLinkedInConnections":"500+","sLinkedInFullName":"James Bush","sLinkedInPath":"jamesbvsh","sLinkedInImageUrl":"https://media.licdn.com/dms/image/C4E03AQGbXQwcfbF_iA/profile-displayphoto-shrink_800_800/0?e=1529244000&v=beta&t=wklNQkdOO8uzBUvFga6O8iUUy4ZWCBtGC26NwDT_uaw","iLinkedInAccomplishments":0,"iLinkedInExperience":5,"iLinkedInEducation":3,"bLinkedInCurrentlyEmployed":true}

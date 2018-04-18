@@ -1,0 +1,1 @@
+{"iLinkedInConnections":"2","sLinkedInFullName":"David Lin","sLinkedInPath":"david-lin-a650656b","sLinkedInImageUrl":"","iLinkedInAccomplishments":0,"iLinkedInExperience":2,"iLinkedInEducation":2,"bLinkedInCurrentlyEmployed":true}

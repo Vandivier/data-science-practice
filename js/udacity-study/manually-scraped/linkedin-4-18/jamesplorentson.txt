@@ -1,0 +1,1 @@
+{"iLinkedInConnections":"251","sLinkedInFullName":"James P. Lorentson","sLinkedInPath":"jamesplorentson","sLinkedInImageUrl":"","iLinkedInAccomplishments":0,"iLinkedInExperience":3,"iLinkedInEducation":3,"bLinkedInCurrentlyEmployed":true}
