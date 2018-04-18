@@ -1,17 +1,4 @@
-do "D:\GitHub\data-science-practice\stata\udacity-exploratory-analysis\manually-scraped\analysis-1-udacity-base.do"
-
-tab imagerejected, gen(_imagerejected)
-replace _imagerejected = 0 if _imagerejected != 1
-tab imagesubmitted, gen(_imagesubmitted)
-replace _imagesubmitted = 0 if _imagesubmitted != 1
-
-gen kairosmale = 0
-replace kairosmale = 1 if kairosmaleconfidence > .5
-gen agekairos1 = kairosage
-gen agekairos2 = agekairos1*agekairos1
-gen agekairos3 = agekairos1*agekairos1*agekairos1
-
-drop kairosage
+do "D:\GitHub\data-science-practice\stata\udacity-exploratory-analysis\manually-scraped\analysis-0-vars.do"
 
 // d1longkairos
 // n:               103

@@ -1,63 +1,4 @@
-clear
-
-//import delimited C:\Users\john.vandivier\workspace\data-science-practice\js\udacity-study\manually-scraped\manually-scraped-results.csv
-import delimited D:\GitHub\data-science-practice\js\udacity-study\manually-scraped\manually-scraped-results.csv
-
-tab samplegroup, gen(_samplegroup)
-tab country, gen(_country)
-tab usstate, gen(_usstate)
-// TODO: make continuous and dummy out 9 months
-// TODO: shouldn't last updated date be from date of scrape, not from date of analysis (scrapes happen over multiple days)
-tab monthssincelast, gen(_lastupdate)
-
-tab presently, gen(voi_employed)
-replace voi_employed = 0 if voi_employed != 1
-tab nametruncated, gen(_nametruncated)
-replace _nametruncated = 0 if _nametruncated != 1
-tab speaksenglish, gen(_speaksenglish)
-replace _speaksenglish = 0 if _speaksenglish != 1
-tab speaksspanish, gen(_speaksspanish)
-replace _speaksspanish = 0 if _speaksspanish != 1
-tab speaksother, gen(_speaksother)
-replace _speaksother = 0 if _speaksother != 1
-
-replace countofudacitynanodegree = 0 if missing(countofudacitynanodegree)
-replace countofudacityinformationdetails = 0 if missing(countofudacityinformationdetails)
-replace countofudacityeducationentries = 0 if missing(countofudacityeducationentries)
-replace countofudacityexperienceentries = 0 if missing(countofudacityexperienceentries)
-replace countlanguages = 0 if missing(countlanguages)
-
-gen age1 = age
-gen age2 = age1*age1
-gen age3 = age1*age1*age1
-gen nnano1 = countofudacitynanodegree
-gen nnano2 = nnano1*nnano1
-gen nnano3 = nnano1*nnano1*nnano1
-gen ndet1 = countofudacityinformationdetails
-gen ndet2 = ndet1*ndet1
-gen ndet3 = ndet1*ndet1*ndet1
-gen nedu1 = countofudacityeducationentries
-gen nedu2 = nedu1*nedu1
-gen nedu3 = nedu1*nedu1*nedu1
-gen nexp1 = countofudacityexperienceentries
-gen nexp2 = nexp1*nexp1
-gen nexp3 = nexp1*nexp1*nexp1
-gen nlang1 = countlanguages
-gen nlang2 = nlang1*nlang1
-gen nlang3 = nlang1*nlang1*nlang1
-gen interacted1 = age1*nnano1
-gen interacted2 = interacted1*interacted1
-gen interacted3 = interacted1*interacted1*interacted1
-
-gen workingage = 0
-replace workingage = 1 if age1 >= 16
-replace workingage = 0 if missing(age1)
-
-gen workingandusperson = workingage
-replace workingandusperson = 0 if _country27 == 0
-
-drop ageestimated
-drop name*
+do "D:\GitHub\data-science-practice\stata\udacity-exploratory-analysis\manually-scraped\analysis-0-vars.do"
 
 // d1long
 // n:               197
@@ -87,7 +28,7 @@ reg voi_employed _country*
 // note: name truncation effect didn't make it
 // note: age effect is overwhelmingly significant and complex
 // note: education and nnano still matter
-reg voi_employed age* ndet1 ndet2 nedu1 nedu3 nexp1 nexp2 nexp3 nlang1 nlang2 nnano1 nnano2 nnano3 interacted1 interacted2 interacted3 _lastupdate1 _lastupdate10 _lastupdate5 _lastupdate6 _lastupdate7 _lastupdate8 _lastupdate9 _speaksenglish1 _speaksother1 _speaksspanish1 _usstate10 _usstate11 _usstate13 _usstate15 _usstate16 _usstate17 _usstate18 _usstate19 _usstate2 _usstate20 _usstate21 _usstate23 _usstate24 _usstate27 _usstate3 _usstate30 _usstate31 _usstate32 _usstate34 _usstate6 _usstate7 _usstate9
+reg voi_employed age1 age2 age3 ndet1 ndet2 nedu1 nedu3 nexp1 nexp2 nexp3 nlang1 nlang2 nnano1 nnano2 nnano3 interacted1 interacted2 interacted3 _lastupdate1 _lastupdate10 _lastupdate5 _lastupdate6 _lastupdate7 _lastupdate8 _lastupdate9 _speaksenglish1 _speaksother1 _speaksspanish1 _usstate10 _usstate11 _usstate13 _usstate15 _usstate16 _usstate17 _usstate18 _usstate19 _usstate2 _usstate20 _usstate21 _usstate23 _usstate24 _usstate27 _usstate3 _usstate30 _usstate31 _usstate32 _usstate34 _usstate6 _usstate7 _usstate9
 
 // d1maxar
 // n:               197
