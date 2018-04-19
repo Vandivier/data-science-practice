@@ -1,1 +1,0 @@
-{"iLinkedInConnections":"220","sLinkedInFullName":"Daniel Janiak","sLinkedInPath":"danieljjaniak","sLinkedInImageUrl":"","iLinkedInAccomplishments":0,"iLinkedInExperience":3,"iLinkedInEducation":3,"bLinkedInCurrentlyEmployed":false}

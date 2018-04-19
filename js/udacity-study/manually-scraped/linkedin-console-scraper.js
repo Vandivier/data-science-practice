@@ -17,6 +17,7 @@ var bDownloadTextResult = true; // if false just print result to web console.
 
     $('.experience-section .pv-profile-section__see-more-inline').click();
     $('.education-section .pv-profile-section__see-more-inline').click();
+    await _fpWait(2000); // time for expanders to work
 
     _oResult.iLinkedInConnections = $('.pv-top-card-section__connections .visually-hidden').text();
     _oResult.iLinkedInConnections = _oResult.iLinkedInConnections

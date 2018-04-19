@@ -1,1 +1,0 @@
-{"iLinkedInConnections":"142","sLinkedInFullName":"Mark Weigel","sLinkedInPath":"markweig","sLinkedInImageUrl":"https://media.licdn.com/dms/image/C4D03AQFrXHUZ7JVLyQ/profile-displayphoto-shrink_800_800/0?e=1529240400&v=beta&t=k5MDfmcj3OH6iwC01UzeZfkmIMByDy1QsloEem7Tefs","iLinkedInAccomplishments":0,"iLinkedInExperience":3,"iLinkedInEducation":1,"bLinkedInCurrentlyEmployed":true}

@@ -1,1 +1,0 @@
-{"iLinkedInConnections":"149","sLinkedInFullName":"James Lee","sLinkedInPath":"jjleekc","sLinkedInImageUrl":"https://media.licdn.com/dms/image/C5603AQE5CIATKrjaLQ/profile-displayphoto-shrink_800_800/0?e=1529244000&v=beta&t=cOfjTcbLjQ6mvpFwJYphCXOKIwtjr7DgDQtEIZimRTQ","iLinkedInAccomplishments":0,"iLinkedInExperience":3,"iLinkedInEducation":3,"bLinkedInCurrentlyEmployed":true}
