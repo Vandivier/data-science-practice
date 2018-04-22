@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node manually-scraped/process-manually-scraped-records",
     "reboot": "node reboot.js",
-    "debug": "node --inspect reboot.js"
+    "debug": "node --inspect manually-scraped/process-manually-scraped-records"
   },
   "dependencies": {
     "axios": "^0.18.0",

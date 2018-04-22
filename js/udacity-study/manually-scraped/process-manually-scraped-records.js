@@ -13,7 +13,7 @@ const fpReadFile = util.promisify(fs.readFile);
 const fpReadDir = util.promisify(fs.readdir);
 const fpWriteFile = util.promisify(fs.writeFile);
 
-const oKairosAuth = JSON.parse(fs.readFileSync(__dirname + '/kairos-auth.json', 'utf8'));
+const oServiceAuth = JSON.parse(fs.readFileSync(__dirname + '/service-auth.json', 'utf8'));
 const sImagePrefix = 'https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/';
 
 // TODO: CSV sorts alpha on the key name, not on the value; maybe change that or make it configable
@@ -138,7 +138,7 @@ async function fpProcessRecord(sLocation) {
     if (arrsCapturedProfilePictures.includes(oRecord.sScrapedUserId)) {
         oRecord.bKairosImageSubmitted = true;
         console.log('getting kairos for ' + oRecord.sScrapedUserId);
-        await fpAddKairosData(oRecord);
+        await fpGetKairosData(oRecord);
     }
 
     oRecord.bNameTruncated = oRecord.sName.split(',').length > 1; // has `, Jr.`, etc
@@ -150,6 +150,7 @@ async function fpProcessRecord(sLocation) {
         fFixLocation(oRecord);
         await fpGetGithubData(oRecord);
         await fpGetLinkedInData(oRecord);
+        await fpGetNamePrismData(oRecord);
     } catch (e) {
         console.log('late fpProcessRecord err: ', e);
     }
@@ -275,9 +276,9 @@ async function fpWriteOutput(oRecord) {
 
 // ref: https://www.kairos.com/docs/getting-started
 // get credentials from your free account at https://developer.kairos.com/admin
-// copy fake-kairos-auth.json and fill in fields
-// obviously, I .gitignore the real kairos-auth.json
-async function fpAddKairosData(oRecord) {
+// copy fake-service-auth.json and fill in fields
+// obviously, I .gitignore the real service-auth.json
+async function fpGetKairosData(oRecord) {
     if (oRecord.sImageUrl) {
         try {
             let oOldData = await fpReadFile(oRecord.sOutputLocation)
@@ -312,8 +313,8 @@ async function fpNewKairosCall(oRecord) {
             image: oRecord.sImageOnGithubUrl
         },
         headers: {
-            app_id: oKairosAuth.appid,
-            app_key: oKairosAuth.key,
+            app_id: oServiceAuth.appid,
+            app_key: oServiceAuth.key,
         },
         method: 'POST',
         url: 'http://api.kairos.com/detect',
@@ -333,7 +334,7 @@ async function fpNewKairosCall(oRecord) {
 
         if (response.data.Errors) {
             oRecord.bKairosImageRejected = true;
-            console.log('fpAddKairosData business error: ', response.data.Errors)
+            console.log('fpGetKairosData business error: ', response.data.Errors)
         } else {
             oRecord.bKairosImageRejected = false;
             oRecord.iKairosAge = _oKairosData.age;
@@ -347,7 +348,7 @@ async function fpNewKairosCall(oRecord) {
 
         return Promise.resolve();
     })
-    .catch(err => console.log('fpAddKairosData.axios.post error: ', err));
+    .catch(err => console.log('fpGetKairosData.axios.post error: ', err));
 
     return Promise.resolve();
 }
