@@ -18,7 +18,6 @@ const sImagePrefix = 'https://raw.githubusercontent.com/Vandivier/data-science-p
 
 // TODO: CSV sorts alpha on the key name, not on the value; maybe change that or make it configable
 // TODO: false is coerced to empty string; it's fine if properly interpreted, but maybe change that so 'unobserved' !== false
-// TODO: linkedin stuff
 // TODO: survey
 const oTitleLine = {
     "sScrapedUserId": "User ID",
@@ -99,6 +98,16 @@ async function main() {
         });
     });
 
+    await fpGlob('manually-scraped/linkedin-*-sample/*.txt', options)
+    .then(arrsFiles => {
+        arrsFiles.map(s => {
+            let arrs = s.split('/');
+            arrs = arrs[arrs.length - 1].split('.txt');
+            oLinkedInIds[arrs[0]] = s;
+            return; // TODO: do I want to return a Promise?
+        });
+    });
+
     // for each udacity file
     await fpGlob('manually-scraped/**/*.txt', options)
     .then(arrsFiles => utils.forEachReverseAsyncPhased(arrsFiles, fpProcessRecord))
@@ -164,6 +173,7 @@ async function fpProcessRecord(sLocation) {
         fGetLanguagesSpoken(oRecord);
         fFixExperienceCount(oRecord);
         fFixLocation(oRecord);
+        // TODO fFixAlternativeExperienceCount(oRecord);
         await fpGetGithubData(oRecord);
         await fpGetLinkedInData(oRecord);
         await fpGetNamePrismData(oRecord);
@@ -319,11 +329,61 @@ async function fpGetKairosData(oRecord) {
 }
 
 async function fpGetLinkedInData(oRecord) {
+    let sLinkedInId = oRecord.sGitHubUrl
+        && oRecord.sGitHubUrl.split('github.com/')[1];
+    let oLinkedInData;
+    let sLinkedInDataLocation;
+
+    sLinkedInId = sLinkedInId && sLinkedInId.split('/')[0];
+    sLinkedInDataLocation = oGitHubIds[sLinkedInId];
+
+    if (sLinkedInId) {
+        oRecord.bGithubAccountClaimed = true;
+
+        if (sLinkedInDataLocation) {
+            oLinkedInData = await fpReadFile(sLinkedInDataLocation)
+                .then(sRecord => JSON.parse(sRecord));
+
+            oRecord.sGithubUserName = oLinkedInData.sGithubUserName;
+            oRecord.sGithubEmail = oLinkedInData.sGithubEmail;
+            oRecord.sGithubAnnualCommits = oLinkedInData.sGithubAnnualCommits.replace(',','');
+            oRecord.sGithubRepos = oLinkedInData.sGithubRepos.replace(',','');
+            oRecord.sGithubFollowers = oLinkedInData.sGithubFollowers.replace(',','');
+            oRecord.bGitHubAccountFound = true;
+        } else {
+            oRecord.bGitHubAccountFound = false;
+        }
+    } else {
+        oRecord.bGithubAccountClaimed = false;
+        oRecord.bGitHubAccountFound = false;
+    }
+
     return Promise.resolve();
 }
 
 // see: Ye-et-al.-Unknown-Nationality-Classification-Using-Name-Embeddings.pdf
 async function fpGetNamePrismData(oRecord) {
+        if (oRecord.oCachedData
+            && oRecord.oCachedData.sNamePrismGender)
+        {
+            oRecord.iKairosAge = oRecord.oCachedData.iKairosAge;
+            oRecord.iKairosAsian = oRecord.oCachedData.iKairosAsian;
+            oRecord.iKairosBlack = oRecord.oCachedData.iKairosBlack;
+            oRecord.iKairosMaleConfidence = oRecord.oCachedData.iKairosMaleConfidence;
+            oRecord.iKairosHispanic = oRecord.oCachedData.iKairosHispanic;
+            oRecord.iKairosOtherEthnicity = oRecord.oCachedData.iKairosOtherEthnicity;
+            oRecord.iKairosWhite = oRecord.oCachedData.iKairosWhite;
+        } else if (!oRecord.oCachedData.bKairosImageRejected
+                   || (oRecord.oCachedData.bKairosImageRejected && oRecord.oCachedData.bForceNewKairosAttempt))
+        {
+            await fpNewKairosCall(oRecord);
+        } else {
+            oRecord.bKairosImageRejected = true;
+        }
+    } else {
+        await fpNewKairosCall(oRecord);
+    }
+
     //for sThingToGet = eth, nat, url = 'http://www.name-prism.com/api_token/' + sThingToGet + '/csv/' + oServiceAuth.name_prism_token + '/' + encoded_name)
     return Promise.resolve();
 }
