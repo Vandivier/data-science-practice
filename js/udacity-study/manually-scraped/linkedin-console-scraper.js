@@ -95,7 +95,10 @@ var bDownloadTextResult = true; // if false just print result to web console.
 
     // ref: https://stackoverflow.com/questions/14440444/extract-all-email-addresses-from-bulk-text-using-jquery
     function fsExtractEmails(text) {
-        return text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi)
-            .join(' ');
+        let arrs = text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+
+        return arrs
+            && arrs.join(' ')
+            || '';
     }
 })();
