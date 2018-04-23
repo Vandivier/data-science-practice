@@ -22,17 +22,19 @@ var bDownloadTextResult = true; // if false just print result to web console.
     _oResult.iLinkedInConnections = $('.pv-top-card-section__connections .visually-hidden').text();
     _oResult.iLinkedInConnections = _oResult.iLinkedInConnections
         && _oResult.iLinkedInConnections.split(' ')[0]
+        || $('.pv-top-card-v2-section__connections').text().trim().split(' ')[0]
         || 0;
-    _oResult.sLinkedInFullName = $('.pv-top-card-section__name').text();
+    _oResult.sLinkedInFullName = $('.pv-top-card-section__name').text().trim();
     _oResult.sLinkedInPath = window.location.pathname.split('/')[2];
     _oResult.sLinkedInImageUrl = $('.pv-top-card-section__photo')[0]
         && $('.pv-top-card-section__photo')[0].style
         && $('.pv-top-card-section__photo')[0].style['background-image'];
     _oResult.sLinkedInImageUrl = _oResult.sLinkedInImageUrl
         && _oResult.sLinkedInImageUrl.slice(5,-2);
+    _oResult.sPossibleLinkedInEmailAddress = fsExtractEmails($('body').text());
 
     let nodelist = document.querySelectorAll('.pv-accomplishments-block__count');
-    //debugger
+
     _oResult.iLinkedInAccomplishments = Array.from(nodelist)
             .reduce((acc, $el) => {
                 let s = $el.innerText.split('has ')[1]
@@ -46,6 +48,21 @@ var bDownloadTextResult = true; // if false just print result to web console.
     _oResult.iLinkedInEducation = $('.education-section .pv-profile-section__card-item').length;
     _oResult.bLinkedInCurrentlyEmployed = $('.experience-section .pv-entity__date-range')
             .first().text().toLowerCase().includes('present');
+
+    _oResult.iFlatIronCredentials = $('.pv-entity__secondary-title').filter(function(){ return $(this).text().toLowerCase().includes('flatiron')}).length;
+    _oResult.iGeneralAssemblyCredentials = $('.pv-entity__secondary-title').filter(function(){ return $(this).text().toLowerCase().includes('general assembly')}).length;
+    _oResult.iUdacityCredentials = $('.pv-entity__secondary-title').filter(function(){ return $(this).text().toLowerCase().includes('udacity')}).length;
+    _oResult.iCourseraCredentials = $('.pv-entity__secondary-title').filter(function(){ return $(this).text().toLowerCase().includes('coursera')}).length;
+    _oResult.iUdemyCredentials = $('.pv-entity__secondary-title').filter(function(){ return $(this).text().toLowerCase().includes('udemy')}).length;
+    _oResult.iAppAcademyCredentials = $('.pv-entity__secondary-title').filter(function(){ return $(this).text().toLowerCase().includes('app academy')}).length;
+
+    _oResult.iAlternativeCredentialCount = _oResult.iFlatIronCredentials
+        + _oResult.iGeneralAssemblyCredentials
+        + _oResult.iUdacityCredentials
+        + _oResult.iCourseraCredentials
+        + _oResult.iUdemyCredentials
+        + _oResult.iAppAcademyCredentials;
+    _oResult.bIsAlternativelyEducated = (_oResult.iAlternativeCredentialCount > 0);
 
     if (bDownloadTextResult) {
         fDownloadText(_oResult.sLinkedInPath, JSON.stringify(_oResult));
@@ -74,5 +91,11 @@ var bDownloadTextResult = true; // if false just print result to web console.
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
+    }
+
+    // ref: https://stackoverflow.com/questions/14440444/extract-all-email-addresses-from-bulk-text-using-jquery
+    function fsExtractEmails(text) {
+        return text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi)
+            .join(' ');
     }
 })();
