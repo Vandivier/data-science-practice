@@ -44,17 +44,39 @@ var bDownloadTextResult = true; // if false just print result to web console.
                 return parseInt(s) + acc;
             }, 0);
 
+    let arrCertificationInfo = $('.pv-accomplishments-block__title:contains("Certifications")')
+            .closest('.accordion-panel')
+            .find('.pv-accomplishments-block__count')
+            .text().trim().split(/\s/);
+
+    _oResult.iCertifications = arrCertificationInfo
+        && arrCertificationInfo[arrCertificationInfo.length - 1];
+
     _oResult.iLinkedInExperience = $('.experience-section .pv-profile-section__card-item').length;
     _oResult.iLinkedInEducation = $('.education-section .pv-profile-section__card-item').length;
     _oResult.bLinkedInCurrentlyEmployed = $('.experience-section .pv-entity__date-range')
             .first().text().toLowerCase().includes('present');
 
-    _oResult.iFlatIronCredentials = $('.pv-entity__secondary-title').filter(function(){ return $(this).text().toLowerCase().includes('flatiron')}).length;
-    _oResult.iGeneralAssemblyCredentials = $('.pv-entity__secondary-title').filter(function(){ return $(this).text().toLowerCase().includes('general assembly')}).length;
-    _oResult.iUdacityCredentials = $('.pv-entity__secondary-title').filter(function(){ return $(this).text().toLowerCase().includes('udacity')}).length;
-    _oResult.iCourseraCredentials = $('.pv-entity__secondary-title').filter(function(){ return $(this).text().toLowerCase().includes('coursera')}).length;
-    _oResult.iUdemyCredentials = $('.pv-entity__secondary-title').filter(function(){ return $(this).text().toLowerCase().includes('udemy')}).length;
-    _oResult.iAppAcademyCredentials = $('.pv-entity__secondary-title').filter(function(){ return $(this).text().toLowerCase().includes('app academy')}).length;
+    _oResult.iFlatIronExperience = $('.pv-entity__secondary-title').filter(function(){ return $(this).text().toLowerCase().includes('flatiron')}).length;
+    _oResult.iGeneralAssemblyExperience = $('.pv-entity__secondary-title').filter(function(){ return $(this).text().toLowerCase().includes('general assembly')}).length;
+    _oResult.iUdacityExperience = $('.pv-entity__secondary-title').filter(function(){ return $(this).text().toLowerCase().includes('udacity')}).length;
+    _oResult.iCourseraExperience = $('.pv-entity__secondary-title').filter(function(){ return $(this).text().toLowerCase().includes('coursera')}).length;
+    _oResult.iUdemyExperience = $('.pv-entity__secondary-title').filter(function(){ return $(this).text().toLowerCase().includes('udemy')}).length;
+    _oResult.iAppAcademyExperience = $('.pv-entity__secondary-title').filter(function(){ return $(this).text().toLowerCase().includes('app academy')}).length;
+
+    _oResult.iFlatIronCredentials = $('.pv-entity__school-name').filter(function(){ return $(this).text().toLowerCase().includes('flatiron')}).length;
+    _oResult.iGeneralAssemblyCredentials = $('.pv-entity__school-name').filter(function(){ return $(this).text().toLowerCase().includes('general assembly')}).length;
+    _oResult.iUdacityCredentials = $('.pv-entity__school-name').filter(function(){ return $(this).text().toLowerCase().includes('udacity')}).length;
+    _oResult.iCourseraCredentials = $('.pv-entity__school-name').filter(function(){ return $(this).text().toLowerCase().includes('coursera')}).length;
+    _oResult.iUdemyCredentials = $('.pv-entity__school-name').filter(function(){ return $(this).text().toLowerCase().includes('udemy')}).length;
+    _oResult.iAppAcademyCredentials = $('.pv-entity__school-name').filter(function(){ return $(this).text().toLowerCase().includes('app academy')}).length;
+
+    _oResult.iAlternativeExperienceCount = _oResult.iFlatIronExperiences
+        + _oResult.iGeneralAssemblyExperiences
+        + _oResult.iUdacityExperiences
+        + _oResult.iCourseraExperiences
+        + _oResult.iUdemyExperiences
+        + _oResult.iAppAcademyExperiences;
 
     _oResult.iAlternativeCredentialCount = _oResult.iFlatIronCredentials
         + _oResult.iGeneralAssemblyCredentials
@@ -62,6 +84,8 @@ var bDownloadTextResult = true; // if false just print result to web console.
         + _oResult.iCourseraCredentials
         + _oResult.iUdemyCredentials
         + _oResult.iAppAcademyCredentials;
+
+    _oResult.bIsAlternativelyExperienced = (_oResult.iAlternativeExperienceCount > 0); // includes people who worked for a provider and people who claim alternative-education-as-experience, esp some bootcamp folks
     _oResult.bIsAlternativelyEducated = (_oResult.iAlternativeCredentialCount > 0);
 
     if (bDownloadTextResult) {
