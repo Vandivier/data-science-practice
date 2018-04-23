@@ -114,15 +114,17 @@ async function fpProcessRecord(sLocation) {
     let oRecord = await fpReadFile(sLocation)
         .then(sRecord => JSON.parse(sRecord));
 
-    if (!oRecord.sScrapedUserId) {  // it's not a Udacity data file. maybe should be called sUdacityUserId
-        return Promise.resolve({}); // return empty obj which will get filtered before csv writing
+    if (!oRecord.sScrapedUserId                     // it's not a Udacity data file. maybe should be called sUdacityUserId
+        || oRecord.sScrapedUserId !== 'adam1')      // adam1 check to limit API usage during development
+    {  
+        return Promise.resolve({});                 // return empty obj which will get filtered before csv writing
     }
 
     oRecord.sImageOnGithubUrl = sImagePrefix
             + oRecord.sScrapedUserId
             + '.jpg';
     oRecord.sInputLocation = sLocation;
-    oRecord.sInputBaseName = path.basename(path.dirname(sLocation)); // ref: https://stackoverflow.com/questions/42956127/get-parent-directory-name-in-node-js
+    oRecord.sInputBaseName = path.basename(path.dirname(sLocation));    // ref: https://stackoverflow.com/questions/42956127/get-parent-directory-name-in-node-js
     oRecord.sOutputDirectory = path.dirname(sLocation)
             + ' - processed';
     oRecord.sOutputLocation = oRecord.sOutputDirectory
@@ -130,19 +132,19 @@ async function fpProcessRecord(sLocation) {
             + oRecord.sScrapedUserId
             + '.json';
 
-    if (!fs.existsSync(oRecord.sOutputDirectory)) { // TODO: add to ella-utils
+    if (!fs.existsSync(oRecord.sOutputDirectory)) {                     // TODO: add to ella-utils
         fs.mkdirSync(oRecord.sOutputDirectory);
     }
 
-    //if (oRecord.sScrapedUserId === 'adam1') { // to limit API usage during development
+    oRecord.bNameTruncated = oRecord.sName.split(',').length > 1;       // has `, Jr.`, etc
+    oRecord.sName = oRecord.sName.split(',')[0];                        // get rid of `, Jr.`, etc
+    await fpGetCachedData(oRecord);
+
     if (arrsCapturedProfilePictures.includes(oRecord.sScrapedUserId)) {
         oRecord.bKairosImageSubmitted = true;
         console.log('getting kairos for ' + oRecord.sScrapedUserId);
         await fpGetKairosData(oRecord);
     }
-
-    oRecord.bNameTruncated = oRecord.sName.split(',').length > 1; // has `, Jr.`, etc
-    oRecord.sName = oRecord.sName.split(',')[0]; // get rid of `, Jr.`, etc
 
     try {
         fGetLanguagesSpoken(oRecord);
@@ -228,6 +230,17 @@ function fFixLocation(oRecord) {
     }
 }
 
+async function fpGetCachedData(oRecord) {
+    try {
+        let oOldData = await fpReadFile(oRecord.sOutputLocation)
+            .then(sRecord => JSON.parse(sRecord));
+
+        oRecord.oCachedData = oOldData;
+    } catch (e) {
+        // just let oCachedDate be null
+    }
+}
+
 async function fpGetGithubData(oRecord) {
     let sGitHubId = oRecord.sGitHubUrl
         && oRecord.sGitHubUrl.split('github.com/')[1];
@@ -261,49 +274,42 @@ async function fpGetGithubData(oRecord) {
     return Promise.resolve();
 }
 
-async function fpGetLinkedInData(oRecord) {
-    return Promise.resolve();
-}
-
-async function fpWriteOutput(oRecord) {
-    let sBeautifiedData = JSON.stringify(oRecord);
-    sBeautifiedData = beautify(sBeautifiedData, { indent_size: 4 });
-
-    await fpWriteFile(oRecord.sOutputLocation, sBeautifiedData, 'utf8')
-        .catch(e => console.log('fpWriteOutput.fpWriteFile error: ', e));
-    return oRecord;
-}
-
 // ref: https://www.kairos.com/docs/getting-started
 // get credentials from your free account at https://developer.kairos.com/admin
 // copy fake-service-auth.json and fill in fields
 // obviously, I .gitignore the real service-auth.json
 async function fpGetKairosData(oRecord) {
     if (oRecord.sImageUrl) {
-        try {
-            let oOldData = await fpReadFile(oRecord.sOutputLocation)
-                .then(sRecord => JSON.parse(sRecord));
-
-            if (oOldData.iKairosAge) {
-                oRecord.iKairosAge = oOldData.iKairosAge;
-                oRecord.iKairosAsian = oOldData.iKairosAsian;
-                oRecord.iKairosBlack = oOldData.iKairosBlack;
-                oRecord.iKairosMaleConfidence = oOldData.iKairosMaleConfidence;
-                oRecord.iKairosHispanic = oOldData.iKairosHispanic;
-                oRecord.iKairosOtherEthnicity = oOldData.iKairosOtherEthnicity;
-                oRecord.iKairosWhite = oOldData.iKairosWhite;
-            } else if (!oOldData.bKairosImageRejected
-                       || (oOldData.bKairosImageRejected && oOldData.bForceNewKairosAttempt))
-            {
-                await fpNewKairosCall(oRecord);
-            } else {
-                oRecord.bKairosImageRejected = true;
-            }
-        } catch (e) {
+        if (oRecord.oCachedData
+            && oRecord.oCachedData.iKairosAge)
+        {
+            oRecord.iKairosAge = oRecord.oCachedData.iKairosAge;
+            oRecord.iKairosAsian = oRecord.oCachedData.iKairosAsian;
+            oRecord.iKairosBlack = oRecord.oCachedData.iKairosBlack;
+            oRecord.iKairosMaleConfidence = oRecord.oCachedData.iKairosMaleConfidence;
+            oRecord.iKairosHispanic = oRecord.oCachedData.iKairosHispanic;
+            oRecord.iKairosOtherEthnicity = oRecord.oCachedData.iKairosOtherEthnicity;
+            oRecord.iKairosWhite = oRecord.oCachedData.iKairosWhite;
+        } else if (!oRecord.oCachedData.bKairosImageRejected
+                   || (oRecord.oCachedData.bKairosImageRejected && oRecord.oCachedData.bForceNewKairosAttempt))
+        {
             await fpNewKairosCall(oRecord);
+        } else {
+            oRecord.bKairosImageRejected = true;
         }
+    } else {
+        await fpNewKairosCall(oRecord);
     }
 
+    return Promise.resolve();
+}
+
+async function fpGetLinkedInData(oRecord) {
+    return Promise.resolve();
+}
+
+async function fpGetNamePrismData(oRecord) {
+    //for sThingToGet = eth, nat, url = 'http://www.name-prism.com/api_token/' + sThingToGet + '/csv/' + oServiceAuth.name_prism_token + '/' + encoded_name)
     return Promise.resolve();
 }
 
@@ -334,7 +340,7 @@ async function fpNewKairosCall(oRecord) {
 
         if (response.data.Errors) {
             oRecord.bKairosImageRejected = true;
-            console.log('fpGetKairosData business error: ', response.data.Errors)
+            console.log('fpNewKairosCall business error: ', response.data.Errors)
         } else {
             oRecord.bKairosImageRejected = false;
             oRecord.iKairosAge = _oKairosData.age;
@@ -348,7 +354,16 @@ async function fpNewKairosCall(oRecord) {
 
         return Promise.resolve();
     })
-    .catch(err => console.log('fpGetKairosData.axios.post error: ', err));
+    .catch(err => console.log('fpNewKairosCall.axios.post error: ', err));
 
     return Promise.resolve();
+}
+
+async function fpWriteOutput(oRecord) {
+    let sBeautifiedData = JSON.stringify(oRecord);
+    sBeautifiedData = beautify(sBeautifiedData, { indent_size: 4 });
+
+    await fpWriteFile(oRecord.sOutputLocation, sBeautifiedData, 'utf8')
+        .catch(e => console.log('fpWriteOutput.fpWriteFile error: ', e));
+    return oRecord;
 }
