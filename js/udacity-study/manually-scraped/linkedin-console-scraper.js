@@ -71,6 +71,8 @@ var bDownloadTextResult = true; // if false just print result to web console.
     _oResult.iUdemyCredentials = $('.pv-entity__school-name').filter(function(){ return $(this).text().toLowerCase().includes('udemy')}).length;
     _oResult.iAppAcademyCredentials = $('.pv-entity__school-name').filter(function(){ return $(this).text().toLowerCase().includes('app academy')}).length;
 
+    /* This iAlternativeExperienceCount block misreferences underlying factors
+       but, I will fix in process-manually...js instead of rescraping again */
     _oResult.iAlternativeExperienceCount = _oResult.iFlatIronExperiences
         + _oResult.iGeneralAssemblyExperiences
         + _oResult.iUdacityExperiences
