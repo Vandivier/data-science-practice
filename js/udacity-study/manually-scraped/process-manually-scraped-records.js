@@ -23,7 +23,11 @@ const sImagePrefix = 'https://raw.githubusercontent.com/Vandivier/data-science-p
 const oTitleLine = {
     "sScrapedUserId": "User ID",
     "sProfileLastUpdate": "Months Since Last Profile Update",
-    "sName": "Name",
+    "sNameAsReported": "Name as Reported on Udacity",
+    "sNameWithoutSuffix": "Name without Suffix",
+    "sNameWithoutInitials": "Name without Initials",
+    "sNameFirst": "Name - First",
+    "sNameFirstLowercased": "Name - First Lowercase",
     "bNameTruncated": "Name Truncated",
     "sState": "US State",
     "sCountry": "Country",
@@ -74,7 +78,7 @@ main();
 async function main() {
     const options = {};
 
-    await utils.fpWait(2000); // for chrom debugger to attach
+    //await utils.fpWait(5000); // for chrome debugger to attach
 
     await fpGlob('manually-scraped/profile-pics/*.jpg', options)
     .then(arrsFiles => {
@@ -114,8 +118,8 @@ async function fpProcessRecord(sLocation) {
     let oRecord = await fpReadFile(sLocation)
         .then(sRecord => JSON.parse(sRecord));
 
-    if (!oRecord.sScrapedUserId                     // it's not a Udacity data file. maybe should be called sUdacityUserId
-        || oRecord.sScrapedUserId !== 'adam1')      // adam1 check to limit API usage during development
+    if (!oRecord.sScrapedUserId)                     // it's not a Udacity data file. maybe should be called sUdacityUserId
+        //|| oRecord.sScrapedUserId !== 'adam1')      // adam1 check to limit API usage during development
     {  
         return Promise.resolve({});                 // return empty obj which will get filtered before csv writing
     }
@@ -136,13 +140,23 @@ async function fpProcessRecord(sLocation) {
         fs.mkdirSync(oRecord.sOutputDirectory);
     }
 
-    oRecord.bNameTruncated = oRecord.sName.split(',').length > 1;       // has `, Jr.`, etc
-    oRecord.sName = oRecord.sName.split(',')[0];                        // get rid of `, Jr.`, etc
+    oRecord.bNameTruncated = oRecord.sName.split(',').length > 1;       // has `, Jr.`, etc. TODO: maybe remove. it can be made in stata via equality check
+
+    oRecord.sNameAsReported = oRecord.sName;
+    oRecord.sNameWithoutSuffix = oRecord.sName.split(',')[0];           // get rid of `, Jr.`, etc
+    oRecord.sNameWithoutInitials = oRecord.sNameWithoutSuffix.split('.')
+        .filter(s => s.length > 1)
+        .join('')
+        .replace(/\s/g, ' ');                                           // good to remove middle initials, maybe improving augmentor data, bad for people with initials-as-name.
+    oRecord.sNameFirst = oRecord.sNameWithoutInitials
+        .split(' ')[0];                                                 // because sometimes it's all you have. And maybe that's good for females who marry another ethnicity?
+    oRecord.sNameFirstLowercased = oRecord.sNameFirst.toLowerCase();
+
     await fpGetCachedData(oRecord);
 
     if (arrsCapturedProfilePictures.includes(oRecord.sScrapedUserId)) {
         oRecord.bKairosImageSubmitted = true;
-        console.log('getting kairos for ' + oRecord.sScrapedUserId);
+        console.log('getting kairos npm for ' + oRecord.sScrapedUserId);
         await fpGetKairosData(oRecord);
     }
 
@@ -308,6 +322,7 @@ async function fpGetLinkedInData(oRecord) {
     return Promise.resolve();
 }
 
+// see: Ye-et-al.-Unknown-Nationality-Classification-Using-Name-Embeddings.pdf
 async function fpGetNamePrismData(oRecord) {
     //for sThingToGet = eth, nat, url = 'http://www.name-prism.com/api_token/' + sThingToGet + '/csv/' + oServiceAuth.name_prism_token + '/' + encoded_name)
     return Promise.resolve();
