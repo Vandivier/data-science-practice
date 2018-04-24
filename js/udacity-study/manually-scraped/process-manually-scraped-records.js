@@ -71,6 +71,7 @@ const sOutFileLocation = __dirname + '/manually-scraped-results.csv';
 
 let arrsCapturedProfilePictures = [];
 let oGitHubIds = {};
+let oLinkedInIds = {};
 
 main();
 
@@ -103,7 +104,7 @@ async function main() {
         arrsFiles.map(s => {
             let arrs = s.split('/');
             arrs = arrs[arrs.length - 1].split('.txt');
-            oLinkedInIds[arrs[0]] = s;
+            oLinkedInIds[arrs[0].toLowerCase()] = s;
             return; // TODO: do I want to return a Promise?
         });
     });
@@ -173,10 +174,9 @@ async function fpProcessRecord(sLocation) {
         fGetLanguagesSpoken(oRecord);
         fFixExperienceCount(oRecord);
         fFixLocation(oRecord);
-        // TODO fFixAlternativeExperienceCount(oRecord);
         await fpGetGithubData(oRecord);
         await fpGetLinkedInData(oRecord);
-        await fpGetNamePrismData(oRecord);
+        //await fpGetNamePrismData(oRecord);
     } catch (e) {
         console.log('late fpProcessRecord err: ', e);
     }
@@ -254,6 +254,17 @@ function fFixLocation(oRecord) {
     }
 }
 
+function fFixAlternativeExperienceCount(oRecord) {
+    oRecord.iAlternativeExperienceCount = oRecord.iFlatIronExperience
+        + oRecord.iGeneralAssemblyExperience
+        + oRecord.iUdacityExperience
+        + oRecord.iCourseraExperience
+        + oRecord.iUdemyExperience
+        + oRecord.iAppAcademyExperience;
+
+    oRecord.bIsAlternativelyExperienced = (oRecord.iAlternativeExperienceCount > 0); // includes people who worked for a provider and people who claim alternative-education-as-experience, esp some bootcamp folks
+}
+
 async function fpGetCachedData(oRecord) {
     try {
         let oOldData = await fpReadFile(oRecord.sOutputLocation)
@@ -329,33 +340,61 @@ async function fpGetKairosData(oRecord) {
 }
 
 async function fpGetLinkedInData(oRecord) {
-    let sLinkedInId = oRecord.sGitHubUrl
-        && oRecord.sGitHubUrl.split('github.com/')[1];
     let oLinkedInData;
     let sLinkedInDataLocation;
+    let sLinkedInId = oRecord.sLinkedInUrl
+        && oRecord.sLinkedInUrl.split('linkedin.com/in/')[1];
 
-    sLinkedInId = sLinkedInId && sLinkedInId.split('/')[0];
-    sLinkedInDataLocation = oGitHubIds[sLinkedInId];
+    sLinkedInId = sLinkedInId && sLinkedInId.split('/')[0].toLowerCase();
 
     if (sLinkedInId) {
-        oRecord.bGithubAccountClaimed = true;
+        oRecord.bLinkedInAccountClaimed = true;
+        sLinkedInDataLocation = oLinkedInIds[sLinkedInId]
+            || oLinkedInIds[sLinkedInId.replace('-', '')];
 
         if (sLinkedInDataLocation) {
             oLinkedInData = await fpReadFile(sLinkedInDataLocation)
                 .then(sRecord => JSON.parse(sRecord));
 
-            oRecord.sGithubUserName = oLinkedInData.sGithubUserName;
-            oRecord.sGithubEmail = oLinkedInData.sGithubEmail;
-            oRecord.sGithubAnnualCommits = oLinkedInData.sGithubAnnualCommits.replace(',','');
-            oRecord.sGithubRepos = oLinkedInData.sGithubRepos.replace(',','');
-            oRecord.sGithubFollowers = oLinkedInData.sGithubFollowers.replace(',','');
-            oRecord.bGitHubAccountFound = true;
+            oRecord.bLinkedInAccountFound = true;
+            oRecord.iLinkedInConnections = oLinkedInData.iLinkedInConnections; // TODO: how to handle 500+ connections? bool?
+            oRecord.sLinkedInFullName = oLinkedInData.sLinkedInFullName;
+            oRecord.sLinkedInPath = oLinkedInData.sLinkedInPath;
+            oRecord.sLinkedInImageUrl = oLinkedInData.sLinkedInImageUrl;
+            oRecord.sPossibleLinkedInEmailAddress = oLinkedInData.sPossibleLinkedInEmailAddress;
+
+            oRecord.iLinkedInAccomplishments = oLinkedInData.iLinkedInAccomplishments;
+            oRecord.iCertifications = oLinkedInData.iCertifications;
+            oRecord.iLinkedInExperience = oLinkedInData.iLinkedInExperience;
+            oRecord.iLinkedInEducation = oLinkedInData.iLinkedInEducation;
+            oRecord.bLinkedInCurrentlyEmployed = oLinkedInData.bLinkedInCurrentlyEmployed;
+
+            oRecord.bLinkedInCurrentlyEmployed = oLinkedInData.bLinkedInCurrentlyEmployed;
+
+            oRecord.iFlatIronExperience = oLinkedInData.iFlatIronExperience;
+            oRecord.iGeneralAssemblyExperience = oLinkedInData.iGeneralAssemblyExperience;
+            oRecord.iUdacityExperience = oLinkedInData.iUdacityExperience;
+            oRecord.iCourseraExperience = oLinkedInData.iCourseraExperience;
+            oRecord.iUdemyExperience = oLinkedInData.iUdemyExperience;
+            oRecord.iAppAcademyExperience = oLinkedInData.iAppAcademyExperience;
+
+            oRecord.iFlatIronCredentials = oLinkedInData.iFlatIronCredentials;
+            oRecord.iGeneralAssemblyCredentials = oLinkedInData.iGeneralAssemblyCredentials;
+            oRecord.iUdacityCredentials = oLinkedInData.iUdacityCredentials;
+            oRecord.iCourseraCredentials = oLinkedInData.iCourseraCredentials;
+            oRecord.iUdemyCredentials = oLinkedInData.iUdemyCredentials;
+            oRecord.iAppAcademyCredentials = oLinkedInData.iAppAcademyCredentials;
+
+            oRecord.iAlternativeCredentialCount = oLinkedInData.iAlternativeCredentialCount;
+            oRecord.bIsAlternativelyEducated = oLinkedInData.bIsAlternativelyEducated
+
+            fFixAlternativeExperienceCount(oRecord);
         } else {
-            oRecord.bGitHubAccountFound = false;
+            oRecord.bLinkedInAccountFound = false;
         }
     } else {
-        oRecord.bGithubAccountClaimed = false;
-        oRecord.bGitHubAccountFound = false;
+        oRecord.bLinkedInAccountClaimed = false;
+        oRecord.bLinkedInAccountFound = false;
     }
 
     return Promise.resolve();
@@ -363,6 +402,7 @@ async function fpGetLinkedInData(oRecord) {
 
 // see: Ye-et-al.-Unknown-Nationality-Classification-Using-Name-Embeddings.pdf
 async function fpGetNamePrismData(oRecord) {
+    /*
         if (oRecord.oCachedData
             && oRecord.oCachedData.sNamePrismGender)
         {
@@ -383,6 +423,7 @@ async function fpGetNamePrismData(oRecord) {
     } else {
         await fpNewKairosCall(oRecord);
     }
+    */
 
     //for sThingToGet = eth, nat, url = 'http://www.name-prism.com/api_token/' + sThingToGet + '/csv/' + oServiceAuth.name_prism_token + '/' + encoded_name)
     return Promise.resolve();
