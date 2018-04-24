@@ -130,7 +130,7 @@ async function fpProcessRecord(sLocation) {
         .then(sRecord => JSON.parse(sRecord));
 
     if (!oRecord.sScrapedUserId)                     // it's not a Udacity data file. maybe should be called sUdacityUserId
-        //|| oRecord.sScrapedUserId !== 'adam1')      // adam1 check to limit API usage during development
+        || oRecord.sScrapedUserId !== 'adam1')      // adam1 check to limit API usage during development
     {  
         return Promise.resolve({});                 // return empty obj which will get filtered before csv writing
     }
@@ -177,7 +177,7 @@ async function fpProcessRecord(sLocation) {
         fFixLocation(oRecord);
         await fpGetGithubData(oRecord);
         await fpGetLinkedInData(oRecord);
-        //await fpGetNamePrismData(oRecord);
+        await fpGetNamePrismData(oRecord);
     } catch (e) {
         console.log('late fpProcessRecord err: ', e);
     }
@@ -412,30 +412,122 @@ async function fpGetLinkedInData(oRecord) {
     return Promise.resolve();
 }
 
+/* example output for eth:
+Jewish,0.0000
+Nordic-Finland,0.0000
+Nordic-Scandinavian-Denmark,0.0185
+Nordic-Scandinavian-Sweden,0.0000
+Nordic-Scandinavian-Norway,0.0092
+Greek,0.0033
+SouthAsian,0.0001
+CelticEnglish,0.0223
+Hispanic-Philippines,0.0022
+Hispanic-Spanish,0.0016
+Hispanic-Portuguese,0.0030
+African-EastAfrican,0.0000
+African-WestAfrican,0.0000
+African-SouthAfrican,0.0001
+EastAsian-Malay-Indonesia,0.0000
+EastAsian-Indochina-Thailand,0.0000
+EastAsian-Indochina-Vietnam,0.0000
+EastAsian-Japan,0.0000
+EastAsian-Chinese,0.0003
+EastAsian-Malay-Malaysia,0.0002
+EastAsian-South Korea,0.0000
+EastAsian-Indochina-Cambodia,0.0000
+EastAsian-Indochina-Myanmar,0.0000
+Muslim-Persian,0.0000
+Muslim-Maghreb,0.0000
+Muslim-Turkic-CentralAsian,0.0000
+Muslim-Pakistanis-Bangladesh,0.0000
+Muslim-Nubian,0.0000
+Muslim-Pakistanis-Pakistan,0.0000
+Muslim-ArabianPeninsula,0.0000
+Muslim-Turkic-Turkey,0.0000
+European-SouthSlavs,0.0000
+European-Italian-Italy,0.0000
+European-Baltics,0.0002
+European-Italian-Romania,0.0000
+European-French,0.0029
+European-Russian,0.0000
+European-EastEuropean,0.0000
+European-German,0.9360
+*/
 // see: Ye-et-al.-Unknown-Nationality-Classification-Using-Name-Embeddings.pdf
+// note: be sure to check continous-to-boolean coercion during analysis; it may provide gains from sampling
 async function fpGetNamePrismData(oRecord) {
-    /*
-        if (oRecord.oCachedData
-            && oRecord.oCachedData.sNamePrismGender)
-        {
-            oRecord.iKairosAge = oRecord.oCachedData.iKairosAge;
-            oRecord.iKairosAsian = oRecord.oCachedData.iKairosAsian;
-            oRecord.iKairosBlack = oRecord.oCachedData.iKairosBlack;
-            oRecord.iKairosMaleConfidence = oRecord.oCachedData.iKairosMaleConfidence;
-            oRecord.iKairosHispanic = oRecord.oCachedData.iKairosHispanic;
-            oRecord.iKairosOtherEthnicity = oRecord.oCachedData.iKairosOtherEthnicity;
-            oRecord.iKairosWhite = oRecord.oCachedData.iKairosWhite;
-        } else if (!oRecord.oCachedData.bKairosImageRejected
-                   || (oRecord.oCachedData.bKairosImageRejected && oRecord.oCachedData.bForceNewKairosAttempt))
-        {
-            await fpNewKairosCall(oRecord);
-        } else {
-            oRecord.bKairosImageRejected = true;
-        }
+    if (oRecord.oCachedData
+        && oRecord.oCachedData.iNamePrismTwoPrace)
+    {
+        oRecord.iNamePrismTwoPrace = oRecord.oCachedData.iNamePrismTwoPrace;
+        oRecord.iNamePrismHispanic = oRecord.oCachedData.iNamePrismHispanic;
+        oRecord.iNamePrismApi = oRecord.oCachedData.iNamePrismApi;
+        oRecord.iNamePrismBlack = oRecord.oCachedData.iNamePrismBlack;
+        oRecord.iNamePrismAsian = oRecord.oCachedData.iNamePrismAsian;
+        oRecord.iNamePrismWhite = oRecord.oCachedData.iNamePrismWhite;
     } else {
-        await fpNewKairosCall(oRecord);
+        await fpNewNamePrismEthnicityCall(oRecord);
     }
-    */
+
+    if (oRecord.oCachedData
+        && oRecord.oCachedData.iNamePrismJewish)
+    {
+        oRecord.iNamePrismJewish = oRecord.oCachedData.iNamePrismJewish;
+        oRecord.iNamePrismFinnish = oRecord.oCachedData.iNamePrismFinnish;
+        oRecord.iNamePrismDanish = oRecord.oCachedData.iNamePrismDanish;
+        oRecord.iNamePrismSwedish = oRecord.oCachedData.iNamePrismSwedish;
+        oRecord.iNamePrismNorwegian = oRecord.oCachedData.iNamePrismFinnish;
+        oRecord.iNamePrismScandinavian = oRecord.oCachedData.iNamePrismScandinavian;
+
+        oRecord.iNamePrismGreek = oRecord.oCachedData.iNamePrismGreek;
+        oRecord.iNamePrismSouthAsian = oRecord.oCachedData.iNamePrismSouthAsian;
+        oRecord.iNamePrismCeltic = oRecord.oCachedData.iNamePrismCeltic;
+
+        oRecord.iNamePrismFilipino = oRecord.oCachedData.iNamePrismFilipino;
+        oRecord.iNamePrismSpanish = oRecord.oCachedData.iNamePrismSpanish;
+        oRecord.iNamePrismPortuguese = oRecord.oCachedData.iNamePrismPortuguese;
+        oRecord.iNamePrismHispanic = oRecord.oCachedData.iNamePrismHispanic;
+
+        /*
+        African-EastAfrican,0.0000
+        African-WestAfrican,0.0000
+        African-SouthAfrican,0.0001
+        oRecord.iNamePrismAfrican = oRecord.oCachedData.iNamePrismAfrican;
+
+        EastAsian-Malay-Indonesia,0.0000
+        EastAsian-Indochina-Thailand,0.0000
+        EastAsian-Indochina-Vietnam,0.0000
+        EastAsian-Japan,0.0000
+        EastAsian-Chinese,0.0003
+        EastAsian-Malay-Malaysia,0.0002
+        EastAsian-South Korea,0.0000
+        EastAsian-Indochina-Cambodia,0.0000
+        EastAsian-Indochina-Myanmar,0.0000
+        oRecord.iNamePrismEastAsian = oRecord.oCachedData.iNamePrismEastAsian;
+
+        Muslim-Persian,0.0000
+        Muslim-Maghreb,0.0000
+        Muslim-Turkic-CentralAsian,0.0000
+        Muslim-Pakistanis-Bangladesh,0.0000
+        Muslim-Nubian,0.0000
+        Muslim-Pakistanis-Pakistan,0.0000
+        Muslim-ArabianPeninsula,0.0000
+        Muslim-Turkic-Turkey,0.0000
+        oRecord.iNamePrismMuslim = oRecord.oCachedData.iNamePrismMuslim;
+
+        European-SouthSlavs,0.0000
+        European-Italian-Italy,0.0000
+        European-Baltics,0.0002
+        European-Italian-Romania,0.0000
+        European-French,0.0029
+        European-Russian,0.0000
+        European-EastEuropean,0.0000
+        European-German,0.9360
+        oRecord.iNamePrismEuropean = oRecord.oCachedData.iNamePrismEuropean;
+        */
+    } else {
+        await fpNewNamePrismNationalityCall(oRecord);
+    }
 
     //for sThingToGet = eth, nat, url = 'http://www.name-prism.com/api_token/' + sThingToGet + '/csv/' + oServiceAuth.name_prism_token + '/' + encoded_name)
     return Promise.resolve();
@@ -483,6 +575,98 @@ async function fpNewKairosCall(oRecord) {
         return Promise.resolve();
     })
     .catch(err => console.log('fpNewKairosCall.axios.post error: ', err));
+
+    return Promise.resolve();
+}
+
+async function fpNewNamePrismEthnicityCall(oRecord) {
+    let oOptions = {
+        data: {
+            image: oRecord.sImageOnGithubUrl
+        },
+        headers: {
+            app_id: oServiceAuth.appid,
+            app_key: oServiceAuth.key,
+        },
+        method: 'POST',
+        url: 'http://api.kairos.com/detect',
+    };
+
+    console.log('Trying to get kairos data for: ' + oRecord.sScrapedUserId);
+
+    await utils.fpWait(2000); // throttle a bit to be nice :)
+    oRecord.oKairosData = await axios.request(oOptions)
+    .then(response => {
+        let _oKairosData = response &&
+            response.data &&
+            response.data.images &&
+            response.data.images.length &&
+            response.data.images[0].faces.length &&
+            response.data.images[0].faces[0].attributes;
+
+        if (response.data.Errors) {
+            oRecord.bKairosImageRejected = true;
+            console.log('fpNewNamePrismEthnicityCall business error: ', response.data.Errors)
+        } else {
+            oRecord.bKairosImageRejected = false;
+            oRecord.iKairosAge = _oKairosData.age;
+            oRecord.iKairosAsian = _oKairosData.asian;
+            oRecord.iKairosBlack = _oKairosData.black;
+            oRecord.iKairosMaleConfidence = _oKairosData.gender.maleConfidence;
+            oRecord.iKairosHispanic = _oKairosData.hispanic;
+            oRecord.iKairosOtherEthnicity = _oKairosData.other;
+            oRecord.iKairosWhite = _oKairosData.white;
+        }
+
+        return Promise.resolve();
+    })
+    .catch(err => console.log('fpNewNamePrismEthnicityCall.axios.post error: ', err));
+
+    return Promise.resolve();
+}
+
+async function fpNewNamePrismNationalityCall(oRecord) {
+    let oOptions = {
+        data: {
+            image: oRecord.sImageOnGithubUrl
+        },
+        headers: {
+            app_id: oServiceAuth.appid,
+            app_key: oServiceAuth.key,
+        },
+        method: 'POST',
+        url: 'http://api.kairos.com/detect',
+    };
+
+    console.log('Trying to get kairos data for: ' + oRecord.sScrapedUserId);
+
+    await utils.fpWait(2000); // throttle a bit to be nice :)
+    oRecord.oKairosData = await axios.request(oOptions)
+    .then(response => {
+        let _oKairosData = response &&
+            response.data &&
+            response.data.images &&
+            response.data.images.length &&
+            response.data.images[0].faces.length &&
+            response.data.images[0].faces[0].attributes;
+
+        if (response.data.Errors) {
+            oRecord.bKairosImageRejected = true;
+            console.log('fpNewNamePrismNationalityCall business error: ', response.data.Errors)
+        } else {
+            oRecord.bKairosImageRejected = false;
+            oRecord.iKairosAge = _oKairosData.age;
+            oRecord.iKairosAsian = _oKairosData.asian;
+            oRecord.iKairosBlack = _oKairosData.black;
+            oRecord.iKairosMaleConfidence = _oKairosData.gender.maleConfidence;
+            oRecord.iKairosHispanic = _oKairosData.hispanic;
+            oRecord.iKairosOtherEthnicity = _oKairosData.other;
+            oRecord.iKairosWhite = _oKairosData.white;
+        }
+
+        return Promise.resolve();
+    })
+    .catch(err => console.log('fpNewNamePrismNationalityCall.axios.post error: ', err));
 
     return Promise.resolve();
 }
