@@ -182,6 +182,12 @@ async function fpProcessRecord(sLocation) {
         console.log('late fpProcessRecord err: ', e);
     }
 
+    if (oRecord.oCachedData
+        && oRecord.oCachedData.oCachedData) // only ever cache 1 level deep
+    {
+        delete oRecord.oCachedData.oCachedData;
+    }
+
     return fpWriteOutput(oRecord);
 }
 
