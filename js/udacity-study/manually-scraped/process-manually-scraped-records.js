@@ -61,6 +61,7 @@ const oTitleLine = {
     "sLinkedInUrl": "LinkedIn URL",
     "sLinkedInImageUrl": "LinkedIn Image URL",
     "iLinkedInConnections": "LinkedIn Connections",
+    "bManyLinkedInConnections": "500+ LinkedIn Connections",
     "iLinkedInAccomplishments": "LinkedIn Accomplishments",
     "iLinkedInExperience": "LinkedIn Experience",
     "iLinkedInEducation": "LinkedIn Education",
@@ -357,11 +358,16 @@ async function fpGetLinkedInData(oRecord) {
                 .then(sRecord => JSON.parse(sRecord));
 
             oRecord.bLinkedInAccountFound = true;
-            oRecord.iLinkedInConnections = oLinkedInData.iLinkedInConnections; // TODO: how to handle 500+ connections? bool?
             oRecord.sLinkedInFullName = oLinkedInData.sLinkedInFullName;
             oRecord.sLinkedInPath = oLinkedInData.sLinkedInPath;
             oRecord.sLinkedInImageUrl = oLinkedInData.sLinkedInImageUrl;
             oRecord.sPossibleLinkedInEmailAddress = oLinkedInData.sPossibleLinkedInEmailAddress;
+
+            if (oLinkedInData.iLinkedInConnections.includes('500+')) {
+                oRecord.bManyLinkedInConnections = true;
+            } else {
+                oRecord.iLinkedInConnections = oLinkedInData.iLinkedInConnections;
+            }
 
             oRecord.iLinkedInAccomplishments = oLinkedInData.iLinkedInAccomplishments;
             oRecord.iCertifications = oLinkedInData.iCertifications;
