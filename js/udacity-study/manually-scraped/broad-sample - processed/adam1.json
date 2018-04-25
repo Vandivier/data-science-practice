@@ -164,5 +164,11 @@
     "iAlternativeCredentialCount": 0,
     "bIsAlternativelyEducated": false,
     "iAlternativeExperienceCount": 0,
-    "bIsAlternativelyExperienced": false
+    "bIsAlternativelyExperienced": false,
+    "iNamePrismTwoPrace": 0.001027687935231,
+    "iNamePrismHispanic": 0.00890722611028533,
+    "iNamePrismApi": 0.007745799054992852,
+    "iNamePrismBlack": 0.024436464078225896,
+    "iNamePrismAsian": 0.0008651007603797696,
+    "iNamePrismWhite": 0.9570177220608852
 }

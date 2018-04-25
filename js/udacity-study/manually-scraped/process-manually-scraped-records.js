@@ -129,7 +129,7 @@ async function fpProcessRecord(sLocation) {
     let oRecord = await fpReadFile(sLocation)
         .then(sRecord => JSON.parse(sRecord));
 
-    if (!oRecord.sScrapedUserId)                     // it's not a Udacity data file. maybe should be called sUdacityUserId
+    if (!oRecord.sScrapedUserId//)                     // it's not a Udacity data file. maybe should be called sUdacityUserId
         || oRecord.sScrapedUserId !== 'adam1')      // adam1 check to limit API usage during development
     {  
         return Promise.resolve({});                 // return empty obj which will get filtered before csv writing
@@ -529,7 +529,6 @@ async function fpGetNamePrismData(oRecord) {
         await fpNewNamePrismNationalityCall(oRecord);
     }
 
-    //for sThingToGet = eth, nat, url = 'http://www.name-prism.com/api_token/' + sThingToGet + '/csv/' + oServiceAuth.name_prism_token + '/' + encoded_name)
     return Promise.resolve();
 }
 
@@ -579,43 +578,30 @@ async function fpNewKairosCall(oRecord) {
     return Promise.resolve();
 }
 
+// TODO: repeat using each name variant
 async function fpNewNamePrismEthnicityCall(oRecord) {
     let oOptions = {
-        data: {
-            image: oRecord.sImageOnGithubUrl
-        },
-        headers: {
-            app_id: oServiceAuth.appid,
-            app_key: oServiceAuth.key,
-        },
-        method: 'POST',
-        url: 'http://api.kairos.com/detect',
+        method: 'GET',
+        url: 'http://www.name-prism.com/api_token/eth/json/' + oServiceAuth.name_prism_token + '/' + encodeURIComponent(oRecord.sNameAsReported),
     };
 
-    console.log('Trying to get kairos data for: ' + oRecord.sScrapedUserId);
+    console.log('fpNewNamePrismEthnicityCall for: ' + oRecord.sScrapedUserId);
 
     await utils.fpWait(2000); // throttle a bit to be nice :)
     oRecord.oKairosData = await axios.request(oOptions)
     .then(response => {
-        let _oKairosData = response &&
-            response.data &&
-            response.data.images &&
-            response.data.images.length &&
-            response.data.images[0].faces.length &&
-            response.data.images[0].faces[0].attributes;
+        let _oResponseData = response &&
+            response.data;
 
         if (response.data.Errors) {
-            oRecord.bKairosImageRejected = true;
-            console.log('fpNewNamePrismEthnicityCall business error: ', response.data.Errors)
+            console.log('fpNewNamePrismEthnicityCall invalid response data or error', response.data)
         } else {
-            oRecord.bKairosImageRejected = false;
-            oRecord.iKairosAge = _oKairosData.age;
-            oRecord.iKairosAsian = _oKairosData.asian;
-            oRecord.iKairosBlack = _oKairosData.black;
-            oRecord.iKairosMaleConfidence = _oKairosData.gender.maleConfidence;
-            oRecord.iKairosHispanic = _oKairosData.hispanic;
-            oRecord.iKairosOtherEthnicity = _oKairosData.other;
-            oRecord.iKairosWhite = _oKairosData.white;
+            oRecord.iNamePrismTwoPrace = _oResponseData['2PRACE'];
+            oRecord.iNamePrismHispanic = _oResponseData['Hispanic'];
+            oRecord.iNamePrismApi = _oResponseData['API'];
+            oRecord.iNamePrismBlack = _oResponseData['Black'];
+            oRecord.iNamePrismAsian = _oResponseData['AIAN'];
+            oRecord.iNamePrismWhite = _oResponseData['White'];
         }
 
         return Promise.resolve();
@@ -627,18 +613,12 @@ async function fpNewNamePrismEthnicityCall(oRecord) {
 
 async function fpNewNamePrismNationalityCall(oRecord) {
     let oOptions = {
-        data: {
-            image: oRecord.sImageOnGithubUrl
-        },
-        headers: {
-            app_id: oServiceAuth.appid,
-            app_key: oServiceAuth.key,
-        },
-        method: 'POST',
-        url: 'http://api.kairos.com/detect',
+        method: 'GET',
+        url: 'http://www.name-prism.com/api_token/eth/json/' + oServiceAuth.name_prism_token + '/' + encodeURIComponent(oRecord.sNameAsReported),
     };
 
-    console.log('Trying to get kairos data for: ' + oRecord.sScrapedUserId);
+    return Promise.resolve(); // until method fixed
+    console.log('fpNewNamePrismNationalityCall for: ' + oRecord.sScrapedUserId);
 
     await utils.fpWait(2000); // throttle a bit to be nice :)
     oRecord.oKairosData = await axios.request(oOptions)
