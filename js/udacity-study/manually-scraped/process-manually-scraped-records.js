@@ -470,61 +470,59 @@ async function fpGetNamePrismData(oRecord) {
     }
 
     if (oRecord.oCachedData
-        && oRecord.oCachedData.iNamePrismJewish)
+        && oRecord.oCachedData['Jewish'])
     {
-        oRecord.iNamePrismJewish = oRecord.oCachedData.iNamePrismJewish;
-        oRecord.iNamePrismFinnish = oRecord.oCachedData.iNamePrismFinnish;
-        oRecord.iNamePrismDanish = oRecord.oCachedData.iNamePrismDanish;
-        oRecord.iNamePrismSwedish = oRecord.oCachedData.iNamePrismSwedish;
-        oRecord.iNamePrismNorwegian = oRecord.oCachedData.iNamePrismFinnish;
-        oRecord.iNamePrismScandinavian = oRecord.oCachedData.iNamePrismScandinavian;
+        oRecord['iNamePrism-Jewish'] = oRecord.oCachedData['iNamePrism-Jewish'];
+        oRecord['iNamePrism-Nordic-Finland'] = oRecord.oCachedData['iNamePrism-Nordic-Finland'];
+        oRecord['iNamePrism-Nordic-Scandinavian-Denmark'] = oRecord.oCachedData['iNamePrism-Nordic-Scandinavian-Denmark'];
+        oRecord['iNamePrism-Nordic-Scandinavian-Sweden'] = oRecord.oCachedData['iNamePrism-Nordic-Scandinavian-Sweden'];
+        oRecord['iNamePrism-Nordic-Scandinavian-Norway'] = oRecord.oCachedData['iNamePrism-Nordic-Scandinavian-Norway'];
+        oRecord['iNamePrism-Nordic'] = oRecord.oCachedData['iNamePrism-Nordic'];
 
-        oRecord.iNamePrismGreek = oRecord.oCachedData.iNamePrismGreek;
-        oRecord.iNamePrismSouthAsian = oRecord.oCachedData.iNamePrismSouthAsian;
-        oRecord.iNamePrismCeltic = oRecord.oCachedData.iNamePrismCeltic;
+        oRecord['iNamePrism-Greek'] = oRecord.oCachedData['iNamePrism-Greek'];
+        oRecord['iNamePrism-SouthAsian'] = oRecord.oCachedData['iNamePrism-SouthAsian'];
+        oRecord['iNamePrism-CelticEnglish'] = oRecord.oCachedData['iNamePrism-CelticEnglish'];
 
-        oRecord.iNamePrismFilipino = oRecord.oCachedData.iNamePrismFilipino;
-        oRecord.iNamePrismSpanish = oRecord.oCachedData.iNamePrismSpanish;
-        oRecord.iNamePrismPortuguese = oRecord.oCachedData.iNamePrismPortuguese;
-        oRecord.iNamePrismHispanic = oRecord.oCachedData.iNamePrismHispanic;
+        oRecord['iNamePrism-Hispanic-Philippines'] = oRecord.oCachedData['iNamePrism-Hispanic-Philippines'];
+        oRecord['iNamePrism-Hispanic-Spanish'] = oRecord.oCachedData['iNamePrism-Hispanic-Spanish'];
+        oRecord['iNamePrism-Hispanic-Portuguese'] = oRecord.oCachedData['iNamePrism-Hispanic-Portuguese'];
+        oRecord['iNamePrism-Hispanic'] = oRecord.oCachedData['iNamePrism-Hispanic'];
 
-        /*
-        African-EastAfrican,0.0000
-        African-WestAfrican,0.0000
-        African-SouthAfrican,0.0001
-        oRecord.iNamePrismAfrican = oRecord.oCachedData.iNamePrismAfrican;
+        oRecord['iNamePrism-African-EastAfrican'] = oRecord.oCachedData['iNamePrism-African-EastAfrican'];
+        oRecord['iNamePrism-African-WestAfrican'] = oRecord.oCachedData['iNamePrism-African-WestAfrican'];
+        oRecord['iNamePrism-African-SouthAfrican'] = oRecord.oCachedData['iNamePrism-African-SouthAfrican'];
+        oRecord['iNamePrism-African'] =  oRecord.oCachedData['iNamePrism-African'];
 
-        EastAsian-Malay-Indonesia,0.0000
-        EastAsian-Indochina-Thailand,0.0000
-        EastAsian-Indochina-Vietnam,0.0000
-        EastAsian-Japan,0.0000
-        EastAsian-Chinese,0.0003
-        EastAsian-Malay-Malaysia,0.0002
-        EastAsian-South Korea,0.0000
-        EastAsian-Indochina-Cambodia,0.0000
-        EastAsian-Indochina-Myanmar,0.0000
-        oRecord.iNamePrismEastAsian = oRecord.oCachedData.iNamePrismEastAsian;
+        oRecord['iNamePrism-EastAsian-Malay-Indonesia'] = oRecord.oCachedData['iNamePrism-EastAsian-Malay-Indonesia'];
+        oRecord['iNamePrism-EastAsian-Indochina-Thailand'] = oRecord.oCachedData['iNamePrism-EastAsian-Indochina-Thailand'];
+        oRecord['iNamePrism-EastAsian-Indochina-Vietnam'] = oRecord.oCachedData['iNamePrism-EastAsian-Indochina-Vietnam'];
+        oRecord['iNamePrism-EastAsian-Japan'] = oRecord.oCachedData['iNamePrism-EastAsian-Japan'];
+        oRecord['iNamePrism-EastAsian-Chinese'] = oRecord.oCachedData['iNamePrism-EastAsian-Chinese'];
+        oRecord['iNamePrism-EastAsian-Malay-Malaysia'] = oRecord.oCachedData['iNamePrism-EastAsian-Malay-Malaysia'];
+        oRecord['iNamePrism-EastAsian-South Korea'] = oRecord.oCachedData['iNamePrism-EastAsian-South Korea'];
+        oRecord['iNamePrism-EastAsian-Indochina-Cambodi'] = oRecord.oCachedData['iNamePrism-EastAsian-Indochina-Cambodi'];
+        oRecord['iNamePrism-EastAsian-Indochina-Myanmar'] = oRecord.oCachedData['iNamePrism-EastAsian-Indochina-Myanmar'];
+        oRecord['iNamePrism-EastAsian'] = oRecord.oCachedData['iNamePrism-EastAsian'];
 
-        Muslim-Persian,0.0000
-        Muslim-Maghreb,0.0000
-        Muslim-Turkic-CentralAsian,0.0000
-        Muslim-Pakistanis-Bangladesh,0.0000
-        Muslim-Nubian,0.0000
-        Muslim-Pakistanis-Pakistan,0.0000
-        Muslim-ArabianPeninsula,0.0000
-        Muslim-Turkic-Turkey,0.0000
-        oRecord.iNamePrismMuslim = oRecord.oCachedData.iNamePrismMuslim;
+        oRecord['iNamePrism-Muslim-Persian'] = oRecord.oCachedData['iNamePrism-Muslim-Persian'];
+        oRecord['iNamePrism-Muslim-Maghreb'] = oRecord.oCachedData['iNamePrism-Muslim-Maghreb'];
+        oRecord['iNamePrism-Muslim-Turkic-CentralAsian'] = oRecord.oCachedData['iNamePrism-Muslim-Turkic-CentralAsian'];
+        oRecord['iNamePrism-Muslim-Pakistanis-Bangladesh'] = oRecord.oCachedData['iNamePrism-Muslim-Pakistanis-Bangladesh'];
+        oRecord['iNamePrism-Muslim-Nubian'] = oRecord.oCachedData['iNamePrism-Muslim-Nubian'];
+        oRecord['iNamePrism-Muslim-Pakistanis-Pakistan'] = oRecord.oCachedData['iNamePrism-Muslim-Pakistanis-Pakistan'];
+        oRecord['iNamePrism-Muslim-ArabianPeninsula'] = oRecord.oCachedData['iNamePrism-Muslim-ArabianPeninsula'];
+        oRecord['iNamePrism-Muslim-Turkic-Turkey'] = oRecord.oCachedData['iNamePrism-Muslim-Turkic-Turkey'];
+        oRecord['iNamePrism-Muslim'] = oRecord.oCachedData['iNamePrism-Muslim'];
 
-        European-SouthSlavs,0.0000
-        European-Italian-Italy,0.0000
-        European-Baltics,0.0002
-        European-Italian-Romania,0.0000
-        European-French,0.0029
-        European-Russian,0.0000
-        European-EastEuropean,0.0000
-        European-German,0.9360
-        oRecord.iNamePrismEuropean = oRecord.oCachedData.iNamePrismEuropean;
-        */
+        oRecord['iNamePrism-European-SouthSlavs'] = oRecord.oCachedData['iNamePrism-European-SouthSlavs'];
+        oRecord['iNamePrism-European-Italian-Italy'] = oRecord.oCachedData['iNamePrism-European-Italian-Italy'];
+        oRecord['iNamePrism-European-Baltics'] = oRecord.oCachedData['iNamePrism-European-Baltics'];
+        oRecord['iNamePrism-European-Italian-Romania'] = oRecord.oCachedData['iNamePrism-European-Italian-Romania'];
+        oRecord['iNamePrism-European-French'] = oRecord.oCachedData['iNamePrism-European-French'];
+        oRecord['iNamePrism-European-Russian'] = oRecord.oCachedData['iNamePrism-European-Russian'];
+        oRecord['iNamePrism-European-EastEuropean'] = oRecord.oCachedData['iNamePrism-European-EastEuropean'];
+        oRecord['iNamePrism-European-German'] = oRecord.oCachedData['iNamePrism-European-German'];
+        oRecord['iNamePrism-European'] = oRecord.oCachedData['iNamePrism-European'];
     } else {
         await fpNewNamePrismNationalityCall(oRecord);
     }
@@ -548,7 +546,7 @@ async function fpNewKairosCall(oRecord) {
     console.log('Trying to get kairos data for: ' + oRecord.sScrapedUserId);
 
     await utils.fpWait(2000); // throttle a bit to be nice :)
-    oRecord.oKairosData = await axios.request(oOptions)
+    await axios.request(oOptions)
     .then(response => {
         let _oKairosData = response &&
             response.data &&
@@ -588,20 +586,20 @@ async function fpNewNamePrismEthnicityCall(oRecord) {
     console.log('fpNewNamePrismEthnicityCall for: ' + oRecord.sScrapedUserId);
 
     await utils.fpWait(2000); // throttle a bit to be nice :)
-    oRecord.oKairosData = await axios.request(oOptions)
+    await axios.request(oOptions)
     .then(response => {
         let _oResponseData = response &&
             response.data;
 
-        if (response.data.Errors) {
-            console.log('fpNewNamePrismEthnicityCall invalid response data or error', response.data)
-        } else {
+        if (response.data['2PRACE']) {
             oRecord.iNamePrismTwoPrace = _oResponseData['2PRACE'];
             oRecord.iNamePrismHispanic = _oResponseData['Hispanic'];
             oRecord.iNamePrismApi = _oResponseData['API'];
             oRecord.iNamePrismBlack = _oResponseData['Black'];
             oRecord.iNamePrismAsian = _oResponseData['AIAN'];
             oRecord.iNamePrismWhite = _oResponseData['White'];
+        } else {
+            console.log('fpNewNamePrismEthnicityCall invalid response data or error', response.data);
         }
 
         return Promise.resolve();
@@ -614,34 +612,80 @@ async function fpNewNamePrismEthnicityCall(oRecord) {
 async function fpNewNamePrismNationalityCall(oRecord) {
     let oOptions = {
         method: 'GET',
-        url: 'http://www.name-prism.com/api_token/eth/json/' + oServiceAuth.name_prism_token + '/' + encodeURIComponent(oRecord.sNameAsReported),
+        url: 'http://www.name-prism.com/api_token/nat/json/' + oServiceAuth.name_prism_token + '/' + encodeURIComponent(oRecord.sNameAsReported),
     };
 
-    return Promise.resolve(); // until method fixed
     console.log('fpNewNamePrismNationalityCall for: ' + oRecord.sScrapedUserId);
 
     await utils.fpWait(2000); // throttle a bit to be nice :)
-    oRecord.oKairosData = await axios.request(oOptions)
+    await axios.request(oOptions)
     .then(response => {
-        let _oKairosData = response &&
-            response.data &&
-            response.data.images &&
-            response.data.images.length &&
-            response.data.images[0].faces.length &&
-            response.data.images[0].faces[0].attributes;
+        let _oResponseData = response &&
+            response.data;
 
-        if (response.data.Errors) {
-            oRecord.bKairosImageRejected = true;
-            console.log('fpNewNamePrismNationalityCall business error: ', response.data.Errors)
+        if (response.data['Jewish']) {
+            // replace commas in key names with dash
+            // ref: https://stackoverflow.com/questions/37982805/javascript-how-to-loop-and-change-key-name
+            Object.keys(response.data).forEach(function(sKey) {
+              if (sKey.includes(',')) {
+                  response.data[sKey.replace(',','-')] = response.data[sKey];
+                  delete response.data[sKey];
+              }
+            });
+
+            oRecord['iNamePrism-Jewish'] = _oResponseData['Jewish'];
+            oRecord['iNamePrism-Nordic-Finland'] = _oResponseData['Nordic-Finland'];
+            oRecord['iNamePrism-Nordic-Scandinavian-Denmark'] = _oResponseData['Nordic-Scandinavian-Denmark'];
+            oRecord['iNamePrism-Nordic-Scandinavian-Sweden'] = _oResponseData['Nordic-Scandinavian-Sweden'];
+            oRecord['iNamePrism-Nordic-Scandinavian-Norway'] = _oResponseData['Nordic-Scandinavian-Norway'];
+            oRecord['iNamePrism-Nordic'] = _oResponseData['Nordic'];
+
+            oRecord['iNamePrism-Greek'] = _oResponseData['Greek'];
+            oRecord['iNamePrism-SouthAsian'] = _oResponseData['SouthAsian'];
+            oRecord['iNamePrism-CelticEnglish'] = _oResponseData['CelticEnglish'];
+
+            oRecord['iNamePrism-Hispanic-Philippines'] = _oResponseData['Hispanic-Philippines'];
+            oRecord['iNamePrism-Hispanic-Spanish'] = _oResponseData['Hispanic-Spanish'];
+            oRecord['iNamePrism-Hispanic-Portuguese'] = _oResponseData['Hispanic-Portuguese'];
+            oRecord['iNamePrism-Hispanic'] = _oResponseData['Hispanic'];
+
+            oRecord['iNamePrism-African-EastAfrican'] = _oResponseData['African-EastAfrican'];
+            oRecord['iNamePrism-African-WestAfrican'] = _oResponseData['African-WestAfrican'];
+            oRecord['iNamePrism-African-SouthAfrican'] = _oResponseData['African-SouthAfrican'];
+            oRecord['iNamePrism-African'] =  _oResponseData['African'];
+
+            oRecord['iNamePrism-EastAsian-Malay-Indonesia'] = _oResponseData['EastAsian-Malay-Indonesia'];
+            oRecord['iNamePrism-EastAsian-Indochina-Thailand'] = _oResponseData['EastAsian-Indochina-Thailand'];
+            oRecord['iNamePrism-EastAsian-Indochina-Vietnam'] = _oResponseData['EastAsian-Indochina-Vietnam'];
+            oRecord['iNamePrism-EastAsian-Japan'] = _oResponseData['EastAsian-Japan'];
+            oRecord['iNamePrism-EastAsian-Chinese'] = _oResponseData['EastAsian-Chinese'];
+            oRecord['iNamePrism-EastAsian-Malay-Malaysia'] = _oResponseData['EastAsian-Malay-Malaysia'];
+            oRecord['iNamePrism-EastAsian-South Korea'] = _oResponseData['EastAsian-South Korea'];
+            oRecord['iNamePrism-EastAsian-Indochina-Cambodi'] = _oResponseData['EastAsian-Indochina-Cambodi'];
+            oRecord['iNamePrism-EastAsian-Indochina-Myanmar'] = _oResponseData['EastAsian-Indochina-Myanmar'];
+            oRecord['iNamePrism-EastAsian'] = _oResponseData['EastAsian'];
+
+            oRecord['iNamePrism-Muslim-Persian'] = _oResponseData['Muslim-Persian'];
+            oRecord['iNamePrism-Muslim-Maghreb'] = _oResponseData['Muslim-Maghreb'];
+            oRecord['iNamePrism-Muslim-Turkic-CentralAsian'] = _oResponseData['Muslim-Turkic-CentralAsian'];
+            oRecord['iNamePrism-Muslim-Pakistanis-Bangladesh'] = _oResponseData['Muslim-Pakistanis-Bangladesh'];
+            oRecord['iNamePrism-Muslim-Nubian'] = _oResponseData['Muslim-Nubian'];
+            oRecord['iNamePrism-Muslim-Pakistanis-Pakistan'] = _oResponseData['Muslim-Pakistanis-Pakistan'];
+            oRecord['iNamePrism-Muslim-ArabianPeninsula'] = _oResponseData['Muslim-ArabianPeninsula'];
+            oRecord['iNamePrism-Muslim-Turkic-Turkey'] = _oResponseData['Muslim-Turkic-Turkey'];
+            oRecord['iNamePrism-Muslim'] = _oResponseData['Muslim'];
+
+            oRecord['iNamePrism-European-SouthSlavs'] = _oResponseData['European-SouthSlavs'];
+            oRecord['iNamePrism-European-Italian-Italy'] = _oResponseData['European-Italian-Italy'];
+            oRecord['iNamePrism-European-Baltics'] = _oResponseData['European-Baltics'];
+            oRecord['iNamePrism-European-Italian-Romania'] = _oResponseData['European-Italian-Romania'];
+            oRecord['iNamePrism-European-French'] = _oResponseData['European-French'];
+            oRecord['iNamePrism-European-Russian'] = _oResponseData['European-Russian'];
+            oRecord['iNamePrism-European-EastEuropean'] = _oResponseData['European-EastEuropean'];
+            oRecord['iNamePrism-European-German'] = _oResponseData['European-German'];
+            oRecord['iNamePrism-European'] = _oResponseData['European'];
         } else {
-            oRecord.bKairosImageRejected = false;
-            oRecord.iKairosAge = _oKairosData.age;
-            oRecord.iKairosAsian = _oKairosData.asian;
-            oRecord.iKairosBlack = _oKairosData.black;
-            oRecord.iKairosMaleConfidence = _oKairosData.gender.maleConfidence;
-            oRecord.iKairosHispanic = _oKairosData.hispanic;
-            oRecord.iKairosOtherEthnicity = _oKairosData.other;
-            oRecord.iKairosWhite = _oKairosData.white;
+            console.log('fpNewNamePrismNationalityCall invalid response data or error', response.data);
         }
 
         return Promise.resolve();
