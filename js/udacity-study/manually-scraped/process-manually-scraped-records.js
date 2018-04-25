@@ -129,8 +129,9 @@ async function fpProcessRecord(sLocation) {
     let oRecord = await fpReadFile(sLocation)
         .then(sRecord => JSON.parse(sRecord));
 
-    if (!oRecord.sScrapedUserId//)                     // it's not a Udacity data file. maybe should be called sUdacityUserId
-        || oRecord.sScrapedUserId !== 'adam1')      // adam1 check to limit API usage during development
+    if (!oRecord.sScrapedUserId
+        )                                           // it's not a Udacity data file. maybe should be called sUdacityUserId
+        //|| oRecord.sScrapedUserId !== 'adam1')    // adam1 check to limit API usage during development
     {  
         return Promise.resolve({});                 // return empty obj which will get filtered before csv writing
     }
