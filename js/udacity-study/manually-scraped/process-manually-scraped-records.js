@@ -74,6 +74,7 @@ let arrsCapturedProfilePictures = [];
 let arrsNameVariants = ['sNameAsReported', 'sNameWithoutSuffix', 'sNameWithoutInitials', 'sNameFirst', 'sNameFirstLowercased'];
 let oGitHubIds = {};
 let oLinkedInIds = {};
+let oGeneralCache = {};
 
 main();
 
@@ -165,7 +166,7 @@ async function fpProcessRecord(sLocation) {
         .split(' ')[0];                                                 // because sometimes it's all you have. And maybe that's good for females who marry another ethnicity?
     oRecord.sNameFirstLowercased = oRecord.sNameFirst.toLowerCase();
 
-    await fpGetCachedData(oRecord);
+    await fpGetRecordCache(oRecord);
 
     if (arrsCapturedProfilePictures.includes(oRecord.sScrapedUserId)) {
         oRecord.bKairosImageSubmitted = true;
@@ -277,7 +278,7 @@ function fFixAlternativeExperienceCount(oRecord) {
     oRecord.bIsAlternativelyExperienced = (oRecord.iAlternativeExperienceCount > 0); // includes people who worked for a provider and people who claim alternative-education-as-experience, esp some bootcamp folks
 }
 
-async function fpGetCachedData(oRecord) {
+async function fpGetRecordCache(oRecord) {
     try {
         let oOldData = await fpReadFile(oRecord.sOutputLocation)
             .then(sRecord => JSON.parse(sRecord));
