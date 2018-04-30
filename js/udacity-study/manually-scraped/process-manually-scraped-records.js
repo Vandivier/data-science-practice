@@ -477,7 +477,7 @@ async function fpGetNamePrismData(oRecord, sVariant) {
     }
 
     if (oRecord.oCachedData
-        && oRecord.oCachedData['Jewish'])
+        && oRecord.oCachedData[sVariantKey + '-Jewish'])
     {
         oRecord[sVariantKey + '-Jewish'] = oRecord.oCachedData[sVariantKey + '-Jewish'];
         oRecord[sVariantKey + '-Nordic-Finland'] = oRecord.oCachedData[sVariantKey + '-Nordic-Finland'];
@@ -599,12 +599,12 @@ async function fpNewNamePrismEthnicityCall(oRecord, sVariantKey, sVariant) {
             response.data;
 
         if (response.data['2PRACE']) {
-            oRecord.iNamePrismTwoPrace = _oResponseData['2PRACE'];
-            oRecord.iNamePrismHispanic = _oResponseData['Hispanic'];
-            oRecord.iNamePrismApi = _oResponseData['API'];
-            oRecord.iNamePrismBlack = _oResponseData['Black'];
-            oRecord.iNamePrismAsian = _oResponseData['AIAN'];
-            oRecord.iNamePrismWhite = _oResponseData['White'];
+            oRecord[sVariantKey + 'TwoPrace'] = _oResponseData['2PRACE'];
+            oRecord[sVariantKey + 'Hispanic'] = _oResponseData['Hispanic'];
+            oRecord[sVariantKey + 'Api'] = _oResponseData['API'];
+            oRecord[sVariantKey + 'Black'] = _oResponseData['Black'];
+            oRecord[sVariantKey + 'Asian'] = _oResponseData['AIAN'];
+            oRecord[sVariantKey + 'White'] = _oResponseData['White'];
         } else {
             console.log('fpNewNamePrismEthnicityCall invalid response data or error', response.data);
         }
