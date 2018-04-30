@@ -134,7 +134,7 @@ async function fpProcessRecord(sLocation) {
 
     if (!oRecord.sScrapedUserId
         //)                                           // it's not a Udacity data file. maybe should be called sUdacityUserId
-        || oRecord.sScrapedUserId !== 'adam1')    // adam1 check to limit API usage during development
+        || oRecord.sScrapedUserId !== 'alejandro')    // adam1 check to limit API usage during development
     {  
         return Promise.resolve({});                 // return empty obj which will get filtered before csv writing
     }
@@ -758,7 +758,7 @@ async function fpNewNamsorGenderCall(oRecord, sVariantKey, sVariant, sNamSorUriC
         url: 'https://api.namsor.com/onomastics/api/json/gender/' + sNamSorUriComponent,
     };
 
-    console.log('fpNewNamePrismEthnicityCall for: ' + oRecord.sScrapedUserId);
+    console.log('fpNewNamsorGenderCall for: ' + oRecord.sScrapedUserId);
 
     await utils.fpWait(2000); // throttle a bit to be nice :)
     await axios.request(oOptions)
