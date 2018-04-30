@@ -17,7 +17,9 @@ let arrsCapturedProfilePictures = [];
 let arrsNameVariants = ['sNameAsReported', 'sNameWithoutSuffix', 'sNameWithoutInitials', 'sNameWithoutInitialsLowerCased', 'sNameFirst', 'sNameFirstLowercased'];
 let arrsNamSorNameVariants = ['sNameWithoutInitials', 'sNameWithoutInitialsLowerCased'];
 
-const oGeneralCache = JSON.parse(fs.readFileSync(__dirname + '/general-cache.json', 'utf8'));
+let sGeneralCacheLocation = __dirname + '/general-cache.json';
+
+const oGeneralCache = JSON.parse(fs.readFileSync(sGeneralCacheLocation, 'utf8'));
 let oGitHubIds = {};
 let oLinkedInIds = {};
 const oServiceAuth = JSON.parse(fs.readFileSync(__dirname + '/service-auth.json', 'utf8'));
@@ -124,6 +126,9 @@ async function main() {
         sOutFileLocation,
     }))
     .catch(e => console.log('fpGlob error: ', e));
+
+    await fpWriteFile(sGeneralCacheLocation, JSON.stringify(oGeneralCache), 'utf8')
+        .catch(e => console.log('oGeneralCache fpWriteFile error: ', e));
 
     console.log('Program completed.');
 }
@@ -550,18 +555,23 @@ async function fpGetNamsorData(oRecord, sVariant) {
     let sVariantKey = 'Namsor' + sVariant;
     let sNamSorUriComponent = oRecord[sVariant]
         && oRecord[sVariant].trim();
+    let sUrl = '';
 
     if (!sNamSorUriComponent.includes(' ')) return;     // it's not a proper full name
     arrs = sNamSorUriComponent.split(' ');
     if (!arrs.length === 2)  return;                    // it's not a proper full name
     sNamSorUriComponent = arrs.join('/');
 
+    sUrl = 'https://api.namsor.com/onomastics/api/json/gender/' + sNamSorUriComponent;
+
     if (oRecord.oCachedData
-        && oRecord.oCachedData[sVariantKey + '-gender'])
+        && oRecord.oCachedData[sVariantKey + '-gender']
+        || oGeneralCache[sUrl])
     {
-        oRecord[sVariantKey + '-gender'] = oRecord.oCachedData[sVariantKey + '-gender'];
+        oRecord[sVariantKey + '-gender'] = oRecord.oCachedData[sVariantKey + '-gender']
+            || oGeneralCache[sUrl];
     } else {
-        await fpNewNamsorGenderCall(oRecord, sVariantKey, sVariant, sNamSorUriComponent);
+        await fpNewNamsorGenderCall(oRecord, sVariantKey, sUrl);
     }
 
     if (oRecord.oCachedData
@@ -748,14 +758,14 @@ async function fpNewNamePrismNationalityCall(oRecord, sVariantKey, sVariant) {
     return Promise.resolve();
 }
 
-async function fpNewNamsorGenderCall(oRecord, sVariantKey, sVariant, sNamSorUriComponent) {
+async function fpNewNamsorGenderCall(oRecord, sVariantKey, sUrl) {
     let oOptions = {
         headers: {
             'X-Channel-Secret': oServiceAuth.namsor_secret,
             'X-Channel-User': oServiceAuth.namsor_user,
         },
         method: 'GET',
-        url: 'https://api.namsor.com/onomastics/api/json/gender/' + sNamSorUriComponent,
+        url: sUrl,
     };
 
     console.log('fpNewNamsorGenderCall for: ' + oRecord.sScrapedUserId);
@@ -768,13 +778,14 @@ async function fpNewNamsorGenderCall(oRecord, sVariantKey, sVariant, sNamSorUriC
 
         if (response.data['gender']) {
             oRecord[sVariantKey + '-gender'] = _oResponseData['gender'];
+            oGeneralCache[sUrl] = _oResponseData['gender'];
         } else {
             console.log('fpNewNamsorGenderCall invalid response data or error', response.data);
         }
 
         return Promise.resolve();
     })
-    .catch(err => console.log('fpNewNamsorGenderCall.axios.post error: ', err));
+    .catch(err => console.log('fpNewNamsorGenderCall.axios error: ', err));
 
     return Promise.resolve();
 }
