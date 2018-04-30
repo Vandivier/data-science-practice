@@ -13,8 +13,14 @@ const fpReadFile = util.promisify(fs.readFile);
 const fpReadDir = util.promisify(fs.readdir);
 const fpWriteFile = util.promisify(fs.writeFile);
 
+let arrsCapturedProfilePictures = [];
+let arrsNameVariants = ['sNameAsReported', 'sNameWithoutSuffix', 'sNameWithoutInitials', 'sNameWithoutInitialsLowerCased', 'sNameFirst', 'sNameFirstLowercased'];
+let arrsNamSorNameVariants = ['sNameWithoutInitials', 'sNameWithoutInitialsLowerCased'];
+
+const oGeneralCache = JSON.parse(fs.readFileSync(__dirname + '/general-cache.json', 'utf8'));
+let oGitHubIds = {};
+let oLinkedInIds = {};
 const oServiceAuth = JSON.parse(fs.readFileSync(__dirname + '/service-auth.json', 'utf8'));
-const sImagePrefix = 'https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/';
 
 // TODO: CSV sorts alpha on the key name, not on the value; maybe change that or make it configable
 // TODO: false is coerced to empty string; it's fine if properly interpreted, but maybe change that so 'unobserved' !== false
@@ -68,13 +74,8 @@ const oTitleLine = {
     "bLinkedInCurrentlyEmployed": "LinkedIn Currently Employed",
 };
 
+const sImagePrefix = 'https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/';
 const sOutFileLocation = __dirname + '/manually-scraped-results.csv';
-
-let arrsCapturedProfilePictures = [];
-let arrsNameVariants = ['sNameAsReported', 'sNameWithoutSuffix', 'sNameWithoutInitials', 'sNameFirst', 'sNameFirstLowercased'];
-let oGitHubIds = {};
-let oLinkedInIds = {};
-let oGeneralCache = {};
 
 main();
 
@@ -132,8 +133,8 @@ async function fpProcessRecord(sLocation) {
         .then(sRecord => JSON.parse(sRecord));
 
     if (!oRecord.sScrapedUserId
-        )                                           // it's not a Udacity data file. maybe should be called sUdacityUserId
-        //|| oRecord.sScrapedUserId !== 'adam1')    // adam1 check to limit API usage during development
+        //)                                           // it's not a Udacity data file. maybe should be called sUdacityUserId
+        || oRecord.sScrapedUserId !== 'adam1')    // adam1 check to limit API usage during development
     {  
         return Promise.resolve({});                 // return empty obj which will get filtered before csv writing
     }
@@ -162,6 +163,7 @@ async function fpProcessRecord(sLocation) {
         .filter(s => s.length > 1)
         .join('')
         .replace(/\s/g, ' ');                                           // good to remove middle initials, maybe improving augmentor data, bad for people with initials-as-name.
+    oRecord.sNameWithoutInitialsLowerCased = oRecord.sNameWithoutInitials.toLowerCase();
     oRecord.sNameFirst = oRecord.sNameWithoutInitials
         .split(' ')[0];                                                 // because sometimes it's all you have. And maybe that's good for females who marry another ethnicity?
     oRecord.sNameFirstLowercased = oRecord.sNameFirst.toLowerCase();
@@ -183,6 +185,11 @@ async function fpProcessRecord(sLocation) {
 
         for (let iNameVariant in arrsNameVariants) {
             await fpGetNamePrismData(oRecord, arrsNameVariants[iNameVariant]);
+        }
+
+        for (let iNameVariant in arrsNamSorNameVariants) {
+            await fpGetNamsorData(oRecord, arrsNamSorNameVariants[iNameVariant]);
+            // TODO: await fpGetNamsorDataWithCountry(oRecord, arrsNamSorNameVariants[iNameVariant], sCountry);
         }
     } catch (e) {
         console.log('late fpProcessRecord err: ', e);
@@ -538,6 +545,44 @@ async function fpGetNamePrismData(oRecord, sVariant) {
     return Promise.resolve();
 }
 
+async function fpGetNamsorData(oRecord, sVariant) {
+    let arrs = [];
+    let sVariantKey = 'Namsor' + sVariant;
+    let sNamSorUriComponent = oRecord[sVariant]
+        && oRecord[sVariant].trim();
+
+    if (!sNamSorUriComponent.includes(' ')) return;     // it's not a proper full name
+    arrs = sNamSorUriComponent.split(' ');
+    if (!arrs.length === 2)  return;                    // it's not a proper full name
+    sNamSorUriComponent = arrs.join('/');
+
+    if (oRecord.oCachedData
+        && oRecord.oCachedData[sVariantKey + '-gender'])
+    {
+        oRecord[sVariantKey + '-gender'] = oRecord.oCachedData[sVariantKey + '-gender'];
+    } else {
+        await fpNewNamsorGenderCall(oRecord, sVariantKey, sVariant, sNamSorUriComponent);
+    }
+
+    if (oRecord.oCachedData
+        && oRecord.oCachedData[sVariantKey + '-fakenews'])
+    {
+        oRecord[sVariantKey + 'fakenews'] = oRecord.oCachedData[sVariantKey + '-fakenews'];
+    } else {
+        await fpNewNamsorOriginCall(oRecord, sVariantKey, sVariant);
+    }
+
+    if (oRecord.oCachedData
+        && oRecord.oCachedData[sVariantKey + '-fakenews'])
+    {
+        oRecord[sVariantKey + '-fakenews'] = oRecord.oCachedData[sVariantKey + '-fakenews'];
+    } else {
+        await fpNewNamsorDiasporaCall(oRecord, sVariantKey, sVariant);
+    }
+
+    return Promise.resolve();
+}
+
 async function fpNewKairosCall(oRecord) {
     let oOptions = {
         data: {
@@ -701,6 +746,53 @@ async function fpNewNamePrismNationalityCall(oRecord, sVariantKey, sVariant) {
     .catch(err => console.log('fpNewNamePrismNationalityCall.axios.post error: ', err));
 
     return Promise.resolve();
+}
+
+async function fpNewNamsorGenderCall(oRecord, sVariantKey, sVariant, sNamSorUriComponent) {
+    let oOptions = {
+        headers: {
+            'X-Channel-Secret': oServiceAuth.namsor_secret,
+            'X-Channel-User': oServiceAuth.namsor_user,
+        },
+        method: 'GET',
+        url: 'https://api.namsor.com/onomastics/api/json/gender/' + sNamSorUriComponent,
+    };
+
+    console.log('fpNewNamePrismEthnicityCall for: ' + oRecord.sScrapedUserId);
+
+    await utils.fpWait(2000); // throttle a bit to be nice :)
+    await axios.request(oOptions)
+    .then(response => {
+        let _oResponseData = response &&
+            response.data;
+
+        if (response.data['gender']) {
+            oRecord[sVariantKey + '-gender'] = _oResponseData['gender'];
+        } else {
+            console.log('fpNewNamsorGenderCall invalid response data or error', response.data);
+        }
+
+        return Promise.resolve();
+    })
+    .catch(err => console.log('fpNewNamsorGenderCall.axios.post error: ', err));
+
+    return Promise.resolve();
+}
+
+async function fpNewNamsorGenderWithCountryCall(oRecord, sVariantKey, sVariant, sNamSorUriComponent) {
+    
+}
+
+async function fpNewNamsorOriginCall(oRecord, sVariantKey, sVariant, sNamSorUriComponent) {
+    
+}
+
+async function fpNewNamsorDiasporaCall(oRecord, sVariantKey, sVariant, sNamSorUriComponent) {
+    
+}
+
+async function fpNewNamsorDiasporaWithCountryCall(oRecord, sVariantKey, sVariant, sNamSorUriComponent) {
+    
 }
 
 async function fpWriteOutput(oRecord) {
