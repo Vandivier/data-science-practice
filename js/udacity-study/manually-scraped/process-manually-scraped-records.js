@@ -74,10 +74,237 @@ const oTitleLine = {
     "iLinkedInExperience": "LinkedIn Experience",
     "iLinkedInEducation": "LinkedIn Education",
     "bLinkedInCurrentlyEmployed": "LinkedIn Currently Employed",
+}
+
+// TODO: instead of iKairosAge, iVariantKariosAge: have iKairosAge = Best(iAllKariosAgeVariants)
+const oClassifierVarianceAnalysisTitleLine = {
+    "iKairosAge": "Kairos Age",
+    "iKairosAsian": "Kairos Asian",
+    "iKairosBlack": "Kairos Black",
+    "iKairosMaleConfidence": "Kairos Male Confidence",
+    "iKairosHispanic": "Kairos Hispanic",
+    "iKairosOtherEthnicity": "Kairos Other Ethnicity",
+    "iKairosWhite": "Kairos White",
+    "sLinkedInUrliKairosAge": "Kairos Age",
+    "sLinkedInUrliKairosAsian": "Kairos Asian",
+    "sLinkedInUrliKairosBlack": "Kairos Black",
+    "sLinkedInUrliKairosMaleConfidence": "Kairos Male Confidence",
+    "sLinkedInUrliKairosHispanic": "Kairos Hispanic",
+    "sLinkedInUrliKairosOtherEthnicity": "Kairos Other Ethnicity",
+    "sLinkedInUrliKairosWhite": "Kairos White",
+    "iNamePrismsNameAsReportedTwoPrace": "iNamePrismsNameAsReportedTwoPrace",
+    "iNamePrismsNameAsReportedHispanic": "iNamePrismsNameAsReportedHispanic",
+    "iNamePrismsNameAsReportedApi": "iNamePrismsNameAsReportedApi",
+    "iNamePrismsNameAsReportedBlack": "iNamePrismsNameAsReportedBlack",
+    "iNamePrismsNameAsReportedAsian": "iNamePrismsNameAsReportedAsian",
+    "iNamePrismsNameAsReportedWhite": "iNamePrismsNameAsReportedWhite",
+    "iNamePrismsNameAsReported-Jewish": "iNamePrismsNameAsReported-Jewish",
+    "iNamePrismsNameAsReported-Nordic-Finland": "iNamePrismsNameAsReported-Nordic-Finland",
+    "iNamePrismsNameAsReported-Greek": "iNamePrismsNameAsReported-Greek",
+    "iNamePrismsNameAsReported-SouthAsian": "iNamePrismsNameAsReported-SouthAsian",
+    "iNamePrismsNameAsReported-CelticEnglish": "iNamePrismsNameAsReported-CelticEnglish",
+    "iNamePrismsNameAsReported-Hispanic-Philippines": "iNamePrismsNameAsReported-Hispanic-Philippines",
+    "iNamePrismsNameAsReported-Hispanic-Spanish": "iNamePrismsNameAsReported-Hispanic-Spanish",
+    "iNamePrismsNameAsReported-Hispanic-Portuguese": "iNamePrismsNameAsReported-Hispanic-Portuguese",
+    "iNamePrismsNameAsReported-African-EastAfrican": "iNamePrismsNameAsReported-African-EastAfrican",
+    "iNamePrismsNameAsReported-African-WestAfrican": "iNamePrismsNameAsReported-African-WestAfrican",
+    "iNamePrismsNameAsReported-African-SouthAfrican": "iNamePrismsNameAsReported-African-SouthAfrican",
+    "iNamePrismsNameAsReported-EastAsian-Japan": "iNamePrismsNameAsReported-EastAsian-Japan",
+    "iNamePrismsNameAsReported-EastAsian-Chinese": "iNamePrismsNameAsReported-EastAsian-Chinese",
+    "iNamePrismsNameAsReported-EastAsian-South Korea": "iNamePrismsNameAsReported-EastAsian-South Korea",
+    "iNamePrismsNameAsReported-Muslim-Persian": "iNamePrismsNameAsReported-Muslim-Persian",
+    "iNamePrismsNameAsReported-Muslim-Maghreb": "iNamePrismsNameAsReported-Muslim-Maghreb",
+    "iNamePrismsNameAsReported-Muslim-Nubian": "iNamePrismsNameAsReported-Muslim-Nubian",
+    "iNamePrismsNameAsReported-Muslim-ArabianPeninsula": "iNamePrismsNameAsReported-Muslim-ArabianPeninsula",
+    "iNamePrismsNameAsReported-European-SouthSlavs": "iNamePrismsNameAsReported-European-SouthSlavs",
+    "iNamePrismsNameAsReported-European-Baltics": "iNamePrismsNameAsReported-European-Baltics",
+    "iNamePrismsNameAsReported-European-French": "iNamePrismsNameAsReported-European-French",
+    "iNamePrismsNameAsReported-European-Russian": "iNamePrismsNameAsReported-European-Russian",
+    "iNamePrismsNameAsReported-European-EastEuropean": "iNamePrismsNameAsReported-European-EastEuropean",
+    "iNamePrismsNameAsReported-European-German": "iNamePrismsNameAsReported-European-German",
+    "iNamePrismsNameWithoutSuffixTwoPrace": "iNamePrismsNameWithoutSuffixTwoPrace",
+    "iNamePrismsNameWithoutSuffixHispanic": "iNamePrismsNameWithoutSuffixHispanic",
+    "iNamePrismsNameWithoutSuffixApi": "iNamePrismsNameWithoutSuffixApi",
+    "iNamePrismsNameWithoutSuffixBlack": "iNamePrismsNameWithoutSuffixBlack",
+    "iNamePrismsNameWithoutSuffixAsian": "iNamePrismsNameWithoutSuffixAsian",
+    "iNamePrismsNameWithoutSuffixWhite": "iNamePrismsNameWithoutSuffixWhite",
+    "iNamePrismsNameWithoutSuffix-Jewish": "iNamePrismsNameWithoutSuffix-Jewish",
+    "iNamePrismsNameWithoutSuffix-Nordic-Finland": "iNamePrismsNameWithoutSuffix-Nordic-Finland",
+    "iNamePrismsNameWithoutSuffix-Greek": "iNamePrismsNameWithoutSuffix-Greek",
+    "iNamePrismsNameWithoutSuffix-SouthAsian": "iNamePrismsNameWithoutSuffix-SouthAsian",
+    "iNamePrismsNameWithoutSuffix-CelticEnglish": "iNamePrismsNameWithoutSuffix-CelticEnglish",
+    "iNamePrismsNameWithoutSuffix-Hispanic-Philippines": "iNamePrismsNameWithoutSuffix-Hispanic-Philippines",
+    "iNamePrismsNameWithoutSuffix-Hispanic-Spanish": "iNamePrismsNameWithoutSuffix-Hispanic-Spanish",
+    "iNamePrismsNameWithoutSuffix-Hispanic-Portuguese": "iNamePrismsNameWithoutSuffix-Hispanic-Portuguese",
+    "iNamePrismsNameWithoutSuffix-African-EastAfrican": "iNamePrismsNameWithoutSuffix-African-EastAfrican",
+    "iNamePrismsNameWithoutSuffix-African-WestAfrican": "iNamePrismsNameWithoutSuffix-African-WestAfrican",
+    "iNamePrismsNameWithoutSuffix-African-SouthAfrican": "iNamePrismsNameWithoutSuffix-African-SouthAfrican",
+    "iNamePrismsNameWithoutSuffix-EastAsian-Japan": "iNamePrismsNameWithoutSuffix-EastAsian-Japan",
+    "iNamePrismsNameWithoutSuffix-EastAsian-Chinese": "iNamePrismsNameWithoutSuffix-EastAsian-Chinese",
+    "iNamePrismsNameWithoutSuffix-EastAsian-South Korea": "iNamePrismsNameWithoutSuffix-EastAsian-South Korea",
+    "iNamePrismsNameWithoutSuffix-Muslim-Persian": "iNamePrismsNameWithoutSuffix-Muslim-Persian",
+    "iNamePrismsNameWithoutSuffix-Muslim-Maghreb": "iNamePrismsNameWithoutSuffix-Muslim-Maghreb",
+    "iNamePrismsNameWithoutSuffix-Muslim-Nubian": "iNamePrismsNameWithoutSuffix-Muslim-Nubian",
+    "iNamePrismsNameWithoutSuffix-Muslim-ArabianPeninsula": "iNamePrismsNameWithoutSuffix-Muslim-ArabianPeninsula",
+    "iNamePrismsNameWithoutSuffix-European-SouthSlavs": "iNamePrismsNameWithoutSuffix-European-SouthSlavs",
+    "iNamePrismsNameWithoutSuffix-European-Baltics": "iNamePrismsNameWithoutSuffix-European-Baltics",
+    "iNamePrismsNameWithoutSuffix-European-French": "iNamePrismsNameWithoutSuffix-European-French",
+    "iNamePrismsNameWithoutSuffix-European-Russian": "iNamePrismsNameWithoutSuffix-European-Russian",
+    "iNamePrismsNameWithoutSuffix-European-EastEuropean": "iNamePrismsNameWithoutSuffix-European-EastEuropean",
+    "iNamePrismsNameWithoutSuffix-European-German": "iNamePrismsNameWithoutSuffix-European-German",
+    "iNamePrismsNameWithoutInitialsTwoPrace": "iNamePrismsNameWithoutInitialsTwoPrace",
+    "iNamePrismsNameWithoutInitialsHispanic": "iNamePrismsNameWithoutInitialsHispanic",
+    "iNamePrismsNameWithoutInitialsApi": "iNamePrismsNameWithoutInitialsApi",
+    "iNamePrismsNameWithoutInitialsBlack": "iNamePrismsNameWithoutInitialsBlack",
+    "iNamePrismsNameWithoutInitialsAsian": "iNamePrismsNameWithoutInitialsAsian",
+    "iNamePrismsNameWithoutInitialsWhite": "iNamePrismsNameWithoutInitialsWhite",
+    "iNamePrismsNameWithoutInitials-Jewish": "iNamePrismsNameWithoutInitials-Jewish",
+    "iNamePrismsNameWithoutInitials-Nordic-Finland": "iNamePrismsNameWithoutInitials-Nordic-Finland",
+    "iNamePrismsNameWithoutInitials-Greek": "iNamePrismsNameWithoutInitials-Greek",
+    "iNamePrismsNameWithoutInitials-SouthAsian": "iNamePrismsNameWithoutInitials-SouthAsian",
+    "iNamePrismsNameWithoutInitials-CelticEnglish": "iNamePrismsNameWithoutInitials-CelticEnglish",
+    "iNamePrismsNameWithoutInitials-Hispanic-Philippines": "iNamePrismsNameWithoutInitials-Hispanic-Philippines",
+    "iNamePrismsNameWithoutInitials-Hispanic-Spanish": "iNamePrismsNameWithoutInitials-Hispanic-Spanish",
+    "iNamePrismsNameWithoutInitials-Hispanic-Portuguese": "iNamePrismsNameWithoutInitials-Hispanic-Portuguese",
+    "iNamePrismsNameWithoutInitials-African-EastAfrican": "iNamePrismsNameWithoutInitials-African-EastAfrican",
+    "iNamePrismsNameWithoutInitials-African-WestAfrican": "iNamePrismsNameWithoutInitials-African-WestAfrican",
+    "iNamePrismsNameWithoutInitials-African-SouthAfrican": "iNamePrismsNameWithoutInitials-African-SouthAfrican",
+    "iNamePrismsNameWithoutInitials-EastAsian-Japan": "iNamePrismsNameWithoutInitials-EastAsian-Japan",
+    "iNamePrismsNameWithoutInitials-EastAsian-Chinese": "iNamePrismsNameWithoutInitials-EastAsian-Chinese",
+    "iNamePrismsNameWithoutInitials-EastAsian-South Korea": "iNamePrismsNameWithoutInitials-EastAsian-South Korea",
+    "iNamePrismsNameWithoutInitials-Muslim-Persian": "iNamePrismsNameWithoutInitials-Muslim-Persian",
+    "iNamePrismsNameWithoutInitials-Muslim-Maghreb": "iNamePrismsNameWithoutInitials-Muslim-Maghreb",
+    "iNamePrismsNameWithoutInitials-Muslim-Nubian": "iNamePrismsNameWithoutInitials-Muslim-Nubian",
+    "iNamePrismsNameWithoutInitials-Muslim-ArabianPeninsula": "iNamePrismsNameWithoutInitials-Muslim-ArabianPeninsula",
+    "iNamePrismsNameWithoutInitials-European-SouthSlavs": "iNamePrismsNameWithoutInitials-European-SouthSlavs",
+    "iNamePrismsNameWithoutInitials-European-Baltics": "iNamePrismsNameWithoutInitials-European-Baltics",
+    "iNamePrismsNameWithoutInitials-European-French": "iNamePrismsNameWithoutInitials-European-French",
+    "iNamePrismsNameWithoutInitials-European-Russian": "iNamePrismsNameWithoutInitials-European-Russian",
+    "iNamePrismsNameWithoutInitials-European-EastEuropean": "iNamePrismsNameWithoutInitials-European-EastEuropean",
+    "iNamePrismsNameWithoutInitials-European-German": "iNamePrismsNameWithoutInitials-European-German",
+    "iNamePrismsNameWithoutInitialsLowerCasedTwoPrace": "iNamePrismsNameWithoutInitialsLowerCasedTwoPrace",
+    "iNamePrismsNameWithoutInitialsLowerCasedHispanic": "iNamePrismsNameWithoutInitialsLowerCasedHispanic",
+    "iNamePrismsNameWithoutInitialsLowerCasedApi": "iNamePrismsNameWithoutInitialsLowerCasedApi",
+    "iNamePrismsNameWithoutInitialsLowerCasedBlack": "iNamePrismsNameWithoutInitialsLowerCasedBlack",
+    "iNamePrismsNameWithoutInitialsLowerCasedAsian": "iNamePrismsNameWithoutInitialsLowerCasedAsian",
+    "iNamePrismsNameWithoutInitialsLowerCasedWhite": "iNamePrismsNameWithoutInitialsLowerCasedWhite",
+    "iNamePrismsNameWithoutInitialsLowerCased-Jewish": "iNamePrismsNameWithoutInitialsLowerCased-Jewish",
+    "iNamePrismsNameWithoutInitialsLowerCased-Nordic-Finland": "iNamePrismsNameWithoutInitialsLowerCased-Nordic-Finland",
+    "iNamePrismsNameWithoutInitialsLowerCased-Greek": "iNamePrismsNameWithoutInitialsLowerCased-Greek",
+    "iNamePrismsNameWithoutInitialsLowerCased-SouthAsian": "iNamePrismsNameWithoutInitialsLowerCased-SouthAsian",
+    "iNamePrismsNameWithoutInitialsLowerCased-CelticEnglish": "iNamePrismsNameWithoutInitialsLowerCased-CelticEnglish",
+    "iNamePrismsNameWithoutInitialsLowerCased-Hispanic-Philippines": "iNamePrismsNameWithoutInitialsLowerCased-Hispanic-Philippines",
+    "iNamePrismsNameWithoutInitialsLowerCased-Hispanic-Spanish": "iNamePrismsNameWithoutInitialsLowerCased-Hispanic-Spanish",
+    "iNamePrismsNameWithoutInitialsLowerCased-Hispanic-Portuguese": "iNamePrismsNameWithoutInitialsLowerCased-Hispanic-Portuguese",
+    "iNamePrismsNameWithoutInitialsLowerCased-African-EastAfrican": "iNamePrismsNameWithoutInitialsLowerCased-African-EastAfrican",
+    "iNamePrismsNameWithoutInitialsLowerCased-African-WestAfrican": "iNamePrismsNameWithoutInitialsLowerCased-African-WestAfrican",
+    "iNamePrismsNameWithoutInitialsLowerCased-African-SouthAfrican": "iNamePrismsNameWithoutInitialsLowerCased-African-SouthAfrican",
+    "iNamePrismsNameWithoutInitialsLowerCased-EastAsian-Japan": "iNamePrismsNameWithoutInitialsLowerCased-EastAsian-Japan",
+    "iNamePrismsNameWithoutInitialsLowerCased-EastAsian-Chinese": "iNamePrismsNameWithoutInitialsLowerCased-EastAsian-Chinese",
+    "iNamePrismsNameWithoutInitialsLowerCased-EastAsian-South Korea": "iNamePrismsNameWithoutInitialsLowerCased-EastAsian-South Korea",
+    "iNamePrismsNameWithoutInitialsLowerCased-Muslim-Persian": "iNamePrismsNameWithoutInitialsLowerCased-Muslim-Persian",
+    "iNamePrismsNameWithoutInitialsLowerCased-Muslim-Maghreb": "iNamePrismsNameWithoutInitialsLowerCased-Muslim-Maghreb",
+    "iNamePrismsNameWithoutInitialsLowerCased-Muslim-Nubian": "iNamePrismsNameWithoutInitialsLowerCased-Muslim-Nubian",
+    "iNamePrismsNameWithoutInitialsLowerCased-Muslim-ArabianPeninsula": "iNamePrismsNameWithoutInitialsLowerCased-Muslim-ArabianPeninsula",
+    "iNamePrismsNameWithoutInitialsLowerCased-European-SouthSlavs": "iNamePrismsNameWithoutInitialsLowerCased-European-SouthSlavs",
+    "iNamePrismsNameWithoutInitialsLowerCased-European-Baltics": "iNamePrismsNameWithoutInitialsLowerCased-European-Baltics",
+    "iNamePrismsNameWithoutInitialsLowerCased-European-French": "iNamePrismsNameWithoutInitialsLowerCased-European-French",
+    "iNamePrismsNameWithoutInitialsLowerCased-European-Russian": "iNamePrismsNameWithoutInitialsLowerCased-European-Russian",
+    "iNamePrismsNameWithoutInitialsLowerCased-European-EastEuropean": "iNamePrismsNameWithoutInitialsLowerCased-European-EastEuropean",
+    "iNamePrismsNameWithoutInitialsLowerCased-European-German": "iNamePrismsNameWithoutInitialsLowerCased-European-German",
+    "iNamePrismsNameFirstTwoPrace": "iNamePrismsNameFirstTwoPrace",
+    "iNamePrismsNameFirstHispanic": "iNamePrismsNameFirstHispanic",
+    "iNamePrismsNameFirstApi": "iNamePrismsNameFirstApi",
+    "iNamePrismsNameFirstBlack": "iNamePrismsNameFirstBlack",
+    "iNamePrismsNameFirstAsian": "iNamePrismsNameFirstAsian",
+    "iNamePrismsNameFirstWhite": "iNamePrismsNameFirstWhite",
+    "iNamePrismsNameFirst-Jewish": "iNamePrismsNameFirst-Jewish",
+    "iNamePrismsNameFirst-Nordic-Finland": "iNamePrismsNameFirst-Nordic-Finland",
+    "iNamePrismsNameFirst-Greek": "iNamePrismsNameFirst-Greek",
+    "iNamePrismsNameFirst-SouthAsian": "iNamePrismsNameFirst-SouthAsian",
+    "iNamePrismsNameFirst-CelticEnglish": "iNamePrismsNameFirst-CelticEnglish",
+    "iNamePrismsNameFirst-Hispanic-Philippines": "iNamePrismsNameFirst-Hispanic-Philippines",
+    "iNamePrismsNameFirst-Hispanic-Spanish": "iNamePrismsNameFirst-Hispanic-Spanish",
+    "iNamePrismsNameFirst-Hispanic-Portuguese": "iNamePrismsNameFirst-Hispanic-Portuguese",
+    "iNamePrismsNameFirst-African-EastAfrican": "iNamePrismsNameFirst-African-EastAfrican",
+    "iNamePrismsNameFirst-African-WestAfrican": "iNamePrismsNameFirst-African-WestAfrican",
+    "iNamePrismsNameFirst-African-SouthAfrican": "iNamePrismsNameFirst-African-SouthAfrican",
+    "iNamePrismsNameFirst-EastAsian-Japan": "iNamePrismsNameFirst-EastAsian-Japan",
+    "iNamePrismsNameFirst-EastAsian-Chinese": "iNamePrismsNameFirst-EastAsian-Chinese",
+    "iNamePrismsNameFirst-EastAsian-South Korea": "iNamePrismsNameFirst-EastAsian-South Korea",
+    "iNamePrismsNameFirst-Muslim-Persian": "iNamePrismsNameFirst-Muslim-Persian",
+    "iNamePrismsNameFirst-Muslim-Maghreb": "iNamePrismsNameFirst-Muslim-Maghreb",
+    "iNamePrismsNameFirst-Muslim-Nubian": "iNamePrismsNameFirst-Muslim-Nubian",
+    "iNamePrismsNameFirst-Muslim-ArabianPeninsula": "iNamePrismsNameFirst-Muslim-ArabianPeninsula",
+    "iNamePrismsNameFirst-European-SouthSlavs": "iNamePrismsNameFirst-European-SouthSlavs",
+    "iNamePrismsNameFirst-European-Baltics": "iNamePrismsNameFirst-European-Baltics",
+    "iNamePrismsNameFirst-European-French": "iNamePrismsNameFirst-European-French",
+    "iNamePrismsNameFirst-European-Russian": "iNamePrismsNameFirst-European-Russian",
+    "iNamePrismsNameFirst-European-EastEuropean": "iNamePrismsNameFirst-European-EastEuropean",
+    "iNamePrismsNameFirst-European-German": "iNamePrismsNameFirst-European-German",
+    "iNamePrismsNameFirstLowercasedTwoPrace": "iNamePrismsNameFirstLowercasedTwoPrace",
+    "iNamePrismsNameFirstLowercasedHispanic": "iNamePrismsNameFirstLowercasedHispanic",
+    "iNamePrismsNameFirstLowercasedApi": "iNamePrismsNameFirstLowercasedApi",
+    "iNamePrismsNameFirstLowercasedBlack": "iNamePrismsNameFirstLowercasedBlack",
+    "iNamePrismsNameFirstLowercasedAsian": "iNamePrismsNameFirstLowercasedAsian",
+    "iNamePrismsNameFirstLowercasedWhite": "iNamePrismsNameFirstLowercasedWhite",
+    "iNamePrismsNameFirstLowercased-Jewish": "iNamePrismsNameFirstLowercased-Jewish",
+    "iNamePrismsNameFirstLowercased-Nordic-Finland": "iNamePrismsNameFirstLowercased-Nordic-Finland",
+    "iNamePrismsNameFirstLowercased-Greek": "iNamePrismsNameFirstLowercased-Greek",
+    "iNamePrismsNameFirstLowercased-SouthAsian": "iNamePrismsNameFirstLowercased-SouthAsian",
+    "iNamePrismsNameFirstLowercased-CelticEnglish": "iNamePrismsNameFirstLowercased-CelticEnglish",
+    "iNamePrismsNameFirstLowercased-Hispanic-Philippines": "iNamePrismsNameFirstLowercased-Hispanic-Philippines",
+    "iNamePrismsNameFirstLowercased-Hispanic-Spanish": "iNamePrismsNameFirstLowercased-Hispanic-Spanish",
+    "iNamePrismsNameFirstLowercased-Hispanic-Portuguese": "iNamePrismsNameFirstLowercased-Hispanic-Portuguese",
+    "iNamePrismsNameFirstLowercased-African-EastAfrican": "iNamePrismsNameFirstLowercased-African-EastAfrican",
+    "iNamePrismsNameFirstLowercased-African-WestAfrican": "iNamePrismsNameFirstLowercased-African-WestAfrican",
+    "iNamePrismsNameFirstLowercased-African-SouthAfrican": "iNamePrismsNameFirstLowercased-African-SouthAfrican",
+    "iNamePrismsNameFirstLowercased-EastAsian-Japan": "iNamePrismsNameFirstLowercased-EastAsian-Japan",
+    "iNamePrismsNameFirstLowercased-EastAsian-Chinese": "iNamePrismsNameFirstLowercased-EastAsian-Chinese",
+    "iNamePrismsNameFirstLowercased-EastAsian-South Korea": "iNamePrismsNameFirstLowercased-EastAsian-South Korea",
+    "iNamePrismsNameFirstLowercased-Muslim-Persian": "iNamePrismsNameFirstLowercased-Muslim-Persian",
+    "iNamePrismsNameFirstLowercased-Muslim-Maghreb": "iNamePrismsNameFirstLowercased-Muslim-Maghreb",
+    "iNamePrismsNameFirstLowercased-Muslim-Nubian": "iNamePrismsNameFirstLowercased-Muslim-Nubian",
+    "iNamePrismsNameFirstLowercased-Muslim-ArabianPeninsula": "iNamePrismsNameFirstLowercased-Muslim-ArabianPeninsula",
+    "iNamePrismsNameFirstLowercased-European-SouthSlavs": "iNamePrismsNameFirstLowercased-European-SouthSlavs",
+    "iNamePrismsNameFirstLowercased-European-Baltics": "iNamePrismsNameFirstLowercased-European-Baltics",
+    "iNamePrismsNameFirstLowercased-European-French": "iNamePrismsNameFirstLowercased-European-French",
+    "iNamePrismsNameFirstLowercased-European-Russian": "iNamePrismsNameFirstLowercased-European-Russian",
+    "iNamePrismsNameFirstLowercased-European-EastEuropean": "iNamePrismsNameFirstLowercased-European-EastEuropean",
+    "iNamePrismsNameFirstLowercased-European-German": "iNamePrismsNameFirstLowercased-European-German",
+    "NamsorsNameWithoutInitials-gender": "NamsorsNameWithoutInitials-gender",
+    "NamsorsNameWithoutInitials-country": "NamsorsNameWithoutInitials-country",
+    "NamsorsNameWithoutInitials-countryAlt": "NamsorsNameWithoutInitials-countryAlt",
+    "NamsorsNameWithoutInitials-script": "NamsorsNameWithoutInitials-script",
+    "NamsorsNameWithoutInitials-countryFirstName": "NamsorsNameWithoutInitials-countryFirstName",
+    "NamsorsNameWithoutInitials-countryLastName": "NamsorsNameWithoutInitials-countryLastName",
+    "NamsorsNameWithoutInitials-subRegion": "NamsorsNameWithoutInitials-subRegion",
+    "NamsorsNameWithoutInitials-region": "NamsorsNameWithoutInitials-region",
+    "NamsorsNameWithoutInitials-topRegion": "NamsorsNameWithoutInitials-topRegion",
+    "NamsorsNameWithoutInitials-countryName": "NamsorsNameWithoutInitials-countryName",
+    "NamsorsNameWithoutInitials-ethno": "NamsorsNameWithoutInitials-ethno",
+    "NamsorsNameWithoutInitials-ethnoAlt": "NamsorsNameWithoutInitials-ethnoAlt",
+    "NamsorsNameWithoutInitials-geoCountry": "NamsorsNameWithoutInitials-geoCountry",
+    "NamsorsNameWithoutInitials-geoCountryAlt": "NamsorsNameWithoutInitials-geoCountryAlt",
+    "NamsorsNameWithoutInitialsLowerCased-gender": "NamsorsNameWithoutInitialsLowerCased-gender",
+    "NamsorsNameWithoutInitialsLowerCased-country": "NamsorsNameWithoutInitialsLowerCased-country",
+    "NamsorsNameWithoutInitialsLowerCased-countryAlt": "NamsorsNameWithoutInitialsLowerCased-countryAlt",
+    "NamsorsNameWithoutInitialsLowerCased-script": "NamsorsNameWithoutInitialsLowerCased-script",
+    "NamsorsNameWithoutInitialsLowerCased-countryFirstName": "NamsorsNameWithoutInitialsLowerCased-countryFirstName",
+    "NamsorsNameWithoutInitialsLowerCased-countryLastName": "NamsorsNameWithoutInitialsLowerCased-countryLastName",
+    "NamsorsNameWithoutInitialsLowerCased-subRegion": "NamsorsNameWithoutInitialsLowerCased-subRegion",
+    "NamsorsNameWithoutInitialsLowerCased-region": "NamsorsNameWithoutInitialsLowerCased-region",
+    "NamsorsNameWithoutInitialsLowerCased-topRegion": "NamsorsNameWithoutInitialsLowerCased-topRegion",
+    "NamsorsNameWithoutInitialsLowerCased-countryName": "NamsorsNameWithoutInitialsLowerCased-countryName",
+    "NamsorsNameWithoutInitialsLowerCased-ethno": "NamsorsNameWithoutInitialsLowerCased-ethno",
+    "NamsorsNameWithoutInitialsLowerCased-ethnoAlt": "NamsorsNameWithoutInitialsLowerCased-ethnoAlt",
+    "NamsorsNameWithoutInitialsLowerCased-geoCountry": "NamsorsNameWithoutInitialsLowerCased-geoCountry",
+    "NamsorsNameWithoutInitialsLowerCased-geoCountryAlt": "NamsorsNameWithoutInitialsLowerCased-geoCountryAlt",
 };
 
 const sImagePrefix = 'https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/';
 const sOutFileLocation = __dirname + '/manually-scraped-results.csv';
+const sClassifierVarianceAnalysisOutFileLocation = __dirname + '/manually-scraped-results-classifiers.csv';
 
 main();
 
@@ -121,10 +348,16 @@ async function main() {
     .then(arroProcessedFiles => arroProcessedFiles
             .filter(oProcessedFile => oProcessedFile.sScrapedUserId)
          )
-    .then(arroProcessedFiles => utils.fpObjectsToCSV(arroProcessedFiles, {
-        oTitleLine,
-        sOutFileLocation,
-    }))
+    .then(arroProcessedFiles => {
+        utils.fpObjectsToCSV(arroProcessedFiles, {
+            oTitleLine,
+            sOutFileLocation,
+        })
+        utils.fpObjectsToCSV(arroProcessedFiles, {
+            oTitleLine: oClassifierVarianceAnalysisTitleLine,
+            sOutFileLocation: sClassifierVarianceAnalysisOutFileLocation,
+        })
+    })
     .catch(e => console.log('fpGlob error: ', e));
 
     await fpWriteFile(sGeneralCacheLocation, JSON.stringify(oGeneralCache), 'utf8')
@@ -371,6 +604,37 @@ async function fpGetKairosData(oRecord) {
     return Promise.resolve();
 }
 
+// ref: https://www.kairos.com/docs/getting-started
+// get credentials from your free account at https://developer.kairos.com/admin
+// copy fake-service-auth.json and fill in fields
+// obviously, I .gitignore the real service-auth.json
+async function fpGetKairosVariant(oRecord, sVariant) {
+    if (oRecord[sVariant]) {
+        if (oRecord.oCachedData) {
+            if (oRecord.oCachedData[sVariant + 'iKairosAge']) {
+                oRecord[sVariant + 'iKairosAge'] = oRecord.oCachedData[sVariant + 'iKairosAge'];
+                oRecord[sVariant + 'iKairosAsian'] = oRecord.oCachedData[sVariant + 'iKairosAsian'];
+                oRecord[sVariant + 'iKairosBlack'] = oRecord.oCachedData[sVariant + 'iKairosBlack'];
+                oRecord[sVariant + 'iKairosMaleConfidence'] = oRecord.oCachedData[sVariant + 'iKairosMaleConfidence'];
+                oRecord[sVariant + 'iKairosHispanic'] = oRecord.oCachedData[sVariant + 'iKairosHispanic'];
+                oRecord[sVariant + 'iKairosOtherEthnicity'] = oRecord.oCachedData[sVariant + 'iKairosOtherEthnicity'];
+                oRecord[sVariant + 'iKairosWhite'] = oRecord.oCachedData[sVariant + 'iKairosWhite'];
+            }
+            else if (!oRecord.oCachedData.bKairosImageRejected
+                     || (oRecord.oCachedData.bKairosImageRejected && oRecord.oCachedData.bForceNewKairosAttempt))
+            {
+                await fpNewKairosCallVariant(oRecord, 'sLinkedInImageUrl');
+            } else {
+                oRecord.bKairosImageRejected = true;
+            }
+        } else {
+            await fpNewKairosCallVariant(oRecord, 'sLinkedInImageUrl');
+        }
+    }
+
+    return Promise.resolve();
+}
+
 async function fpGetLinkedInData(oRecord) {
     let oLinkedInData;
     let sLinkedInDataLocation;
@@ -433,6 +697,8 @@ async function fpGetLinkedInData(oRecord) {
         oRecord.bLinkedInAccountClaimed = false;
         oRecord.bLinkedInAccountFound = false;
     }
+
+    if (oRecord.sLinkedInImageUrl) await fpGetKairosVariant(oRecord, 'sLinkedInImageUrl');
 
     return Promise.resolve();
 }
@@ -672,6 +938,52 @@ async function fpNewKairosCall(oRecord) {
         return Promise.resolve();
     })
     .catch(err => console.log('fpNewKairosCall.axios.post error: ', err));
+
+    return Promise.resolve();
+}
+
+async function fpNewKairosCallVariant(oRecord, sVariant) {
+    let oOptions = {
+        data: {
+            image: oRecord[sVariant]
+        },
+        headers: {
+            app_id: oServiceAuth.appid,
+            app_key: oServiceAuth.key,
+        },
+        method: 'POST',
+        url: 'http://api.kairos.com/detect',
+    };
+
+    console.log('Trying to get variant kairos data for: ' + oRecord[sVariant]);
+
+    await utils.fpWait(2000); // throttle a bit to be nice :)
+    await axios.request(oOptions)
+    .then(response => {
+        let _oKairosData = response &&
+            response.data &&
+            response.data.images &&
+            response.data.images.length &&
+            response.data.images[0].faces.length &&
+            response.data.images[0].faces[0].attributes;
+
+        if (response.data.Errors) {
+            oRecord[sVariant + 'bKairosImageRejected'] = true;
+            console.log('fpNewKairosCallVariant business error: ', response.data.Errors)
+        } else {
+            oRecord[sVariant + 'bKairosImageRejected'] = false;
+            oRecord[sVariant + 'iKairosAge'] = _oKairosData.age;
+            oRecord[sVariant + 'iKairosAsian'] = _oKairosData.asian;
+            oRecord[sVariant + 'iKairosBlack'] = _oKairosData.black;
+            oRecord[sVariant + 'iKairosMaleConfidence'] = _oKairosData.gender.maleConfidence;
+            oRecord[sVariant + 'iKairosHispanic'] = _oKairosData.hispanic;
+            oRecord[sVariant + 'iKairosOtherEthnicity'] = _oKairosData.other;
+            oRecord[sVariant + 'iKairosWhite'] = _oKairosData.white;
+        }
+
+        return Promise.resolve();
+    })
+    .catch(err => console.log('fpNewKairosCallVariant.axios.post error: ', err));
 
     return Promise.resolve();
 }
