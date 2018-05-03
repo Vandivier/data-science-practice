@@ -164,9 +164,16 @@ async function fpProcessRecord(sLocation) {
 
     oRecord.sNameAsReported = oRecord.sName;
     oRecord.sNameWithoutSuffix = oRecord.sName.split(',')[0];           // get rid of `, Jr.`, etc
-    oRecord.sNameWithoutInitials = oRecord.sNameWithoutSuffix.split('.')
+    oRecord.sNameWithoutInitials = oRecord.sNameWithoutSuffix
+        .replace('.', '')
+        .split(' ')
         .filter(s => s.length > 1)
-        .join('')
+        .filter((s, i, arr) => {
+            let bFirstName = (i === 0);
+            let bLastName = (i === arr.length - 1);
+            return bFirstName || bLastName;
+        })
+        .join(' ')
         .replace(/\s/g, ' ');                                           // good to remove middle initials, maybe improving augmentor data, bad for people with initials-as-name.
     oRecord.sNameWithoutInitialsLowerCased = oRecord.sNameWithoutInitials.toLowerCase();
     oRecord.sNameFirst = oRecord.sNameWithoutInitials
