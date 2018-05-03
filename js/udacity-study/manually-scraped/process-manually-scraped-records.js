@@ -566,28 +566,58 @@ async function fpGetNamsorData(oRecord, sVariant) {
 
     if (oRecord.oCachedData
         && oRecord.oCachedData[sVariantKey + '-gender']
-        || oGeneralCache[sUrl])
+        || oGeneralCache[sUrl + '-gender'])
     {
         oRecord[sVariantKey + '-gender'] = oRecord.oCachedData[sVariantKey + '-gender']
-            || oGeneralCache[sUrl];
+            || oGeneralCache[sUrl + '-gender'];
     } else {
         await fpNewNamsorGenderCall(oRecord, sVariantKey, sUrl);
     }
 
-    if (oRecord.oCachedData
-        && oRecord.oCachedData[sVariantKey + '-fakenews'])
-    {
-        oRecord[sVariantKey + 'fakenews'] = oRecord.oCachedData[sVariantKey + '-fakenews'];
-    } else {
-        await fpNewNamsorOriginCall(oRecord, sVariantKey, sVariant);
-    }
+    sUrl = 'https://api.namsor.com/onomastics/api/json/origin/' + sNamSorUriComponent;
 
     if (oRecord.oCachedData
-        && oRecord.oCachedData[sVariantKey + '-fakenews'])
+        && oRecord.oCachedData[sVariantKey + '-country']
+        || oGeneralCache[sUrl + '-country'])
     {
-        oRecord[sVariantKey + '-fakenews'] = oRecord.oCachedData[sVariantKey + '-fakenews'];
+            oRecord[sVariantKey + '-country'] = oRecord.oCachedData['country'];
+                || oGeneralCache[sUrl + '-country'];
+            oRecord[sVariantKey + '-countryAlt'] = oRecord.oCachedData['countryAlt'];
+                || oGeneralCache[sUrl + '-countryAlt'];
+            oRecord[sVariantKey + '-script'] = oRecord.oCachedData['script'];
+                || oGeneralCache[sUrl + '-script'];
+            oRecord[sVariantKey + '-countryFirstName'] = oRecord.oCachedData['countryFirstName'];
+                || oGeneralCache[sUrl + '-countryFirstName'];
+            oRecord[sVariantKey + '-countryLastName'] = oRecord.oCachedData['countryLastName'];
+                || oGeneralCache[sUrl + '-countryLastName'];
+            oRecord[sVariantKey + '-subRegion'] = oRecord.oCachedData['subRegion'];
+                || oGeneralCache[sUrl + '-subRegion'];
+            oRecord[sVariantKey + '-region'] = oRecord.oCachedData['region'];
+                || oGeneralCache[sUrl + '-region'];
+            oRecord[sVariantKey + '-topRegion'] = oRecord.oCachedData['topRegion'];
+                || oGeneralCache[sUrl + '-topRegion'];
+            oRecord[sVariantKey + '-countryName'] = oRecord.oCachedData['countryName'];
+                || oGeneralCache[sUrl + '-countryName'];
     } else {
-        await fpNewNamsorDiasporaCall(oRecord, sVariantKey, sVariant);
+        await fpNewNamsorOriginCall(oRecord, sVariantKey, sUrl);
+    }
+
+    sUrl = 'https://api.namsor.com/onomastics/api/json/diaspora/' + sNamSorUriComponent;
+
+    if (oRecord.oCachedData
+        && oRecord.oCachedData[sVariantKey + '-ethno']
+        || oGeneralCache[sUrl + '-ethno'])
+    {
+        oRecord[sVariantKey + '-ethno'] = _oResponseData['ethno'];
+            || oGeneralCache[sUrl + '-ethno'];
+        oRecord[sVariantKey + '-ethnoAlt'] = _oResponseData['ethnoAlt'];
+            || oGeneralCache[sUrl + '-ethnoAlt'];
+        oRecord[sVariantKey + '-geoCountry'] = _oResponseData['geoCountry'];
+            || oGeneralCache[sUrl + '-geoCountry'];
+        oRecord[sVariantKey + '-geoCountryAlt'] = _oResponseData['geoCountryAlt'];
+            || oGeneralCache[sUrl + '-geoCountryAlt'];
+    } else {
+        await fpNewNamsorDiasporaCall(oRecord, sVariantKey, sUrl);
     }
 
     return Promise.resolve();
@@ -768,7 +798,7 @@ async function fpNewNamsorGenderCall(oRecord, sVariantKey, sUrl) {
         url: sUrl,
     };
 
-    console.log('fpNewNamsorGenderCall for: ' + oRecord.sScrapedUserId);
+    console.log('fpNewNamsorGenderCall for: ' + sUrl);
 
     await utils.fpWait(2000); // throttle a bit to be nice :)
     await axios.request(oOptions)
@@ -778,7 +808,7 @@ async function fpNewNamsorGenderCall(oRecord, sVariantKey, sUrl) {
 
         if (response.data['gender']) {
             oRecord[sVariantKey + '-gender'] = _oResponseData['gender'];
-            oGeneralCache[sUrl] = _oResponseData['gender'];
+            oGeneralCache[sUrl + '-gender'] = _oResponseData['gender'];
         } else {
             console.log('fpNewNamsorGenderCall invalid response data or error', response.data);
         }
@@ -790,19 +820,97 @@ async function fpNewNamsorGenderCall(oRecord, sVariantKey, sUrl) {
     return Promise.resolve();
 }
 
-async function fpNewNamsorGenderWithCountryCall(oRecord, sVariantKey, sVariant, sNamSorUriComponent) {
+async function fpNewNamsorGenderWithCountryCall(oRecord, sVariantKey, sUrl) {
     
 }
 
-async function fpNewNamsorOriginCall(oRecord, sVariantKey, sVariant, sNamSorUriComponent) {
-    
+async function fpNewNamsorOriginCall(oRecord, sVariantKey, sUrl) {
+    let oOptions = {
+        headers: {
+            'X-Channel-Secret': oServiceAuth.namsor_secret,
+            'X-Channel-User': oServiceAuth.namsor_user,
+        },
+        method: 'GET',
+        url: sUrl,
+    };
+
+    console.log('fpNewNamsorOriginCall for: ' + sUrl);
+
+    await utils.fpWait(2000); // throttle a bit to be nice :)
+    await axios.request(oOptions)
+    .then(response => {
+        let _oResponseData = response &&
+            response.data;
+
+        if (response.data['country']) {
+            oRecord[sVariantKey + '-country'] = _oResponseData['country'];
+            oGeneralCache[sVariantKey + '-country'] = _oResponseData['country'];
+            oRecord[sVariantKey + '-countryAlt'] = _oResponseData['countryAlt'];
+            oGeneralCache[sVariantKey + '-countryAlt'] = _oResponseData['countryAlt'];
+            oRecord[sVariantKey + '-script'] = _oResponseData['script'];
+            oGeneralCache[sVariantKey + '-script'] = _oResponseData['script'];
+            oRecord[sVariantKey + '-countryFirstName'] = _oResponseData['countryFirstName'];
+            oGeneralCache[sVariantKey + '-countryFirstName'] = _oResponseData['countryFirstName'];
+            oRecord[sVariantKey + '-countryLastName'] = _oResponseData['countryLastName'];
+            oGeneralCache[sVariantKey + '-countryLastName'] = _oResponseData['countryLastName'];
+            oRecord[sVariantKey + '-subRegion'] = _oResponseData['subRegion'];
+            oGeneralCache[sVariantKey + '-subRegion'] = _oResponseData['subRegion'];
+            oRecord[sVariantKey + '-region'] = _oResponseData['region'];
+            oGeneralCache[sVariantKey + '-region'] = _oResponseData['region'];
+            oRecord[sVariantKey + '-topRegion'] = _oResponseData['topRegion'];
+            oGeneralCache[sVariantKey + '-topRegion'] = _oResponseData['topRegion'];
+            oRecord[sVariantKey + '-countryName'] = _oResponseData['countryName'];
+            oGeneralCache[sVariantKey + '-countryName'] = _oResponseData['countryName'];
+        } else {
+            console.log('fpNewNamsorOriginCall invalid response data or error', response.data);
+        }
+
+        return Promise.resolve();
+    })
+    .catch(err => console.log('fpNewNamsorOriginCall.axios error: ', err));
+
+    return Promise.resolve();
 }
 
-async function fpNewNamsorDiasporaCall(oRecord, sVariantKey, sVariant, sNamSorUriComponent) {
-    
+async function fpNewNamsorDiasporaCall(oRecord, sVariantKey, sUrl) {
+    let oOptions = {
+        headers: {
+            'X-Channel-Secret': oServiceAuth.namsor_secret,
+            'X-Channel-User': oServiceAuth.namsor_user,
+        },
+        method: 'GET',
+        url: sUrl,
+    };
+
+    console.log('fpNewNamsorDiasporaCall for: ' + sUrl);
+
+    await utils.fpWait(2000); // throttle a bit to be nice :)
+    await axios.request(oOptions)
+    .then(response => {
+        let _oResponseData = response &&
+            response.data;
+
+        if (response.data['ethno']) {
+            oRecord[sVariantKey + '-ethno'] = _oResponseData['ethno'];
+            oGeneralCache[sVariantKey + '-ethno'] = _oResponseData['ethno'];
+            oRecord[sVariantKey + '-ethnoAlt'] = _oResponseData['ethnoAlt'];
+            oGeneralCache[sVariantKey + '-ethnoAlt'] = _oResponseData['ethnoAlt'];
+            oRecord[sVariantKey + '-geoCountry'] = _oResponseData['geoCountry'];
+            oGeneralCache[sVariantKey + '-geoCountry'] = _oResponseData['geoCountry'];
+            oRecord[sVariantKey + '-geoCountryAlt'] = _oResponseData['geoCountryAlt'];
+            oGeneralCache[sVariantKey + '-geoCountryAlt'] = _oResponseData['geoCountryAlt'];
+        } else {
+            console.log('fpNewNamsorDiasporaCall invalid response data or error', response.data);
+        }
+
+        return Promise.resolve();
+    })
+    .catch(err => console.log('fpNewNamsorDiasporaCall.axios error: ', err));
+
+    return Promise.resolve();
 }
 
-async function fpNewNamsorDiasporaWithCountryCall(oRecord, sVariantKey, sVariant, sNamSorUriComponent) {
+async function fpNewNamsorDiasporaWithCountryCall(oRecord, sVariantKey, sUrl) {
     
 }
 
