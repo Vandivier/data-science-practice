@@ -49,3 +49,5 @@ Temporary Items
 node_modules
 js/earhart-fellows/non-adjacent-sponsor.txt
 *service-auth.json
+*- processed/*
+*general-cache.json
