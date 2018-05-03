@@ -575,28 +575,30 @@ async function fpGetNamsorData(oRecord, sVariant) {
     }
 
     sUrl = 'https://api.namsor.com/onomastics/api/json/origin/' + sNamSorUriComponent;
+    console.log(oGeneralCache);
+    console.log('is cached: ' + oGeneralCache[sUrl + '-country'])
 
     if (oRecord.oCachedData
         && oRecord.oCachedData[sVariantKey + '-country']
         || oGeneralCache[sUrl + '-country'])
     {
-            oRecord[sVariantKey + '-country'] = oRecord.oCachedData['country'];
+            oRecord[sVariantKey + '-country'] = oRecord.oCachedData['country']
                 || oGeneralCache[sUrl + '-country'];
-            oRecord[sVariantKey + '-countryAlt'] = oRecord.oCachedData['countryAlt'];
+            oRecord[sVariantKey + '-countryAlt'] = oRecord.oCachedData['countryAlt']
                 || oGeneralCache[sUrl + '-countryAlt'];
-            oRecord[sVariantKey + '-script'] = oRecord.oCachedData['script'];
+            oRecord[sVariantKey + '-script'] = oRecord.oCachedData['script']
                 || oGeneralCache[sUrl + '-script'];
-            oRecord[sVariantKey + '-countryFirstName'] = oRecord.oCachedData['countryFirstName'];
+            oRecord[sVariantKey + '-countryFirstName'] = oRecord.oCachedData['countryFirstName']
                 || oGeneralCache[sUrl + '-countryFirstName'];
-            oRecord[sVariantKey + '-countryLastName'] = oRecord.oCachedData['countryLastName'];
+            oRecord[sVariantKey + '-countryLastName'] = oRecord.oCachedData['countryLastName']
                 || oGeneralCache[sUrl + '-countryLastName'];
-            oRecord[sVariantKey + '-subRegion'] = oRecord.oCachedData['subRegion'];
+            oRecord[sVariantKey + '-subRegion'] = oRecord.oCachedData['subRegion']
                 || oGeneralCache[sUrl + '-subRegion'];
-            oRecord[sVariantKey + '-region'] = oRecord.oCachedData['region'];
+            oRecord[sVariantKey + '-region'] = oRecord.oCachedData['region']
                 || oGeneralCache[sUrl + '-region'];
-            oRecord[sVariantKey + '-topRegion'] = oRecord.oCachedData['topRegion'];
+            oRecord[sVariantKey + '-topRegion'] = oRecord.oCachedData['topRegion']
                 || oGeneralCache[sUrl + '-topRegion'];
-            oRecord[sVariantKey + '-countryName'] = oRecord.oCachedData['countryName'];
+            oRecord[sVariantKey + '-countryName'] = oRecord.oCachedData['countryName']
                 || oGeneralCache[sUrl + '-countryName'];
     } else {
         await fpNewNamsorOriginCall(oRecord, sVariantKey, sUrl);
@@ -608,13 +610,13 @@ async function fpGetNamsorData(oRecord, sVariant) {
         && oRecord.oCachedData[sVariantKey + '-ethno']
         || oGeneralCache[sUrl + '-ethno'])
     {
-        oRecord[sVariantKey + '-ethno'] = _oResponseData['ethno'];
+        oRecord[sVariantKey + '-ethno'] = oRecord.oCachedData['ethno']
             || oGeneralCache[sUrl + '-ethno'];
-        oRecord[sVariantKey + '-ethnoAlt'] = _oResponseData['ethnoAlt'];
+        oRecord[sVariantKey + '-ethnoAlt'] = oRecord.oCachedData['ethnoAlt']
             || oGeneralCache[sUrl + '-ethnoAlt'];
-        oRecord[sVariantKey + '-geoCountry'] = _oResponseData['geoCountry'];
+        oRecord[sVariantKey + '-geoCountry'] = oRecord.oCachedData['geoCountry']
             || oGeneralCache[sUrl + '-geoCountry'];
-        oRecord[sVariantKey + '-geoCountryAlt'] = _oResponseData['geoCountryAlt'];
+        oRecord[sVariantKey + '-geoCountryAlt'] = oRecord.oCachedData['geoCountryAlt']
             || oGeneralCache[sUrl + '-geoCountryAlt'];
     } else {
         await fpNewNamsorDiasporaCall(oRecord, sVariantKey, sUrl);
@@ -844,23 +846,23 @@ async function fpNewNamsorOriginCall(oRecord, sVariantKey, sUrl) {
 
         if (response.data['country']) {
             oRecord[sVariantKey + '-country'] = _oResponseData['country'];
-            oGeneralCache[sVariantKey + '-country'] = _oResponseData['country'];
+            oGeneralCache[sUrl + '-country'] = _oResponseData['country'];
             oRecord[sVariantKey + '-countryAlt'] = _oResponseData['countryAlt'];
-            oGeneralCache[sVariantKey + '-countryAlt'] = _oResponseData['countryAlt'];
+            oGeneralCache[sUrl + '-countryAlt'] = _oResponseData['countryAlt'];
             oRecord[sVariantKey + '-script'] = _oResponseData['script'];
-            oGeneralCache[sVariantKey + '-script'] = _oResponseData['script'];
+            oGeneralCache[sUrl + '-script'] = _oResponseData['script'];
             oRecord[sVariantKey + '-countryFirstName'] = _oResponseData['countryFirstName'];
-            oGeneralCache[sVariantKey + '-countryFirstName'] = _oResponseData['countryFirstName'];
+            oGeneralCache[sUrl + '-countryFirstName'] = _oResponseData['countryFirstName'];
             oRecord[sVariantKey + '-countryLastName'] = _oResponseData['countryLastName'];
-            oGeneralCache[sVariantKey + '-countryLastName'] = _oResponseData['countryLastName'];
+            oGeneralCache[sUrl + '-countryLastName'] = _oResponseData['countryLastName'];
             oRecord[sVariantKey + '-subRegion'] = _oResponseData['subRegion'];
-            oGeneralCache[sVariantKey + '-subRegion'] = _oResponseData['subRegion'];
+            oGeneralCache[sUrl + '-subRegion'] = _oResponseData['subRegion'];
             oRecord[sVariantKey + '-region'] = _oResponseData['region'];
-            oGeneralCache[sVariantKey + '-region'] = _oResponseData['region'];
+            oGeneralCache[sUrl + '-region'] = _oResponseData['region'];
             oRecord[sVariantKey + '-topRegion'] = _oResponseData['topRegion'];
-            oGeneralCache[sVariantKey + '-topRegion'] = _oResponseData['topRegion'];
+            oGeneralCache[sUrl + '-topRegion'] = _oResponseData['topRegion'];
             oRecord[sVariantKey + '-countryName'] = _oResponseData['countryName'];
-            oGeneralCache[sVariantKey + '-countryName'] = _oResponseData['countryName'];
+            oGeneralCache[sUrl + '-countryName'] = _oResponseData['countryName'];
         } else {
             console.log('fpNewNamsorOriginCall invalid response data or error', response.data);
         }
@@ -892,13 +894,13 @@ async function fpNewNamsorDiasporaCall(oRecord, sVariantKey, sUrl) {
 
         if (response.data['ethno']) {
             oRecord[sVariantKey + '-ethno'] = _oResponseData['ethno'];
-            oGeneralCache[sVariantKey + '-ethno'] = _oResponseData['ethno'];
+            oGeneralCache[sUrl + '-ethno'] = _oResponseData['ethno'];
             oRecord[sVariantKey + '-ethnoAlt'] = _oResponseData['ethnoAlt'];
-            oGeneralCache[sVariantKey + '-ethnoAlt'] = _oResponseData['ethnoAlt'];
+            oGeneralCache[sUrl + '-ethnoAlt'] = _oResponseData['ethnoAlt'];
             oRecord[sVariantKey + '-geoCountry'] = _oResponseData['geoCountry'];
-            oGeneralCache[sVariantKey + '-geoCountry'] = _oResponseData['geoCountry'];
+            oGeneralCache[sUrl + '-geoCountry'] = _oResponseData['geoCountry'];
             oRecord[sVariantKey + '-geoCountryAlt'] = _oResponseData['geoCountryAlt'];
-            oGeneralCache[sVariantKey + '-geoCountryAlt'] = _oResponseData['geoCountryAlt'];
+            oGeneralCache[sUrl + '-geoCountryAlt'] = _oResponseData['geoCountryAlt'];
         } else {
             console.log('fpNewNamsorDiasporaCall invalid response data or error', response.data);
         }
