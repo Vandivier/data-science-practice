@@ -138,8 +138,8 @@ async function fpProcessRecord(sLocation) {
         .then(sRecord => JSON.parse(sRecord));
 
     if (!oRecord.sScrapedUserId
-        //)                                           // it's not a Udacity data file. maybe should be called sUdacityUserId
-        || oRecord.sScrapedUserId !== 'alejandro')    // adam1 check to limit API usage during development
+        )                                           // it's not a Udacity data file. maybe should be called sUdacityUserId
+        //|| oRecord.sScrapedUserId !== 'alejandro')    // adam1 check to limit API usage during development
     {  
         return Promise.resolve({});                 // return empty obj which will get filtered before csv writing
     }
@@ -575,8 +575,6 @@ async function fpGetNamsorData(oRecord, sVariant) {
     }
 
     sUrl = 'https://api.namsor.com/onomastics/api/json/origin/' + sNamSorUriComponent;
-    console.log(oGeneralCache);
-    console.log('is cached: ' + oGeneralCache[sUrl + '-country'])
 
     if (oRecord.oCachedData
         && oRecord.oCachedData[sVariantKey + '-country']
