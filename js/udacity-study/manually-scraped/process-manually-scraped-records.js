@@ -85,13 +85,13 @@ const oClassifierVarianceAnalysisTitleLine = {
     "iKairosHispanic": "Kairos Hispanic",
     "iKairosOtherEthnicity": "Kairos Other Ethnicity",
     "iKairosWhite": "Kairos White",
-    "sLinkedInUrliKairosAge": "Kairos Age",
-    "sLinkedInUrliKairosAsian": "Kairos Asian",
-    "sLinkedInUrliKairosBlack": "Kairos Black",
-    "sLinkedInUrliKairosMaleConfidence": "Kairos Male Confidence",
-    "sLinkedInUrliKairosHispanic": "Kairos Hispanic",
-    "sLinkedInUrliKairosOtherEthnicity": "Kairos Other Ethnicity",
-    "sLinkedInUrliKairosWhite": "Kairos White",
+    "sLinkedInUrliKairosAge": "sLinkedInUrliKairosAge",
+    "sLinkedInUrliKairosAsian": "sLinkedInUrliKairosAsian",
+    "sLinkedInUrliKairosBlack": "sLinkedInUrliKairosBlack",
+    "sLinkedInUrliKairosMaleConfidence": "sLinkedInUrliKairosMaleConfidence",
+    "sLinkedInUrliKairosHispanic": "sLinkedInUrliKairosHispanic",
+    "sLinkedInUrliKairosOtherEthnicity": "sLinkedInUrliKairosOtherEthnicity",
+    "sLinkedInUrliKairosWhite": "sLinkedInUrliKairosWhite",
     "iNamePrismsNameAsReportedTwoPrace": "iNamePrismsNameAsReportedTwoPrace",
     "iNamePrismsNameAsReportedHispanic": "iNamePrismsNameAsReportedHispanic",
     "iNamePrismsNameAsReportedApi": "iNamePrismsNameAsReportedApi",
@@ -620,12 +620,12 @@ async function fpGetKairosVariant(oRecord, sVariant) {
                 oRecord[sVariant + 'iKairosOtherEthnicity'] = oRecord.oCachedData[sVariant + 'iKairosOtherEthnicity'];
                 oRecord[sVariant + 'iKairosWhite'] = oRecord.oCachedData[sVariant + 'iKairosWhite'];
             }
-            else if (!oRecord.oCachedData.bKairosImageRejected
-                     || (oRecord.oCachedData.bKairosImageRejected && oRecord.oCachedData.bForceNewKairosAttempt))
+            else if (!oRecord.oCachedData[sVariant + 'bKairosImageRejected']
+                     || (oRecord.oCachedData[sVariant + 'bKairosImageRejected'] && oRecord.oCachedData[sVariant + 'bForceNewKairosAttempt']))
             {
                 await fpNewKairosCallVariant(oRecord, 'sLinkedInImageUrl');
             } else {
-                oRecord.bKairosImageRejected = true;
+                oRecord[sVariant + 'bKairosImageRejected'] = true;
             }
         } else {
             await fpNewKairosCallVariant(oRecord, 'sLinkedInImageUrl');
