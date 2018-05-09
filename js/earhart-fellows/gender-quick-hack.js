@@ -18,7 +18,7 @@ const utils = require('ella-utils');
 const OSEOL = require('os').EOL;
 const oTitleLine = {
     'iInputRow': 'inputrownumber',
-    'sGenderizedName': 'recipientgenderizedname',
+    'sGenderizedName': 'genderizedname',
     'sGender': 'gender',
     'sGenderProbability': 'genderprobability', // TODO: iGenderProbability ?
 };

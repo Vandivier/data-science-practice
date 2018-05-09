@@ -2912,59 +2912,161 @@
     "Shuman": {
         "gender": null
     },
-    "Glen": {},
-    "Armen": {},
-    "Francois": {},
-    "Leland": {},
-    "Claes": {},
-    "Williard": {},
-    "Gerhart": {},
-    "Arleigh": {},
-    "Wilfred": {},
-    "Fritz": {},
-    "Gottfried": {},
-    "Morton": {},
+    "Glen": {
+        "gender": "male",
+        "probability": 0.98
+    },
+    "Armen": {
+        "gender": "male",
+        "probability": 0.96
+    },
+    "Francois": {
+        "gender": "male",
+        "probability": 1
+    },
+    "Leland": {
+        "gender": "male",
+        "probability": 0.95
+    },
+    "Claes": {
+        "gender": "male",
+        "probability": 0.96
+    },
+    "Williard": {
+        "gender": "male",
+        "probability": 1
+    },
+    "Gerhart": {
+        "gender": null
+    },
+    "Arleigh": {
+        "gender": "female",
+        "probability": 1
+    },
+    "Wilfred": {
+        "gender": "male",
+        "probability": 1
+    },
+    "Fritz": {
+        "gender": "male",
+        "probability": 0.93
+    },
+    "Gottfried": {
+        "gender": "male",
+        "probability": 1
+    },
+    "Morton": {
+        "gender": "male",
+        "probability": 1
+    },
     "Erwin": {
         "gender": "male",
         "probability": 0.98
     },
-    "Clare": {},
-    "Hendrik": {},
-    "Cotton": {},
+    "Clare": {
+        "gender": "female",
+        "probability": 1
+    },
+    "Hendrik": {
+        "gender": "male",
+        "probability": 1
+    },
+    "Cotton": {
+        "gender": "female",
+        "probability": 0.67
+    },
     "Klaus": {
         "gender": "male",
         "probability": 0.98
     },
-    "Goetz": {},
-    "Stephan": {},
-    "Yale": {},
-    "Vigen": {},
-    "Harlan": {},
-    "Oswald": {},
-    "Procter": {},
-    "Chelcie": {},
-    "Deil": {},
-    "Musa": {},
-    "Nolan": {},
-    "Ludwig": {},
+    "Goetz": {
+        "gender": null
+    },
+    "Stephan": {
+        "gender": "male",
+        "probability": 1
+    },
+    "Yale": {
+        "gender": "male",
+        "probability": 1
+    },
+    "Vigen": {
+        "gender": "male",
+        "probability": 1
+    },
+    "Harlan": {
+        "gender": "male",
+        "probability": 1
+    },
+    "Oswald": {
+        "gender": "male",
+        "probability": 1
+    },
+    "Procter": {
+        "gender": null
+    },
+    "Chelcie": {
+        "gender": "female",
+        "probability": 1
+    },
+    "Deil": {
+        "gender": null
+    },
+    "Musa": {
+        "gender": "male",
+        "probability": 0.96
+    },
+    "Nolan": {
+        "gender": "male",
+        "probability": 1
+    },
+    "Ludwig": {
+        "gender": "male",
+        "probability": 1
+    },
     "Marshall": {
         "gender": "male",
         "probability": 0.99
     },
-    "Wilson": {},
-    "Earhart": {},
-    "Clifton": {},
-    "Merrill": {},
-    "Willmoore": {},
-    "Janusz": {},
-    "Wilton": {},
+    "Wilson": {
+        "gender": "male",
+        "probability": 0.99
+    },
+    "Earhart": {
+        "gender": null
+    },
+    "Clifton": {
+        "gender": "male",
+        "probability": 1
+    },
+    "Merrill": {
+        "gender": "male",
+        "probability": 0.67
+    },
+    "Willmoore": {
+        "gender": null
+    },
+    "Janusz": {
+        "gender": "male",
+        "probability": 1
+    },
+    "Wilton": {
+        "gender": "male",
+        "probability": 1
+    },
     "and": {},
     "Clarence": {
         "gender": "male",
         "probability": 0.95
     },
-    "Emerson": {},
-    "Forrest": {},
+    "Emerson": {
+        "gender": "male",
+        "probability": 0.99
+    },
+    "Forrest": {
+        "gender": "male",
+        "probability": 0.98
+    },
     "Alfed": {},
     "Burton": {
         "gender": "male",
@@ -2978,21 +3080,47 @@
         "gender": "male",
         "probability": 0.96
     },
-    "Norma": {},
+    "Norma": {
+        "gender": "female",
+        "probability": 1
+    },
     "Dell": {},
-    "Friedrich": {},
+    "Friedrich": {
+        "gender": "male",
+        "probability": 1
+    },
     "Ellis": {
         "gender": "male",
         "probability": 0.63
     },
-    "Seymour": {},
+    "Seymour": {
+        "gender": "male",
+        "probability": 1
+    },
     "Sandoz": {},
-    "Ferdinand": {},
-    "Attiat": {},
-    "Melvin": {},
-    "Wilhelm": {},
-    "Chiaki": {},
-    "Arlen": {},
+    "Ferdinand": {
+        "gender": "male",
+        "probability": 1
+    },
+    "Attiat": {
+        "gender": null
+    },
+    "Melvin": {
+        "gender": "male",
+        "probability": 0.98
+    },
+    "Wilhelm": {
+        "gender": "male",
+        "probability": 1
+    },
+    "Chiaki": {
+        "gender": "female",
+        "probability": 0.75
+    },
+    "Arlen": {
+        "gender": "female",
+        "probability": 0.52
+    },
     "Claudio": {
         "gender": "male",
         "probability": 1
@@ -3067,7 +3195,10 @@
         "gender": "male",
         "probability": 1
     },
-    "Desire": {},
+    "Desire": {
+        "gender": "female",
+        "probability": 0.89
+    },
     "Ricardo": {
         "gender": "male",
         "probability": 1
@@ -3076,10 +3207,21 @@
         "gender": "male",
         "probability": 0.99
     },
-    "Othel": {},
-    "Gardner": {},
-    "Hamilton": {},
-    "Barrie": {},
+    "Othel": {
+        "gender": null
+    },
+    "Gardner": {
+        "gender": "male",
+        "probability": 1
+    },
+    "Hamilton": {
+        "gender": "male",
+        "probability": 1
+    },
+    "Barrie": {
+        "gender": "male",
+        "probability": 0.95
+    },
     "P.": {},
     "Raphael": {
         "gender": "male",
