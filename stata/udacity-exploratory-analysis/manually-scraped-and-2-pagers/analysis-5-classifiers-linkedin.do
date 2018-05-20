@@ -16,7 +16,7 @@ tab whatisyourgender, gen(_gender)
 gen _age = whatisyourage
 
 // finding 1. 34% of people do not believe lastnamereflects
-sum _lastnamereflects
+sum _lastnamereflects*
 
 // finding 2. no significant relations in small sample.
 reg _lastnamereflects*1 _gender*  _region*
