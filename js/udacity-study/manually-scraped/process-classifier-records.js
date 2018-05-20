@@ -72,12 +72,7 @@ async function main() {
     });
     */
 
-    //await fpGlob('/d/github/data-science-practice/stata/udacity-exploratory-analysis/classifier-survey-data/linkedin-data/*.txt', options)
-    await fpGlob('manually-scraped/profile-pics/*.jpg', options)
-    .then(arrsFiles => {
-        console.log(arrsFiles)
-    });
-/*
+    await fpGlob('../../../../data-science-practice/stata/udacity-exploratory-analysis/classifier-survey-data/linkedin-data/*.txt', options)
     .then(arrsFiles => {
         console.log(arrsFiles)
         arrsFiles.map(s => {
@@ -99,11 +94,9 @@ async function main() {
         })
     })
     .catch(e => console.log('fpGlob error: ', e));
-    
 
     await fpWriteFile(sGeneralCacheLocation, JSON.stringify(oGeneralCache), 'utf8')
         .catch(e => console.log('oGeneralCache fpWriteFile error: ', e));
-        */
 
     console.log('Program completed.');
 }
