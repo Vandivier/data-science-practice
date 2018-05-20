@@ -52,8 +52,7 @@ const oTitleLine = {
 };
 
 const sImagePrefix = 'https://raw.githubusercontent.com/Vandivier/data-science-practice/tree/master/stata/udacity-exploratory-analysis/classifier-survey-data/linkedin-pictures/';
-const sOutFileLocation = __dirname + '/classifier-via-linkedin-pooled-and-processed.csv';
-const sClassifierVarianceAnalysisOutFileLocation = __dirname + '/manually-scraped-results-classifiers.csv';
+const sOutFileLocation = '/GitHub/data-science-practice/stata/udacity-exploratory-analysis/classifier-survey-data/linkedin-data/classifier-via-linkedin-pooled-and-processed.csv';
 
 main();
 
@@ -62,7 +61,8 @@ async function main() {
 
     //await utils.fpWait(5000); // for chrome debugger to attach
 
-    await fpGlob('data-science-practice/stata/udacity-exploratory-analysis/classifier-survey-data/linkedin-pictures/*.jpg', options)
+    /*
+    await fpGlob('/d/github/data-science-practice/stata/udacity-exploratory-analysis/classifier-survey-data/linkedin-pictures/*.jpg', options)
     .then(arrsFiles => {
         arrsCapturedProfilePictures = arrsFiles.map(s => {
             let arrs = s.split('/');
@@ -70,9 +70,16 @@ async function main() {
             return arrs[0];
         });
     });
+    */
 
-    await fpGlob('data-science-practice/stata/udacity-exploratory-analysis/classifier-survey-data/linkedin-data/*.txt', options)
+    //await fpGlob('/d/github/data-science-practice/stata/udacity-exploratory-analysis/classifier-survey-data/linkedin-data/*.txt', options)
+    await fpGlob('manually-scraped/profile-pics/*.jpg', options)
     .then(arrsFiles => {
+        console.log(arrsFiles)
+    });
+/*
+    .then(arrsFiles => {
+        console.log(arrsFiles)
         arrsFiles.map(s => {
             let arrs = s.split('/');
             arrs = arrs[arrs.length - 1].split('.txt');
@@ -90,15 +97,13 @@ async function main() {
             oTitleLine,
             sOutFileLocation,
         })
-        utils.fpObjectsToCSV(arroProcessedFiles, {
-            oTitleLine: oClassifierVarianceAnalysisTitleLine,
-            sOutFileLocation: sClassifierVarianceAnalysisOutFileLocation,
-        })
     })
     .catch(e => console.log('fpGlob error: ', e));
+    
 
     await fpWriteFile(sGeneralCacheLocation, JSON.stringify(oGeneralCache), 'utf8')
         .catch(e => console.log('oGeneralCache fpWriteFile error: ', e));
+        */
 
     console.log('Program completed.');
 }
@@ -124,8 +129,6 @@ async function fpProcessRecord(sLocation) {
     if (!fs.existsSync(oRecord.sOutputDirectory)) {                     // TODO: add to ella-utils
         fs.mkdirSync(oRecord.sOutputDirectory);
     }
-
-    oRecord.bNameTruncated = oRecord.sName.split(',').length > 1;       // has `, Jr.`, etc. TODO: maybe remove. it can be made in stata via equality check
 
     oRecord.sNameAsReported = oRecord.sName;
     oRecord.sNameWithoutSuffix = oRecord.sName.split(',')[0];           // get rid of `, Jr.`, etc
