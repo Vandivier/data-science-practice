@@ -16,9 +16,7 @@ const fpReadDir = util.promisify(fs.readdir);
 const fpWriteFile = util.promisify(fs.writeFile);
 
 let arrsCapturedProfilePictures = [];
-let arrsNameVariants = ['sNameAsReported'];
 let arrsNamSorNameVariants = ['sNameWithoutInitials', 'sNameWithoutInitialsLowerCased'];
-
 let sGeneralCacheLocation = __dirname + '/general-cache.json';
 
 const oGeneralCache = JSON.parse(fs.readFileSync(sGeneralCacheLocation, 'utf8'));
@@ -37,20 +35,6 @@ const oTitleLine = {
     "sLinkedInUrliKairosHispanic": "sLinkedInUrliKairosHispanic",
     "sLinkedInUrliKairosOtherEthnicity": "sLinkedInUrliKairosOtherEthnicity",
     "sLinkedInUrliKairosWhite": "sLinkedInUrliKairosWhite",
-    "NamsorsNameWithoutInitials-gender": "NamsorsNameWithoutInitials-gender",
-    "NamsorsNameWithoutInitials-country": "NamsorsNameWithoutInitials-country",
-    "NamsorsNameWithoutInitials-countryAlt": "NamsorsNameWithoutInitials-countryAlt",
-    "NamsorsNameWithoutInitials-script": "NamsorsNameWithoutInitials-script",
-    "NamsorsNameWithoutInitials-countryFirstName": "NamsorsNameWithoutInitials-countryFirstName",
-    "NamsorsNameWithoutInitials-countryLastName": "NamsorsNameWithoutInitials-countryLastName",
-    "NamsorsNameWithoutInitials-subRegion": "NamsorsNameWithoutInitials-subRegion",
-    "NamsorsNameWithoutInitials-region": "NamsorsNameWithoutInitials-region",
-    "NamsorsNameWithoutInitials-topRegion": "NamsorsNameWithoutInitials-topRegion",
-    "NamsorsNameWithoutInitials-countryName": "NamsorsNameWithoutInitials-countryName",
-    "NamsorsNameWithoutInitials-ethno": "NamsorsNameWithoutInitials-ethno",
-    "NamsorsNameWithoutInitials-ethnoAlt": "NamsorsNameWithoutInitials-ethnoAlt",
-    "NamsorsNameWithoutInitials-geoCountry": "NamsorsNameWithoutInitials-geoCountry",
-    "NamsorsNameWithoutInitials-geoCountryAlt": "NamsorsNameWithoutInitials-geoCountryAlt",
     "NamsorsNameWithoutInitialsLowerCased-gender": "NamsorsNameWithoutInitialsLowerCased-gender",
     "NamsorsNameWithoutInitialsLowerCased-country": "NamsorsNameWithoutInitialsLowerCased-country",
     "NamsorsNameWithoutInitialsLowerCased-countryAlt": "NamsorsNameWithoutInitialsLowerCased-countryAlt",
@@ -67,8 +51,7 @@ const oTitleLine = {
     "NamsorsNameWithoutInitialsLowerCased-geoCountryAlt": "NamsorsNameWithoutInitialsLowerCased-geoCountryAlt",
 };
 
-const sImagePrefix = 'https://raw.githubusercontent.com/Vandivier/data-science-practice/master/js/udacity-study/manually-scraped/profile-pics/';
-const sOutFileLocation = __dirname + '/classifier-via-linkedin-pooled-and-processed.csv';
+const sImagePrefix = 'https://raw.githubusercontent.com/Vandivier/data-science-practice/tree/master/stata/udacity-exploratory-analysis/classifier-survey-data/linkedin-pictures/';
 const sOutFileLocation = __dirname + '/classifier-via-linkedin-pooled-and-processed.csv';
 const sClassifierVarianceAnalysisOutFileLocation = __dirname + '/manually-scraped-results-classifiers.csv';
 
@@ -79,7 +62,7 @@ async function main() {
 
     //await utils.fpWait(5000); // for chrome debugger to attach
 
-    await fpGlob('manually-scraped/profile-pics/*.jpg', options)
+    await fpGlob('data-science-practice/stata/udacity-exploratory-analysis/classifier-survey-data/linkedin-pictures/*.jpg', options)
     .then(arrsFiles => {
         arrsCapturedProfilePictures = arrsFiles.map(s => {
             let arrs = s.split('/');
@@ -88,31 +71,19 @@ async function main() {
         });
     });
 
-    await fpGlob('manually-scraped/github-*-sample/*.txt', options)
-    .then(arrsFiles => {
-        arrsFiles.map(s => {
-            let arrs = s.split('/');
-            arrs = arrs[arrs.length - 1].split('.txt');
-            oGitHubIds[arrs[0]] = s;
-            return; // TODO: do I want to return a Promise?
-        });
-    });
-
-    await fpGlob('manually-scraped/linkedin-*-sample/*.txt', options)
+    await fpGlob('data-science-practice/stata/udacity-exploratory-analysis/classifier-survey-data/linkedin-data/*.txt', options)
     .then(arrsFiles => {
         arrsFiles.map(s => {
             let arrs = s.split('/');
             arrs = arrs[arrs.length - 1].split('.txt');
             oLinkedInIds[arrs[0].toLowerCase()] = s;
-            return; // TODO: do I want to return a Promise?
+            return;
         });
-    });
 
-    // for each udacity file
-    await fpGlob('manually-scraped/**/*.txt', options)
-    .then(arrsFiles => utils.forEachReverseAsyncPhased(arrsFiles, fpProcessRecord))
+        return utils.forEachReverseAsyncPhased(arrsFiles, fpProcessRecord);
+    })
     .then(arroProcessedFiles => arroProcessedFiles
-            .filter(oProcessedFile => oProcessedFile.sScrapedUserId)
+            .filter(oProcessedFile => oProcessedFile.sLinkedInPath)
          )
     .then(arroProcessedFiles => {
         utils.fpObjectsToCSV(arroProcessedFiles, {
@@ -136,23 +107,18 @@ async function fpProcessRecord(sLocation) {
     let oRecord = await fpReadFile(sLocation)
         .then(sRecord => JSON.parse(sRecord));
 
-    if (!oRecord.sScrapedUserId
-        )                                           // it's not a Udacity data file. maybe should be called sUdacityUserId
-        //|| oRecord.sScrapedUserId !== 'alejandro')    // adam1 check to limit API usage during development
-    {  
+    if (!oRecord.sLinkedInPath) {
         return Promise.resolve({});                 // return empty obj which will get filtered before csv writing
     }
 
     oRecord.sImageOnGithubUrl = sImagePrefix
-            + oRecord.sScrapedUserId
+            + oRecord.sLinkedInPath
             + '.jpg';
-    oRecord.sInputLocation = sLocation;
-    oRecord.sInputBaseName = path.basename(path.dirname(sLocation));    // ref: https://stackoverflow.com/questions/42956127/get-parent-directory-name-in-node-js
     oRecord.sOutputDirectory = path.dirname(sLocation)
             + ' - processed';
     oRecord.sOutputLocation = oRecord.sOutputDirectory
             + '/'
-            + oRecord.sScrapedUserId
+            + oRecord.sLinkedInPath
             + '.json';
 
     if (!fs.existsSync(oRecord.sOutputDirectory)) {                     // TODO: add to ella-utils
@@ -181,9 +147,9 @@ async function fpProcessRecord(sLocation) {
 
     await fpGetRecordCache(oRecord);
 
-    if (arrsCapturedProfilePictures.includes(oRecord.sScrapedUserId)) {
+    if (arrsCapturedProfilePictures.includes(oRecord.sLinkedInPath)) {
         oRecord.bKairosImageSubmitted = true;
-        console.log('getting kairos npm for ' + oRecord.sScrapedUserId);
+        console.log('getting kairos npm for ' + oRecord.sLinkedInPath);
         await fpGetKairosData(oRecord);
     }
 
@@ -296,39 +262,6 @@ async function fpGetRecordCache(oRecord) {
     } catch (e) {
         // just let oCachedDate be null
     }
-}
-
-async function fpGetGithubData(oRecord) {
-    let sGitHubId = oRecord.sGitHubUrl
-        && oRecord.sGitHubUrl.split('github.com/')[1];
-    let oGitHubData;
-    let sGitHubDataLocation;
-
-    sGitHubId = sGitHubId && sGitHubId.split('/')[0];
-    sGitHubDataLocation = oGitHubIds[sGitHubId];
-
-    if (sGitHubId) {
-        oRecord.bGithubAccountClaimed = true;
-
-        if (sGitHubDataLocation) {
-            oGitHubData = await fpReadFile(sGitHubDataLocation)
-                .then(sRecord => JSON.parse(sRecord));
-
-            oRecord.sGithubUserName = oGitHubData.sGithubUserName;
-            oRecord.sGithubEmail = oGitHubData.sGithubEmail;
-            oRecord.sGithubAnnualCommits = oGitHubData.sGithubAnnualCommits.replace(',','');
-            oRecord.sGithubRepos = oGitHubData.sGithubRepos.replace(',','');
-            oRecord.sGithubFollowers = oGitHubData.sGithubFollowers.replace(',','');
-            oRecord.bGitHubAccountFound = true;
-        } else {
-            oRecord.bGitHubAccountFound = false;
-        }
-    } else {
-        oRecord.bGithubAccountClaimed = false;
-        oRecord.bGitHubAccountFound = false;
-    }
-
-    return Promise.resolve();
 }
 
 // ref: https://www.kairos.com/docs/getting-started
@@ -666,7 +599,7 @@ async function fpNewKairosCall(oRecord) {
         url: 'http://api.kairos.com/detect',
     };
 
-    console.log('Trying to get kairos data for: ' + oRecord.sScrapedUserId);
+    console.log('Trying to get kairos data for: ' + oRecord.sLinkedInPath);
 
     await utils.fpWait(2000); // throttle a bit to be nice :)
     await axios.request(oOptions)
@@ -752,7 +685,7 @@ async function fpNewNamePrismEthnicityCall(oRecord, sVariantKey, sVariant) {
         url: 'http://www.name-prism.com/api_token/eth/json/' + oServiceAuth.name_prism_token + '/' + encodeURIComponent(oRecord.sNameAsReported),
     };
 
-    console.log('fpNewNamePrismEthnicityCall for: ' + oRecord.sScrapedUserId);
+    console.log('fpNewNamePrismEthnicityCall for: ' + oRecord.sLinkedInPath);
 
     await utils.fpWait(2000); // throttle a bit to be nice :)
     await axios.request(oOptions)
@@ -784,7 +717,7 @@ async function fpNewNamePrismNationalityCall(oRecord, sVariantKey, sVariant) {
         url: 'http://www.name-prism.com/api_token/nat/json/' + oServiceAuth.name_prism_token + '/' + encodeURIComponent(oRecord.sNameAsReported),
     };
 
-    console.log('fpNewNamePrismNationalityCall for: ' + oRecord.sScrapedUserId);
+    console.log('fpNewNamePrismNationalityCall for: ' + oRecord.sLinkedInPath);
 
     await utils.fpWait(2000); // throttle a bit to be nice :)
     await axios.request(oOptions)
