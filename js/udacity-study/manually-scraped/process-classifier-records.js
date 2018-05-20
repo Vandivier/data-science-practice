@@ -19,6 +19,8 @@ let arrsCapturedProfilePictures = [];
 let arrsNamSorNameVariants = ['sNameWithoutInitials', 'sNameWithoutInitialsLowerCased'];
 let sGeneralCacheLocation = __dirname + '/general-cache.json';
 
+var bForceAllKairosAttempts = true;
+
 const oGeneralCache = JSON.parse(fs.readFileSync(sGeneralCacheLocation, 'utf8'));
 let oGitHubIds = {};
 let oLinkedInIds = {};
@@ -51,7 +53,7 @@ const oTitleLine = {
     "NamsorsNameWithoutInitialsLowerCased-geoCountryAlt": "NamsorsNameWithoutInitialsLowerCased-geoCountryAlt",
 };
 
-const sImagePrefix = 'https://raw.githubusercontent.com/Vandivier/data-science-practice/tree/master/stata/udacity-exploratory-analysis/classifier-survey-data/linkedin-pictures/';
+const sImagePrefix = 'https://raw.githubusercontent.com/Vandivier/data-science-practice/master/stata/udacity-exploratory-analysis/classifier-survey-data/linkedin-pictures/';
 const sOutFileLocation = '/GitHub/data-science-practice/stata/udacity-exploratory-analysis/classifier-survey-data/linkedin-data/classifier-via-linkedin-pooled-and-processed.csv';
 
 main();
@@ -61,8 +63,7 @@ async function main() {
 
     //await utils.fpWait(5000); // for chrome debugger to attach
 
-    /*
-    await fpGlob('/d/github/data-science-practice/stata/udacity-exploratory-analysis/classifier-survey-data/linkedin-pictures/*.jpg', options)
+    await fpGlob('../../../../data-science-practice/stata/udacity-exploratory-analysis/classifier-survey-data/linkedin-pictures/*.jpg', options)
     .then(arrsFiles => {
         arrsCapturedProfilePictures = arrsFiles.map(s => {
             let arrs = s.split('/');
@@ -70,11 +71,9 @@ async function main() {
             return arrs[0];
         });
     });
-    */
 
     await fpGlob('../../../../data-science-practice/stata/udacity-exploratory-analysis/classifier-survey-data/linkedin-data/*.txt', options)
     .then(arrsFiles => {
-        console.log(arrsFiles)
         arrsFiles.map(s => {
             let arrs = s.split('/');
             arrs = arrs[arrs.length - 1].split('.txt');
@@ -123,8 +122,8 @@ async function fpProcessRecord(sLocation) {
         fs.mkdirSync(oRecord.sOutputDirectory);
     }
 
-    oRecord.sNameAsReported = oRecord.sName;
-    oRecord.sNameWithoutSuffix = oRecord.sName.split(',')[0];           // get rid of `, Jr.`, etc
+    oRecord.sNameAsReported = oRecord.sLinkedInFullName;
+    oRecord.sNameWithoutSuffix = oRecord.sLinkedInFullName.split(',')[0];           // get rid of `, Jr.`, etc
     oRecord.sNameWithoutInitials = oRecord.sNameWithoutSuffix
         .replace('.', '')
         .split(' ')
@@ -145,7 +144,7 @@ async function fpProcessRecord(sLocation) {
 
     if (arrsCapturedProfilePictures.includes(oRecord.sLinkedInPath)) {
         oRecord.bKairosImageSubmitted = true;
-        console.log('getting kairos npm for ' + oRecord.sLinkedInPath);
+        console.log('getting kairos data for ' + oRecord.sLinkedInPath);
         await fpGetKairosData(oRecord);
     }
 
@@ -265,7 +264,8 @@ async function fpGetRecordCache(oRecord) {
 // copy fake-service-auth.json and fill in fields
 // obviously, I .gitignore the real service-auth.json
 async function fpGetKairosData(oRecord) {
-    if (oRecord.sImageUrl) {
+    if (oRecord.sLinkedInImageUrl) {
+        /* temporarily ignore cache
         if (oRecord.oCachedData
             && oRecord.oCachedData.iKairosAge)
         {
@@ -277,13 +277,15 @@ async function fpGetKairosData(oRecord) {
             oRecord.iKairosOtherEthnicity = oRecord.oCachedData.iKairosOtherEthnicity;
             oRecord.iKairosWhite = oRecord.oCachedData.iKairosWhite;
         } else if (!oRecord.oCachedData.bKairosImageRejected
-                   || (oRecord.oCachedData.bKairosImageRejected && oRecord.oCachedData.bForceNewKairosAttempt))
+                   || (oRecord.oCachedData.bKairosImageRejected && oRecord.oCachedData.bForceNewKairosAttempt)
+                   || bForceAllKairosAttempts)
         {
             await fpNewKairosCall(oRecord);
         } else {
             oRecord.bKairosImageRejected = true;
         }
     } else {
+        */
         await fpNewKairosCall(oRecord);
     }
 
@@ -385,126 +387,6 @@ async function fpGetLinkedInData(oRecord) {
     }
 
     if (oRecord.sLinkedInImageUrl) await fpGetKairosVariant(oRecord, 'sLinkedInImageUrl');
-
-    return Promise.resolve();
-}
-
-/* example output for eth:
-Jewish,0.0000
-Nordic-Finland,0.0000
-Nordic-Scandinavian-Denmark,0.0185
-Nordic-Scandinavian-Sweden,0.0000
-Nordic-Scandinavian-Norway,0.0092
-Greek,0.0033
-SouthAsian,0.0001
-CelticEnglish,0.0223
-Hispanic-Philippines,0.0022
-Hispanic-Spanish,0.0016
-Hispanic-Portuguese,0.0030
-African-EastAfrican,0.0000
-African-WestAfrican,0.0000
-African-SouthAfrican,0.0001
-EastAsian-Malay-Indonesia,0.0000
-EastAsian-Indochina-Thailand,0.0000
-EastAsian-Indochina-Vietnam,0.0000
-EastAsian-Japan,0.0000
-EastAsian-Chinese,0.0003
-EastAsian-Malay-Malaysia,0.0002
-EastAsian-South Korea,0.0000
-EastAsian-Indochina-Cambodia,0.0000
-EastAsian-Indochina-Myanmar,0.0000
-Muslim-Persian,0.0000
-Muslim-Maghreb,0.0000
-Muslim-Turkic-CentralAsian,0.0000
-Muslim-Pakistanis-Bangladesh,0.0000
-Muslim-Nubian,0.0000
-Muslim-Pakistanis-Pakistan,0.0000
-Muslim-ArabianPeninsula,0.0000
-Muslim-Turkic-Turkey,0.0000
-European-SouthSlavs,0.0000
-European-Italian-Italy,0.0000
-European-Baltics,0.0002
-European-Italian-Romania,0.0000
-European-French,0.0029
-European-Russian,0.0000
-European-EastEuropean,0.0000
-European-German,0.9360
-*/
-// see: Ye-et-al.-Unknown-Nationality-Classification-Using-Name-Embeddings.pdf
-// note: be sure to check continous-to-boolean coercion during analysis; it may provide gains from sampling
-async function fpGetNamePrismData(oRecord, sVariant) {
-    let sVariantKey = 'iNamePrism' + sVariant;
-
-    if (oRecord.oCachedData
-        && oRecord.oCachedData[sVariantKey + 'TwoPrace'])
-    {
-        oRecord[sVariantKey + 'TwoPrace'] = oRecord.oCachedData[sVariantKey + 'TwoPrace'];
-        oRecord[sVariantKey + 'Hispanic'] = oRecord.oCachedData[sVariantKey + 'Hispanic'];
-        oRecord[sVariantKey + 'Api'] = oRecord.oCachedData[sVariantKey + 'Api'];
-        oRecord[sVariantKey + 'Black'] = oRecord.oCachedData[sVariantKey + 'Black'];
-        oRecord[sVariantKey + 'Asian'] = oRecord.oCachedData[sVariantKey + 'Asian'];
-        oRecord[sVariantKey + 'White'] = oRecord.oCachedData[sVariantKey + 'White'];
-    } else {
-        await fpNewNamePrismEthnicityCall(oRecord, sVariantKey, sVariant);
-    }
-
-    if (oRecord.oCachedData
-        && oRecord.oCachedData[sVariantKey + '-Jewish'])
-    {
-        oRecord[sVariantKey + '-Jewish'] = oRecord.oCachedData[sVariantKey + '-Jewish'];
-        oRecord[sVariantKey + '-Nordic-Finland'] = oRecord.oCachedData[sVariantKey + '-Nordic-Finland'];
-        oRecord[sVariantKey + '-Nordic-Scandinavian-Denmark'] = oRecord.oCachedData[sVariantKey + '-Nordic-Scandinavian-Denmark'];
-        oRecord[sVariantKey + '-Nordic-Scandinavian-Sweden'] = oRecord.oCachedData[sVariantKey + '-Nordic-Scandinavian-Sweden'];
-        oRecord[sVariantKey + '-Nordic-Scandinavian-Norway'] = oRecord.oCachedData[sVariantKey + '-Nordic-Scandinavian-Norway'];
-        oRecord[sVariantKey + '-Nordic'] = oRecord.oCachedData[sVariantKey + '-Nordic'];
-
-        oRecord[sVariantKey + '-Greek'] = oRecord.oCachedData[sVariantKey + '-Greek'];
-        oRecord[sVariantKey + '-SouthAsian'] = oRecord.oCachedData[sVariantKey + '-SouthAsian'];
-        oRecord[sVariantKey + '-CelticEnglish'] = oRecord.oCachedData[sVariantKey + '-CelticEnglish'];
-
-        oRecord[sVariantKey + '-Hispanic-Philippines'] = oRecord.oCachedData[sVariantKey + '-Hispanic-Philippines'];
-        oRecord[sVariantKey + '-Hispanic-Spanish'] = oRecord.oCachedData[sVariantKey + '-Hispanic-Spanish'];
-        oRecord[sVariantKey + '-Hispanic-Portuguese'] = oRecord.oCachedData[sVariantKey + '-Hispanic-Portuguese'];
-        oRecord[sVariantKey + '-Hispanic'] = oRecord.oCachedData[sVariantKey + '-Hispanic'];
-
-        oRecord[sVariantKey + '-African-EastAfrican'] = oRecord.oCachedData[sVariantKey + '-African-EastAfrican'];
-        oRecord[sVariantKey + '-African-WestAfrican'] = oRecord.oCachedData[sVariantKey + '-African-WestAfrican'];
-        oRecord[sVariantKey + '-African-SouthAfrican'] = oRecord.oCachedData[sVariantKey + '-African-SouthAfrican'];
-        oRecord[sVariantKey + '-African'] =  oRecord.oCachedData[sVariantKey + '-African'];
-
-        oRecord[sVariantKey + '-EastAsian-Malay-Indonesia'] = oRecord.oCachedData[sVariantKey + '-EastAsian-Malay-Indonesia'];
-        oRecord[sVariantKey + '-EastAsian-Indochina-Thailand'] = oRecord.oCachedData[sVariantKey + '-EastAsian-Indochina-Thailand'];
-        oRecord[sVariantKey + '-EastAsian-Indochina-Vietnam'] = oRecord.oCachedData[sVariantKey + '-EastAsian-Indochina-Vietnam'];
-        oRecord[sVariantKey + '-EastAsian-Japan'] = oRecord.oCachedData[sVariantKey + '-EastAsian-Japan'];
-        oRecord[sVariantKey + '-EastAsian-Chinese'] = oRecord.oCachedData[sVariantKey + '-EastAsian-Chinese'];
-        oRecord[sVariantKey + '-EastAsian-Malay-Malaysia'] = oRecord.oCachedData[sVariantKey + '-EastAsian-Malay-Malaysia'];
-        oRecord[sVariantKey + '-EastAsian-South Korea'] = oRecord.oCachedData[sVariantKey + '-EastAsian-South Korea'];
-        oRecord[sVariantKey + '-EastAsian-Indochina-Cambodi'] = oRecord.oCachedData[sVariantKey + '-EastAsian-Indochina-Cambodi'];
-        oRecord[sVariantKey + '-EastAsian-Indochina-Myanmar'] = oRecord.oCachedData[sVariantKey + '-EastAsian-Indochina-Myanmar'];
-        oRecord[sVariantKey + '-EastAsian'] = oRecord.oCachedData[sVariantKey + '-EastAsian'];
-
-        oRecord[sVariantKey + '-Muslim-Persian'] = oRecord.oCachedData[sVariantKey + '-Muslim-Persian'];
-        oRecord[sVariantKey + '-Muslim-Maghreb'] = oRecord.oCachedData[sVariantKey + '-Muslim-Maghreb'];
-        oRecord[sVariantKey + '-Muslim-Turkic-CentralAsian'] = oRecord.oCachedData[sVariantKey + '-Muslim-Turkic-CentralAsian'];
-        oRecord[sVariantKey + '-Muslim-Pakistanis-Bangladesh'] = oRecord.oCachedData[sVariantKey + '-Muslim-Pakistanis-Bangladesh'];
-        oRecord[sVariantKey + '-Muslim-Nubian'] = oRecord.oCachedData[sVariantKey + '-Muslim-Nubian'];
-        oRecord[sVariantKey + '-Muslim-Pakistanis-Pakistan'] = oRecord.oCachedData[sVariantKey + '-Muslim-Pakistanis-Pakistan'];
-        oRecord[sVariantKey + '-Muslim-ArabianPeninsula'] = oRecord.oCachedData[sVariantKey + '-Muslim-ArabianPeninsula'];
-        oRecord[sVariantKey + '-Muslim-Turkic-Turkey'] = oRecord.oCachedData[sVariantKey + '-Muslim-Turkic-Turkey'];
-        oRecord[sVariantKey + '-Muslim'] = oRecord.oCachedData[sVariantKey + '-Muslim'];
-
-        oRecord[sVariantKey + '-European-SouthSlavs'] = oRecord.oCachedData[sVariantKey + '-European-SouthSlavs'];
-        oRecord[sVariantKey + '-European-Italian-Italy'] = oRecord.oCachedData[sVariantKey + '-European-Italian-Italy'];
-        oRecord[sVariantKey + '-European-Baltics'] = oRecord.oCachedData[sVariantKey + '-European-Baltics'];
-        oRecord[sVariantKey + '-European-Italian-Romania'] = oRecord.oCachedData[sVariantKey + '-European-Italian-Romania'];
-        oRecord[sVariantKey + '-European-French'] = oRecord.oCachedData[sVariantKey + '-European-French'];
-        oRecord[sVariantKey + '-European-Russian'] = oRecord.oCachedData[sVariantKey + '-European-Russian'];
-        oRecord[sVariantKey + '-European-EastEuropean'] = oRecord.oCachedData[sVariantKey + '-European-EastEuropean'];
-        oRecord[sVariantKey + '-European-German'] = oRecord.oCachedData[sVariantKey + '-European-German'];
-        oRecord[sVariantKey + '-European'] = oRecord.oCachedData[sVariantKey + '-European'];
-    } else {
-        await fpNewNamePrismNationalityCall(oRecord, sVariantKey, sVariant);
-    }
 
     return Promise.resolve();
 }
@@ -707,92 +589,6 @@ async function fpNewNamePrismEthnicityCall(oRecord, sVariantKey, sVariant) {
     return Promise.resolve();
 }
 
-async function fpNewNamePrismNationalityCall(oRecord, sVariantKey, sVariant) {
-    let oOptions = {
-        method: 'GET',
-        url: 'http://www.name-prism.com/api_token/nat/json/' + oServiceAuth.name_prism_token + '/' + encodeURIComponent(oRecord.sNameAsReported),
-    };
-
-    console.log('fpNewNamePrismNationalityCall for: ' + oRecord.sLinkedInPath);
-
-    await utils.fpWait(2000); // throttle a bit to be nice :)
-    await axios.request(oOptions)
-    .then(response => {
-        let _oResponseData = response &&
-            response.data;
-
-        if (response.data['Jewish']) {
-            // replace commas in key names with dash
-            // ref: https://stackoverflow.com/questions/37982805/javascript-how-to-loop-and-change-key-name
-            Object.keys(response.data).forEach(function(sKey) {
-              if (sKey.includes(',')) {
-                  response.data[sKey.replace(',','-')] = response.data[sKey];
-                  delete response.data[sKey];
-              }
-            });
-
-            oRecord[sVariantKey + '-Jewish'] = _oResponseData['Jewish'];
-            oRecord[sVariantKey + '-Nordic-Finland'] = _oResponseData['Nordic-Finland'];
-            oRecord[sVariantKey + '-Nordic-Scandinavian-Denmark'] = _oResponseData['Nordic-Scandinavian-Denmark'];
-            oRecord[sVariantKey + '-Nordic-Scandinavian-Sweden'] = _oResponseData['Nordic-Scandinavian-Sweden'];
-            oRecord[sVariantKey + '-Nordic-Scandinavian-Norway'] = _oResponseData['Nordic-Scandinavian-Norway'];
-            oRecord[sVariantKey + '-Nordic'] = _oResponseData['Nordic'];
-
-            oRecord[sVariantKey + '-Greek'] = _oResponseData['Greek'];
-            oRecord[sVariantKey + '-SouthAsian'] = _oResponseData['SouthAsian'];
-            oRecord[sVariantKey + '-CelticEnglish'] = _oResponseData['CelticEnglish'];
-
-            oRecord[sVariantKey + '-Hispanic-Philippines'] = _oResponseData['Hispanic-Philippines'];
-            oRecord[sVariantKey + '-Hispanic-Spanish'] = _oResponseData['Hispanic-Spanish'];
-            oRecord[sVariantKey + '-Hispanic-Portuguese'] = _oResponseData['Hispanic-Portuguese'];
-            oRecord[sVariantKey + '-Hispanic'] = _oResponseData['Hispanic'];
-
-            oRecord[sVariantKey + '-African-EastAfrican'] = _oResponseData['African-EastAfrican'];
-            oRecord[sVariantKey + '-African-WestAfrican'] = _oResponseData['African-WestAfrican'];
-            oRecord[sVariantKey + '-African-SouthAfrican'] = _oResponseData['African-SouthAfrican'];
-            oRecord[sVariantKey + '-African'] =  _oResponseData['African'];
-
-            oRecord[sVariantKey + '-EastAsian-Malay-Indonesia'] = _oResponseData['EastAsian-Malay-Indonesia'];
-            oRecord[sVariantKey + '-EastAsian-Indochina-Thailand'] = _oResponseData['EastAsian-Indochina-Thailand'];
-            oRecord[sVariantKey + '-EastAsian-Indochina-Vietnam'] = _oResponseData['EastAsian-Indochina-Vietnam'];
-            oRecord[sVariantKey + '-EastAsian-Japan'] = _oResponseData['EastAsian-Japan'];
-            oRecord[sVariantKey + '-EastAsian-Chinese'] = _oResponseData['EastAsian-Chinese'];
-            oRecord[sVariantKey + '-EastAsian-Malay-Malaysia'] = _oResponseData['EastAsian-Malay-Malaysia'];
-            oRecord[sVariantKey + '-EastAsian-South Korea'] = _oResponseData['EastAsian-South Korea'];
-            oRecord[sVariantKey + '-EastAsian-Indochina-Cambodi'] = _oResponseData['EastAsian-Indochina-Cambodi'];
-            oRecord[sVariantKey + '-EastAsian-Indochina-Myanmar'] = _oResponseData['EastAsian-Indochina-Myanmar'];
-            oRecord[sVariantKey + '-EastAsian'] = _oResponseData['EastAsian'];
-
-            oRecord[sVariantKey + '-Muslim-Persian'] = _oResponseData['Muslim-Persian'];
-            oRecord[sVariantKey + '-Muslim-Maghreb'] = _oResponseData['Muslim-Maghreb'];
-            oRecord[sVariantKey + '-Muslim-Turkic-CentralAsian'] = _oResponseData['Muslim-Turkic-CentralAsian'];
-            oRecord[sVariantKey + '-Muslim-Pakistanis-Bangladesh'] = _oResponseData['Muslim-Pakistanis-Bangladesh'];
-            oRecord[sVariantKey + '-Muslim-Nubian'] = _oResponseData['Muslim-Nubian'];
-            oRecord[sVariantKey + '-Muslim-Pakistanis-Pakistan'] = _oResponseData['Muslim-Pakistanis-Pakistan'];
-            oRecord[sVariantKey + '-Muslim-ArabianPeninsula'] = _oResponseData['Muslim-ArabianPeninsula'];
-            oRecord[sVariantKey + '-Muslim-Turkic-Turkey'] = _oResponseData['Muslim-Turkic-Turkey'];
-            oRecord[sVariantKey + '-Muslim'] = _oResponseData['Muslim'];
-
-            oRecord[sVariantKey + '-European-SouthSlavs'] = _oResponseData['European-SouthSlavs'];
-            oRecord[sVariantKey + '-European-Italian-Italy'] = _oResponseData['European-Italian-Italy'];
-            oRecord[sVariantKey + '-European-Baltics'] = _oResponseData['European-Baltics'];
-            oRecord[sVariantKey + '-European-Italian-Romania'] = _oResponseData['European-Italian-Romania'];
-            oRecord[sVariantKey + '-European-French'] = _oResponseData['European-French'];
-            oRecord[sVariantKey + '-European-Russian'] = _oResponseData['European-Russian'];
-            oRecord[sVariantKey + '-European-EastEuropean'] = _oResponseData['European-EastEuropean'];
-            oRecord[sVariantKey + '-European-German'] = _oResponseData['European-German'];
-            oRecord[sVariantKey + '-European'] = _oResponseData['European'];
-        } else {
-            console.log('fpNewNamePrismNationalityCall invalid response data or error', response.data);
-        }
-
-        return Promise.resolve();
-    })
-    .catch(err => console.log('fpNewNamePrismNationalityCall.axios.post error: ', err));
-
-    return Promise.resolve();
-}
-
 async function fpNewNamsorGenderCall(oRecord, sVariantKey, sUrl) {
     let oOptions = {
         headers: {
@@ -823,100 +619,6 @@ async function fpNewNamsorGenderCall(oRecord, sVariantKey, sUrl) {
     .catch(err => console.log('fpNewNamsorGenderCall.axios error: ', err));
 
     return Promise.resolve();
-}
-
-async function fpNewNamsorGenderWithCountryCall(oRecord, sVariantKey, sUrl) {
-    
-}
-
-async function fpNewNamsorOriginCall(oRecord, sVariantKey, sUrl) {
-    let oOptions = {
-        headers: {
-            'X-Channel-Secret': oServiceAuth.namsor_secret,
-            'X-Channel-User': oServiceAuth.namsor_user,
-        },
-        method: 'GET',
-        url: sUrl,
-    };
-
-    console.log('fpNewNamsorOriginCall for: ' + sUrl);
-
-    await utils.fpWait(2000); // throttle a bit to be nice :)
-    await axios.request(oOptions)
-    .then(response => {
-        let _oResponseData = response &&
-            response.data;
-
-        if (response.data['country']) {
-            oRecord[sVariantKey + '-country'] = _oResponseData['country'];
-            oGeneralCache[sUrl + '-country'] = _oResponseData['country'];
-            oRecord[sVariantKey + '-countryAlt'] = _oResponseData['countryAlt'];
-            oGeneralCache[sUrl + '-countryAlt'] = _oResponseData['countryAlt'];
-            oRecord[sVariantKey + '-script'] = _oResponseData['script'];
-            oGeneralCache[sUrl + '-script'] = _oResponseData['script'];
-            oRecord[sVariantKey + '-countryFirstName'] = _oResponseData['countryFirstName'];
-            oGeneralCache[sUrl + '-countryFirstName'] = _oResponseData['countryFirstName'];
-            oRecord[sVariantKey + '-countryLastName'] = _oResponseData['countryLastName'];
-            oGeneralCache[sUrl + '-countryLastName'] = _oResponseData['countryLastName'];
-            oRecord[sVariantKey + '-subRegion'] = _oResponseData['subRegion'];
-            oGeneralCache[sUrl + '-subRegion'] = _oResponseData['subRegion'];
-            oRecord[sVariantKey + '-region'] = _oResponseData['region'];
-            oGeneralCache[sUrl + '-region'] = _oResponseData['region'];
-            oRecord[sVariantKey + '-topRegion'] = _oResponseData['topRegion'];
-            oGeneralCache[sUrl + '-topRegion'] = _oResponseData['topRegion'];
-            oRecord[sVariantKey + '-countryName'] = _oResponseData['countryName'];
-            oGeneralCache[sUrl + '-countryName'] = _oResponseData['countryName'];
-        } else {
-            console.log('fpNewNamsorOriginCall invalid response data or error', response.data);
-        }
-
-        return Promise.resolve();
-    })
-    .catch(err => console.log('fpNewNamsorOriginCall.axios error: ', err));
-
-    return Promise.resolve();
-}
-
-async function fpNewNamsorDiasporaCall(oRecord, sVariantKey, sUrl) {
-    let oOptions = {
-        headers: {
-            'X-Channel-Secret': oServiceAuth.namsor_secret,
-            'X-Channel-User': oServiceAuth.namsor_user,
-        },
-        method: 'GET',
-        url: sUrl,
-    };
-
-    console.log('fpNewNamsorDiasporaCall for: ' + sUrl);
-
-    await utils.fpWait(2000); // throttle a bit to be nice :)
-    await axios.request(oOptions)
-    .then(response => {
-        let _oResponseData = response &&
-            response.data;
-
-        if (response.data['ethno']) {
-            oRecord[sVariantKey + '-ethno'] = _oResponseData['ethno'];
-            oGeneralCache[sUrl + '-ethno'] = _oResponseData['ethno'];
-            oRecord[sVariantKey + '-ethnoAlt'] = _oResponseData['ethnoAlt'];
-            oGeneralCache[sUrl + '-ethnoAlt'] = _oResponseData['ethnoAlt'];
-            oRecord[sVariantKey + '-geoCountry'] = _oResponseData['geoCountry'];
-            oGeneralCache[sUrl + '-geoCountry'] = _oResponseData['geoCountry'];
-            oRecord[sVariantKey + '-geoCountryAlt'] = _oResponseData['geoCountryAlt'];
-            oGeneralCache[sUrl + '-geoCountryAlt'] = _oResponseData['geoCountryAlt'];
-        } else {
-            console.log('fpNewNamsorDiasporaCall invalid response data or error', response.data);
-        }
-
-        return Promise.resolve();
-    })
-    .catch(err => console.log('fpNewNamsorDiasporaCall.axios error: ', err));
-
-    return Promise.resolve();
-}
-
-async function fpNewNamsorDiasporaWithCountryCall(oRecord, sVariantKey, sUrl) {
-    
 }
 
 async function fpWriteOutput(oRecord) {
