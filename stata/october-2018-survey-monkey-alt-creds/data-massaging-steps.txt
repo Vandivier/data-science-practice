@@ -1,0 +1,3 @@
+1 - remove extraneous second row
+2 - rename empty columns subsequent to "have you heard of" to "heard of udacity," etc
+3 - strongly disagree -> 1, strongly agree -> 10
