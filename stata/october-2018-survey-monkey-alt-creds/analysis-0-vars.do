@@ -140,16 +140,15 @@ reg voi_q1 q9
 reg voi_q1 _time
 
 // reg exploration, long
-// r2 .48
+// identical to voiq1long; look there for long reg for ez copy and paste
+// r2 .53, adjr2 .30
 reg voi_q1 _* aq* c* is*
-// r2 .42
+// long reg for ez copy and paste:
+// identical to voiindexlong; look there for long reg for ez copy and paste
+// r2 .43, adjr2 .19
 reg voi_index _* c* eq* is*
 
 // initial result: time has had an insignificant impact on attitudes
 // intial result: counterintuitively, conservatives seem more opposed to alternative credentials; maybe an attitudinal opposition
 //   theory: conservatives are more pro-free market, but this is outpaced by progressive's pro-innovation
 //   above theory can be somewhat tested using nationalism and innovation proxies
-
-// long long regression for ez copy and paste: 
-// reg index eq4 eq4s eq4c eq6 eq6s eq6c _collector* employer male unemployed _region1 _region2 _region3 _region4 _region5 _region6 _region7 _region8 _region9 _income1 _income2 _income3 _income4 _income5 _income6 _income7 _income8 _income9 _income10 _income11 _stem1 _stem2 _stem3 _industry1 _industry2 _industry3 _industry4 _industry5 _industry6 _industry7 _industry8 _industry9 _industry10 _industry11 _industry12 _age1 _age2 _age3 _age4 cage1 cage2 cage3 cincome1 cincome2 cincome3 cprovider1 cprovider2 cprovider3
-
