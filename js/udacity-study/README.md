@@ -1,4 +1,4 @@
-# earhart-fellows
+# udacity-study
 Scrapes labor data from udacity.com and other places.
 
 ## Use
